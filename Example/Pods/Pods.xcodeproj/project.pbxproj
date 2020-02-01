@@ -1,0 +1,793 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		42035F5ACD93980A3BFA931170F746E3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		4EAA4AD55B96AE06272D6A3A753CDF1C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		574A4CB9DDFEE08D4EC50DD347B22466 /* CotterIOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DA5E7110CA192ACE603965B1389B1450 /* CotterIOS-dummy.m */; };
+		58B315CB7C3DD5393CF48EA3D6D35E51 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		5EB3E9C0B7FAE3EF6D454055E455C39F /* Pods-CotterIOS_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E7A8321A666E6CCA738BAF8D3AF161A6 /* Pods-CotterIOS_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7C4B0BC8C0C53B5DF0A067DF5FF5F673 /* Pods-CotterIOS_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4691BA6B5AFE40AA76AD2CF9D06FE047 /* Pods-CotterIOS_Example-dummy.m */; };
+		85B3F36C23E597A400B2FD50 /* CotterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B3F36B23E597A400B2FD50 /* CotterViewController.swift */; };
+		85B3F36E23E5BAC000B2FD50 /* Cotter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85B3F36D23E5BAC000B2FD50 /* Cotter.storyboard */; };
+		85B3F37223E60F1400B2FD50 /* PINViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B3F37123E60F1400B2FD50 /* PINViewController.swift */; };
+		878E6EC1E95133481E63BEA545F9FA67 /* Pods-CotterIOS_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C3457BCD4C9F468723349EF548DC9867 /* Pods-CotterIOS_Tests-dummy.m */; };
+		9C336E70B432D8FF4A41CFF716608080 /* Pods-CotterIOS_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF8291F5BE9989ECC799AFC7316EFDE /* Pods-CotterIOS_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B45D26B6561D56B0C781DA410FB6240C /* CotterIOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F783AE63BA4A611375B26051F3ABB0BA /* CotterIOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0791DFDFAE008E928FE8231F2628547E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F35B11C499457ACD7011CA371CB7FE6C;
+			remoteInfo = CotterIOS;
+		};
+		70A8FBE425E07E98BB66C3487749B3F8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6F7853FE0141DC68336C4306610A0FD7;
+			remoteInfo = "Pods-CotterIOS_Example";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		186C962BB0FA0079ED68B7C9D6664B84 /* Pods_CotterIOS_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CotterIOS_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D1AF3C474E9238EE975CEAE45323547 /* Pods-CotterIOS_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CotterIOS_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		1EF8291F5BE9989ECC799AFC7316EFDE /* Pods-CotterIOS_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-CotterIOS_Example-umbrella.h"; sourceTree = "<group>"; };
+		2AADF62347A27FDB783F9CD9EF344424 /* Pods-CotterIOS_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CotterIOS_Example-Info.plist"; sourceTree = "<group>"; };
+		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		4691BA6B5AFE40AA76AD2CF9D06FE047 /* Pods-CotterIOS_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CotterIOS_Example-dummy.m"; sourceTree = "<group>"; };
+		5F24717E5E730180B63DB6CC708D2FDB /* CotterIOS.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CotterIOS.xcconfig; sourceTree = "<group>"; };
+		764F5C378AAB225A1497DE1262DF3A93 /* Pods-CotterIOS_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CotterIOS_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		85B3F36B23E597A400B2FD50 /* CotterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CotterViewController.swift; sourceTree = "<group>"; };
+		85B3F36D23E5BAC000B2FD50 /* Cotter.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Cotter.storyboard; sourceTree = "<group>"; };
+		85B3F37123E60F1400B2FD50 /* PINViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PINViewController.swift; sourceTree = "<group>"; };
+		888780F5C27C89C1910BFBB5EB0977C2 /* Pods-CotterIOS_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CotterIOS_Example.release.xcconfig"; sourceTree = "<group>"; };
+		8C421A2D09FC9A0A5A7EDC42607E0A29 /* Pods-CotterIOS_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-CotterIOS_Example.modulemap"; sourceTree = "<group>"; };
+		953408E3A2AC2DEA33747CEEBA891CEF /* CotterIOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CotterIOS-prefix.pch"; sourceTree = "<group>"; };
+		970587570258C21D384A602A56B06399 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A615DB5F1CAB6AE30E9945A54304E735 /* Pods-CotterIOS_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CotterIOS_Tests-Info.plist"; sourceTree = "<group>"; };
+		AB143A542B8AA687AF7192DBC51ECCCC /* Pods-CotterIOS_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CotterIOS_Example-frameworks.sh"; sourceTree = "<group>"; };
+		B233E60197BC0129F31445FA90361F8B /* CotterIOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = CotterIOS.modulemap; sourceTree = "<group>"; };
+		B6680F1A89E5EA239280C88DCA207FDA /* Pods-CotterIOS_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CotterIOS_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		B79BC37C27978DDBFBB691571F91A0D5 /* CotterIOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "CotterIOS-Info.plist"; sourceTree = "<group>"; };
+		C3457BCD4C9F468723349EF548DC9867 /* Pods-CotterIOS_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CotterIOS_Tests-dummy.m"; sourceTree = "<group>"; };
+		CA4C85C434B237A0E8B3B12105B79541 /* Pods-CotterIOS_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-CotterIOS_Tests.modulemap"; sourceTree = "<group>"; };
+		D432078770DA0D0AC41231B42A87AADA /* Pods-CotterIOS_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CotterIOS_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		DA5E7110CA192ACE603965B1389B1450 /* CotterIOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CotterIOS-dummy.m"; sourceTree = "<group>"; };
+		DDE8F4A43CD2FDE62395626E9CB762F3 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		DF385A003E341B9D7DB3D95786CD0EFB /* Pods-CotterIOS_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CotterIOS_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		E61205360A171FA590FDD5F00DE80816 /* Pods-CotterIOS_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CotterIOS_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		E7A8321A666E6CCA738BAF8D3AF161A6 /* Pods-CotterIOS_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-CotterIOS_Tests-umbrella.h"; sourceTree = "<group>"; };
+		E8928C5D5CA5A74B57D739AFF6F8D1E9 /* CotterIOS.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = CotterIOS.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		EF85547857B74F72A8C06F58CA6322B0 /* Pods-CotterIOS_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CotterIOS_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		F783AE63BA4A611375B26051F3ABB0BA /* CotterIOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CotterIOS-umbrella.h"; sourceTree = "<group>"; };
+		F96CD1BD0F1462CD17B26515AC55CEA8 /* Pods_CotterIOS_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CotterIOS_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC9882D52B6FF615B9B134D5BAE6BAC4 /* CotterIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CotterIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5EF6F0926B597C6ED31CF6FB45806ED7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58B315CB7C3DD5393CF48EA3D6D35E51 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		77A60EB0FB9330520E8B4963BA10530E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4EAA4AD55B96AE06272D6A3A753CDF1C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B663AA2500E7047951650EC53FE28936 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42035F5ACD93980A3BFA931170F746E3 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1618B975DBE7226F3BDB7A3952A6BA8E /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				B233E60197BC0129F31445FA90361F8B /* CotterIOS.modulemap */,
+				5F24717E5E730180B63DB6CC708D2FDB /* CotterIOS.xcconfig */,
+				DA5E7110CA192ACE603965B1389B1450 /* CotterIOS-dummy.m */,
+				B79BC37C27978DDBFBB691571F91A0D5 /* CotterIOS-Info.plist */,
+				953408E3A2AC2DEA33747CEEBA891CEF /* CotterIOS-prefix.pch */,
+				F783AE63BA4A611375B26051F3ABB0BA /* CotterIOS-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/CotterIOS";
+			sourceTree = "<group>";
+		};
+		34DB338005E36AD2801FA37E8BE8CFF3 /* CotterIOS */ = {
+			isa = PBXGroup;
+			children = (
+				85B3F36A23E5978600B2FD50 /* Source */,
+				AD058F3EDCDB84740BE47B50BEC1D3D3 /* Pod */,
+				1618B975DBE7226F3BDB7A3952A6BA8E /* Support Files */,
+			);
+			name = CotterIOS;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		7225BA699516813152561772EBA139CD /* Pods-CotterIOS_Example */ = {
+			isa = PBXGroup;
+			children = (
+				8C421A2D09FC9A0A5A7EDC42607E0A29 /* Pods-CotterIOS_Example.modulemap */,
+				EF85547857B74F72A8C06F58CA6322B0 /* Pods-CotterIOS_Example-acknowledgements.markdown */,
+				E61205360A171FA590FDD5F00DE80816 /* Pods-CotterIOS_Example-acknowledgements.plist */,
+				4691BA6B5AFE40AA76AD2CF9D06FE047 /* Pods-CotterIOS_Example-dummy.m */,
+				AB143A542B8AA687AF7192DBC51ECCCC /* Pods-CotterIOS_Example-frameworks.sh */,
+				2AADF62347A27FDB783F9CD9EF344424 /* Pods-CotterIOS_Example-Info.plist */,
+				1EF8291F5BE9989ECC799AFC7316EFDE /* Pods-CotterIOS_Example-umbrella.h */,
+				DF385A003E341B9D7DB3D95786CD0EFB /* Pods-CotterIOS_Example.debug.xcconfig */,
+				888780F5C27C89C1910BFBB5EB0977C2 /* Pods-CotterIOS_Example.release.xcconfig */,
+			);
+			name = "Pods-CotterIOS_Example";
+			path = "Target Support Files/Pods-CotterIOS_Example";
+			sourceTree = "<group>";
+		};
+		85B3F36A23E5978600B2FD50 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				85B3F36B23E597A400B2FD50 /* CotterViewController.swift */,
+				85B3F36D23E5BAC000B2FD50 /* Cotter.storyboard */,
+				85B3F37123E60F1400B2FD50 /* PINViewController.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		A167738849255009411B5B00D7019540 /* Pods-CotterIOS_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				CA4C85C434B237A0E8B3B12105B79541 /* Pods-CotterIOS_Tests.modulemap */,
+				D432078770DA0D0AC41231B42A87AADA /* Pods-CotterIOS_Tests-acknowledgements.markdown */,
+				B6680F1A89E5EA239280C88DCA207FDA /* Pods-CotterIOS_Tests-acknowledgements.plist */,
+				C3457BCD4C9F468723349EF548DC9867 /* Pods-CotterIOS_Tests-dummy.m */,
+				A615DB5F1CAB6AE30E9945A54304E735 /* Pods-CotterIOS_Tests-Info.plist */,
+				E7A8321A666E6CCA738BAF8D3AF161A6 /* Pods-CotterIOS_Tests-umbrella.h */,
+				764F5C378AAB225A1497DE1262DF3A93 /* Pods-CotterIOS_Tests.debug.xcconfig */,
+				1D1AF3C474E9238EE975CEAE45323547 /* Pods-CotterIOS_Tests.release.xcconfig */,
+			);
+			name = "Pods-CotterIOS_Tests";
+			path = "Target Support Files/Pods-CotterIOS_Tests";
+			sourceTree = "<group>";
+		};
+		A1B037B84D0362287D081F1B437620E8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FC9882D52B6FF615B9B134D5BAE6BAC4 /* CotterIOS.framework */,
+				186C962BB0FA0079ED68B7C9D6664B84 /* Pods_CotterIOS_Example.framework */,
+				F96CD1BD0F1462CD17B26515AC55CEA8 /* Pods_CotterIOS_Tests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AD058F3EDCDB84740BE47B50BEC1D3D3 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				E8928C5D5CA5A74B57D739AFF6F8D1E9 /* CotterIOS.podspec */,
+				970587570258C21D384A602A56B06399 /* LICENSE */,
+				DDE8F4A43CD2FDE62395626E9CB762F3 /* README.md */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		C0834CEBB1379A84116EF29F93051C60 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		C63CC26A06CA5390E20DB3C8A6FAD205 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				7225BA699516813152561772EBA139CD /* Pods-CotterIOS_Example */,
+				A167738849255009411B5B00D7019540 /* Pods-CotterIOS_Tests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				E0404898C76C9E96832240A3EC5CBCF0 /* Development Pods */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				A1B037B84D0362287D081F1B437620E8 /* Products */,
+				C63CC26A06CA5390E20DB3C8A6FAD205 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C0834CEBB1379A84116EF29F93051C60 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E0404898C76C9E96832240A3EC5CBCF0 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				34DB338005E36AD2801FA37E8BE8CFF3 /* CotterIOS */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		5B4589E4AAEAAE986DE82E0D5ED51AE5 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B45D26B6561D56B0C781DA410FB6240C /* CotterIOS-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69125DC5CC37222BA3357E43A497EDAB /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C336E70B432D8FF4A41CFF716608080 /* Pods-CotterIOS_Example-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EED80FF6241A5687F75E99AAA61C373D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5EB3E9C0B7FAE3EF6D454055E455C39F /* Pods-CotterIOS_Tests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		61C2DA80FD4DCC72848FDFA01B2CF7EE /* Pods-CotterIOS_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 251D450AA5B4141B41B5A5D277CA33C3 /* Build configuration list for PBXNativeTarget "Pods-CotterIOS_Tests" */;
+			buildPhases = (
+				EED80FF6241A5687F75E99AAA61C373D /* Headers */,
+				CFA95DCB4DDC6C6F4DE88E3B136B2329 /* Sources */,
+				5EF6F0926B597C6ED31CF6FB45806ED7 /* Frameworks */,
+				AAE593A5D10DB8BD27BBD10C9785D276 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				42F3587ACDB806C2FE22B143F9EF22A4 /* PBXTargetDependency */,
+			);
+			name = "Pods-CotterIOS_Tests";
+			productName = "Pods-CotterIOS_Tests";
+			productReference = F96CD1BD0F1462CD17B26515AC55CEA8 /* Pods_CotterIOS_Tests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		6F7853FE0141DC68336C4306610A0FD7 /* Pods-CotterIOS_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 28C09BEC022DE39D5C0FF58151294D45 /* Build configuration list for PBXNativeTarget "Pods-CotterIOS_Example" */;
+			buildPhases = (
+				69125DC5CC37222BA3357E43A497EDAB /* Headers */,
+				3896E652681373779D864F74452720CE /* Sources */,
+				77A60EB0FB9330520E8B4963BA10530E /* Frameworks */,
+				020D200A288BD2D1F62B87128B5AC97B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B5DF817693EF1268D8391B5099B47E7C /* PBXTargetDependency */,
+			);
+			name = "Pods-CotterIOS_Example";
+			productName = "Pods-CotterIOS_Example";
+			productReference = 186C962BB0FA0079ED68B7C9D6664B84 /* Pods_CotterIOS_Example.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		F35B11C499457ACD7011CA371CB7FE6C /* CotterIOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7BA0F6492EA6C6B6FAB35F4248721A36 /* Build configuration list for PBXNativeTarget "CotterIOS" */;
+			buildPhases = (
+				5B4589E4AAEAAE986DE82E0D5ED51AE5 /* Headers */,
+				1D896C298CD5F174662F6F23E998F3CC /* Sources */,
+				B663AA2500E7047951650EC53FE28936 /* Frameworks */,
+				AA568AC3F71B67E33C1D6278FDF4A29C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CotterIOS;
+			productName = CotterIOS;
+			productReference = FC9882D52B6FF615B9B134D5BAE6BAC4 /* CotterIOS.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
+				TargetAttributes = {
+					F35B11C499457ACD7011CA371CB7FE6C = {
+						LastSwiftMigration = 1130;
+					};
+				};
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = A1B037B84D0362287D081F1B437620E8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F35B11C499457ACD7011CA371CB7FE6C /* CotterIOS */,
+				6F7853FE0141DC68336C4306610A0FD7 /* Pods-CotterIOS_Example */,
+				61C2DA80FD4DCC72848FDFA01B2CF7EE /* Pods-CotterIOS_Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		020D200A288BD2D1F62B87128B5AC97B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA568AC3F71B67E33C1D6278FDF4A29C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85B3F36E23E5BAC000B2FD50 /* Cotter.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AAE593A5D10DB8BD27BBD10C9785D276 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1D896C298CD5F174662F6F23E998F3CC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85B3F37223E60F1400B2FD50 /* PINViewController.swift in Sources */,
+				574A4CB9DDFEE08D4EC50DD347B22466 /* CotterIOS-dummy.m in Sources */,
+				85B3F36C23E597A400B2FD50 /* CotterViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3896E652681373779D864F74452720CE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7C4B0BC8C0C53B5DF0A067DF5FF5F673 /* Pods-CotterIOS_Example-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CFA95DCB4DDC6C6F4DE88E3B136B2329 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				878E6EC1E95133481E63BEA545F9FA67 /* Pods-CotterIOS_Tests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		42F3587ACDB806C2FE22B143F9EF22A4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-CotterIOS_Example";
+			target = 6F7853FE0141DC68336C4306610A0FD7 /* Pods-CotterIOS_Example */;
+			targetProxy = 70A8FBE425E07E98BB66C3487749B3F8 /* PBXContainerItemProxy */;
+		};
+		B5DF817693EF1268D8391B5099B47E7C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CotterIOS;
+			target = F35B11C499457ACD7011CA371CB7FE6C /* CotterIOS */;
+			targetProxy = 0791DFDFAE008E928FE8231F2628547E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0675F4E562E26571F0A7CA097CD7BB8A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 764F5C378AAB225A1497DE1262DF3A93 /* Pods-CotterIOS_Tests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-CotterIOS_Tests/Pods-CotterIOS_Tests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-CotterIOS_Tests/Pods-CotterIOS_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		0EF09702EB01B047EA97901557D2ACB2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F24717E5E730180B63DB6CC708D2FDB /* CotterIOS.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/CotterIOS/CotterIOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/CotterIOS/CotterIOS-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/CotterIOS/CotterIOS.modulemap";
+				PRODUCT_MODULE_NAME = CotterIOS;
+				PRODUCT_NAME = CotterIOS;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		5FB44FD1620A64BB5E44B06B08447196 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D1AF3C474E9238EE975CEAE45323547 /* Pods-CotterIOS_Tests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-CotterIOS_Tests/Pods-CotterIOS_Tests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-CotterIOS_Tests/Pods-CotterIOS_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		98F2560EAF4014C2FD7FDE717E66BABE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 888780F5C27C89C1910BFBB5EB0977C2 /* Pods-CotterIOS_Example.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-CotterIOS_Example/Pods-CotterIOS_Example-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-CotterIOS_Example/Pods-CotterIOS_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		B0087CB4594321EF41619F3181FE120E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		B8BCBD0110C2658BB5DAADB9B7D97B92 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		F7C356D26609C6EC37500D4E5CF92225 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DF385A003E341B9D7DB3D95786CD0EFB /* Pods-CotterIOS_Example.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-CotterIOS_Example/Pods-CotterIOS_Example-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-CotterIOS_Example/Pods-CotterIOS_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		FD02EB42D77B76B479931598FB930635 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F24717E5E730180B63DB6CC708D2FDB /* CotterIOS.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/CotterIOS/CotterIOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/CotterIOS/CotterIOS-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/CotterIOS/CotterIOS.modulemap";
+				PRODUCT_MODULE_NAME = CotterIOS;
+				PRODUCT_NAME = CotterIOS;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		251D450AA5B4141B41B5A5D277CA33C3 /* Build configuration list for PBXNativeTarget "Pods-CotterIOS_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0675F4E562E26571F0A7CA097CD7BB8A /* Debug */,
+				5FB44FD1620A64BB5E44B06B08447196 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		28C09BEC022DE39D5C0FF58151294D45 /* Build configuration list for PBXNativeTarget "Pods-CotterIOS_Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F7C356D26609C6EC37500D4E5CF92225 /* Debug */,
+				98F2560EAF4014C2FD7FDE717E66BABE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B8BCBD0110C2658BB5DAADB9B7D97B92 /* Debug */,
+				B0087CB4594321EF41619F3181FE120E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7BA0F6492EA6C6B6FAB35F4248721A36 /* Build configuration list for PBXNativeTarget "CotterIOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD02EB42D77B76B479931598FB930635 /* Debug */,
+				0EF09702EB01B047EA97901557D2ACB2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}
