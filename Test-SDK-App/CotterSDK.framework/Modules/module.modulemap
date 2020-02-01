@@ -1,0 +1,11 @@
+framework module CotterSDK {
+  umbrella header "CotterSDK.h"
+
+  export *
+  module * { export * }
+}
+
+module CotterSDK.Swift {
+    header "CotterSDK-Swift.h"
+    requires objc
+}
