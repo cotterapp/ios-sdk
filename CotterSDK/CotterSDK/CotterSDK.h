@@ -2,7 +2,7 @@
 //  CotterSDK.h
 //  CotterSDK
 //
-//  Created by Raymond Andrie on 1/31/20.
+//  Created by Raymond Andrie on 2/1/20.
 //  Copyright © 2020 Cotter. All rights reserved.
 //
 

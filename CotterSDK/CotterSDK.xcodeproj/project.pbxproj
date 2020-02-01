@@ -7,84 +7,84 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6C335ED323E53D9E00BF444E /* CotterSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C335EC923E53D9E00BF444E /* CotterSDK.framework */; };
-		6C335ED823E53D9E00BF444E /* CotterSDKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C335ED723E53D9E00BF444E /* CotterSDKTests.swift */; };
-		6C335EDA23E53D9E00BF444E /* CotterSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C335ECC23E53D9E00BF444E /* CotterSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C335EE423E53DA700BF444E /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C335EE323E53DA700BF444E /* Test.swift */; };
+		6C335F2423E57D5200BF444E /* CotterSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C335F1A23E57D5200BF444E /* CotterSDK.framework */; };
+		6C335F2923E57D5200BF444E /* CotterSDKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C335F2823E57D5200BF444E /* CotterSDKTests.swift */; };
+		6C335F2B23E57D5200BF444E /* CotterSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C335F1D23E57D5200BF444E /* CotterSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6C335F3523E57D6200BF444E /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C335F3423E57D6200BF444E /* Service.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		6C335ED423E53D9E00BF444E /* PBXContainerItemProxy */ = {
+		6C335F2523E57D5200BF444E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 6C335EC023E53D9E00BF444E /* Project object */;
+			containerPortal = 6C335F1123E57D5200BF444E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 6C335EC823E53D9E00BF444E;
+			remoteGlobalIDString = 6C335F1923E57D5200BF444E;
 			remoteInfo = CotterSDK;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		6C335EC923E53D9E00BF444E /* CotterSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CotterSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6C335ECC23E53D9E00BF444E /* CotterSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CotterSDK.h; sourceTree = "<group>"; };
-		6C335ECD23E53D9E00BF444E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6C335ED223E53D9E00BF444E /* CotterSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CotterSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6C335ED723E53D9E00BF444E /* CotterSDKTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CotterSDKTests.swift; sourceTree = "<group>"; };
-		6C335ED923E53D9E00BF444E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6C335EE323E53DA700BF444E /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		6C335F1A23E57D5200BF444E /* CotterSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CotterSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C335F1D23E57D5200BF444E /* CotterSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CotterSDK.h; sourceTree = "<group>"; };
+		6C335F1E23E57D5200BF444E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6C335F2323E57D5200BF444E /* CotterSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CotterSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C335F2823E57D5200BF444E /* CotterSDKTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CotterSDKTests.swift; sourceTree = "<group>"; };
+		6C335F2A23E57D5200BF444E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6C335F3423E57D6200BF444E /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		6C335EC623E53D9E00BF444E /* Frameworks */ = {
+		6C335F1723E57D5200BF444E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6C335ECF23E53D9E00BF444E /* Frameworks */ = {
+		6C335F2023E57D5200BF444E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C335ED323E53D9E00BF444E /* CotterSDK.framework in Frameworks */,
+				6C335F2423E57D5200BF444E /* CotterSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6C335EBF23E53D9E00BF444E = {
+		6C335F1023E57D5200BF444E = {
 			isa = PBXGroup;
 			children = (
-				6C335ECB23E53D9E00BF444E /* CotterSDK */,
-				6C335ED623E53D9E00BF444E /* CotterSDKTests */,
-				6C335ECA23E53D9E00BF444E /* Products */,
+				6C335F1C23E57D5200BF444E /* CotterSDK */,
+				6C335F2723E57D5200BF444E /* CotterSDKTests */,
+				6C335F1B23E57D5200BF444E /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		6C335ECA23E53D9E00BF444E /* Products */ = {
+		6C335F1B23E57D5200BF444E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6C335EC923E53D9E00BF444E /* CotterSDK.framework */,
-				6C335ED223E53D9E00BF444E /* CotterSDKTests.xctest */,
+				6C335F1A23E57D5200BF444E /* CotterSDK.framework */,
+				6C335F2323E57D5200BF444E /* CotterSDKTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		6C335ECB23E53D9E00BF444E /* CotterSDK */ = {
+		6C335F1C23E57D5200BF444E /* CotterSDK */ = {
 			isa = PBXGroup;
 			children = (
-				6C335ECC23E53D9E00BF444E /* CotterSDK.h */,
-				6C335ECD23E53D9E00BF444E /* Info.plist */,
-				6C335EE323E53DA700BF444E /* Test.swift */,
+				6C335F1D23E57D5200BF444E /* CotterSDK.h */,
+				6C335F1E23E57D5200BF444E /* Info.plist */,
+				6C335F3423E57D6200BF444E /* Service.swift */,
 			);
 			path = CotterSDK;
 			sourceTree = "<group>";
 		};
-		6C335ED623E53D9E00BF444E /* CotterSDKTests */ = {
+		6C335F2723E57D5200BF444E /* CotterSDKTests */ = {
 			isa = PBXGroup;
 			children = (
-				6C335ED723E53D9E00BF444E /* CotterSDKTests.swift */,
-				6C335ED923E53D9E00BF444E /* Info.plist */,
+				6C335F2823E57D5200BF444E /* CotterSDKTests.swift */,
+				6C335F2A23E57D5200BF444E /* Info.plist */,
 			);
 			path = CotterSDKTests;
 			sourceTree = "<group>";
@@ -92,25 +92,25 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		6C335EC423E53D9E00BF444E /* Headers */ = {
+		6C335F1523E57D5200BF444E /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C335EDA23E53D9E00BF444E /* CotterSDK.h in Headers */,
+				6C335F2B23E57D5200BF444E /* CotterSDK.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		6C335EC823E53D9E00BF444E /* CotterSDK */ = {
+		6C335F1923E57D5200BF444E /* CotterSDK */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6C335EDD23E53D9E00BF444E /* Build configuration list for PBXNativeTarget "CotterSDK" */;
+			buildConfigurationList = 6C335F2E23E57D5200BF444E /* Build configuration list for PBXNativeTarget "CotterSDK" */;
 			buildPhases = (
-				6C335EC423E53D9E00BF444E /* Headers */,
-				6C335EC523E53D9E00BF444E /* Sources */,
-				6C335EC623E53D9E00BF444E /* Frameworks */,
-				6C335EC723E53D9E00BF444E /* Resources */,
+				6C335F1523E57D5200BF444E /* Headers */,
+				6C335F1623E57D5200BF444E /* Sources */,
+				6C335F1723E57D5200BF444E /* Frameworks */,
+				6C335F1823E57D5200BF444E /* Resources */,
 			);
 			buildRules = (
 			);
@@ -118,47 +118,47 @@
 			);
 			name = CotterSDK;
 			productName = CotterSDK;
-			productReference = 6C335EC923E53D9E00BF444E /* CotterSDK.framework */;
+			productReference = 6C335F1A23E57D5200BF444E /* CotterSDK.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		6C335ED123E53D9E00BF444E /* CotterSDKTests */ = {
+		6C335F2223E57D5200BF444E /* CotterSDKTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6C335EE023E53D9E00BF444E /* Build configuration list for PBXNativeTarget "CotterSDKTests" */;
+			buildConfigurationList = 6C335F3123E57D5200BF444E /* Build configuration list for PBXNativeTarget "CotterSDKTests" */;
 			buildPhases = (
-				6C335ECE23E53D9E00BF444E /* Sources */,
-				6C335ECF23E53D9E00BF444E /* Frameworks */,
-				6C335ED023E53D9E00BF444E /* Resources */,
+				6C335F1F23E57D5200BF444E /* Sources */,
+				6C335F2023E57D5200BF444E /* Frameworks */,
+				6C335F2123E57D5200BF444E /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				6C335ED523E53D9E00BF444E /* PBXTargetDependency */,
+				6C335F2623E57D5200BF444E /* PBXTargetDependency */,
 			);
 			name = CotterSDKTests;
 			productName = CotterSDKTests;
-			productReference = 6C335ED223E53D9E00BF444E /* CotterSDKTests.xctest */;
+			productReference = 6C335F2323E57D5200BF444E /* CotterSDKTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		6C335EC023E53D9E00BF444E /* Project object */ = {
+		6C335F1123E57D5200BF444E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1130;
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = Cotter;
 				TargetAttributes = {
-					6C335EC823E53D9E00BF444E = {
+					6C335F1923E57D5200BF444E = {
 						CreatedOnToolsVersion = 11.3.1;
 						LastSwiftMigration = 1130;
 					};
-					6C335ED123E53D9E00BF444E = {
+					6C335F2223E57D5200BF444E = {
 						CreatedOnToolsVersion = 11.3.1;
 					};
 				};
 			};
-			buildConfigurationList = 6C335EC323E53D9E00BF444E /* Build configuration list for PBXProject "CotterSDK" */;
+			buildConfigurationList = 6C335F1423E57D5200BF444E /* Build configuration list for PBXProject "CotterSDK" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -166,26 +166,26 @@
 				en,
 				Base,
 			);
-			mainGroup = 6C335EBF23E53D9E00BF444E;
-			productRefGroup = 6C335ECA23E53D9E00BF444E /* Products */;
+			mainGroup = 6C335F1023E57D5200BF444E;
+			productRefGroup = 6C335F1B23E57D5200BF444E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6C335EC823E53D9E00BF444E /* CotterSDK */,
-				6C335ED123E53D9E00BF444E /* CotterSDKTests */,
+				6C335F1923E57D5200BF444E /* CotterSDK */,
+				6C335F2223E57D5200BF444E /* CotterSDKTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		6C335EC723E53D9E00BF444E /* Resources */ = {
+		6C335F1823E57D5200BF444E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6C335ED023E53D9E00BF444E /* Resources */ = {
+		6C335F2123E57D5200BF444E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -195,34 +195,34 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		6C335EC523E53D9E00BF444E /* Sources */ = {
+		6C335F1623E57D5200BF444E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C335EE423E53DA700BF444E /* Test.swift in Sources */,
+				6C335F3523E57D6200BF444E /* Service.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6C335ECE23E53D9E00BF444E /* Sources */ = {
+		6C335F1F23E57D5200BF444E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C335ED823E53D9E00BF444E /* CotterSDKTests.swift in Sources */,
+				6C335F2923E57D5200BF444E /* CotterSDKTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		6C335ED523E53D9E00BF444E /* PBXTargetDependency */ = {
+		6C335F2623E57D5200BF444E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6C335EC823E53D9E00BF444E /* CotterSDK */;
-			targetProxy = 6C335ED423E53D9E00BF444E /* PBXContainerItemProxy */;
+			target = 6C335F1923E57D5200BF444E /* CotterSDK */;
+			targetProxy = 6C335F2523E57D5200BF444E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		6C335EDB23E53D9E00BF444E /* Debug */ = {
+		6C335F2C23E57D5200BF444E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -285,7 +285,7 @@
 			};
 			name = Debug;
 		};
-		6C335EDC23E53D9E00BF444E /* Release */ = {
+		6C335F2D23E57D5200BF444E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -342,7 +342,7 @@
 			};
 			name = Release;
 		};
-		6C335EDE23E53D9E00BF444E /* Debug */ = {
+		6C335F2F23E57D5200BF444E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
@@ -367,7 +367,7 @@
 			};
 			name = Debug;
 		};
-		6C335EDF23E53D9E00BF444E /* Release */ = {
+		6C335F3023E57D5200BF444E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
@@ -391,7 +391,7 @@
 			};
 			name = Release;
 		};
-		6C335EE123E53D9E00BF444E /* Debug */ = {
+		6C335F3223E57D5200BF444E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -409,7 +409,7 @@
 			};
 			name = Debug;
 		};
-		6C335EE223E53D9E00BF444E /* Release */ = {
+		6C335F3323E57D5200BF444E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -430,34 +430,34 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6C335EC323E53D9E00BF444E /* Build configuration list for PBXProject "CotterSDK" */ = {
+		6C335F1423E57D5200BF444E /* Build configuration list for PBXProject "CotterSDK" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6C335EDB23E53D9E00BF444E /* Debug */,
-				6C335EDC23E53D9E00BF444E /* Release */,
+				6C335F2C23E57D5200BF444E /* Debug */,
+				6C335F2D23E57D5200BF444E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6C335EDD23E53D9E00BF444E /* Build configuration list for PBXNativeTarget "CotterSDK" */ = {
+		6C335F2E23E57D5200BF444E /* Build configuration list for PBXNativeTarget "CotterSDK" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6C335EDE23E53D9E00BF444E /* Debug */,
-				6C335EDF23E53D9E00BF444E /* Release */,
+				6C335F2F23E57D5200BF444E /* Debug */,
+				6C335F3023E57D5200BF444E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6C335EE023E53D9E00BF444E /* Build configuration list for PBXNativeTarget "CotterSDKTests" */ = {
+		6C335F3123E57D5200BF444E /* Build configuration list for PBXNativeTarget "CotterSDKTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6C335EE123E53D9E00BF444E /* Debug */,
-				6C335EE223E53D9E00BF444E /* Release */,
+				6C335F3223E57D5200BF444E /* Debug */,
+				6C335F3323E57D5200BF444E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 6C335EC023E53D9E00BF444E /* Project object */;
+	rootObject = 6C335F1123E57D5200BF444E /* Project object */;
 }
