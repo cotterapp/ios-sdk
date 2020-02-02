@@ -35,7 +35,7 @@
             </objects>
             <point key="canvasLocation" x="139" y="138"/>
         </scene>
-        <!--View Controller-->
+        <!--Aktivasi PIN-->
         <scene sceneID="4lm-bl-fiZ">
             <objects>
                 <viewController storyboardIdentifier="PINViewController" id="LMD-8x-Qra" customClass="PINViewController" customModule="CotterIOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -43,24 +43,60 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Starting PIN Enrollment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vdj-Kz-jbn">
-                                <rect key="frame" x="118" y="437.5" width="178.5" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LS9-Ka-A8X" customClass="OneTimeCodeTextField" customModule="CotterIOS" customModuleProvider="target">
+                                <rect key="frame" x="61" y="304" width="292" height="54"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="9YV-f6-c8z"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Buat PIN untuk keamanan akunmu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1PK-2f-0wS">
+                                <rect key="frame" x="44" y="236" width="326" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0PC-5d-syA">
+                                <rect key="frame" x="170.5" y="431" width="73" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Lihat PIN">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="onClickPinVis:" destination="LMD-8x-Qra" eventType="touchUpInside" id="8y5-Af-Dl1"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PIN terlalu mudah. Yuk buat PIN baru dengan kombinasi lebih sulit" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ar-Es-Gas">
+                                <rect key="frame" x="20" y="434" width="374" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="Vdj-Kz-jbn" firstAttribute="centerX" secondItem="hW0-cu-n3w" secondAttribute="centerX" id="938-vN-XqV"/>
-                            <constraint firstItem="Vdj-Kz-jbn" firstAttribute="centerY" secondItem="hW0-cu-n3w" secondAttribute="centerY" id="W2p-2a-fJr"/>
+                            <constraint firstItem="1PK-2f-0wS" firstAttribute="centerX" secondItem="hW0-cu-n3w" secondAttribute="centerX" id="CRa-GC-66F"/>
+                            <constraint firstItem="LS9-Ka-A8X" firstAttribute="top" secondItem="1PK-2f-0wS" secondAttribute="bottom" constant="41.5" id="IJd-d7-tKs"/>
+                            <constraint firstItem="0PC-5d-syA" firstAttribute="top" secondItem="LS9-Ka-A8X" secondAttribute="bottom" constant="73" id="djH-6s-6uw"/>
+                            <constraint firstItem="LS9-Ka-A8X" firstAttribute="centerX" secondItem="1PK-2f-0wS" secondAttribute="centerX" id="fEF-Ea-Uvw"/>
+                            <constraint firstItem="1PK-2f-0wS" firstAttribute="centerX" secondItem="0PC-5d-syA" secondAttribute="centerX" id="jEn-bt-pQt"/>
+                            <constraint firstItem="1PK-2f-0wS" firstAttribute="top" secondItem="hW0-cu-n3w" secondAttribute="top" constant="236" id="wYk-b5-kDm"/>
+                            <constraint firstItem="LS9-Ka-A8X" firstAttribute="leading" secondItem="S8w-Bm-DxA" secondAttribute="leading" constant="61" id="xot-mw-aon"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="S8w-Bm-DxA"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Aktivasi PIN" id="lKt-Yj-7om"/>
+                    <connections>
+                        <outlet property="codeTextField" destination="LS9-Ka-A8X" id="niP-1t-0Rq"/>
+                        <outlet property="errorLabel" destination="6ar-Es-Gas" id="fHK-ey-nl6"/>
+                        <outlet property="pinVisibilityButton" destination="0PC-5d-syA" id="t0D-ay-9nW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="grD-Dy-e9d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="154" y="783"/>
+            <point key="canvasLocation" x="153.62318840579712" y="782.8125"/>
         </scene>
     </scenes>
 </document>
