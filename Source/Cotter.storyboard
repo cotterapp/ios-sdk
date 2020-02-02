@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GXz-RO-twn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kCl-QE-3LL">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment version="4864" identifier="iOS"/>
@@ -8,33 +8,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Cotter View Controller-->
-        <scene sceneID="CHY-7p-nGq">
-            <objects>
-                <viewController storyboardIdentifier="CotterViewController" id="GXz-RO-twn" customClass="CotterViewController" customModule="CotterIOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="avw-b7-Tqh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello World From Cotter!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CyC-hM-LiZ">
-                                <rect key="frame" x="112" y="437.5" width="190" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="CyC-hM-LiZ" firstAttribute="centerX" secondItem="avw-b7-Tqh" secondAttribute="centerX" id="8Vd-Ja-QYa"/>
-                            <constraint firstItem="CyC-hM-LiZ" firstAttribute="centerY" secondItem="avw-b7-Tqh" secondAttribute="centerY" id="MaZ-fg-Wkz"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="SXH-zF-K7e"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yys-Xq-jQK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="139" y="138"/>
-        </scene>
         <!--Aktivasi PIN-->
         <scene sceneID="4lm-bl-fiZ">
             <objects>
@@ -44,21 +17,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LS9-Ka-A8X" customClass="OneTimeCodeTextField" customModule="CotterIOS" customModuleProvider="target">
-                                <rect key="frame" x="61" y="304" width="292" height="54"/>
+                                <rect key="frame" x="69.5" y="221" width="275" height="54"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="54" id="9YV-f6-c8z"/>
+                                    <constraint firstAttribute="width" constant="275" id="W72-Nw-7nO"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Buat PIN untuk keamanan akunmu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1PK-2f-0wS">
-                                <rect key="frame" x="44" y="236" width="326" height="26.5"/>
+                                <rect key="frame" x="44" y="174.5" width="326" height="26.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0PC-5d-syA">
-                                <rect key="frame" x="170.5" y="431" width="73" height="34"/>
+                                <rect key="frame" x="170.5" y="295" width="73" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Lihat PIN">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -67,9 +41,12 @@
                                     <action selector="onClickPinVis:" destination="LMD-8x-Qra" eventType="touchUpInside" id="8y5-Af-Dl1"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PIN terlalu mudah. Yuk buat PIN baru dengan kombinasi lebih sulit" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ar-Es-Gas">
-                                <rect key="frame" x="20" y="434" width="374" height="49"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PIN terlalu mudah. Yuk buat PIN baru dengan kombinasi lebih sulit" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ar-Es-Gas">
+                                <rect key="frame" x="44.5" y="359" width="325" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="MGo-7F-Ji3"/>
+                                    <constraint firstAttribute="width" constant="325" id="ny7-aJ-UWY"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -77,13 +54,14 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="1PK-2f-0wS" firstAttribute="centerX" secondItem="hW0-cu-n3w" secondAttribute="centerX" id="CRa-GC-66F"/>
-                            <constraint firstItem="LS9-Ka-A8X" firstAttribute="top" secondItem="1PK-2f-0wS" secondAttribute="bottom" constant="41.5" id="IJd-d7-tKs"/>
-                            <constraint firstItem="0PC-5d-syA" firstAttribute="top" secondItem="LS9-Ka-A8X" secondAttribute="bottom" constant="73" id="djH-6s-6uw"/>
-                            <constraint firstItem="LS9-Ka-A8X" firstAttribute="centerX" secondItem="1PK-2f-0wS" secondAttribute="centerX" id="fEF-Ea-Uvw"/>
-                            <constraint firstItem="1PK-2f-0wS" firstAttribute="centerX" secondItem="0PC-5d-syA" secondAttribute="centerX" id="jEn-bt-pQt"/>
-                            <constraint firstItem="1PK-2f-0wS" firstAttribute="top" secondItem="hW0-cu-n3w" secondAttribute="top" constant="236" id="wYk-b5-kDm"/>
-                            <constraint firstItem="LS9-Ka-A8X" firstAttribute="leading" secondItem="S8w-Bm-DxA" secondAttribute="leading" constant="61" id="xot-mw-aon"/>
+                            <constraint firstItem="LS9-Ka-A8X" firstAttribute="top" secondItem="1PK-2f-0wS" secondAttribute="bottom" constant="20" id="4RH-6X-fba"/>
+                            <constraint firstItem="6ar-Es-Gas" firstAttribute="centerX" secondItem="hW0-cu-n3w" secondAttribute="centerX" id="4XV-fq-zb8"/>
+                            <constraint firstItem="LS9-Ka-A8X" firstAttribute="centerX" secondItem="hW0-cu-n3w" secondAttribute="centerX" id="5X2-ee-MZd"/>
+                            <constraint firstItem="0PC-5d-syA" firstAttribute="centerX" secondItem="hW0-cu-n3w" secondAttribute="centerX" id="DOx-mk-sX3"/>
+                            <constraint firstItem="LS9-Ka-A8X" firstAttribute="centerY" secondItem="hW0-cu-n3w" secondAttribute="centerY" constant="-200" id="Z7f-2Y-sb3"/>
+                            <constraint firstItem="1PK-2f-0wS" firstAttribute="centerX" secondItem="hW0-cu-n3w" secondAttribute="centerX" id="pdx-um-6ic"/>
+                            <constraint firstItem="6ar-Es-Gas" firstAttribute="top" secondItem="0PC-5d-syA" secondAttribute="bottom" constant="30" id="rwY-W1-lSb"/>
+                            <constraint firstItem="0PC-5d-syA" firstAttribute="top" secondItem="LS9-Ka-A8X" secondAttribute="bottom" constant="20" id="zhd-eS-rSZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="S8w-Bm-DxA"/>
                     </view>
@@ -96,7 +74,138 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="grD-Dy-e9d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="153.62318840579712" y="782.8125"/>
+            <point key="canvasLocation" x="294" y="292"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="zJx-Uh-2dA">
+            <objects>
+                <navigationController id="kCl-QE-3LL" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5Yh-GC-yE1">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="LMD-8x-Qra" kind="relationship" relationship="rootViewController" id="mOr-g8-YSw"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="47I-et-vnp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-526" y="292"/>
+        </scene>
+        <!--Konfirmasi PIN-->
+        <scene sceneID="4qe-vV-OvK">
+            <objects>
+                <viewController storyboardIdentifier="PINConfirmViewController" id="N7j-7F-GIv" customClass="PINConfirmViewController" customModule="CotterIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="r8d-Au-sDb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cLf-RU-y5M" customClass="OneTimeCodeTextField" customModule="CotterIOS" customModuleProvider="target">
+                                <rect key="frame" x="69.5" y="221" width="275" height="54"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="3L3-IG-5ko"/>
+                                    <constraint firstAttribute="width" constant="275" id="aJE-11-YJ4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Masukkan PIN sekali lagi untuk konfirmasi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dj7-fR-Vc3">
+                                <rect key="frame" x="30" y="178" width="354.5" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RoK-2U-CM6">
+                                <rect key="frame" x="170.5" y="295" width="73" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Lihat PIN">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="onClickPinVis:" destination="N7j-7F-GIv" eventType="touchUpInside" id="9Ru-Ch-Gn1"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kamu perlu memasukkan PIN yang sama seperti sebelumnya" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="apd-eL-wSJ">
+                                <rect key="frame" x="44.5" y="359" width="325" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="PWU-E4-41Q"/>
+                                    <constraint firstAttribute="width" constant="325" id="U9U-hl-6bE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="cLf-RU-y5M" firstAttribute="centerY" secondItem="r8d-Au-sDb" secondAttribute="centerY" constant="-200" id="3Qc-ip-5OJ"/>
+                            <constraint firstItem="Dj7-fR-Vc3" firstAttribute="centerX" secondItem="r8d-Au-sDb" secondAttribute="centerX" id="Hzj-A8-3bh"/>
+                            <constraint firstItem="apd-eL-wSJ" firstAttribute="centerX" secondItem="r8d-Au-sDb" secondAttribute="centerX" id="T1B-Yw-7sy"/>
+                            <constraint firstItem="cLf-RU-y5M" firstAttribute="top" secondItem="Dj7-fR-Vc3" secondAttribute="bottom" constant="20" id="a9x-HV-pnd"/>
+                            <constraint firstItem="RoK-2U-CM6" firstAttribute="centerX" secondItem="r8d-Au-sDb" secondAttribute="centerX" id="asr-Uv-mAB"/>
+                            <constraint firstItem="cLf-RU-y5M" firstAttribute="centerX" secondItem="r8d-Au-sDb" secondAttribute="centerX" id="bVR-03-7xY"/>
+                            <constraint firstItem="RoK-2U-CM6" firstAttribute="top" secondItem="cLf-RU-y5M" secondAttribute="bottom" constant="20" id="hxK-Jk-hhQ"/>
+                            <constraint firstItem="apd-eL-wSJ" firstAttribute="top" secondItem="RoK-2U-CM6" secondAttribute="bottom" constant="30" id="i6s-KD-mG9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="lWl-af-mxx"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Konfirmasi PIN" id="1oE-tp-mYK"/>
+                    <connections>
+                        <outlet property="codeTextField" destination="cLf-RU-y5M" id="SaC-VR-7TA"/>
+                        <outlet property="errorLabel" destination="apd-eL-wSJ" id="X24-cM-18c"/>
+                        <outlet property="pinVisibilityButton" destination="RoK-2U-CM6" id="dLz-7Q-q1A"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S1Q-19-ufw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1125" y="292"/>
+        </scene>
+        <!--Konfirmasi PIN-->
+        <scene sceneID="E4Z-fF-GMS">
+            <objects>
+                <viewController storyboardIdentifier="PINFinalViewController" id="AQt-eA-WLz" customClass="PINFinalViewController" customModule="CotterIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dwC-pu-rcB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PIN Sukses Didaftarkan!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aGh-er-BJg">
+                                <rect key="frame" x="96.5" y="436" width="221.5" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mulai sekarang kamu bisa login dan konfirmasi transaksi menggunakan PIN" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FmG-qK-LLI">
+                                <rect key="frame" x="37" y="480" width="340" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="70" id="kSl-i1-qC8"/>
+                                    <constraint firstAttribute="width" constant="340" id="o2k-ct-faJ"/>
+                                    <constraint firstAttribute="height" constant="70" id="vG6-SW-U7e"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kvW-d4-ME3">
+                                <rect key="frame" x="182.5" y="580" width="49" height="30"/>
+                                <state key="normal" title="Selesai"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="kvW-d4-ME3" firstAttribute="centerX" secondItem="dwC-pu-rcB" secondAttribute="centerX" id="2Mx-eI-C4v"/>
+                            <constraint firstItem="FmG-qK-LLI" firstAttribute="centerX" secondItem="dwC-pu-rcB" secondAttribute="centerX" id="PPe-5t-ffB"/>
+                            <constraint firstItem="kvW-d4-ME3" firstAttribute="top" secondItem="FmG-qK-LLI" secondAttribute="bottom" constant="30" id="U5U-AZ-QJl"/>
+                            <constraint firstItem="aGh-er-BJg" firstAttribute="centerY" secondItem="dwC-pu-rcB" secondAttribute="centerY" id="bgK-PU-a5A"/>
+                            <constraint firstItem="aGh-er-BJg" firstAttribute="centerX" secondItem="dwC-pu-rcB" secondAttribute="centerX" id="iED-OT-uGL"/>
+                            <constraint firstItem="FmG-qK-LLI" firstAttribute="top" secondItem="aGh-er-BJg" secondAttribute="bottom" constant="20" id="xjW-Y4-I4L"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="s9k-qN-AIx"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Konfirmasi PIN" id="X9f-1Z-vZt"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YWc-BM-3a5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1961" y="292"/>
         </scene>
     </scenes>
 </document>

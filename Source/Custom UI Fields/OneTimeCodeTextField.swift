@@ -41,6 +41,15 @@ class OneTimeCodeTextField : UITextField {
         ])
     }
     
+    // clear is self explanatory
+    public func clear() {
+        self.text = ""
+        for label in digitLabels {
+            label.text = defaultCharacter
+            label.textColor = UIColor.lightGray
+        }
+    }
+    
     private func configureTextField() {
         tintColor = .clear
         textColor = .clear

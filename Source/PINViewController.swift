@@ -8,7 +8,10 @@
 import Foundation
 import UIKit
 
-public class PINViewController : UIViewController {
+class PINViewController : UIViewController {
+    // pass config here by PINViewController.config = Config()
+    var config: Config?
+    
     let closeTitle = "Yakin tidak Mau Buat PIN Sekarang?"
     let closeMessage = "PIN Ini diperlukan untuk keamanan akunmu, lho."
     let stayText = "Input PIN"
@@ -37,6 +40,10 @@ public class PINViewController : UIViewController {
         crossButton.tintColor = UIColor.black
         self.navigationItem.leftBarButtonItem = crossButton
         
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.layoutIfNeeded()
+        
         // Configure PIN Visibility Button
         configurePinVisButton()
         
@@ -58,14 +65,19 @@ public class PINViewController : UIViewController {
         codeTextField.didEnterLastDigit = { code in
             print("PIN Code Entered: ", code)
             // Test: If code is 123456, show error. Else, is fine
-            if code == "123456" {
+            if code == "123456" || code == "123456" || code == "654321" {
                 // Show errors, hide button
                 self.toggleErrorMsg()
             }
             
-            // TODO: Check for basic errors such as repeating digits and straight digits
+            // clear the text before continue
+            self.codeTextField.clear()
             
-            // TODO: Run API to check whether PIN is correct
+            // Go to confirmation page
+            let confirmVC = self.storyboard?.instantiateViewController(withIdentifier: "PINConfirmViewController")as! PINConfirmViewController
+            confirmVC.prevCode = code
+            confirmVC.config = self.config
+            self.navigationController?.pushViewController(confirmVC, animated: true)
         }
     }
     

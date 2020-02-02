@@ -14,17 +14,22 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // select the dashboard's ViewController
+        let sboard = UIStoryboard(name: "Dashboard", bundle: nil)
+        let dVC = sboard.instantiateViewController(withIdentifier: "DashboardViewController")as! DashboardViewController
+        
         // Do any additional setup after loading the view, typically from a nib.
         self.cotter = CotterViewController.init(
             self.navigationController,
-            nil,
-            nil,
+            dVC,
+            "",
             "",
             "",
             ""
         )
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -34,4 +39,3 @@ class ViewController: UIViewController {
         self.cotter?.startEnrollment()
     }
 }
-

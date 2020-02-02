@@ -15,12 +15,12 @@
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XcD-u1-ZcS">
-                                <rect key="frame" x="128.5" y="318.5" width="118" height="30"/>
-                                <state key="normal" title="Login with Cotter"/>
+                                <rect key="frame" x="118" y="296.5" width="139" height="30"/>
+                                <state key="normal" title="Start PIN Enrollment"/>
                                 <connections>
                                     <action selector="clickCotter:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="gYu-5u-4Xg"/>
                                 </connections>
@@ -41,9 +41,8 @@
         <!--Navigation Controller-->
         <scene sceneID="IIA-KP-u4Z">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cDo-h2-0b6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController id="LXs-oP-w5Y" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="IEY-Ij-qSn">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="IEY-Ij-qSn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -51,6 +50,7 @@
                         <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="rJZ-9L-Yyo"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cDo-h2-0b6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-673" y="41"/>
         </scene>
