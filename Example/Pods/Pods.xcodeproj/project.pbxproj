@@ -12,6 +12,7 @@
 		574A4CB9DDFEE08D4EC50DD347B22466 /* CotterIOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DA5E7110CA192ACE603965B1389B1450 /* CotterIOS-dummy.m */; };
 		58B315CB7C3DD5393CF48EA3D6D35E51 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		5EB3E9C0B7FAE3EF6D454055E455C39F /* Pods-CotterIOS_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E7A8321A666E6CCA738BAF8D3AF161A6 /* Pods-CotterIOS_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6C335F3C23E6397200BF444E /* OneTimeCodeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C335F3B23E6397200BF444E /* OneTimeCodeTextField.swift */; };
 		7C4B0BC8C0C53B5DF0A067DF5FF5F673 /* Pods-CotterIOS_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4691BA6B5AFE40AA76AD2CF9D06FE047 /* Pods-CotterIOS_Example-dummy.m */; };
 		85B3F36C23E597A400B2FD50 /* CotterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B3F36B23E597A400B2FD50 /* CotterViewController.swift */; };
 		85B3F36E23E5BAC000B2FD50 /* Cotter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85B3F36D23E5BAC000B2FD50 /* Cotter.storyboard */; };
@@ -46,6 +47,7 @@
 		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		4691BA6B5AFE40AA76AD2CF9D06FE047 /* Pods-CotterIOS_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CotterIOS_Example-dummy.m"; sourceTree = "<group>"; };
 		5F24717E5E730180B63DB6CC708D2FDB /* CotterIOS.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CotterIOS.xcconfig; sourceTree = "<group>"; };
+		6C335F3B23E6397200BF444E /* OneTimeCodeTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneTimeCodeTextField.swift; sourceTree = "<group>"; };
 		764F5C378AAB225A1497DE1262DF3A93 /* Pods-CotterIOS_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CotterIOS_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		85B3F36B23E597A400B2FD50 /* CotterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CotterViewController.swift; sourceTree = "<group>"; };
 		85B3F36D23E5BAC000B2FD50 /* Cotter.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Cotter.storyboard; sourceTree = "<group>"; };
@@ -128,6 +130,14 @@
 			path = ../..;
 			sourceTree = "<group>";
 		};
+		6C335F3A23E6393B00BF444E /* Custom UI Fields */ = {
+			isa = PBXGroup;
+			children = (
+				6C335F3B23E6397200BF444E /* OneTimeCodeTextField.swift */,
+			);
+			path = "Custom UI Fields";
+			sourceTree = "<group>";
+		};
 		7225BA699516813152561772EBA139CD /* Pods-CotterIOS_Example */ = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +158,7 @@
 		85B3F36A23E5978600B2FD50 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				6C335F3A23E6393B00BF444E /* Custom UI Fields */,
 				85B3F36B23E597A400B2FD50 /* CotterViewController.swift */,
 				85B3F36D23E5BAC000B2FD50 /* Cotter.storyboard */,
 				85B3F37123E60F1400B2FD50 /* PINViewController.swift */,
@@ -387,6 +398,7 @@
 			files = (
 				85B3F37223E60F1400B2FD50 /* PINViewController.swift in Sources */,
 				574A4CB9DDFEE08D4EC50DD347B22466 /* CotterIOS-dummy.m in Sources */,
+				6C335F3C23E6397200BF444E /* OneTimeCodeTextField.swift in Sources */,
 				85B3F36C23E597A400B2FD50 /* CotterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
