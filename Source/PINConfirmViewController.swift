@@ -8,7 +8,7 @@
 import UIKit
 
 class PINConfirmViewController:UIViewController {
-    // config and prevCode should be passed from the previous controller
+    // config and prevCode should be passed from the previous (PINView) controller
     var config: Config?
     var prevCode: String?
     
@@ -40,6 +40,7 @@ class PINConfirmViewController:UIViewController {
         backButton.tintColor = UIColor.black
         self.navigationItem.leftBarButtonItem = backButton
         
+        // Remove default Nav controller styling
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.layoutIfNeeded()
@@ -64,14 +65,13 @@ class PINConfirmViewController:UIViewController {
         // Instantiate Function to run when PIN is fully entered
         codeTextField.didEnterLastDigit = { code in
             print("PIN Code Entered: ", code)
-            // Test: If code is 123456, show error. Else, is fine
-            if code == "123456" || code == "123456" || code == "654321" {
-                // Show errors, hide button
+            // If code is straight numbers e.g. 123456, show error.
+            if code == "123456" || code == "654321" {
                 self.toggleErrorMsg()
                 return
             }
             
-            // check if the entered digit is the same
+            // If the entered digits are not the same, show error.
             if code != self.prevCode! {
                 self.toggleErrorMsg()
                 return

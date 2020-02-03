@@ -40,6 +40,7 @@ class PINViewController : UIViewController {
         crossButton.tintColor = UIColor.black
         self.navigationItem.leftBarButtonItem = crossButton
         
+        // Remove default Nav controller styling
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.layoutIfNeeded()
@@ -64,10 +65,19 @@ class PINViewController : UIViewController {
         // Instantiate Function to run when PIN is fully entered
         codeTextField.didEnterLastDigit = { code in
             print("PIN Code Entered: ", code)
-            // Test: If code is 123456, show error. Else, is fine
-            if code == "123456" || code == "123456" || code == "654321" {
-                // Show errors, hide button
+            
+            // If code has repeating digits, show error.
+            let pattern = "\\b(\\d)\\1+\\b"
+            let result = code.range(of: pattern, options: .regularExpression)
+            if result != nil {
                 self.toggleErrorMsg()
+                return
+            }
+            
+            // If code is straight number e.g. 123456, show error.
+            if code == "123456" || code == "654321" {
+                self.toggleErrorMsg()
+                return
             }
             
             // clear the text before continue

@@ -146,6 +146,22 @@
 			path = "Custom UI Fields";
 			sourceTree = "<group>";
 		};
+		6C335F3D23E78A3E00BF444E /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				85B5A91823E6E83E0040E288 /* Config.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		6C335F3E23E78A6400BF444E /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				85B5A92023E74D770040E288 /* CotterAPIService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		7225BA699516813152561772EBA139CD /* Pods-CotterIOS_Example */ = {
 			isa = PBXGroup;
 			children = (
@@ -166,14 +182,14 @@
 		85B3F36A23E5978600B2FD50 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				6C335F3E23E78A6400BF444E /* Service */,
+				6C335F3D23E78A3E00BF444E /* Config */,
 				6C335F3A23E6393B00BF444E /* Custom UI Fields */,
 				85B3F36B23E597A400B2FD50 /* CotterViewController.swift */,
-				85B5A91823E6E83E0040E288 /* Config.swift */,
+				85B3F37123E60F1400B2FD50 /* PINViewController.swift */,
 				85B5A91623E6E5790040E288 /* PINConfirmViewController.swift */,
-				85B5A92023E74D770040E288 /* CotterAPIService.swift */,
 				85B5A92223E75D220040E288 /* PINFinalViewController.swift */,
 				85B5A91423E6E35E0040E288 /* Cotter.storyboard */,
-				85B3F37123E60F1400B2FD50 /* PINViewController.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
