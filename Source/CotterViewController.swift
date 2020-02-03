@@ -45,6 +45,10 @@ public class CotterViewController: UIViewController {
         self.config!.cotterURL = cotterURL
         self.config!.userID = userID
         
+        CotterAPIService.shared.setBaseURL(url: cotterURL)
+        CotterAPIService.shared.setKeyPair(keyID: apiKeyID, secretKey: apiSecretKey)
+        CotterAPIService.shared.setUserID(userID: userID)
+        
         // maybe these can be removed, and we can only use the self.config
         self.parentNavController = callbackNav
         self.onSuccessView = callbackView

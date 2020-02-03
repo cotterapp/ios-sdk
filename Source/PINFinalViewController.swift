@@ -8,6 +8,12 @@
 import Foundation
 
 class PINFinalViewController: UIViewController {
+    var config: Config?
+    
+    @IBAction func finish(_ sender: Any) {
+        self.config?.parentNav!.pushViewController(self.config!.callbackView!, animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

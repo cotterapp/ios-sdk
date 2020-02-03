@@ -81,17 +81,25 @@ class PINConfirmViewController:UIViewController {
             
             // source of the following request
             // source: https://stackoverflow.com/a/26365148
-            let strURL = self.config!.cotterURL! + "/user/" + self.config!.userID!
-            let url = URL(string: strURL)!
+            
+            // set the URL path
+            let urlString = CotterAPIService.shared.getURL()!.absoluteString + "/api/v0/user/" + CotterAPIService.shared.getUserID()!
+            print(urlString)
+            let url = URL(string: urlString)!
+            let apiKeyID = CotterAPIService.shared.getKeyID()
+            let apiSecretKey = CotterAPIService.shared.getSecretKey()
+            
             var request = URLRequest(url:url)
-            request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.setValue(apiSecretKey, forHTTPHeaderField: "API_SECRET_KEY")
+            request.setValue(apiKeyID, forHTTPHeaderField: "API_KEY_ID")
             request.httpMethod = "PUT"
             let parameters: [String: Any] = [
                 "method": "PIN",
                 "enrolled": true,
                 "code": code
             ]
-            request.httpBody = parameters.percentEncoded()
+            request.httpBody = try? JSONSerialization.data(withJSONObject: parameters)
             
             let task = URLSession.shared.dataTask(with: request) {(data, response, error) in
                 guard let data = data,
@@ -113,8 +121,11 @@ class PINConfirmViewController:UIViewController {
                 
                 // if it reaches this point, that means the enrollment is successful
                 // go to success page
-                let finalVC = self.storyboard?.instantiateViewController(withIdentifier: "PINFinalViewController")as! PINFinalViewController
-                self.navigationController?.pushViewController(finalVC, animated: true)
+                DispatchQueue.main.async{
+                    let finalVC = self.storyboard?.instantiateViewController(withIdentifier: "PINFinalViewController")as! PINFinalViewController
+                    finalVC.config = self.config
+                    self.navigationController?.pushViewController(finalVC, animated: true)
+                }
             }
             task.resume()
         }

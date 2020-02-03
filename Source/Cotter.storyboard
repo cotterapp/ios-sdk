@@ -188,6 +188,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kvW-d4-ME3">
                                 <rect key="frame" x="182.5" y="580" width="49" height="30"/>
                                 <state key="normal" title="Selesai"/>
+                                <connections>
+                                    <action selector="finish:" destination="AQt-eA-WLz" eventType="touchUpInside" id="K7V-sA-noH"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
