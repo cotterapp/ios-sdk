@@ -170,6 +170,7 @@
                     <connections>
                         <outlet property="codeTextField" destination="cLf-RU-y5M" id="SaC-VR-7TA"/>
                         <outlet property="errorLabel" destination="apd-eL-wSJ" id="X24-cM-18c"/>
+                        <outlet property="keyboardView" destination="qXS-Hd-xxe" id="Eeg-Db-9ba"/>
                         <outlet property="pinVisibilityButton" destination="RoK-2U-CM6" id="dLz-7Q-q1A"/>
                     </connections>
                 </viewController>

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PINConfirmViewController:UIViewController {
+class PINConfirmViewController : UIViewController, KeyboardViewDelegate {
     // config and prevCode should be passed from the previous (PINView) controller
     var config: Config?
     var prevCode: String?
@@ -29,10 +29,16 @@ class PINConfirmViewController:UIViewController {
     @IBOutlet weak var errorLabel: UILabel!
     var showErrorMsg = false
     
+    // Keyboard
+    @IBOutlet weak var keyboardView: KeyboardView!
+    
     public override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         print("loaded PIN Confirmation View")
+        
+        // Connect the Keyboard View Delegate
+        self.keyboardView.delegate = self
         
         // Implement Custom Back Button instead of default in Nav controller
         self.navigationItem.hidesBackButton = true
@@ -41,7 +47,7 @@ class PINConfirmViewController:UIViewController {
         self.navigationItem.leftBarButtonItem = backButton
         
         // Remove default Nav controller styling
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
+    self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.layoutIfNeeded()
         
@@ -65,6 +71,15 @@ class PINConfirmViewController:UIViewController {
         // Instantiate Function to run when PIN is fully entered
         codeTextField.didEnterLastDigit = { code in
             print("PIN Code Entered: ", code)
+            
+            // If code has repeating digits, show error.
+            let pattern = "\\b(\\d)\\1+\\b"
+            let result = code.range(of: pattern, options: .regularExpression)
+            if result != nil {
+                self.toggleErrorMsg()
+                return
+            }
+            
             // If code is straight numbers e.g. 123456, show error.
             if code == "123456" || code == "654321" {
                 self.toggleErrorMsg()
@@ -128,6 +143,17 @@ class PINConfirmViewController:UIViewController {
                 }
             }
             task.resume()
+        }
+    }
+    
+    // This delegate function runs when the buttons in keyboardView is tapped.
+    // Code Text Field is updated here.
+    func keyboardButtonTapped(buttonNumber: NSInteger) {
+        // If backspace tapped, remove last char. Else, append new char.
+        if buttonNumber == -1 {
+            codeTextField.removeNumber()
+        } else {
+            codeTextField.appendNumber(buttonNumber: buttonNumber)
         }
     }
     

@@ -97,7 +97,7 @@ class PINViewController : UIViewController, KeyboardViewDelegate {
         }
     }
     
-    // This function runs when a keyboard button is tapped.
+    // This delegate function runs when the buttons in keyboardView is tapped.
     // Code Text Field is updated here.
     func keyboardButtonTapped(buttonNumber: NSInteger) {
         // If backspace tapped, remove last char. Else, append new char.
