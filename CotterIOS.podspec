@@ -8,8 +8,9 @@
 
 Pod::Spec.new do |s|
   s.name             = 'CotterIOS'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of CotterIOS.'
+  s.version          = '0.0.1'
+  s.summary          = 'CotterIOS is the client SDK for Cotter authentication services'
+  s.swift_versions   = '5.0'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,14 +19,14 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+CotterIOS simplifies client's integration with Cotter. It is an SDK that provides necessary pages and API services that connects your application to Cotter authentication services.
                        DESC
 
-  s.homepage         = 'https://github.com/albertputrapurnama/CotterIOS'
+  s.homepage         = 'https://gitlab.com/govest/cotter/ios'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'albertputrapurnama' => 'albertputrapurnama@gmail.com' }
-  s.source           = { :git => 'https://github.com/albertputrapurnama/CotterIOS.git', :tag => s.version.to_s }
+  s.author           = { 'Cotter Team' => 'team@cotter.app' }
+  s.source           = { :git => 'https://gitlab.com/govest/cotter/ios.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '13.0'
@@ -33,10 +34,10 @@ TODO: Add long description of the pod here.
   s.source_files = 'CotterIOS/Classes/**/*'
   
    s.resource_bundles = {
-     'CotterIOS' => ['CotterIOS/**/*.{png,storyboard,lproj}']
+     'CotterIOS' => ['Source/**/*.{png,storyboard,lproj}']
    }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-   s.dependency 'Alamofire', '~> 5.0.0-rc.3'
+   s.frameworks = 'UIKit'
+#   s.dependency 'Alamofire', '~> 5.0.0-rc.3'
 end
