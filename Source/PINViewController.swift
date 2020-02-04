@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class PINViewController : UIViewController {
+class PINViewController : UIViewController, KeyboardViewDelegate {
     // pass config here by PINViewController.config = Config()
     var config: Config?
     
@@ -29,10 +29,16 @@ class PINViewController : UIViewController {
     @IBOutlet weak var errorLabel: UILabel!
     var showErrorMsg = false
     
+    // Keyboard
+    @IBOutlet weak var keyboardView: KeyboardView!
+    
     public override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         print("loaded PIN Cotter View")
+        
+        // Connect the Keyboard View Delegate
+        self.keyboardView.delegate = self
         
         // Implement Custom Back Button instead of default in Nav controller
         self.navigationItem.hidesBackButton = true
@@ -41,7 +47,7 @@ class PINViewController : UIViewController {
         self.navigationItem.leftBarButtonItem = crossButton
         
         // Remove default Nav controller styling
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
+    self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.layoutIfNeeded()
         
@@ -80,7 +86,7 @@ class PINViewController : UIViewController {
                 return
             }
             
-            // clear the text before continue
+            // Clear the text before continue
             self.codeTextField.clear()
             
             // Go to confirmation page
@@ -91,10 +97,15 @@ class PINViewController : UIViewController {
         }
     }
     
-    public override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        // Open Keypad on View Appearance
-        codeTextField.becomeFirstResponder()
+    // This function runs when a keyboard button is tapped.
+    // Code Text Field is updated here.
+    func keyboardButtonTapped(buttonNumber: NSInteger) {
+        // If backspace tapped, remove last char. Else, append new char.
+        if buttonNumber == -1 {
+            codeTextField.removeNumber()
+        } else {
+            codeTextField.appendNumber(buttonNumber: buttonNumber)
+        }
     }
     
     private func configurePinVisButton() {

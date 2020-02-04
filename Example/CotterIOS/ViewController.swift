@@ -34,7 +34,7 @@ class ViewController: UIViewController {
         ]
         let jsonData = try? JSONSerialization.data(withJSONObject: parameters)
         let jsonString = String(data: jsonData!, encoding: .utf8)
-        print(jsonString)
+        print(jsonString as Any)
         request.httpBody = jsonData
 
 
@@ -60,7 +60,7 @@ class ViewController: UIViewController {
         
         // select the dashboard's ViewController
         let sboard = UIStoryboard(name: "Dashboard", bundle: nil)
-        let dVC = sboard.instantiateViewController(withIdentifier: "DashboardViewController")as! DashboardViewController
+        let dVC = sboard.instantiateViewController(withIdentifier: "DashboardViewController") as! DashboardViewController
         
         // Do any additional setup after loading the view, typically from a nib.
         self.cotter = CotterViewController.init(

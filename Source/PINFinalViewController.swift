@@ -8,7 +8,7 @@
 import Foundation
 
 class PINFinalViewController: UIViewController {
-    var config: Config?
+    public var config: Config?
     
     @IBAction func finish(_ sender: Any) {
         self.config?.parentNav!.pushViewController(self.config!.callbackView!, animated: true)

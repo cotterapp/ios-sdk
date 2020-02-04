@@ -12,11 +12,13 @@ class OneTimeCodeTextField : UITextField {
     private var defaultCharacter = "•"
     private var isPinVisible = false
     private var digitLabels = [UILabel]()
-    private lazy var tapRecognizer: UITapGestureRecognizer = {
-        let recognizer = UITapGestureRecognizer()
-        recognizer.addTarget(self, action: #selector(becomeFirstResponder))
-        return recognizer
-    }() // Function to recognize when labels are tapped
+    
+    // Function to recognize when labels are tapped
+//    private lazy var tapRecognizer: UITapGestureRecognizer = {
+//        let recognizer = UITapGestureRecognizer()
+//        recognizer.addTarget(self, action: #selector(becomeFirstResponder))
+//        return recognizer
+//    }()
     
     var didEnterLastDigit: ((String) -> Void)? // Function to run when last PIN digit has been entered
     
@@ -31,7 +33,7 @@ class OneTimeCodeTextField : UITextField {
         let labelsStackView = createLabelsStackView(with: slotCount)
         addSubview(labelsStackView)
         
-        addGestureRecognizer(tapRecognizer)
+//        addGestureRecognizer(tapRecognizer)
         
         NSLayoutConstraint.activate([
             labelsStackView.topAnchor.constraint(equalTo: topAnchor),
@@ -53,7 +55,6 @@ class OneTimeCodeTextField : UITextField {
     private func configureTextField() {
         tintColor = .clear
         textColor = .clear
-        keyboardType = .numberPad
         textContentType = .oneTimeCode
         
         addTarget(self, action: #selector(codeDidChange), for: .editingChanged)
@@ -85,6 +86,30 @@ class OneTimeCodeTextField : UITextField {
         }
         
         return stackView
+    }
+    
+    public func appendNumber(buttonNumber: NSInteger) {
+        // Ensure only 6 digit input
+        guard let text = self.text, text.count <= digitLabels.count else { return }
+        
+        // Append new char and refresh Digit Labels
+        let num = NSString(format: "%d", buttonNumber)
+        self.text?.append(num as String)
+        codeDidChange()
+    }
+    
+    public func removeNumber() {
+        // Ensure only 6 digit input
+        guard let text = self.text, text.count <= digitLabels.count else { return }
+        
+        // If text field is 6 digits already, and we are on the same view, an error msg is displayed. Entering a backspace would remove this error msg
+        if text.count == digitLabels.count {
+            removeErrorMsg?()
+        }
+        
+        // Remove last char and refresh digit labels
+        self.text?.removeLast()
+        codeDidChange()
     }
     
     // Toggle PIN Visibility between dots or numbers
@@ -126,18 +151,18 @@ class OneTimeCodeTextField : UITextField {
 }
 
 extension OneTimeCodeTextField : UITextFieldDelegate {
-    // This is to ensure that the textfield does not exceed the digitLabels count amount
+    // This is to ensure that the text field does not exceed the digitLabels count amount
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard let characterCount = textField.text?.count else { return false } // characterCount is one less char than the one in the text field
         let backspaceEntered = string == ""
-        
+
         // If User entered a backspace from the last char, and error message is shown, remove error messages
         print("characterCount: ", characterCount)
         print("digitLabels.count: ", digitLabels.count)
         if characterCount == digitLabels.count && backspaceEntered {
             removeErrorMsg?()
         }
-        
+
         return characterCount < digitLabels.count || backspaceEntered
     }
 }
