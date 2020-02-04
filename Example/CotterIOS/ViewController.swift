@@ -62,10 +62,15 @@ class ViewController: UIViewController {
         let sboard = UIStoryboard(name: "Dashboard", bundle: nil)
         let dVC = sboard.instantiateViewController(withIdentifier: "DashboardViewController") as! DashboardViewController
         
+        func cbFunc(accessToken:String) -> Void{
+            self.navigationController?.popToViewController(self, animated: false)
+            dVC.accessToken = accessToken
+            self.navigationController?.pushViewController(dVC, animated: true)
+        }
+        
         // Do any additional setup after loading the view, typically from a nib.
         self.cotter = CotterViewController.init(
-            self.navigationController,
-            dVC,
+            cbFunc,
             apiSecretKey,
             apiKeyID,
             baseURL,
@@ -79,7 +84,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func clickCotter(_ sender: Any) {
-        self.cotter?.startEnrollment()
+        self.cotter?.startEnrollment(parentNav: self.navigationController!, animated: true)
     }
 }
 

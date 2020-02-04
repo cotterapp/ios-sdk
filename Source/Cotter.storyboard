@@ -85,10 +85,10 @@
             </objects>
             <point key="canvasLocation" x="289.85507246376812" y="290.625"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Cotter View Controller-->
         <scene sceneID="zJx-Uh-2dA">
             <objects>
-                <navigationController id="kCl-QE-3LL" sceneMemberID="viewController">
+                <navigationController id="kCl-QE-3LL" customClass="CotterViewController" customModule="CotterIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5Yh-GC-yE1">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

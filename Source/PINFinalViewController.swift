@@ -11,7 +11,8 @@ class PINFinalViewController: UIViewController {
     public var config: Config?
     
     @IBAction func finish(_ sender: Any) {
-        self.config?.parentNav!.pushViewController(self.config!.callbackView!, animated: true)
+        // set access token or return values here
+        self.config?.callbackFunc!("this is token")
     }
     
     override func viewDidLoad() {

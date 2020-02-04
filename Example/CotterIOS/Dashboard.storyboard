@@ -37,15 +37,26 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AccessToken here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Anx-Jn-5QL">
+                                <rect key="frame" x="138" y="488.5" width="138" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="xSq-uy-JND" firstAttribute="centerX" secondItem="zzQ-1k-Ylv" secondAttribute="centerX" id="18w-zu-hFx"/>
+                            <constraint firstItem="Anx-Jn-5QL" firstAttribute="centerX" secondItem="zzQ-1k-Ylv" secondAttribute="centerX" id="1A4-Jc-UuU"/>
                             <constraint firstItem="xSq-uy-JND" firstAttribute="centerY" secondItem="zzQ-1k-Ylv" secondAttribute="centerY" id="ish-YV-wdc"/>
+                            <constraint firstItem="Anx-Jn-5QL" firstAttribute="top" secondItem="xSq-uy-JND" secondAttribute="bottom" constant="30" id="wrg-SO-pmY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6qh-vS-tN1"/>
                     </view>
                     <navigationItem key="navigationItem" id="gT0-MF-IsI"/>
+                    <connections>
+                        <outlet property="accessTokenLabel" destination="Anx-Jn-5QL" id="N4x-su-LW2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fz0-qY-elS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

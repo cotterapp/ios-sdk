@@ -11,9 +11,14 @@ import UIKit
 
 
 class DashboardViewController: UIViewController {
+    var accessToken:String?
+    
+    @IBOutlet weak var accessTokenLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        accessTokenLabel.text = accessToken!
     }
     
     override func didReceiveMemoryWarning() {

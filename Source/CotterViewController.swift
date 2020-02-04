@@ -7,8 +7,11 @@
 
 import UIKit
 
+func defaultCallback(access_token: String) -> Void {
+    print(access_token)
+}
+
 public class CotterViewController: UIViewController {
-    var parentNavController: UINavigationController?
     var onSuccessView: UIViewController?
     var apiSecretKey: String="", apiKeyID: String="", cotterURL: String="", userID: String=""
     var navControl: UINavigationController?
@@ -20,6 +23,8 @@ public class CotterViewController: UIViewController {
     // cotterStoryboard refers to Cotter.storyboard
     // bundleidentifier can be found when you click Pods general view.
     static var cotterStoryboard = UIStoryboard(name:"Cotter", bundle:Bundle(identifier: "org.cocoapods.CotterIOS"))
+    
+    private lazy var pinVC = CotterViewController.cotterStoryboard.instantiateViewController(withIdentifier: "PINViewController")as! PINViewController
 
     // Xcode 7 & 8
     required init?(coder aDecoder: NSCoder) {
@@ -28,8 +33,7 @@ public class CotterViewController: UIViewController {
     
     public convenience init() {
         self.init(
-            nil,
-            nil,
+            defaultCallback,
             "",
             "",
             "",
@@ -37,21 +41,18 @@ public class CotterViewController: UIViewController {
         )
     }
     
-    public init(_ callbackNav: UINavigationController?, _ callbackView: UIViewController?, _ apiSecretKey: String, _ apiKeyID: String, _ cotterURL: String, _ userID: String) {
+    public init(_ successCb: CallbackFunc?, _ apiSecretKey: String, _ apiKeyID: String, _ cotterURL: String, _ userID: String) {
         self.config = Config()
-        self.config!.parentNav = callbackNav
-        self.config!.callbackView = callbackView
         self.config!.apiSecretKey = apiSecretKey
         self.config!.cotterURL = cotterURL
         self.config!.userID = userID
+        self.config!.callbackFunc = successCb
         
         CotterAPIService.shared.setBaseURL(url: cotterURL)
         CotterAPIService.shared.setKeyPair(keyID: apiKeyID, secretKey: apiSecretKey)
         CotterAPIService.shared.setUserID(userID: userID)
         
         // maybe these can be removed, and we can only use the self.config
-        self.parentNavController = callbackNav
-        self.onSuccessView = callbackView
         self.apiSecretKey = apiSecretKey
         self.apiKeyID = apiKeyID
         self.cotterURL = cotterURL
@@ -76,17 +77,14 @@ public class CotterViewController: UIViewController {
         let cotterVC = CotterViewController.cotterStoryboard.instantiateViewController(withIdentifier: "CotterViewController")as! CotterViewController
         
         // push the viewcontroller to the parent navController
-        self.parentNavController?.pushViewController(cotterVC, animated: true)
+        self.navigationController?.pushViewController(cotterVC, animated: true)
     }
     
-    public func startEnrollment() {
-        // initialize the storyboard
-        let cotterVC = CotterViewController.cotterStoryboard.instantiateViewController(withIdentifier: "PINViewController")as! PINViewController
-        
+    public func startEnrollment(parentNav: UINavigationController, animated: Bool) {
         // set the configuration for the page
-        cotterVC.config = self.config
+        self.pinVC.config = self.config
         
-        // push the viewcontroller to the parent navController
-        self.parentNavController?.pushViewController(cotterVC, animated: true)
+        // push the viewcontroller to the navController
+        parentNav.pushViewController(self.pinVC, animated: true)
     }
 }

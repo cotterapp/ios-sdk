@@ -7,6 +7,9 @@
 
 import UIKit
 
+// CallbackFunc takes in a string which is the access token and returns a void
+public typealias CallbackFunc = (String) -> Void
+
 // Config class will be passed around in the Cotter SDK
 class Config: NSObject {
     var parentNav: UINavigationController?
@@ -15,4 +18,5 @@ class Config: NSObject {
     var apiSecretKey: String?
     var userID: String?
     var cotterURL: String?
+    var callbackFunc: CallbackFunc?
 }

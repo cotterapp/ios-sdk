@@ -49,7 +49,7 @@ class PINViewController : UIViewController, KeyboardViewDelegate {
         self.navigationItem.leftBarButtonItem = crossButton
         
         // Remove default Nav controller styling
-    self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.layoutIfNeeded()
         
