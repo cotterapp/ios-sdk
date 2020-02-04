@@ -12,6 +12,8 @@ class PINViewController : UIViewController, KeyboardViewDelegate {
     // pass config here by PINViewController.config = Config()
     var config: Config?
     
+    // Alert Service
+    let alertService = AlertService()
     let closeTitle = "Yakin tidak Mau Buat PIN Sekarang?"
     let closeMessage = "PIN Ini diperlukan untuk keamanan akunmu, lho."
     let stayText = "Input PIN"
@@ -136,7 +138,16 @@ class PINViewController : UIViewController, KeyboardViewDelegate {
     
     @objc private func promptClose(sender: UIBarButtonItem) {
         // Perform Prompt Alert
-        createAlert(title: closeTitle, message: closeMessage, stayText: stayText, leaveText: leaveText)
+//        createAlert(title: closeTitle, message: closeMessage, stayText: stayText, leaveText: leaveText)
+        let cancelHandler = {
+            // Go back to previous screen
+            self.navigationController?.popViewController(animated: true)
+            return
+        }
+        
+        let alertVC = alertService.alert(title: closeTitle, body: closeMessage, actionButtonTitle: stayText, cancelButtonTitle: leaveText, cancelHandler: cancelHandler)
+        
+        present(alertVC, animated: true)
     }
     
     // Alert Function for when User clicks close Pin Verification View

@@ -107,8 +107,10 @@ class OneTimeCodeTextField : UITextField {
             removeErrorMsg?()
         }
         
-        // Remove last char and refresh digit labels
-        self.text?.removeLast()
+        // If text field is not empty, remove last char and refresh digit labels
+        if !text.isEmpty {
+            self.text?.removeLast()
+        }
         codeDidChange()
     }
     
