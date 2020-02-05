@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class PINViewController : UIViewController, KeyboardViewDelegate {
-    // pass config here by PINViewController.config = Config()
+    // Pass config here by PINViewController.config = Config()
     var config: Config?
     
     // Alert Service
@@ -137,13 +137,13 @@ class PINViewController : UIViewController, KeyboardViewDelegate {
     }
     
     @objc private func promptClose(sender: UIBarButtonItem) {
-        // Perform Prompt Alert
         let cancelHandler = {
             // Go back to previous screen
             self.navigationController?.popViewController(animated: true)
             return
         }
         
+        // Perform Prompt Alert
         let alertVC = alertService.createDefaultAlert(title: closeTitle, body: closeMessage, actionText: stayText, cancelText: leaveText, cancelHandler: cancelHandler)
         
         present(alertVC, animated: true)

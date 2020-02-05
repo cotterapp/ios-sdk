@@ -10,7 +10,14 @@ import LocalAuthentication
 
 class LocalAuthService {
     
+    // Alert Service
+    let alertService = AlertService()
+    
     // Configs
+    let successAuthTitle = "Verifikasi"
+    let successAuthMsg = "Sidik jari sesual"
+    let successCancel = "Batalkan"
+    let successAction = "Input PIN"
     let failAuthTitle = "Authentication Failed"
     let failAuthMsg = "You could not be verified; please try again."
     let noAuthTitle = "Biometrics unavailable"
@@ -28,6 +35,8 @@ class LocalAuthService {
                 DispatchQueue.main.async {
                     if success {
                         print("Successfully authenticated!")
+                        // TODO: Give success alert, then go to next page
+                        
                         // Run callback
                         callback?("This is token!")
                     } else {
@@ -35,6 +44,8 @@ class LocalAuthService {
                         let ac = UIAlertController(title: self?.failAuthTitle, message: self?.failAuthMsg, preferredStyle: .alert)
                         ac.addAction(UIAlertAction(title: "Ok", style: .default))
                         view?.present(ac, animated: true)
+                        // TODO: Allow user to input PIN, or try again?
+                        
                     }
                 }
         }
