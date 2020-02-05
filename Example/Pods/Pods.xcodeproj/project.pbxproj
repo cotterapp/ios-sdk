@@ -12,6 +12,8 @@
 		574A4CB9DDFEE08D4EC50DD347B22466 /* CotterIOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DA5E7110CA192ACE603965B1389B1450 /* CotterIOS-dummy.m */; };
 		58B315CB7C3DD5393CF48EA3D6D35E51 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		5EB3E9C0B7FAE3EF6D454055E455C39F /* Pods-CotterIOS_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E7A8321A666E6CCA738BAF8D3AF161A6 /* Pods-CotterIOS_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6C2D253823EA2EAB00B096A7 /* AlertWithImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2D253723EA2EAB00B096A7 /* AlertWithImageViewController.swift */; };
+		6C2D253B23EA3D7D00B096A7 /* LocalAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2D253A23EA3D7D00B096A7 /* LocalAuthService.swift */; };
 		6C335F3C23E6397200BF444E /* OneTimeCodeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C335F3B23E6397200BF444E /* OneTimeCodeTextField.swift */; };
 		6C335F4423E8A5E900BF444E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C335F4323E8A5E900BF444E /* Extensions.swift */; };
 		6C427CC223E94748004D7ECD /* AlertStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C427CC123E94748004D7ECD /* AlertStoryboard.storyboard */; };
@@ -57,6 +59,8 @@
 		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		4691BA6B5AFE40AA76AD2CF9D06FE047 /* Pods-CotterIOS_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CotterIOS_Example-dummy.m"; sourceTree = "<group>"; };
 		5F24717E5E730180B63DB6CC708D2FDB /* CotterIOS.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CotterIOS.xcconfig; sourceTree = "<group>"; };
+		6C2D253723EA2EAB00B096A7 /* AlertWithImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertWithImageViewController.swift; sourceTree = "<group>"; };
+		6C2D253A23EA3D7D00B096A7 /* LocalAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAuthService.swift; sourceTree = "<group>"; };
 		6C335F3B23E6397200BF444E /* OneTimeCodeTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneTimeCodeTextField.swift; sourceTree = "<group>"; };
 		6C335F4323E8A5E900BF444E /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		6C427CC123E94748004D7ECD /* AlertStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AlertStoryboard.storyboard; sourceTree = "<group>"; };
@@ -150,6 +154,14 @@
 			path = ../..;
 			sourceTree = "<group>";
 		};
+		6C2D253923EA3D5D00B096A7 /* Local Auth */ = {
+			isa = PBXGroup;
+			children = (
+				6C2D253A23EA3D7D00B096A7 /* LocalAuthService.swift */,
+			);
+			path = "Local Auth";
+			sourceTree = "<group>";
+		};
 		6C335F3A23E6393B00BF444E /* Custom UI Fields */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,6 +210,7 @@
 			children = (
 				6C427CC523E947F3004D7ECD /* AlertViewController.swift */,
 				6C427CC723E9554F004D7ECD /* AlertService.swift */,
+				6C2D253723EA2EAB00B096A7 /* AlertWithImageViewController.swift */,
 			);
 			path = Alert;
 			sourceTree = "<group>";
@@ -222,6 +235,7 @@
 		85B3F36A23E5978600B2FD50 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				6C2D253923EA3D5D00B096A7 /* Local Auth */,
 				6C335F3F23E8A5B600BF444E /* Extension */,
 				6C335F3E23E78A6400BF444E /* Service */,
 				6C335F3D23E78A3E00BF444E /* Config */,
@@ -475,9 +489,11 @@
 				85B5A92123E74D770040E288 /* CotterAPIService.swift in Sources */,
 				574A4CB9DDFEE08D4EC50DD347B22466 /* CotterIOS-dummy.m in Sources */,
 				85B5A91723E6E5790040E288 /* PINConfirmViewController.swift in Sources */,
+				6C2D253823EA2EAB00B096A7 /* AlertWithImageViewController.swift in Sources */,
 				6C427CC623E947F3004D7ECD /* AlertViewController.swift in Sources */,
 				6C335F3C23E6397200BF444E /* OneTimeCodeTextField.swift in Sources */,
 				85B3F36C23E597A400B2FD50 /* CotterViewController.swift in Sources */,
+				6C2D253B23EA3D7D00B096A7 /* LocalAuthService.swift in Sources */,
 				6C427CC823E9554F004D7ECD /* AlertService.swift in Sources */,
 				85B5A92323E75D220040E288 /* PINFinalViewController.swift in Sources */,
 			);
