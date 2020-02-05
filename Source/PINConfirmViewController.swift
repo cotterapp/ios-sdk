@@ -92,57 +92,32 @@ class PINConfirmViewController : UIViewController, KeyboardViewDelegate {
                 return
             }
             
-            // Run API to enroll PIN
-            
-            // source of the following request
-            // source: https://stackoverflow.com/a/26365148
-            
-            // set the URL path
-            let urlString = CotterAPIService.shared.getURL()!.absoluteString + "/api/v0/user/" + CotterAPIService.shared.getUserID()!
-            print(urlString)
-            let url = URL(string: urlString)!
-            let apiKeyID = CotterAPIService.shared.getKeyID()
-            let apiSecretKey = CotterAPIService.shared.getSecretKey()
-            
-            var request = URLRequest(url:url)
-            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-            request.setValue(apiSecretKey, forHTTPHeaderField: "API_SECRET_KEY")
-            request.setValue(apiKeyID, forHTTPHeaderField: "API_KEY_ID")
-            request.httpMethod = "PUT"
-            let parameters: [String: Any] = [
+            // define http request body
+            let httpData: [String: Any] = [
                 "method": "PIN",
                 "enrolled": true,
                 "code": code
             ]
-            request.httpBody = try? JSONSerialization.data(withJSONObject: parameters)
             
-            let task = URLSession.shared.dataTask(with: request) {(data, response, error) in
-                guard let data = data,
-                    let response = response as? HTTPURLResponse,
-                    error == nil else { // check for fundamental networking error
-                    // TODO: error handling
-                    print("error", error ?? "Unknown error")
-                    return
-                }
-                
-                guard (200 ... 299) ~= response.statusCode else {   // check for http errors
-                    print("statusCode should be 2xx, but is \(response.statusCode)")
-                    print("response = \(response)")
-                    return
-                }
-                
-                let responseString = String(data: data, encoding: .utf8)
-                print("responseString = \(String(describing: responseString))")
-                
-                // if it reaches this point, that means the enrollment is successful
-                // go to success page
-                DispatchQueue.main.async{
-                    let finalVC = self.storyboard?.instantiateViewController(withIdentifier: "PINFinalViewController")as! PINFinalViewController
-                    finalVC.config = self.config
-                    self.navigationController?.pushViewController(finalVC, animated: true)
-                }
+            // define the callbacks
+            func successCb(resp:String) -> Void {
+                let finalVC = self.storyboard?.instantiateViewController(withIdentifier: "PINFinalViewController")as! PINFinalViewController
+                finalVC.config = self.config
+                self.navigationController?.pushViewController(finalVC, animated: true)
             }
-            task.resume()
+            
+            func errorCb(err:String) -> Void {
+                print(err)
+            }
+            
+            // Run API to enroll PIN
+            CotterAPIService.shared.http(
+                method: "PUT",
+                path: "/api/v0/user/"+CotterAPIService.shared.getUserID()!,
+                data: httpData,
+                succesCb: successCb,
+                errCb: errorCb
+            )
         }
     }
     
