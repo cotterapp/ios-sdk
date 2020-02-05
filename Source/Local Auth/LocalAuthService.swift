@@ -52,19 +52,24 @@ class LocalAuthService {
         /*
         let context = LAContext()
         var error: NSError?
-
-        // Show Biometric Alert
-        let biometricAlert = self.alertService.createDefaultAlert(title: self.authTitle, body: self.authBody, actionText: self.authAction, cancelText: self.authCancel)
-        view.present(biometricAlert, animated: true) {
-
-            // Check if we can use biometrics
-            if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
-                // Dismiss Biometric Alert
-                biometricAlert.dismiss(animated: true) {
-                    context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { [weak self, weak view] success, authenticationError in
-                        DispatchQueue.main.async {
-                            self?.dispatchResult(view: view, success: success, authError: authenticationError)
-                        }
+        
+        // Check if we can use biometrics
+        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { [weak self, weak view] success, authenticationError in
+                DispatchQueue.main.async {
+                    if success {
+                        print("Successfully authenticated!")
+                        // TODO: Give success alert, then go to next page
+                        
+                        // Run callback
+                        callback?("This is token!")
+                    } else {
+                        // Failed authentication
+                        let ac = UIAlertController(title: self?.failAuthTitle, message: self?.failAuthMsg, preferredStyle: .alert)
+                        ac.addAction(UIAlertAction(title: "Ok", style: .default))
+                        view?.present(ac, animated: true)
+                        // TODO: Allow user to input PIN, or try again?
+                      
                     }
                 }
             } else {
