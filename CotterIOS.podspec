@@ -31,7 +31,7 @@ CotterIOS simplifies client's integration with Cotter. It is an SDK that provide
 
   s.ios.deployment_target = '13.0'
 
-  s.source_files = 'CotterIOS/Classes/**/*'
+  s.source_files = 'Source/**/*'
   
    s.resource_bundles = {
      'CotterIOS' => ['Source/**/*.{png,storyboard,lproj}']
