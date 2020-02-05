@@ -17,23 +17,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LS9-Ka-A8X" customClass="OneTimeCodeTextField" customModule="CotterIOS" customModuleProvider="target">
-                                <rect key="frame" x="69.5" y="221" width="275" height="54"/>
+                                <rect key="frame" x="107" y="230.5" width="200" height="35"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="54" id="9YV-f6-c8z"/>
-                                    <constraint firstAttribute="width" constant="275" id="W72-Nw-7nO"/>
+                                    <constraint firstAttribute="height" constant="35" id="9YV-f6-c8z"/>
+                                    <constraint firstAttribute="width" constant="200" id="W72-Nw-7nO"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Buat PIN untuk keamanan akunmu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1PK-2f-0wS">
-                                <rect key="frame" x="44" y="174.5" width="326" height="26.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <rect key="frame" x="83" y="191" width="248.5" height="19.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0PC-5d-syA">
-                                <rect key="frame" x="170.5" y="295" width="73" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <rect key="frame" x="177.5" y="285.5" width="59" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <state key="normal" title="Lihat PIN">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
@@ -42,33 +42,36 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PIN terlalu mudah. Yuk buat PIN baru dengan kombinasi lebih sulit" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ar-Es-Gas">
-                                <rect key="frame" x="25" y="337" width="364" height="50"/>
+                                <rect key="frame" x="57" y="322.5" width="300" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Jml-aA-zrC"/>
+                                    <constraint firstAttribute="width" constant="300" id="jkE-oT-ETU"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q6m-1D-Kw7" customClass="KeyboardView" customModule="CotterIOS" customModuleProvider="target">
-                                <rect key="frame" x="20" y="395" width="374" height="467"/>
+                                <rect key="frame" x="20" y="512" width="374" height="350"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="350" id="bMK-CN-HbV"/>
+                                </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Q6m-1D-Kw7" firstAttribute="centerX" secondItem="6ar-Es-Gas" secondAttribute="centerX" id="2Oy-05-Wfx"/>
                             <constraint firstItem="LS9-Ka-A8X" firstAttribute="top" secondItem="1PK-2f-0wS" secondAttribute="bottom" constant="20" id="4RH-6X-fba"/>
                             <constraint firstItem="LS9-Ka-A8X" firstAttribute="centerX" secondItem="hW0-cu-n3w" secondAttribute="centerX" id="5X2-ee-MZd"/>
                             <constraint firstItem="0PC-5d-syA" firstAttribute="centerX" secondItem="hW0-cu-n3w" secondAttribute="centerX" id="DOx-mk-sX3"/>
-                            <constraint firstItem="Q6m-1D-Kw7" firstAttribute="top" secondItem="6ar-Es-Gas" secondAttribute="bottom" constant="8" id="PtT-T0-ufS"/>
-                            <constraint firstItem="6ar-Es-Gas" firstAttribute="leading" secondItem="S8w-Bm-DxA" secondAttribute="leading" constant="25" id="RnW-yH-mZ9"/>
-                            <constraint firstItem="Q6m-1D-Kw7" firstAttribute="leading" secondItem="hW0-cu-n3w" secondAttribute="leadingMargin" id="SpI-20-LrL"/>
+                            <constraint firstItem="Q6m-1D-Kw7" firstAttribute="leading" secondItem="S8w-Bm-DxA" secondAttribute="leading" constant="20" id="EsJ-Gc-gTg"/>
+                            <constraint firstItem="S8w-Bm-DxA" firstAttribute="trailing" secondItem="Q6m-1D-Kw7" secondAttribute="trailing" constant="20" id="Nco-4Z-WdH"/>
                             <constraint firstItem="LS9-Ka-A8X" firstAttribute="centerY" secondItem="hW0-cu-n3w" secondAttribute="centerY" constant="-200" id="Z7f-2Y-sb3"/>
                             <constraint firstItem="6ar-Es-Gas" firstAttribute="top" secondItem="0PC-5d-syA" secondAttribute="bottom" constant="8" id="Zxs-La-zRN"/>
-                            <constraint firstItem="Q6m-1D-Kw7" firstAttribute="bottom" secondItem="S8w-Bm-DxA" secondAttribute="bottom" id="kn4-z6-tu9"/>
                             <constraint firstItem="1PK-2f-0wS" firstAttribute="centerX" secondItem="hW0-cu-n3w" secondAttribute="centerX" id="pdx-um-6ic"/>
+                            <constraint firstItem="Q6m-1D-Kw7" firstAttribute="centerX" secondItem="hW0-cu-n3w" secondAttribute="centerX" id="sIB-e4-c0K"/>
                             <constraint firstItem="6ar-Es-Gas" firstAttribute="centerX" secondItem="0PC-5d-syA" secondAttribute="centerX" id="tpe-l3-qG3"/>
+                            <constraint firstItem="Q6m-1D-Kw7" firstAttribute="bottom" secondItem="S8w-Bm-DxA" secondAttribute="bottom" id="uOK-jU-1LO"/>
                             <constraint firstItem="0PC-5d-syA" firstAttribute="top" secondItem="LS9-Ka-A8X" secondAttribute="bottom" constant="20" id="zhd-eS-rSZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="S8w-Bm-DxA"/>
@@ -110,23 +113,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cLf-RU-y5M" customClass="OneTimeCodeTextField" customModule="CotterIOS" customModuleProvider="target">
-                                <rect key="frame" x="69.5" y="221" width="275" height="54"/>
+                                <rect key="frame" x="107" y="230.5" width="200" height="35"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="54" id="3L3-IG-5ko"/>
-                                    <constraint firstAttribute="width" constant="275" id="aJE-11-YJ4"/>
+                                    <constraint firstAttribute="height" constant="35" id="3L3-IG-5ko"/>
+                                    <constraint firstAttribute="width" constant="200" id="aJE-11-YJ4"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Masukkan PIN sekali lagi untuk konfirmasi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dj7-fR-Vc3">
-                                <rect key="frame" x="30" y="178" width="354.5" height="23"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <rect key="frame" x="56" y="191" width="302" height="19.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RoK-2U-CM6">
-                                <rect key="frame" x="170.5" y="295" width="73" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <rect key="frame" x="177.5" y="285.5" width="59" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <state key="normal" title="Lihat PIN">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
@@ -135,24 +138,26 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kamu perlu memasukkan PIN yang sama seperti sebelumnya" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="apd-eL-wSJ">
-                                <rect key="frame" x="44.5" y="337" width="325" height="50"/>
+                                <rect key="frame" x="57" y="322.5" width="300" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="PWU-E4-41Q"/>
-                                    <constraint firstAttribute="width" constant="325" id="U9U-hl-6bE"/>
+                                    <constraint firstAttribute="width" constant="300" id="U9U-hl-6bE"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qXS-Hd-xxe" customClass="KeyboardView" customModule="CotterIOS" customModuleProvider="target">
-                                <rect key="frame" x="20" y="395" width="374" height="445"/>
+                                <rect key="frame" x="20" y="507" width="374" height="350"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="350" id="gFE-uB-b0j"/>
+                                </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="cLf-RU-y5M" firstAttribute="centerY" secondItem="r8d-Au-sDb" secondAttribute="centerY" constant="-200" id="3Qc-ip-5OJ"/>
-                            <constraint firstItem="qXS-Hd-xxe" firstAttribute="centerX" secondItem="apd-eL-wSJ" secondAttribute="centerX" id="A3L-Fg-IGd"/>
                             <constraint firstItem="Dj7-fR-Vc3" firstAttribute="centerX" secondItem="r8d-Au-sDb" secondAttribute="centerX" id="Hzj-A8-3bh"/>
                             <constraint firstItem="apd-eL-wSJ" firstAttribute="centerX" secondItem="r8d-Au-sDb" secondAttribute="centerX" id="T1B-Yw-7sy"/>
                             <constraint firstItem="cLf-RU-y5M" firstAttribute="top" secondItem="Dj7-fR-Vc3" secondAttribute="bottom" constant="20" id="a9x-HV-pnd"/>
@@ -160,9 +165,10 @@
                             <constraint firstItem="cLf-RU-y5M" firstAttribute="centerX" secondItem="r8d-Au-sDb" secondAttribute="centerX" id="bVR-03-7xY"/>
                             <constraint firstItem="RoK-2U-CM6" firstAttribute="top" secondItem="cLf-RU-y5M" secondAttribute="bottom" constant="20" id="hxK-Jk-hhQ"/>
                             <constraint firstItem="apd-eL-wSJ" firstAttribute="top" secondItem="RoK-2U-CM6" secondAttribute="bottom" constant="8" id="i6s-KD-mG9"/>
-                            <constraint firstItem="qXS-Hd-xxe" firstAttribute="leading" secondItem="r8d-Au-sDb" secondAttribute="leadingMargin" id="nVp-0A-sOL"/>
-                            <constraint firstItem="qXS-Hd-xxe" firstAttribute="top" secondItem="apd-eL-wSJ" secondAttribute="bottom" constant="8" id="rqk-5s-3PS"/>
-                            <constraint firstItem="lWl-af-mxx" firstAttribute="bottom" secondItem="qXS-Hd-xxe" secondAttribute="bottom" constant="22" id="uCc-Yb-pBp"/>
+                            <constraint firstItem="lWl-af-mxx" firstAttribute="bottom" secondItem="qXS-Hd-xxe" secondAttribute="bottom" constant="5" id="u0Z-LR-kdY"/>
+                            <constraint firstItem="lWl-af-mxx" firstAttribute="trailing" secondItem="qXS-Hd-xxe" secondAttribute="trailing" constant="20" id="vJ2-Wh-yJS"/>
+                            <constraint firstItem="qXS-Hd-xxe" firstAttribute="centerX" secondItem="r8d-Au-sDb" secondAttribute="centerX" id="yK8-Qn-YZz"/>
+                            <constraint firstItem="qXS-Hd-xxe" firstAttribute="leading" secondItem="lWl-af-mxx" secondAttribute="leading" constant="20" id="yWI-9l-kdq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lWl-af-mxx"/>
                     </view>
@@ -203,15 +209,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kvW-d4-ME3">
-                                <rect key="frame" x="182.5" y="580" width="49" height="30"/>
-                                <state key="normal" title="Selesai"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kvW-d4-ME3">
+                                <rect key="frame" x="178" y="580" width="58" height="34"/>
+                                <state key="normal" title="Selesai">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="finish:" destination="AQt-eA-WLz" eventType="touchUpInside" id="K7V-sA-noH"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="kvW-d4-ME3" firstAttribute="centerX" secondItem="dwC-pu-rcB" secondAttribute="centerX" id="2Mx-eI-C4v"/>
                             <constraint firstItem="FmG-qK-LLI" firstAttribute="centerX" secondItem="dwC-pu-rcB" secondAttribute="centerX" id="PPe-5t-ffB"/>

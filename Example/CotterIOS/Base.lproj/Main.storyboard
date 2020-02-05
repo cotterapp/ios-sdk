@@ -25,16 +25,17 @@
                                     <action selector="clickCotter:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="gYu-5u-4Xg"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cJz-AF-KNf">
-                                <rect key="frame" x="114" y="379" width="146" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cJz-AF-KNf">
+                                <rect key="frame" x="114.5" y="346.5" width="146" height="30"/>
                                 <state key="normal" title="Start PIN Transaction"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="cJz-AF-KNf" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="Oxd-1w-oNP"/>
                             <constraint firstItem="XcD-u1-ZcS" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="kfe-qm-w0v"/>
                             <constraint firstItem="XcD-u1-ZcS" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="pjb-ef-m5h"/>
+                            <constraint firstItem="cJz-AF-KNf" firstAttribute="top" secondItem="XcD-u1-ZcS" secondAttribute="bottom" constant="20" id="yjE-Fj-sci"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="5qM-FL-BNc"/>
@@ -50,6 +51,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="IEY-Ij-qSn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <connections>
                         <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="rJZ-9L-Yyo"/>

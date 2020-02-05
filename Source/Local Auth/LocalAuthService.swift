@@ -45,7 +45,6 @@ class LocalAuthService {
                         ac.addAction(UIAlertAction(title: "Ok", style: .default))
                         view?.present(ac, animated: true)
                         // TODO: Allow user to input PIN, or try again?
-                        
                     }
                 }
         }

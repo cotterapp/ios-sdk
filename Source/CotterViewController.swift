@@ -12,8 +12,6 @@ func defaultCallback(access_token: String) -> Void {
 }
 
 public class CotterViewController: UIViewController {
-    var onSuccessView: UIViewController?
-    var apiSecretKey: String="", apiKeyID: String="", cotterURL: String="", userID: String=""
     var navControl: UINavigationController?
     
     // the configuration of the view controller
@@ -54,17 +52,15 @@ public class CotterViewController: UIViewController {
         self.config!.apiSecretKey = apiSecretKey
         self.config!.cotterURL = cotterURL
         self.config!.userID = userID
-        self.config!.callbackFunc = successCb
+        if successCb != nil {
+            self.config!.callbackFunc = successCb
+        } else {
+            self.config!.callbackFunc = defaultCallback
+        }
         
         CotterAPIService.shared.setBaseURL(url: cotterURL)
         CotterAPIService.shared.setKeyPair(keyID: apiKeyID, secretKey: apiSecretKey)
         CotterAPIService.shared.setUserID(userID: userID)
-        
-        // maybe these can be removed, and we can only use the self.config
-        self.apiSecretKey = apiSecretKey
-        self.apiKeyID = apiKeyID
-        self.cotterURL = cotterURL
-        self.userID = userID
         
         super.init(nibName:nil,bundle:nil)
     }
