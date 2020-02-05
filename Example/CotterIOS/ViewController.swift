@@ -10,7 +10,9 @@ import UIKit
 import CotterIOS
 
 class ViewController: UIViewController {
+    // Enrollment Path
     var cotter: CotterViewController?
+    // TODO: Transaction Path
 
     override func viewDidLoad() {
         super.viewDidLoad()

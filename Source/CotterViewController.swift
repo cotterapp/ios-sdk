@@ -24,7 +24,15 @@ public class CotterViewController: UIViewController {
     // bundleidentifier can be found when you click Pods general view.
     static var cotterStoryboard = UIStoryboard(name:"Cotter", bundle:Bundle(identifier: "org.cocoapods.CotterIOS"))
     
+    // transactionStoryboard refers to Transaction.storyboard
+    // bundleidentifier can be found when you click Pods general view.
+    static var transactionStoryboard = UIStoryboard(name: "Transaction", bundle: Bundle(identifier: "org.cocoapods.CotterIOS"))
+    
+    // Enrollment Corresponding View
     private lazy var pinVC = CotterViewController.cotterStoryboard.instantiateViewController(withIdentifier: "PINViewController")as! PINViewController
+    
+    // Transaction Corresponding View
+    private lazy var transactionPinVC = CotterViewController.transactionStoryboard.instantiateViewController(withIdentifier: "TransactionPINViewController") as! TransactionPINViewController
 
     // Xcode 7 & 8
     required init?(coder aDecoder: NSCoder) {
@@ -80,11 +88,21 @@ public class CotterViewController: UIViewController {
         self.navigationController?.pushViewController(cotterVC, animated: true)
     }
     
+    // Start of Enrollment Process
     public func startEnrollment(parentNav: UINavigationController, animated: Bool) {
         // set the configuration for the page
         self.pinVC.config = self.config
         
         // push the viewcontroller to the navController
         parentNav.pushViewController(self.pinVC, animated: true)
+    }
+    
+    // Start of Transaction Process
+    public func startTransaction(parentNav: UINavigationController, animated: Bool) {
+        // Set the configuration for the page
+        self.pinVC.config = self.config
+        
+        // Push the viewController to the navController
+        parentNav.pushViewController(self.transactionPinVC, animated: true)
     }
 }
