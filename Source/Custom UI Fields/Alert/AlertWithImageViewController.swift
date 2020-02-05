@@ -1,13 +1,13 @@
 //
-//  AlertViewController.swift
+//  AlertWithImageViewController.swift
 //  CotterIOS
 //
-//  Created by Raymond Andrie on 2/3/20.
+//  Created by Raymond Andrie on 2/4/20.
 //
 
 import Foundation
 
-class AlertViewController : UIViewController {
+class AlertWithImageViewController : UIViewController {
     
     private var myTitle = String()
 
@@ -20,25 +20,27 @@ class AlertViewController : UIViewController {
     private var cancelButtonHandler: (() -> Void)?
 
     private var actionButtonHandler: (() -> Void)?
-
+    
     @IBOutlet weak var alertView: UIView!
-
+    
     @IBOutlet weak var alertTitle: UILabel!
+    
+    @IBOutlet weak var alertImage: UIImageView!
     
     @IBOutlet weak var alertBody: UILabel!
     
-    @IBOutlet weak var actionButton: UIButton!
-    
     @IBOutlet weak var cancelButton: UIButton!
     
+    @IBOutlet weak var actionButton: UIButton!
     
     public func initialize(
         title: String,
         body: String,
-        actionTitle: String,
-        actionHandler: (() -> Void)? = nil,
+        imagePath: String?,
         cancelTitle: String,
-        cancelHandler: (() -> Void)? = nil
+        cancelHandler: (() -> Void)? = nil,
+        actionTitle: String,
+        actionHandler: (() -> Void)? = nil
     ) {
         myTitle = title
         myBody = body
@@ -46,6 +48,7 @@ class AlertViewController : UIViewController {
         cancelButtonTitle = cancelTitle
         actionButtonHandler = actionHandler
         cancelButtonHandler = cancelHandler
+
     }
     
     public override func viewDidLoad() {
@@ -67,7 +70,8 @@ class AlertViewController : UIViewController {
         alertView.layer.masksToBounds = true
     }
     
-    @IBAction func didTapCancel(_ sender: Any) {
+    
+    @IBAction func onTapCancel(_ sender: Any) {
         if cancelButtonHandler != nil {
             dismiss(animated: true)
             cancelButtonHandler!()
@@ -76,7 +80,7 @@ class AlertViewController : UIViewController {
         }
     }
     
-    @IBAction func didTapAction(_ sender: Any) {
+    @IBAction func onTapAction(_ sender: Any) {
         if actionButtonHandler != nil {
             dismiss(animated: true)
             actionButtonHandler!()
