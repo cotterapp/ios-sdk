@@ -135,7 +135,6 @@ class PINViewController : UIViewController, KeyboardViewDelegate {
             return
         }
         
-        // Perform Prompt Alert
         let alertVC = alertService.createDefaultAlert(title: closeTitle, body: closeMessage, actionText: stayText, cancelText: leaveText, cancelHandler: cancelHandler)
         
         present(alertVC, animated: true)
