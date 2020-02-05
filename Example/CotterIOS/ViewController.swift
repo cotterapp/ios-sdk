@@ -25,7 +25,7 @@ class ViewController: UIViewController {
         let apiKeyID = "26260f9e-3db1-4bef-b3fd-d0310eff1c7f"
 
         let url = URL(string: urlString)!
-
+        
         var request = URLRequest(url:url)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue(apiSecretKey, forHTTPHeaderField: "API_SECRET_KEY")
