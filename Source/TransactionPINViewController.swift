@@ -55,30 +55,7 @@ class TransactionPINViewController: UIViewController, KeyboardViewDelegate, PINB
         }
         
         codeTextField.didEnterLastDigit = { code in
-            print("PIN Code Entered: ", code)
-            
-            // If code has repeating digits, show error.
-            let pattern = "\\b(\\d)\\1+\\b"
-            let result = code.range(of: pattern, options: .regularExpression)
-            if result != nil {
-                self.toggleErrorMsg()
-                return
-            }
-            
-            // If code is straight number e.g. 123456, show error.
-            if code == "123456" || code == "654321" {
-                self.toggleErrorMsg()
-                return
-            }
-            
-            // Clear the text before continue
-            self.codeTextField.clear()
-            
-            // TODO: Go to confirmation page
-//            let confirmVC = self.storyboard?.instantiateViewController(withIdentifier: "PINConfirmViewController")as! PINConfirmViewController
-//            confirmVC.prevCode = code
-//            confirmVC.config = self.config
-//            self.navigationController?.pushViewController(confirmVC, animated: true)
+            // verify through API
         }
     }
     
