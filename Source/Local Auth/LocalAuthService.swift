@@ -27,6 +27,7 @@ class LocalAuthService {
     let failAuthTitle = "Authentication Failed"
     let failAuthMsg = "You could not be verified; please try again."
     let noAuthMsg = "Your device is not configured for biometric authentication"
+    let tryAgain = "Coba Lagi"
     
     var successAuthCallbackFunc: ((String) -> Void)?
     
@@ -36,14 +37,26 @@ class LocalAuthService {
         reason: String,
         callback: ((String) -> Void)?
     ) {
+        successAuthCallbackFunc = callback
+
+        // get the public key, this will trigger the faceID
+        guard KeyGen.pubKey != nil else {
+            // if pubkey is unretrievable, then there must be something wrong with the bio scan
+            // TODO: error handling:
+            self.dispatchResult(view: view, success: false, authError: nil)
+            return
+        }
+        
+        self.dispatchResult(view: view, success: true, authError: nil)
+
+        /*
         let context = LAContext()
         var error: NSError?
-        
-        successAuthCallbackFunc = callback
-        
+
         // Show Biometric Alert
         let biometricAlert = self.alertService.createDefaultAlert(title: self.authTitle, body: self.authBody, actionText: self.authAction, cancelText: self.authCancel)
         view.present(biometricAlert, animated: true) {
+
             // Check if we can use biometrics
             if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
                 // Dismiss Biometric Alert
@@ -62,7 +75,7 @@ class LocalAuthService {
                 
                 // TODO: Go to Input PIN Page?
             }
-        }
+        }*/
     }
     
     private func dispatchResult(view: UIViewController?, success: Bool, authError: Error?) {
@@ -82,9 +95,26 @@ class LocalAuthService {
         } else {
             // Give Failed Authentication Alert
             print("Failed local authentication!")
-            let failedBiometricAlert = self.alertService.createDefaultAlert(title: self.authTitle, body: self.failAuthMsg, actionText: self.authAction, cancelText: self.authCancel)
-            view?.present(failedBiometricAlert, animated: true)
             
+            var failedBiometricAlert: UIAlertController?
+
+            // try again will re-authenticate
+            func tryAgain(){
+                guard let alert = failedBiometricAlert else {
+                    LocalAuthService().authenticate(view: view!, reason: "", callback: successAuthCallbackFunc)
+                    return
+                }
+                alert.dismiss(animated: true)
+                LocalAuthService().authenticate(view: view!, reason: "", callback: successAuthCallbackFunc)
+            }
+            failedBiometricAlert = self.alertService.createDefaultAlert(
+                title: self.authTitle,
+                body: self.failAuthMsg,
+                actionText: self.tryAgain,
+                cancelText: self.successAction,
+                actionHandler: tryAgain
+            )
+            view?.present(failedBiometricAlert!, animated: true)
             // TODO: Allow user to Input PIN instead?
         }
     }

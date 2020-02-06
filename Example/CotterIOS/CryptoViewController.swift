@@ -9,11 +9,30 @@
 import Foundation
 import UIKit
 import Security
+import LocalAuthentication
 
 class CryptoViewController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         print("loaded CryptoViewController")
+    }
+    
+    // clearKeys to clear Cotter Keys
+    @IBAction func clearKeys(_ sender: Any) {
+        let tag = "org.cocoapods.CotterIOS.privKey".data(using: .utf8)!
+        
+        // remove the previous key pair
+        // Retrieving private and public key pair
+        let query: [String: Any] = [
+            kSecClass as String: kSecClassKey,
+            kSecAttrApplicationTag as String: tag,
+            kSecAttrKeyType as String: kSecAttrKeyTypeECSECPrimeRandom,
+        ]
+        let st = SecItemDelete(query as CFDictionary)
+        guard st == errSecSuccess || st == errSecItemNotFound else {
+            print("error deleting old key")
+            return
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -36,7 +55,7 @@ class CryptoViewController: UIViewController {
             kSecAttrKeyType as String: kSecAttrKeyTypeECSECPrimeRandom,
         ]
         let st = SecItemDelete(query as CFDictionary)
-        guard st == errSecSuccess else {
+        guard st == errSecSuccess || st == errSecItemNotFound else {
             print("error deleting old key")
             return
         }
@@ -46,8 +65,8 @@ class CryptoViewController: UIViewController {
         var error: Unmanaged<CFError>?
         guard let access = SecAccessControlCreateWithFlags(
             nil,  // Use the default allocator.
-            kSecAttrAccessibleWhenPasscodeSetThisDeviceOnly,
-            .biometryAny,
+            kSecAttrAccessibleAfterFirstUnlock,
+            .userPresence,
             &error
             ) else {
                 print("error creating access control")
@@ -59,7 +78,7 @@ class CryptoViewController: UIViewController {
             kSecAttrKeySizeInBits as String:      256,
             kSecAttrCanSign as String:             true,
             kSecPrivateKeyAttrs as String: [
-                kSecAttrIsPermanent as String:    true,
+                kSecAttrIsPermanent as String: true,
                 kSecAttrApplicationTag as String: tag,
                 kSecAttrAccessControl as String:    access,
             ]
@@ -80,12 +99,18 @@ class CryptoViewController: UIViewController {
         
         // source:
         // https://developer.apple.com/documentation/security/certificate_key_and_trust_services/keys/storing_keys_in_the_keychain
-                
+
+        let context = LAContext()
+        context.localizedReason = "Bareksa wants to authenticate you"
+        context.localizedCancelTitle = "Bye!"
+        
         // Retrieving private and public key pair
         let getquery: [String: Any] = [
             kSecClass as String: kSecClassKey,
             kSecAttrApplicationTag as String: tag,
             kSecAttrKeyType as String: kSecAttrKeyTypeECSECPrimeRandom,
+            kSecUseAuthenticationContext as String: context, // this does not work on Face ID
+            kSecUseOperationPrompt as String: "Hello world!", // this does not work on Face ID
             kSecReturnRef as String: true
         ]
 

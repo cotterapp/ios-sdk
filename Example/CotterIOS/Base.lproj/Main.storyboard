@@ -99,12 +99,21 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8b9-nh-x7X">
+                                <rect key="frame" x="151" y="320" width="73" height="30"/>
+                                <state key="normal" title="Clear Keys"/>
+                                <connections>
+                                    <action selector="clearKeys:" destination="Nwm-5x-Spd" eventType="touchUpInside" id="qUn-7y-JI4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="blc-Ac-bOi" firstAttribute="centerX" secondItem="fYH-Xz-830" secondAttribute="centerX" id="IdA-hE-8ec"/>
                             <constraint firstItem="LW5-KK-tig" firstAttribute="centerX" secondItem="fYH-Xz-830" secondAttribute="centerX" id="P3g-ok-WTG"/>
                             <constraint firstItem="LW5-KK-tig" firstAttribute="top" secondItem="blc-Ac-bOi" secondAttribute="bottom" constant="20" id="YfW-7L-DaA"/>
+                            <constraint firstItem="blc-Ac-bOi" firstAttribute="top" secondItem="8b9-nh-x7X" secondAttribute="bottom" constant="50" id="ZuE-Rk-zGy"/>
+                            <constraint firstItem="8b9-nh-x7X" firstAttribute="centerX" secondItem="fYH-Xz-830" secondAttribute="centerX" id="nwx-0J-DXQ"/>
                             <constraint firstItem="Uef-de-Ynd" firstAttribute="bottom" secondItem="LW5-KK-tig" secondAttribute="bottom" constant="40" id="sAD-an-PGw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Uef-de-Ynd"/>

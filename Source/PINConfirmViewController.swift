@@ -47,7 +47,7 @@ class PINConfirmViewController : UIViewController, KeyboardViewDelegate {
         self.navigationItem.leftBarButtonItem = backButton
         
         // Remove default Nav controller styling
-    self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.layoutIfNeeded()
         
