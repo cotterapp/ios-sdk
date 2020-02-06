@@ -66,10 +66,12 @@ class AlertService {
     ) -> UIAlertController {
         let alert = UIAlertController(title: title, message: body, preferredStyle: UIAlertController.Style.alert)
         
+        // Cancel
         alert.addAction(UIAlertAction(title: cancelText, style: UIAlertAction.Style.default, handler: { (action) in
             alert.dismiss(animated: true, completion: cancelHandler)
         }))
         
+        // Action
         alert.addAction(UIAlertAction(title: actionText, style: UIAlertAction.Style.default, handler: { (action) in
             alert.dismiss(animated: true, completion: actionHandler)
         }))

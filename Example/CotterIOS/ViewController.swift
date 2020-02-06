@@ -12,7 +12,6 @@ import CotterIOS
 class ViewController: UIViewController {
     // Enrollment Path
     var cotter: CotterViewController?
-    // TODO: Transaction Path
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,7 +69,7 @@ class ViewController: UIViewController {
             self.navigationController?.pushViewController(dVC, animated: true)
         }
         
-        // Do any additional setup after loading the view, typically from a nib.
+        // Load Cotter View Controller from SDK
         self.cotter = CotterViewController.init(
             cbFunc,
             apiSecretKey,
@@ -87,6 +86,10 @@ class ViewController: UIViewController {
 
     @IBAction func clickCotter(_ sender: Any) {
         self.cotter?.startEnrollment(parentNav: self.navigationController!, animated: true)
+    }
+    
+    @IBAction func clickStartTransaction(_ sender: Any) {
+        self.cotter?.startTransaction(parentNav: self.navigationController!, animated: true)
     }
 }
 

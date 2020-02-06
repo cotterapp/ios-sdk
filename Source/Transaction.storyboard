@@ -7,82 +7,84 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Aktivasi PIN-->
-        <scene sceneID="sjM-w4-zVK">
+        <!--TransactionPIN View Controller-->
+        <scene sceneID="uVv-aF-H1X">
             <objects>
-                <viewController storyboardIdentifier="PINViewController" id="Crr-5S-Wmo" customClass="PINViewController" customModule="CotterIOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Lug-4l-kf0">
+                <viewController storyboardIdentifier="TransactionPINViewController" id="XD6-bF-oRs" customClass="TransactionPINViewController" customModule="CotterIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VH2-NC-nA8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mV7-dh-dgf" customClass="OneTimeCodeTextField" customModule="CotterIOS" customModuleProvider="target">
-                                <rect key="frame" x="69.5" y="221" width="275" height="54"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jcW-nu-fzI">
+                                <rect key="frame" x="171.5" y="301.5" width="71" height="33"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                <state key="normal" title="Lihat PIN">
+                                    <color key="titleColor" red="0.0" green="0.38611156089999998" blue="0.053541536309999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onClickPinVis:" destination="XD6-bF-oRs" eventType="touchUpInside" id="fxS-WS-fLa"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PIN terlalu mudah. Yuk buat PIN baru dengan kombinasi lebih sulit" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EgU-4J-7lY" userLabel="ErrorMsg">
+                                <rect key="frame" x="20" y="354.5" width="374" height="33.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <color key="textColor" red="0.6582739637305699" green="0.22023195819386163" blue="0.17240512624422905" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WRO-er-uRg" userLabel="Code Text Field" customClass="OneTimeCodeTextField" customModule="CotterIOS" customModuleProvider="target">
+                                <rect key="frame" x="20" y="221.5" width="374" height="60"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="275" id="ZQf-5N-SyR"/>
-                                    <constraint firstAttribute="height" constant="54" id="oGP-xy-6Uo"/>
+                                    <constraint firstAttribute="height" constant="60" id="vy8-96-aYR"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Masukin PIN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="22f-pf-s8U">
-                                <rect key="frame" x="147.5" y="174.5" width="119" height="26.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Masukin PIN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rWV-zf-JbE">
+                                <rect key="frame" x="157" y="160.5" width="100" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JrO-s0-TyC">
-                                <rect key="frame" x="170.5" y="295" width="73" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="Lihat PIN">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="onClickPinVis:" destination="Crr-5S-Wmo" eventType="touchUpInside" id="eAK-WC-Ff7"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PIN terlalu mudah. Yuk buat PIN baru dengan kombinasi lebih sulit" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nR9-vB-Y9q">
-                                <rect key="frame" x="25" y="337" width="364" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="NgZ-v7-ARe"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pHO-Fx-uFk" customClass="KeyboardView" customModule="CotterIOS" customModuleProvider="target">
-                                <rect key="frame" x="20" y="395" width="374" height="467"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O4J-TQ-rey" customClass="KeyboardView" customModule="CotterIOS" customModuleProvider="target">
+                                <rect key="frame" x="20" y="512" width="374" height="350"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="350" id="Y4k-p3-Udw"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="pHO-Fx-uFk" firstAttribute="centerX" secondItem="nR9-vB-Y9q" secondAttribute="centerX" id="2BA-lW-QMU"/>
-                            <constraint firstItem="mV7-dh-dgf" firstAttribute="top" secondItem="22f-pf-s8U" secondAttribute="bottom" constant="20" id="8cA-vm-Cc1"/>
-                            <constraint firstItem="nR9-vB-Y9q" firstAttribute="leading" secondItem="w7O-vK-vDD" secondAttribute="leading" constant="25" id="Ifw-Yq-DWm"/>
-                            <constraint firstItem="pHO-Fx-uFk" firstAttribute="leading" secondItem="Lug-4l-kf0" secondAttribute="leadingMargin" id="MNO-MI-gUG"/>
-                            <constraint firstItem="JrO-s0-TyC" firstAttribute="centerX" secondItem="Lug-4l-kf0" secondAttribute="centerX" id="QiK-dU-ifO"/>
-                            <constraint firstItem="nR9-vB-Y9q" firstAttribute="centerX" secondItem="JrO-s0-TyC" secondAttribute="centerX" id="Rbl-4l-GyD"/>
-                            <constraint firstItem="nR9-vB-Y9q" firstAttribute="top" secondItem="JrO-s0-TyC" secondAttribute="bottom" constant="8" id="VkQ-fU-lJZ"/>
-                            <constraint firstItem="pHO-Fx-uFk" firstAttribute="top" secondItem="nR9-vB-Y9q" secondAttribute="bottom" constant="8" id="bL9-go-3QN"/>
-                            <constraint firstItem="pHO-Fx-uFk" firstAttribute="bottom" secondItem="w7O-vK-vDD" secondAttribute="bottom" id="ci4-C5-vwC"/>
-                            <constraint firstItem="mV7-dh-dgf" firstAttribute="centerX" secondItem="Lug-4l-kf0" secondAttribute="centerX" id="hme-4F-lVt"/>
-                            <constraint firstItem="mV7-dh-dgf" firstAttribute="centerY" secondItem="Lug-4l-kf0" secondAttribute="centerY" constant="-200" id="jaB-tQ-ECJ"/>
-                            <constraint firstItem="22f-pf-s8U" firstAttribute="centerX" secondItem="Lug-4l-kf0" secondAttribute="centerX" id="tnf-Mw-15w"/>
-                            <constraint firstItem="JrO-s0-TyC" firstAttribute="top" secondItem="mV7-dh-dgf" secondAttribute="bottom" constant="20" id="us0-j2-JKo"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="EgU-4J-7lY" secondAttribute="trailing" id="3oQ-bl-UWV"/>
+                            <constraint firstItem="O4J-TQ-rey" firstAttribute="leading" secondItem="cc2-fq-F3x" secondAttribute="leading" constant="20" id="5Sw-Xk-sCw"/>
+                            <constraint firstItem="cc2-fq-F3x" firstAttribute="trailing" secondItem="O4J-TQ-rey" secondAttribute="trailing" constant="20" id="6F6-5k-tCw"/>
+                            <constraint firstItem="WRO-er-uRg" firstAttribute="leading" secondItem="VH2-NC-nA8" secondAttribute="leadingMargin" id="CUU-PV-WXY"/>
+                            <constraint firstItem="WRO-er-uRg" firstAttribute="centerX" secondItem="VH2-NC-nA8" secondAttribute="centerX" id="Ntt-UV-C2S"/>
+                            <constraint firstItem="EgU-4J-7lY" firstAttribute="top" secondItem="jcW-nu-fzI" secondAttribute="bottom" constant="20" id="UTR-zX-pYc"/>
+                            <constraint firstItem="WRO-er-uRg" firstAttribute="trailing" secondItem="VH2-NC-nA8" secondAttribute="trailingMargin" id="Znb-j8-PXe"/>
+                            <constraint firstItem="jcW-nu-fzI" firstAttribute="top" secondItem="rWV-zf-JbE" secondAttribute="bottom" constant="120" id="bAG-lK-kyv"/>
+                            <constraint firstItem="O4J-TQ-rey" firstAttribute="bottom" secondItem="cc2-fq-F3x" secondAttribute="bottom" id="bET-XH-JTz"/>
+                            <constraint firstItem="O4J-TQ-rey" firstAttribute="centerX" secondItem="VH2-NC-nA8" secondAttribute="centerX" id="bsA-h3-Jye"/>
+                            <constraint firstItem="EgU-4J-7lY" firstAttribute="leading" secondItem="VH2-NC-nA8" secondAttribute="leadingMargin" id="dj6-H1-k0x"/>
+                            <constraint firstItem="jcW-nu-fzI" firstAttribute="top" secondItem="WRO-er-uRg" secondAttribute="bottom" constant="20" id="ey5-eU-4zl"/>
+                            <constraint firstItem="EgU-4J-7lY" firstAttribute="centerX" secondItem="VH2-NC-nA8" secondAttribute="centerX" id="j3A-4Y-xoY"/>
+                            <constraint firstItem="jcW-nu-fzI" firstAttribute="centerY" secondItem="VH2-NC-nA8" secondAttribute="centerY" constant="-130" id="m79-St-RRE"/>
+                            <constraint firstItem="rWV-zf-JbE" firstAttribute="centerX" secondItem="VH2-NC-nA8" secondAttribute="centerX" id="r97-oQ-HfQ"/>
+                            <constraint firstItem="jcW-nu-fzI" firstAttribute="centerX" secondItem="VH2-NC-nA8" secondAttribute="centerX" id="rhQ-9B-ARn"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="w7O-vK-vDD"/>
+                        <viewLayoutGuide key="safeArea" id="cc2-fq-F3x"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Aktivasi PIN" id="E6r-ix-QJL"/>
+                    <navigationItem key="navigationItem" id="Lbu-jM-esQ"/>
                     <connections>
-                        <outlet property="codeTextField" destination="mV7-dh-dgf" id="YRn-5I-l4f"/>
-                        <outlet property="errorLabel" destination="nR9-vB-Y9q" id="GDU-Ei-IRf"/>
-                        <outlet property="keyboardView" destination="pHO-Fx-uFk" id="ZTH-pz-kvH"/>
-                        <outlet property="pinVisibilityButton" destination="JrO-s0-TyC" id="GIP-E4-Rkd"/>
+                        <outlet property="codeTextField" destination="WRO-er-uRg" id="KIX-If-10C"/>
+                        <outlet property="errorLabel" destination="EgU-4J-7lY" id="BpT-Xc-lRC"/>
+                        <outlet property="keyboardView" destination="O4J-TQ-rey" id="gMr-bN-AAc"/>
+                        <outlet property="pinVisibilityButton" destination="jcW-nu-fzI" id="VCi-FR-ogl"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yGs-Gr-ETo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3TD-OF-SvF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-110" y="151"/>
+            <point key="canvasLocation" x="-104" y="151"/>
         </scene>
         <!--Cotter View Controller-->
         <scene sceneID="Gum-yL-7vs">
@@ -93,7 +95,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="Crr-5S-Wmo" kind="relationship" relationship="rootViewController" id="4sk-FE-dpL"/>
+                        <segue destination="XD6-bF-oRs" kind="relationship" relationship="rootViewController" id="ipt-4W-2cC"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oLc-Id-X0L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

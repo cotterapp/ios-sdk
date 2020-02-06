@@ -96,7 +96,7 @@ public class CotterViewController: UIViewController {
     // Start of Transaction Process
     public func startTransaction(parentNav: UINavigationController, animated: Bool) {
         // Set the configuration for the page
-        self.pinVC.config = self.config
+        self.transactionPinVC.config = self.config
         
         // Push the viewController to the navController
         parentNav.pushViewController(self.transactionPinVC, animated: true)

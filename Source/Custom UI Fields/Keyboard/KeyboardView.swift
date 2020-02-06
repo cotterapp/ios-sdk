@@ -34,7 +34,7 @@ class KeyboardView: UIView {
         view.autoresizingMask = [.flexibleHeight, .flexibleWidth]
     }
     
-    @IBAction func buttonTapped(sender: UIButton) {
+    @IBAction func buttonTapped(_ sender: UIButton) {
         // Get the tag to find out the number inputted.
         // Will be any number from [1-9], or -1 which is backspace
         let buttonNumber = sender.tag
