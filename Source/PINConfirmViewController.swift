@@ -80,8 +80,7 @@ class PINConfirmViewController : UIViewController, KeyboardViewDelegate {
             
             // define the callbacks
             func successCb(resp:String) -> Void {
-                let finalVC = self.storyboard?.instantiateViewController(withIdentifier: "PINFinalViewController") as! PINFinalViewController
-                finalVC.config = self.config
+                let finalVC = self.storyboard?.instantiateViewController(withIdentifier: "PINFinalViewController")as! PINFinalViewController
                 self.navigationController?.pushViewController(finalVC, animated: true)
             }
             
@@ -92,7 +91,7 @@ class PINConfirmViewController : UIViewController, KeyboardViewDelegate {
             // Run API to enroll PIN
             CotterAPIService.shared.http(
                 method: "PUT",
-                path: "/api/v0/user/"+CotterAPIService.shared.getUserID()!,
+                path: "/api/v0/user/"+CotterAPIService.shared.userID!,
                 data: httpData,
                 succesCb: successCb,
                 errCb: errorCb

@@ -76,7 +76,6 @@ class PINViewController : UIViewController, KeyboardViewDelegate {
             // Go to PIN Confirmation page
             let confirmVC = self.storyboard?.instantiateViewController(withIdentifier: "PINConfirmViewController")as! PINConfirmViewController
             confirmVC.prevCode = code
-            confirmVC.config = self.config
             self.navigationController?.pushViewController(confirmVC, animated: true)
         }
     }

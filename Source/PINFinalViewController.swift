@@ -37,12 +37,13 @@ class PINFinalViewController: UIViewController {
     }
     
     @IBAction func finish(_ sender: Any) {
-        // Touch ID/Face ID Verification
-        if requireAuth {
-            authService.authenticate(view: self, reason: "Verifikasi", callback: self.config?.callbackFunc)
-        }
+        guard let onFinishCallback = Config.instance.callbackFunc else { return }
+      
         // set access token or return values here
-        self.config?.callbackFunc!("this is token")
+        // onFinishCallback("this is token")
+        
+        // Touch ID/Face ID Verification
+        authService.authenticate(view: self, reason: "Verifikasi", callback: onFinishCallback)
     }
     
     override func didReceiveMemoryWarning() {

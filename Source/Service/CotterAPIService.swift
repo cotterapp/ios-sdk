@@ -13,46 +13,13 @@ public class CotterAPIService {
     public static let shared = CotterAPIService()
     
     private let urlSession = URLSession.shared
-    private var baseURL: URL?
-    private var path: String?
-    private var apiSecretKey: String=""
-    private var apiKeyID: String=""
-    private var userID: String?
+    var baseURL: URL?
+    var path: String?
+    var apiSecretKey: String=""
+    var apiKeyID: String=""
+    var userID: String?
     
     private init(){}
-    
-    // getURL is getter for URL object in the APIService
-    public func getURL() -> URL? {
-        return self.baseURL
-    }
-    
-    // setURL sets the URL
-    public func setBaseURL(url: String) {
-        self.baseURL = URL(string: url)
-    }
-    
-    // setKeyPair to set the key pair of current APIService instance
-    public func setKeyPair(keyID: String, secretKey: String) {
-        self.apiSecretKey = secretKey
-        self.apiKeyID = keyID
-    }
-    
-    // getKeyID to get the key ID
-    public func getKeyID() -> String {
-        return self.apiKeyID
-    }
-    
-    public func getSecretKey() -> String {
-        return self.apiSecretKey
-    }
-    
-    public func setUserID(userID: String) {
-        self.userID = userID
-    }
-    
-    public func getUserID() -> String? {
-        return self.userID
-    }
     
     private let jsonDecoder: JSONDecoder = {
        let jsonDecoder = JSONDecoder()
@@ -66,7 +33,7 @@ public class CotterAPIService {
     // TODO: http requests functions should be here
     public func http(method:String, path:String, data: [String:Any]?, succesCb: @escaping (String) -> Void, errCb: @escaping (String) -> Void) {
         // set url path
-        let urlString = CotterAPIService.shared.getURL()!.absoluteString + path
+        let urlString = baseURL!.absoluteString + path
         let url = URL(string:urlString)!
         
         // create request
@@ -74,8 +41,8 @@ public class CotterAPIService {
         
         // fill the required request headers
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue(self.getSecretKey(), forHTTPHeaderField: "API_SECRET_KEY")
-        request.setValue(self.getKeyID(), forHTTPHeaderField: "API_KEY_ID")
+        request.setValue(apiSecretKey, forHTTPHeaderField: "API_SECRET_KEY")
+        request.setValue(apiKeyID, forHTTPHeaderField: "API_KEY_ID")
         request.httpMethod = method
         
         // fill in the body with json if exist

@@ -46,28 +46,37 @@ public class CotterViewController: UIViewController {
     
     public convenience init() {
         self.init(
-            defaultCallback,
-            "",
-            "",
-            "",
-            ""
+            successCb: defaultCallback,
+            apiSecretKey: "",
+            apiKeyID: "",
+            cotterURL: "",
+            userID: ""
         )
     }
     
-    public init(_ successCb: CallbackFunc?, _ apiSecretKey: String, _ apiKeyID: String, _ cotterURL: String, _ userID: String) {
-        self.config = Config()
-        self.config!.apiSecretKey = apiSecretKey
-        self.config!.cotterURL = cotterURL
-        self.config!.userID = userID
-        if successCb != nil {
-            self.config!.callbackFunc = successCb
-        } else {
-            self.config!.callbackFunc = defaultCallback
-        }
+    public convenience init(successCb: CallbackFunc?, apiSecretKey: String, apiKeyID: String, cotterURL: String, userID: String, configuration: [String: Any]) {
+        self.init(
+            successCb: successCb,
+            apiSecretKey: "",
+            apiKeyID: "",
+            cotterURL: "",
+            userID: ""
+        )
+
+        // Check if fields are present in configuration param
+        guard let language = configuration["language"] as! String? else { return }
+
+        // Assign fields
+        Config.instance.language = language
+    }
+    
+    public init(successCb: CallbackFunc?, apiSecretKey: String, apiKeyID: String, cotterURL: String, userID: String) {
+        Config.instance.callbackFunc = successCb ?? defaultCallback
         
-        CotterAPIService.shared.setBaseURL(url: cotterURL)
-        CotterAPIService.shared.setKeyPair(keyID: apiKeyID, secretKey: apiSecretKey)
-        CotterAPIService.shared.setUserID(userID: userID)
+        CotterAPIService.shared.baseURL = URL(string: cotterURL)
+        CotterAPIService.shared.apiSecretKey = apiSecretKey
+        CotterAPIService.shared.apiKeyID = apiKeyID
+        CotterAPIService.shared.userID = userID
         
         super.init(nibName:nil,bundle:nil)
     }
@@ -93,18 +102,12 @@ public class CotterViewController: UIViewController {
     
     // Start of Enrollment Process
     public func startEnrollment(parentNav: UINavigationController, animated: Bool) {
-        // Set the configuration for the page
-        self.pinVC.config = self.config
-        
         // push the viewcontroller to the navController
         parentNav.pushViewController(self.pinVC, animated: true)
     }
     
     // Start of Transaction Process
     public func startTransaction(parentNav: UINavigationController, animated: Bool) {
-        // Set the configuration for the page
-        self.transactionPinVC.config = self.config
-        
         // Push the viewController to the navController
         parentNav.pushViewController(self.transactionPinVC, animated: true)
     }
