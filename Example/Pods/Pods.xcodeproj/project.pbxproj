@@ -106,7 +106,7 @@
 		DF385A003E341B9D7DB3D95786CD0EFB /* Pods-CotterIOS_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CotterIOS_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		E61205360A171FA590FDD5F00DE80816 /* Pods-CotterIOS_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CotterIOS_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		E7A8321A666E6CCA738BAF8D3AF161A6 /* Pods-CotterIOS_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-CotterIOS_Tests-umbrella.h"; sourceTree = "<group>"; };
-		E8928C5D5CA5A74B57D739AFF6F8D1E9 /* CotterIOS.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = CotterIOS.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		E8928C5D5CA5A74B57D739AFF6F8D1E9 /* Cotter.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = Cotter.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		EF85547857B74F72A8C06F58CA6322B0 /* Pods-CotterIOS_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CotterIOS_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		F783AE63BA4A611375B26051F3ABB0BA /* CotterIOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CotterIOS-umbrella.h"; sourceTree = "<group>"; };
 		F96CD1BD0F1462CD17B26515AC55CEA8 /* Pods_CotterIOS_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CotterIOS_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -297,7 +297,7 @@
 		AD058F3EDCDB84740BE47B50BEC1D3D3 /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				E8928C5D5CA5A74B57D739AFF6F8D1E9 /* CotterIOS.podspec */,
+				E8928C5D5CA5A74B57D739AFF6F8D1E9 /* Cotter.podspec */,
 				970587570258C21D384A602A56B06399 /* LICENSE */,
 				DDE8F4A43CD2FDE62395626E9CB762F3 /* README.md */,
 			);

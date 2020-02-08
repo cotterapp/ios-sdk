@@ -1,4 +1,4 @@
-# CotterIOS
+# Cotter
 
 [![CI Status](https://img.shields.io/travis/albertputrapurnama/CotterIOS.svg?style=flat)](https://travis-ci.org/albertputrapurnama/CotterIOS)
 [![Version](https://img.shields.io/cocoapods/v/CotterIOS.svg?style=flat)](https://cocoapods.org/pods/CotterIOS)
@@ -9,15 +9,26 @@
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
+### Developer Notes
+
+Add Env.swift file to your `Example` folder for development. Containing the following code
+
+```
+import Foundation
+
+let apiSecretKey = <your-api-secret-key>
+let apiKeyID = <your-api-key-id>
+```
+
 ## Requirements
 
 ## Installation
 
-CotterIOS is available through [CocoaPods](https://cocoapods.org). To install
+Cotter is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'CotterIOS'
+pod 'Cotter'
 ```
 
 ## Author

@@ -15,6 +15,7 @@
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		6189ECC077D8385CD6C43379 /* Pods_CotterIOS_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80C82AC19EF57821105E0CBD /* Pods_CotterIOS_Example.framework */; };
 		85292E4223EC21CB008363AB /* CryptoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85292E4123EC21CB008363AB /* CryptoViewController.swift */; };
+		8573032C23EF064D00D072F7 /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8573032B23EF064D00D072F7 /* Env.swift */; };
 		85B5A91B23E6ECFF0040E288 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B5A91A23E6ECFF0040E288 /* DashboardViewController.swift */; };
 		85B5A91F23E6EDD20040E288 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85B5A91E23E6EDD20040E288 /* Dashboard.storyboard */; };
 		8707FED899D3E4BC082581A4 /* Pods_CotterIOS_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 870B43D896A0FAFDB02441B8 /* Pods_CotterIOS_Tests.framework */; };
@@ -48,10 +49,11 @@
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		80C82AC19EF57821105E0CBD /* Pods_CotterIOS_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CotterIOS_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		85292E4123EC21CB008363AB /* CryptoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoViewController.swift; sourceTree = "<group>"; };
+		8573032B23EF064D00D072F7 /* Env.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Env.swift; sourceTree = "<group>"; };
 		85B5A91A23E6ECFF0040E288 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		85B5A91E23E6EDD20040E288 /* Dashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
 		870B43D896A0FAFDB02441B8 /* Pods_CotterIOS_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CotterIOS_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8CC6D1264632DE725D859A81 /* CotterIOS.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = CotterIOS.podspec; path = ../CotterIOS.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		8CC6D1264632DE725D859A81 /* Cotter.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Cotter.podspec; path = ../Cotter.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		C52C5E020BA4BA131A4CFC0E /* Pods-CotterIOS_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CotterIOS_Tests.debug.xcconfig"; path = "Target Support Files/Pods-CotterIOS_Tests/Pods-CotterIOS_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -111,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
+				8573032B23EF064D00D072F7 /* Env.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				85B5A91A23E6ECFF0040E288 /* DashboardViewController.swift */,
@@ -152,7 +155,7 @@
 		607FACF51AFB993E008FA782 /* Podspec Metadata */ = {
 			isa = PBXGroup;
 			children = (
-				8CC6D1264632DE725D859A81 /* CotterIOS.podspec */,
+				8CC6D1264632DE725D859A81 /* Cotter.podspec */,
 				5399EA6838FD6AE02FA3621E /* README.md */,
 				313B612EA18879D7AE976D22 /* LICENSE */,
 			);
@@ -343,6 +346,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8573032C23EF064D00D072F7 /* Env.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				85292E4223EC21CB008363AB /* CryptoViewController.swift in Sources */,
 				85B5A91B23E6ECFF0040E288 /* DashboardViewController.swift in Sources */,

@@ -8,6 +8,7 @@
 
 import UIKit
 import CotterIOS
+import Foundation
 
 class ViewController: UIViewController {
     // Enrollment Path
@@ -15,13 +16,10 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // set the URL path
         let baseURL = "https://cotter.app"
         let urlString = "https://www.cotter.app/api/v0/user/create"
         let clientUserID = randomString(length: 5)
-        let apiSecretKey = "K3yoIkKY2FpiLX7YWEff"
-        let apiKeyID = "26260f9e-3db1-4bef-b3fd-d0310eff1c7f"
 
         let url = URL(string: urlString)!
         
