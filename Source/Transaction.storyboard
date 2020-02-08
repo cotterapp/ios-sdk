@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--TransactionPIN View Controller-->
+        <!--Verifikasi-->
         <scene sceneID="uVv-aF-H1X">
             <objects>
                 <viewController storyboardIdentifier="TransactionPINViewController" id="XD6-bF-oRs" customClass="TransactionPINViewController" customModule="CotterIOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -25,7 +25,7 @@
                                     <action selector="onClickPinVis:" destination="XD6-bF-oRs" eventType="touchUpInside" id="fxS-WS-fLa"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PIN terlalu mudah. Yuk buat PIN baru dengan kombinasi lebih sulit" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EgU-4J-7lY" userLabel="ErrorMsg">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PIN buat verifikasi salah. Coba lagi." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EgU-4J-7lY" userLabel="ErrorMsg">
                                 <rect key="frame" x="57" y="352.5" width="300" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="FbV-Tw-BvO"/>
@@ -36,9 +36,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WRO-er-uRg" userLabel="Code Text Field" customClass="OneTimeCodeTextField" customModule="CotterIOS" customModuleProvider="target">
-                                <rect key="frame" x="107" y="248.5" width="200" height="35"/>
+                                <rect key="frame" x="82" y="248.5" width="250" height="35"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="ofY-9k-TWX"/>
+                                    <constraint firstAttribute="width" constant="250" id="iWK-IP-I5f"/>
                                     <constraint firstAttribute="height" constant="35" id="vy8-96-aYR"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -75,7 +75,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cc2-fq-F3x"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Lbu-jM-esQ"/>
+                    <navigationItem key="navigationItem" title="Verifikasi" id="Lbu-jM-esQ"/>
                     <connections>
                         <outlet property="codeTextField" destination="WRO-er-uRg" id="KIX-If-10C"/>
                         <outlet property="errorLabel" destination="EgU-4J-7lY" id="BpT-Xc-lRC"/>

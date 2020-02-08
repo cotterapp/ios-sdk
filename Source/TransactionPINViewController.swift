@@ -42,7 +42,7 @@ class TransactionPINViewController: UIViewController, KeyboardViewDelegate, PINB
         addDelegates()
         instantiateCodeTextFieldFunctions()
         
-        // TODO: Show Alert for Biometrics
+        // Show Alert for Biometric Authentication
         authService.authenticate(view: self, reason: "Verifikasi", callback: self.config?.callbackFunc)
     }
     
@@ -55,7 +55,31 @@ class TransactionPINViewController: UIViewController, KeyboardViewDelegate, PINB
         }
         
         codeTextField.didEnterLastDigit = { code in
-            // verify through API
+            print("PIN Code Entered: ", code)
+            
+            // If code has repeating digits, show error.
+            let pattern = "\\b(\\d)\\1+\\b"
+            let result = code.range(of: pattern, options: .regularExpression)
+            if result != nil {
+                self.toggleErrorMsg()
+                return
+            }
+            
+            // If code is straight number e.g. 123456, show error.
+            if code == "123456" || code == "654321" {
+                self.toggleErrorMsg()
+                return
+            }
+            
+            // Clear the text before continue
+            self.codeTextField.clear()
+            
+            // TODO: Verify through API. If successful, execute calback
+            let success = true
+            
+            if success {
+                self.config?.callbackFunc!("This is Token!")
+            }
         }
     }
     
@@ -111,16 +135,8 @@ class TransactionPINViewController: UIViewController, KeyboardViewDelegate, PINB
     }
     
     @objc private func promptClose(sender: UIBarButtonItem) {
-        let cancelHandler = {
-            // Go back to previous screen
-            self.navigationController?.popViewController(animated: true)
-            return
-        }
-        
-        // Perform Prompt Alert
-        let alertVC = alertService.createDefaultAlert(title: closeTitle, body: closeMessage, actionText: stayText, cancelText: leaveText, cancelHandler: cancelHandler)
-        
-        present(alertVC, animated: true)
+        // Go back to previous screen
+        self.navigationController?.popViewController(animated: true)
     }
     
     public override func didReceiveMemoryWarning() {
