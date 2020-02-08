@@ -1,5 +1,5 @@
 //
-//  Extensions.swift
+//  CotterAPIExtensions.swift
 //  CotterIOS
 //
 //  Created by Raymond Andrie on 2/3/20.

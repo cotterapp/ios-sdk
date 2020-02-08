@@ -10,28 +10,27 @@ import Foundation
 class AlertViewController : UIViewController {
     
     private var myTitle = String()
-    
+
     private var myBody = String()
-    
+
     private var actionButtonTitle = String()
-    
+
     private var cancelButtonTitle = String()
-    
+
     private var cancelButtonHandler: (() -> Void)?
-    
+
     private var actionButtonHandler: (() -> Void)?
-    
+
     @IBOutlet weak var alertView: UIView!
-    
+
     @IBOutlet weak var alertTitle: UILabel!
-    
-    @IBOutlet weak var alertImage: UIImageView!
     
     @IBOutlet weak var alertBody: UILabel!
     
     @IBOutlet weak var actionButton: UIButton!
     
     @IBOutlet weak var cancelButton: UIButton!
+    
     
     public func initialize(
         title: String,
@@ -58,6 +57,8 @@ class AlertViewController : UIViewController {
     func setupView() {
         alertTitle.text = myTitle
         alertBody.text = myBody
+        alertBody.numberOfLines = 0
+        alertBody.sizeToFit()
         actionButton.setTitle(actionButtonTitle, for: .normal)
         cancelButton.setTitle(cancelButtonTitle, for: .normal)
         

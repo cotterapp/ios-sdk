@@ -5,15 +5,21 @@
 //  Created by Albert Purnama on 2/3/20.
 //
 
+import LocalAuthentication
 import Foundation
 
 class PINFinalViewController: UIViewController {
     public var config: Config?
     
-    @IBAction func finish(_ sender: Any) {
-        // set access token or return values here
-        self.config?.callbackFunc!("this is token")
-    }
+    // Alert Service
+    let alertService = AlertService()
+    let closeTitle = "Verifikasi"
+    let closeMessage = "Sentuh sensor sidik jari untuk melanjutkan"
+    let stayText = "Input PIN"
+    let leaveText = "Batalkan"
+    
+    // Auth Service
+    let authService = LocalAuthService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +30,14 @@ class PINFinalViewController: UIViewController {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.layoutIfNeeded()
+    }
+    
+    @IBAction func finish(_ sender: Any) {
+//        // set access token or return values here
+//        self.config?.callbackFunc!("this is token")
+        
+        // Touch ID/Face ID Verification
+        authService.authenticate(view: self, reason: "Verifikasi", callback: self.config?.callbackFunc)
     }
     
     override func didReceiveMemoryWarning() {

@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class PINViewController : UIViewController, KeyboardViewDelegate {
-    // pass config here by PINViewController.config = Config()
+    // Pass config here by PINViewController.config = Config()
     var config: Config?
     
     // Alert Service
@@ -137,37 +137,18 @@ class PINViewController : UIViewController, KeyboardViewDelegate {
     }
     
     @objc private func promptClose(sender: UIBarButtonItem) {
-        // Perform Prompt Alert
-//        createAlert(title: closeTitle, message: closeMessage, stayText: stayText, leaveText: leaveText)
         let cancelHandler = {
             // Go back to previous screen
             self.navigationController?.popViewController(animated: true)
             return
         }
         
-        let alertVC = alertService.alert(title: closeTitle, body: closeMessage, actionButtonTitle: stayText, cancelButtonTitle: leaveText, cancelHandler: cancelHandler)
+        // Perform Prompt Alert
+        let alertVC = alertService.createDefaultAlert(title: closeTitle, body: closeMessage, actionText: stayText, cancelText: leaveText, cancelHandler: cancelHandler)
         
         present(alertVC, animated: true)
     }
     
-    // Alert Function for when User clicks close Pin Verification View
-    public func createAlert(title: String, message: String, stayText: String, leaveText: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
-        
-        alert.addAction(UIAlertAction(title: leaveText, style: UIAlertAction.Style.default, handler: { (action) in
-            alert.dismiss(animated: true, completion: {
-                // Go back to previous screen
-                self.navigationController?.popViewController(animated: true)
-            })
-        }))
-        
-        alert.addAction(UIAlertAction(title: stayText, style: UIAlertAction.Style.default, handler: { (action) in
-            alert.dismiss(animated: true, completion: nil)
-        }))
-        
-        self.present(alert, animated: true, completion: nil)
-    }
-
     public override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

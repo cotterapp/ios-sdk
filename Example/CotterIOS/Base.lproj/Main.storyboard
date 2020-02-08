@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="LXs-oP-w5Y">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -15,21 +16,39 @@
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XcD-u1-ZcS">
-                                <rect key="frame" x="118" y="296.5" width="139" height="30"/>
+                                <rect key="frame" x="118" y="347" width="139" height="30"/>
                                 <state key="normal" title="Start PIN Enrollment"/>
                                 <connections>
                                     <action selector="clickCotter:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="gYu-5u-4Xg"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cJz-AF-KNf">
+                                <rect key="frame" x="114.66666666666669" y="397" width="146" height="30"/>
+                                <state key="normal" title="Start PIN Transaction"/>
+                                <connections>
+                                    <action selector="clickStartTransaction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="9pP-S0-Fge"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nvg-fr-Lvu">
+                                <rect key="frame" x="123" y="297" width="129" height="30"/>
+                                <state key="normal" title="Cryptographic test"/>
+                                <connections>
+                                    <segue destination="Nwm-5x-Spd" kind="show" id="sgh-6M-vyI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="nvg-fr-Lvu" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="M7P-UE-XdM"/>
+                            <constraint firstItem="XcD-u1-ZcS" firstAttribute="top" secondItem="nvg-fr-Lvu" secondAttribute="bottom" constant="20" id="Nhk-uZ-heg"/>
+                            <constraint firstItem="cJz-AF-KNf" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="Oxd-1w-oNP"/>
                             <constraint firstItem="XcD-u1-ZcS" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="kfe-qm-w0v"/>
                             <constraint firstItem="XcD-u1-ZcS" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="pjb-ef-m5h"/>
+                            <constraint firstItem="cJz-AF-KNf" firstAttribute="top" secondItem="XcD-u1-ZcS" secondAttribute="bottom" constant="20" id="yjE-Fj-sci"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="5qM-FL-BNc"/>
@@ -43,8 +62,9 @@
             <objects>
                 <navigationController id="LXs-oP-w5Y" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="IEY-Ij-qSn">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <connections>
                         <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="rJZ-9L-Yyo"/>
@@ -53,6 +73,59 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cDo-h2-0b6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-673" y="41"/>
+        </scene>
+        <!--Cryptography-->
+        <scene sceneID="CRP-Kn-YkM">
+            <objects>
+                <viewController storyboardIdentifier="CryptoViewController" id="Nwm-5x-Spd" customClass="CryptoViewController" customModule="CotterIOS_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fYH-Xz-830">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LW5-KK-tig">
+                                <rect key="frame" x="126" y="620" width="123" height="30"/>
+                                <state key="normal" title="Generate Key Pair"/>
+                                <connections>
+                                    <action selector="generateKeyPair:" destination="Nwm-5x-Spd" eventType="touchUpInside" id="KMu-Yi-MNs"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="blc-Ac-bOi">
+                                <rect key="frame" x="37.666666666666657" y="400" width="300" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="UVE-O5-6w0"/>
+                                    <constraint firstAttribute="height" constant="200" id="ubk-t2-uDd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8b9-nh-x7X">
+                                <rect key="frame" x="151" y="320" width="73" height="30"/>
+                                <state key="normal" title="Clear Keys"/>
+                                <connections>
+                                    <action selector="clearKeys:" destination="Nwm-5x-Spd" eventType="touchUpInside" id="qUn-7y-JI4"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="blc-Ac-bOi" firstAttribute="centerX" secondItem="fYH-Xz-830" secondAttribute="centerX" id="IdA-hE-8ec"/>
+                            <constraint firstItem="LW5-KK-tig" firstAttribute="centerX" secondItem="fYH-Xz-830" secondAttribute="centerX" id="P3g-ok-WTG"/>
+                            <constraint firstItem="LW5-KK-tig" firstAttribute="top" secondItem="blc-Ac-bOi" secondAttribute="bottom" constant="20" id="YfW-7L-DaA"/>
+                            <constraint firstItem="blc-Ac-bOi" firstAttribute="top" secondItem="8b9-nh-x7X" secondAttribute="bottom" constant="50" id="ZuE-Rk-zGy"/>
+                            <constraint firstItem="8b9-nh-x7X" firstAttribute="centerX" secondItem="fYH-Xz-830" secondAttribute="centerX" id="nwx-0J-DXQ"/>
+                            <constraint firstItem="Uef-de-Ynd" firstAttribute="bottom" secondItem="LW5-KK-tig" secondAttribute="bottom" constant="40" id="sAD-an-PGw"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Uef-de-Ynd"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Cryptography" id="lSM-cI-LzD"/>
+                    <connections>
+                        <outlet property="privateKeyLabel" destination="blc-Ac-bOi" id="FbO-PI-Rxs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2cj-vp-xEf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="881" y="41"/>
         </scene>
     </scenes>
 </document>

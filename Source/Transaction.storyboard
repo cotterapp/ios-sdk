@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="121-lC-Vhv">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Verifikasi-->
+        <scene sceneID="uVv-aF-H1X">
+            <objects>
+                <viewController storyboardIdentifier="TransactionPINViewController" id="XD6-bF-oRs" customClass="TransactionPINViewController" customModule="CotterIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VH2-NC-nA8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jcW-nu-fzI">
+                                <rect key="frame" x="177" y="303.5" width="60" height="29"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                <state key="normal" title="Lihat PIN">
+                                    <color key="titleColor" red="0.0" green="0.38611156089999998" blue="0.053541536309999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onClickPinVis:" destination="XD6-bF-oRs" eventType="touchUpInside" id="fxS-WS-fLa"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PIN buat verifikasi salah. Coba lagi." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EgU-4J-7lY" userLabel="ErrorMsg">
+                                <rect key="frame" x="57" y="352.5" width="300" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="FbV-Tw-BvO"/>
+                                    <constraint firstAttribute="width" constant="300" id="NIk-No-FER"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <color key="textColor" red="0.6582739637305699" green="0.22023195819386163" blue="0.17240512624422905" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WRO-er-uRg" userLabel="Code Text Field" customClass="OneTimeCodeTextField" customModule="CotterIOS" customModuleProvider="target">
+                                <rect key="frame" x="82" y="248.5" width="250" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="iWK-IP-I5f"/>
+                                    <constraint firstAttribute="height" constant="35" id="vy8-96-aYR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Masukin PIN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rWV-zf-JbE">
+                                <rect key="frame" x="160" y="214" width="94" height="19.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O4J-TQ-rey" customClass="KeyboardView" customModule="CotterIOS" customModuleProvider="target">
+                                <rect key="frame" x="20" y="512" width="374" height="350"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="350" id="Y4k-p3-Udw"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="WRO-er-uRg" firstAttribute="centerX" secondItem="VH2-NC-nA8" secondAttribute="centerX" id="4vG-Kl-HwO"/>
+                            <constraint firstItem="O4J-TQ-rey" firstAttribute="leading" secondItem="cc2-fq-F3x" secondAttribute="leading" constant="20" id="5Sw-Xk-sCw"/>
+                            <constraint firstItem="cc2-fq-F3x" firstAttribute="trailing" secondItem="O4J-TQ-rey" secondAttribute="trailing" constant="20" id="6F6-5k-tCw"/>
+                            <constraint firstItem="EgU-4J-7lY" firstAttribute="top" secondItem="jcW-nu-fzI" secondAttribute="bottom" constant="20" id="UTR-zX-pYc"/>
+                            <constraint firstItem="jcW-nu-fzI" firstAttribute="top" secondItem="rWV-zf-JbE" secondAttribute="bottom" constant="70" id="bAG-lK-kyv"/>
+                            <constraint firstItem="O4J-TQ-rey" firstAttribute="bottom" secondItem="cc2-fq-F3x" secondAttribute="bottom" id="bET-XH-JTz"/>
+                            <constraint firstItem="O4J-TQ-rey" firstAttribute="centerX" secondItem="VH2-NC-nA8" secondAttribute="centerX" id="bsA-h3-Jye"/>
+                            <constraint firstItem="jcW-nu-fzI" firstAttribute="top" secondItem="WRO-er-uRg" secondAttribute="bottom" constant="20" id="ey5-eU-4zl"/>
+                            <constraint firstItem="EgU-4J-7lY" firstAttribute="centerX" secondItem="VH2-NC-nA8" secondAttribute="centerX" id="j3A-4Y-xoY"/>
+                            <constraint firstItem="jcW-nu-fzI" firstAttribute="centerY" secondItem="VH2-NC-nA8" secondAttribute="centerY" constant="-130" id="m79-St-RRE"/>
+                            <constraint firstItem="rWV-zf-JbE" firstAttribute="centerX" secondItem="VH2-NC-nA8" secondAttribute="centerX" id="r97-oQ-HfQ"/>
+                            <constraint firstItem="jcW-nu-fzI" firstAttribute="centerX" secondItem="VH2-NC-nA8" secondAttribute="centerX" id="rhQ-9B-ARn"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="cc2-fq-F3x"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Verifikasi" id="Lbu-jM-esQ"/>
+                    <connections>
+                        <outlet property="codeTextField" destination="WRO-er-uRg" id="KIX-If-10C"/>
+                        <outlet property="errorLabel" destination="EgU-4J-7lY" id="BpT-Xc-lRC"/>
+                        <outlet property="keyboardView" destination="O4J-TQ-rey" id="gMr-bN-AAc"/>
+                        <outlet property="pinVisibilityButton" destination="jcW-nu-fzI" id="VCi-FR-ogl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3TD-OF-SvF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-104" y="151"/>
+        </scene>
+        <!--Cotter View Controller-->
+        <scene sceneID="Gum-yL-7vs">
+            <objects>
+                <navigationController id="121-lC-Vhv" customClass="CotterViewController" customModule="CotterIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9P1-Gj-Jlx">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="XD6-bF-oRs" kind="relationship" relationship="rootViewController" id="ipt-4W-2cC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oLc-Id-X0L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-920" y="151"/>
+        </scene>
+    </scenes>
+</document>
