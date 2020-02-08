@@ -1,7 +1,7 @@
 use_frameworks!
 
 target 'CotterIOS_Example' do
-  pod 'CotterIOS', :path => '../'
+  pod 'Cotter', :path => '../'
 
   target 'CotterIOS_Tests' do
     inherit! :search_paths

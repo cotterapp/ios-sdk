@@ -20,11 +20,11 @@ public class CotterViewController: UIViewController {
     
     // cotterStoryboard refers to Cotter.storyboard
     // bundleidentifier can be found when you click Pods general view.
-    static var cotterStoryboard = UIStoryboard(name:"Cotter", bundle:Bundle(identifier: "org.cocoapods.CotterIOS"))
+    static var cotterStoryboard = UIStoryboard(name:"Cotter", bundle:Bundle(identifier: "org.cocoapods.Cotter"))
     
     // transactionStoryboard refers to Transaction.storyboard
     // bundleidentifier can be found when you click Pods general view.
-    static var transactionStoryboard = UIStoryboard(name: "Transaction", bundle: Bundle(identifier: "org.cocoapods.CotterIOS"))
+    static var transactionStoryboard = UIStoryboard(name: "Transaction", bundle: Bundle(identifier: "org.cocoapods.Cotter"))
     
     // Enrollment Corresponding View
     private lazy var pinVC = CotterViewController.cotterStoryboard.instantiateViewController(withIdentifier: "PINViewController")as! PINViewController

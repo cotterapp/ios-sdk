@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double CotterIOSVersionNumber;
-FOUNDATION_EXPORT const unsigned char CotterIOSVersionString[];
+FOUNDATION_EXPORT double CotterVersionNumber;
+FOUNDATION_EXPORT const unsigned char CotterVersionString[];
 
