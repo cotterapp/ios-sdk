@@ -8,11 +8,25 @@
 import UIKit
 
 class TransactionPINViewController: UIViewController, KeyboardViewDelegate, PINBaseController {
-    // Pass config here by TransactionPINViewController.config = Config()
-    var config: Config?
+    // MARK: - Keys for Strings
+    static let showPin = "TransactionPINViewController/showPin"
+    static let hidePin = "TransactionPINViewController/hidePin"
+    static let closeTitle = "TransactionPINViewController/closeTitle"
+    static let closeMessage = "TransactionPINViewController/closeMessage"
+    static let stayOnView = "TransactionPINViewController/stayOnView"
+    static let leaveView = "TransactionPINViewController/leaveView"
     
     let alertService = AlertService()
     var authService = LocalAuthService()
+    
+    // Constants
+    let closeTitleText = CotterStrings.instance.getText(for: closeTitle)
+    let closeMessageText = CotterStrings.instance.getText(for: closeMessage)
+    let stayText = CotterStrings.instance.getText(for: stayOnView)
+    let leaveText = CotterStrings.instance.getText(for: leaveView)
+    
+    let showPinText = CotterStrings.instance.getText(for: showPin)
+    let hidePinText = CotterStrings.instance.getText(for: hidePin)
     
     @IBOutlet weak var pinVisibilityButton: UIButton!
     
@@ -119,8 +133,16 @@ class TransactionPINViewController: UIViewController, KeyboardViewDelegate, PINB
     }
     
     @objc private func promptClose(sender: UIBarButtonItem) {
-        // Go back to previous screen
-        self.navigationController?.popViewController(animated: true)
+        let cancelHandler = {
+            // Go back to previous screen
+            self.navigationController?.popViewController(animated: true)
+            return
+        }
+        
+        // Perform Prompt Alert
+        let alertVC = alertService.createDefaultAlert(title: closeTitleText, body: closeMessageText, actionText: stayText, cancelText: leaveText, cancelHandler: cancelHandler)
+        
+        present(alertVC, animated: true)
     }
     
     public override func didReceiveMemoryWarning() {

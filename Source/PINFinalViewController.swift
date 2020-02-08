@@ -9,17 +9,18 @@ import LocalAuthentication
 import Foundation
 
 class PINFinalViewController: UIViewController {
-    // Pass config here by PINFinalViewController.config = Config()
-    public var config: Config?
-    // Pass requireAuth here by PINFinalViewController.config = Config()
-    public var requireAuth = true
+    // MARK: - Keys for Strings
+    static let closeTitle = "PINFinalViewController/closeTitle"
+    static let closeMessage = "PINFinalViewController/closeMessage"
+    static let stayOnView = "PINFinalViewController/stayOnView"
+    static let leaveView = "PINFinalViewController/leaveView"
     
     // Alert Service
     let alertService = AlertService()
-    let closeTitle = "Verifikasi"
-    let closeMessage = "Sentuh sensor sidik jari untuk melanjutkan"
-    let stayText = "Input PIN"
-    let leaveText = "Batalkan"
+    let closeTitleText = CotterStrings.instance.getText(for: closeTitle)
+    let closeMessageText = CotterStrings.instance.getText(for: closeMessage)
+    let stayText = CotterStrings.instance.getText(for: stayOnView)
+    let leaveText = CotterStrings.instance.getText(for: leaveView)
     
     // Auth Service
     let authService = LocalAuthService()

@@ -9,21 +9,28 @@ import Foundation
 import UIKit
 
 class PINViewController : UIViewController, KeyboardViewDelegate {
-    // Pass config here by PINViewController.config = Config()
-    var config: Config?
+    // MARK: - Keys for Strings
+    static let showPin = "PINViewController/showPin"
+    static let hidePin = "PINViewController/hidePin"
+    static let closeTitle = "PINViewController/closeTitle"
+    static let closeMessage = "PINViewController/closeMessage"
+    static let stayOnView = "PINViewController/stayOnView"
+    static let leaveView = "PINViewController/leaveView"
     
     // Alert Service
     let alertService = AlertService()
-    let closeTitle = "Yakin tidak Mau Buat PIN Sekarang?"
-    let closeMessage = "PIN Ini diperlukan untuk keamanan akunmu, lho."
-    let stayText = "Input PIN"
-    let leaveText = "Lain Kali"
+    let closeTitleText = CotterStrings.instance.getText(for: closeTitle)
+    let closeMessageText = CotterStrings.instance.getText(for: closeMessage)
+    let stayText = CotterStrings.instance.getText(for: stayOnView)
+    let leaveText = CotterStrings.instance.getText(for: leaveView)
     
     // Code Text Field
     @IBOutlet weak var codeTextField: OneTimeCodeTextField!
     
     // PIN Visibility Toggle Button
     @IBOutlet weak var pinVisibilityButton: UIButton!
+    let showPinText = CotterStrings.instance.getText(for: showPin)
+    let hidePinText = CotterStrings.instance.getText(for: hidePin)
     
     // Error Label
     @IBOutlet weak var errorLabel: UILabel!
@@ -136,7 +143,7 @@ class PINViewController : UIViewController, KeyboardViewDelegate {
         }
         
         // Perform Prompt Alert
-        let alertVC = alertService.createDefaultAlert(title: closeTitle, body: closeMessage, actionText: stayText, cancelText: leaveText, cancelHandler: cancelHandler)
+        let alertVC = alertService.createDefaultAlert(title: closeTitleText, body: closeMessageText, actionText: stayText, cancelText: leaveText, cancelHandler: cancelHandler)
         
         present(alertVC, animated: true)
     }

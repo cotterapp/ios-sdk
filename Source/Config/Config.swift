@@ -12,11 +12,23 @@ public typealias CallbackFunc = (String) -> Void
 
 // Config class will be passed around in the Cotter SDK
 class Config: NSObject {
+    static let instance = Config()
+  
     var parentNav: UINavigationController?
     var callbackView: UIViewController?
-    var apiKeyID: String?
-    var apiSecretKey: String?
-    var userID: String?
-    var cotterURL: String?
     var callbackFunc: CallbackFunc?
+  
+    var language: String? = "Indonesian"
+    var languageObject: LanguageObject {
+        switch Config.instance.language {
+            case "Indonesian":
+                return Indonesian()
+            case "English":
+                return English()
+            default:
+                return Indonesian()
+        }
+    }
+  
+    private override init() {}
 }
