@@ -9,7 +9,10 @@ import LocalAuthentication
 import Foundation
 
 class PINFinalViewController: UIViewController {
+    // Pass config here by PINFinalViewController.config = Config()
     public var config: Config?
+    // Pass requireAuth here by PINFinalViewController.config = Config()
+    public var requireAuth = true
     
     // Alert Service
     let alertService = AlertService()
@@ -33,11 +36,12 @@ class PINFinalViewController: UIViewController {
     }
     
     @IBAction func finish(_ sender: Any) {
-//        // set access token or return values here
-//        self.config?.callbackFunc!("this is token")
-        
         // Touch ID/Face ID Verification
-        authService.authenticate(view: self, reason: "Verifikasi", callback: self.config?.callbackFunc)
+        if requireAuth {
+            authService.authenticate(view: self, reason: "Verifikasi", callback: self.config?.callbackFunc)
+        }
+        // set access token or return values here
+        self.config?.callbackFunc!("this is token")
     }
     
     override func didReceiveMemoryWarning() {

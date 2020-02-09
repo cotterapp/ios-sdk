@@ -20,6 +20,11 @@ class ViewController: UIViewController {
         let baseURL = "https://cotter.app"
         let urlString = "https://www.cotter.app/api/v0/user/create"
         let clientUserID = randomString(length: 5)
+        
+        // Comment out
+        let apiSecretKey = "K3yoIkKY2FpiLX7YWEff"
+        let apiKeyID = "26260f9e-3db1-4bef-b3fd-d0310eff1c7f"
+
 
         let url = URL(string: urlString)!
         
@@ -88,6 +93,10 @@ class ViewController: UIViewController {
     
     @IBAction func clickStartTransaction(_ sender: Any) {
         self.cotter?.startTransaction(parentNav: self.navigationController!, animated: true)
+    }
+    
+    @IBAction func clickUpdateProfile(_ sender: Any) {
+        self.cotter?.startUpdateProfile(parentNav: self.navigationController!, animated: true)
     }
 }
 
