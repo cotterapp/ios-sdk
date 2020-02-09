@@ -10,5 +10,5 @@ import Foundation
 public class PinErrorMessages {
     static let wrongPINConfirm = "Kamu perlu memasukkan PIN yang sama seperti sebelumnya"
     static let badPIN = "PIN terlalu mudah. Yuk buat PIN baru dengan kombinasi lebih sulit."
-    static let wrongPIN = "PIN buat verifikasi salah. Coba lagi."
+    static let incorrectPIN = "PIN buat verifikasi salah. Coba lagi."
 }

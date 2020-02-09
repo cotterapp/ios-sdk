@@ -49,18 +49,19 @@ class UpdatePINViewController: UIViewController, KeyboardViewDelegate, PINBaseCo
                 return
             }
             
-            // Clear the text before continue
-            self.codeTextField.clear()
-            
             // TODO: Verify through API. If successful, move on to creating new PIN Controller. Else, show error msg
             let success = true
             
             if success {
+                self.codeTextField.clear()
                 // Go to Create new PIN View
                 let updateCreatePINVC = self.storyboard?.instantiateViewController(withIdentifier: "UpdateCreateNewPINViewController")as! UpdateCreateNewPINViewController
                 updateCreatePINVC.oldCode = code
                 updateCreatePINVC.config = self.config
                 self.navigationController?.pushViewController(updateCreatePINVC, animated: true)
+            } else {
+                // TODO: Show Error
+//                self.toggleErrorMsg(msg: PinErrorMessages.incorrectPIN)
             }
         }
     }
@@ -89,11 +90,6 @@ class UpdatePINViewController: UIViewController, KeyboardViewDelegate, PINBaseCo
         } else {
             codeTextField.appendNumber(buttonNumber: buttonNumber)
         }
-    }
-    
-    func configurePinVisButton() {
-        // No initial Error Msg
-        pinVisibilityButton.setTitle("", for: .normal)
     }
     
     func configureErrorMsg() {

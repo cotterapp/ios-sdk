@@ -10,7 +10,7 @@
         <!--Verifikasi-->
         <scene sceneID="uVv-aF-H1X">
             <objects>
-                <viewController storyboardIdentifier="Transaction" id="XD6-bF-oRs" customClass="TransactionPINViewController" customModule="CotterIOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TransactionPINViewController" id="XD6-bF-oRs" customClass="TransactionPINViewController" customModule="CotterIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VH2-NC-nA8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -25,7 +25,7 @@
                                     <action selector="onClickPinVis:" destination="XD6-bF-oRs" eventType="touchUpInside" id="fxS-WS-fLa"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PIN buat verifikasi salah. Coba lagi." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EgU-4J-7lY" userLabel="ErrorMsg">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PIN Error" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EgU-4J-7lY" userLabel="ErrorMsg">
                                 <rect key="frame" x="57" y="352.5" width="300" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="FbV-Tw-BvO"/>

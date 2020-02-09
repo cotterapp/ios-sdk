@@ -57,6 +57,8 @@ class UpdateCreateNewPINViewController: UIViewController, KeyboardViewDelegate, 
                 return
             }
             
+            self.codeTextField.clear()
+            
             // Go to Confirm New Pin Page
             let updateConfirmPINVC = self.storyboard?.instantiateViewController(withIdentifier: "UpdateConfirmNewPINViewController")as! UpdateConfirmNewPINViewController
             updateConfirmPINVC.prevCode = code

@@ -14,12 +14,6 @@ class TransactionPINViewController: UIViewController, KeyboardViewDelegate, PINB
     let alertService = AlertService()
     var authService = LocalAuthService()
     
-    var showErrorMsg = false
-    
-    // Constants
-    let showPinText = "Lihat PIN"
-    let hidePinText = "Sembunyikan"
-    
     @IBOutlet weak var pinVisibilityButton: UIButton!
     
     @IBOutlet weak var errorLabel: UILabel!
@@ -39,31 +33,25 @@ class TransactionPINViewController: UIViewController, KeyboardViewDelegate, PINB
         instantiateCodeTextFieldFunctions()
         
         // Show Alert for Biometric Authentication
-        authService.authenticate(view: self, reason: "Verifikasi", callback: self.config?.callbackFunc)
+//        authService.authenticate(view: self, reason: "Verifikasi", callback: self.config?.callbackFunc)
     }
     
     func instantiateCodeTextFieldFunctions() {
         codeTextField.removeErrorMsg = {
             // Remove error msg if it is present
-            if self.showErrorMsg {
-                self.toggleErrorMsg()
+            if !self.errorLabel.isHidden {
+                self.toggleErrorMsg(msg: nil)
             }
         }
         
         codeTextField.didEnterLastDigit = { code in
             print("PIN Code Entered: ", code)
             
-            // If code has repeating digits, show error.
+            // If code has repeating digits or is a straight number, show error.
             let pattern = "\\b(\\d)\\1+\\b"
             let result = code.range(of: pattern, options: .regularExpression)
-            if result != nil {
-                self.toggleErrorMsg()
-                return
-            }
-            
-            // If code is straight number e.g. 123456, show error.
-            if code == "123456" || code == "654321" {
-                self.toggleErrorMsg()
+            if result != nil || code == "123456" || code == "654321" {
+                self.toggleErrorMsg(msg: PinErrorMessages.badPIN)
                 return
             }
             
@@ -75,6 +63,9 @@ class TransactionPINViewController: UIViewController, KeyboardViewDelegate, PINB
             
             if success {
                 self.config?.callbackFunc!("This is Token!")
+            } else {
+                // TODO: Show Error
+//                self.toggleErrorMsg(msg: PinErrorMessages.incorrectPIN)
             }
         }
     }
@@ -90,7 +81,6 @@ class TransactionPINViewController: UIViewController, KeyboardViewDelegate, PINB
         crossButton.tintColor = UIColor.black
         self.navigationItem.leftBarButtonItem = crossButton
         
-        configurePinVisButton()
         codeTextField.configure()
         configureErrorMsg()
     }
@@ -108,25 +98,23 @@ class TransactionPINViewController: UIViewController, KeyboardViewDelegate, PINB
         }
     }
     
-    func configurePinVisButton() {
-        pinVisibilityButton.setTitle(showPinText, for: .normal)
-    }
-    
     func configureErrorMsg() {
         errorLabel.isHidden = true
     }
     
-    func toggleErrorMsg() {
-        showErrorMsg.toggle()
+    func toggleErrorMsg(msg: String?) {
         errorLabel.isHidden.toggle()
+        if !errorLabel.isHidden {
+            errorLabel.text = msg
+        }
     }
     
     @IBAction func onClickPinVis(_ sender: UIButton) {
         codeTextField.togglePinVisibility()
-        if sender.title(for: .normal) == showPinText {
-            sender.setTitle(hidePinText, for: .normal)
+        if sender.title(for: .normal) == PinDisplayText.showPinText {
+            sender.setTitle(PinDisplayText.hidePinText, for: .normal)
         } else {
-            sender.setTitle(showPinText, for: .normal)
+            sender.setTitle(PinDisplayText.showPinText, for: .normal)
         }
     }
     

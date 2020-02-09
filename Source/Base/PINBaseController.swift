@@ -15,10 +15,9 @@ protocol PINBaseController {
     
     func addDelegates() -> Void
     
-    func configurePinVisButton() -> Void
+    func instantiateCodeTextFieldFunctions() -> Void
     
     func configureErrorMsg() -> Void
     
-    func instantiateCodeTextFieldFunctions() -> Void
-    
+    func toggleErrorMsg(msg: String?) -> Void
 }
