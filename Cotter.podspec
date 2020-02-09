@@ -3,7 +3,7 @@
 # valid spec before submitting.
 #
 # Any lines starting with a # are optional, but their use is encouraged
-# To learn more about a Podspec see https://guides.cocoapods.org/syntax/podspec.html
+# To learn more about a Podspec see htps://guides.cocoapods.org/syntax/podspec.html
 #
 
 Pod::Spec.new do |s|
@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
 CotterIOS simplifies client's integration with Cotter. It is an SDK that provides necessary pages and API services that connects your application to Cotter authentication services.
                        DESC
 
-  s.homepage         = 'https://gitlab.com/govest/cotter/ios'
+  s.homepage         = 'https://github.com/cotterapp/ios-sdk.git'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   # s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Cotter Team' => 'team@cotter.app' }

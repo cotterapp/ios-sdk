@@ -1,0 +1,6 @@
+framework module Cotter {
+  umbrella header "Cotter-umbrella.h"
+
+  export *
+  module * { export * }
+}

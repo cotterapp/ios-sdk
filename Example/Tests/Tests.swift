@@ -1,5 +1,5 @@
 import XCTest
-import CotterIOS
+import Cotter
 
 class Tests: XCTestCase {
     

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import CotterIOS
+import Cotter
 import Foundation
 
 class ViewController: UIViewController {

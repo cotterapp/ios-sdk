@@ -1,16 +1,16 @@
 PODS:
-  - CotterIOS (0.1.0)
+  - Cotter (0.0.2)
 
 DEPENDENCIES:
-  - CotterIOS (from `../`)
+  - Cotter (from `../`)
 
 EXTERNAL SOURCES:
-  CotterIOS:
+  Cotter:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CotterIOS: b919a82359a1fcd842cafa371d1ff04f7443b9e2
+  Cotter: b813e2e22e6f738d581f9103e55908eee4f83d4b
 
-PODFILE CHECKSUM: 8d78b2e3fa59f31ce47dbae4b63d65b34d04a926
+PODFILE CHECKSUM: 8b061ca63b80cc101854ae1c06f0c676bf96057c
 
 COCOAPODS: 1.8.4

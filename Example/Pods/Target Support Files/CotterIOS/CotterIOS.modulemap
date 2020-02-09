@@ -1,6 +1,0 @@
-framework module CotterIOS {
-  umbrella header "CotterIOS-umbrella.h"
-
-  export *
-  module * { export * }
-}
