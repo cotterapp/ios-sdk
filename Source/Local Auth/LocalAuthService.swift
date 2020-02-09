@@ -38,48 +38,38 @@ class LocalAuthService {
         callback: ((String) -> Void)?
     ) {
         successAuthCallbackFunc = callback
-
-        // get the public key, this will trigger the faceID
-        guard KeyGen.pubKey != nil else {
-            // if pubkey is unretrievable, then there must be something wrong with the bio scan
-            // TODO: error handling:
-            self.dispatchResult(view: view, success: false, authError: nil)
-            return
-        }
         
-        self.dispatchResult(view: view, success: true, authError: nil)
-
-        /*
         let context = LAContext()
         var error: NSError?
-        
-        // Check if we can use biometrics
         if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
-            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { [weak self, weak view] success, authenticationError in
-                DispatchQueue.main.async {
-                    if success {
-                        print("Successfully authenticated!")
-                        // TODO: Give success alert, then go to next page
-                        
-                        // Run callback
-                        callback?("This is token!")
-                    } else {
-                        // Failed authentication
-                        let ac = UIAlertController(title: self?.failAuthTitle, message: self?.failAuthMsg, preferredStyle: .alert)
-                        ac.addAction(UIAlertAction(title: "Ok", style: .default))
-                        view?.present(ac, animated: true)
-                        // TODO: Allow user to input PIN, or try again?
-                    }
-                }
-            } else {
-                // No biometrics for device
-                print("No biometrics available for device!")
-                let noBiometricAlert = self.alertService.createDefaultAlert(title: self.authTitle, body: self.noAuthMsg, actionText: self.authAction, cancelText: self.authCancel)
-                view.present(noBiometricAlert, animated: true)
-                
-                // TODO: Go to Input PIN Page?
+            // get the public key, this will trigger the faceID
+            guard let pubKey = KeyGen.pubKey else {
+                // if pubkey is unretrievable, then there must be something wrong with the bio scan
+                // TODO: error handling:
+                self.dispatchResult(view: view, success: false, authError: nil)
+                return
             }
-        }*/
+            
+            // create base64 representation of the pubKey
+            let publicKeyNSData = NSData(data: pubKey as! Data)
+            let pubKeyBase64 = publicKeyNSData.base64EncodedString()
+            print("pubKey base64string sent: \(pubKeyBase64)")
+            
+            // Send the public key to the main server
+            CotterAPIService.shared.http(
+                method: "PUT",
+                path: "/user/"+CotterAPIService.shared.getUserID()!,
+                data: [
+                    "method": "BIOMETRIC",
+                    "enrolled": true,
+                    "code": pubKeyBase64,
+                ]
+            )
+            
+        } else {
+            // no biometric then skip creating the public key
+            self.dispatchResult(view: view, success: true, authError: nil)
+        }
     }
     
     private func dispatchResult(view: UIViewController?, success: Bool, authError: Error?) {

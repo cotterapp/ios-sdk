@@ -93,7 +93,7 @@ class PINConfirmViewController : UIViewController, KeyboardViewDelegate {
                 method: "PUT",
                 path: "/api/v0/user/"+CotterAPIService.shared.userID!,
                 data: httpData,
-                succesCb: successCb,
+                successCb: successCb,
                 errCb: errorCb
             )
         }
