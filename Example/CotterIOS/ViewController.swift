@@ -20,11 +20,6 @@ class ViewController: UIViewController {
         let baseURL = "https://cotter.app"
         let urlString = "https://www.cotter.app/api/v0/user/create"
         let clientUserID = randomString(length: 5)
-        
-        // Comment out
-        let apiSecretKey = "K3yoIkKY2FpiLX7YWEff"
-        let apiKeyID = "26260f9e-3db1-4bef-b3fd-d0310eff1c7f"
-
 
         let url = URL(string: urlString)!
         
