@@ -33,7 +33,7 @@ class TransactionPINViewController: UIViewController, KeyboardViewDelegate, PINB
         instantiateCodeTextFieldFunctions()
         
         // Show Alert for Biometric Authentication
-//        authService.authenticate(view: self, reason: "Verifikasi", callback: self.config?.callbackFunc)
+        authService.authenticate(view: self, reason: "Verifikasi", callback: self.config?.callbackFunc)
     }
     
     func instantiateCodeTextFieldFunctions() {
