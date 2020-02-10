@@ -1,39 +1,33 @@
 //
-//  TransactionPINViewController.swift
+//  UpdatePINViewController.swift
 //  CotterIOS
 //
-//  Created by Raymond Andrie on 2/4/20.
+//  Created by Raymond Andrie on 2/8/20.
 //
 
 import UIKit
 
-class TransactionPINViewController: UIViewController, KeyboardViewDelegate, PINBaseController {
-    // Pass config here by TransactionPINViewController.config = Config()
-    var config: Config?
-    
-    let alertService = AlertService()
-    var authService = LocalAuthService()
+class UpdatePINViewController: UIViewController, KeyboardViewDelegate, PINBaseController {
+    // Pass config here by UpdatePINViewController.config = Config()
+    public var config: Config?
     
     @IBOutlet weak var pinVisibilityButton: UIButton!
     
     @IBOutlet weak var errorLabel: UILabel!
     
-    @IBOutlet weak var keyboardView: KeyboardView!
-    
     @IBOutlet weak var codeTextField: OneTimeCodeTextField!
+    
+    @IBOutlet weak var keyboardView: KeyboardView!
     
     public override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        print("loaded Transaction PIN View!")
+        print("loaded Update Profile PIN View!")
         
         // Set-up
         addConfigs()
         addDelegates()
         instantiateCodeTextFieldFunctions()
-        
-        // Show Alert for Biometric Authentication
-        authService.authenticate(view: self, reason: "Verifikasi", callback: self.config?.callbackFunc)
     }
     
     func instantiateCodeTextFieldFunctions() {
@@ -55,14 +49,16 @@ class TransactionPINViewController: UIViewController, KeyboardViewDelegate, PINB
                 return
             }
             
-            // Clear the text before continue
-            self.codeTextField.clear()
-            
-            // TODO: Verify through API. If successful, execute calback
+            // TODO: Verify through API. If successful, move on to creating new PIN Controller. Else, show error msg
             let success = true
             
             if success {
-                self.config?.callbackFunc!("This is Token!")
+                self.codeTextField.clear()
+                // Go to Create new PIN View
+                let updateCreatePINVC = self.storyboard?.instantiateViewController(withIdentifier: "UpdateCreateNewPINViewController")as! UpdateCreateNewPINViewController
+                updateCreatePINVC.oldCode = code
+                updateCreatePINVC.config = self.config
+                self.navigationController?.pushViewController(updateCreatePINVC, animated: true)
             } else {
                 // TODO: Show Error
 //                self.toggleErrorMsg(msg: PinErrorMessages.incorrectPIN)
@@ -70,22 +66,20 @@ class TransactionPINViewController: UIViewController, KeyboardViewDelegate, PINB
         }
     }
     
-    // Make Configurations
     func addConfigs() {
     self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.layoutIfNeeded()
         
         self.navigationItem.hidesBackButton = true
-        let crossButton = UIBarButtonItem(title: "\u{2717}", style: UIBarButtonItem.Style.plain, target: self, action: #selector(TransactionPINViewController.promptClose(sender:)))
-        crossButton.tintColor = UIColor.black
-        self.navigationItem.leftBarButtonItem = crossButton
+        let backButton = UIBarButtonItem(title: "\u{2190}", style: UIBarButtonItem.Style.plain, target: self, action: #selector(UpdatePINViewController.promptBack(sender:)))
+        backButton.tintColor = UIColor.black
+        self.navigationItem.leftBarButtonItem = backButton
         
         codeTextField.configure()
         configureErrorMsg()
     }
     
-    // Add any delegates
     func addDelegates() {
         self.keyboardView.delegate = self
     }
@@ -118,7 +112,7 @@ class TransactionPINViewController: UIViewController, KeyboardViewDelegate, PINB
         }
     }
     
-    @objc private func promptClose(sender: UIBarButtonItem) {
+    @objc private func promptBack(sender: UIBarButtonItem) {
         // Go back to previous screen
         self.navigationController?.popViewController(animated: true)
     }

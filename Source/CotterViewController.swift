@@ -26,11 +26,18 @@ public class CotterViewController: UIViewController {
     // bundleidentifier can be found when you click Pods general view.
     static var transactionStoryboard = UIStoryboard(name: "Transaction", bundle: Bundle(identifier: "org.cocoapods.Cotter"))
     
+    // updateProfileStoryboard refers to Transaction.storyboard
+    // bundleidentifier can be found when you click Pods general view.
+    static var updateProfileStoryboard = UIStoryboard(name: "UpdateProfile", bundle: Bundle(identifier: "org.cocoapods.Cotter"))
+    
     // Enrollment Corresponding View
     private lazy var pinVC = CotterViewController.cotterStoryboard.instantiateViewController(withIdentifier: "PINViewController")as! PINViewController
     
     // Transaction Corresponding View
     private lazy var transactionPinVC = CotterViewController.transactionStoryboard.instantiateViewController(withIdentifier: "TransactionPINViewController") as! TransactionPINViewController
+    
+    // Update Profile Corresponding View
+    private lazy var updateProfilePinVC = CotterViewController.updateProfileStoryboard.instantiateViewController(withIdentifier: "UpdatePINViewController") as! UpdatePINViewController
 
     // Xcode 7 & 8
     required init?(coder aDecoder: NSCoder) {
@@ -86,7 +93,7 @@ public class CotterViewController: UIViewController {
     
     // Start of Enrollment Process
     public func startEnrollment(parentNav: UINavigationController, animated: Bool) {
-        // set the configuration for the page
+        // Set the configuration for the page
         self.pinVC.config = self.config
         
         // push the viewcontroller to the navController
@@ -100,5 +107,14 @@ public class CotterViewController: UIViewController {
         
         // Push the viewController to the navController
         parentNav.pushViewController(self.transactionPinVC, animated: true)
+    }
+    
+    // Start of Update Profile Process
+    public func startUpdateProfile(parentNav: UINavigationController, animated: Bool) {
+        // Set the configuration for the page
+        self.updateProfilePinVC.config = self.config
+        
+        // Push the viewController to the navController
+        parentNav.pushViewController(self.updateProfilePinVC, animated: true)
     }
 }

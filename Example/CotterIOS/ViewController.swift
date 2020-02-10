@@ -89,6 +89,10 @@ class ViewController: UIViewController {
     @IBAction func clickStartTransaction(_ sender: Any) {
         self.cotter?.startTransaction(parentNav: self.navigationController!, animated: true)
     }
+    
+    @IBAction func clickUpdateProfile(_ sender: Any) {
+        self.cotter?.startUpdateProfile(parentNav: self.navigationController!, animated: true)
+    }
 }
 
 // the following extensions is copied from
