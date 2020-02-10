@@ -53,12 +53,28 @@ class KeyGen {
     
     public static var privKey: SecKey? {
         // getter returns a base64 encoded string privateKey
-        get { return fetchKey(pvt: true) }
+        get {
+            print("fetching private key, authenticating..")
+            guard let privKey = fetchKey(pvt: true) else {
+                // try to generate the key first
+                do{
+                    try KeyGen.generateKey()
+                } catch let e {
+                    print(e)
+                    return nil
+                }
+                print("[inside] fetching private key, authenticating..")
+                return fetchKey(pvt: true)
+            }
+            return privKey
+        }
     }
     
     public static var pubKey: SecKey? {
         get {
+            print("getting public key")
             guard let key = fetchKey(pvt: false) else {
+                print("generating key pair")
                 // try to generate the key first
                 do{
                     try KeyGen.generateKey()
@@ -73,12 +89,7 @@ class KeyGen {
     }
     
     // generateKey generates the private key if one does not exist in the storage
-    public static func generateKey() throws {
-        // prevent a new key generation
-        if KeyGen.privKey != nil {
-            return
-        }
-        
+    private static func generateKey() throws {
         var error: Unmanaged<CFError>?
         // setting the access control
         // restrict to user presence on any biometric set and when the device is unlocked

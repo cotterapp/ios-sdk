@@ -19,7 +19,8 @@ class CryptoViewController: UIViewController {
     
     // clearKeys to clear Cotter Keys
     @IBAction func clearKeys(_ sender: Any) {
-        let tag = "org.cocoapods.CotterIOS.privKey".data(using: .utf8)!
+        print("deleting keys")
+        let tag = "org.cocoapods.Cotter.privKey".data(using: .utf8)!
         
         // remove the previous key pair
         // Retrieving private and public key pair
@@ -30,9 +31,25 @@ class CryptoViewController: UIViewController {
         ]
         let st = SecItemDelete(query as CFDictionary)
         guard st == errSecSuccess || st == errSecItemNotFound else {
+            print("error deleting old private key")
+            return
+        }
+        
+        let tag2 = "org.cocoapods.Cotter.pubKey".data(using: .utf8)!
+        
+        // remove the previous key pair
+        // Retrieving private and public key pair
+        let query2: [String: Any] = [
+            kSecClass as String: kSecClassKey,
+            kSecAttrApplicationTag as String: tag2,
+            kSecAttrKeyType as String: kSecAttrKeyTypeECSECPrimeRandom,
+        ]
+        let st2 = SecItemDelete(query2 as CFDictionary)
+        guard st2 == errSecSuccess else {
             print("error deleting old key")
             return
         }
+        print("successfully deleted keys")
     }
     
     override func didReceiveMemoryWarning() {
