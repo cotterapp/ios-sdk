@@ -51,8 +51,13 @@ class LocalAuthService {
             }
             
             // create base64 representation of the pubKey
-            let publicKeyNSData = NSData(data: pubKey as! Data)
-            let pubKeyBase64 = publicKeyNSData.base64EncodedString()
+            var error: Unmanaged<CFError>?
+            guard let data = SecKeyCopyExternalRepresentation(pubKey, &error)! as Data? else {
+                print(error!.takeRetainedValue().localizedDescription)
+//                throw error!.takeRetainedValue() as Error
+                return
+            }
+            let pubKeyBase64 = data.base64EncodedString()
             print("pubKey base64string sent: \(pubKeyBase64)")
             
             // Send the public key to the main server

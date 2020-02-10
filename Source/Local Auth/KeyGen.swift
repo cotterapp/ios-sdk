@@ -58,15 +58,17 @@ class KeyGen {
     
     public static var pubKey: SecKey? {
         get {
-            // try to generate the key first
-            do{
-                try KeyGen.generateKey()
-            } catch let e {
-                print(e)
-                return nil
+            guard let key = fetchKey(pvt: false) else {
+                // try to generate the key first
+                do{
+                    try KeyGen.generateKey()
+                } catch let e {
+                    print(e)
+                    return nil
+                }
+                return fetchKey(pvt: false)
             }
-
-            return fetchKey(pvt: true)
+            return key
         }
     }
     
