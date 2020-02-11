@@ -91,7 +91,7 @@ class PINConfirmViewController : UIViewController, KeyboardViewDelegate {
             // Run API to enroll PIN
             CotterAPIService.shared.http(
                 method: "PUT",
-                path: "/api/v0/user/"+CotterAPIService.shared.userID!,
+                path: "/user/"+CotterAPIService.shared.userID!,
                 data: httpData,
                 successCb: successCb,
                 errCb: errorCb
