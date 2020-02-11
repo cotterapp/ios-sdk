@@ -31,6 +31,22 @@ class LocalAuthService {
     
     var successAuthCallbackFunc: ((String) -> Void)?
     
+    public static var ipAddr: String?
+
+    // setIPAddr should run on initializing the Cotter's root controller
+    public static func setIPAddr() {
+        // all you need to do is
+        // curl 'https://api.ipify.org?format=text'
+        let url = URL(string: "https://api.ipify.org?format=text")!
+
+        let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
+            guard let data = data else { return }
+            LocalAuthService.ipAddr = String(data: data, encoding: .utf8)!
+        }
+        task.resume()
+        return
+    }
+    
     private func biometricPubKeyRegistration(pubKey: SecKey) {
         // create base64 representation of the pubKey
         var error: Unmanaged<CFError>?
@@ -52,6 +68,20 @@ class LocalAuthService {
                 "code": pubKeyBase64,
             ]
         )
+    }
+    
+    public func pinAuth() throws -> Bool {
+        let apiclient = CotterAPIService.shared
+        
+        guard let pubKey = KeyGen.pubKey else {
+            throw CotterError.auth("unable to retrieve pubKey")
+        }
+        
+        let ipAddr = LocalAuthService.ipAddr
+        
+        // TODO: send pubkey to the API
+        
+        return false
     }
     
     // Configure Local Authentication

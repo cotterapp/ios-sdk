@@ -9,4 +9,5 @@ import Foundation
 
 enum CotterError: Error {
     case keychainError(String)
+    case auth(String)
 }

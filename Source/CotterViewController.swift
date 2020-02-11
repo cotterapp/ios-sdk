@@ -84,6 +84,9 @@ public class CotterViewController: UIViewController {
         CotterAPIService.shared.apiKeyID = apiKeyID
         CotterAPIService.shared.userID = userID
         
+        // set the ip address
+        LocalAuthService.setIPAddr()
+        
         super.init(nibName:nil,bundle:nil)
     }
 

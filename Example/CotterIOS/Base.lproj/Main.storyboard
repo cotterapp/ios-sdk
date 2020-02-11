@@ -47,13 +47,22 @@
                                     <action selector="clickUpdateProfile:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="dgr-HS-ghW"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="54v-qE-r26">
+                                <rect key="frame" x="150.66666666666666" y="247" width="74" height="30"/>
+                                <state key="normal" title="IP Address"/>
+                                <connections>
+                                    <segue destination="wLo-lE-YUX" kind="show" id="uxt-32-JE0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="oyP-Kn-NiT" firstAttribute="top" secondItem="cJz-AF-KNf" secondAttribute="bottom" constant="20" id="GFx-IV-nNZ"/>
+                            <constraint firstItem="54v-qE-r26" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="HRM-cx-Fjf"/>
                             <constraint firstItem="nvg-fr-Lvu" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="M7P-UE-XdM"/>
                             <constraint firstItem="XcD-u1-ZcS" firstAttribute="top" secondItem="nvg-fr-Lvu" secondAttribute="bottom" constant="20" id="Nhk-uZ-heg"/>
                             <constraint firstItem="cJz-AF-KNf" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="Oxd-1w-oNP"/>
+                            <constraint firstItem="nvg-fr-Lvu" firstAttribute="top" secondItem="54v-qE-r26" secondAttribute="bottom" constant="20" id="YkY-WG-agN"/>
                             <constraint firstItem="XcD-u1-ZcS" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="kfe-qm-w0v"/>
                             <constraint firstItem="XcD-u1-ZcS" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="pjb-ef-m5h"/>
                             <constraint firstItem="cJz-AF-KNf" firstAttribute="top" secondItem="XcD-u1-ZcS" secondAttribute="bottom" constant="20" id="yjE-Fj-sci"/>
@@ -135,6 +144,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2cj-vp-xEf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="881" y="41"/>
+        </scene>
+        <!--Address View Controller-->
+        <scene sceneID="lGU-RH-kz4">
+            <objects>
+                <viewController id="wLo-lE-YUX" customClass="IPAddressViewController" customModule="CotterIOS_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Bq5-dg-IGk"/>
+                        <viewControllerLayoutGuide type="bottom" id="lKn-uN-Ad1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JYu-u8-IgO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S4j-f1-Lru">
+                                <rect key="frame" x="166.66666666666666" y="351.66666666666669" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="S4j-f1-Lru" firstAttribute="centerY" secondItem="JYu-u8-IgO" secondAttribute="centerY" id="J12-EF-qIi"/>
+                            <constraint firstItem="S4j-f1-Lru" firstAttribute="centerX" secondItem="JYu-u8-IgO" secondAttribute="centerX" id="hdw-0p-787"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="gwK-zF-MMF"/>
+                    <connections>
+                        <outlet property="ipAddrLabel" destination="S4j-f1-Lru" id="9tJ-Oi-WDL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wJU-1w-6Zl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="110" y="763"/>
         </scene>
     </scenes>
 </document>
