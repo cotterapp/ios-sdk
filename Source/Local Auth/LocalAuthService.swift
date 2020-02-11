@@ -73,15 +73,64 @@ class LocalAuthService {
     public func pinAuth() throws -> Bool {
         let apiclient = CotterAPIService.shared
         
-        guard let pubKey = KeyGen.pubKey else {
-            throw CotterError.auth("unable to retrieve pubKey")
-        }
-        
         let ipAddr = LocalAuthService.ipAddr
         
-        // TODO: send pubkey to the API
+        // location is still unknown for 0.0.3
+        let location = "unknown"
         
         return false
+    }
+    
+    // auth does not register the public key to the server when the user is authenticated
+    public func bioAuth(
+        view: UIViewController,
+        reason: String,
+        callback: ((String) -> Void)?
+    ) {
+        successAuthCallbackFunc = callback
+        
+        let context = LAContext()
+        var error: NSError?
+        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+            let biometricAlert = self.alertService.createDefaultAlert(
+                title: "Verifikasi",
+                body: "Lanjutkan untuk menggunakan verifikasi menggunakan TouchID atau FaceID",
+                actionText: "Lanjutkan",
+                cancelText: "Gunakan PIN",
+                actionHandler: {
+                    // this will force biometric scan request
+                    guard KeyGen.privKey != nil else {
+                        self.dispatchResult(view: view, success: false, authError: nil)
+                        return
+                    }
+                    
+                    // get the public key, this will trigger the faceID
+                    guard let pubKey = KeyGen.pubKey else {
+                        // if pubkey is unretrievable, then there must be something wrong with the bio scan
+                        // TODO: error handling:
+                        self.dispatchResult(view: view, success: false, authError: nil)
+                        return
+                    }
+                    
+                    // TODO: do biometric authentication to the server
+                    
+                    // create the http request body
+                    
+                    // create a signature
+                    
+                    // use APIService to send the authentication request
+                    
+                    // dispatch the result once it's done
+                    
+                     self.dispatchResult(view: view, success: true, authError: nil)
+                },
+                cancelHandler: {
+                    view.dismiss(animated: true)
+                }
+            )
+            view.present(biometricAlert, animated:true)
+        }
+        // no biometric then do nothing
     }
     
     // Configure Local Authentication
