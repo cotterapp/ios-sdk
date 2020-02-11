@@ -33,7 +33,7 @@ public class CotterAPIService {
     // TODO: http requests functions should be here
     public func http(method:String, path:String, data: [String:Any]?, succesCb: @escaping (String) -> Void, errCb: @escaping (String) -> Void) {
         // set url path
-        let urlString = baseURL!.absoluteString + path
+        let urlString = self.baseURL!.absoluteString + path
         let url = URL(string:urlString)!
         
         // create request
@@ -41,8 +41,8 @@ public class CotterAPIService {
         
         // fill the required request headers
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue(apiSecretKey, forHTTPHeaderField: "API_SECRET_KEY")
-        request.setValue(apiKeyID, forHTTPHeaderField: "API_KEY_ID")
+        request.setValue(self.apiSecretKey, forHTTPHeaderField: "API_SECRET_KEY")
+        request.setValue(self.apiKeyID, forHTTPHeaderField: "API_KEY_ID")
         request.httpMethod = method
         
         // fill in the body with json if exist

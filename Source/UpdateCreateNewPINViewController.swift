@@ -8,6 +8,9 @@
 import UIKit
 
 class UpdateCreateNewPINViewController: UIViewController, KeyboardViewDelegate, PINBaseController {
+    var alertService: AlertService = AlertService()
+    var showErrorMsg: Bool = false
+    
     // Pass config here by UpdateCreateNewPINViewController.config = Config()
     public var config: Config?
     // Pass oldCode here by UpdateCreateNewPINViewController.oldCode = code

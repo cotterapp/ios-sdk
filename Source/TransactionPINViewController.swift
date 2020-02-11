@@ -8,6 +8,8 @@
 import UIKit
 
 class TransactionPINViewController: UIViewController, KeyboardViewDelegate, PINBaseController {
+    var showErrorMsg: Bool = false
+    
     // MARK: - Keys for Strings
     static let showPin = "TransactionPINViewController/showPin"
     static let hidePin = "TransactionPINViewController/hidePin"
@@ -76,8 +78,13 @@ class TransactionPINViewController: UIViewController, KeyboardViewDelegate, PINB
             // TODO: Verify through API. If successful, execute calback
             let success = true
             
+            guard let cbFunc = Config.instance.callbackFunc else {
+                print("ERROR: no callback function")
+                return
+            }
+            
             if success {
-                self.config?.callbackFunc!("This is Token!")
+                cbFunc("This is Token!")
             } else {
                 // TODO: Show Error
 //                self.toggleErrorMsg(msg: PinErrorMessages.incorrectPIN)

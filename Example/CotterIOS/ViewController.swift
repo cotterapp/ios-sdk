@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // set the URL path
-        let baseURL = "https://cotter.app"
+        let baseURL = "https://www.cotter.app"
         let urlString = "https://www.cotter.app/api/v0/user/create"
         let clientUserID = randomString(length: 5)
 

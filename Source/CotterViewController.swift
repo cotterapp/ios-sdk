@@ -57,10 +57,10 @@ public class CotterViewController: UIViewController {
     public convenience init(successCb: CallbackFunc?, apiSecretKey: String, apiKeyID: String, cotterURL: String, userID: String, configuration: [String: Any]) {
         self.init(
             successCb: successCb,
-            apiSecretKey: "",
-            apiKeyID: "",
-            cotterURL: "",
-            userID: ""
+            apiSecretKey: apiSecretKey,
+            apiKeyID: apiKeyID,
+            cotterURL: cotterURL,
+            userID: userID
         )
 
         // Check if fields are present in configuration param
@@ -70,7 +70,13 @@ public class CotterViewController: UIViewController {
         Config.instance.language = language
     }
     
-    public init(successCb: CallbackFunc?, apiSecretKey: String, apiKeyID: String, cotterURL: String, userID: String) {
+    public init(
+        successCb: CallbackFunc?,
+        apiSecretKey: String,
+        apiKeyID: String,
+        cotterURL: String,
+        userID: String
+    ) {
         Config.instance.callbackFunc = successCb ?? defaultCallback
         
         CotterAPIService.shared.baseURL = URL(string: cotterURL)
