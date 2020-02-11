@@ -76,7 +76,11 @@ class TransactionPINViewController: UIViewController, KeyboardViewDelegate, PINB
             self.codeTextField.clear()
             
             // TODO: Verify through API. If successful, execute calback
-            let success = true
+            var success: Bool = false
+            
+//            do {
+//                success = try authService.pinAuth()
+//            }
             
             guard let cbFunc = Config.instance.callbackFunc else {
                 print("ERROR: no callback function")

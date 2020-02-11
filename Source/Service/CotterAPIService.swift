@@ -12,6 +12,12 @@ public class CotterAPIService {
     // when you want to use the APIService, do CotterAPIService.shared.<function-name>
     public static let shared = CotterAPIService()
     
+    // defaultCb is the default callback function for token
+    public static func defaultCb(token:String) -> Void{
+        print(token)
+        return
+    }
+    
     private let urlSession = URLSession.shared
     var baseURL: URL?
     var path: String?
@@ -31,7 +37,7 @@ public class CotterAPIService {
     }()
     
     // TODO: http requests functions should be here
-    public func http(method:String, path:String, data: [String:Any]?, succesCb: @escaping (String) -> Void, errCb: @escaping (String) -> Void) {
+    public func http(method:String, path:String, data: [String:Any]?, successCb: @escaping (String) -> Void = defaultCb, errCb: @escaping (String) -> Void = defaultCb) {
         // set url path
         let urlString = self.baseURL!.absoluteString + path
         let url = URL(string:urlString)!
@@ -77,7 +83,7 @@ public class CotterAPIService {
             
             // if it reaches this point, that means the http request is successful
             DispatchQueue.main.async{
-                succesCb(responseString!)
+                successCb(responseString!)
             }
         }
         task.resume()

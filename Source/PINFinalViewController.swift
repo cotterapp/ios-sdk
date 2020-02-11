@@ -25,6 +25,9 @@ class PINFinalViewController: UIViewController {
     // Auth Service
     let authService = LocalAuthService()
     
+    // Config Variables
+    var requireAuth = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -42,8 +45,10 @@ class PINFinalViewController: UIViewController {
         // set access token or return values here
         // onFinishCallback("this is token")
         
-        // Touch ID/Face ID Verification
-        authService.authenticate(view: self, reason: "Verifikasi", callback: onFinishCallback)
+        if requireAuth {
+            // Touch ID/Face ID Verification
+            authService.authenticate(view: self, reason: "Verifikasi", callback: onFinishCallback)
+        }
     }
     
     override func didReceiveMemoryWarning() {
