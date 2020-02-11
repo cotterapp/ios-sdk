@@ -48,9 +48,8 @@ class TransactionPINViewController: UIViewController, KeyboardViewDelegate, PINB
         addDelegates()
         instantiateCodeTextFieldFunctions()
         
-        // TODO: Show Alert for Biometrics
         guard let onFinishCallback = Config.instance.callbackFunc else { return }
-        authService.authenticate(view: self, reason: "Verifikasi", callback: onFinishCallback)
+        authService.bioAuth(view: self, reason: "Verifikasi", callback: onFinishCallback)
     }
     
     func instantiateCodeTextFieldFunctions() {
