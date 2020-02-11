@@ -7,6 +7,8 @@
 
 import Foundation
 
+public typealias Callback = (String) -> Void
+
 public class CotterAPIService {
     // shared cotterAPI service to be used anywhere later
     // when you want to use the APIService, do CotterAPIService.shared.<function-name>
@@ -87,5 +89,26 @@ public class CotterAPIService {
             }
         }
         task.resume()
+    }
+    
+    public func registerUser(
+        userID:String,
+        successCb: @escaping Callback,
+        errCb: @escaping Callback
+    ) {
+        // register the user
+        let method = "POST"
+        let path = "/user/create"
+        let data = [
+            "client_user_id": userID
+        ]
+        
+        self.http(
+            method: method,
+            path: path,
+            data: data,
+            successCb: successCb,
+            errCb: errCb
+        )
     }
 }

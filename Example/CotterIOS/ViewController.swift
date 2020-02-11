@@ -12,7 +12,7 @@ import Foundation
 
 class ViewController: UIViewController {
     // Enrollment Path
-    var cotter: CotterViewController?
+    var cotter: Cotter?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,7 +68,7 @@ class ViewController: UIViewController {
         }
         
         // Load Cotter View Controller from SDK
-        self.cotter = CotterViewController.init(
+        self.cotter = Cotter.init(
             successCb: cbFunc,
             apiSecretKey: apiSecretKey,
             apiKeyID: apiKeyID,
