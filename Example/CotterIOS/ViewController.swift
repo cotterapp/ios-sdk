@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // set the URL path
-        let baseURL = "https://cotter.app"
+        let baseURL = "https://www.cotter.app"
         let urlString = "https://www.cotter.app/api/v0/user/create"
         let clientUserID = randomString(length: 5)
 
@@ -69,11 +69,15 @@ class ViewController: UIViewController {
         
         // Load Cotter View Controller from SDK
         self.cotter = CotterViewController.init(
-            cbFunc,
-            apiSecretKey,
-            apiKeyID,
-            baseURL,
-            clientUserID
+            successCb: cbFunc,
+            apiSecretKey: apiSecretKey,
+            apiKeyID: apiKeyID,
+            cotterURL: baseURL,
+            userID: clientUserID,
+            // configuration is an optional argument, remove this below and Cotter app will still function properly
+            configuration: [
+                "language": "English"   // default value is "Indonesian"
+            ]
         )
     }
     

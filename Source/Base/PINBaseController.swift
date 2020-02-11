@@ -9,7 +9,8 @@ import Foundation
 
 protocol PINBaseController {
     
-    var config: Config? { get set }
+    var alertService: AlertService { get }
+    var showErrorMsg: Bool { get set }
     
     func addConfigs() -> Void
     

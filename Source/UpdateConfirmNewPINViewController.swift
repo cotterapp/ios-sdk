@@ -8,6 +8,10 @@
 import UIKit
 
 class UpdateConfirmNewPINViewController: UIViewController, KeyboardViewDelegate, PINBaseController {
+    var alertService: AlertService = AlertService()
+    
+    var showErrorMsg: Bool = false
+    
     // Pass config here by UpdateConfirmNewPINViewController.config = Config()
     public var config: Config?
     // Pass prevCode here by UpdateConfirmNewPINViewController.prevCode = code
@@ -63,8 +67,8 @@ class UpdateConfirmNewPINViewController: UIViewController, KeyboardViewDelegate,
             if success {
                 // Go to PIN Final View
                 let pinFinalVC = CotterViewController.cotterStoryboard.instantiateViewController(withIdentifier: "PINFinalViewController")as! PINFinalViewController
-                pinFinalVC.requireAuth = false
-                pinFinalVC.config = self.config
+
+                // pinFinalVC.requireAuth = false
                 self.navigationController?.pushViewController(pinFinalVC, animated: true)
             }
         }

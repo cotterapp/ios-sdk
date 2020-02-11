@@ -8,13 +8,28 @@
 import UIKit
 
 class PINConfirmViewController : UIViewController, KeyboardViewDelegate {
-    // config and prevCode should be passed from the previous (PINView) controller
-    var config: Config?
+    // MARK: - Keys for Strings
+    static let showPin = "PINConfirmViewController/showPin"
+    static let hidePin = "PINConfirmViewController/hidePin"
+    static let closeTitle = "PINConfirmViewController/closeTitle"
+    static let closeMessage = "PINConfirmViewController/closeMessage"
+    static let stayOnView = "PINConfirmViewController/stayOnView"
+    static let leaveView = "PINConfirmViewController/leaveView"
+  
+    // prevCode should be passed from the previous (PINView) controller
     var prevCode: String?
     
+    let closeTitleText = CotterStrings.instance.getText(for: closeTitle)
+    let closeMessageText = CotterStrings.instance.getText(for: closeMessage)
+    let stayText = CotterStrings.instance.getText(for: stayOnView)
+    let leaveText = CotterStrings.instance.getText(for: leaveView)
+    
+    // Code Text Field
     @IBOutlet weak var codeTextField: OneTimeCodeTextField!
     
     @IBOutlet weak var pinVisibilityButton: UIButton!
+    let showPinText = CotterStrings.instance.getText(for: showPin)
+    let hidePinText = CotterStrings.instance.getText(for: hidePin)
     
     @IBOutlet weak var errorLabel: UILabel!
     
@@ -65,8 +80,7 @@ class PINConfirmViewController : UIViewController, KeyboardViewDelegate {
             
             // define the callbacks
             func successCb(resp:String) -> Void {
-                let finalVC = self.storyboard?.instantiateViewController(withIdentifier: "PINFinalViewController") as! PINFinalViewController
-                finalVC.config = self.config
+                let finalVC = self.storyboard?.instantiateViewController(withIdentifier: "PINFinalViewController")as! PINFinalViewController
                 self.navigationController?.pushViewController(finalVC, animated: true)
             }
             
@@ -77,7 +91,7 @@ class PINConfirmViewController : UIViewController, KeyboardViewDelegate {
             // Run API to enroll PIN
             CotterAPIService.shared.http(
                 method: "PUT",
-                path: "/api/v0/user/"+CotterAPIService.shared.getUserID()!,
+                path: "/api/v0/user/"+CotterAPIService.shared.userID!,
                 data: httpData,
                 succesCb: successCb,
                 errCb: errorCb
