@@ -14,7 +14,7 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		6189ECC077D8385CD6C43379 /* Pods_CotterIOS_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80C82AC19EF57821105E0CBD /* Pods_CotterIOS_Example.framework */; };
-		6C8741D523EF73D50027DF05 /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8741D423EF73D50027DF05 /* Env.swift */; };
+		6C8741DD23F295F30027DF05 /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8741DC23F295F30027DF05 /* Env.swift */; };
 		85292E4223EC21CB008363AB /* CryptoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85292E4123EC21CB008363AB /* CryptoViewController.swift */; };
 		8597662923F1914C00ACA96E /* IPAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8597662823F1914C00ACA96E /* IPAddressViewController.swift */; };
 		85B5A91B23E6ECFF0040E288 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B5A91A23E6ECFF0040E288 /* DashboardViewController.swift */; };
@@ -48,7 +48,7 @@
 		607FACE51AFB9204008FA782 /* CotterIOS_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CotterIOS_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		6C8741D423EF73D50027DF05 /* Env.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Env.swift; sourceTree = "<group>"; };
+		6C8741DC23F295F30027DF05 /* Env.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Env.swift; sourceTree = "<group>"; };
 		80C82AC19EF57821105E0CBD /* Pods_CotterIOS_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CotterIOS_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		85292E4123EC21CB008363AB /* CryptoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoViewController.swift; sourceTree = "<group>"; };
 		8597662823F1914C00ACA96E /* IPAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPAddressViewController.swift; sourceTree = "<group>"; };
@@ -123,8 +123,8 @@
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
-				6C8741D423EF73D50027DF05 /* Env.swift */,
 				8597662823F1914C00ACA96E /* IPAddressViewController.swift */,
+				6C8741DC23F295F30027DF05 /* Env.swift */,
 			);
 			name = "Example for CotterIOS";
 			path = CotterIOS;
@@ -350,11 +350,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8597662923F1914C00ACA96E /* IPAddressViewController.swift in Sources */,
-				6C8741D523EF73D50027DF05 /* Env.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				85292E4223EC21CB008363AB /* CryptoViewController.swift in Sources */,
 				85B5A91B23E6ECFF0040E288 /* DashboardViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				6C8741DD23F295F30027DF05 /* Env.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
