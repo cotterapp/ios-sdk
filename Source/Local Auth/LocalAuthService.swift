@@ -61,7 +61,7 @@ class LocalAuthService {
         // Send the public key to the main server
         CotterAPIService.shared.http(
             method: "PUT",
-            path: "/user/"+CotterAPIService.shared.getUserID()!,
+            path: "/user/"+CotterAPIService.shared.userID!,
             data: [
                 "method": "BIOMETRIC",
                 "enrolled": true,
