@@ -57,6 +57,9 @@ public class Cotter {
         CotterAPIService.shared.baseURL = URL(string: cotterURL)
         CotterAPIService.shared.apiSecretKey = apiSecretKey
         CotterAPIService.shared.apiKeyID = apiKeyID
+        
+        // get the ip address on the background
+        LocalAuthService.setIPAddr()
     }
     
     // cotterStoryboard refers to Cotter.storyboard
