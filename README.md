@@ -1,9 +1,9 @@
 # Cotter
 
-[![CI Status](https://img.shields.io/travis/albertputrapurnama/CotterIOS.svg?style=flat)](https://travis-ci.org/albertputrapurnama/CotterIOS)
-[![Version](https://img.shields.io/cocoapods/v/CotterIOS.svg?style=flat)](https://cocoapods.org/pods/CotterIOS)
-[![License](https://img.shields.io/cocoapods/l/CotterIOS.svg?style=flat)](https://cocoapods.org/pods/CotterIOS)
-[![Platform](https://img.shields.io/cocoapods/p/CotterIOS.svg?style=flat)](https://cocoapods.org/pods/CotterIOS)
+[![CI Status](https://img.shields.io/travis/albertputrapurnama/CotterIOS.svg?style=flat)](https://travis-ci.org/albertputrapurnama/Cotter)
+[![Version](https://img.shields.io/cocoapods/v/Cotter.svg?style=flat)](https://cocoapods.org/pods/Cotter)
+[![License](https://img.shields.io/cocoapods/l/Cotter.svg?style=flat)](https://cocoapods.org/pods/Cotter)
+[![Platform](https://img.shields.io/cocoapods/p/Cotter.svg?style=flat)](https://cocoapods.org/pods/Cotter)
 
 ## Example
 
@@ -33,8 +33,6 @@ pod 'Cotter'
 
 ## Author
 
-albertputrapurnama, albertputrapurnama@gmail.com
-
-## License
-
-CotterIOS is available under the MIT license. See the LICENSE file for more info.
+- [albertputrapurnama](https://github.com/albertputrapurnama)
+- [rayandrie](https://github.com/rayandrie)
+- [calvinnfernando](https://github.com/calvinnfernando)
