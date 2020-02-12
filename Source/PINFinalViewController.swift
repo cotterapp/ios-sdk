@@ -98,6 +98,8 @@ class PINFinalViewController: UIViewController {
             // Touch ID/Face ID Verification
             authService.authenticate(view: self, reason: "Verifikasi", callback: onFinishCallback)
         }
+        
+        onFinishCallback("this is token")
     }
     
     override func didReceiveMemoryWarning() {
