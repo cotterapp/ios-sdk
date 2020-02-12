@@ -49,16 +49,20 @@ class UpdateConfirmNewPINViewController: UIViewController, KeyboardViewDelegate,
             
             // If code is not the same as previous code, show error.
             if code != self.prevCode {
-                self.toggleErrorMsg(msg: PinErrorMessages.wrongPINConfirm)
-                return
+                if self.errorLabel.isHidden {
+                    self.toggleErrorMsg(msg: PinErrorMessages.wrongPINConfirm)
+                }
+                return false
             }
             
             // If code has repeating digits or is a straight number, show error.
             let pattern = "\\b(\\d)\\1+\\b"
             let result = code.range(of: pattern, options: .regularExpression)
             if result != nil || code == "123456" || code == "654321" {
-                self.toggleErrorMsg(msg: PinErrorMessages.badPIN)
-                return
+                if self.errorLabel.isHidden {
+                    self.toggleErrorMsg(msg: PinErrorMessages.badPIN)
+                }
+                return false
             }
             
             // TODO: POST Reqest to API to change PIN.
@@ -70,7 +74,9 @@ class UpdateConfirmNewPINViewController: UIViewController, KeyboardViewDelegate,
 
                 // pinFinalVC.requireAuth = false
                 self.navigationController?.pushViewController(pinFinalVC, animated: true)
+                return true
             }
+            return false
         }
     }
     

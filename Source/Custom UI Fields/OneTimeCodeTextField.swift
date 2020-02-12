@@ -9,6 +9,9 @@ import Foundation
 
 class OneTimeCodeTextField : UITextField {
     private var isConfigured = false
+    private let defaultColor = UIColor.lightGray
+    private let populatedColor = UIColor(red: 0.2078, green: 0, blue: 0.7882, alpha: 1.0)
+    private let wrongColor = UIColor(red: 0.7176, green: 0, blue: 0.0353, alpha: 1.0)
     private var defaultCharacter = "•"
     private var isPinVisible = false
     private var digitLabels = [UILabel]()
@@ -20,7 +23,7 @@ class OneTimeCodeTextField : UITextField {
 //        return recognizer
 //    }()
     
-    var didEnterLastDigit: ((String) -> Void)? // Function to run when last PIN digit has been entered
+    var didEnterLastDigit: ((String) -> Bool)? // Function to run when last PIN digit has been entered
     
     var removeErrorMsg: (() -> Void)? // Function to run when backspace is entered. This is to determine whether to remove error msg
     
@@ -48,7 +51,7 @@ class OneTimeCodeTextField : UITextField {
         self.text = ""
         for label in digitLabels {
             label.text = defaultCharacter
-            label.textColor = UIColor.lightGray
+            label.textColor = defaultColor
         }
     }
     
@@ -78,7 +81,7 @@ class OneTimeCodeTextField : UITextField {
             label.font = .systemFont(ofSize: 40)
             label.isUserInteractionEnabled = true
             label.text = defaultCharacter
-            label.textColor = UIColor.lightGray
+            label.textColor = defaultColor
             
             stackView.addArrangedSubview(label)
             
@@ -138,16 +141,24 @@ class OneTimeCodeTextField : UITextField {
                     // Show the numbers
                     currentLabel.text = String(text[index])
                 }
-                currentLabel.textColor = UIColor.black
+                currentLabel.textColor = populatedColor
             } else {
                 // User has not inputted text here, so it remains default char
-                currentLabel.textColor = UIColor.lightGray
+                currentLabel.textColor = defaultColor
             }
         }
         
         // If full PIN entered, check its validity
         if text.count == digitLabels.count {
-            didEnterLastDigit?(text)
+            guard let correctPIN = didEnterLastDigit?(text) else { return }
+            if !correctPIN {
+                for i in 0 ..< digitLabels.count {
+                    let currentLabel = digitLabels[i]
+                    if i < text.count {
+                        currentLabel.textColor = wrongColor
+                    }
+                }
+            }
         }
     }
 }

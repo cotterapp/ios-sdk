@@ -28,6 +28,7 @@
 		58B315CB7C3DD5393CF48EA3D6D35E51 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
 		5C8711984C51AC1CFDCA4EB8B8005C1C /* Cotter.storyboard in Sources */ = {isa = PBXBuildFile; fileRef = CDF550F996D94A4A982557B764482A7F /* Cotter.storyboard */; };
 		5EB3E9C0B7FAE3EF6D454055E455C39F /* Pods-CotterIOS_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E7A8321A666E6CCA738BAF8D3AF161A6 /* Pods-CotterIOS_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6C6CCD1F23F37C860076F991 /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C6CCD1E23F37C850076F991 /* check.png */; };
 		82B98DD5C87AF4C97CFA855502F6A565 /* Transaction.storyboard in Sources */ = {isa = PBXBuildFile; fileRef = 26D476CD3DC89ACE2F81CB4ADEE3E498 /* Transaction.storyboard */; };
 		8597663923F2AFA900ACA96E /* Cotter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8597663823F2AFA900ACA96E /* Cotter.swift */; };
 		878E6EC1E95133481E63BEA545F9FA67 /* Pods-CotterIOS_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C3457BCD4C9F468723349EF548DC9867 /* Pods-CotterIOS_Tests-dummy.m */; };
@@ -109,6 +110,7 @@
 		636672538C7379D6080FF7F50D3209C1 /* AlertService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
 		63ED07C6F9597AB29CD0D9B78A13D59B /* PINFinalViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PINFinalViewController.swift; path = Source/PINFinalViewController.swift; sourceTree = "<group>"; };
 		64156408C776B3EB073DB31A1014C2A7 /* PinStepEnums.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PinStepEnums.swift; sourceTree = "<group>"; };
+		6C6CCD1E23F37C850076F991 /* check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check.png; sourceTree = "<group>"; };
 		71DB166590CA559A838B8B65BA3FBDE8 /* AlertStoryboard.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; name = AlertStoryboard.storyboard; path = Source/AlertStoryboard.storyboard; sourceTree = "<group>"; };
 		764F5C378AAB225A1497DE1262DF3A93 /* Pods-CotterIOS_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CotterIOS_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		7C03394EE8614CD5AFEACD720B613B5C /* TransactionPINViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TransactionPINViewController.swift; path = Source/TransactionPINViewController.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 		365B73976939E29233DA41DE1653A660 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				6C6CCD2023F37CB80076F991 /* Assets */,
 				DA6ECEECA62084804F0F70046163C696 /* PINBaseController.swift */,
 			);
 			name = Base;
@@ -235,15 +238,15 @@
 				8597663823F2AFA900ACA96E /* Cotter.swift */,
 				71DB166590CA559A838B8B65BA3FBDE8 /* AlertStoryboard.storyboard */,
 				CDF550F996D94A4A982557B764482A7F /* Cotter.storyboard */,
+				BC5BFF5E3E933019A85B5367C6FE7C4B /* PINViewController.swift */,
 				0E8E350ECA600294ABE4D510839A4010 /* PINConfirmViewController.swift */,
 				63ED07C6F9597AB29CD0D9B78A13D59B /* PINFinalViewController.swift */,
-				BC5BFF5E3E933019A85B5367C6FE7C4B /* PINViewController.swift */,
 				26D476CD3DC89ACE2F81CB4ADEE3E498 /* Transaction.storyboard */,
 				7C03394EE8614CD5AFEACD720B613B5C /* TransactionPINViewController.swift */,
-				03BA6BB86731E7CFFF4382B5DA57DA11 /* UpdateConfirmNewPINViewController.swift */,
-				5EFE1CB194F09DB571B5F374480AA673 /* UpdateCreateNewPINViewController.swift */,
-				037F3120EBD317D1242BCFAB45E60F53 /* UpdatePINViewController.swift */,
 				0544406DFC60EDF0778C8DFD7ADA7E23 /* UpdateProfile.storyboard */,
+				037F3120EBD317D1242BCFAB45E60F53 /* UpdatePINViewController.swift */,
+				5EFE1CB194F09DB571B5F374480AA673 /* UpdateCreateNewPINViewController.swift */,
+				03BA6BB86731E7CFFF4382B5DA57DA11 /* UpdateConfirmNewPINViewController.swift */,
 				EFF8182C46EC69721F60DE8724221F5C /* Alert */,
 				365B73976939E29233DA41DE1653A660 /* Base */,
 				6BEFD4522398F72275D3F41EF4F8DF68 /* Config */,
@@ -271,6 +274,14 @@
 			);
 			name = Config;
 			path = Source/Config;
+			sourceTree = "<group>";
+		};
+		6C6CCD2023F37CB80076F991 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				6C6CCD1E23F37C850076F991 /* check.png */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 		6CEAB0C9AAC7DB75D2D379132F11D31F /* Local Auth */ = {
@@ -583,6 +594,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C6CCD1F23F37C860076F991 /* check.png in Resources */,
 				05CD02A844979B9B9D1EDCA12A54B63B /* CotterIOS.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

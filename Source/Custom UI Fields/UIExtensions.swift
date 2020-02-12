@@ -70,6 +70,35 @@ extension UIButton {
         self.layer.addSublayer(border)
     }
     
+    public func addMiddleBorder(side: UIButtonBorderSide, borderColor: UIColor, borderWidth: CGFloat) {
+        let border = CALayer()
+        border.backgroundColor = borderColor.cgColor
+        
+        let screenRect = UIScreen.main.bounds
+        let screenWidth = screenRect.size.width
+        let screenHeight = screenRect.size.height
+        print("Screen Width: ", screenWidth)
+        print("Screen Height: ", screenHeight)
+        
+        let horizontalStart = frame.size.width / 9.0
+        let horizontalLength = (1.0 / 2.0) * frame.size.width
+        
+        let verticalStart = frame.size.height / 3.0
+        let verticalLength = frame.size.height - verticalStart
+        
+        switch side {
+        case .Top:
+            border.frame = CGRect(x: horizontalStart, y: 0, width: horizontalLength, height: borderWidth)
+        case .Bottom:
+            border.frame = CGRect(x: horizontalStart, y: frame.size.height - borderWidth, width: horizontalLength, height: borderWidth)
+        case .Left:
+            border.frame = CGRect(x: 0, y: verticalStart, width: borderWidth, height: verticalLength)
+        case .Right:
+            border.frame = CGRect(x: frame.size.width - borderWidth, y: verticalStart, width: borderWidth, height: verticalLength)
+        }
+        self.layer.addSublayer(border)
+    }
+    
     public func addGroundNumsTwoThirdsBorder(side: UIButtonBorderSide, borderColor: UIColor, borderWidth: CGFloat) {
         let border = CALayer()
         border.backgroundColor = borderColor.cgColor

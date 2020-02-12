@@ -66,8 +66,10 @@ class PINViewController : UIViewController, KeyboardViewDelegate {
             let pattern = "\\b(\\d)\\1+\\b"
             let result = code.range(of: pattern, options: .regularExpression)
             if result != nil || code == "123456" || code == "654321" {
-                self.toggleErrorMsg(msg: PinErrorMessages.badPIN)
-                return
+                if self.errorLabel.isHidden {
+                    self.toggleErrorMsg(msg: PinErrorMessages.badPIN)
+                }
+                return false
             }
             
             // Clear Code text Field before continuing
@@ -77,6 +79,7 @@ class PINViewController : UIViewController, KeyboardViewDelegate {
             let confirmVC = self.storyboard?.instantiateViewController(withIdentifier: "PINConfirmViewController")as! PINConfirmViewController
             confirmVC.prevCode = code
             self.navigationController?.pushViewController(confirmVC, animated: true)
+            return true
         }
     }
     

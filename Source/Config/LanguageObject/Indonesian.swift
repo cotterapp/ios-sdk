@@ -31,6 +31,9 @@ class Indonesian: LanguageObject {
             PINFinalViewController.closeMessage: "Sentuh sensor sidik jari untuk melanjutkan",
             PINFinalViewController.stayOnView: "Input PIN",
             PINFinalViewController.leaveView: "Batalkan",
+            PINFinalViewController.title: "PIN Sukses Didaftarkan!",
+            PINFinalViewController.subtitle: "Mulai sekarang kamu bisa login dan konfirmasi transaksi menggunakan PIN",
+            PINFinalViewController.buttonText: "Selesai",
             
             // MARK: - TransactionPINViewController
             TransactionPINViewController.showPin: "Lihat PIN",
