@@ -71,8 +71,7 @@ class UpdateConfirmNewPINViewController: UIViewController, KeyboardViewDelegate,
             if success {
                 // Go to PIN Final View
                 let pinFinalVC = Cotter.cotterStoryboard.instantiateViewController(withIdentifier: "PINFinalViewController")as! PINFinalViewController
-
-                // pinFinalVC.requireAuth = false
+                 pinFinalVC.requireAuth = false
                 self.navigationController?.pushViewController(pinFinalVC, animated: true)
                 return true
             }
