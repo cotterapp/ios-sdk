@@ -80,23 +80,25 @@ class TransactionPINViewController: UIViewController, KeyboardViewDelegate, PINB
                 return false
             }
             
-            
-            // TODO: Verify through API. If successful, execute calback
             guard let cbFunc = Config.instance.callbackFunc else {
                 print("ERROR: no callback function")
                 return false
             }
             
-            func cb(success: Bool) {
+            // Callback Function to execute after PIN Verification
+            func pinVerificationCallback(success: Bool) {
                 if success {
-                    cbFunc("")
+                    cbFunc("Token from Transaction PIN View!")
                 } else {
-                    self.toggleErrorMsg(msg: "PIN is incorrect")
+                    if self.errorLabel.isHidden {
+                        self.toggleErrorMsg(msg: PinErrorMessages.incorrectPIN)
+                    }
                 }
             }
             
+            // Verify PIN through API
             do {
-                try self.authService.pinAuth(pin:code, callback: cb)
+                _ = try self.authService.pinAuth(pin: code, callback: pinVerificationCallback)
             } catch let e {
                 print(e)
                 return false
