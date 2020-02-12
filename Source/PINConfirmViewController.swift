@@ -59,16 +59,20 @@ class PINConfirmViewController : UIViewController, KeyboardViewDelegate {
             
             // If the entered digits are not the same, show error.
             if code != self.prevCode! {
-                self.toggleErrorMsg(msg: PinErrorMessages.wrongPINConfirm)
-                return
+                if self.errorLabel.isHidden {
+                    self.toggleErrorMsg(msg: PinErrorMessages.wrongPINConfirm)
+                }
+                return false
             }
             
             // If code has repeating digits or is a straight number, show error.
             let pattern = "\\b(\\d)\\1+\\b"
             let result = code.range(of: pattern, options: .regularExpression)
             if result != nil || code == "123456" || code == "654321" {
-                self.toggleErrorMsg(msg: PinErrorMessages.badPIN)
-                return
+                if self.errorLabel.isHidden {
+                    self.toggleErrorMsg(msg: PinErrorMessages.badPIN)
+                }
+                return false
             }
             
             // define http request body
@@ -96,6 +100,7 @@ class PINConfirmViewController : UIViewController, KeyboardViewDelegate {
                 successCb: successCb,
                 errCb: errorCb
             )
+            return true
         }
     }
     

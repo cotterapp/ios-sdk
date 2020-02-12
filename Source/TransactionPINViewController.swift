@@ -67,8 +67,10 @@ class TransactionPINViewController: UIViewController, KeyboardViewDelegate, PINB
             let pattern = "\\b(\\d)\\1+\\b"
             let result = code.range(of: pattern, options: .regularExpression)
             if result != nil || code == "123456" || code == "654321" {
-                self.toggleErrorMsg(msg: PinErrorMessages.badPIN)
-                return
+                if self.errorLabel.isHidden {
+                    self.toggleErrorMsg(msg: PinErrorMessages.badPIN)
+                }
+                return false
             }
             
             // Clear the text before continue
@@ -83,7 +85,7 @@ class TransactionPINViewController: UIViewController, KeyboardViewDelegate, PINB
             
             guard let cbFunc = Config.instance.callbackFunc else {
                 print("ERROR: no callback function")
-                return
+                return false
             }
             
             if success {
@@ -92,6 +94,7 @@ class TransactionPINViewController: UIViewController, KeyboardViewDelegate, PINB
                 // TODO: Show Error
 //                self.toggleErrorMsg(msg: PinErrorMessages.incorrectPIN)
             }
+            return true
         }
     }
     

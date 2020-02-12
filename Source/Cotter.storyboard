@@ -11,12 +11,12 @@
         <!--Aktivasi PIN-->
         <scene sceneID="4lm-bl-fiZ">
             <objects>
-                <viewController storyboardIdentifier="PINViewController" id="LMD-8x-Qra" customClass="PINViewController" customModule="CotterIOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PINViewController" id="LMD-8x-Qra" customClass="PINViewController" customModule="Cotter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hW0-cu-n3w">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LS9-Ka-A8X" customClass="OneTimeCodeTextField" customModule="CotterIOS" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LS9-Ka-A8X" customClass="OneTimeCodeTextField" customModule="Cotter" customModuleProvider="target">
                                 <rect key="frame" x="107" y="230.5" width="200" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="9YV-f6-c8z"/>
@@ -51,11 +51,11 @@
                                 <color key="textColor" red="0.65827396370000002" green="0.22023195819999999" blue="0.17240512620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q6m-1D-Kw7" customClass="KeyboardView" customModule="CotterIOS" customModuleProvider="target">
-                                <rect key="frame" x="20" y="512" width="374" height="350"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q6m-1D-Kw7" customClass="KeyboardView" customModule="Cotter" customModuleProvider="target">
+                                <rect key="frame" x="20" y="507" width="374" height="355"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="350" id="bMK-CN-HbV"/>
+                                    <constraint firstAttribute="height" constant="355" id="L74-9L-Pqn"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -91,7 +91,7 @@
         <!--Cotter View Controller-->
         <scene sceneID="zJx-Uh-2dA">
             <objects>
-                <navigationController id="kCl-QE-3LL" customClass="CotterViewController" customModule="CotterIOS" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController id="kCl-QE-3LL" customClass="CotterViewController" customModule="Cotter" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5Yh-GC-yE1">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -107,12 +107,12 @@
         <!--Konfirmasi PIN-->
         <scene sceneID="4qe-vV-OvK">
             <objects>
-                <viewController storyboardIdentifier="PINConfirmViewController" id="N7j-7F-GIv" customClass="PINConfirmViewController" customModule="CotterIOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PINConfirmViewController" id="N7j-7F-GIv" customClass="PINConfirmViewController" customModule="Cotter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="r8d-Au-sDb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cLf-RU-y5M" customClass="OneTimeCodeTextField" customModule="CotterIOS" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cLf-RU-y5M" customClass="OneTimeCodeTextField" customModule="Cotter" customModuleProvider="target">
                                 <rect key="frame" x="107" y="230.5" width="200" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="3L3-IG-5ko"/>
@@ -150,11 +150,11 @@
                                 <color key="textColor" red="0.65827396370000002" green="0.22023195819999999" blue="0.17240512620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qXS-Hd-xxe" customClass="KeyboardView" customModule="CotterIOS" customModuleProvider="target">
-                                <rect key="frame" x="20" y="507" width="374" height="350"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qXS-Hd-xxe" customClass="KeyboardView" customModule="Cotter" customModuleProvider="target">
+                                <rect key="frame" x="20" y="502" width="374" height="355"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="350" id="gFE-uB-b0j"/>
+                                    <constraint firstAttribute="height" constant="355" id="cCa-O9-yKc"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -187,57 +187,75 @@
             </objects>
             <point key="canvasLocation" x="1124.6376811594205" y="291.96428571428572"/>
         </scene>
-        <!--Konfirmasi PIN-->
+        <!--Final View Controller-->
         <scene sceneID="E4Z-fF-GMS">
             <objects>
-                <viewController storyboardIdentifier="PINFinalViewController" id="AQt-eA-WLz" customClass="PINFinalViewController" customModule="CotterIOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PINFinalViewController" id="AQt-eA-WLz" customClass="PINFinalViewController" customModule="Cotter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dwC-pu-rcB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PIN Sukses Didaftarkan!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aGh-er-BJg">
-                                <rect key="frame" x="96.5" y="436" width="221.5" height="24"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S0P-TZ-rJE">
+                                <rect key="frame" x="50" y="544" width="314" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="obu-aR-Efx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <state key="normal" title="Selesai">
+                                    <color key="titleColor" red="0.0" green="0.5" blue="0.069334282809999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="finish:" destination="AQt-eA-WLz" eventType="touchUpInside" id="fUs-3t-DRS"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PIN Sukses Didaftarkan!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aGh-er-BJg">
+                                <rect key="frame" x="99" y="436" width="216.5" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mulai sekarang kamu bisa login dan konfirmasi transaksi menggunakan PIN" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FmG-qK-LLI">
-                                <rect key="frame" x="37" y="480" width="340" height="70"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="70" id="kSl-i1-qC8"/>
-                                    <constraint firstAttribute="width" constant="340" id="o2k-ct-faJ"/>
-                                    <constraint firstAttribute="height" constant="70" id="vG6-SW-U7e"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="50" y="470" width="314" height="38.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kvW-d4-ME3">
-                                <rect key="frame" x="178" y="580" width="58" height="34"/>
-                                <state key="normal" title="Selesai">
-                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="finish:" destination="AQt-eA-WLz" eventType="touchUpInside" id="K7V-sA-noH"/>
-                                </connections>
-                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="InA-FS-oBh">
+                                <rect key="frame" x="67" y="252" width="280" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="280" id="QW2-VY-Xmc"/>
+                                    <constraint firstAttribute="height" constant="150" id="S2R-9m-3Q3"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="kvW-d4-ME3" firstAttribute="centerX" secondItem="dwC-pu-rcB" secondAttribute="centerX" id="2Mx-eI-C4v"/>
-                            <constraint firstItem="FmG-qK-LLI" firstAttribute="centerX" secondItem="dwC-pu-rcB" secondAttribute="centerX" id="PPe-5t-ffB"/>
-                            <constraint firstItem="kvW-d4-ME3" firstAttribute="top" secondItem="FmG-qK-LLI" secondAttribute="bottom" constant="30" id="U5U-AZ-QJl"/>
-                            <constraint firstItem="aGh-er-BJg" firstAttribute="centerY" secondItem="dwC-pu-rcB" secondAttribute="centerY" id="bgK-PU-a5A"/>
-                            <constraint firstItem="aGh-er-BJg" firstAttribute="centerX" secondItem="dwC-pu-rcB" secondAttribute="centerX" id="iED-OT-uGL"/>
-                            <constraint firstItem="FmG-qK-LLI" firstAttribute="top" secondItem="aGh-er-BJg" secondAttribute="bottom" constant="20" id="xjW-Y4-I4L"/>
+                            <constraint firstItem="s9k-qN-AIx" firstAttribute="trailing" secondItem="S0P-TZ-rJE" secondAttribute="trailing" constant="50" id="76P-A6-2jR"/>
+                            <constraint firstItem="S0P-TZ-rJE" firstAttribute="leading" secondItem="s9k-qN-AIx" secondAttribute="leading" constant="50" id="8kU-iI-ftG"/>
+                            <constraint firstItem="FmG-qK-LLI" firstAttribute="centerX" secondItem="dwC-pu-rcB" secondAttribute="centerX" id="DKK-Of-1Q2"/>
+                            <constraint firstItem="aGh-er-BJg" firstAttribute="top" secondItem="InA-FS-oBh" secondAttribute="bottom" constant="34" id="F5Z-yU-x7x"/>
+                            <constraint firstItem="aGh-er-BJg" firstAttribute="centerY" secondItem="dwC-pu-rcB" secondAttribute="centerY" id="JHK-75-PvD"/>
+                            <constraint firstItem="InA-FS-oBh" firstAttribute="centerX" secondItem="dwC-pu-rcB" secondAttribute="centerX" id="OaN-u6-lAW"/>
+                            <constraint firstItem="FmG-qK-LLI" firstAttribute="top" secondItem="aGh-er-BJg" secondAttribute="bottom" constant="10" id="UZu-pi-qpR"/>
+                            <constraint firstItem="FmG-qK-LLI" firstAttribute="leading" secondItem="dwC-pu-rcB" secondAttribute="leading" constant="50" id="Was-cc-MtU"/>
+                            <constraint firstItem="S0P-TZ-rJE" firstAttribute="top" secondItem="aGh-er-BJg" secondAttribute="bottom" constant="84" id="gr8-a1-JUL"/>
+                            <constraint firstItem="S0P-TZ-rJE" firstAttribute="centerX" secondItem="dwC-pu-rcB" secondAttribute="centerX" id="iec-ow-gLi"/>
+                            <constraint firstItem="aGh-er-BJg" firstAttribute="centerX" secondItem="dwC-pu-rcB" secondAttribute="centerX" id="t2d-zi-bUH"/>
+                            <constraint firstAttribute="trailing" secondItem="FmG-qK-LLI" secondAttribute="trailing" constant="50" id="ytC-Rl-Lrg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="s9k-qN-AIx"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Konfirmasi PIN" id="X9f-1Z-vZt"/>
+                    <navigationItem key="navigationItem" id="X9f-1Z-vZt"/>
+                    <connections>
+                        <outlet property="finishButton" destination="S0P-TZ-rJE" id="ZoP-u3-hUM"/>
+                        <outlet property="imageView" destination="InA-FS-oBh" id="XeG-hC-kaY"/>
+                        <outlet property="successLabel" destination="aGh-er-BJg" id="Ui9-WJ-Zc0"/>
+                        <outlet property="successSubLabel" destination="FmG-qK-LLI" id="jo8-dY-Q0b"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YWc-BM-3a5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1961" y="292"/>
+            <point key="canvasLocation" x="1960.8695652173915" y="291.96428571428572"/>
         </scene>
     </scenes>
 </document>
