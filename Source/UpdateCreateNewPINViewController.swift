@@ -46,18 +46,14 @@ class UpdateCreateNewPINViewController: UIViewController, KeyboardViewDelegate, 
         codeTextField.didEnterLastDigit = { code in
             print("PIN Code Entered: ", code)
             
-            // If code has repeating digits or is a straight number, show error.
+            // If code has repeating digits, or is a straight number, or is the old code, show error.
             let pattern = "\\b(\\d)\\1+\\b"
             let result = code.range(of: pattern, options: .regularExpression)
-            if result != nil || code == "123456" || code == "654321" {
-                self.toggleErrorMsg(msg: PinErrorMessages.badPIN)
-                return
-            }
-            
-            // If code is equal to the old code, then show error.
-            if code == self.oldCode {
-                self.toggleErrorMsg(msg: PinErrorMessages.badPIN)
-                return
+            if result != nil || code == "123456" || code == "654321" || code == self.oldCode {
+                if self.errorLabel.isHidden {
+                    self.toggleErrorMsg(msg: PinErrorMessages.badPIN)
+                }
+                return false
             }
             
             self.codeTextField.clear()
@@ -67,6 +63,7 @@ class UpdateCreateNewPINViewController: UIViewController, KeyboardViewDelegate, 
             updateConfirmPINVC.prevCode = code
             updateConfirmPINVC.config = self.config
             self.navigationController?.pushViewController(updateConfirmPINVC, animated: true)
+            return true
         }
     }
     

@@ -31,6 +31,9 @@ class English: LanguageObject {
             PINFinalViewController.closeMessage: "Sentuh sensor sidik jari untuk melanjutkan",
             PINFinalViewController.stayOnView: "Input PIN",
             PINFinalViewController.leaveView: "Batalkan",
+            PINFinalViewController.title: "Successfully Activated PIN!",
+            PINFinalViewController.subtitle: "You can now use your PIN to unlock your account and make transactions",
+            PINFinalViewController.buttonText: "Done",
             
             // MARK: - TransactionPINViewController
             TransactionPINViewController.showPin: "Lihat PIN",

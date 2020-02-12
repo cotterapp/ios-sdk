@@ -48,8 +48,10 @@ class UpdatePINViewController: UIViewController, KeyboardViewDelegate, PINBaseCo
             let pattern = "\\b(\\d)\\1+\\b"
             let result = code.range(of: pattern, options: .regularExpression)
             if result != nil || code == "123456" || code == "654321" {
-                self.toggleErrorMsg(msg: PinErrorMessages.badPIN)
-                return
+                if self.errorLabel.isHidden {
+                    self.toggleErrorMsg(msg: PinErrorMessages.badPIN)
+                }
+                return false
             }
             
             // TODO: Verify through API. If successful, move on to creating new PIN Controller. Else, show error msg
@@ -62,10 +64,12 @@ class UpdatePINViewController: UIViewController, KeyboardViewDelegate, PINBaseCo
                 updateCreatePINVC.oldCode = code
                 updateCreatePINVC.config = self.config
                 self.navigationController?.pushViewController(updateCreatePINVC, animated: true)
-            } else {
-                // TODO: Show Error
-//                self.toggleErrorMsg(msg: PinErrorMessages.incorrectPIN)
+                return true
             }
+            
+            // TODO: Show Error
+//            self.toggleErrorMsg(msg: PinErrorMessages.incorrectPIN)
+            return false
         }
     }
     
