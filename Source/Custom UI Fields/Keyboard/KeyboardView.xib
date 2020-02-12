@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="KeyboardView" customModule="CotterIOS" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="KeyboardView" customModule="Cotter" customModuleProvider="target">
             <connections>
                 <outlet property="backspaceButton" destination="S4k-03-io6" id="wZy-sb-tlY"/>
                 <outlet property="eightButton" destination="EPy-LV-FOn" id="IXt-VT-voT"/>
@@ -117,7 +117,7 @@
                         <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                     </state>
                     <connections>
-                        <action selector="numberTapped:" destination="-1" eventType="touchUpInside" id="Y8q-4N-hDx"/>
+                        <action selector="buttonTapped:" destination="-1" eventType="touchUpInside" id="5Uo-KH-OEa"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KVm-Dl-kCP">
