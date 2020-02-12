@@ -49,7 +49,14 @@ class TransactionPINViewController: UIViewController, KeyboardViewDelegate, PINB
         instantiateCodeTextFieldFunctions()
         
         guard let onFinishCallback = Config.instance.callbackFunc else { return }
-        authService.bioAuth(view: self, reason: "Verifikasi", callback: onFinishCallback)
+        func cb(success: Bool) {
+            if success{
+                onFinishCallback("dummy biometric token")
+            } else {
+                self.toggleErrorMsg(msg: "PIN is incorrect")
+            }
+        }
+        authService.bioAuth(view: self, event: "TRANSACTION", callback: cb)
     }
     
     func instantiateCodeTextFieldFunctions() {
@@ -73,27 +80,31 @@ class TransactionPINViewController: UIViewController, KeyboardViewDelegate, PINB
                 return false
             }
             
-            // Clear the text before continue
-            self.codeTextField.clear()
             
             // TODO: Verify through API. If successful, execute calback
-            var success: Bool = false
-            
-//            do {
-//                success = try authService.pinAuth()
-//            }
-            
             guard let cbFunc = Config.instance.callbackFunc else {
                 print("ERROR: no callback function")
                 return false
             }
             
-            if success {
-                cbFunc("This is Token!")
-            } else {
-                // TODO: Show Error
-//                self.toggleErrorMsg(msg: PinErrorMessages.incorrectPIN)
+            func cb(success: Bool) {
+                if success {
+                    cbFunc("")
+                } else {
+                    self.toggleErrorMsg(msg: "PIN is incorrect")
+                }
             }
+            
+            do {
+                try self.authService.pinAuth(pin:code, callback: cb)
+            } catch let e {
+                print(e)
+                return false
+            }
+            
+            // Clear the text before continue
+            self.codeTextField.clear()
+
             return true
         }
     }

@@ -18,7 +18,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // set the URL path
         let baseURL = "https://www.cotter.app/api/v0"
-        let urlString = "https://www.cotter.app/api/v0/user/create"
         let clientUserID = randomString(length: 5)
         
         // select the dashboard's ViewController
@@ -49,6 +48,8 @@ class ViewController: UIViewController {
             successCb: defaultCb,
             errCb: defaultCb
         )
+        
+        print(String(format:"%f", Date().timeIntervalSince1970.rounded()))
     }
     
     override func didReceiveMemoryWarning() {

@@ -70,25 +70,54 @@ class LocalAuthService {
         )
     }
     
-    public func pinAuth() throws -> Bool {
+    // pinAuth should authenticate the pin
+    public func pinAuth(
+        pin: String,
+        callback: @escaping ((Bool) -> Void)
+    ) throws -> Bool {
         let apiclient = CotterAPIService.shared
         
-        let ipAddr = LocalAuthService.ipAddr
+        // get the external ip address
+        var ipAddr = LocalAuthService.ipAddr
+        if ipAddr == nil {
+            ipAddr = "unknown"
+        }
         
-        // location is still unknown for 0.0.3
+        // location is still unknown for 0.0.4
         let location = "unknown"
         
-        return false
+        guard let userID = apiclient.userID else {
+            return false
+        }
+        
+        let data = [
+            "client_user_id": userID,
+            "issuer": apiclient.apiKeyID,
+            "event": "LOGIN",
+            "ip": ipAddr!, // exclamation mark is fine here because there is a nil check at the top
+            "location": location,
+            "timestamp": String(format:"%.0f",NSDate().timeIntervalSince1970.rounded()),
+            "code": pin,
+            "method":"PIN",
+            "approved": true
+        ] as [String: Any]
+        
+        CotterAPIService.shared.auth(
+            data: data,
+            cb: {success in
+                callback(success)
+            }
+        )
+        
+        return true
     }
     
     // auth does not register the public key to the server when the user is authenticated
     public func bioAuth(
         view: UIViewController,
-        reason: String,
-        callback: ((String) -> Void)?
+        event: String,
+        callback: @escaping ((Bool) -> Void)
     ) {
-        successAuthCallbackFunc = callback
-        
         let context = LAContext()
         var error: NSError?
         if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
@@ -99,11 +128,11 @@ class LocalAuthService {
                 cancelText: "Gunakan PIN",
                 actionHandler: {
                     // this will force biometric scan request
-                    guard KeyGen.privKey != nil else {
+                    guard let privateKey = KeyGen.privKey else {
                         self.dispatchResult(view: view, success: false, authError: nil)
                         return
                     }
-                    
+
                     // get the public key, this will trigger the faceID
                     guard let pubKey = KeyGen.pubKey else {
                         // if pubkey is unretrievable, then there must be something wrong with the bio scan
@@ -112,17 +141,69 @@ class LocalAuthService {
                         return
                     }
                     
+                    var error: Unmanaged<CFError>?
+                    guard let cfdata = SecKeyCopyExternalRepresentation(pubKey, &error) else {
+                        print("unable to encode public key to base64")
+                        return
+                    }
+
+                    let dat:Data = cfdata as Data
+                    let b64PubKey = dat.base64EncodedString()
+                    
                     // TODO: do biometric authentication to the server
+                    let ipAddr = LocalAuthService.ipAddr ?? "unknown"
+                    let location = "unknown" // location is unknown as of 0.0.4
                     
-                    // create the http request body
+                    let cl = CotterAPIService.shared
+                    let issuer = cl.apiKeyID
+                    guard let client_user_id = cl.userID else {
+                        print("user id not set")
+                        return
+                    }
+                    let timestamp = String(format:"%.0f",NSDate().timeIntervalSince1970.rounded())
+                    let evtMethod = "BIOMETRIC"
+                    let approved = "true"
                     
+                    let strToBeSigned = client_user_id + issuer + event + timestamp + evtMethod + approved
+                    let data = strToBeSigned.data(using: .utf8)! as CFData
+
+                    // set the signature algorithm
+                    let algorithm: SecKeyAlgorithm = .ecdsaSignatureMessageX962SHA256
+
                     // create a signature
+                    guard let signature = SecKeyCreateSignature(
+                        privateKey,
+                        algorithm,
+                        data as CFData,
+                        &error
+                    ) as Data? else {
+                        print("failed to create signature")
+                        return
+                    }
+
+                    let strSignature = signature.base64EncodedString()
+
+                    // create the http request body
+                    let reqBody = [
+                        "client_user_id": client_user_id,
+                        "issuer": issuer,
+                        "event": event,
+                        "ip": ipAddr, // exclamation mark is fine here because there is a nil check at the top
+                        "location": location,
+                        "timestamp": timestamp,
+                        "code": strSignature,
+                        "method": evtMethod,
+                        "public_key": b64PubKey,
+                        "approved": true
+                    ] as [String: Any]
                     
                     // use APIService to send the authentication request
-                    
-                    // dispatch the result once it's done
-                    
-                     self.dispatchResult(view: view, success: true, authError: nil)
+                    CotterAPIService.shared.auth(
+                        data: reqBody,
+                        cb: {success in
+                            callback(success)
+                        }
+                    )
                 },
                 cancelHandler: {
                     view.dismiss(animated: true)
