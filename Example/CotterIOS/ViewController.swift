@@ -41,6 +41,9 @@ class ViewController: UIViewController {
             ]
         )
         
+        // set the base URL for PLBaseURL FOR DEVELOPMENT ONLY!
+        Cotter.PLBaseURL = "http://localhost:3000/app"
+        
         CotterAPIService.shared.registerUser(
             userID: clientUserID,
             successCb: defaultCb,
