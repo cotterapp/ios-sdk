@@ -18,6 +18,11 @@ class KeyboardView: UIView {
     @IBOutlet var view: UIView!
     @IBOutlet weak var topDividerView: UIView!
     
+    @IBOutlet weak var firstStack: UIStackView!
+    @IBOutlet weak var secondStack: UIStackView!
+    @IBOutlet weak var thirdStack: UIStackView!
+    @IBOutlet weak var fourthStack: UIStackView!
+    
     @IBOutlet weak var oneButton: UIButton!
     @IBOutlet weak var twoButton: UIButton!
     @IBOutlet weak var threeButton: UIButton!
@@ -47,8 +52,6 @@ class KeyboardView: UIView {
         // Load KeyboardView.nib File to View
         Bundle(for: KeyboardView.self).loadNibNamed("KeyboardView", owner: self, options: nil)
         self.addSubview(view)
-        view.frame = self.bounds
-        view.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         
         // Add extra initialization/edits here
         initializeBorders()
@@ -56,41 +59,28 @@ class KeyboardView: UIView {
     }
     
     private func initializeBorders() {
-//        oneButton.addTwoThirdsBorder(side: .Right, borderColor: color, borderWidth: width)
-//        threeButton.addTwoThirdsBorder(side: .Left, borderColor: color, borderWidth: width)
-//        fourButton.addTwoThirdsBorder(side: .Top, borderColor: color, borderWidth: width)
-//        fourButton.addFullBorder(side: .Right, borderColor: color, borderWidth: width)
-//        fiveButton.addMiddleBorder(side: .Top, borderColor: color, borderWidth: width)
-//        sixButton.addTwoThirdsBorder(side: .Top, borderColor: color, borderWidth: width)
-//        sixButton.addFullBorder(side: .Left, borderColor: color, borderWidth: width)
-//        sevenButton.addTwoThirdsBorder(side: .Top, borderColor: color, borderWidth: width)
-//        sevenButton.addFullBorder(side: .Right, borderColor: color, borderWidth: width)
-//        eightButton.addTwoThirdsBorder(side: .Top, borderColor: color, borderWidth: width)
-//        nineButton.addTwoThirdsBorder(side: .Top, borderColor: color, borderWidth: width)
-//        nineButton.addFullBorder(side: .Left, borderColor: color, borderWidth: width)
-//        emptyLabel.addGroundNumsTwoThirdsBorder(side: .Top, borderColor: color, borderWidth: width)
-//        emptyLabel.addGroundNumsTwoThirdsBorder(side: .Right, borderColor: color, borderWidth: width)
-//        zeroButton.addGroundNumsTwoThirdsBorder(side: .Top, borderColor: color, borderWidth: width)
-//        backspaceButton.addGroundNumsTwoThirdsBorder(side: .Top, borderColor: color, borderWidth: width)
-//        backspaceButton.addGroundNumsTwoThirdsBorder(side: .Left, borderColor: color, borderWidth: width)
-        
-        oneButton.addFullBorder(side: .Right, borderColor: color, borderWidth: width)
-        threeButton.addFullBorder(side: .Left, borderColor: color, borderWidth: width)
-        fourButton.addFullBorder(side: .Top, borderColor: color, borderWidth: width)
+        // First Numbers Column
+        oneButton.addTwoThirdsBorder(side: .Right, borderColor: color, borderWidth: width)
+        fourButton.addTwoThirdsBorder(side: .Top, borderColor: color, borderWidth: width)
         fourButton.addFullBorder(side: .Right, borderColor: color, borderWidth: width)
-        fiveButton.addFullBorder(side: .Top, borderColor: color, borderWidth: width)
-        sixButton.addFullBorder(side: .Top, borderColor: color, borderWidth: width)
-        sixButton.addFullBorder(side: .Left, borderColor: color, borderWidth: width)
-        sevenButton.addFullBorder(side: .Top, borderColor: color, borderWidth: width)
+        sevenButton.addTwoThirdsBorder(side: .Top, borderColor: color, borderWidth: width)
         sevenButton.addFullBorder(side: .Right, borderColor: color, borderWidth: width)
-        eightButton.addFullBorder(side: .Top, borderColor: color, borderWidth: width)
-        nineButton.addFullBorder(side: .Top, borderColor: color, borderWidth: width)
+        emptyLabel.addGroundNumsTwoThirdsBorder(side: .Top, borderColor: color, borderWidth: width)
+        emptyLabel.addGroundNumsTwoThirdsBorder(side: .Right, borderColor: color, borderWidth: width)
+        
+        // Second Numbers Column
+        fiveButton.addTwoThirdsBorder(side: .Top, borderColor: color, borderWidth: width)
+        eightButton.addTwoThirdsBorder(side: .Top, borderColor: color, borderWidth: width)
+        zeroButton.addGroundNumsTwoThirdsBorder(side: .Top, borderColor: color, borderWidth: width)
+        
+        // Third Numbers Column
+        threeButton.addTwoThirdsBorder(side: .Left, borderColor: color, borderWidth: width)
+        sixButton.addTwoThirdsBorder(side: .Top, borderColor: color, borderWidth: width)
+        sixButton.addFullBorder(side: .Left, borderColor: color, borderWidth: width)
+        nineButton.addTwoThirdsBorder(side: .Top, borderColor: color, borderWidth: width)
         nineButton.addFullBorder(side: .Left, borderColor: color, borderWidth: width)
-        emptyLabel.addFullBorder(side: .Top, borderColor: color, borderWidth: width)
-        emptyLabel.addFullBorder(side: .Right, borderColor: color, borderWidth: width)
-        zeroButton.addFullBorder(side: .Top, borderColor: color, borderWidth: width)
-        backspaceButton.addFullBorder(side: .Top, borderColor: color, borderWidth: width)
-        backspaceButton.addFullBorder(side: .Left, borderColor: color, borderWidth: width)
+        backspaceButton.addGroundNumsTwoThirdsBorder(side: .Top, borderColor: color, borderWidth: width)
+        backspaceButton.addGroundNumsTwoThirdsBorder(side: .Left, borderColor: color, borderWidth: width)
     }
     
     @IBAction func buttonTapped(_ sender: UIButton) {

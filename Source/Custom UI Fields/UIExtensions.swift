@@ -27,21 +27,38 @@ public enum UIButtonBorderSide {
     case Top, Bottom, Left, Right
 }
 
+public func getBorderDiff() -> CGFloat {
+    let screenWidth = UIScreen.main.bounds.width
+    
+    if screenWidth == 320.0 {
+        // iPhone SE
+        return CGFloat(32.0)
+    } else if screenWidth == 375.0 {
+        // iPhone 8, iPhone X, etc.
+        return CGFloat(15.0)
+    }
+    // iPhone 11, etc.
+    return CGFloat(0.0)
+}
+
 extension UIButton {
     
     public func addFullBorder(side: UIButtonBorderSide, borderColor: UIColor, borderWidth: CGFloat) {
         let border = CALayer()
         border.backgroundColor = borderColor.cgColor
         
+        let widthDiff = getBorderDiff()
+        let buttonWidth = frame.size.width - widthDiff
+        
         switch side {
         case .Top:
-            border.frame = CGRect(x: 0, y: 0, width: frame.size.width, height: borderWidth)
+            border.frame = CGRect(x: 0, y: 0, width: buttonWidth, height: borderWidth)
         case .Bottom:
-            border.frame = CGRect(x: 0, y: frame.size.height - borderWidth, width: frame.size.width, height: borderWidth)
+            border.frame = CGRect(x: 0, y: frame.size.height - borderWidth, width: buttonWidth, height: borderWidth)
         case .Left:
             border.frame = CGRect(x: 0, y: 0, width: borderWidth, height: frame.size.height)
         case .Right:
-            border.frame = CGRect(x: frame.size.width - borderWidth, y: 0, width: borderWidth, height: frame.size.height)
+            border.frame = CGRect(x: buttonWidth, y: 0, width: borderWidth, height: frame.size.height)
         }
         
         self.layer.addSublayer(border)
@@ -51,8 +68,11 @@ extension UIButton {
         let border = CALayer()
         border.backgroundColor = borderColor.cgColor
         
-        let horizontalStart = frame.size.width / 6.0
-        let horizontalLength = (2.0 / 3.0) * frame.size.width
+        let widthDiff = getBorderDiff()
+        let buttonWidth = frame.size.width - widthDiff
+        
+        let horizontalStart = buttonWidth / 6.0
+        let horizontalLength = (2.0 / 3.0) * buttonWidth
         
         let verticalStart = frame.size.height / 3.0
         let verticalLength = frame.size.height - verticalStart
@@ -65,36 +85,7 @@ extension UIButton {
         case .Left:
             border.frame = CGRect(x: 0, y: verticalStart, width: borderWidth, height: verticalLength)
         case .Right:
-            border.frame = CGRect(x: frame.size.width - borderWidth, y: verticalStart, width: borderWidth, height: verticalLength)
-        }
-        self.layer.addSublayer(border)
-    }
-    
-    public func addMiddleBorder(side: UIButtonBorderSide, borderColor: UIColor, borderWidth: CGFloat) {
-        let border = CALayer()
-        border.backgroundColor = borderColor.cgColor
-        
-        let screenRect = UIScreen.main.bounds
-        let screenWidth = screenRect.size.width
-        let screenHeight = screenRect.size.height
-        print("Screen Width: ", screenWidth)
-        print("Screen Height: ", screenHeight)
-        
-        let horizontalStart = frame.size.width / 9.0
-        let horizontalLength = (1.0 / 2.0) * frame.size.width
-        
-        let verticalStart = frame.size.height / 3.0
-        let verticalLength = frame.size.height - verticalStart
-        
-        switch side {
-        case .Top:
-            border.frame = CGRect(x: horizontalStart, y: 0, width: horizontalLength, height: borderWidth)
-        case .Bottom:
-            border.frame = CGRect(x: horizontalStart, y: frame.size.height - borderWidth, width: horizontalLength, height: borderWidth)
-        case .Left:
-            border.frame = CGRect(x: 0, y: verticalStart, width: borderWidth, height: verticalLength)
-        case .Right:
-            border.frame = CGRect(x: frame.size.width - borderWidth, y: verticalStart, width: borderWidth, height: verticalLength)
+            border.frame = CGRect(x: buttonWidth, y: verticalStart, width: borderWidth, height: verticalLength)
         }
         self.layer.addSublayer(border)
     }
@@ -103,10 +94,13 @@ extension UIButton {
         let border = CALayer()
         border.backgroundColor = borderColor.cgColor
         
-        let horizontalStart = frame.size.width / 6.0
-        let horizontalLength = (2.0 / 3.0) * frame.size.width
+        let widthDiff = getBorderDiff()
+        let buttonWidth = frame.size.width - widthDiff
         
-        let verticalLength = (2.0 / 3.0) * frame.size.height
+        let horizontalStart = buttonWidth / 6.0
+        let horizontalLength = (2.0 / 3.0) * buttonWidth
+        
+        let verticalLength = (4.0 / 5.0) * frame.size.height
         
         switch side {
         case .Top:
@@ -116,7 +110,7 @@ extension UIButton {
         case .Left:
             border.frame = CGRect(x: 0, y: 0, width: borderWidth, height: verticalLength)
         case .Right:
-            border.frame = CGRect(x: frame.size.width - borderWidth, y: 0, width: borderWidth, height: verticalLength)
+            border.frame = CGRect(x: buttonWidth, y: 0, width: borderWidth, height: verticalLength)
         }
         self.layer.addSublayer(border)
     }
@@ -128,15 +122,18 @@ extension UILabel {
         let border = CALayer()
         border.backgroundColor = borderColor.cgColor
         
+        let widthDiff = getBorderDiff()
+        let buttonWidth = frame.size.width - widthDiff
+        
         switch side {
         case .Top:
-            border.frame = CGRect(x: 0, y: 0, width: frame.size.width, height: borderWidth)
+            border.frame = CGRect(x: 0, y: 0, width: buttonWidth, height: borderWidth)
         case .Bottom:
-            border.frame = CGRect(x: 0, y: frame.size.height - borderWidth, width: frame.size.width, height: borderWidth)
+            border.frame = CGRect(x: 0, y: frame.size.height - borderWidth, width: buttonWidth, height: borderWidth)
         case .Left:
             border.frame = CGRect(x: 0, y: 0, width: borderWidth, height: frame.size.height)
         case .Right:
-            border.frame = CGRect(x: frame.size.width - borderWidth, y: 0, width: borderWidth, height: frame.size.height)
+            border.frame = CGRect(x: buttonWidth, y: 0, width: borderWidth, height: frame.size.height)
         }
         
         self.layer.addSublayer(border)
@@ -146,8 +143,11 @@ extension UILabel {
         let border = CALayer()
         border.backgroundColor = borderColor.cgColor
         
-        let horizontalStart = frame.size.width / 6.0
-        let horizontalLength = (2.0 / 3.0) * frame.size.width
+        let widthDiff = getBorderDiff()
+        let buttonWidth = frame.size.width - widthDiff
+        
+        let horizontalStart = buttonWidth / 6.0
+        let horizontalLength = (2.0 / 3.0) * buttonWidth
         
         let verticalStart = frame.size.height / 3.0
         let verticalLength = frame.size.height - verticalStart
@@ -169,10 +169,13 @@ extension UILabel {
         let border = CALayer()
         border.backgroundColor = borderColor.cgColor
         
-        let horizontalStart = frame.size.width / 6.0
-        let horizontalLength = (2.0 / 3.0) * frame.size.width
+        let widthDiff = getBorderDiff()
+        let buttonWidth = frame.size.width - widthDiff
         
-        let verticalLength = (2.0 / 3.0) * frame.size.height
+        let horizontalStart = buttonWidth / 6.0
+        let horizontalLength = (2.0 / 3.0) * buttonWidth
+        
+        let verticalLength = (4.0 / 5.0) * frame.size.height
         
         switch side {
         case .Top:
@@ -182,7 +185,7 @@ extension UILabel {
         case .Left:
             border.frame = CGRect(x: 0, y: 0, width: borderWidth, height: verticalLength)
         case .Right:
-            border.frame = CGRect(x: frame.size.width - borderWidth, y: 0, width: borderWidth, height: verticalLength)
+            border.frame = CGRect(x: buttonWidth, y: 0, width: borderWidth, height: verticalLength)
         }
         self.layer.addSublayer(border)
     }
