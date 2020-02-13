@@ -30,5 +30,10 @@ class Config: NSObject {
         }
     }
   
+    // passwordless configurations
+    var PLBaseURL: String? = "https://js.cotter.app"
+    var PLScheme: String? = "cotter"
+    var PLRedirectURL: String? = "cotter://auth"
+    
     private override init() {}
 }

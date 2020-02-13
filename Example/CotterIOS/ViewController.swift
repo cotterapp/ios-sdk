@@ -11,8 +11,6 @@ import Cotter
 import Foundation
 
 class ViewController: UIViewController {
-    // Enrollment Path
-    var cotter: Cotter?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +29,7 @@ class ViewController: UIViewController {
         }
         
         // Load Cotter View Controller from SDK
-        self.cotter = Cotter.init(
+        CotterWrapper.cotter = Cotter.init(
             successCb: cbFunc,
             apiSecretKey: apiSecretKey,
             apiKeyID: apiKeyID,
@@ -58,15 +56,15 @@ class ViewController: UIViewController {
     }
 
     @IBAction func clickCotter(_ sender: Any) {
-        self.cotter?.startEnrollment(parentNav: self.navigationController!, animated: true)
+        CotterWrapper.cotter?.startEnrollment(parentNav: self.navigationController!, animated: true)
     }
     
     @IBAction func clickStartTransaction(_ sender: Any) {
-        self.cotter?.startTransaction(parentNav: self.navigationController!, animated: true)
+        CotterWrapper.cotter?.startTransaction(parentNav: self.navigationController!, animated: true)
     }
     
     @IBAction func clickUpdateProfile(_ sender: Any) {
-        self.cotter?.startUpdateProfile(parentNav: self.navigationController!, animated: true)
+        CotterWrapper.cotter?.startUpdateProfile(parentNav: self.navigationController!, animated: true)
     }
 }
 
