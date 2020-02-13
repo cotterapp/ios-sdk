@@ -54,11 +54,20 @@
                                     <segue destination="wLo-lE-YUX" kind="show" id="uxt-32-JE0"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mtB-9J-M19">
+                                <rect key="frame" x="149.66666666666666" y="197" width="76" height="30"/>
+                                <state key="normal" title="Login Page"/>
+                                <connections>
+                                    <segue destination="6he-wz-mZJ" kind="show" id="56j-lx-usL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="54v-qE-r26" firstAttribute="top" secondItem="mtB-9J-M19" secondAttribute="bottom" constant="20" id="FpT-hE-Ddc"/>
                             <constraint firstItem="oyP-Kn-NiT" firstAttribute="top" secondItem="cJz-AF-KNf" secondAttribute="bottom" constant="20" id="GFx-IV-nNZ"/>
                             <constraint firstItem="54v-qE-r26" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="HRM-cx-Fjf"/>
+                            <constraint firstItem="mtB-9J-M19" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="KED-hZ-CLP"/>
                             <constraint firstItem="nvg-fr-Lvu" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="M7P-UE-XdM"/>
                             <constraint firstItem="XcD-u1-ZcS" firstAttribute="top" secondItem="nvg-fr-Lvu" secondAttribute="bottom" constant="20" id="Nhk-uZ-heg"/>
                             <constraint firstItem="cJz-AF-KNf" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="Oxd-1w-oNP"/>
@@ -178,6 +187,53 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wJU-1w-6Zl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="110" y="763"/>
+        </scene>
+        <!--Passwordless Login-->
+        <scene sceneID="Tjn-1L-6Vc">
+            <objects>
+                <viewController id="6he-wz-mZJ" customClass="LoginViewController" customModule="CotterIOS_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6OW-If-XL1"/>
+                        <viewControllerLayoutGuide type="bottom" id="uW0-i6-v4f"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5qB-zb-nDU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YZe-zX-wtu">
+                                <rect key="frame" x="66" y="345" width="243" height="34"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dZS-18-1yg">
+                                <rect key="frame" x="271" y="399" width="38" height="30"/>
+                                <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="login:" destination="6he-wz-mZJ" eventType="touchUpInside" id="Mw9-i6-dxy"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="YZe-zX-wtu" firstAttribute="leading" secondItem="5qB-zb-nDU" secondAttribute="leadingMargin" constant="50" id="F2o-r3-VMx"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="YZe-zX-wtu" secondAttribute="trailing" constant="50" id="PGV-UN-RSq"/>
+                            <constraint firstItem="dZS-18-1yg" firstAttribute="top" secondItem="YZe-zX-wtu" secondAttribute="bottom" constant="20" id="Rvr-UC-fNG"/>
+                            <constraint firstItem="YZe-zX-wtu" firstAttribute="centerX" secondItem="5qB-zb-nDU" secondAttribute="centerX" id="Ypl-Tt-jlp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="dZS-18-1yg" secondAttribute="trailing" constant="50" id="uOw-jw-BeP"/>
+                            <constraint firstItem="YZe-zX-wtu" firstAttribute="centerY" secondItem="5qB-zb-nDU" secondAttribute="centerY" id="zYw-hn-UJD"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Passwordless Login" id="il4-83-nIY"/>
+                    <connections>
+                        <outlet property="loginButton" destination="dZS-18-1yg" id="d5H-02-FBL"/>
+                        <outlet property="phoneInput" destination="YZe-zX-wtu" id="aQN-GP-YpY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ix9-gv-8Jy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="110" y="-643"/>
         </scene>
     </scenes>
 </document>

@@ -101,4 +101,13 @@ public class Cotter {
         parentNav.pushViewController(self.updateProfilePinVC, animated: true)
     }
     
+    // startPasswordlessLogin starts the login process
+    public func startPasswordlessLogin(parentView: UIViewController, input: String, identifierField:String, type:String) {
+        Passwordless(
+            view: parentView,
+            input: input,
+            identifierField: identifierField,
+            type: type
+        )
+    }
 }
