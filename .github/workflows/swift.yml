@@ -10,6 +10,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build
+      working-directory: ./Source
       run: swift build -v
     - name: Run tests
+      working-directory: ./Source
       run: swift test -v
