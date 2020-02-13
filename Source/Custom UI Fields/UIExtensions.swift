@@ -30,10 +30,10 @@ public enum UIButtonBorderSide {
 public func getBorderDiff() -> CGFloat {
     let screenWidth = UIScreen.main.bounds.width
     
-    if screenWidth == 320.0 {
+    if screenWidth <= 320.0 {
         // iPhone SE
         return CGFloat(32.0)
-    } else if screenWidth == 375.0 {
+    } else if screenWidth <= 375.0 {
         // iPhone 8, iPhone X, etc.
         return CGFloat(15.0)
     }
