@@ -14,6 +14,15 @@ func defaultCallback(access_token: String) -> Void {
 
 // Cotter is the root class
 public class Cotter {
+    public static var PLBaseURL: String? {
+        set {
+            Config.instance.PLBaseURL = newValue
+        }
+        get {
+            return Config.instance.PLBaseURL
+        }
+    }
+    
     // default initializers, this should not be called without proper configurationss
     public init() {
         print("this should not be called")
