@@ -49,9 +49,16 @@ class UpdateCreateNewPINViewController: UIViewController, KeyboardViewDelegate, 
             // If code has repeating digits, or is a straight number, or is the old code, show error.
             let pattern = "\\b(\\d)\\1+\\b"
             let result = code.range(of: pattern, options: .regularExpression)
-            if result != nil || code == "123456" || code == "654321" || code == self.oldCode {
+            if result != nil || code == "123456" || code == "654321" {
                 if self.errorLabel.isHidden {
                     self.toggleErrorMsg(msg: PinErrorMessages.badPIN)
+                }
+                return false
+            }
+            
+            if code == self.oldCode {
+                if self.errorLabel.isHidden {
+                    self.toggleErrorMsg(msg: PinErrorMessages.similarPINAsBefore)
                 }
                 return false
             }

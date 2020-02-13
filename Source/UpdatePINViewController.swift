@@ -9,6 +9,7 @@ import UIKit
 
 class UpdatePINViewController: UIViewController, KeyboardViewDelegate, PINBaseController {
     var alertService: AlertService = AlertService()
+    var authService: LocalAuthService = LocalAuthService()
     var showErrorMsg: Bool = false
     
     // Pass config here by UpdatePINViewController.config = Config()
@@ -54,22 +55,30 @@ class UpdatePINViewController: UIViewController, KeyboardViewDelegate, PINBaseCo
                 return false
             }
             
-            // TODO: Verify through API. If successful, move on to creating new PIN Controller. Else, show error msg
-            let success = true
-            
-            if success {
-                self.codeTextField.clear()
-                // Go to Create new PIN View
-                let updateCreatePINVC = self.storyboard?.instantiateViewController(withIdentifier: "UpdateCreateNewPINViewController")as! UpdateCreateNewPINViewController
-                updateCreatePINVC.oldCode = code
-                updateCreatePINVC.config = self.config
-                self.navigationController?.pushViewController(updateCreatePINVC, animated: true)
-                return true
+            func pinVerificationCallback(success: Bool) {
+                if success {
+                    self.codeTextField.clear()
+                    // Go to Create New PIN View
+                    let updateCreatePINVC = self.storyboard?.instantiateViewController(withIdentifier: "UpdateCreateNewPINViewController")as! UpdateCreateNewPINViewController
+                    updateCreatePINVC.oldCode = code
+                    updateCreatePINVC.config = self.config
+                    self.navigationController?.pushViewController(updateCreatePINVC, animated: true)
+                } else {
+                    if self.errorLabel.isHidden {
+                        self.toggleErrorMsg(msg: PinErrorMessages.incorrectPIN)
+                    }
+                }
             }
             
-            // TODO: Show Error
-//            self.toggleErrorMsg(msg: PinErrorMessages.incorrectPIN)
-            return false
+            // Verify PIN through API
+            do {
+                _ = try self.authService.pinAuth(pin: code, callback: pinVerificationCallback)
+            } catch let e {
+                print(e)
+                return false
+            }
+            
+            return true
         }
     }
     

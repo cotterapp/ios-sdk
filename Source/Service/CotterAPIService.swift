@@ -150,7 +150,7 @@ public class CotterAPIService {
     }
     
     public func registerUser(
-        userID:String,
+        userID: String,
         successCb: @escaping Callback,
         errCb: @escaping Callback
     ) {
@@ -159,6 +159,53 @@ public class CotterAPIService {
         let path = "/user/create"
         let data = [
             "client_user_id": userID
+        ]
+        
+        self.http(
+            method: method,
+            path: path,
+            data: data,
+            successCb: successCb,
+            errCb: errCb
+        )
+    }
+    
+    public func enrollUserPin(
+        code: String,
+        successCb: @escaping Callback,
+        errCb: @escaping Callback
+    ) {
+        let method = "PUT"
+        let path = "/user/" + CotterAPIService.shared.userID!
+        let data: [String: Any] = [
+            "method": "PIN",
+            "enrolled": true,
+            "code": code
+        ]
+        
+        self.http(
+            method: method,
+            path: path,
+            data: data,
+            successCb: successCb,
+            errCb: errCb
+        )
+    }
+    
+    public func updateUserPin(
+        oldCode: String,
+        newCode: String,
+        successCb: @escaping Callback,
+        errCb: @escaping Callback
+    ) {
+        let method = "PUT"
+        let path = "/user/" + CotterAPIService.shared.userID!
+        let data: [String: Any] = [
+            "method": "PIN",
+            "enrolled": true,
+            "current_code": oldCode,
+            "code": newCode,
+            "change_code": true
         ]
         
         self.http(

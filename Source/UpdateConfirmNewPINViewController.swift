@@ -47,6 +47,11 @@ class UpdateConfirmNewPINViewController: UIViewController, KeyboardViewDelegate,
         codeTextField.didEnterLastDigit = { code in
             print("PIN Code Entered: ", code)
             
+            if self.prevCode == nil {
+                print("No previous code exists!")
+                return false
+            }
+            
             // If code is not the same as previous code, show error.
             if code != self.prevCode {
                 if self.errorLabel.isHidden {
@@ -65,17 +70,31 @@ class UpdateConfirmNewPINViewController: UIViewController, KeyboardViewDelegate,
                 return false
             }
             
-            // TODO: POST Reqest to API to change PIN.
-            let success = true
-            
-            if success {
+            // Define the callbacks
+            func successCb(resp: String) -> Void {
+                self.codeTextField.clear()
                 // Go to PIN Final View
                 let pinFinalVC = Cotter.cotterStoryboard.instantiateViewController(withIdentifier: "PINFinalViewController")as! PINFinalViewController
                  pinFinalVC.requireAuth = false
                 self.navigationController?.pushViewController(pinFinalVC, animated: true)
-                return true
             }
-            return false
+            
+            func errorCb(err: String) -> Void {
+                print(err)
+                // Display Error
+                if self.errorLabel.isHidden {
+                    self.toggleErrorMsg(msg: PinErrorMessages.updatePINFailed)
+                }
+            }
+            
+            CotterAPIService.shared.updateUserPin(
+                oldCode: self.prevCode!,
+                newCode: code,
+                successCb: successCb,
+                errCb: errorCb
+            )
+            
+            return true
         }
     }
     
