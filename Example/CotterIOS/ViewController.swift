@@ -14,6 +14,18 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // to set the apiKeyID and apiSecretKey follow this nice tutorial on how to setup xcode env variables
+        // https://nshipster.com/launch-arguments-and-environment-variables/
+        guard let apiKeyID = ProcessInfo.processInfo.environment["COTTER_API_KEY_ID"] else {
+            print("please set COTTER_API_KEY_ID in your XCode environment variables!")
+            return
+        }
+        guard let apiSecretKey = ProcessInfo.processInfo.environment["COTTER_API_SECRET_KEY"] else {
+            print("please set COTTER_API_SECRET_KEY in your XCode environment variables!")
+            return
+        }
+        
         // set the URL path
         let baseURL = "https://www.cotter.app/api/v0"
         let clientUserID = randomString(length: 5)
