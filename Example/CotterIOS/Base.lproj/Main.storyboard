@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Cotter Example App-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="CotterIOS_Example" customModuleProvider="target" sceneMemberID="viewController">
@@ -78,7 +78,7 @@
                             <constraint firstItem="oyP-Kn-NiT" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="zrW-wz-AIV"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="5qM-FL-BNc"/>
+                    <navigationItem key="navigationItem" title="Cotter Example App" id="5qM-FL-BNc"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>

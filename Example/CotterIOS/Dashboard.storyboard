@@ -23,7 +23,7 @@
             </objects>
             <point key="canvasLocation" x="1" y="151"/>
         </scene>
-        <!--Dashboard View Controller-->
+        <!--Cotter Example App-->
         <scene sceneID="pAR-d2-IZJ">
             <objects>
                 <viewController storyboardIdentifier="DashboardViewController" id="MTm-RA-qDL" customClass="DashboardViewController" customModule="CotterIOS_Example" customModuleProvider="target" sceneMemberID="viewController">
@@ -31,8 +31,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello World from Dashboard" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xSq-uy-JND">
-                                <rect key="frame" x="98.5" y="437.5" width="217" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are logged in, your token is:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xSq-uy-JND">
+                                <rect key="frame" x="85" y="437.5" width="244" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -43,17 +43,25 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dashboard" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X17-7o-NFF">
+                                <rect key="frame" x="131.5" y="118" width="151" height="38.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="xSq-uy-JND" firstAttribute="centerX" secondItem="zzQ-1k-Ylv" secondAttribute="centerX" id="18w-zu-hFx"/>
                             <constraint firstItem="Anx-Jn-5QL" firstAttribute="centerX" secondItem="zzQ-1k-Ylv" secondAttribute="centerX" id="1A4-Jc-UuU"/>
+                            <constraint firstItem="X17-7o-NFF" firstAttribute="top" secondItem="6qh-vS-tN1" secondAttribute="top" constant="30" id="QZO-e7-Ak3"/>
+                            <constraint firstItem="X17-7o-NFF" firstAttribute="centerX" secondItem="zzQ-1k-Ylv" secondAttribute="centerX" id="Yec-f1-e4S"/>
                             <constraint firstItem="xSq-uy-JND" firstAttribute="centerY" secondItem="zzQ-1k-Ylv" secondAttribute="centerY" id="ish-YV-wdc"/>
                             <constraint firstItem="Anx-Jn-5QL" firstAttribute="top" secondItem="xSq-uy-JND" secondAttribute="bottom" constant="30" id="wrg-SO-pmY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6qh-vS-tN1"/>
                     </view>
-                    <navigationItem key="navigationItem" id="gT0-MF-IsI"/>
+                    <navigationItem key="navigationItem" title="Cotter Example App" id="gT0-MF-IsI"/>
                     <connections>
                         <outlet property="accessTokenLabel" destination="Anx-Jn-5QL" id="N4x-su-LW2"/>
                     </connections>
