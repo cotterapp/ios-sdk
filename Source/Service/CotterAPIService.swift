@@ -70,6 +70,7 @@ public class CotterAPIService {
             guard (200 ... 299) ~= response.statusCode else {   // check for http errors
                 print("statusCode should be 2xx, but is \(response.statusCode)")
                 print("response = \(response)")
+                print("errMsg = \(String(decoding: data, as:UTF8.self))")
                 
                 // error handling
                 DispatchQueue.main.async{
@@ -126,6 +127,7 @@ public class CotterAPIService {
             
             guard (200 ... 299) ~= response.statusCode else {   // check for http errors
                 print("statusCode should be 2xx, but is \(response.statusCode)")
+                print("errorMsg = \(String(decoding: data, as: UTF8.self))")
                 print("response = \(response)")
                 
                 // error handling

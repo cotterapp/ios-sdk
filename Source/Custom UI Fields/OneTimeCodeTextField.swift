@@ -93,7 +93,7 @@ class OneTimeCodeTextField : UITextField {
     
     public func appendNumber(buttonNumber: NSInteger) {
         // Ensure only 6 digit input
-        guard let text = self.text, text.count <= digitLabels.count else { return }
+        guard let text = self.text, text.count <= digitLabels.count - 1 else { return }
         
         // Append new char and refresh Digit Labels
         let num = NSString(format: "%d", buttonNumber)
@@ -102,8 +102,7 @@ class OneTimeCodeTextField : UITextField {
     }
     
     public func removeNumber() {
-        // Ensure only 6 digit input
-        guard let text = self.text, text.count <= digitLabels.count else { return }
+        guard let text = self.text else { return }
         
         // If text field is 6 digits already, and we are on the same view, an error msg is displayed. Entering a backspace would remove this error msg
         if text.count == digitLabels.count {

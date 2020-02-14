@@ -65,13 +65,15 @@ class PINViewController : UIViewController, KeyboardViewDelegate {
             // If code has repeating digits or is a straight number, show error.
             let pattern = "\\b(\\d)\\1+\\b"
             let result = code.range(of: pattern, options: .regularExpression)
-            if result != nil || code == "123456" || code == "654321" {
+            
+            // Ensure consecutive PIN number is rejected
+            if result != nil || findSequence(sequenceLength: code.count, in: code) {
                 if self.errorLabel.isHidden {
                     self.toggleErrorMsg(msg: PinErrorMessages.badPIN)
                 }
                 return false
             }
-            
+
             // Clear Code text Field before continuing
             self.codeTextField.clear()
             
@@ -154,4 +156,34 @@ class PINViewController : UIViewController, KeyboardViewDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+}
+
+func findSequence(sequenceLength: Int, in string: String) -> Bool {
+    // It would be better to extract this out of func
+    let digits = CharacterSet.decimalDigits
+    let controlSet = digits
+    // ---
+
+    let scalars = string.unicodeScalars
+    let unicodeArray = scalars.map({ $0 })
+
+    var currentLength: Int = 1
+    var i = 0
+    for number in unicodeArray where controlSet.contains(number) {
+        if i+1 >= unicodeArray.count {
+            break
+        }
+        let nextNumber = unicodeArray[i+1]
+
+        if UnicodeScalar(number.value+1) == nextNumber || UnicodeScalar(number.value-1) == nextNumber {
+            currentLength += 1
+        } else {
+            currentLength = 1
+        }
+        if currentLength >= sequenceLength {
+            return true
+        }
+        i += 1
+    }
+    return false
 }

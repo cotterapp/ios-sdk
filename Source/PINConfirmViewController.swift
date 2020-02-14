@@ -123,6 +123,7 @@ class PINConfirmViewController : UIViewController, KeyboardViewDelegate {
     func keyboardButtonTapped(buttonNumber: NSInteger) {
         // If backspace tapped, remove last char. Else, append new char.
         if buttonNumber == -1 {
+            print("removing number")
             codeTextField.removeNumber()
         } else {
             codeTextField.appendNumber(buttonNumber: buttonNumber)
