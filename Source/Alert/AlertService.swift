@@ -7,29 +7,113 @@
 
 import Foundation
 
-class AlertService {
-    
-    public func alert(
+@objc protocol AlertServiceDelegate : class {
+    @objc func cancelHandler()
+    @objc func actionHandler()
+}
+
+class AlertService: NSObject {
+    var delegate: AlertServiceDelegate?
+  
+    // Components
+    let darkOverlayView = UIView()
+    let alertView = UIView()
+    let titleLabel = UILabel()
+    let bodyLabel = UILabel()
+    let cancelButton = UIButton()
+    let actionButton = UIButton()
+  
+    // TODO: add image in init
+    public init(
+        vc: UIViewController,
         title: String,
         body: String,
         actionButtonTitle: String,
-        actionHandler: (() -> Void)? = nil,
-        cancelButtonTitle: String,
-        cancelHandler: (() -> Void)? = nil
-    ) -> AlertViewController {
-        let storyboard = UIStoryboard(name: "AlertStoryboard", bundle: Bundle(identifier: "org.cocoapods.CotterIOS"))
-        let alertVC = storyboard.instantiateViewController(withIdentifier: "AlertVC") as! AlertViewController
+        cancelButtonTitle: String
+    ) {
+        guard let nc = vc.navigationController else { return }
         
-        alertVC.initialize(
-            title: title,
-            body: body,
-            actionTitle: actionButtonTitle,
-            actionHandler: actionHandler,
-            cancelTitle: cancelButtonTitle,
-            cancelHandler: cancelHandler
+        // Dark overlay right below the alert view, covering the whole current UIViewController vc
+        darkOverlayView.frame = CGRect(x: 0.0, y: 0.0, width: nc.view.frame.width, height: nc.view.frame.height)
+        darkOverlayView.backgroundColor = UIColor.black
+        darkOverlayView.alpha = 0.0
+        nc.view.addSubview(darkOverlayView)
+        
+        let outerHorizontalOffset: CGFloat = 50.0
+        let outerVerticalOffset: CGFloat = nc.view.frame.height * 0.7
+        let innerHorizontalOffset: CGFloat = 40.0
+        let innerVerticalOffset: CGFloat = 60.0
+        
+        // The actual alert view
+        let width: CGFloat = nc.view.frame.width - outerHorizontalOffset
+        let height: CGFloat = nc.view.frame.height - outerVerticalOffset
+        let x: CGFloat = outerHorizontalOffset / 2
+        let y: CGFloat = outerVerticalOffset / 2
+        
+        alertView.frame = CGRect(x: x, y: y, width: width, height: height)
+        alertView.backgroundColor = UIColor.white
+        alertView.layer.cornerRadius = 10
+        
+        titleLabel.frame = CGRect(x: innerHorizontalOffset / 2, y: innerVerticalOffset / 2, width: width - innerHorizontalOffset, height: height - innerVerticalOffset)
+        titleLabel.text = title
+        titleLabel.textColor = UIColor.systemGreen
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 20.0)
+        titleLabel.numberOfLines = 1
+        titleLabel.sizeToFit()
+        alertView.addSubview(titleLabel)
+        
+        bodyLabel.frame = CGRect(x: innerHorizontalOffset / 2, y: innerVerticalOffset / 2 + 50.0, width: width - innerHorizontalOffset, height: height - innerVerticalOffset)
+        bodyLabel.text = body
+        bodyLabel.textColor = UIColor.darkGray
+        bodyLabel.font = UIFont.systemFont(ofSize: 17.0)
+        bodyLabel.numberOfLines = 0
+        bodyLabel.sizeToFit()
+        alertView.addSubview(bodyLabel)
+        
+        cancelButton.frame = CGRect(x: 86.0, y: 186.0, width: 80.0, height: 30.0)
+        cancelButton.setTitle(cancelButtonTitle, for: .normal)
+        cancelButton.setTitleColor(UIColor.systemGreen, for: .normal)
+        alertView.addSubview(cancelButton)
+        
+        actionButton.frame = CGRect(x: 178.0, y: 186.0, width: 80.0, height: 30.0)
+        actionButton.setTitle(actionButtonTitle, for: .normal)
+        actionButton.setTitleColor(UIColor.systemGreen, for: .normal)
+        alertView.addSubview(actionButton)
+
+        alertView.alpha = 0.0
+        nc.view.addSubview(alertView)
+    }
+    
+    public func show(from vc: UIViewController) {
+        // Bind cancel & action handlers
+        let tapRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(target: vc, action: #selector(delegate?.cancelHandler))
+        darkOverlayView.addGestureRecognizer(tapRecognizer)
+        cancelButton.addTarget(vc, action: #selector(delegate?.cancelHandler), for: .touchUpInside)
+        actionButton.addTarget(vc, action: #selector(delegate?.actionHandler), for: .touchUpInside)
+      
+        UIView.animate(
+            withDuration: 0.2,
+            delay: 0.0,
+            options: .curveEaseIn,
+            animations: { () -> Void in
+                self.darkOverlayView.alpha = 0.6
+                self.alertView.alpha = 1.0
+            },
+            completion: nil
         )
-        
-        return alertVC
+    }
+    
+    public func hide() {
+        UIView.animate(
+            withDuration: 0.2,
+            delay: 0.0,
+            options: .curveEaseIn,
+            animations: { () -> Void in
+                self.darkOverlayView.alpha = 0.0
+                self.alertView.alpha = 0.0
+            },
+            completion: nil
+        )
     }
     
     public func alertWithImage(
@@ -41,7 +125,7 @@ class AlertService {
         cancelButtonTitle: String,
         cancelHandler: (() -> Void)? = nil
     ) -> AlertWithImageViewController {
-        let storyboard = UIStoryboard(name: "AlertStoryboard", bundle: Bundle(identifier: "org.cocoapods.CotterIOS"))
+        let storyboard = UIStoryboard(name: "AlertStoryboard", bundle: Bundle(identifier: "org.cocoapods.Cotter"))
         let alertWithImgVC = storyboard.instantiateViewController(withIdentifier: "AlertImgVC") as! AlertWithImageViewController
         
         alertWithImgVC.initialize(
@@ -56,7 +140,7 @@ class AlertService {
     }
     
     // Default Alert Function
-    public func createDefaultAlert(
+    public static func createDefaultAlert(
         title: String,
         body: String,
         actionText: String,
