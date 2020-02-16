@@ -22,14 +22,15 @@ class AlertService: NSObject {
     let bodyLabel = UILabel()
     let cancelButton = UIButton()
     let actionButton = UIButton()
+    let imageView = UIImageView()
   
-    // TODO: add image in init
     public init(
         vc: UIViewController,
         title: String,
         body: String,
         actionButtonTitle: String,
-        cancelButtonTitle: String
+        cancelButtonTitle: String,
+        imagePath: String? = nil
     ) {
         guard let nc = vc.navigationController else { return }
         
@@ -79,6 +80,16 @@ class AlertService: NSObject {
         actionButton.setTitle(actionButtonTitle, for: .normal)
         actionButton.setTitleColor(UIColor.systemGreen, for: .normal)
         alertView.addSubview(actionButton)
+      
+        if let path = imagePath {
+            let imageSize = nc.view.frame.width * 0.2
+            imageView.frame = CGRect(x: innerHorizontalOffset / 2, y: innerVerticalOffset / 2 + 50.0, width: imageSize, height: imageSize)
+            imageView.download(from: path)
+            alertView.addSubview(imageView)
+          
+            bodyLabel.frame = CGRect(x: innerHorizontalOffset + imageSize, y: innerVerticalOffset / 2 + 50.0, width: width - imageSize - innerHorizontalOffset * 1.5, height: height - innerVerticalOffset)
+            bodyLabel.sizeToFit()
+        }
 
         alertView.alpha = 0.0
         nc.view.addSubview(alertView)

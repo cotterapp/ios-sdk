@@ -11,14 +11,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ### Developer Notes
 
-Add Env.swift file to your `Example` folder for development. Containing the following code
-
-```
-import Foundation
-
-let apiSecretKey = <your-api-secret-key>
-let apiKeyID = <your-api-key-id>
-```
+Follow [this guideline](https://nshipster.com/launch-arguments-and-environment-variables/) and add your `COTTER_API_KEY_ID` and `COTTER_API_SECRET_KEY` under "Environment Variables"
 
 ## Requirements
 
