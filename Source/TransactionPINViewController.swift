@@ -18,7 +18,6 @@ class TransactionPINViewController: UIViewController, KeyboardViewDelegate, PINB
     static let stayOnView = "TransactionPINViewController/stayOnView"
     static let leaveView = "TransactionPINViewController/leaveView"
     
-    let alertService = AlertService()
     var authService = LocalAuthService()
     
     // Constants
@@ -29,6 +28,12 @@ class TransactionPINViewController: UIViewController, KeyboardViewDelegate, PINB
     
     let showPinText = CotterStrings.instance.getText(for: showPin)
     let hidePinText = CotterStrings.instance.getText(for: hidePin)
+  
+    lazy var alertService: AlertService = {
+        let alert = AlertService(vc: self, title: closeTitleText, body: closeMessageText, actionButtonTitle: leaveText, cancelButtonTitle: stayText)
+        alert.delegate = self
+        return alert
+    }()
     
     @IBOutlet weak var pinVisibilityButton: UIButton!
     
@@ -160,20 +165,22 @@ class TransactionPINViewController: UIViewController, KeyboardViewDelegate, PINB
     }
     
     @objc private func promptClose(sender: UIBarButtonItem) {
-        let cancelHandler = {
-            // Go back to previous screen
-            self.navigationController?.popViewController(animated: true)
-            return
-        }
-        
-        // Perform Prompt Alert
-        let alertVC = alertService.createDefaultAlert(title: closeTitleText, body: closeMessageText, actionText: stayText, cancelText: leaveText, cancelHandler: cancelHandler)
-        
-        present(alertVC, animated: true)
+        alertService.show(from: self)
     }
     
     public override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+}
+
+extension TransactionPINViewController : AlertServiceDelegate {
+    func cancelHandler() {
+        alertService.hide()
+    }
+    
+    func actionHandler() {
+        alertService.hide()
+        self.navigationController?.popViewController(animated: true)
     }
 }

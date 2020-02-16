@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class PINViewController : UIViewController, KeyboardViewDelegate {
+class PINViewController : UIViewController {
     // MARK: - Keys for Strings
     static let showPin = "PINViewController/showPin"
     static let hidePin = "PINViewController/hidePin"
@@ -18,11 +18,15 @@ class PINViewController : UIViewController, KeyboardViewDelegate {
     static let leaveView = "PINViewController/leaveView"
     
     // Alert Service
-    let alertService = AlertService()
     let closeTitleText = CotterStrings.instance.getText(for: closeTitle)
     let closeMessageText = CotterStrings.instance.getText(for: closeMessage)
     let stayText = CotterStrings.instance.getText(for: stayOnView)
     let leaveText = CotterStrings.instance.getText(for: leaveView)
+    lazy var alertService: AlertService = {
+        let alert = AlertService(vc: self, title: closeTitleText, body: closeMessageText, actionButtonTitle: leaveText, cancelButtonTitle: stayText)
+        alert.delegate = self
+        return alert
+    }()
     
     // Code Text Field
     @IBOutlet weak var codeTextField: OneTimeCodeTextField!
@@ -67,7 +71,7 @@ class PINViewController : UIViewController, KeyboardViewDelegate {
             let result = code.range(of: pattern, options: .regularExpression)
             
             // Ensure consecutive PIN number is rejected
-            if result != nil || findSequence(sequenceLength: code.count, in: code) {
+            if result != nil || self.findSequence(sequenceLength: code.count, in: code) {
                 if self.errorLabel.isHidden {
                     self.toggleErrorMsg(msg: PinErrorMessages.badPIN)
                 }
@@ -88,7 +92,7 @@ class PINViewController : UIViewController, KeyboardViewDelegate {
     func addConfigs() {
         // Implement Custom Back Button instead of default in Nav controller
         self.navigationItem.hidesBackButton = true
-        let crossButton = UIBarButtonItem(title: "\u{2717}", style: UIBarButtonItem.Style.plain, target: self, action: #selector(PINViewController.promptClose(sender:)))
+        let crossButton = UIBarButtonItem(title: "\u{2717}", style: UIBarButtonItem.Style.plain, target: self, action: #selector(promptClose(sender:)))
         crossButton.tintColor = UIColor.black
         self.navigationItem.leftBarButtonItem = crossButton
         
@@ -103,16 +107,6 @@ class PINViewController : UIViewController, KeyboardViewDelegate {
     
     func addDelegates() {
         self.keyboardView.delegate = self
-    }
-    
-    // This delegate function runs when the buttons in keyboardView is tapped. Code Text Field is updated here.
-    func keyboardButtonTapped(buttonNumber: NSInteger) {
-        // If backspace tapped, remove last char. Else, append new char.
-        if buttonNumber == -1 {
-            codeTextField.removeNumber()
-        } else {
-            codeTextField.appendNumber(buttonNumber: buttonNumber)
-        }
     }
     
     private func configurePinVisButton() {
@@ -140,16 +134,7 @@ class PINViewController : UIViewController, KeyboardViewDelegate {
     }
     
     @objc private func promptClose(sender: UIBarButtonItem) {
-        let cancelHandler = {
-            // Go back to previous screen
-            self.navigationController?.popViewController(animated: true)
-            return
-        }
-        
-        // Perform Prompt Alert
-        let alertVC = alertService.createDefaultAlert(title: closeTitleText, body: closeMessageText, actionText: stayText, cancelText: leaveText, cancelHandler: cancelHandler)
-        
-        present(alertVC, animated: true)
+        alertService.show(from: self)
     }
     
     public override func didReceiveMemoryWarning() {
@@ -158,32 +143,59 @@ class PINViewController : UIViewController, KeyboardViewDelegate {
     }
 }
 
-func findSequence(sequenceLength: Int, in string: String) -> Bool {
-    // It would be better to extract this out of func
-    let digits = CharacterSet.decimalDigits
-    let controlSet = digits
-    // ---
+// MARK: - Private Helper Functions
+extension PINViewController {
+    private func findSequence(sequenceLength: Int, in string: String) -> Bool {
+        // It would be better to extract this out of func
+        let digits = CharacterSet.decimalDigits
+        let controlSet = digits
+        // ---
 
-    let scalars = string.unicodeScalars
-    let unicodeArray = scalars.map({ $0 })
+        let scalars = string.unicodeScalars
+        let unicodeArray = scalars.map({ $0 })
 
-    var currentLength: Int = 1
-    var i = 0
-    for number in unicodeArray where controlSet.contains(number) {
-        if i+1 >= unicodeArray.count {
-            break
-        }
-        let nextNumber = unicodeArray[i+1]
+        var currentLength: Int = 1
+        var i = 0
+        for number in unicodeArray where controlSet.contains(number) {
+            if i+1 >= unicodeArray.count {
+                break
+            }
+            let nextNumber = unicodeArray[i+1]
 
-        if UnicodeScalar(number.value+1) == nextNumber || UnicodeScalar(number.value-1) == nextNumber {
-            currentLength += 1
-        } else {
-            currentLength = 1
+            if UnicodeScalar(number.value+1) == nextNumber || UnicodeScalar(number.value-1) == nextNumber {
+                currentLength += 1
+            } else {
+                currentLength = 1
+            }
+            if currentLength >= sequenceLength {
+                return true
+            }
+            i += 1
         }
-        if currentLength >= sequenceLength {
-            return true
-        }
-        i += 1
+        return false
     }
-    return false
+}
+
+// MARK: - KeyboardViewDelegate
+extension PINViewController : KeyboardViewDelegate {
+    func keyboardButtonTapped(buttonNumber: NSInteger) {
+        // If backspace tapped, remove last char. Else, append new char.
+        if buttonNumber == -1 {
+            codeTextField.removeNumber()
+        } else {
+            codeTextField.appendNumber(buttonNumber: buttonNumber)
+        }
+    }
+}
+
+// MARK: - AlertServiceDelegate
+extension PINViewController : AlertServiceDelegate {
+    func cancelHandler() {
+        alertService.hide()
+    }
+    
+    func actionHandler() {
+        alertService.hide()
+        self.navigationController?.popViewController(animated: true)
+    }
 }

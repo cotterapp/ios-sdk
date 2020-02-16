@@ -10,9 +10,6 @@ import LocalAuthentication
 
 class LocalAuthService {
     
-    // Alert Service
-    let alertService = AlertService()
-    
     // Configs
     let authTitle = "Verifikasi"
     let authBody = "Sentuh sensor sidikjari untuk melanjutkan"
@@ -121,7 +118,7 @@ class LocalAuthService {
         let context = LAContext()
         var error: NSError?
         if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
-            let biometricAlert = self.alertService.createDefaultAlert(
+            let biometricAlert = AlertService.createDefaultAlert(
                 title: "Verifikasi",
                 body: "Lanjutkan untuk menggunakan verifikasi menggunakan TouchID atau FaceID",
                 actionText: "Lanjutkan",
@@ -225,7 +222,7 @@ class LocalAuthService {
         let context = LAContext()
         var error: NSError?
         if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
-            let biometricAlert = self.alertService.createDefaultAlert(
+            let biometricAlert = AlertService.createDefaultAlert(
                 title: "Verifikasi",
                 body: "Lanjutkan untuk menggunakan verifikasi menggunakan TouchID atau FaceID",
                 actionText: "Lanjutkan",
@@ -263,7 +260,7 @@ class LocalAuthService {
         if success {
             print("Successful local authentication!")
             // Give Success Alert
-            let successAlert = self.alertService.createDefaultAlert(
+            let successAlert = AlertService.createDefaultAlert(
                 title: self.successAuthTitle,
                 body: self.successAuthMsg,
                 actionText: self.authAction,
@@ -293,7 +290,7 @@ class LocalAuthService {
                 alert.dismiss(animated: true)
                 LocalAuthService().authenticate(view: view!, reason: "", callback: successAuthCallbackFunc)
             }
-            failedBiometricAlert = self.alertService.createDefaultAlert(
+            failedBiometricAlert = AlertService.createDefaultAlert(
                 title: self.authTitle,
                 body: self.failAuthMsg,
                 actionText: self.tryAgain,

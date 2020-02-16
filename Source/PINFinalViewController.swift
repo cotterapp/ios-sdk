@@ -25,7 +25,6 @@ class PINFinalViewController: UIViewController {
     let successButtonTitle = CotterStrings.instance.getText(for: buttonText)
     
     // Alert Service
-    let alertService = AlertService()
     let closeTitleText = CotterStrings.instance.getText(for: closeTitle)
     let closeMessageText = CotterStrings.instance.getText(for: closeMessage)
     let stayText = CotterStrings.instance.getText(for: stayOnView)
