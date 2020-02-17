@@ -14,10 +14,12 @@ import Foundation
 
 class AlertService: NSObject {
     var delegate: AlertServiceDelegate?
+    var parentVC: UIViewController!
   
     // Components
     let darkOverlayView = UIView()
     let alertView = UIView()
+    let bodyView = UIView()
     let titleLabel = UILabel()
     let bodyLabel = UILabel()
     let cancelButton = UIButton()
@@ -32,75 +34,99 @@ class AlertService: NSObject {
         cancelButtonTitle: String,
         imagePath: String? = nil
     ) {
-        guard let nc = vc.navigationController else { return }
+        guard let nc = vc.navigationController, let nv = nc.view else { return }
+      
+        parentVC = vc
         
         // Dark overlay right below the alert view, covering the whole current UIViewController vc
-        darkOverlayView.frame = CGRect(x: 0.0, y: 0.0, width: nc.view.frame.width, height: nc.view.frame.height)
         darkOverlayView.backgroundColor = UIColor.black
         darkOverlayView.alpha = 0.0
-        nc.view.addSubview(darkOverlayView)
-        
-        let outerHorizontalOffset: CGFloat = 50.0
-        let outerVerticalOffset: CGFloat = nc.view.frame.height * 0.7
-        let innerHorizontalOffset: CGFloat = 40.0
-        let innerVerticalOffset: CGFloat = 60.0
+        darkOverlayView.translatesAutoresizingMaskIntoConstraints = false
+        nv.addSubview(darkOverlayView)
         
         // The actual alert view
-        let width: CGFloat = nc.view.frame.width - outerHorizontalOffset
-        let height: CGFloat = nc.view.frame.height - outerVerticalOffset
-        let x: CGFloat = outerHorizontalOffset / 2
-        let y: CGFloat = outerVerticalOffset / 2
-        
-        alertView.frame = CGRect(x: x, y: y, width: width, height: height)
         alertView.backgroundColor = UIColor.white
         alertView.layer.cornerRadius = 10
+        alertView.alpha = 0.0
+        alertView.translatesAutoresizingMaskIntoConstraints = false
+        nv.addSubview(alertView)
+
+        bodyView.translatesAutoresizingMaskIntoConstraints = false
+        alertView.addSubview(bodyView)
         
-        titleLabel.frame = CGRect(x: innerHorizontalOffset / 2, y: innerVerticalOffset / 2, width: width - innerHorizontalOffset, height: height - innerVerticalOffset)
         titleLabel.text = title
         titleLabel.textColor = UIColor.systemGreen
         titleLabel.font = UIFont.boldSystemFont(ofSize: 20.0)
-        titleLabel.numberOfLines = 1
-        titleLabel.sizeToFit()
+        titleLabel.numberOfLines = 0
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
         alertView.addSubview(titleLabel)
         
-        bodyLabel.frame = CGRect(x: innerHorizontalOffset / 2, y: innerVerticalOffset / 2 + 50.0, width: width - innerHorizontalOffset, height: height - innerVerticalOffset)
         bodyLabel.text = body
         bodyLabel.textColor = UIColor.darkGray
         bodyLabel.font = UIFont.systemFont(ofSize: 17.0)
         bodyLabel.numberOfLines = 0
-        bodyLabel.sizeToFit()
+        bodyLabel.translatesAutoresizingMaskIntoConstraints = false
         alertView.addSubview(bodyLabel)
         
-        cancelButton.frame = CGRect(x: 86.0, y: 186.0, width: 80.0, height: 30.0)
         cancelButton.setTitle(cancelButtonTitle, for: .normal)
         cancelButton.setTitleColor(UIColor.systemGreen, for: .normal)
+        cancelButton.translatesAutoresizingMaskIntoConstraints = false
         alertView.addSubview(cancelButton)
         
-        actionButton.frame = CGRect(x: 178.0, y: 186.0, width: 80.0, height: 30.0)
         actionButton.setTitle(actionButtonTitle, for: .normal)
         actionButton.setTitleColor(UIColor.systemGreen, for: .normal)
+        actionButton.translatesAutoresizingMaskIntoConstraints = false
         alertView.addSubview(actionButton)
       
+        var imageSize: CGFloat = 0.0
         if let path = imagePath {
-            let imageSize = nc.view.frame.width * 0.2
-            imageView.frame = CGRect(x: innerHorizontalOffset / 2, y: innerVerticalOffset / 2 + 50.0, width: imageSize, height: imageSize)
+            imageSize = nc.view.frame.width * 0.15
             imageView.download(from: path)
-            alertView.addSubview(imageView)
-          
-            bodyLabel.frame = CGRect(x: innerHorizontalOffset + imageSize, y: innerVerticalOffset / 2 + 50.0, width: width - imageSize - innerHorizontalOffset * 1.5, height: height - innerVerticalOffset)
-            bodyLabel.sizeToFit()
         }
-
-        alertView.alpha = 0.0
-        nc.view.addSubview(alertView)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        alertView.addSubview(imageView)
+      
+        let innerLeftConstraint: CGFloat = 30.0
+        let innerRightConstraint: CGFloat = -1 * innerLeftConstraint
+      
+        let constraints = [
+            darkOverlayView.centerXAnchor.constraint(equalTo: nv.centerXAnchor),
+            darkOverlayView.centerYAnchor.constraint(equalTo: nv.centerYAnchor),
+            darkOverlayView.widthAnchor.constraint(equalTo: nv.widthAnchor),
+            darkOverlayView.heightAnchor.constraint(equalTo: nv.heightAnchor),
+            alertView.centerXAnchor.constraint(equalTo: nv.centerXAnchor),
+            alertView.centerYAnchor.constraint(equalTo: nv.centerYAnchor),
+            alertView.widthAnchor.constraint(equalTo: nv.widthAnchor, constant: -80.0),
+            titleLabel.topAnchor.constraint(equalTo: alertView.topAnchor, constant: 30.0),
+            titleLabel.leftAnchor.constraint(equalTo: alertView.leftAnchor, constant: innerLeftConstraint),
+            titleLabel.rightAnchor.constraint(equalTo: alertView.rightAnchor, constant: innerRightConstraint),
+            bodyView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20.0),
+            bodyView.leftAnchor.constraint(equalTo: alertView.leftAnchor, constant: innerLeftConstraint),
+            bodyView.rightAnchor.constraint(equalTo: alertView.rightAnchor, constant: innerRightConstraint),
+            imageView.leftAnchor.constraint(equalTo: bodyView.leftAnchor),
+            bodyLabel.topAnchor.constraint(equalTo: bodyView.topAnchor),
+            bodyLabel.leftAnchor.constraint(equalTo: imageView.rightAnchor, constant: imageSize > 0.0 ? 20.0 : 0.0),
+            bodyLabel.rightAnchor.constraint(equalTo: bodyView.rightAnchor),
+            imageView.widthAnchor.constraint(equalToConstant: imageSize),
+            imageView.heightAnchor.constraint(equalToConstant: imageSize),
+            bodyView.bottomAnchor.constraint(equalTo: bodyLabel.bottomAnchor),
+            imageView.centerYAnchor.constraint(equalTo: bodyView.centerYAnchor),
+            cancelButton.topAnchor.constraint(equalTo: bodyView.bottomAnchor, constant: 40.0),
+            cancelButton.rightAnchor.constraint(equalTo: alertView.rightAnchor, constant: innerRightConstraint),
+            actionButton.topAnchor.constraint(equalTo: bodyView.bottomAnchor, constant: 40.0),
+            actionButton.rightAnchor.constraint(equalTo: cancelButton.leftAnchor, constant: innerRightConstraint),
+            alertView.bottomAnchor.constraint(equalTo: cancelButton.bottomAnchor, constant: 30.0),
+        ]
+      
+        NSLayoutConstraint.activate(constraints)
     }
     
-    public func show(from vc: UIViewController) {
+  public func show(onComplete: ((Bool) -> Void)? = nil) {
         // Bind cancel & action handlers
-        let tapRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(target: vc, action: #selector(delegate?.cancelHandler))
+        let tapRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(target: parentVC, action: #selector(delegate?.cancelHandler))
         darkOverlayView.addGestureRecognizer(tapRecognizer)
-        cancelButton.addTarget(vc, action: #selector(delegate?.cancelHandler), for: .touchUpInside)
-        actionButton.addTarget(vc, action: #selector(delegate?.actionHandler), for: .touchUpInside)
+        cancelButton.addTarget(parentVC, action: #selector(delegate?.cancelHandler), for: .touchUpInside)
+        actionButton.addTarget(parentVC, action: #selector(delegate?.actionHandler), for: .touchUpInside)
       
         UIView.animate(
             withDuration: 0.2,
@@ -110,11 +136,11 @@ class AlertService: NSObject {
                 self.darkOverlayView.alpha = 0.6
                 self.alertView.alpha = 1.0
             },
-            completion: nil
+            completion: onComplete
         )
     }
     
-    public func hide() {
+    public func hide(onComplete: ((Bool) -> Void)? = nil) {
         UIView.animate(
             withDuration: 0.2,
             delay: 0.0,
@@ -123,7 +149,7 @@ class AlertService: NSObject {
                 self.darkOverlayView.alpha = 0.0
                 self.alertView.alpha = 0.0
             },
-            completion: nil
+            completion: onComplete
         )
     }
     

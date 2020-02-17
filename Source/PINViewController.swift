@@ -134,7 +134,7 @@ class PINViewController : UIViewController {
     }
     
     @objc private func promptClose(sender: UIBarButtonItem) {
-        alertService.show(from: self)
+        alertService.show()
     }
     
     public override func didReceiveMemoryWarning() {
@@ -200,7 +200,9 @@ extension PINViewController : AlertServiceDelegate {
     }
     
     func actionHandler() {
-        alertService.hide()
-        self.navigationController?.popViewController(animated: true)
+        alertService.hide(onComplete: { (Bool) -> Void in
+            self.navigationController?.popViewController(animated: true)
+            return
+        })
     }
 }
