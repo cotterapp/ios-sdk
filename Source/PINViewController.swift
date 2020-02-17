@@ -167,20 +167,25 @@ func findSequence(sequenceLength: Int, in string: String) -> Bool {
     let scalars = string.unicodeScalars
     let unicodeArray = scalars.map({ $0 })
 
-    var currentLength: Int = 1
     var i = 0
+
+    var increasingLength = 1
+    var decreasingLength = 1
     for number in unicodeArray where controlSet.contains(number) {
         if i+1 >= unicodeArray.count {
             break
         }
         let nextNumber = unicodeArray[i+1]
-
-        if UnicodeScalar(number.value+1) == nextNumber || UnicodeScalar(number.value-1) == nextNumber {
-            currentLength += 1
-        } else {
-            currentLength = 1
+        
+        if UnicodeScalar(number.value-1) == nextNumber {
+            decreasingLength += 1
         }
-        if currentLength >= sequenceLength {
+
+        if UnicodeScalar(number.value+1) == nextNumber {
+            increasingLength += 1
+        }
+        
+        if decreasingLength >= sequenceLength || increasingLength >= sequenceLength {
             return true
         }
         i += 1
