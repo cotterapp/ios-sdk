@@ -92,8 +92,8 @@ public class CotterAPIService {
     }
     
     public func auth(
-        data: [String: Any]?,
-        cb: @escaping (Bool) -> Void
+        body: Data?,
+        cb: HTTPCallback
     ) {
         // set url path
         let urlString = self.baseURL!.absoluteString + "/event/create"
@@ -111,8 +111,8 @@ public class CotterAPIService {
         request.httpMethod = "POST"
         
         // fill in the body with json if exist
-        if data != nil {
-            request.httpBody = try? JSONSerialization.data(withJSONObject: data!)
+        if body != nil {
+            request.httpBody = body
         }
         
         // start http request
@@ -121,7 +121,7 @@ public class CotterAPIService {
                 let response = response as? HTTPURLResponse,
                 error == nil else { // check for fundamental networking error
                 // TODO: error handling
-                print("error", error ?? "Unknown error")
+                cb.networkErrorHandler(err: error)
                 return
             }
             
@@ -133,25 +133,16 @@ public class CotterAPIService {
                 // error handling
                 DispatchQueue.main.async{
                     // handle failed authentication
-                    cb(false)
+                    cb.statusNotOKHandler(statusCode: response.statusCode)
                 }
                 
                 return
             }
             
-            let responseString = String(data: data, encoding: .utf8)
-            print("responseString = \(String(describing: responseString))")
-            
             // if it reaches this point, that means the http request is successful
             DispatchQueue.main.async{
                 // handle success authentication
-                let decoder = JSONDecoder()
-                do {
-                    let resp = try decoder.decode(CreateEventResponse.self, from: data)
-                    cb(resp.approved)
-                } catch {
-                    print(error.localizedDescription)
-                }
+                cb.successfulHandler(response: data)
             }
         }
         task.resume()

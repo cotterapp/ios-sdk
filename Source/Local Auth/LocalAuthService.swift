@@ -90,7 +90,7 @@ class LocalAuthService {
             return false
         }
         
-        let data = [
+        let data = try? JSONSerialization.data(withJSONObject: [
             "client_user_id": userID,
             "issuer": apiclient.apiKeyID,
             "event": "LOGIN",
@@ -100,13 +100,28 @@ class LocalAuthService {
             "code": pin,
             "method":"PIN",
             "approved": true
-        ] as [String: Any]
+        ])
+        
+        func successHandler(response:Data?) {
+            guard let response = response else {
+                print("ERROR: response body is nil")
+                return
+            }
+            let decoder = JSONDecoder()
+            do {
+                let resp = try decoder.decode(CreateEventResponse.self, from: response)
+                callback(resp.approved)
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        
+        let h = CotterCallback()
+        h.successfulFunc = successHandler
         
         CotterAPIService.shared.auth(
-            data: data,
-            cb: {success in
-                callback(success)
-            }
+            body: data,
+            cb: h
         )
         
         return true
@@ -184,7 +199,7 @@ class LocalAuthService {
                     let strSignature = signature.base64EncodedString()
 
                     // create the http request body
-                    let reqBody = [
+                    let reqBody = try? JSONSerialization.data(withJSONObject:  [
                         "client_user_id": client_user_id,
                         "issuer": issuer,
                         "event": event,
@@ -195,14 +210,29 @@ class LocalAuthService {
                         "method": evtMethod,
                         "public_key": b64PubKey,
                         "approved": true
-                    ] as [String: Any]
-                    
+                    ])
+
+                    func successHandler(response:Data?) {
+                        guard let response = response else {
+                            print("ERROR: response body is nil")
+                            return
+                        }
+                        let decoder = JSONDecoder()
+                        do {
+                            let resp = try decoder.decode(CreateEventResponse.self, from: response)
+                            callback(resp.approved)
+                        } catch {
+                            print(error.localizedDescription)
+                        }
+                    }
+
+                    let h = CotterCallback()
+                    h.successfulFunc = successHandler
+
                     // use APIService to send the authentication request
                     CotterAPIService.shared.auth(
-                        data: reqBody,
-                        cb: {success in
-                            callback(success)
-                        }
+                        body: reqBody,
+                        cb: h
                     )
                 },
                 cancelHandler: {
