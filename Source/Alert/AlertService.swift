@@ -127,29 +127,6 @@ class AlertService: NSObject {
         )
     }
     
-    public func alertWithImage(
-        title: String,
-        body: String,
-        imagePath: String?,
-        actionButtonTitle: String,
-        actionHandler: (() -> Void)? = nil,
-        cancelButtonTitle: String,
-        cancelHandler: (() -> Void)? = nil
-    ) -> AlertWithImageViewController {
-        let storyboard = UIStoryboard(name: "AlertStoryboard", bundle: Bundle(identifier: "org.cocoapods.Cotter"))
-        let alertWithImgVC = storyboard.instantiateViewController(withIdentifier: "AlertImgVC") as! AlertWithImageViewController
-        
-        alertWithImgVC.initialize(
-            title: title,
-            body: body,
-            imagePath: imagePath,
-            cancelTitle: cancelButtonTitle,
-            actionTitle: actionButtonTitle
-        )
-        
-        return alertWithImgVC
-    }
-    
     // Default Alert Function
     public static func createDefaultAlert(
         title: String,
