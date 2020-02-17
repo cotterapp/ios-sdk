@@ -91,59 +91,6 @@ public class CotterAPIService {
         task.resume()
     }
     
-//    public func http(method:String, path:String, data: [String:Any]?, successCb: @escaping Callback = defaultCb, errCb: @escaping Callback = defaultCb) {
-//        // set url path
-//        let urlString = self.baseURL!.absoluteString + path
-//        let url = URL(string:urlString)!
-//
-//        // create request
-//        var request = URLRequest(url:url)
-//
-//        // fill the required request headers
-//        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-//        request.setValue(self.apiSecretKey, forHTTPHeaderField: "API_SECRET_KEY")
-//        request.setValue(self.apiKeyID, forHTTPHeaderField: "API_KEY_ID")
-//        request.httpMethod = method
-//
-//        // fill in the body with json if exist
-//        if data != nil {
-//            request.httpBody = try? JSONSerialization.data(withJSONObject: data!)
-//        }
-//
-//        // start http request
-//        let task = URLSession.shared.dataTask(with: request) {(data, response, error) in
-//            guard let data = data,
-//                let response = response as? HTTPURLResponse,
-//                error == nil else { // check for fundamental networking error
-//                // TODO: error handling
-//                print("error", error ?? "Unknown error")
-//                return
-//            }
-//
-//            guard (200 ... 299) ~= response.statusCode else {   // check for http errors
-//                print("statusCode should be 2xx, but is \(response.statusCode)")
-//                print("response = \(response)")
-//                print("errMsg = \(String(decoding: data, as:UTF8.self))")
-//
-//                // error handling
-//                DispatchQueue.main.async{
-//                    errCb("statusCode should be 2xx, but is \(response.statusCode)")
-//                }
-//
-//                return
-//            }
-//
-//            let responseString = String(data: data, encoding: .utf8)
-//            print("responseString = \(String(describing: responseString))")
-//
-//            // if it reaches this point, that means the http request is successful
-//            DispatchQueue.main.async{
-//                successCb(responseString!)
-//            }
-//        }
-//        task.resume()
-//    }
-    
     public func auth(
         data: [String: Any]?,
         cb: @escaping (Bool) -> Void
