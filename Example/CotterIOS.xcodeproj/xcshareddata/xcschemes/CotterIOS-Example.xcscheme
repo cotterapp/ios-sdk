@@ -83,18 +83,6 @@
             ReferencedContainer = "container:CotterIOS.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <EnvironmentVariables>
-         <EnvironmentVariable
-            key = "COTTER_API_SECRET_KEY"
-            value = "K3yoIkKY2FpiLX7YWEff"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-         <EnvironmentVariable
-            key = "COTTER_API_KEY_ID"
-            value = "26260f9e-3db1-4bef-b3fd-d0310eff1c7f"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-      </EnvironmentVariables>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"

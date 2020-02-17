@@ -44,7 +44,7 @@ class Passwordless: NSObject, ASWebAuthenticationPresentationContextProviding {
              URLQueryItem(name: $0, value: $1)
         }
         let URL = components.url
-        print(URL?.absoluteString)
+        print(URL!.absoluteString)
         
         guard let authURL = URL else { return }
 
