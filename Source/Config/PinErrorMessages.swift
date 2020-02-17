@@ -14,4 +14,5 @@ public class PinErrorMessages {
     static let similarPINAsBefore = "PIN sama ama dulu punya. Coba ganti PIN baru."
     static let enrollPINFailed = "PIN enroll failed. Try again."
     static let updatePINFailed = "PIN update failed. Try again."
+    static let networkError = "Check your internet connection, then try again."
 }

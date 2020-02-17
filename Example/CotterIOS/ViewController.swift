@@ -58,8 +58,7 @@ class ViewController: UIViewController {
         
         CotterAPIService.shared.registerUser(
             userID: clientUserID,
-            successCb: defaultCb,
-            errCb: defaultCb
+            cb: DefaultCallback()
         )
         
         print(String(format:"%f", Date().timeIntervalSince1970.rounded()))

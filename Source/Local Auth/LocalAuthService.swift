@@ -55,15 +55,18 @@ class LocalAuthService {
         let pubKeyBase64 = data.base64EncodedString()
         print("pubKey base64string sent: \(pubKeyBase64)")
         
+        let body = try? JSONSerialization.data(withJSONObject: [
+            "method": "BIOMETRIC",
+            "enrolled": true,
+            "code": pubKeyBase64
+        ])
+        
         // Send the public key to the main server
         CotterAPIService.shared.http(
             method: "PUT",
             path: "/user/"+CotterAPIService.shared.userID!,
-            data: [
-                "method": "BIOMETRIC",
-                "enrolled": true,
-                "code": pubKeyBase64,
-            ]
+            body: body,
+            cb: CotterCallback() // TODO: define error handler, don't use default
         )
     }
     
