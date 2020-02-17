@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0BAF8FBB23FA1537001D3E24 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAF8FBA23FA1537001D3E24 /* UIImageView.swift */; };
 		2C4E8DCE7A801F705866681384C64C52 /* Cotter-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 25C9471451CA9CC3A3743D72636E2FEB /* Cotter-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2D0E795875F49B497364D06841AFA7EA /* Pods-CotterIOS_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF8291F5BE9989ECC799AFC7316EFDE /* Pods-CotterIOS_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D22505918194786A9996980A3D129BB /* Pods-CotterIOS_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4691BA6B5AFE40AA76AD2CF9D06FE047 /* Pods-CotterIOS_Example-dummy.m */; };
@@ -24,9 +25,7 @@
 		8594184F23F56B5400B4DA6D /* LanguageObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8594182323F56B5400B4DA6D /* LanguageObject.swift */; };
 		8594185023F56B5400B4DA6D /* English.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8594182423F56B5400B4DA6D /* English.swift */; };
 		8594185123F56B5400B4DA6D /* Indonesian.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8594182523F56B5400B4DA6D /* Indonesian.swift */; };
-		8594185223F56B5400B4DA6D /* AlertWithImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8594182723F56B5400B4DA6D /* AlertWithImageViewController.swift */; };
 		8594185323F56B5400B4DA6D /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8594182823F56B5400B4DA6D /* AlertService.swift */; };
-		8594185423F56B5400B4DA6D /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8594182923F56B5400B4DA6D /* AlertViewController.swift */; };
 		8594185523F56B5400B4DA6D /* UpdateCreateNewPINViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8594182A23F56B5400B4DA6D /* UpdateCreateNewPINViewController.swift */; };
 		8594185623F56B5400B4DA6D /* Cotter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8594182B23F56B5400B4DA6D /* Cotter.storyboard */; };
 		8594185723F56B5400B4DA6D /* UpdatePINViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8594182C23F56B5400B4DA6D /* UpdatePINViewController.swift */; };
@@ -38,7 +37,6 @@
 		8594185D23F56B5400B4DA6D /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8594183423F56B5400B4DA6D /* KeyboardView.swift */; };
 		8594185E23F56B5400B4DA6D /* KeyboardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8594183523F56B5400B4DA6D /* KeyboardView.xib */; };
 		8594185F23F56B5400B4DA6D /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8594183623F56B5400B4DA6D /* UIExtensions.swift */; };
-		8594186023F56B5400B4DA6D /* AlertStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8594183723F56B5400B4DA6D /* AlertStoryboard.storyboard */; };
 		8594186123F56B5400B4DA6D /* PINFinalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8594183823F56B5400B4DA6D /* PINFinalViewController.swift */; };
 		8594186223F56B5400B4DA6D /* KeyGen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8594183A23F56B5400B4DA6D /* KeyGen.swift */; };
 		8594186323F56B5400B4DA6D /* LocalAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8594183B23F56B5400B4DA6D /* LocalAuthService.swift */; };
@@ -82,6 +80,7 @@
 /* Begin PBXFileReference section */
 		093A10918520E26EE055209CB5543A28 /* Cotter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Cotter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B040F4F8EBCAA52571A0E44BA87898B /* Cotter-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Cotter-dummy.m"; sourceTree = "<group>"; };
+		0BAF8FBA23FA1537001D3E24 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		0DA9307C52FC7021452944BC52130768 /* Cotter-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Cotter-Info.plist"; sourceTree = "<group>"; };
 		186C962BB0FA0079ED68B7C9D6664B84 /* Pods_CotterIOS_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CotterIOS_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D1AF3C474E9238EE975CEAE45323547 /* Pods-CotterIOS_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CotterIOS_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -103,9 +102,7 @@
 		8594182323F56B5400B4DA6D /* LanguageObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageObject.swift; sourceTree = "<group>"; };
 		8594182423F56B5400B4DA6D /* English.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = English.swift; sourceTree = "<group>"; };
 		8594182523F56B5400B4DA6D /* Indonesian.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Indonesian.swift; sourceTree = "<group>"; };
-		8594182723F56B5400B4DA6D /* AlertWithImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertWithImageViewController.swift; sourceTree = "<group>"; };
 		8594182823F56B5400B4DA6D /* AlertService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
-		8594182923F56B5400B4DA6D /* AlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		8594182A23F56B5400B4DA6D /* UpdateCreateNewPINViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateCreateNewPINViewController.swift; sourceTree = "<group>"; };
 		8594182B23F56B5400B4DA6D /* Cotter.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Cotter.storyboard; sourceTree = "<group>"; };
 		8594182C23F56B5400B4DA6D /* UpdatePINViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdatePINViewController.swift; sourceTree = "<group>"; };
@@ -117,7 +114,6 @@
 		8594183423F56B5400B4DA6D /* KeyboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
 		8594183523F56B5400B4DA6D /* KeyboardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KeyboardView.xib; sourceTree = "<group>"; };
 		8594183623F56B5400B4DA6D /* UIExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
-		8594183723F56B5400B4DA6D /* AlertStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AlertStoryboard.storyboard; sourceTree = "<group>"; };
 		8594183823F56B5400B4DA6D /* PINFinalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PINFinalViewController.swift; sourceTree = "<group>"; };
 		8594183A23F56B5400B4DA6D /* KeyGen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyGen.swift; sourceTree = "<group>"; };
 		8594183B23F56B5400B4DA6D /* LocalAuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalAuthService.swift; sourceTree = "<group>"; };
@@ -184,6 +180,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0BAF8FB923FA1524001D3E24 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0BAF8FBA23FA1537001D3E24 /* UIImageView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -231,6 +235,7 @@
 		8594181923F56B5400B4DA6D /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				0BAF8FB923FA1524001D3E24 /* Extensions */,
 				8594181A23F56B5400B4DA6D /* PINConfirmViewController.swift */,
 				8594181B23F56B5400B4DA6D /* Config */,
 				8594182623F56B5400B4DA6D /* Alert */,
@@ -242,7 +247,6 @@
 				8594182F23F56B5400B4DA6D /* UpdateProfile.storyboard */,
 				8594183023F56B5400B4DA6D /* Transaction.storyboard */,
 				8594183123F56B5400B4DA6D /* Custom UI Fields */,
-				8594183723F56B5400B4DA6D /* AlertStoryboard.storyboard */,
 				8594183823F56B5400B4DA6D /* PINFinalViewController.swift */,
 				8594183923F56B5400B4DA6D /* Local Auth */,
 				8594183C23F56B5400B4DA6D /* Service */,
@@ -281,9 +285,7 @@
 		8594182623F56B5400B4DA6D /* Alert */ = {
 			isa = PBXGroup;
 			children = (
-				8594182723F56B5400B4DA6D /* AlertWithImageViewController.swift */,
 				8594182823F56B5400B4DA6D /* AlertService.swift */,
-				8594182923F56B5400B4DA6D /* AlertViewController.swift */,
 			);
 			path = Alert;
 			sourceTree = "<group>";
@@ -539,7 +541,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
-				LastUpgradeCheck = 1100;
+				LastUpgradeCheck = 1130;
 				TargetAttributes = {
 					61C2DA80FD4DCC72848FDFA01B2CF7EE = {
 						DevelopmentTeam = 97LKD29ZGY;
@@ -592,7 +594,6 @@
 				8594186823F56B5400B4DA6D /* check.png in Resources */,
 				8594185623F56B5400B4DA6D /* Cotter.storyboard in Resources */,
 				8594185A23F56B5400B4DA6D /* UpdateProfile.storyboard in Resources */,
-				8594186023F56B5400B4DA6D /* AlertStoryboard.storyboard in Resources */,
 				8594185B23F56B5400B4DA6D /* Transaction.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -634,12 +635,12 @@
 				8AA9D0EEC02287597F203E165D932117 /* Cotter-dummy.m in Sources */,
 				8594186223F56B5400B4DA6D /* KeyGen.swift in Sources */,
 				8594186923F56B5400B4DA6D /* Cotter.swift in Sources */,
-				8594185223F56B5400B4DA6D /* AlertWithImageViewController.swift in Sources */,
 				8594185823F56B5400B4DA6D /* UpdateConfirmNewPINViewController.swift in Sources */,
 				8594186323F56B5400B4DA6D /* LocalAuthService.swift in Sources */,
 				8594184B23F56B5400B4DA6D /* Error.swift in Sources */,
 				8594184823F56B5400B4DA6D /* PINConfirmViewController.swift in Sources */,
 				8594186123F56B5400B4DA6D /* PINFinalViewController.swift in Sources */,
+				0BAF8FBB23FA1537001D3E24 /* UIImageView.swift in Sources */,
 				8594186623F56B5400B4DA6D /* PINViewController.swift in Sources */,
 				8594185023F56B5400B4DA6D /* English.swift in Sources */,
 				8594185F23F56B5400B4DA6D /* UIExtensions.swift in Sources */,
@@ -651,7 +652,6 @@
 				8594185123F56B5400B4DA6D /* Indonesian.swift in Sources */,
 				8594184F23F56B5400B4DA6D /* LanguageObject.swift in Sources */,
 				8594186A23F56B5400B4DA6D /* Passwordless.swift in Sources */,
-				8594185423F56B5400B4DA6D /* AlertViewController.swift in Sources */,
 				8594186423F56B5400B4DA6D /* CotterAPIService.swift in Sources */,
 				8594186523F56B5400B4DA6D /* CotterAPIExtensions.swift in Sources */,
 				8594184C23F56B5400B4DA6D /* Config.swift in Sources */,
@@ -761,9 +761,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E2E5850AB898D79BF70D1745FF464B3A /* Cotter.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -795,9 +794,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E2E5850AB898D79BF70D1745FF464B3A /* Cotter.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -831,9 +829,8 @@
 			baseConfigurationReference = 888780F5C27C89C1910BFBB5EB0977C2 /* Pods-CotterIOS_Example.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -868,9 +865,8 @@
 			baseConfigurationReference = DF385A003E341B9D7DB3D95786CD0EFB /* Pods-CotterIOS_Example.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -922,9 +918,8 @@
 			baseConfigurationReference = 764F5C378AAB225A1497DE1262DF3A93 /* Pods-CotterIOS_Tests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -976,9 +971,8 @@
 			baseConfigurationReference = 1D1AF3C474E9238EE975CEAE45323547 /* Pods-CotterIOS_Tests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
