@@ -145,7 +145,13 @@ public class CotterAPIService {
             // if it reaches this point, that means the http request is successful
             DispatchQueue.main.async{
                 // handle success authentication
-                cb(true)
+                let decoder = JSONDecoder()
+                do {
+                    let resp = try decoder.decode(CreateEventResponse.self, from: data)
+                    cb(resp.approved)
+                } catch {
+                    print(error.localizedDescription)
+                }
             }
         }
         task.resume()
