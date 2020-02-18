@@ -72,7 +72,7 @@ class UpdatePINViewController: UIViewController, KeyboardViewDelegate, PINBaseCo
             
             // Verify PIN through API
             do {
-                _ = try self.authService.pinAuth(pin: code, callback: pinVerificationCallback)
+                _ = try self.authService.pinAuth(pin: code, event:"UPDATE", callback: pinVerificationCallback)
             } catch let e {
                 print(e)
                 return false
