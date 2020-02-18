@@ -54,6 +54,8 @@ class ViewController: UIViewController {
             ]
         )
         
+        CotterWrapper.cotter?.setText(key: PINViewControllerKey.title, value:"hello world!")
+        
         // set the base URL for PLBaseURL FOR DEVELOPMENT ONLY!
         Cotter.PLBaseURL = "http://localhost:3000/app"
         

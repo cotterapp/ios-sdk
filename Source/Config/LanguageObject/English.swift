@@ -11,20 +11,21 @@ class English: LanguageObject {
     init() {
         super.init(text: [
             // MARK: - PINViewController
-            PINViewController.showPin: "Lihat PIN",
-            PINViewController.hidePin: "Sembunyikan",
-            PINViewController.closeTitle: "Yakin tidak Mau Buat PIN Sekarang?",
-            PINViewController.closeMessage: "PIN Ini diperlukan untuk keamanan akunmu, lho.",
-            PINViewController.stayOnView: "Input PIN",
-            PINViewController.leaveView: "Lain Kali",
+            PINViewControllerKey.showPin: "Show",
+            PINViewControllerKey.hidePin: "Hide",
+            PINViewControllerKey.closeTitle: "Are you sure you want to cancel?",
+            PINViewControllerKey.closeMessage: "Do you know that PIN creates additional security layer for your account?",
+            PINViewControllerKey.stayOnView: "Input PIN",
+            PINViewControllerKey.leaveView: "Yes",
+            PINViewControllerKey.title: "Create PIN to secure your account",
             
             // MARK: - PINConfirmViewController
-            PINConfirmViewController.showPin: "Lihat PIN",
-            PINConfirmViewController.hidePin: "Sembunyikan",
-            PINConfirmViewController.closeTitle: "Yakin tidak Mau Buat PIN Sekarang?",
-            PINConfirmViewController.closeMessage: "PIN Ini diperlukan untuk keamanan akunmu, lho.",
-            PINConfirmViewController.stayOnView: "Input PIN",
-            PINConfirmViewController.leaveView: "Lain Kali",
+            PINConfirmViewControllerKey.showPin: "Lihat PIN",
+            PINConfirmViewControllerKey.hidePin: "Sembunyikan",
+            PINConfirmViewControllerKey.closeTitle: "Yakin tidak Mau Buat PIN Sekarang?",
+            PINConfirmViewControllerKey.closeMessage: "PIN Ini diperlukan untuk keamanan akunmu, lho.",
+            PINConfirmViewControllerKey.stayOnView: "Input PIN",
+            PINConfirmViewControllerKey.leaveView: "Lain Kali",
             
             // MARK: - PINFinalViewController
             PINFinalViewController.closeTitle: "Verifikasi",
