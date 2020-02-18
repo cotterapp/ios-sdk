@@ -38,7 +38,12 @@ public class CotterAPIService {
        return jsonDecoder
     }()
     
-    public func http(method:String, path:String, data: [String:Any]?, successCb: @escaping Callback = defaultCb, errCb: @escaping Callback = defaultCb) {
+    public func http(
+        method: String,
+        path: String,
+        body: Data?,
+        cb: HTTPCallback // pass in a protocol here
+    ) {
         // set url path
         let urlString = self.baseURL!.absoluteString + path
         let url = URL(string:urlString)!
@@ -53,8 +58,8 @@ public class CotterAPIService {
         request.httpMethod = method
         
         // fill in the body with json if exist
-        if data != nil {
-            request.httpBody = try? JSONSerialization.data(withJSONObject: data!)
+        if body != nil {
+            request.httpBody = body
         }
         
         // start http request
@@ -62,8 +67,7 @@ public class CotterAPIService {
             guard let data = data,
                 let response = response as? HTTPURLResponse,
                 error == nil else { // check for fundamental networking error
-                // TODO: error handling
-                print("error", error ?? "Unknown error")
+                cb.networkErrorHandler(err: error)
                 return
             }
             
@@ -72,28 +76,24 @@ public class CotterAPIService {
                 print("response = \(response)")
                 print("errMsg = \(String(decoding: data, as:UTF8.self))")
                 
-                // error handling
+                // handle error
                 DispatchQueue.main.async{
-                    errCb("statusCode should be 2xx, but is \(response.statusCode)")
+                    cb.statusNotOKHandler(statusCode: response.statusCode)
                 }
-                
                 return
             }
             
-            let responseString = String(data: data, encoding: .utf8)
-            print("responseString = \(String(describing: responseString))")
-            
             // if it reaches this point, that means the http request is successful
             DispatchQueue.main.async{
-                successCb(responseString!)
+                cb.successfulHandler(response: data)
             }
         }
         task.resume()
     }
     
     public func auth(
-        data: [String: Any]?,
-        cb: @escaping (Bool) -> Void
+        body: Data?,
+        cb: HTTPCallback
     ) {
         // set url path
         let urlString = self.baseURL!.absoluteString + "/event/create"
@@ -111,8 +111,8 @@ public class CotterAPIService {
         request.httpMethod = "POST"
         
         // fill in the body with json if exist
-        if data != nil {
-            request.httpBody = try? JSONSerialization.data(withJSONObject: data!)
+        if body != nil {
+            request.httpBody = body
         }
         
         // start http request
@@ -121,7 +121,7 @@ public class CotterAPIService {
                 let response = response as? HTTPURLResponse,
                 error == nil else { // check for fundamental networking error
                 // TODO: error handling
-                print("error", error ?? "Unknown error")
+                cb.networkErrorHandler(err: error)
                 return
             }
             
@@ -133,25 +133,16 @@ public class CotterAPIService {
                 // error handling
                 DispatchQueue.main.async{
                     // handle failed authentication
-                    cb(false)
+                    cb.statusNotOKHandler(statusCode: response.statusCode)
                 }
                 
                 return
             }
             
-            let responseString = String(data: data, encoding: .utf8)
-            print("responseString = \(String(describing: responseString))")
-            
             // if it reaches this point, that means the http request is successful
             DispatchQueue.main.async{
                 // handle success authentication
-                let decoder = JSONDecoder()
-                do {
-                    let resp = try decoder.decode(CreateEventResponse.self, from: data)
-                    cb(resp.approved)
-                } catch {
-                    print(error.localizedDescription)
-                }
+                cb.successfulHandler(response: data)
             }
         }
         task.resume()
@@ -159,8 +150,7 @@ public class CotterAPIService {
     
     public func registerUser(
         userID: String,
-        successCb: @escaping Callback,
-        errCb: @escaping Callback
+        cb: HTTPCallback
     ) {
         // register the user
         let method = "POST"
@@ -169,19 +159,19 @@ public class CotterAPIService {
             "client_user_id": userID
         ]
         
+        let body = try? JSONSerialization.data(withJSONObject: data)
+        
         self.http(
             method: method,
             path: path,
-            data: data,
-            successCb: successCb,
-            errCb: errCb
+            body: body,
+            cb: cb
         )
     }
     
     public func enrollUserPin(
         code: String,
-        successCb: @escaping Callback,
-        errCb: @escaping Callback
+        cb: HTTPCallback
     ) {
         let method = "PUT"
         let path = "/user/" + CotterAPIService.shared.userID!
@@ -191,20 +181,20 @@ public class CotterAPIService {
             "code": code
         ]
         
+        let body = try? JSONSerialization.data(withJSONObject: data)
+        
         self.http(
             method: method,
             path: path,
-            data: data,
-            successCb: successCb,
-            errCb: errCb
+            body: body,
+            cb: cb
         )
     }
     
     public func updateUserPin(
         oldCode: String,
         newCode: String,
-        successCb: @escaping Callback,
-        errCb: @escaping Callback
+        cb: HTTPCallback
     ) {
         let method = "PUT"
         let path = "/user/" + CotterAPIService.shared.userID!
@@ -216,12 +206,14 @@ public class CotterAPIService {
             "change_code": true
         ]
         
+        let body = try? JSONSerialization.data(withJSONObject: data)
+        
         self.http(
             method: method,
             path: path,
-            data: data,
-            successCb: successCb,
-            errCb: errCb
+            body: body,
+            cb:cb
         )
     }
 }
+

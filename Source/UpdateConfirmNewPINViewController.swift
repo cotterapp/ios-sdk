@@ -69,7 +69,7 @@ class UpdateConfirmNewPINViewController: UIViewController, KeyboardViewDelegate,
             }
             
             // Define the callbacks
-            func successCb(resp: String) -> Void {
+            func successCb(resp: Data?) -> Void {
                 self.codeTextField.clear()
                 // Go to PIN Final View
                 let pinFinalVC = Cotter.cotterStoryboard.instantiateViewController(withIdentifier: "PINFinalViewController")as! PINFinalViewController
@@ -77,19 +77,24 @@ class UpdateConfirmNewPINViewController: UIViewController, KeyboardViewDelegate,
                 self.navigationController?.pushViewController(pinFinalVC, animated: true)
             }
             
-            func errorCb(err: String) -> Void {
-                print(err)
+            func errorCb(err: Error?) -> Void {
+                print(err?.localizedDescription ?? "error in UpdateViewController http request")
                 // Display Error
                 if self.errorLabel.isHidden {
                     self.toggleErrorMsg(msg: PinErrorMessages.updatePINFailed)
                 }
             }
             
+            // define the handlers, attach the callbacks
+            let h = CotterCallback()
+            h.successfulFunc = successCb
+            h.networkErrorFunc = errorCb
+            
+            // Run API to update PIN
             CotterAPIService.shared.updateUserPin(
                 oldCode: self.prevCode!,
                 newCode: code,
-                successCb: successCb,
-                errCb: errorCb
+                cb: h
             )
             
             return true

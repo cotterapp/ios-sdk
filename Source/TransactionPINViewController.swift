@@ -43,6 +43,22 @@ class TransactionPINViewController: UIViewController, KeyboardViewDelegate, PINB
     
     @IBOutlet weak var codeTextField: OneTimeCodeTextField!
     
+    public override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print("Transaction PIN View appeared!")
+        
+        guard let onFinishCallback = Config.instance.callbackFunc else { return }
+        func cb(success: Bool) {
+            if success{
+                onFinishCallback("dummy biometric token")
+            } else {
+                print("got here!")
+                self.toggleErrorMsg(msg: "Biometric is incorrect, please use PIN")
+            }
+        }
+        authService.bioAuth(view: self, event: "TRANSACTION", callback: cb)
+    }
+    
     public override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -52,16 +68,6 @@ class TransactionPINViewController: UIViewController, KeyboardViewDelegate, PINB
         addConfigs()
         addDelegates()
         instantiateCodeTextFieldFunctions()
-        
-        guard let onFinishCallback = Config.instance.callbackFunc else { return }
-        func cb(success: Bool) {
-            if success{
-                onFinishCallback("dummy biometric token")
-            } else {
-                self.toggleErrorMsg(msg: "PIN is incorrect")
-            }
-        }
-        authService.bioAuth(view: self, event: "TRANSACTION", callback: cb)
     }
     
     func instantiateCodeTextFieldFunctions() {
@@ -103,7 +109,7 @@ class TransactionPINViewController: UIViewController, KeyboardViewDelegate, PINB
             
             // Verify PIN through API
             do {
-                _ = try self.authService.pinAuth(pin: code, callback: pinVerificationCallback)
+                _ = try self.authService.pinAuth(pin: code, event: "TRANSACTION", callback: pinVerificationCallback)
             } catch let e {
                 print(e)
                 return false

@@ -18,6 +18,7 @@
 		85292E4223EC21CB008363AB /* CryptoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85292E4123EC21CB008363AB /* CryptoViewController.swift */; };
 		8594181023F55A3F00B4DA6D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8594180F23F55A3F00B4DA6D /* LoginViewController.swift */; };
 		8594181223F5637800B4DA6D /* CotterWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8594181123F5637800B4DA6D /* CotterWrapper.swift */; };
+		8594187523FADEBC00B4DA6D /* HTTPCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8594187423FADEBC00B4DA6D /* HTTPCallback.swift */; };
 		8597662923F1914C00ACA96E /* IPAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8597662823F1914C00ACA96E /* IPAddressViewController.swift */; };
 		85B5A91B23E6ECFF0040E288 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B5A91A23E6ECFF0040E288 /* DashboardViewController.swift */; };
 		85B5A91F23E6EDD20040E288 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85B5A91E23E6EDD20040E288 /* Dashboard.storyboard */; };
@@ -53,6 +54,7 @@
 		85292E4123EC21CB008363AB /* CryptoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoViewController.swift; sourceTree = "<group>"; };
 		8594180F23F55A3F00B4DA6D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		8594181123F5637800B4DA6D /* CotterWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CotterWrapper.swift; sourceTree = "<group>"; };
+		8594187423FADEBC00B4DA6D /* HTTPCallback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPCallback.swift; sourceTree = "<group>"; };
 		8597662823F1914C00ACA96E /* IPAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPAddressViewController.swift; sourceTree = "<group>"; };
 		85B5A91A23E6ECFF0040E288 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		85B5A91E23E6EDD20040E288 /* Dashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				8597662823F1914C00ACA96E /* IPAddressViewController.swift */,
 				8594180F23F55A3F00B4DA6D /* LoginViewController.swift */,
 				8594181123F5637800B4DA6D /* CotterWrapper.swift */,
+				8594187423FADEBC00B4DA6D /* HTTPCallback.swift */,
 			);
 			name = "Example for CotterIOS";
 			path = CotterIOS;
@@ -354,6 +357,7 @@
 			files = (
 				8594181223F5637800B4DA6D /* CotterWrapper.swift in Sources */,
 				8594181023F55A3F00B4DA6D /* LoginViewController.swift in Sources */,
+				8594187523FADEBC00B4DA6D /* HTTPCallback.swift in Sources */,
 				8597662923F1914C00ACA96E /* IPAddressViewController.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				85292E4223EC21CB008363AB /* CryptoViewController.swift in Sources */,

@@ -28,6 +28,7 @@ class ViewController: UIViewController {
         
         // set the URL path
         let baseURL = "https://www.cotter.app/api/v0"
+//        let baseURL = "http://192.168.1.9:1234/api/v0"
         let clientUserID = randomString(length: 5)
         
         // select the dashboard's ViewController
@@ -58,8 +59,7 @@ class ViewController: UIViewController {
         
         CotterAPIService.shared.registerUser(
             userID: clientUserID,
-            successCb: defaultCb,
-            errCb: defaultCb
+            cb: DefaultCallback()
         )
         
         print(String(format:"%f", Date().timeIntervalSince1970.rounded()))

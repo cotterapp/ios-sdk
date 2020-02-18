@@ -76,24 +76,28 @@ class PINConfirmViewController : UIViewController, KeyboardViewDelegate {
             }
             
             // Define the callbacks
-            func successCb(resp: String) -> Void {
+            func successCb(resp: Data?) -> Void {
                 let finalVC = self.storyboard?.instantiateViewController(withIdentifier: "PINFinalViewController")as! PINFinalViewController
                 self.navigationController?.pushViewController(finalVC, animated: true)
             }
             
-            func errorCb(err: String) -> Void {
-                print(err)
+            func errorCb(err: Error?) -> Void {
+                print(err?.localizedDescription ?? "error in the PINConfirmViewController http request")
                 // Display Error
                 if self.errorLabel.isHidden {
                     self.toggleErrorMsg(msg: PinErrorMessages.enrollPINFailed)
                 }
             }
             
+            // define the handlers, attach the callbacks
+            let h = CotterCallback()
+            h.successfulFunc = successCb
+            h.networkErrorFunc = errorCb
+            
             // Run API to enroll PIN
             CotterAPIService.shared.enrollUserPin(
                 code: code,
-                successCb: successCb,
-                errCb: errorCb
+                cb: h
             )
             
             return true
