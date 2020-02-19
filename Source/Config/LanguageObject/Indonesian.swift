@@ -7,8 +7,8 @@
 
 import Foundation
 
-class Indonesian: LanguageObject {
-    init() {
+public class Indonesian: LanguageObject {
+    public init() {
         super.init(text: [
             // MARK: - PINViewController
             PINViewControllerKey.showPin: "Lihat PIN",

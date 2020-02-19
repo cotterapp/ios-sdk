@@ -17,18 +17,9 @@ class Config: NSObject {
     var parentNav: UINavigationController?
     var callbackView: UIViewController?
     var callbackFunc: CallbackFunc?
-  
-    var language: String? = "Indonesian"
-    var languageObject: LanguageObject {
-        switch Config.instance.language {
-            case "Indonesian":
-                return Indonesian()
-            case "English":
-                return English()
-            default:
-                return Indonesian()
-        }
-    }
+
+    // strings consists text configurations for Cotter
+    var strings: LanguageObject = Indonesian() // defaults to indonesian
   
     // passwordless configurations
     var PLBaseURL: String? = "https://js.cotter.app"

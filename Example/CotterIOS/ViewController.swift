@@ -41,6 +41,12 @@ class ViewController: UIViewController {
             self.navigationController?.pushViewController(dVC, animated: true)
         }
         
+        // langConfig is an optional language configuration
+        let langConfig = English()
+        
+        // if you want to set text configuration uncomment the following
+        // langConfig.set(key: PINViewControllerKey.title, value: "Hi! You've changed the text")
+        
         // Load Cotter View Controller from SDK
         CotterWrapper.cotter = Cotter.init(
             successCb: cbFunc,
@@ -50,11 +56,12 @@ class ViewController: UIViewController {
             userID: clientUserID,
             // configuration is an optional argument, remove this below and Cotter app will still function properly
             configuration: [
-                "language": "English"   // default value is "Indonesian"
+                "language": langConfig   // default value is Indonesian()
             ]
         )
         
-        CotterWrapper.cotter?.setText(key: PINViewControllerKey.title, value:"hello world!")
+        // you can also set texts after initialization
+        // CotterWrapper.cotter?.setText(key: PINViewController.title, value: "Hello World!")
         
         // set the base URL for PLBaseURL FOR DEVELOPMENT ONLY!
         Cotter.PLBaseURL = "http://localhost:3000/app"

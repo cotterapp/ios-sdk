@@ -45,10 +45,10 @@ public class Cotter {
         )
         
         // Check if fields are present in configuration param
-        guard let language = configuration["language"] as! String? else { return }
+        guard let strings = configuration["language"] as! LanguageObject? else { return }
 
         // Assign fields
-        Config.instance.language = language
+        Config.instance.strings = strings
         
         CotterAPIService.shared.userID = userID
     }
@@ -124,6 +124,6 @@ public class Cotter {
     
     // setText sets the string based on the key string
     public func setText(key:String, value:String) {
-        Config.instance.languageObject.set(key: key, value: value)
+        Config.instance.strings.set(key: key, value: value)
     }
 }
