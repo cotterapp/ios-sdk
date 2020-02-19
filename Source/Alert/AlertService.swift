@@ -123,10 +123,10 @@ class AlertService: NSObject {
     
   public func show(onComplete: ((Bool) -> Void)? = nil) {
         // Bind cancel & action handlers
-        let tapRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(target: parentVC, action: #selector(delegate?.cancelHandler))
+        let tapRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(target: delegate, action: #selector(delegate?.cancelHandler))
         darkOverlayView.addGestureRecognizer(tapRecognizer)
-        cancelButton.addTarget(parentVC, action: #selector(delegate?.cancelHandler), for: .touchUpInside)
-        actionButton.addTarget(parentVC, action: #selector(delegate?.actionHandler), for: .touchUpInside)
+        cancelButton.addTarget(delegate, action: #selector(delegate?.cancelHandler), for: .touchUpInside)
+        actionButton.addTarget(delegate, action: #selector(delegate?.actionHandler), for: .touchUpInside)
       
         UIView.animate(
             withDuration: 0.2,

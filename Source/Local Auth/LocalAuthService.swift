@@ -9,9 +9,6 @@ import Foundation
 import LocalAuthentication
 
 class LAlertDelegate: AlertServiceDelegate {
-    // empty initializers
-    public init() { }
-    
     var defActionHandler = {
         print("LAlertDelegate default action handler")
         return
@@ -34,7 +31,7 @@ class LAlertDelegate: AlertServiceDelegate {
     }
 }
 
-class LocalAuthService {
+class LocalAuthService: UIViewController {
     
     // Configs
     let authTitle = "Verifikasi"
@@ -271,12 +268,12 @@ class LocalAuthService {
                     cb: h
                 )
             }
+            
             alertDelegate.defCancelHandler = {
                 aService.hide()
-//                view.dismiss(animated: true)
             }
-            aService.delegate = alertDelegate
             
+            aService.delegate = alertDelegate
             aService.show()
         }
         // no biometric then do nothing
@@ -336,52 +333,60 @@ class LocalAuthService {
     }
     
     private func dispatchResult(view: UIViewController?, success: Bool, authError: Error?) {
+        guard let view = view else { return }
+        
         if success {
             print("Successful local authentication!")
+            
             // Give Success Alert
-            let successAlert = AlertService.createDefaultAlert(
+            let successAlert = AlertService(
+                vc: view,
                 title: self.successAuthTitle,
                 body: self.successAuthMsg,
-                actionText: self.authAction,
-                cancelText: self.authCancel
+                actionButtonTitle: self.authAction,
+                cancelButtonTitle: self.authCancel
             )
-            view?.present(successAlert, animated: true)
+            
+            let successAlertDelegate = LAlertDelegate()
+            successAlert.delegate = successAlertDelegate
+            successAlert.show()
+            
             // Dismiss Alert after 3 seconds, then run callback
             let timer = DispatchTime.now() + 3
             DispatchQueue.main.asyncAfter(deadline: timer) {
-                successAlert.dismiss(animated: true) {
-                    // Run callback
-                    self.successAuthCallbackFunc?("This is token!")
-                }
+                successAlert.hide(onComplete: { (finished: Bool) in
+                    self.successAuthCallbackFunc?("This is token from dispatch!")
+                    return
+                })
             }
         } else {
             // Give Failed Authentication Alert
             print("Failed local authentication!")
             
-            var failedBiometricAlert: UIAlertController?
-
-            // try again will re-authenticate
-            func tryAgain(){
-                guard let alert = failedBiometricAlert else {
-                    LocalAuthService().authenticate(view: view!, reason: "", callback: successAuthCallbackFunc)
-                    return
-                }
-                alert.dismiss(animated: true)
-                LocalAuthService().authenticate(view: view!, reason: "", callback: successAuthCallbackFunc)
-            }
-            failedBiometricAlert = AlertService.createDefaultAlert(
+            let failedBiometricAlert = AlertService(
+                vc: view,
                 title: self.authTitle,
                 body: self.failAuthMsg,
-                actionText: self.tryAgain,
-                cancelText: self.authAction,
-                actionHandler: tryAgain,
-                cancelHandler: {
-                    failedBiometricAlert?.dismiss(animated:true)
-                    self.successAuthCallbackFunc?("Token from failed biometric")
-                }
+                actionButtonTitle: self.tryAgain,
+                cancelButtonTitle: self.authAction
             )
-            view?.present(failedBiometricAlert!, animated: true)
-            // TODO: Allow user to Input PIN instead?
+            
+            // try again will re-authenticate
+            func tryAgain(){
+                failedBiometricAlert.hide(onComplete: {(finished:Bool) in
+                    LocalAuthService().authenticate(view: view, reason: "", callback: self.successAuthCallbackFunc)
+                })
+            }
+            
+            let failedBiometricAlertDelegate = LAlertDelegate()
+            failedBiometricAlertDelegate.defActionHandler = tryAgain
+            failedBiometricAlertDelegate.defCancelHandler = {
+                failedBiometricAlert.hide()
+                self.successAuthCallbackFunc?("Token from failed biometric")
+            }
+            
+            failedBiometricAlert.delegate = failedBiometricAlertDelegate
+            failedBiometricAlert.show()
         }
     }
 }
