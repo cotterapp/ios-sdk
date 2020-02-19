@@ -12,6 +12,6 @@ class CotterStrings: NSObject {
     private override init() {}
   
     func getText(for key: String) -> String {
-        return Config.instance.languageObject.text[key] ?? "Text not found."
+        return Config.instance.strings.text[key] ?? "Text not found."
     }
 }

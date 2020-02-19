@@ -45,10 +45,10 @@ public class Cotter {
         )
         
         // Check if fields are present in configuration param
-        guard let language = configuration["language"] as! String? else { return }
+        guard let strings = configuration["language"] as! LanguageObject? else { return }
 
         // Assign fields
-        Config.instance.language = language
+        Config.instance.strings = strings
         
         CotterAPIService.shared.userID = userID
     }
@@ -71,6 +71,7 @@ public class Cotter {
         LocalAuthService.setIPAddr()
     }
     
+    // MARK: - Cotter storyboards and VCs
     // cotterStoryboard refers to Cotter.storyboard
     // bundleidentifier can be found when you click Pods general view.
     static var cotterStoryboard = UIStoryboard(name:"Cotter", bundle:Bundle(identifier: "org.cocoapods.Cotter"))
@@ -91,7 +92,8 @@ public class Cotter {
     
     // Update Profile Corresponding View
     private lazy var updateProfilePinVC = Cotter.updateProfileStoryboard.instantiateViewController(withIdentifier: "UpdatePINViewController") as! UpdatePINViewController
-
+    
+    // MARK: - Cotter flows initializers
     // Start of Enrollment Process
     public func startEnrollment(parentNav: UINavigationController, animated: Bool) {
         // push the viewcontroller to the navController
@@ -118,5 +120,10 @@ public class Cotter {
             identifierField: identifierField,
             type: type
         )
+    }
+    
+    // setText sets the string based on the key string
+    public func setText(key:String, value:String) {
+        Config.instance.strings.set(key: key, value: value)
     }
 }

@@ -8,7 +8,30 @@
 import Foundation
 import LocalAuthentication
 
-class LocalAuthService {
+class LAlertDelegate: AlertServiceDelegate {
+    var defActionHandler = {
+        print("LAlertDelegate default action handler")
+        return
+    }
+    var defCancelHandler = {
+        print("LAlertDelegate default cancel handler")
+        return
+    }
+    
+    func actionHandler() {
+        print("action")
+        defActionHandler()
+        return
+    }
+    
+    func cancelHandler() {
+        print("cancel")
+        defCancelHandler()
+        return
+    }
+}
+
+class LocalAuthService: UIViewController {
     
     // Configs
     let authTitle = "Verifikasi"
@@ -29,6 +52,9 @@ class LocalAuthService {
     var successAuthCallbackFunc: ((String) -> Void)?
     
     public static var ipAddr: String?
+    
+    // default alert delegate
+    let alertDelegate = LAlertDelegate()
 
     // setIPAddr should run on initializing the Cotter's root controller
     public static func setIPAddr() {
@@ -151,104 +177,104 @@ class LocalAuthService {
         let context = LAContext()
         var error: NSError?
         if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
-            let biometricAlert = AlertService.createDefaultAlert(
-                title: "Verifikasi",
-                body: "Lanjutkan untuk menggunakan verifikasi menggunakan TouchID atau FaceID",
-                actionText: "Lanjutkan",
-                cancelText: "Gunakan PIN",
-                actionHandler: {
-                    // this will force biometric scan request
-                    guard let privateKey = KeyGen.privKey else {
-                        self.dispatchResult(view: view, success: false, authError: nil)
-                        return
-                    }
-
-                    // get the public key, this will trigger the faceID
-                    guard let pubKey = KeyGen.pubKey else {
-                        // if pubkey is unretrievable, then there must be something wrong with the bio scan
-                        // TODO: error handling:
-                        self.dispatchResult(view: view, success: false, authError: nil)
-                        return
-                    }
-
-                    let b64PubKey = self.keyToBase64(pubKey: pubKey)
-                    
-                    // TODO: do biometric authentication to the server
-                    let ipAddr = LocalAuthService.ipAddr ?? "unknown"
-                    let location = "unknown" // location is unknown as of 0.0.4
-                    
-                    let cl = CotterAPIService.shared
-                    let issuer = cl.apiKeyID
-                    guard let client_user_id = cl.userID else {
-                        print("user id not set")
-                        return
-                    }
-                    let timestamp = String(format:"%.0f",NSDate().timeIntervalSince1970.rounded())
-                    let evtMethod = "BIOMETRIC"
-                    let approved = "true"
-                    
-                    let strToBeSigned = client_user_id + issuer + event + timestamp + evtMethod + approved
-                    let data = strToBeSigned.data(using: .utf8)! as CFData
-
-                    // set the signature algorithm
-                    let algorithm: SecKeyAlgorithm = .ecdsaSignatureMessageX962SHA256
-                    
-                    var error: Unmanaged<CFError>?
-                    // create a signature
-                    guard let signature = SecKeyCreateSignature(
-                        privateKey,
-                        algorithm,
-                        data as CFData,
-                        &error
-                    ) as Data? else {
-                        print("failed to create signature")
-                        return
-                    }
-
-                    let strSignature = signature.base64EncodedString()
-
-                    // create the http request body
-                    let reqBody = try? JSONSerialization.data(withJSONObject:  [
-                        "client_user_id": client_user_id,
-                        "issuer": issuer,
-                        "event": event,
-                        "ip": ipAddr, // exclamation mark is fine here because there is a nil check at the top
-                        "location": location,
-                        "timestamp": timestamp,
-                        "code": strSignature,
-                        "method": evtMethod,
-                        "public_key": b64PubKey,
-                        "approved": true
-                    ])
-
-                    func successHandler(response:Data?) {
-                        guard let response = response else {
-                            print("ERROR: response body is nil")
-                            return
-                        }
-                        let decoder = JSONDecoder()
-                        do {
-                            let resp = try decoder.decode(CreateEventResponse.self, from: response)
-                            callback(resp.approved)
-                        } catch {
-                            print(error.localizedDescription)
-                        }
-                    }
-
-                    let h = CotterCallback()
-                    h.successfulFunc = successHandler
-
-                    // use APIService to send the authentication request
-                    CotterAPIService.shared.auth(
-                        body: reqBody,
-                        cb: h
-                    )
-                },
-                cancelHandler: {
-                    view.dismiss(animated: true)
+            let aService = AlertService(vc: view, title: "Verifikasi", body: "Lanjutkan untuk menggunakan verifikasi TouchID atau FaceID", actionButtonTitle: "Lanjutkan", cancelButtonTitle: "Gunakan PIN")
+            
+            alertDelegate.defActionHandler = {
+                aService.hide()
+                // this will force biometric scan request
+                guard let privateKey = KeyGen.privKey else {
+                    self.dispatchResult(view: view, success: false, authError: nil)
+                    return
                 }
-            )
-            view.present(biometricAlert, animated:true)
+
+                // get the public key, this will trigger the faceID
+                guard let pubKey = KeyGen.pubKey else {
+                    // if pubkey is unretrievable, then there must be something wrong with the bio scan
+                    // TODO: error handling:
+                    self.dispatchResult(view: view, success: false, authError: nil)
+                    return
+                }
+
+                let b64PubKey = self.keyToBase64(pubKey: pubKey)
+                
+                // TODO: do biometric authentication to the server
+                let ipAddr = LocalAuthService.ipAddr ?? "unknown"
+                let location = "unknown" // location is unknown as of 0.0.4
+                
+                let cl = CotterAPIService.shared
+                let issuer = cl.apiKeyID
+                guard let client_user_id = cl.userID else {
+                    print("user id not set")
+                    return
+                }
+                let timestamp = String(format:"%.0f",NSDate().timeIntervalSince1970.rounded())
+                let evtMethod = "BIOMETRIC"
+                let approved = "true"
+                
+                let strToBeSigned = client_user_id + issuer + event + timestamp + evtMethod + approved
+                let data = strToBeSigned.data(using: .utf8)! as CFData
+
+                // set the signature algorithm
+                let algorithm: SecKeyAlgorithm = .ecdsaSignatureMessageX962SHA256
+                
+                var error: Unmanaged<CFError>?
+                // create a signature
+                guard let signature = SecKeyCreateSignature(
+                    privateKey,
+                    algorithm,
+                    data as CFData,
+                    &error
+                ) as Data? else {
+                    print("failed to create signature")
+                    return
+                }
+
+                let strSignature = signature.base64EncodedString()
+
+                // create the http request body
+                let reqBody = try? JSONSerialization.data(withJSONObject:  [
+                    "client_user_id": client_user_id,
+                    "issuer": issuer,
+                    "event": event,
+                    "ip": ipAddr, // exclamation mark is fine here because there is a nil check at the top
+                    "location": location,
+                    "timestamp": timestamp,
+                    "code": strSignature,
+                    "method": evtMethod,
+                    "public_key": b64PubKey,
+                    "approved": true
+                ])
+
+                func successHandler(response:Data?) {
+                    guard let response = response else {
+                        print("ERROR: response body is nil")
+                        return
+                    }
+                    let decoder = JSONDecoder()
+                    do {
+                        let resp = try decoder.decode(CreateEventResponse.self, from: response)
+                        callback(resp.approved)
+                    } catch {
+                        print(error.localizedDescription)
+                    }
+                }
+
+                let h = CotterCallback()
+                h.successfulFunc = successHandler
+
+                // use APIService to send the authentication request
+                CotterAPIService.shared.auth(
+                    body: reqBody,
+                    cb: h
+                )
+            }
+            
+            alertDelegate.defCancelHandler = {
+                aService.hide()
+            }
+            
+            aService.delegate = alertDelegate
+            aService.show()
         }
         // no biometric then do nothing
     }
@@ -264,34 +290,42 @@ class LocalAuthService {
         let context = LAContext()
         var error: NSError?
         if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
-            let biometricAlert = AlertService.createDefaultAlert(
+            let aService = AlertService(
+                vc: view,
                 title: "Verifikasi",
-                body: "Lanjutkan untuk menggunakan verifikasi menggunakan TouchID atau FaceID",
-                actionText: "Lanjutkan",
-                cancelText: "Gunakan PIN",
-                actionHandler: {
-                    // this will force biometric scan request
-                    guard KeyGen.privKey != nil else {
-                        self.dispatchResult(view: view, success: false, authError: nil)
-                        return
-                    }
-                    
-                    // get the public key, this will trigger the faceID
-                    guard let pubKey = KeyGen.pubKey else {
-                        // if pubkey is unretrievable, then there must be something wrong with the bio scan
-                        // TODO: error handling:
-                        self.dispatchResult(view: view, success: false, authError: nil)
-                        return
-                    }
-                    
-                    self.biometricPubKeyRegistration(pubKey: pubKey)
-                    self.dispatchResult(view: view, success: true, authError: nil)
-                },
-                cancelHandler: {
-                    self.dispatchResult(view: view, success: true, authError: nil)
-                }
+                body: "Lanjutkan untuk menggunakan verifikasi TouchID atau FaceID",
+                actionButtonTitle: "Lanjutkan",
+                cancelButtonTitle: "Gunakan PIN"
             )
-            view.present(biometricAlert, animated:true)
+            let delegate = LAlertDelegate()
+            delegate.defActionHandler = {
+                print("got here")
+                aService.hide()
+                // this will force biometric scan request
+                guard KeyGen.privKey != nil else {
+                    self.dispatchResult(view: view, success: false, authError: nil)
+                    return
+                }
+
+                // get the public key, this will trigger the faceID
+                guard let pubKey = KeyGen.pubKey else {
+                    // if pubkey is unretrievable, then there must be something wrong with the bio scan
+                    // TODO: error handling:
+                    self.dispatchResult(view: view, success: false, authError: nil)
+                    return
+                }
+
+                self.biometricPubKeyRegistration(pubKey: pubKey)
+                self.dispatchResult(view: view, success: true, authError: nil)
+            }
+
+            delegate.defCancelHandler =  {
+                print("defCancelHandler")
+                aService.hide()
+                self.dispatchResult(view: view, success: true, authError: nil)
+            }
+            aService.delegate = delegate
+            aService.show()
         } else {
             // no biometric then skip creating the public key
             self.dispatchResult(view: view, success: true, authError: nil)
@@ -299,52 +333,60 @@ class LocalAuthService {
     }
     
     private func dispatchResult(view: UIViewController?, success: Bool, authError: Error?) {
+        guard let view = view else { return }
+        
         if success {
             print("Successful local authentication!")
+            
             // Give Success Alert
-            let successAlert = AlertService.createDefaultAlert(
+            let successAlert = AlertService(
+                vc: view,
                 title: self.successAuthTitle,
                 body: self.successAuthMsg,
-                actionText: self.authAction,
-                cancelText: self.authCancel
+                actionButtonTitle: self.authAction,
+                cancelButtonTitle: self.authCancel
             )
-            view?.present(successAlert, animated: true)
+            
+            let successAlertDelegate = LAlertDelegate()
+            successAlert.delegate = successAlertDelegate
+            successAlert.show()
+            
             // Dismiss Alert after 3 seconds, then run callback
             let timer = DispatchTime.now() + 3
             DispatchQueue.main.asyncAfter(deadline: timer) {
-                successAlert.dismiss(animated: true) {
-                    // Run callback
-                    self.successAuthCallbackFunc?("This is token!")
-                }
+                successAlert.hide(onComplete: { (finished: Bool) in
+                    self.successAuthCallbackFunc?("This is token from dispatch!")
+                    return
+                })
             }
         } else {
             // Give Failed Authentication Alert
             print("Failed local authentication!")
             
-            var failedBiometricAlert: UIAlertController?
-
-            // try again will re-authenticate
-            func tryAgain(){
-                guard let alert = failedBiometricAlert else {
-                    LocalAuthService().authenticate(view: view!, reason: "", callback: successAuthCallbackFunc)
-                    return
-                }
-                alert.dismiss(animated: true)
-                LocalAuthService().authenticate(view: view!, reason: "", callback: successAuthCallbackFunc)
-            }
-            failedBiometricAlert = AlertService.createDefaultAlert(
+            let failedBiometricAlert = AlertService(
+                vc: view,
                 title: self.authTitle,
                 body: self.failAuthMsg,
-                actionText: self.tryAgain,
-                cancelText: self.authAction,
-                actionHandler: tryAgain,
-                cancelHandler: {
-                    failedBiometricAlert?.dismiss(animated:true)
-                    self.successAuthCallbackFunc?("Token from failed biometric")
-                }
+                actionButtonTitle: self.tryAgain,
+                cancelButtonTitle: self.authAction
             )
-            view?.present(failedBiometricAlert!, animated: true)
-            // TODO: Allow user to Input PIN instead?
+            
+            // try again will re-authenticate
+            func tryAgain(){
+                failedBiometricAlert.hide(onComplete: {(finished:Bool) in
+                    LocalAuthService().authenticate(view: view, reason: "", callback: self.successAuthCallbackFunc)
+                })
+            }
+            
+            let failedBiometricAlertDelegate = LAlertDelegate()
+            failedBiometricAlertDelegate.defActionHandler = tryAgain
+            failedBiometricAlertDelegate.defCancelHandler = {
+                failedBiometricAlert.hide()
+                self.successAuthCallbackFunc?("Token from failed biometric")
+            }
+            
+            failedBiometricAlert.delegate = failedBiometricAlertDelegate
+            failedBiometricAlert.show()
         }
     }
 }

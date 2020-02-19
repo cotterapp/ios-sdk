@@ -7,7 +7,8 @@
 
 import UIKit
 
-class PINConfirmViewController : UIViewController, KeyboardViewDelegate {
+// PINConfirmViewControllerKey are a list of strings for key to text configuration
+public class PINConfirmViewControllerKey {
     // MARK: - Keys for Strings
     static let showPin = "PINConfirmViewController/showPin"
     static let hidePin = "PINConfirmViewController/hidePin"
@@ -15,23 +16,32 @@ class PINConfirmViewController : UIViewController, KeyboardViewDelegate {
     static let closeMessage = "PINConfirmViewController/closeMessage"
     static let stayOnView = "PINConfirmViewController/stayOnView"
     static let leaveView = "PINConfirmViewController/leaveView"
-  
+    static let title = "PINConfirmViewController/title"
+}
+
+class PINConfirmViewController : UIViewController, KeyboardViewDelegate {
     // prevCode should be passed from the previous (PINView) controller
     var prevCode: String?
     
-    let closeTitleText = CotterStrings.instance.getText(for: closeTitle)
-    let closeMessageText = CotterStrings.instance.getText(for: closeMessage)
-    let stayText = CotterStrings.instance.getText(for: stayOnView)
-    let leaveText = CotterStrings.instance.getText(for: leaveView)
+    // since PinConfirmViewControllerKey is a nuisance to type
+    // we can getaway with typealias here
+    typealias VCTextKey = PINConfirmViewControllerKey
+    
+    let closeTitleText = CotterStrings.instance.getText(for: VCTextKey.closeTitle)
+    let closeMessageText = CotterStrings.instance.getText(for: VCTextKey.closeMessage)
+    let stayText = CotterStrings.instance.getText(for: VCTextKey.stayOnView)
+    let leaveText = CotterStrings.instance.getText(for: VCTextKey.leaveView)
+    let showPinText = CotterStrings.instance.getText(for: VCTextKey.showPin)
+    let hidePinText = CotterStrings.instance.getText(for: VCTextKey.hidePin)
     
     // Code Text Field
     @IBOutlet weak var codeTextField: OneTimeCodeTextField!
     
     @IBOutlet weak var pinVisibilityButton: UIButton!
-    let showPinText = CotterStrings.instance.getText(for: showPin)
-    let hidePinText = CotterStrings.instance.getText(for: hidePin)
     
     @IBOutlet weak var errorLabel: UILabel!
+    
+    @IBOutlet weak var titleLabel: UILabel!
     
     @IBOutlet weak var keyboardView: KeyboardView!
     
@@ -44,6 +54,8 @@ class PINConfirmViewController : UIViewController, KeyboardViewDelegate {
         addConfigs()
         addDelegates()
         instantiateCodeTextFieldFunctions()
+        
+        self.titleLabel.text = CotterStrings.instance.getText(for: VCTextKey.title)
     }
     
     func instantiateCodeTextFieldFunctions() {

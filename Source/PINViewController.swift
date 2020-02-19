@@ -8,33 +8,44 @@
 import Foundation
 import UIKit
 
-class PINViewController : UIViewController {
+public class PINViewControllerKey {
     // MARK: - Keys for Strings
-    static let showPin = "PINViewController/showPin"
-    static let hidePin = "PINViewController/hidePin"
-    static let closeTitle = "PINViewController/closeTitle"
-    static let closeMessage = "PINViewController/closeMessage"
-    static let stayOnView = "PINViewController/stayOnView"
-    static let leaveView = "PINViewController/leaveView"
+    public static let showPin = "PINViewController/showPin"
+    public static let hidePin = "PINViewController/hidePin"
+    public static let closeTitle = "PINViewController/closeTitle"
+    public static let closeMessage = "PINViewController/closeMessage"
+    public static let stayOnView = "PINViewController/stayOnView"
+    public static let leaveView = "PINViewController/leaveView"
+    public static let title = "PINViewController/title"
+}
+
+class PINViewController : UIViewController {
+    // since PINViewController is too long to type
+    // we can getaway with typealias here
+    typealias VCTextKey = PINViewControllerKey
     
+    // MARK: - Alert Service Text definition
     // Alert Service
-    let closeTitleText = CotterStrings.instance.getText(for: closeTitle)
-    let closeMessageText = CotterStrings.instance.getText(for: closeMessage)
-    let stayText = CotterStrings.instance.getText(for: stayOnView)
-    let leaveText = CotterStrings.instance.getText(for: leaveView)
+    let closeTitleText = CotterStrings.instance.getText(for: VCTextKey.closeTitle)
+    let closeMessageText = CotterStrings.instance.getText(for: VCTextKey.closeMessage)
+    let stayText = CotterStrings.instance.getText(for: VCTextKey.stayOnView)
+    let leaveText = CotterStrings.instance.getText(for: VCTextKey.leaveView)
+    let showPinText = CotterStrings.instance.getText(for: VCTextKey.showPin)
+    let hidePinText = CotterStrings.instance.getText(for: VCTextKey.hidePin)
+    
     lazy var alertService: AlertService = {
         let alert = AlertService(vc: self, title: closeTitleText, body: closeMessageText, actionButtonTitle: leaveText, cancelButtonTitle: stayText)
         alert.delegate = self
         return alert
     }()
     
+    @IBOutlet weak var titleLabel: UILabel!
+    
     // Code Text Field
     @IBOutlet weak var codeTextField: OneTimeCodeTextField!
     
     // PIN Visibility Toggle Button
     @IBOutlet weak var pinVisibilityButton: UIButton!
-    let showPinText = CotterStrings.instance.getText(for: showPin)
-    let hidePinText = CotterStrings.instance.getText(for: hidePin)
     
     // Error Label
     @IBOutlet weak var errorLabel: UILabel!
@@ -51,6 +62,10 @@ class PINViewController : UIViewController {
         addConfigs()
         addDelegates()
         instantiateCodeTextFieldFunctions()
+        
+        // Text setup
+        print(CotterStrings.instance.getText(for: VCTextKey.title))
+        self.titleLabel.text = CotterStrings.instance.getText(for: VCTextKey.title)
     }
     
     func instantiateCodeTextFieldFunctions() {

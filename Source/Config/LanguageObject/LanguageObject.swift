@@ -8,10 +8,16 @@
 import Foundation
 
 // Superclass of all language objects
-class LanguageObject: NSObject {
-    let text: [String: String]
+public class LanguageObject: NSObject {
+    // non constant text, allowing change of text
+    var text: [String: String]
   
     init(text: [String: String]) {
         self.text = text
+    }
+    
+    public func set(key:String, value:String) {
+        print("setting \(key) to \(value)")
+        self.text[key] = value
     }
 }
