@@ -67,6 +67,7 @@ class UpdateCreateNewPINViewController: UIViewController, KeyboardViewDelegate, 
             // Go to Confirm New Pin Page
             let updateConfirmPINVC = self.storyboard?.instantiateViewController(withIdentifier: "UpdateConfirmNewPINViewController")as! UpdateConfirmNewPINViewController
             updateConfirmPINVC.prevCode = code
+            updateConfirmPINVC.oldCode = self.oldCode!
             updateConfirmPINVC.config = self.config
             self.navigationController?.pushViewController(updateConfirmPINVC, animated: true)
             return true

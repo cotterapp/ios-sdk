@@ -12,6 +12,10 @@ class UpdateConfirmNewPINViewController: UIViewController, KeyboardViewDelegate,
     
     // Pass config here by UpdateConfirmNewPINViewController.config = Config()
     public var config: Config?
+    
+    // Pass oldCode here
+    public var oldCode: String?
+    
     // Pass prevCode here by UpdateConfirmNewPINViewController.prevCode = code
     public var prevCode: String?
     
@@ -92,7 +96,7 @@ class UpdateConfirmNewPINViewController: UIViewController, KeyboardViewDelegate,
             
             // Run API to update PIN
             CotterAPIService.shared.updateUserPin(
-                oldCode: self.prevCode!,
+                oldCode: self.oldCode!,
                 newCode: code,
                 cb: h
             )
