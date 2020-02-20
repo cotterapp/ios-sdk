@@ -28,7 +28,8 @@ class LoginViewController: UIViewController {
             parentView: self,
             input: textInput,
             identifierField: "email",
-            type: "EMAIL"
+            type: "EMAIL",
+            directLogin: false
         )
     }
     
