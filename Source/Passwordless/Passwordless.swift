@@ -22,7 +22,8 @@ class Passwordless: NSObject, ASWebAuthenticationPresentationContextProviding {
         view: UIViewController,
         input: String,
         identifierField: String,
-        type: String
+        type: String,
+        directLogin: String
     ) {
         self.init()
         print("loading Passwordless \(input)")
@@ -36,7 +37,8 @@ class Passwordless: NSObject, ASWebAuthenticationPresentationContextProviding {
             "api_key": CotterAPIService.shared.apiKeyID,
             "redirect_url": Config.instance.PLRedirectURL,
             "identifier_field": identifierField,
-            "input": input
+            "input": input,
+            "direct_login": directLogin
         ]
         
         guard var components = URLComponents(string: url) else { return }
