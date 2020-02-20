@@ -59,12 +59,15 @@ class Passwordless: NSObject, ASWebAuthenticationPresentationContextProviding {
             // The callback URL format depends on the provider. For this example:
             //   exampleauth://auth?token=1234
             let queryItems = URLComponents(string: callbackURL.absoluteString)?.queryItems
-            guard let token = queryItems?.filter({ $0.name == "token" }).first?.value else {
-                print("token is unavailable")
-                return
-            }
             guard let cb = Config.instance.callbackFunc else {
                 print("callback is unavailable")
+                return
+            }
+
+            guard let token = queryItems?.filter({ $0.name == "token" }).first?.value else {
+                print("token is unavailable 2")
+                // REMOVE THIS
+                cb("no token")
                 return
             }
 
