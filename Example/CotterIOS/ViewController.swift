@@ -42,7 +42,7 @@ class ViewController: UIViewController {
         }
         
         // langConfig is an optional language configuration
-        let langConfig = English()
+        let langConfig = Indonesian()
         
         // if you want to set text configuration uncomment the following
         // langConfig.set(key: PINViewControllerKey.title, value: "Hi! You've changed the text")

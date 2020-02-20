@@ -12,11 +12,13 @@ public class PINConfirmViewControllerKey {
     // MARK: - Keys for Strings
     static let showPin = "PINConfirmViewController/showPin"
     static let hidePin = "PINConfirmViewController/hidePin"
+    static let title = "PINConfirmViewController/title"
+    
+    // for alerts - not used
     static let closeTitle = "PINConfirmViewController/closeTitle"
     static let closeMessage = "PINConfirmViewController/closeMessage"
     static let stayOnView = "PINConfirmViewController/stayOnView"
     static let leaveView = "PINConfirmViewController/leaveView"
-    static let title = "PINConfirmViewController/title"
 }
 
 class PINConfirmViewController : UIViewController, KeyboardViewDelegate {
@@ -26,13 +28,6 @@ class PINConfirmViewController : UIViewController, KeyboardViewDelegate {
     // since PinConfirmViewControllerKey is a nuisance to type
     // we can getaway with typealias here
     typealias VCTextKey = PINConfirmViewControllerKey
-    
-    let closeTitleText = CotterStrings.instance.getText(for: VCTextKey.closeTitle)
-    let closeMessageText = CotterStrings.instance.getText(for: VCTextKey.closeMessage)
-    let stayText = CotterStrings.instance.getText(for: VCTextKey.stayOnView)
-    let leaveText = CotterStrings.instance.getText(for: VCTextKey.leaveView)
-    let showPinText = CotterStrings.instance.getText(for: VCTextKey.showPin)
-    let hidePinText = CotterStrings.instance.getText(for: VCTextKey.hidePin)
     
     // Code Text Field
     @IBOutlet weak var codeTextField: OneTimeCodeTextField!

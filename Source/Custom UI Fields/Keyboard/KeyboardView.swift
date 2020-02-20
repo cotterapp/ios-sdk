@@ -56,6 +56,17 @@ class KeyboardView: UIView {
         // Add extra initialization/edits here
         initializeBorders()
         topDividerView.dropShadow()
+        versionCheck()
+    }
+    
+    private func versionCheck() {
+        if #available(iOS 13, *) {
+            // then keyboard will be fine
+        } else {
+            // keyboard's delete button will be replaced
+            self.backspaceButton.setImage(nil, for: .normal)
+            self.backspaceButton.setTitle("\u{0000232B}", for: .normal)
+        }
     }
     
     private func initializeBorders() {

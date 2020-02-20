@@ -26,6 +26,7 @@ public class Indonesian: LanguageObject {
             PINConfirmViewControllerKey.closeMessage: "PIN Ini diperlukan untuk keamanan akunmu, lho.",
             PINConfirmViewControllerKey.stayOnView: "Input PIN",
             PINConfirmViewControllerKey.leaveView: "Lain Kali",
+            PINConfirmViewControllerKey.title: "Masukkan PIN sekali lagi untuk konfirmasi",
             
             // MARK: - PINFinalViewController
             PINFinalViewController.closeTitle: "Verifikasi",

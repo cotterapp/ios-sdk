@@ -26,13 +26,13 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Buat PIN untuk keamanan akunmu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1PK-2f-0wS">
-                                <rect key="frame" x="77.5" y="191" width="259" height="19.5"/>
+                                <rect key="frame" x="77.5" y="201" width="259" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0PC-5d-syA">
-                                <rect key="frame" x="176.5" y="285.5" width="61" height="29"/>
+                                <rect key="frame" x="176.5" y="270.5" width="61" height="29"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                 <state key="normal" title="Lihat PIN">
                                     <color key="titleColor" red="0.0" green="0.38611156089999998" blue="0.053541536309999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -42,7 +42,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PIN terlalu mudah. Yuk buat PIN baru dengan kombinasi lebih sulit" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ar-Es-Gas">
-                                <rect key="frame" x="57" y="322.5" width="300" height="50"/>
+                                <rect key="frame" x="57" y="301.5" width="300" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Jml-aA-zrC"/>
                                     <constraint firstAttribute="width" constant="300" id="jkE-oT-ETU"/>
@@ -61,18 +61,18 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="LS9-Ka-A8X" firstAttribute="top" secondItem="1PK-2f-0wS" secondAttribute="bottom" constant="20" id="4RH-6X-fba"/>
+                            <constraint firstItem="LS9-Ka-A8X" firstAttribute="top" secondItem="1PK-2f-0wS" secondAttribute="bottom" constant="10" id="4RH-6X-fba"/>
                             <constraint firstItem="LS9-Ka-A8X" firstAttribute="centerX" secondItem="hW0-cu-n3w" secondAttribute="centerX" id="5X2-ee-MZd"/>
                             <constraint firstItem="0PC-5d-syA" firstAttribute="centerX" secondItem="hW0-cu-n3w" secondAttribute="centerX" id="DOx-mk-sX3"/>
                             <constraint firstItem="Q6m-1D-Kw7" firstAttribute="leading" secondItem="S8w-Bm-DxA" secondAttribute="leading" constant="20" id="EsJ-Gc-gTg"/>
                             <constraint firstItem="S8w-Bm-DxA" firstAttribute="trailing" secondItem="Q6m-1D-Kw7" secondAttribute="trailing" constant="20" id="Nco-4Z-WdH"/>
                             <constraint firstItem="LS9-Ka-A8X" firstAttribute="centerY" secondItem="hW0-cu-n3w" secondAttribute="centerY" constant="-200" id="Z7f-2Y-sb3"/>
-                            <constraint firstItem="6ar-Es-Gas" firstAttribute="top" secondItem="0PC-5d-syA" secondAttribute="bottom" constant="8" id="Zxs-La-zRN"/>
+                            <constraint firstItem="6ar-Es-Gas" firstAttribute="top" secondItem="0PC-5d-syA" secondAttribute="bottom" constant="2" id="Zxs-La-zRN"/>
                             <constraint firstItem="1PK-2f-0wS" firstAttribute="centerX" secondItem="hW0-cu-n3w" secondAttribute="centerX" id="pdx-um-6ic"/>
                             <constraint firstItem="Q6m-1D-Kw7" firstAttribute="centerX" secondItem="hW0-cu-n3w" secondAttribute="centerX" id="sIB-e4-c0K"/>
                             <constraint firstItem="6ar-Es-Gas" firstAttribute="centerX" secondItem="0PC-5d-syA" secondAttribute="centerX" id="tpe-l3-qG3"/>
                             <constraint firstItem="Q6m-1D-Kw7" firstAttribute="bottom" secondItem="S8w-Bm-DxA" secondAttribute="bottom" id="uOK-jU-1LO"/>
-                            <constraint firstItem="0PC-5d-syA" firstAttribute="top" secondItem="LS9-Ka-A8X" secondAttribute="bottom" constant="20" id="zhd-eS-rSZ"/>
+                            <constraint firstItem="0PC-5d-syA" firstAttribute="top" secondItem="LS9-Ka-A8X" secondAttribute="bottom" constant="5" id="zhd-eS-rSZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="S8w-Bm-DxA"/>
                     </view>
@@ -123,16 +123,16 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Masukkan PIN sekali lagi untuk konfirmasi" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dj7-fR-Vc3">
-                                <rect key="frame" x="48.5" y="160.5" width="317" height="50"/>
+                                <rect key="frame" x="48.5" y="200.5" width="317" height="20"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="wGH-PK-ljk"/>
+                                    <constraint firstAttribute="height" constant="20" id="wGH-PK-ljk"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RoK-2U-CM6">
-                                <rect key="frame" x="176.5" y="285.5" width="61" height="29"/>
+                                <rect key="frame" x="176.5" y="270.5" width="61" height="29"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                 <state key="normal" title="Lihat PIN">
                                     <color key="titleColor" red="0.0" green="0.38611156089999998" blue="0.053541536309999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -142,7 +142,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kamu perlu memasukkan PIN yang sama seperti sebelumnya" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="apd-eL-wSJ">
-                                <rect key="frame" x="57" y="322.5" width="300" height="50"/>
+                                <rect key="frame" x="57" y="301.5" width="300" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="PWU-E4-41Q"/>
                                     <constraint firstAttribute="width" constant="300" id="U9U-hl-6bE"/>
@@ -164,11 +164,11 @@
                             <constraint firstItem="cLf-RU-y5M" firstAttribute="centerY" secondItem="r8d-Au-sDb" secondAttribute="centerY" constant="-200" id="3Qc-ip-5OJ"/>
                             <constraint firstItem="Dj7-fR-Vc3" firstAttribute="centerX" secondItem="r8d-Au-sDb" secondAttribute="centerX" id="Hzj-A8-3bh"/>
                             <constraint firstItem="apd-eL-wSJ" firstAttribute="centerX" secondItem="r8d-Au-sDb" secondAttribute="centerX" id="T1B-Yw-7sy"/>
-                            <constraint firstItem="cLf-RU-y5M" firstAttribute="top" secondItem="Dj7-fR-Vc3" secondAttribute="bottom" constant="20" id="a9x-HV-pnd"/>
+                            <constraint firstItem="cLf-RU-y5M" firstAttribute="top" secondItem="Dj7-fR-Vc3" secondAttribute="bottom" constant="10" id="a9x-HV-pnd"/>
                             <constraint firstItem="RoK-2U-CM6" firstAttribute="centerX" secondItem="r8d-Au-sDb" secondAttribute="centerX" id="asr-Uv-mAB"/>
                             <constraint firstItem="cLf-RU-y5M" firstAttribute="centerX" secondItem="r8d-Au-sDb" secondAttribute="centerX" id="bVR-03-7xY"/>
-                            <constraint firstItem="RoK-2U-CM6" firstAttribute="top" secondItem="cLf-RU-y5M" secondAttribute="bottom" constant="20" id="hxK-Jk-hhQ"/>
-                            <constraint firstItem="apd-eL-wSJ" firstAttribute="top" secondItem="RoK-2U-CM6" secondAttribute="bottom" constant="8" id="i6s-KD-mG9"/>
+                            <constraint firstItem="RoK-2U-CM6" firstAttribute="top" secondItem="cLf-RU-y5M" secondAttribute="bottom" constant="5" id="hxK-Jk-hhQ"/>
+                            <constraint firstItem="apd-eL-wSJ" firstAttribute="top" secondItem="RoK-2U-CM6" secondAttribute="bottom" constant="2" id="i6s-KD-mG9"/>
                             <constraint firstItem="lWl-af-mxx" firstAttribute="bottom" secondItem="qXS-Hd-xxe" secondAttribute="bottom" constant="5" id="u0Z-LR-kdY"/>
                             <constraint firstItem="lWl-af-mxx" firstAttribute="trailing" secondItem="qXS-Hd-xxe" secondAttribute="trailing" constant="20" id="vJ2-Wh-yJS"/>
                             <constraint firstItem="qXS-Hd-xxe" firstAttribute="centerX" secondItem="r8d-Au-sDb" secondAttribute="centerX" id="yK8-Qn-YZz"/>
