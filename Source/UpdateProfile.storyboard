@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Qly-nY-PJb">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Twk-8B-euK">
-                                <rect key="frame" x="177" y="303.5" width="60" height="29"/>
+                                <rect key="frame" x="177" y="270.5" width="60" height="29"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                 <state key="normal" title="Lihat PIN">
                                     <color key="titleColor" red="0.0" green="0.38611156089999998" blue="0.053541536309999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -26,7 +27,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PIN Error" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OtH-nO-4oj" userLabel="ErrorMsg">
-                                <rect key="frame" x="57" y="352.5" width="300" height="50"/>
+                                <rect key="frame" x="57" y="301.5" width="300" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="BjD-cw-uQl"/>
                                     <constraint firstAttribute="height" constant="50" id="JO5-9K-zRL"/>
@@ -36,7 +37,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BWh-mf-YV2" userLabel="Code Text Field" customClass="OneTimeCodeTextField" customModule="Cotter" customModuleProvider="target">
-                                <rect key="frame" x="82" y="248.5" width="250" height="35"/>
+                                <rect key="frame" x="82" y="230.5" width="250" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="IkW-xv-g5X"/>
                                     <constraint firstAttribute="height" constant="35" id="j14-MK-YDn"/>
@@ -44,12 +45,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Masukin PIN saat ini" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zrC-oU-0pq">
-                                <rect key="frame" x="131" y="214" width="152" height="19.5"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
-                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CbK-dh-RzR" customClass="KeyboardView" customModule="Cotter" customModuleProvider="target">
                                 <rect key="frame" x="20" y="507" width="374" height="355"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -57,21 +52,27 @@
                                     <constraint firstAttribute="height" constant="355" id="sLl-mk-RVm"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Masukin PIN saat ini" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zrC-oU-0pq">
+                                <rect key="frame" x="131" y="201" width="152" height="19.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="CbK-dh-RzR" firstAttribute="bottom" secondItem="nRc-rx-xyg" secondAttribute="bottom" id="30F-OW-3cz"/>
-                            <constraint firstItem="OtH-nO-4oj" firstAttribute="top" secondItem="Twk-8B-euK" secondAttribute="bottom" constant="20" id="8hK-s5-KB7"/>
+                            <constraint firstItem="BWh-mf-YV2" firstAttribute="top" secondItem="zrC-oU-0pq" secondAttribute="bottom" constant="10" id="6uG-5u-pgp"/>
                             <constraint firstItem="nRc-rx-xyg" firstAttribute="trailing" secondItem="CbK-dh-RzR" secondAttribute="trailing" constant="20" id="8k9-Mi-fk8"/>
-                            <constraint firstItem="Twk-8B-euK" firstAttribute="top" secondItem="zrC-oU-0pq" secondAttribute="bottom" constant="70" id="9it-dh-mFa"/>
+                            <constraint firstItem="OtH-nO-4oj" firstAttribute="top" secondItem="Twk-8B-euK" secondAttribute="bottom" constant="2" id="C8y-cT-Nf4"/>
                             <constraint firstItem="OtH-nO-4oj" firstAttribute="centerX" secondItem="ecN-oR-0oF" secondAttribute="centerX" id="JLq-xL-fvL"/>
                             <constraint firstItem="CbK-dh-RzR" firstAttribute="centerX" secondItem="ecN-oR-0oF" secondAttribute="centerX" id="Kng-xC-uSZ"/>
-                            <constraint firstItem="Twk-8B-euK" firstAttribute="centerY" secondItem="ecN-oR-0oF" secondAttribute="centerY" constant="-130" id="Td6-yw-m2u"/>
                             <constraint firstItem="Twk-8B-euK" firstAttribute="centerX" secondItem="ecN-oR-0oF" secondAttribute="centerX" id="ZWd-WA-g1F"/>
                             <constraint firstItem="BWh-mf-YV2" firstAttribute="centerX" secondItem="ecN-oR-0oF" secondAttribute="centerX" id="aKi-dj-lYa"/>
+                            <constraint firstItem="BWh-mf-YV2" firstAttribute="centerY" secondItem="ecN-oR-0oF" secondAttribute="centerY" constant="-200" id="ajX-BL-TmJ"/>
+                            <constraint firstItem="Twk-8B-euK" firstAttribute="top" secondItem="BWh-mf-YV2" secondAttribute="bottom" constant="5" id="ldU-Gn-KwL"/>
                             <constraint firstItem="CbK-dh-RzR" firstAttribute="leading" secondItem="nRc-rx-xyg" secondAttribute="leading" constant="20" id="x11-6K-mli"/>
                             <constraint firstItem="zrC-oU-0pq" firstAttribute="centerX" secondItem="ecN-oR-0oF" secondAttribute="centerX" id="yWK-bR-aHl"/>
-                            <constraint firstItem="Twk-8B-euK" firstAttribute="top" secondItem="BWh-mf-YV2" secondAttribute="bottom" constant="20" id="zrA-tP-RNP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nRc-rx-xyg"/>
                     </view>
@@ -112,7 +113,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9PV-bv-3bZ">
-                                <rect key="frame" x="177" y="303.5" width="60" height="29"/>
+                                <rect key="frame" x="177" y="270.5" width="60" height="29"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                 <state key="normal" title="Lihat PIN">
                                     <color key="titleColor" red="0.0" green="0.38611156089999998" blue="0.053541536309999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -122,7 +123,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PIN Error" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aHt-eO-I8d" userLabel="ErrorMsg">
-                                <rect key="frame" x="57" y="352.5" width="300" height="50"/>
+                                <rect key="frame" x="57" y="301.5" width="300" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="SyH-DP-m0F"/>
                                     <constraint firstAttribute="width" constant="300" id="wdG-ck-aeJ"/>
@@ -132,7 +133,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BXF-WN-O9C" userLabel="Code Text Field" customClass="OneTimeCodeTextField" customModule="Cotter" customModuleProvider="target">
-                                <rect key="frame" x="82" y="248.5" width="250" height="35"/>
+                                <rect key="frame" x="82" y="230.5" width="250" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="u1D-qG-DUQ"/>
                                     <constraint firstAttribute="height" constant="35" id="urA-c2-dBH"/>
@@ -141,7 +142,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Masukin PIN baru" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="joL-uv-SPw">
-                                <rect key="frame" x="140.5" y="214" width="133" height="19.5"/>
+                                <rect key="frame" x="140.5" y="201" width="133" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -156,18 +157,18 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="9PV-bv-3bZ" firstAttribute="top" secondItem="joL-uv-SPw" secondAttribute="bottom" constant="70" id="0OA-HT-z2i"/>
                             <constraint firstItem="9PV-bv-3bZ" firstAttribute="centerX" secondItem="Ano-B6-oq4" secondAttribute="centerX" id="0Oe-CS-URZ"/>
-                            <constraint firstItem="aHt-eO-I8d" firstAttribute="top" secondItem="9PV-bv-3bZ" secondAttribute="bottom" constant="20" id="9wr-sB-nB7"/>
-                            <constraint firstItem="9PV-bv-3bZ" firstAttribute="top" secondItem="BXF-WN-O9C" secondAttribute="bottom" constant="20" id="CMf-AR-25a"/>
                             <constraint firstItem="BXF-WN-O9C" firstAttribute="centerX" secondItem="Ano-B6-oq4" secondAttribute="centerX" id="LMa-A7-OY9"/>
                             <constraint firstItem="QCa-u7-BXw" firstAttribute="leading" secondItem="3zK-cT-1d5" secondAttribute="leading" constant="20" id="XFc-fD-vBc"/>
                             <constraint firstItem="QCa-u7-BXw" firstAttribute="bottom" secondItem="3zK-cT-1d5" secondAttribute="bottom" id="hW4-fc-XfA"/>
                             <constraint firstItem="aHt-eO-I8d" firstAttribute="centerX" secondItem="Ano-B6-oq4" secondAttribute="centerX" id="kwy-8N-wEl"/>
                             <constraint firstItem="3zK-cT-1d5" firstAttribute="trailing" secondItem="QCa-u7-BXw" secondAttribute="trailing" constant="20" id="laM-3D-jsb"/>
+                            <constraint firstItem="aHt-eO-I8d" firstAttribute="top" secondItem="9PV-bv-3bZ" secondAttribute="bottom" constant="2" id="lgb-7r-tf5"/>
                             <constraint firstItem="joL-uv-SPw" firstAttribute="centerX" secondItem="Ano-B6-oq4" secondAttribute="centerX" id="orV-Ym-saP"/>
-                            <constraint firstItem="9PV-bv-3bZ" firstAttribute="centerY" secondItem="Ano-B6-oq4" secondAttribute="centerY" constant="-130" id="pyl-CW-Lgt"/>
                             <constraint firstItem="QCa-u7-BXw" firstAttribute="centerX" secondItem="Ano-B6-oq4" secondAttribute="centerX" id="q0H-eN-PlN"/>
+                            <constraint firstItem="BXF-WN-O9C" firstAttribute="centerY" secondItem="Ano-B6-oq4" secondAttribute="centerY" constant="-200" id="qdI-4w-XC5"/>
+                            <constraint firstItem="9PV-bv-3bZ" firstAttribute="top" secondItem="BXF-WN-O9C" secondAttribute="bottom" constant="5" id="r2I-Wv-lN2"/>
+                            <constraint firstItem="BXF-WN-O9C" firstAttribute="top" secondItem="joL-uv-SPw" secondAttribute="bottom" constant="10" id="we6-5e-1qu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3zK-cT-1d5"/>
                     </view>
@@ -181,7 +182,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="16g-bZ-MbH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="733" y="151"/>
+            <point key="canvasLocation" x="731.8840579710145" y="150.66964285714286"/>
         </scene>
         <!--Konfirmasi PIN-->
         <scene sceneID="foa-0V-6wt">
@@ -192,7 +193,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="npw-sC-zME">
-                                <rect key="frame" x="177" y="303.5" width="60" height="29"/>
+                                <rect key="frame" x="177" y="270.5" width="60" height="29"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                 <state key="normal" title="Lihat PIN">
                                     <color key="titleColor" red="0.0" green="0.38611156089999998" blue="0.053541536309999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -202,7 +203,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PIN Error" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QeR-me-ToR" userLabel="ErrorMsg">
-                                <rect key="frame" x="57" y="352.5" width="300" height="50"/>
+                                <rect key="frame" x="57" y="301.5" width="300" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="D4p-1B-4Q1"/>
                                     <constraint firstAttribute="height" constant="50" id="ZTk-4X-Pl1"/>
@@ -212,7 +213,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZLF-zT-Un2" userLabel="Code Text Field" customClass="OneTimeCodeTextField" customModule="Cotter" customModuleProvider="target">
-                                <rect key="frame" x="82" y="248.5" width="250" height="35"/>
+                                <rect key="frame" x="82" y="230.5" width="250" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="FHa-lD-lOA"/>
                                     <constraint firstAttribute="width" constant="250" id="fst-lM-fna"/>
@@ -221,9 +222,9 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Masukin PIN baru sekali lagi untuk konfirmasi" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5RD-iA-TLr">
-                                <rect key="frame" x="36" y="183.5" width="342" height="50"/>
+                                <rect key="frame" x="36" y="200.5" width="342" height="20"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="cbm-dn-8fU"/>
+                                    <constraint firstAttribute="height" constant="20" id="cbm-dn-8fU"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -243,14 +244,14 @@
                             <constraint firstItem="vhx-8N-xWa" firstAttribute="leading" secondItem="v6E-Dc-X8J" secondAttribute="leading" constant="20" id="ENt-2z-qTb"/>
                             <constraint firstItem="ZLF-zT-Un2" firstAttribute="centerX" secondItem="au9-2G-nrz" secondAttribute="centerX" id="Edt-XW-3rx"/>
                             <constraint firstItem="QeR-me-ToR" firstAttribute="centerX" secondItem="au9-2G-nrz" secondAttribute="centerX" id="GHV-5u-9Hb"/>
-                            <constraint firstItem="QeR-me-ToR" firstAttribute="top" secondItem="npw-sC-zME" secondAttribute="bottom" constant="20" id="JEm-tu-KkX"/>
-                            <constraint firstItem="npw-sC-zME" firstAttribute="top" secondItem="ZLF-zT-Un2" secondAttribute="bottom" constant="20" id="PHe-hg-tr4"/>
-                            <constraint firstItem="npw-sC-zME" firstAttribute="centerY" secondItem="au9-2G-nrz" secondAttribute="centerY" constant="-130" id="QtB-Rj-H2I"/>
+                            <constraint firstItem="QeR-me-ToR" firstAttribute="top" secondItem="npw-sC-zME" secondAttribute="bottom" constant="2" id="OLI-n1-Eqa"/>
                             <constraint firstItem="v6E-Dc-X8J" firstAttribute="trailing" secondItem="vhx-8N-xWa" secondAttribute="trailing" constant="20" id="ge0-wr-ZVX"/>
                             <constraint firstItem="vhx-8N-xWa" firstAttribute="centerX" secondItem="au9-2G-nrz" secondAttribute="centerX" id="nc9-NS-gsm"/>
                             <constraint firstItem="npw-sC-zME" firstAttribute="centerX" secondItem="au9-2G-nrz" secondAttribute="centerX" id="pD1-5x-BZA"/>
                             <constraint firstItem="5RD-iA-TLr" firstAttribute="centerX" secondItem="au9-2G-nrz" secondAttribute="centerX" id="sTr-Tu-81R"/>
-                            <constraint firstItem="npw-sC-zME" firstAttribute="top" secondItem="5RD-iA-TLr" secondAttribute="bottom" constant="70" id="zMg-zq-l0F"/>
+                            <constraint firstItem="ZLF-zT-Un2" firstAttribute="top" secondItem="5RD-iA-TLr" secondAttribute="bottom" constant="10" id="tyg-tm-GW5"/>
+                            <constraint firstItem="npw-sC-zME" firstAttribute="top" secondItem="ZLF-zT-Un2" secondAttribute="bottom" constant="5" id="w7b-4k-ATV"/>
+                            <constraint firstItem="ZLF-zT-Un2" firstAttribute="centerY" secondItem="au9-2G-nrz" secondAttribute="centerY" constant="-200" id="yGi-mS-c2v"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="v6E-Dc-X8J"/>
                     </view>
