@@ -27,8 +27,9 @@ class ViewController: UIViewController {
         }
         
         // set the URL path
-        let baseURL = "https://www.cotter.app/api/v0"
+//        let baseURL = "https://www.cotter.app/api/v0"
 //        let baseURL = "http://192.168.1.9:1234/api/v0"
+        let baseURL = "http://localhost:1234/api/v0"
         let clientUserID = randomString(length: 5)
         
         // select the dashboard's ViewController
