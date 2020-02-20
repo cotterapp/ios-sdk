@@ -50,6 +50,7 @@ class Passwordless: NSObject, ASWebAuthenticationPresentationContextProviding {
 
         self.authSession = ASWebAuthenticationSession(url: authURL, callbackURLScheme: scheme)
         { callbackURL, error in
+            print("CALLED BACK")
             // Handle the callback.
             guard error == nil, let callbackURL = callbackURL else { return }
 
@@ -79,6 +80,10 @@ class Passwordless: NSObject, ASWebAuthenticationPresentationContextProviding {
         }
         
         print("authenticating")
-        self.authSession?.start()
+        if let started = self.authSession?.start(), started {
+            print("successfully started session")
+        } else {
+            print("FAILED TO START SESSION")
+        }
     }
 }
