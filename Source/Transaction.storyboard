@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="121-lC-Vhv">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jcW-nu-fzI">
-                                <rect key="frame" x="177" y="303.5" width="60" height="29"/>
+                                <rect key="frame" x="177" y="270.5" width="60" height="29"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                 <state key="normal" title="Lihat PIN">
                                     <color key="titleColor" red="0.0" green="0.38611156089999998" blue="0.053541536309999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -26,7 +27,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PIN Error" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EgU-4J-7lY" userLabel="ErrorMsg">
-                                <rect key="frame" x="57" y="352.5" width="300" height="50"/>
+                                <rect key="frame" x="57" y="301.5" width="300" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="FbV-Tw-BvO"/>
                                     <constraint firstAttribute="width" constant="300" id="NIk-No-FER"/>
@@ -36,7 +37,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WRO-er-uRg" userLabel="Code Text Field" customClass="OneTimeCodeTextField" customModule="Cotter" customModuleProvider="target">
-                                <rect key="frame" x="82" y="248.5" width="250" height="35"/>
+                                <rect key="frame" x="82" y="230.5" width="250" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="iWK-IP-I5f"/>
                                     <constraint firstAttribute="height" constant="35" id="vy8-96-aYR"/>
@@ -44,34 +45,34 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O4J-TQ-rey" customClass="KeyboardView" customModule="Cotter" customModuleProvider="target">
+                                <rect key="frame" x="20" y="507" width="374" height="355"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="355" id="Bnb-nv-04D"/>
+                                </constraints>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Masukin PIN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rWV-zf-JbE">
-                                <rect key="frame" x="160" y="214" width="94" height="19.5"/>
+                                <rect key="frame" x="160" y="201" width="94" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O4J-TQ-rey" customClass="KeyboardView" customModule="Cotter" customModuleProvider="target">
-                                <rect key="frame" x="20" y="512" width="374" height="350"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="350" id="Y4k-p3-Udw"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="WRO-er-uRg" firstAttribute="centerX" secondItem="VH2-NC-nA8" secondAttribute="centerX" id="4vG-Kl-HwO"/>
-                            <constraint firstItem="O4J-TQ-rey" firstAttribute="leading" secondItem="cc2-fq-F3x" secondAttribute="leading" constant="20" id="5Sw-Xk-sCw"/>
-                            <constraint firstItem="cc2-fq-F3x" firstAttribute="trailing" secondItem="O4J-TQ-rey" secondAttribute="trailing" constant="20" id="6F6-5k-tCw"/>
-                            <constraint firstItem="EgU-4J-7lY" firstAttribute="top" secondItem="jcW-nu-fzI" secondAttribute="bottom" constant="20" id="UTR-zX-pYc"/>
-                            <constraint firstItem="jcW-nu-fzI" firstAttribute="top" secondItem="rWV-zf-JbE" secondAttribute="bottom" constant="70" id="bAG-lK-kyv"/>
-                            <constraint firstItem="O4J-TQ-rey" firstAttribute="bottom" secondItem="cc2-fq-F3x" secondAttribute="bottom" id="bET-XH-JTz"/>
-                            <constraint firstItem="O4J-TQ-rey" firstAttribute="centerX" secondItem="VH2-NC-nA8" secondAttribute="centerX" id="bsA-h3-Jye"/>
-                            <constraint firstItem="jcW-nu-fzI" firstAttribute="top" secondItem="WRO-er-uRg" secondAttribute="bottom" constant="20" id="ey5-eU-4zl"/>
-                            <constraint firstItem="EgU-4J-7lY" firstAttribute="centerX" secondItem="VH2-NC-nA8" secondAttribute="centerX" id="j3A-4Y-xoY"/>
-                            <constraint firstItem="jcW-nu-fzI" firstAttribute="centerY" secondItem="VH2-NC-nA8" secondAttribute="centerY" constant="-130" id="m79-St-RRE"/>
-                            <constraint firstItem="rWV-zf-JbE" firstAttribute="centerX" secondItem="VH2-NC-nA8" secondAttribute="centerX" id="r97-oQ-HfQ"/>
-                            <constraint firstItem="jcW-nu-fzI" firstAttribute="centerX" secondItem="VH2-NC-nA8" secondAttribute="centerX" id="rhQ-9B-ARn"/>
+                            <constraint firstItem="EgU-4J-7lY" firstAttribute="centerX" secondItem="VH2-NC-nA8" secondAttribute="centerX" id="22f-aA-F1h"/>
+                            <constraint firstItem="WRO-er-uRg" firstAttribute="centerY" secondItem="VH2-NC-nA8" secondAttribute="centerY" constant="-200" id="5Ub-Mg-gpP"/>
+                            <constraint firstItem="rWV-zf-JbE" firstAttribute="centerX" secondItem="VH2-NC-nA8" secondAttribute="centerX" id="79r-rA-6CV"/>
+                            <constraint firstItem="jcW-nu-fzI" firstAttribute="top" secondItem="WRO-er-uRg" secondAttribute="bottom" constant="5" id="ACt-OK-dAH"/>
+                            <constraint firstItem="WRO-er-uRg" firstAttribute="top" secondItem="rWV-zf-JbE" secondAttribute="bottom" constant="10" id="MGV-Ge-Eez"/>
+                            <constraint firstItem="jcW-nu-fzI" firstAttribute="centerX" secondItem="VH2-NC-nA8" secondAttribute="centerX" id="Nf9-yh-FtT"/>
+                            <constraint firstItem="O4J-TQ-rey" firstAttribute="bottom" secondItem="cc2-fq-F3x" secondAttribute="bottom" id="RGP-1u-UFK"/>
+                            <constraint firstItem="cc2-fq-F3x" firstAttribute="trailing" secondItem="O4J-TQ-rey" secondAttribute="trailing" constant="20" id="XYQ-Gw-ng2"/>
+                            <constraint firstItem="EgU-4J-7lY" firstAttribute="top" secondItem="jcW-nu-fzI" secondAttribute="bottom" constant="2" id="bfz-jD-RLI"/>
+                            <constraint firstItem="WRO-er-uRg" firstAttribute="centerX" secondItem="VH2-NC-nA8" secondAttribute="centerX" id="q7F-1m-W9z"/>
+                            <constraint firstItem="O4J-TQ-rey" firstAttribute="centerX" secondItem="VH2-NC-nA8" secondAttribute="centerX" id="qh2-zC-FaY"/>
+                            <constraint firstItem="O4J-TQ-rey" firstAttribute="leading" secondItem="cc2-fq-F3x" secondAttribute="leading" constant="20" id="xuT-2h-Bhi"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cc2-fq-F3x"/>
                     </view>

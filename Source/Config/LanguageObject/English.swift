@@ -20,12 +20,13 @@ public class English: LanguageObject {
             PINViewControllerKey.title: "Create PIN to secure your account",
             
             // MARK: - PINConfirmViewController
-            PINConfirmViewControllerKey.showPin: "Lihat PIN",
-            PINConfirmViewControllerKey.hidePin: "Sembunyikan",
+            PINConfirmViewControllerKey.showPin: "Show",
+            PINConfirmViewControllerKey.hidePin: "Hide",
             PINConfirmViewControllerKey.closeTitle: "Yakin tidak Mau Buat PIN Sekarang?",
             PINConfirmViewControllerKey.closeMessage: "PIN Ini diperlukan untuk keamanan akunmu, lho.",
             PINConfirmViewControllerKey.stayOnView: "Input PIN",
             PINConfirmViewControllerKey.leaveView: "Lain Kali",
+            PINConfirmViewControllerKey.title: "Confirm your PIN combination",
             
             // MARK: - PINFinalViewController
             PINFinalViewController.closeTitle: "Verifikasi",

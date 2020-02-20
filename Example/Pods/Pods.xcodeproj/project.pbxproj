@@ -754,7 +754,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -783,7 +783,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Cotter/Cotter-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Cotter/Cotter-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Cotter/Cotter.modulemap";
 				PRODUCT_MODULE_NAME = Cotter;
@@ -816,7 +816,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Cotter/Cotter-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Cotter/Cotter-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Cotter/Cotter.modulemap";
 				PRODUCT_MODULE_NAME = Cotter;
@@ -912,7 +912,7 @@
 				DEVELOPMENT_TEAM = 97LKD29ZGY;
 				IBSC_MODULE = Cotter;
 				INFOPLIST_FILE = "Target Support Files/Cotter/ResourceBundle-CotterIOS-Cotter-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_NAME = CotterIOS;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -965,7 +965,7 @@
 				DEVELOPMENT_TEAM = 97LKD29ZGY;
 				IBSC_MODULE = Cotter;
 				INFOPLIST_FILE = "Target Support Files/Cotter/ResourceBundle-CotterIOS-Cotter-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_NAME = CotterIOS;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1061,7 +1061,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;

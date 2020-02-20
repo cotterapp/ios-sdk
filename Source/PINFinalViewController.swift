@@ -91,7 +91,6 @@ class PINFinalViewController: UIViewController {
         guard let onFinishCallback = Config.instance.callbackFunc else { return }
       
         // set access token or return values here
-        // onFinishCallback("this is token")
         
         if requireAuth {
             // Touch ID/Face ID Verification

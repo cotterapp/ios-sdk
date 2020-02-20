@@ -328,7 +328,7 @@ class LocalAuthService: UIViewController {
             aService.show()
         } else {
             // no biometric then skip creating the public key
-            self.dispatchResult(view: view, success: true, authError: nil)
+            successAuthCallbackFunc?("token")
         }
     }
     
