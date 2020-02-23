@@ -7,10 +7,23 @@
 
 import UIKit
 
-class UpdatePINViewController: UIViewController, KeyboardViewDelegate, PINBaseController {
-    var authService: LocalAuthService = LocalAuthService()
+public class UpdatePINViewControllerKey {
+    // MARK: - Keys for Strings
+    static let navTitle = "UpdatePINViewControllerKey/navTitle"
+    static let showPin = "UpdatePINViewControllerKey/showPin"
+    static let hidePin = "UpdatePINViewControllerKey/hidePin"
+    static let title = "UpdatePINViewControllerKey/title"
+}
 
-    var showErrorMsg: Bool = false
+class UpdatePINViewController: UIViewController, KeyboardViewDelegate, PINBaseController {
+    typealias VCTextKey = UpdatePINViewControllerKey
+    
+    var authService: LocalAuthService = LocalAuthService()
+    
+    let navTitle = CotterStrings.instance.getText(for: VCTextKey.navTitle)
+    let showPinText = CotterStrings.instance.getText(for: VCTextKey.showPin)
+    let hidePinText = CotterStrings.instance.getText(for: VCTextKey.hidePin)
+    let viewTitle = CotterStrings.instance.getText(for: VCTextKey.title)
     
     // Pass config here by UpdatePINViewController.config = Config()
     public var config: Config?
@@ -18,6 +31,8 @@ class UpdatePINViewController: UIViewController, KeyboardViewDelegate, PINBaseCo
     @IBOutlet weak var pinVisibilityButton: UIButton!
     
     @IBOutlet weak var errorLabel: UILabel!
+    
+    @IBOutlet weak var titleLabel: UILabel!
     
     @IBOutlet weak var codeTextField: OneTimeCodeTextField!
     
@@ -32,6 +47,15 @@ class UpdatePINViewController: UIViewController, KeyboardViewDelegate, PINBaseCo
         addConfigs()
         addDelegates()
         instantiateCodeTextFieldFunctions()
+        
+        // Text setup
+        populateText()
+    }
+    
+    func populateText() {
+        self.navigationItem.title = navTitle
+        self.titleLabel.text = viewTitle
+        self.pinVisibilityButton.setTitle(showPinText, for: .normal)
     }
     
     func instantiateCodeTextFieldFunctions() {
@@ -121,10 +145,10 @@ class UpdatePINViewController: UIViewController, KeyboardViewDelegate, PINBaseCo
     
     @IBAction func onClickPinVis(_ sender: UIButton) {
         codeTextField.togglePinVisibility()
-        if sender.title(for: .normal) == PinDisplayText.showPinText {
-            sender.setTitle(PinDisplayText.hidePinText, for: .normal)
+        if sender.title(for: .normal) == showPinText {
+            sender.setTitle(hidePinText, for: .normal)
         } else {
-            sender.setTitle(PinDisplayText.showPinText, for: .normal)
+            sender.setTitle(showPinText, for: .normal)
         }
     }
     

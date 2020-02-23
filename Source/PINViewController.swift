@@ -10,6 +10,7 @@ import UIKit
 
 public class PINViewControllerKey {
     // MARK: - Keys for Strings
+    public static let navTitle = "PINViewController/navTitle"
     public static let showPin = "PINViewController/showPin"
     public static let hidePin = "PINViewController/hidePin"
     public static let closeTitle = "PINViewController/closeTitle"
@@ -26,12 +27,14 @@ class PINViewController : UIViewController {
     
     // MARK: - Alert Service Text definition
     // Alert Service
+    let navTitle = CotterStrings.instance.getText(for: VCTextKey.navTitle)
     let closeTitleText = CotterStrings.instance.getText(for: VCTextKey.closeTitle)
     let closeMessageText = CotterStrings.instance.getText(for: VCTextKey.closeMessage)
     let stayText = CotterStrings.instance.getText(for: VCTextKey.stayOnView)
     let leaveText = CotterStrings.instance.getText(for: VCTextKey.leaveView)
     let showPinText = CotterStrings.instance.getText(for: VCTextKey.showPin)
     let hidePinText = CotterStrings.instance.getText(for: VCTextKey.hidePin)
+    let viewTitle = CotterStrings.instance.getText(for: VCTextKey.title)
     
     lazy var alertService: AlertService = {
         let alert = AlertService(vc: self, title: closeTitleText, body: closeMessageText, actionButtonTitle: leaveText, cancelButtonTitle: stayText)
@@ -64,8 +67,13 @@ class PINViewController : UIViewController {
         instantiateCodeTextFieldFunctions()
         
         // Text setup
-        print(CotterStrings.instance.getText(for: VCTextKey.title))
-        self.titleLabel.text = CotterStrings.instance.getText(for: VCTextKey.title)
+        populateText()
+    }
+    
+    func populateText() {
+        self.navigationItem.title = navTitle
+        self.titleLabel.text = viewTitle
+        self.pinVisibilityButton.setTitle(showPinText, for: .normal)
     }
     
     func instantiateCodeTextFieldFunctions() {
@@ -124,10 +132,6 @@ class PINViewController : UIViewController {
         self.keyboardView.delegate = self
     }
     
-    private func configurePinVisButton() {
-        pinVisibilityButton.setTitle("", for: .normal)
-    }
-    
     private func configureErrorMsg() {
         errorLabel.isHidden = true
     }
@@ -141,10 +145,10 @@ class PINViewController : UIViewController {
     
     @IBAction func onClickPinVis(_ sender: UIButton) {
         codeTextField.togglePinVisibility()
-        if sender.title(for: .normal) == PinDisplayText.showPinText {
-            sender.setTitle(PinDisplayText.hidePinText, for: .normal)
+        if sender.title(for: .normal) == showPinText {
+            sender.setTitle(hidePinText, for: .normal)
         } else {
-            sender.setTitle(PinDisplayText.showPinText, for: .normal)
+            sender.setTitle(showPinText, for: .normal)
         }
     }
     

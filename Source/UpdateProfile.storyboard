@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Qly-nY-PJb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Qly-nY-PJb">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Ubah PIN-->
+        <!--Update PIN Nav Title-->
         <scene sceneID="PaJ-lf-mZF">
             <objects>
                 <viewController storyboardIdentifier="UpdatePINViewController" id="vI7-VV-aEK" customClass="UpdatePINViewController" customModule="Cotter" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,16 +17,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Twk-8B-euK">
-                                <rect key="frame" x="177" y="270.5" width="60" height="29"/>
+                                <rect key="frame" x="145" y="270.5" width="124" height="29"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
-                                <state key="normal" title="Lihat PIN">
+                                <state key="normal" title="Update PIN Button">
                                     <color key="titleColor" red="0.0" green="0.38611156089999998" blue="0.053541536309999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="onClickPinVis:" destination="vI7-VV-aEK" eventType="touchUpInside" id="2Eu-8C-g5U"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PIN Error" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OtH-nO-4oj" userLabel="ErrorMsg">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Update PIN Error" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OtH-nO-4oj" userLabel="ErrorMsg">
                                 <rect key="frame" x="57" y="301.5" width="300" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="BjD-cw-uQl"/>
@@ -52,8 +52,8 @@
                                     <constraint firstAttribute="height" constant="355" id="sLl-mk-RVm"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Masukin PIN saat ini" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zrC-oU-0pq">
-                                <rect key="frame" x="131" y="201" width="152" height="19.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Update PIN Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zrC-oU-0pq">
+                                <rect key="frame" x="145.5" y="201" width="123.5" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -76,12 +76,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nRc-rx-xyg"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Ubah PIN" id="cKc-nH-UR9"/>
+                    <navigationItem key="navigationItem" title="Update PIN Nav Title" id="cKc-nH-UR9"/>
                     <connections>
                         <outlet property="codeTextField" destination="BWh-mf-YV2" id="RzK-y8-zaY"/>
                         <outlet property="errorLabel" destination="OtH-nO-4oj" id="ha6-8T-uP9"/>
                         <outlet property="keyboardView" destination="CbK-dh-RzR" id="aZY-MU-og3"/>
                         <outlet property="pinVisibilityButton" destination="Twk-8B-euK" id="Hcj-jz-scA"/>
+                        <outlet property="titleLabel" destination="zrC-oU-0pq" id="izF-SU-w3L"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8YW-zG-2Lu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -104,7 +105,7 @@
             </objects>
             <point key="canvasLocation" x="-952" y="151"/>
         </scene>
-        <!--PIN Baru-->
+        <!--Create New PIN Nav Title-->
         <scene sceneID="40k-zn-CBx">
             <objects>
                 <viewController storyboardIdentifier="UpdateCreateNewPINViewController" id="jQ2-nb-vGX" customClass="UpdateCreateNewPINViewController" customModule="Cotter" customModuleProvider="target" sceneMemberID="viewController">
@@ -113,16 +114,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9PV-bv-3bZ">
-                                <rect key="frame" x="177" y="270.5" width="60" height="29"/>
+                                <rect key="frame" x="131" y="270.5" width="152" height="29"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
-                                <state key="normal" title="Lihat PIN">
+                                <state key="normal" title="Create New PIN Button">
                                     <color key="titleColor" red="0.0" green="0.38611156089999998" blue="0.053541536309999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="OnClickPinVis:" destination="jQ2-nb-vGX" eventType="touchUpInside" id="imN-1H-pQZ"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PIN Error" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aHt-eO-I8d" userLabel="ErrorMsg">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create New PIN Error" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aHt-eO-I8d" userLabel="ErrorMsg">
                                 <rect key="frame" x="57" y="301.5" width="300" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="SyH-DP-m0F"/>
@@ -141,8 +142,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Masukin PIN baru" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="joL-uv-SPw">
-                                <rect key="frame" x="140.5" y="201" width="133" height="19.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create New PIN Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="joL-uv-SPw">
+                                <rect key="frame" x="129" y="201" width="156.5" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -172,12 +173,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3zK-cT-1d5"/>
                     </view>
-                    <navigationItem key="navigationItem" title="PIN Baru" id="Ylh-hQ-ksS"/>
+                    <navigationItem key="navigationItem" title="Create New PIN Nav Title" id="Ylh-hQ-ksS"/>
                     <connections>
                         <outlet property="codeTextField" destination="BXF-WN-O9C" id="8J8-I3-1Xq"/>
                         <outlet property="errorLabel" destination="aHt-eO-I8d" id="IUn-Ao-Of3"/>
                         <outlet property="keyboardView" destination="QCa-u7-BXw" id="HzQ-k9-EtZ"/>
                         <outlet property="pinVisibilityButton" destination="9PV-bv-3bZ" id="mwV-YZ-gFb"/>
+                        <outlet property="titleLabel" destination="joL-uv-SPw" id="dje-ve-c8G"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="16g-bZ-MbH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -193,16 +195,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="npw-sC-zME">
-                                <rect key="frame" x="177" y="270.5" width="60" height="29"/>
+                                <rect key="frame" x="126.5" y="270.5" width="161" height="29"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
-                                <state key="normal" title="Lihat PIN">
+                                <state key="normal" title="Confirm New PIN Button">
                                     <color key="titleColor" red="0.0" green="0.38611156089999998" blue="0.053541536309999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="onClickPinVis:" destination="bsn-Me-hsc" eventType="touchUpInside" id="w20-Dt-Gdb"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PIN Error" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QeR-me-ToR" userLabel="ErrorMsg">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm New PIN Error" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QeR-me-ToR" userLabel="ErrorMsg">
                                 <rect key="frame" x="57" y="301.5" width="300" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="D4p-1B-4Q1"/>
@@ -221,8 +223,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Masukin PIN baru sekali lagi untuk konfirmasi" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5RD-iA-TLr">
-                                <rect key="frame" x="36" y="200.5" width="342" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm New PIN Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5RD-iA-TLr">
+                                <rect key="frame" x="124" y="200.5" width="166.5" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="cbm-dn-8fU"/>
                                 </constraints>
@@ -261,6 +263,7 @@
                         <outlet property="errorLabel" destination="QeR-me-ToR" id="KtF-zZ-4Ya"/>
                         <outlet property="keyboardView" destination="vhx-8N-xWa" id="zng-iZ-49H"/>
                         <outlet property="pinVisibilityButton" destination="npw-sC-zME" id="icP-kf-ry9"/>
+                        <outlet property="titleLabel" destination="5RD-iA-TLr" id="H2v-5C-Jiz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hX2-fU-Ng0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

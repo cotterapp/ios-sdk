@@ -7,15 +7,29 @@
 
 import UIKit
 
+public class UpdateCreateNewPINViewControllerKey {
+    static let navTitle = "UpdateCreateNewPINViewControllerKey/navTitle"
+    static let showPin = "UpdateCreateNewPINViewControllerKey/showPin"
+    static let hidePin = "UpdateCreateNewPINViewControllerKey/hidePin"
+    static let title = "UpdateCreateNewPINViewControllerKey/title"
+}
+
 class UpdateCreateNewPINViewController: UIViewController, KeyboardViewDelegate, PINBaseController {
-    var showErrorMsg: Bool = false
+    typealias VCTextKey = UpdateCreateNewPINViewControllerKey
     
     // Pass config here by UpdateCreateNewPINViewController.config = Config()
     public var config: Config?
     // Pass oldCode here by UpdateCreateNewPINViewController.oldCode = code
     public var oldCode: String?
     
+    let navTitle = CotterStrings.instance.getText(for: VCTextKey.navTitle)
+    let showPinText = CotterStrings.instance.getText(for: VCTextKey.showPin)
+    let hidePinText = CotterStrings.instance.getText(for: VCTextKey.hidePin)
+    let viewTitle = CotterStrings.instance.getText(for: VCTextKey.title)
+    
     @IBOutlet weak var pinVisibilityButton: UIButton!
+    
+    @IBOutlet weak var titleLabel: UILabel!
     
     @IBOutlet weak var errorLabel: UILabel!
     
@@ -32,6 +46,15 @@ class UpdateCreateNewPINViewController: UIViewController, KeyboardViewDelegate, 
         addConfigs()
         addDelegates()
         instantiateCodeTextFieldFunctions()
+        
+        // Text setup
+        populateText()
+    }
+    
+    func populateText() {
+        self.navigationItem.title = navTitle
+        self.titleLabel.text = viewTitle
+        self.pinVisibilityButton.setTitle(showPinText, for: .normal)
     }
     
     func instantiateCodeTextFieldFunctions() {
@@ -118,10 +141,10 @@ class UpdateCreateNewPINViewController: UIViewController, KeyboardViewDelegate, 
     
     @IBAction func OnClickPinVis(_ sender: UIButton) {
         codeTextField.togglePinVisibility()
-        if sender.title(for: .normal) == PinDisplayText.showPinText {
-            sender.setTitle(PinDisplayText.hidePinText, for: .normal)
+        if sender.title(for: .normal) == showPinText {
+            sender.setTitle(hidePinText, for: .normal)
         } else {
-            sender.setTitle(PinDisplayText.showPinText, for: .normal)
+            sender.setTitle(showPinText, for: .normal)
         }
     }
     

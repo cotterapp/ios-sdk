@@ -5,37 +5,35 @@
 //  Created by Albert Purnama on 2/3/20.
 //
 
-import LocalAuthentication
 import Foundation
 
-class PINFinalViewController: UIViewController {
+public class PINFinalViewControllerKey {
     // MARK: - Keys for Strings
-    static let closeTitle = "PINFinalViewController/closeTitle"
-    static let closeMessage = "PINFinalViewController/closeMessage"
-    static let stayOnView = "PINFinalViewController/stayOnView"
-    static let leaveView = "PINFinalViewController/leaveView"
-    static let successImage = "PINFinalViewController/successImage"
-    static let title = "PINFinalViewController/title"
-    static let subtitle = "PINFinalViewController/subtitle"
-    static let buttonText = "PINFinalViewController/buttonText"
+    static let closeTitle = "PINFinalViewControllerKey/closeTitle"
+    static let closeMessage = "PINFinalViewControllerKey/closeMessage"
+    static let stayOnView = "PINFinalViewControllerKey/stayOnView"
+    static let leaveView = "PINFinalViewControllerKey/leaveView"
+    static let successImage = "PINFinalViewControllerKey/successImage"
+    static let title = "PINFinalViewControllerKey/title"
+    static let subtitle = "PINFinalViewControllerKey/subtitle"
+    static let buttonText = "PINFinalViewControllerKey/buttonText"
+}
+
+class PINFinalViewController: UIViewController {
+    // since PinFinalViewControllerKey is a nuisance to type
+    // we can getaway with typealias here
+    typealias VCTextKey = PINFinalViewControllerKey
     
-    // Text Customizations
-    let successTitle = CotterStrings.instance.getText(for: title)
-    let successSubtitle = CotterStrings.instance.getText(for: subtitle)
-    let successButtonTitle = CotterStrings.instance.getText(for: buttonText)
-    
-    // Alert Service
-    let closeTitleText = CotterStrings.instance.getText(for: closeTitle)
-    let closeMessageText = CotterStrings.instance.getText(for: closeMessage)
-    let stayText = CotterStrings.instance.getText(for: stayOnView)
-    let leaveText = CotterStrings.instance.getText(for: leaveView)
+    let viewTitle = CotterStrings.instance.getText(for: VCTextKey.title)
+    let viewSubtitle = CotterStrings.instance.getText(for: VCTextKey.subtitle)
+    let buttonText = CotterStrings.instance.getText(for: VCTextKey.buttonText)
+    let successImg = CotterStrings.instance.getText(for: VCTextKey.successImage)
     
     // Auth Service
     let authService = LocalAuthService()
     
     // Config Variables
     var requireAuth = true
-    var imagePath: String?
     
     @IBOutlet weak var imageView: UIImageView!
     
@@ -50,16 +48,18 @@ class PINFinalViewController: UIViewController {
         print("In Final PIN View!")
         
         // Add Set-up here
-        configureLang()
         configureNav()
-        loadImage(imagePath: imagePath)
+        loadImage(imagePath: successImg)
         configureButton()
+        
+        // Text setup
+        populateText()
     }
     
-    func configureLang() {
-        successLabel.text = successTitle
-        successSubLabel.text = successSubtitle
-        finishButton.setTitle(successButtonTitle, for: .normal)
+    func populateText() {
+        successLabel.text = viewTitle
+        successSubLabel.text = viewSubtitle
+        finishButton.setTitle(buttonText, for: .normal)
     }
     
     func configureNav() {
@@ -75,7 +75,7 @@ class PINFinalViewController: UIViewController {
             imageView.image = UIImage(named: "check", in: Bundle(identifier: "org.cocoapods.Cotter"), compatibleWith: nil)
             return
         }
-        imageView.image = UIImage(named: imagePath!, in: Bundle.main, compatibleWith: nil)
+        imageView.image = UIImage(named: successImg, in: Bundle.main, compatibleWith: nil)
     }
     
     func configureButton() {
