@@ -47,9 +47,15 @@ class ViewController: UIViewController {
         
         // if you want to set text configuration uncomment the following
         // langConfig.set(key: PINViewControllerKey.title, value: "Hi! You've changed the text")
+      
+        // available Color Scheme options:
+        //    1. primary (type: UIColor?/Int?/String?) - default: #21CE99
+        //    2. accent (type: UIColor?/Int?/String?) - default: #21CE99
+        //    3. danger (type: UIColor?/Int?/String?) - default: #D92C59
+        //  let colorScheme = ColorSchemeObject(primary: primary, accent: accent, danger: danger)
         
         // Load Cotter View Controller from SDK
-        CotterWrapper.cotter = Cotter.init(
+        CotterWrapper.cotter = Cotter(
             successCb: cbFunc,
             apiSecretKey: apiSecretKey,
             apiKeyID: apiKeyID,
@@ -57,7 +63,8 @@ class ViewController: UIViewController {
             userID: clientUserID,
             // configuration is an optional argument, remove this below and Cotter app will still function properly
             configuration: [
-                "language": langConfig   // default value is Indonesian()
+                "language": langConfig,   // default value is Indonesian()
+                // "colors": colorScheme
             ]
         )
         

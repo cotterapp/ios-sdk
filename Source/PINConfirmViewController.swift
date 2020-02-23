@@ -21,13 +21,17 @@ public class PINConfirmViewControllerKey {
     static let leaveView = "PINConfirmViewController/leaveView"
 }
 
-class PINConfirmViewController : UIViewController, KeyboardViewDelegate {
+class PINConfirmViewController : UIViewController {
     // prevCode should be passed from the previous (PINView) controller
     var prevCode: String?
     
     // since PinConfirmViewControllerKey is a nuisance to type
     // we can getaway with typealias here
     typealias VCTextKey = PINConfirmViewControllerKey
+  
+    let titleText = CotterStrings.instance.getText(for: VCTextKey.title)
+    let showPinText = CotterStrings.instance.getText(for: VCTextKey.showPin)
+    let hidePinText = CotterStrings.instance.getText(for: VCTextKey.hidePin)
     
     // Code Text Field
     @IBOutlet weak var codeTextField: OneTimeCodeTextField!
@@ -50,10 +54,27 @@ class PINConfirmViewController : UIViewController, KeyboardViewDelegate {
         addDelegates()
         instantiateCodeTextFieldFunctions()
         
-        self.titleLabel.text = CotterStrings.instance.getText(for: VCTextKey.title)
+        self.titleLabel.text = titleText
     }
     
-    func instantiateCodeTextFieldFunctions() {
+    @IBAction func onClickPinVis(_ sender: UIButton) {
+        codeTextField.togglePinVisibility()
+        if sender.title(for: .normal) == showPinText {
+            sender.setTitle(hidePinText, for: .normal)
+        } else {
+            sender.setTitle(showPinText, for: .normal)
+        }
+    }
+
+    public override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+}
+
+// MARK: - Private Helper Functions
+extension PINConfirmViewController {
+    private func instantiateCodeTextFieldFunctions() {
         codeTextField.removeErrorMsg = {
             // Remove error msg if it is present
             if !self.errorLabel.isHidden {
@@ -110,10 +131,10 @@ class PINConfirmViewController : UIViewController, KeyboardViewDelegate {
             return true
         }
     }
-    
-    func addConfigs() {
+  
+    private func addConfigs() {
         self.navigationItem.hidesBackButton = true
-        let backButton = UIBarButtonItem(title: "\u{2190}", style: UIBarButtonItem.Style.plain, target: self, action: #selector(PINConfirmViewController.promptClose(sender:)))
+        let backButton = UIBarButtonItem(title: "\u{2190}", style: UIBarButtonItem.Style.plain, target: self, action: #selector(navigateBack(sender:)))
         backButton.tintColor = UIColor.black
         self.navigationItem.leftBarButtonItem = backButton
         
@@ -122,15 +143,38 @@ class PINConfirmViewController : UIViewController, KeyboardViewDelegate {
         self.navigationController?.navigationBar.layoutIfNeeded()
         
         codeTextField.configure()
+        configurePinVisibilityButton()
         configureErrorMsg()
     }
     
-    func addDelegates() {
+    private func addDelegates() {
         self.keyboardView.delegate = self
     }
     
-    // This delegate function runs when the buttons in keyboardView is tapped.
-    // Code Text Field is updated here.
+    private func configurePinVisibilityButton() {
+        pinVisibilityButton.setTitle(showPinText, for: .normal)
+        pinVisibilityButton.setTitleColor(Config.instance.colors.primary, for: .normal)
+    }
+    
+    private func configureErrorMsg() {
+        errorLabel.isHidden = true
+        errorLabel.textColor = Config.instance.colors.danger
+    }
+    
+    private func toggleErrorMsg(msg: String?) {
+        errorLabel.isHidden.toggle()
+        if !errorLabel.isHidden {
+            errorLabel.text = msg
+        }
+    }
+    
+    @objc private func navigateBack(sender: UIBarButtonItem) {
+        self.navigationController?.popViewController(animated: true)
+    }
+}
+
+// MARK: - KeyboardViewDelegate
+extension PINConfirmViewController : KeyboardViewDelegate {
     func keyboardButtonTapped(buttonNumber: NSInteger) {
         // If backspace tapped, remove last char. Else, append new char.
         if buttonNumber == -1 {
@@ -139,35 +183,5 @@ class PINConfirmViewController : UIViewController, KeyboardViewDelegate {
         } else {
             codeTextField.appendNumber(buttonNumber: buttonNumber)
         }
-    }
-    
-    private func configureErrorMsg() {
-        errorLabel.isHidden = true
-    }
-    
-    func toggleErrorMsg(msg: String?) {
-        errorLabel.isHidden.toggle()
-        if !errorLabel.isHidden {
-            errorLabel.text = msg
-        }
-    }
-    
-    @IBAction func onClickPinVis(_ sender: UIButton) {
-        codeTextField.togglePinVisibility()
-        if sender.title(for: .normal) == PinDisplayText.showPinText {
-            sender.setTitle(PinDisplayText.hidePinText, for: .normal)
-        } else {
-            sender.setTitle(PinDisplayText.showPinText, for: .normal)
-        }
-    }
-    
-    @objc private func promptClose(sender: UIBarButtonItem) {
-        // Perform Prompt Alert
-        self.navigationController?.popViewController(animated: true)
-    }
-
-    public override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 }

@@ -29,13 +29,13 @@ public class English: LanguageObject {
             PINConfirmViewControllerKey.title: "Confirm your PIN combination",
             
             // MARK: - PINFinalViewController
-            PINFinalViewController.closeTitle: "Verifikasi",
-            PINFinalViewController.closeMessage: "Sentuh sensor sidik jari untuk melanjutkan",
-            PINFinalViewController.stayOnView: "Input PIN",
-            PINFinalViewController.leaveView: "Batalkan",
-            PINFinalViewController.title: "Successfully Activated PIN!",
-            PINFinalViewController.subtitle: "You can now use your PIN to unlock your account and make transactions",
-            PINFinalViewController.buttonText: "Done",
+            PINFinalViewControllerKey.closeTitle: "Verifikasi",
+            PINFinalViewControllerKey.closeMessage: "Sentuh sensor sidik jari untuk melanjutkan",
+            PINFinalViewControllerKey.stayOnView: "Input PIN",
+            PINFinalViewControllerKey.leaveView: "Batalkan",
+            PINFinalViewControllerKey.title: "Successfully Activated PIN!",
+            PINFinalViewControllerKey.subtitle: "You can now use your PIN to unlock your account and make transactions",
+            PINFinalViewControllerKey.buttonText: "Done",
             
             // MARK: - TransactionPINViewController
             TransactionPINViewController.showPin: "Lihat PIN",
