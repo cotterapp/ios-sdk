@@ -8,27 +8,27 @@
 import LocalAuthentication
 import Foundation
 
-class PINFinalViewController: UIViewController {
+public class PINFinalViewControllerKey {
     // MARK: - Keys for Strings
+    static let title = "PINFinalViewController/title"
+    static let subtitle = "PINFinalViewController/subtitle"
+    static let buttonText = "PINFinalViewController/buttonText"
+
+    // for alerts - not used
     static let closeTitle = "PINFinalViewController/closeTitle"
     static let closeMessage = "PINFinalViewController/closeMessage"
     static let stayOnView = "PINFinalViewController/stayOnView"
     static let leaveView = "PINFinalViewController/leaveView"
     static let successImage = "PINFinalViewController/successImage"
-    static let title = "PINFinalViewController/title"
-    static let subtitle = "PINFinalViewController/subtitle"
-    static let buttonText = "PINFinalViewController/buttonText"
+}
+
+class PINFinalViewController: UIViewController {
+    typealias VCTextKey = PINFinalViewControllerKey
     
     // Text Customizations
-    let successTitle = CotterStrings.instance.getText(for: title)
-    let successSubtitle = CotterStrings.instance.getText(for: subtitle)
-    let successButtonTitle = CotterStrings.instance.getText(for: buttonText)
-    
-    // Alert Service
-    let closeTitleText = CotterStrings.instance.getText(for: closeTitle)
-    let closeMessageText = CotterStrings.instance.getText(for: closeMessage)
-    let stayText = CotterStrings.instance.getText(for: stayOnView)
-    let leaveText = CotterStrings.instance.getText(for: leaveView)
+    let successTitle = CotterStrings.instance.getText(for: VCTextKey.title)
+    let successSubtitle = CotterStrings.instance.getText(for: VCTextKey.subtitle)
+    let successButtonTitle = CotterStrings.instance.getText(for: VCTextKey.buttonText)
     
     // Auth Service
     let authService = LocalAuthService()
@@ -50,41 +50,10 @@ class PINFinalViewController: UIViewController {
         print("In Final PIN View!")
         
         // Add Set-up here
-        configureLang()
+        configureTexts()
         configureNav()
         loadImage(imagePath: imagePath)
         configureButton()
-    }
-    
-    func configureLang() {
-        successLabel.text = successTitle
-        successSubLabel.text = successSubtitle
-        finishButton.setTitle(successButtonTitle, for: .normal)
-    }
-    
-    func configureNav() {
-        self.navigationItem.hidesBackButton = true
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.layoutIfNeeded()
-    }
-    
-    func loadImage(imagePath: String?) {
-        if imagePath == nil {
-            print("Using Default Image...")
-            imageView.image = UIImage(named: "check", in: Bundle(identifier: "org.cocoapods.Cotter"), compatibleWith: nil)
-            return
-        }
-        imageView.image = UIImage(named: imagePath!, in: Bundle.main, compatibleWith: nil)
-    }
-    
-    func configureButton() {
-        let color = UIColor(red: 0.8588, green: 0.8588, blue: 0.8588, alpha: 1.0)
-        let width = CGFloat(2.0)
-        finishButton.backgroundColor = UIColor.clear
-        finishButton.layer.cornerRadius = 10
-        finishButton.layer.borderWidth = width
-        finishButton.layer.borderColor = color.cgColor
     }
     
     @IBAction func finish(_ sender: Any) {
@@ -103,5 +72,41 @@ class PINFinalViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+}
+
+// MARK: - Private Helper Functions
+extension PINFinalViewController {
+    private func configureTexts() {
+        successLabel.text = successTitle
+        successSubLabel.text = successSubtitle
+        finishButton.setTitle(successButtonTitle, for: .normal)
+    }
+    
+    private func configureNav() {
+        self.navigationItem.hidesBackButton = true
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.layoutIfNeeded()
+    }
+    
+    private func loadImage(imagePath: String?) {
+        guard let imagePath = imagePath else {
+            print("Using Default Image...")
+            imageView.image = UIImage(named: "check", in: Bundle(identifier: "org.cocoapods.Cotter"), compatibleWith: nil)
+            return
+        }
+      
+        imageView.image = UIImage(named: imagePath, in: Bundle.main, compatibleWith: nil)
+    }
+    
+    private func configureButton() {
+        let color = UIColor(red: 0.8588, green: 0.8588, blue: 0.8588, alpha: 1.0)
+        let width = CGFloat(2.0)
+        finishButton.setTitleColor(Config.instance.colors.primary, for: .normal)
+        finishButton.backgroundColor = UIColor.clear
+        finishButton.layer.cornerRadius = 10
+        finishButton.layer.borderWidth = width
+        finishButton.layer.borderColor = color.cgColor
     }
 }

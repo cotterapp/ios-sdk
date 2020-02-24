@@ -7,8 +7,17 @@
 
 import UIKit
 
-class UpdateConfirmNewPINViewController: UIViewController, KeyboardViewDelegate, PINBaseController {
-    var showErrorMsg: Bool = false
+public class UpdateConfirmNewPINViewControllerKey {
+    // MARK: - Keys for Strings
+    static let showPin = "UpdateConfirmNewPINViewController/showPin"
+    static let hidePin = "UpdateConfirmNewPINViewController/hidePin"
+}
+
+class UpdateConfirmNewPINViewController: UIViewController {
+    typealias VCTextKey = UpdateConfirmNewPINViewControllerKey
+  
+    let showPinText = CotterStrings.instance.getText(for: VCTextKey.showPin)
+    let hidePinText = CotterStrings.instance.getText(for: VCTextKey.hidePin)
     
     // Pass config here by UpdateConfirmNewPINViewController.config = Config()
     public var config: Config?
@@ -38,6 +47,23 @@ class UpdateConfirmNewPINViewController: UIViewController, KeyboardViewDelegate,
         instantiateCodeTextFieldFunctions()
     }
     
+    @IBAction func onClickPinVis(_ sender: UIButton) {
+        codeTextField.togglePinVisibility()
+        if sender.title(for: .normal) == showPinText {
+            sender.setTitle(hidePinText, for: .normal)
+        } else {
+            sender.setTitle(showPinText, for: .normal)
+        }
+    }
+    
+    public override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+}
+
+// MARK: - PINBaseController
+extension UpdateConfirmNewPINViewController : PINBaseController {
     func instantiateCodeTextFieldFunctions() {
         codeTextField.removeErrorMsg = {
             // Remove error msg if it is present
@@ -116,28 +142,22 @@ class UpdateConfirmNewPINViewController: UIViewController, KeyboardViewDelegate,
         self.navigationItem.leftBarButtonItem = backButton
         
         codeTextField.configure()
-        configureErrorMsg()
+        configureErrorLabel()
+        configurePinVisibilityButton()
     }
     
     func addDelegates() {
         self.keyboardView.delegate = self
     }
     
-    func keyboardButtonTapped(buttonNumber: NSInteger) {
-        if buttonNumber == -1 {
-            codeTextField.removeNumber()
-        } else {
-            codeTextField.appendNumber(buttonNumber: buttonNumber)
-        }
-    }
-    
-    func configurePinVisButton() {
-        // No initial Error Msg
-        pinVisibilityButton.setTitle("", for: .normal)
-    }
-    
-    func configureErrorMsg() {
+    func configureErrorLabel() {
         errorLabel.isHidden = true
+        errorLabel.textColor = Config.instance.colors.danger
+    }
+    
+    func configurePinVisibilityButton() {
+        pinVisibilityButton.setTitle(showPinText, for: .normal)
+        pinVisibilityButton.setTitleColor(Config.instance.colors.primary, for: .normal)
     }
     
     func toggleErrorMsg(msg: String?) {
@@ -147,22 +167,19 @@ class UpdateConfirmNewPINViewController: UIViewController, KeyboardViewDelegate,
         }
     }
     
-    @IBAction func onClickPinVis(_ sender: UIButton) {
-        codeTextField.togglePinVisibility()
-        if sender.title(for: .normal) == PinDisplayText.showPinText {
-            sender.setTitle(PinDisplayText.hidePinText, for: .normal)
-        } else {
-            sender.setTitle(PinDisplayText.showPinText, for: .normal)
-        }
-    }
-    
     @objc private func promptBack(sender: UIBarButtonItem) {
         // Go back to previous screen
         self.navigationController?.popViewController(animated: true)
     }
-    
-    public override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+}
+
+// MARK: - KeyboardViewDelegate
+extension UpdateConfirmNewPINViewController : KeyboardViewDelegate {
+    func keyboardButtonTapped(buttonNumber: NSInteger) {
+        if buttonNumber == -1 {
+            codeTextField.removeNumber()
+        } else {
+            codeTextField.appendNumber(buttonNumber: buttonNumber)
+        }
     }
 }

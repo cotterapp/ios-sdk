@@ -55,7 +55,7 @@ class AlertService: NSObject {
         alertView.addSubview(bodyView)
         
         titleLabel.text = title
-        titleLabel.textColor = UIColor.systemGreen
+        titleLabel.textColor = Config.instance.colors.primary
         titleLabel.font = UIFont.boldSystemFont(ofSize: 20.0)
         titleLabel.numberOfLines = 0
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -69,12 +69,12 @@ class AlertService: NSObject {
         alertView.addSubview(bodyLabel)
         
         cancelButton.setTitle(cancelButtonTitle, for: .normal)
-        cancelButton.setTitleColor(UIColor.systemGreen, for: .normal)
+        cancelButton.setTitleColor(Config.instance.colors.primary, for: .normal)
         cancelButton.translatesAutoresizingMaskIntoConstraints = false
         alertView.addSubview(cancelButton)
         
         actionButton.setTitle(actionButtonTitle, for: .normal)
-        actionButton.setTitleColor(UIColor.systemGreen, for: .normal)
+        actionButton.setTitleColor(Config.instance.colors.primary, for: .normal)
         actionButton.translatesAutoresizingMaskIntoConstraints = false
         alertView.addSubview(actionButton)
       

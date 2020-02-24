@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0BAF8FBB23FA1537001D3E24 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAF8FBA23FA1537001D3E24 /* UIImageView.swift */; };
+		0BCF85F92400F819008172FE /* ColorSchemeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCF85F82400F819008172FE /* ColorSchemeObject.swift */; };
+		0BCF85FB24010044008172FE /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCF85FA24010044008172FE /* UIColor.swift */; };
 		2C4E8DCE7A801F705866681384C64C52 /* Cotter-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 25C9471451CA9CC3A3743D72636E2FEB /* Cotter-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2D0E795875F49B497364D06841AFA7EA /* Pods-CotterIOS_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF8291F5BE9989ECC799AFC7316EFDE /* Pods-CotterIOS_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D22505918194786A9996980A3D129BB /* Pods-CotterIOS_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4691BA6B5AFE40AA76AD2CF9D06FE047 /* Pods-CotterIOS_Example-dummy.m */; };
@@ -20,7 +22,6 @@
 		8594184A23F56B5400B4DA6D /* PinErrorMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8594181D23F56B5400B4DA6D /* PinErrorMessages.swift */; };
 		8594184B23F56B5400B4DA6D /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8594181E23F56B5400B4DA6D /* Error.swift */; };
 		8594184C23F56B5400B4DA6D /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8594181F23F56B5400B4DA6D /* Config.swift */; };
-		8594184D23F56B5400B4DA6D /* PinDisplayText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8594182023F56B5400B4DA6D /* PinDisplayText.swift */; };
 		8594184E23F56B5400B4DA6D /* PinStepEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8594182123F56B5400B4DA6D /* PinStepEnums.swift */; };
 		8594184F23F56B5400B4DA6D /* LanguageObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8594182323F56B5400B4DA6D /* LanguageObject.swift */; };
 		8594185023F56B5400B4DA6D /* English.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8594182423F56B5400B4DA6D /* English.swift */; };
@@ -83,6 +84,8 @@
 		093A10918520E26EE055209CB5543A28 /* Cotter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Cotter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B040F4F8EBCAA52571A0E44BA87898B /* Cotter-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Cotter-dummy.m"; sourceTree = "<group>"; };
 		0BAF8FBA23FA1537001D3E24 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		0BCF85F82400F819008172FE /* ColorSchemeObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSchemeObject.swift; sourceTree = "<group>"; };
+		0BCF85FA24010044008172FE /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		0DA9307C52FC7021452944BC52130768 /* Cotter-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Cotter-Info.plist"; sourceTree = "<group>"; };
 		186C962BB0FA0079ED68B7C9D6664B84 /* Pods_CotterIOS_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CotterIOS_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D1AF3C474E9238EE975CEAE45323547 /* Pods-CotterIOS_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CotterIOS_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -99,7 +102,6 @@
 		8594181D23F56B5400B4DA6D /* PinErrorMessages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinErrorMessages.swift; sourceTree = "<group>"; };
 		8594181E23F56B5400B4DA6D /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		8594181F23F56B5400B4DA6D /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
-		8594182023F56B5400B4DA6D /* PinDisplayText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinDisplayText.swift; sourceTree = "<group>"; };
 		8594182123F56B5400B4DA6D /* PinStepEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinStepEnums.swift; sourceTree = "<group>"; };
 		8594182323F56B5400B4DA6D /* LanguageObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageObject.swift; sourceTree = "<group>"; };
 		8594182423F56B5400B4DA6D /* English.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = English.swift; sourceTree = "<group>"; };
@@ -188,8 +190,17 @@
 			isa = PBXGroup;
 			children = (
 				0BAF8FBA23FA1537001D3E24 /* UIImageView.swift */,
+				0BCF85FA24010044008172FE /* UIColor.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		0BCF85F72400F7FC008172FE /* ColorSchemeObject */ = {
+			isa = PBXGroup;
+			children = (
+				0BCF85F82400F819008172FE /* ColorSchemeObject.swift */,
+			);
+			path = ColorSchemeObject;
 			sourceTree = "<group>";
 		};
 		1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */ = {
@@ -269,8 +280,8 @@
 				8594181D23F56B5400B4DA6D /* PinErrorMessages.swift */,
 				8594181E23F56B5400B4DA6D /* Error.swift */,
 				8594181F23F56B5400B4DA6D /* Config.swift */,
-				8594182023F56B5400B4DA6D /* PinDisplayText.swift */,
 				8594182123F56B5400B4DA6D /* PinStepEnums.swift */,
+				0BCF85F72400F7FC008172FE /* ColorSchemeObject */,
 				8594182223F56B5400B4DA6D /* LanguageObject */,
 			);
 			path = Config;
@@ -635,10 +646,12 @@
 			files = (
 				8594185C23F56B5400B4DA6D /* OneTimeCodeTextField.swift in Sources */,
 				8594184923F56B5400B4DA6D /* CotterStrings.swift in Sources */,
+				0BCF85F92400F819008172FE /* ColorSchemeObject.swift in Sources */,
 				8594185923F56B5400B4DA6D /* TransactionPINViewController.swift in Sources */,
 				8594185723F56B5400B4DA6D /* UpdatePINViewController.swift in Sources */,
 				8594185323F56B5400B4DA6D /* AlertService.swift in Sources */,
 				8AA9D0EEC02287597F203E165D932117 /* Cotter-dummy.m in Sources */,
+				0BCF85FB24010044008172FE /* UIColor.swift in Sources */,
 				8594186223F56B5400B4DA6D /* KeyGen.swift in Sources */,
 				8594187323FAD2FB00B4DA6D /* HTTPCallback.swift in Sources */,
 				8594187123FAB80100B4DA6D /* EventCreateResponse.swift in Sources */,
@@ -656,7 +669,6 @@
 				8594184E23F56B5400B4DA6D /* PinStepEnums.swift in Sources */,
 				8594186723F56B5400B4DA6D /* PINBaseController.swift in Sources */,
 				8594184A23F56B5400B4DA6D /* PinErrorMessages.swift in Sources */,
-				8594184D23F56B5400B4DA6D /* PinDisplayText.swift in Sources */,
 				8594185123F56B5400B4DA6D /* Indonesian.swift in Sources */,
 				8594184F23F56B5400B4DA6D /* LanguageObject.swift in Sources */,
 				8594186A23F56B5400B4DA6D /* Passwordless.swift in Sources */,

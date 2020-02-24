@@ -7,13 +7,22 @@
 
 import UIKit
 
-class UpdateCreateNewPINViewController: UIViewController, KeyboardViewDelegate, PINBaseController {
-    var showErrorMsg: Bool = false
-    
+public class UpdateCreateNewPINViewControllerKey {
+    // MARK: - Keys for Strings
+    static let showPin = "UpdateCreateNewPINViewController/showPin"
+    static let hidePin = "UpdateCreateNewPINViewController/hidePin"
+}
+
+class UpdateCreateNewPINViewController: UIViewController {
     // Pass config here by UpdateCreateNewPINViewController.config = Config()
     public var config: Config?
     // Pass oldCode here by UpdateCreateNewPINViewController.oldCode = code
     public var oldCode: String?
+  
+    typealias VCTextKey = UpdateCreateNewPINViewControllerKey
+  
+    let showPinText = CotterStrings.instance.getText(for: VCTextKey.showPin)
+    let hidePinText = CotterStrings.instance.getText(for: VCTextKey.hidePin)
     
     @IBOutlet weak var pinVisibilityButton: UIButton!
     
@@ -34,6 +43,34 @@ class UpdateCreateNewPINViewController: UIViewController, KeyboardViewDelegate, 
         instantiateCodeTextFieldFunctions()
     }
     
+    @IBAction func OnClickPinVis(_ sender: UIButton) {
+        codeTextField.togglePinVisibility()
+        if sender.title(for: .normal) == showPinText {
+            sender.setTitle(hidePinText, for: .normal)
+        } else {
+            sender.setTitle(showPinText, for: .normal)
+        }
+    }
+    
+    public override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+}
+
+// MARK: - KeyboardViewDelegate
+extension UpdateCreateNewPINViewController : KeyboardViewDelegate {
+    func keyboardButtonTapped(buttonNumber: NSInteger) {
+        if buttonNumber == -1 {
+            codeTextField.removeNumber()
+        } else {
+            codeTextField.appendNumber(buttonNumber: buttonNumber)
+        }
+    }
+}
+
+// MARK: - PINBaseController
+extension UpdateCreateNewPINViewController : PINBaseController {
     func instantiateCodeTextFieldFunctions() {
         codeTextField.removeErrorMsg = {
             // Remove error msg if it is present
@@ -85,19 +122,12 @@ class UpdateCreateNewPINViewController: UIViewController, KeyboardViewDelegate, 
         self.navigationItem.leftBarButtonItem = backButton
         
         codeTextField.configure()
-        configureErrorMsg()
+        configureErrorLabel()
+        configurePinVisibilityButton()
     }
     
     func addDelegates() {
         self.keyboardView.delegate = self
-    }
-    
-    func keyboardButtonTapped(buttonNumber: NSInteger) {
-        if buttonNumber == -1 {
-            codeTextField.removeNumber()
-        } else {
-            codeTextField.appendNumber(buttonNumber: buttonNumber)
-        }
     }
     
     func configurePinVisButton() {
@@ -105,9 +135,15 @@ class UpdateCreateNewPINViewController: UIViewController, KeyboardViewDelegate, 
         pinVisibilityButton.setTitle("", for: .normal)
     }
     
-    func configureErrorMsg() {
+    func configureErrorLabel() {
         errorLabel.isHidden = true
+        errorLabel.textColor = Config.instance.colors.danger
     }
+  
+  func configurePinVisibilityButton() {
+      pinVisibilityButton.setTitle(showPinText, for: .normal)
+      pinVisibilityButton.setTitleColor(Config.instance.colors.primary, for: .normal)
+  }
     
     func toggleErrorMsg(msg: String?) {
         errorLabel.isHidden.toggle()
@@ -116,22 +152,7 @@ class UpdateCreateNewPINViewController: UIViewController, KeyboardViewDelegate, 
         }
     }
     
-    @IBAction func OnClickPinVis(_ sender: UIButton) {
-        codeTextField.togglePinVisibility()
-        if sender.title(for: .normal) == PinDisplayText.showPinText {
-            sender.setTitle(PinDisplayText.hidePinText, for: .normal)
-        } else {
-            sender.setTitle(PinDisplayText.showPinText, for: .normal)
-        }
-    }
-    
     @objc private func promptBack(sender: UIBarButtonItem) {
-        // Go back to previous screen
         self.navigationController?.popViewController(animated: true)
-    }
-    
-    public override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 }

@@ -29,8 +29,9 @@ public class Cotter {
     }
     
     // default initializers, this should not be called without proper configurationss
+    @available(*, unavailable, message: "Unknown initializer")
     public init() {
-        print("this should not be called")
+        print("Unknown initializer")
     }
     
     // initializer with configuration
@@ -49,13 +50,11 @@ public class Cotter {
             cotterURL: cotterURL
         )
         
-        // Check if fields are present in configuration param
-        guard let strings = configuration["language"] as! LanguageObject? else { return }
-
-        // Assign fields
-        Config.instance.strings = strings
-        
         CotterAPIService.shared.userID = userID
+        
+        // Assign fields if they are present in configuration param
+        if let strings = configuration["language"] as! LanguageObject? { Config.instance.strings = strings }
+        if let colors = configuration["colors"] as! ColorSchemeObject? { Config.instance.colors = colors }
     }
     
     // default initializer
