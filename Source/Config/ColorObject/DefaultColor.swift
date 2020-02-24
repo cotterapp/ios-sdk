@@ -30,7 +30,7 @@ public class DefaultColor: ColorObject {
             // MARK: - Update Profile
             UpdateProfileColorVCKey.pinTitleColor: "#7f7f7f",
             UpdateProfileColorVCKey.pinButtonColor: "#0d8400",
-            UpdateProfileColorVCKey.pinEmptyColor: "#c1c1c1",
+            UpdateProfileColorVCKey.pinEmptyColor: "c1c1c1",
             UpdateProfileColorVCKey.pinErrorColor: "#e80003",
             UpdateProfileColorVCKey.pinInputColor: "#3500c9",
         ])

@@ -90,7 +90,6 @@ class TransactionPINViewController: UIViewController, KeyboardViewDelegate, PINB
         
         // Text setup
         populateText()
-        setTextColors()
     }
     
     func populateText() {
