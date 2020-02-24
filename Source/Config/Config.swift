@@ -20,9 +20,6 @@ class Config: NSObject {
 
     // strings consists text configurations for Cotter
     var strings: LanguageObject = Indonesian() // defaults to indonesian
-    
-    // colors consists color configurations for Cotter
-    var colors: ColorObject = DefaultColor()
   
     // passwordless configurations
     var PLBaseURL: String? = "https://js.cotter.app"

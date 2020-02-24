@@ -51,11 +51,9 @@ public class Cotter {
         
         // Check if fields are present in configuration param
         guard let strings = configuration["language"] as! LanguageObject? else { return }
-        guard let colors = configuration["color"] as! ColorObject? else { return }
 
         // Assign fields
         Config.instance.strings = strings
-        Config.instance.colors = colors
         
         CotterAPIService.shared.userID = userID
     }

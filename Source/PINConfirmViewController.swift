@@ -30,18 +30,10 @@ class PINConfirmViewController : UIViewController, KeyboardViewDelegate {
     // we can getaway with typealias here
     typealias VCTextKey = PINConfirmViewControllerKey
     
-    // MARK: - VC Text Definitions
     let navTitle = CotterStrings.instance.getText(for: VCTextKey.navTitle)
     let viewTitle = CotterStrings.instance.getText(for: VCTextKey.title)
     let showPinText = CotterStrings.instance.getText(for: VCTextKey.showPin)
     let hidePinText = CotterStrings.instance.getText(for: VCTextKey.hidePin)
-    
-    // MARK: - Color Text Definitions
-    let hexTitleColor = CotterColors.instance.getColor(for: EnrollmentColorVCKey.pinTitleColor)
-    let hexButtonColor = CotterColors.instance.getColor(for: EnrollmentColorVCKey.pinButtonColor)
-    let hexEmptyPinColor = CotterColors.instance.getColor(for: EnrollmentColorVCKey.pinEmptyColor)
-    let hexErrorColor = CotterColors.instance.getColor(for: EnrollmentColorVCKey.pinErrorColor)
-    let hexInputPinColor = CotterColors.instance.getColor(for: EnrollmentColorVCKey.pinInputColor)
     
     // Code Text Field
     @IBOutlet weak var codeTextField: OneTimeCodeTextField!
@@ -66,27 +58,12 @@ class PINConfirmViewController : UIViewController, KeyboardViewDelegate {
         
         // Text setup
         populateText()
-        setTextColors()
     }
     
     func populateText() {
         self.navigationItem.title = navTitle
         self.titleLabel.text = viewTitle
         self.pinVisibilityButton.setTitle(showPinText, for: .normal)
-    }
-    
-    func setTextColors() {
-        // VC Colors
-        self.titleLabel.textColor = UIColor(hexString: hexTitleColor)
-        self.pinVisibilityButton.setTitleColor(UIColor(hexString: hexButtonColor), for: .normal)
-        self.errorLabel.textColor = UIColor(hexString: hexErrorColor)
-        
-        // Code Text Field Colors
-        self.codeTextField.setColors(
-            defaultColor: UIColor(hexString: hexEmptyPinColor),
-            inputColor: UIColor(hexString: hexInputPinColor),
-            errorColor: UIColor(hexString: hexErrorColor)
-        )
     }
     
     func instantiateCodeTextFieldFunctions() {
