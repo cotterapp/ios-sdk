@@ -9,7 +9,7 @@ import Foundation
 
 extension UIColor {
     // Code from https://stackoverflow.com/questions/24263007/how-to-use-hex-color-values
-    convenience init(red: Int = 0, green: Int = 0, blue: Int = 0, alpha: CGFloat = 1.0) {
+    public convenience init(red: Int = 0, green: Int = 0, blue: Int = 0, alpha: CGFloat = 1.0) {
         guard
             0x0...0xFF ~= red,
             0x0...0xFF ~= green,
@@ -28,7 +28,7 @@ extension UIColor {
         )
     }
   
-    convenience init(rgb: Int = 0, alpha: CGFloat = 1.0) {
+    public convenience init(rgb: Int = 0, alpha: CGFloat = 1.0) {
         self.init(
             red: (rgb >> 16) & 0xFF,
             green: (rgb >> 8) & 0xFF,
@@ -37,7 +37,7 @@ extension UIColor {
         )
     }
   
-    convenience init(rgb: String, alpha: CGFloat = 1.0) {
+    public convenience init(rgb: String, alpha: CGFloat = 1.0) {
         var colorHex = rgb.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
         if (colorHex.hasPrefix("#")) {
             colorHex.remove(at: colorHex.startIndex)

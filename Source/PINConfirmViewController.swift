@@ -72,9 +72,9 @@ class PINConfirmViewController : UIViewController {
     }
 }
 
-// MARK: - Private Helper Functions
-extension PINConfirmViewController {
-    private func instantiateCodeTextFieldFunctions() {
+// MARK: - PINBaseController
+extension PINConfirmViewController : PINBaseController {
+    func instantiateCodeTextFieldFunctions() {
         codeTextField.removeErrorMsg = {
             // Remove error msg if it is present
             if !self.errorLabel.isHidden {
@@ -132,7 +132,7 @@ extension PINConfirmViewController {
         }
     }
   
-    private func addConfigs() {
+    func addConfigs() {
         self.navigationItem.hidesBackButton = true
         let backButton = UIBarButtonItem(title: "\u{2190}", style: UIBarButtonItem.Style.plain, target: self, action: #selector(navigateBack(sender:)))
         backButton.tintColor = UIColor.black
@@ -144,24 +144,24 @@ extension PINConfirmViewController {
         
         codeTextField.configure()
         configurePinVisibilityButton()
-        configureErrorMsg()
+        configureErrorLabel()
     }
     
-    private func addDelegates() {
+    func addDelegates() {
         self.keyboardView.delegate = self
     }
     
-    private func configurePinVisibilityButton() {
+    func configurePinVisibilityButton() {
         pinVisibilityButton.setTitle(showPinText, for: .normal)
         pinVisibilityButton.setTitleColor(Config.instance.colors.primary, for: .normal)
     }
     
-    private func configureErrorMsg() {
+    func configureErrorLabel() {
         errorLabel.isHidden = true
         errorLabel.textColor = Config.instance.colors.danger
     }
     
-    private func toggleErrorMsg(msg: String?) {
+    func toggleErrorMsg(msg: String?) {
         errorLabel.isHidden.toggle()
         if !errorLabel.isHidden {
             errorLabel.text = msg

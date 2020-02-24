@@ -7,9 +7,7 @@
 
 import UIKit
 
-class TransactionPINViewController: UIViewController, KeyboardViewDelegate, PINBaseController {
-    var showErrorMsg: Bool = false
-    
+public class TransactionPINViewControllerKey {
     // MARK: - Keys for Strings
     static let showPin = "TransactionPINViewController/showPin"
     static let hidePin = "TransactionPINViewController/hidePin"
@@ -17,17 +15,20 @@ class TransactionPINViewController: UIViewController, KeyboardViewDelegate, PINB
     static let closeMessage = "TransactionPINViewController/closeMessage"
     static let stayOnView = "TransactionPINViewController/stayOnView"
     static let leaveView = "TransactionPINViewController/leaveView"
-    
+}
+
+class TransactionPINViewController: UIViewController {
     var authService = LocalAuthService()
+  
+    typealias VCTextKey = TransactionPINViewControllerKey
     
     // Constants
-    let closeTitleText = CotterStrings.instance.getText(for: closeTitle)
-    let closeMessageText = CotterStrings.instance.getText(for: closeMessage)
-    let stayText = CotterStrings.instance.getText(for: stayOnView)
-    let leaveText = CotterStrings.instance.getText(for: leaveView)
-    
-    let showPinText = CotterStrings.instance.getText(for: showPin)
-    let hidePinText = CotterStrings.instance.getText(for: hidePin)
+    let closeTitleText = CotterStrings.instance.getText(for: VCTextKey.closeTitle)
+    let closeMessageText = CotterStrings.instance.getText(for: VCTextKey.closeMessage)
+    let stayText = CotterStrings.instance.getText(for: VCTextKey.stayOnView)
+    let leaveText = CotterStrings.instance.getText(for: VCTextKey.leaveView)
+    let showPinText = CotterStrings.instance.getText(for: VCTextKey.showPin)
+    let hidePinText = CotterStrings.instance.getText(for: VCTextKey.hidePin)
   
     lazy var alertService: AlertService = {
         let alert = AlertService(vc: self, title: closeTitleText, body: closeMessageText, actionButtonTitle: leaveText, cancelButtonTitle: stayText)
@@ -43,7 +44,7 @@ class TransactionPINViewController: UIViewController, KeyboardViewDelegate, PINB
     
     @IBOutlet weak var codeTextField: OneTimeCodeTextField!
     
-    public override func viewDidAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         print("Transaction PIN View appeared!")
         
@@ -59,7 +60,7 @@ class TransactionPINViewController: UIViewController, KeyboardViewDelegate, PINB
         authService.bioAuth(view: self, event: "TRANSACTION", callback: cb)
     }
     
-    public override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         print("loaded Transaction PIN View!")
@@ -70,6 +71,24 @@ class TransactionPINViewController: UIViewController, KeyboardViewDelegate, PINB
         instantiateCodeTextFieldFunctions()
     }
     
+    @IBAction func onClickPinVis(_ sender: UIButton) {
+        codeTextField.togglePinVisibility()
+        if sender.title(for: .normal) == showPinText {
+            sender.setTitle(hidePinText, for: .normal)
+        } else {
+            sender.setTitle(showPinText, for: .normal)
+        }
+    }
+    
+    
+    public override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+}
+
+// MARK: - PINBaseController
+extension TransactionPINViewController : PINBaseController {
     func instantiateCodeTextFieldFunctions() {
         codeTextField.removeErrorMsg = {
             // Remove error msg if it is present
@@ -124,7 +143,7 @@ class TransactionPINViewController: UIViewController, KeyboardViewDelegate, PINB
     
     // Make Configurations
     func addConfigs() {
-    self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.layoutIfNeeded()
         
@@ -134,7 +153,8 @@ class TransactionPINViewController: UIViewController, KeyboardViewDelegate, PINB
         self.navigationItem.leftBarButtonItem = crossButton
         
         codeTextField.configure()
-        configureErrorMsg()
+        configureErrorLabel()
+        configurePinVisibilityButton()
     }
     
     // Add any delegates
@@ -142,16 +162,14 @@ class TransactionPINViewController: UIViewController, KeyboardViewDelegate, PINB
         self.keyboardView.delegate = self
     }
     
-    func keyboardButtonTapped(buttonNumber: NSInteger) {
-        if buttonNumber == -1 {
-            codeTextField.removeNumber()
-        } else {
-            codeTextField.appendNumber(buttonNumber: buttonNumber)
-        }
-    }
-    
-    func configureErrorMsg() {
+    func configureErrorLabel() {
         errorLabel.isHidden = true
+        errorLabel.textColor = Config.instance.colors.danger
+    }
+  
+    func configurePinVisibilityButton() {
+        pinVisibilityButton.setTitle(showPinText, for: .normal)
+        pinVisibilityButton.setTitleColor(Config.instance.colors.primary, for: .normal)
     }
     
     func toggleErrorMsg(msg: String?) {
@@ -160,26 +178,24 @@ class TransactionPINViewController: UIViewController, KeyboardViewDelegate, PINB
             errorLabel.text = msg
         }
     }
-    
-    @IBAction func onClickPinVis(_ sender: UIButton) {
-        codeTextField.togglePinVisibility()
-        if sender.title(for: .normal) == PinDisplayText.showPinText {
-            sender.setTitle(PinDisplayText.hidePinText, for: .normal)
-        } else {
-            sender.setTitle(PinDisplayText.showPinText, for: .normal)
-        }
-    }
-    
+  
     @objc private func promptClose(sender: UIBarButtonItem) {
         alertService.show()
     }
-    
-    public override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+}
+
+// MARK: - KeyboardViewDelegate
+extension TransactionPINViewController : KeyboardViewDelegate {
+    func keyboardButtonTapped(buttonNumber: NSInteger) {
+        if buttonNumber == -1 {
+            codeTextField.removeNumber()
+        } else {
+            codeTextField.appendNumber(buttonNumber: buttonNumber)
+        }
     }
 }
 
+// MARK: - AlertServiceDelegate
 extension TransactionPINViewController : AlertServiceDelegate {
     func cancelHandler() {
         alertService.hide()

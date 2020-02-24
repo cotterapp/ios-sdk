@@ -38,12 +38,24 @@ public class English: LanguageObject {
             PINFinalViewControllerKey.buttonText: "Done",
             
             // MARK: - TransactionPINViewController
-            TransactionPINViewController.showPin: "Lihat PIN",
-            TransactionPINViewController.hidePin: "Sembunyikan",
-            TransactionPINViewController.closeTitle: "Yakin tidak Mau Buat PIN Sekarang?",
-            TransactionPINViewController.closeMessage: "PIN Ini diperlukan untuk keamanan akunmu, lho.",
-            TransactionPINViewController.stayOnView: "Input PIN",
-            TransactionPINViewController.leaveView: "Lain Kali",
+            TransactionPINViewControllerKey.showPin: "Lihat PIN",
+            TransactionPINViewControllerKey.hidePin: "Sembunyikan",
+            TransactionPINViewControllerKey.closeTitle: "Yakin tidak Mau Buat PIN Sekarang?",
+            TransactionPINViewControllerKey.closeMessage: "PIN Ini diperlukan untuk keamanan akunmu, lho.",
+            TransactionPINViewControllerKey.stayOnView: "Input PIN",
+            TransactionPINViewControllerKey.leaveView: "Lain Kali",
+            
+            // MARK: - UpdatePINViewController
+            UpdatePINViewControllerKey.showPin: "Lihat PIN",
+            UpdatePINViewControllerKey.hidePin: "Sembunyikan",
+            
+            // MARK: - UpdateCreateNewPINViewController
+            UpdateCreateNewPINViewControllerKey.showPin: "Lihat PIN",
+            UpdateCreateNewPINViewControllerKey.hidePin: "Sembunyikan",
+            
+            // MARK: - UpdateConfirmNewPINViewController
+            UpdateConfirmNewPINViewControllerKey.showPin: "Lihat PIN",
+            UpdateConfirmNewPINViewControllerKey.hidePin: "Sembunyikan",
         ])
     }
 }

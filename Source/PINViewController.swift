@@ -82,7 +82,45 @@ class PINViewController : UIViewController {
 
 // MARK: - Private Helper Functions
 extension PINViewController {
-    private func instantiateCodeTextFieldFunctions() {
+    private func findSequence(sequenceLength: Int, in string: String) -> Bool {
+        // It would be better to extract this out of func
+        let digits = CharacterSet.decimalDigits
+        let controlSet = digits
+        // ---
+
+        let scalars = string.unicodeScalars
+        let unicodeArray = scalars.map({ $0 })
+
+        var i = 0
+
+        var increasingLength = 1
+        var decreasingLength = 1
+        for number in unicodeArray where controlSet.contains(number) {
+            if i+1 >= unicodeArray.count {
+                break
+            }
+            let nextNumber = unicodeArray[i+1]
+            
+            if UnicodeScalar(number.value-1) == nextNumber {
+                decreasingLength += 1
+            }
+
+            if UnicodeScalar(number.value+1) == nextNumber {
+                increasingLength += 1
+            }
+            
+            if decreasingLength >= sequenceLength || increasingLength >= sequenceLength {
+                return true
+            }
+            i += 1
+        }
+        return false
+    }
+}
+
+// MARK: - PINBaseController
+extension PINViewController : PINBaseController {
+    func instantiateCodeTextFieldFunctions() {
         // Instantiate Function to run when user enters wrong PIN code
         codeTextField.removeErrorMsg = {
             // Remove error msg if it is present
@@ -118,7 +156,7 @@ extension PINViewController {
         }
     }
     
-    private func addConfigs() {
+    func addConfigs() {
         // Implement Custom Back Button instead of default in Nav controller
         self.navigationItem.hidesBackButton = true
         let crossButton = UIBarButtonItem(title: "\u{2717}", style: UIBarButtonItem.Style.plain, target: self, action: #selector(promptClose(sender:)))
@@ -133,25 +171,25 @@ extension PINViewController {
         self.titleLabel.text = titleText
         
         codeTextField.configure()
-        configureErrorMsg()
+        configureErrorLabel()
         configurePinVisibilityButton()
     }
     
-    private func addDelegates() {
+    func addDelegates() {
         self.keyboardView.delegate = self
     }
     
-    private func configurePinVisibilityButton() {
+    func configurePinVisibilityButton() {
         pinVisibilityButton.setTitle(showPinText, for: .normal)
         pinVisibilityButton.setTitleColor(Config.instance.colors.primary, for: .normal)
     }
     
-    private func configureErrorMsg() {
+    func configureErrorLabel() {
         errorLabel.isHidden = true
         errorLabel.textColor = Config.instance.colors.danger
     }
     
-    private func toggleErrorMsg(msg: String?) {
+    func toggleErrorMsg(msg: String?) {
         errorLabel.isHidden.toggle()
         if !errorLabel.isHidden {
             errorLabel.text = msg
@@ -160,41 +198,6 @@ extension PINViewController {
   
     @objc private func promptClose(sender: UIBarButtonItem) {
         alertService.show()
-    }
-  
-    private func findSequence(sequenceLength: Int, in string: String) -> Bool {
-        // It would be better to extract this out of func
-        let digits = CharacterSet.decimalDigits
-        let controlSet = digits
-        // ---
-
-        let scalars = string.unicodeScalars
-        let unicodeArray = scalars.map({ $0 })
-
-        var i = 0
-
-        var increasingLength = 1
-        var decreasingLength = 1
-        for number in unicodeArray where controlSet.contains(number) {
-            if i+1 >= unicodeArray.count {
-                break
-            }
-            let nextNumber = unicodeArray[i+1]
-            
-            if UnicodeScalar(number.value-1) == nextNumber {
-                decreasingLength += 1
-            }
-
-            if UnicodeScalar(number.value+1) == nextNumber {
-                increasingLength += 1
-            }
-            
-            if decreasingLength >= sequenceLength || increasingLength >= sequenceLength {
-                return true
-            }
-            i += 1
-        }
-        return false
     }
 }
 

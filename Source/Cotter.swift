@@ -29,8 +29,9 @@ public class Cotter {
     }
     
     // default initializers, this should not be called without proper configurationss
+    @available(*, unavailable, message: "Unknown initializer")
     public init() {
-        print("this should not be called")
+        print("Unknown initializer")
     }
     
     // initializer with configuration

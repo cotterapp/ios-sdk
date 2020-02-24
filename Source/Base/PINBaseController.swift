@@ -8,16 +8,10 @@
 import Foundation
 
 protocol PINBaseController {
-    
-    var showErrorMsg: Bool { get set }
-    
     func addConfigs() -> Void
-    
     func addDelegates() -> Void
-    
     func instantiateCodeTextFieldFunctions() -> Void
-    
-    func configureErrorMsg() -> Void
-    
+    func configureErrorLabel() -> Void
+    func configurePinVisibilityButton() -> Void
     func toggleErrorMsg(msg: String?) -> Void
 }

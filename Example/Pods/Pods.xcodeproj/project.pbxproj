@@ -22,7 +22,6 @@
 		8594184A23F56B5400B4DA6D /* PinErrorMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8594181D23F56B5400B4DA6D /* PinErrorMessages.swift */; };
 		8594184B23F56B5400B4DA6D /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8594181E23F56B5400B4DA6D /* Error.swift */; };
 		8594184C23F56B5400B4DA6D /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8594181F23F56B5400B4DA6D /* Config.swift */; };
-		8594184D23F56B5400B4DA6D /* PinDisplayText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8594182023F56B5400B4DA6D /* PinDisplayText.swift */; };
 		8594184E23F56B5400B4DA6D /* PinStepEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8594182123F56B5400B4DA6D /* PinStepEnums.swift */; };
 		8594184F23F56B5400B4DA6D /* LanguageObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8594182323F56B5400B4DA6D /* LanguageObject.swift */; };
 		8594185023F56B5400B4DA6D /* English.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8594182423F56B5400B4DA6D /* English.swift */; };
@@ -103,7 +102,6 @@
 		8594181D23F56B5400B4DA6D /* PinErrorMessages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinErrorMessages.swift; sourceTree = "<group>"; };
 		8594181E23F56B5400B4DA6D /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		8594181F23F56B5400B4DA6D /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
-		8594182023F56B5400B4DA6D /* PinDisplayText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinDisplayText.swift; sourceTree = "<group>"; };
 		8594182123F56B5400B4DA6D /* PinStepEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinStepEnums.swift; sourceTree = "<group>"; };
 		8594182323F56B5400B4DA6D /* LanguageObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageObject.swift; sourceTree = "<group>"; };
 		8594182423F56B5400B4DA6D /* English.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = English.swift; sourceTree = "<group>"; };
@@ -282,7 +280,6 @@
 				8594181D23F56B5400B4DA6D /* PinErrorMessages.swift */,
 				8594181E23F56B5400B4DA6D /* Error.swift */,
 				8594181F23F56B5400B4DA6D /* Config.swift */,
-				8594182023F56B5400B4DA6D /* PinDisplayText.swift */,
 				8594182123F56B5400B4DA6D /* PinStepEnums.swift */,
 				0BCF85F72400F7FC008172FE /* ColorSchemeObject */,
 				8594182223F56B5400B4DA6D /* LanguageObject */,
@@ -672,7 +669,6 @@
 				8594184E23F56B5400B4DA6D /* PinStepEnums.swift in Sources */,
 				8594186723F56B5400B4DA6D /* PINBaseController.swift in Sources */,
 				8594184A23F56B5400B4DA6D /* PinErrorMessages.swift in Sources */,
-				8594184D23F56B5400B4DA6D /* PinDisplayText.swift in Sources */,
 				8594185123F56B5400B4DA6D /* Indonesian.swift in Sources */,
 				8594184F23F56B5400B4DA6D /* LanguageObject.swift in Sources */,
 				8594186A23F56B5400B4DA6D /* Passwordless.swift in Sources */,

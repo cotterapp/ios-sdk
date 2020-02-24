@@ -12,9 +12,9 @@ public class ColorSchemeObject: NSObject {
     private let DEFAULT_ACCENT = "#21CE99"
     private let DEFAULT_DANGER = "#D92C59"
   
-    var primary: UIColor
-    var accent: UIColor
-    var danger: UIColor
+    public var primary: UIColor
+    public var accent: UIColor
+    public var danger: UIColor
   
     override public init() {
         self.primary = UIColor(rgb: DEFAULT_PRIMARY)

@@ -7,10 +7,19 @@
 
 import UIKit
 
-class UpdatePINViewController: UIViewController, KeyboardViewDelegate, PINBaseController {
-    var authService: LocalAuthService = LocalAuthService()
+public class UpdatePINViewControllerKey {
+    // MARK: - Keys for Strings
+    static let showPin = "UpdatePINViewController/showPin"
+    static let hidePin = "UpdatePINViewController/hidePin"
+}
 
-    var showErrorMsg: Bool = false
+class UpdatePINViewController: UIViewController {
+    var authService: LocalAuthService = LocalAuthService()
+  
+    typealias VCTextKey = UpdateCreateNewPINViewControllerKey
+  
+    let showPinText = CotterStrings.instance.getText(for: VCTextKey.showPin)
+    let hidePinText = CotterStrings.instance.getText(for: VCTextKey.hidePin)
     
     // Pass config here by UpdatePINViewController.config = Config()
     public var config: Config?
@@ -23,7 +32,7 @@ class UpdatePINViewController: UIViewController, KeyboardViewDelegate, PINBaseCo
     
     @IBOutlet weak var keyboardView: KeyboardView!
     
-    public override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         print("loaded Update Profile PIN View!")
@@ -34,6 +43,34 @@ class UpdatePINViewController: UIViewController, KeyboardViewDelegate, PINBaseCo
         instantiateCodeTextFieldFunctions()
     }
     
+    @IBAction func onClickPinVis(_ sender: UIButton) {
+        codeTextField.togglePinVisibility()
+        if sender.title(for: .normal) == showPinText {
+            sender.setTitle(hidePinText, for: .normal)
+        } else {
+            sender.setTitle(showPinText, for: .normal)
+        }
+    }
+    
+    public override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+}
+
+// MARK: - KeyboardViewDelegate
+extension UpdatePINViewController : KeyboardViewDelegate {
+    func keyboardButtonTapped(buttonNumber: NSInteger) {
+        if buttonNumber == -1 {
+            codeTextField.removeNumber()
+        } else {
+            codeTextField.appendNumber(buttonNumber: buttonNumber)
+        }
+    }
+}
+
+// MARK: - PINBaseController
+extension UpdatePINViewController : PINBaseController {
     func instantiateCodeTextFieldFunctions() {
         codeTextField.removeErrorMsg = {
             // Remove error msg if it is present
@@ -83,7 +120,7 @@ class UpdatePINViewController: UIViewController, KeyboardViewDelegate, PINBaseCo
     }
     
     func addConfigs() {
-    self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.layoutIfNeeded()
         
@@ -93,23 +130,22 @@ class UpdatePINViewController: UIViewController, KeyboardViewDelegate, PINBaseCo
         self.navigationItem.leftBarButtonItem = backButton
         
         codeTextField.configure()
-        configureErrorMsg()
+        configureErrorLabel()
+        configurePinVisibilityButton()
     }
     
     func addDelegates() {
         self.keyboardView.delegate = self
     }
     
-    func keyboardButtonTapped(buttonNumber: NSInteger) {
-        if buttonNumber == -1 {
-            codeTextField.removeNumber()
-        } else {
-            codeTextField.appendNumber(buttonNumber: buttonNumber)
-        }
-    }
-    
-    func configureErrorMsg() {
+    func configureErrorLabel() {
         errorLabel.isHidden = true
+        errorLabel.textColor = Config.instance.colors.danger
+    }
+  
+    func configurePinVisibilityButton() {
+        pinVisibilityButton.setTitle(showPinText, for: .normal)
+        pinVisibilityButton.setTitleColor(Config.instance.colors.primary, for: .normal)
     }
     
     func toggleErrorMsg(msg: String?) {
@@ -118,23 +154,9 @@ class UpdatePINViewController: UIViewController, KeyboardViewDelegate, PINBaseCo
             errorLabel.text = msg
         }
     }
-    
-    @IBAction func onClickPinVis(_ sender: UIButton) {
-        codeTextField.togglePinVisibility()
-        if sender.title(for: .normal) == PinDisplayText.showPinText {
-            sender.setTitle(PinDisplayText.hidePinText, for: .normal)
-        } else {
-            sender.setTitle(PinDisplayText.showPinText, for: .normal)
-        }
-    }
-    
+  
     @objc private func promptBack(sender: UIBarButtonItem) {
         // Go back to previous screen
         self.navigationController?.popViewController(animated: true)
-    }
-    
-    public override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 }
