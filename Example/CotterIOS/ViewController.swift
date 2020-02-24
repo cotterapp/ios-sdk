@@ -48,14 +48,20 @@ class ViewController: UIViewController {
         // if you want to set text configuration uncomment the following
         // langConfig.set(key: PINViewControllerKey.title, value: "Hi! You've changed the text")
       
-        // available Color Scheme options:
-        //    1. primary (type: UIColor?/Int?/String?) - default: #21CE99
-        //    2. accent (type: UIColor?/Int?/String?) - default: #21CE99
-        //    3. danger (type: UIColor?/Int?/String?) - default: #D92C59
-        // let colorScheme = ColorSchemeObject(primary: primary, accent: accent, danger: danger)
-        //    OR
-        // colorScheme.primary = UIColor.color
-        // colorScheme.accent = UIColor(rgb: String/Int)
+        
+        /*
+         Available Color Scheme options:
+            1. primary (type: UIColor?/Int?/String?) - default: #21CE99
+            2. accent (type: UIColor?/Int?/String?) - default: #21CE99
+            3. danger (type: UIColor?/Int?/String?) - default: #D92C59
+         let colorScheme = ColorSchemeObject(primary: primary, accent: accent, danger: danger)
+            OR
+         colorScheme.primary = UIColor.color
+         colorScheme.accent = UIColor(rgb: String/Int)
+        */
+        
+        // Uncomment the following to set the colors to something different
+        // let colorScheme = ColorSchemeObject(primary: "#355C7D", accent: "#6C5B7B", danger: "#F67280")
         
         // Load Cotter View Controller from SDK
         CotterWrapper.cotter = Cotter(
