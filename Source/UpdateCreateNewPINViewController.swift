@@ -22,6 +22,7 @@ class UpdateCreateNewPINViewController: UIViewController, KeyboardViewDelegate, 
     // Pass oldCode here by UpdateCreateNewPINViewController.oldCode = code
     public var oldCode: String?
     
+    // MARK: - VC Text Defintions
     let navTitle = CotterStrings.instance.getText(for: VCTextKey.navTitle)
     let showPinText = CotterStrings.instance.getText(for: VCTextKey.showPin)
     let hidePinText = CotterStrings.instance.getText(for: VCTextKey.hidePin)

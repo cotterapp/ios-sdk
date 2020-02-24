@@ -24,6 +24,7 @@ class PINFinalViewController: UIViewController {
     // we can getaway with typealias here
     typealias VCTextKey = PINFinalViewControllerKey
     
+    // MARK: - VC Text Definitions
     let viewTitle = CotterStrings.instance.getText(for: VCTextKey.title)
     let viewSubtitle = CotterStrings.instance.getText(for: VCTextKey.subtitle)
     let buttonText = CotterStrings.instance.getText(for: VCTextKey.buttonText)

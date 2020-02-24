@@ -20,6 +20,7 @@ class UpdatePINViewController: UIViewController, KeyboardViewDelegate, PINBaseCo
     
     var authService: LocalAuthService = LocalAuthService()
     
+    // MARK: - VC Text Definitions
     let navTitle = CotterStrings.instance.getText(for: VCTextKey.navTitle)
     let showPinText = CotterStrings.instance.getText(for: VCTextKey.showPin)
     let hidePinText = CotterStrings.instance.getText(for: VCTextKey.hidePin)

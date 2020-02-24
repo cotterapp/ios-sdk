@@ -26,6 +26,7 @@ class UpdateConfirmNewPINViewController: UIViewController, KeyboardViewDelegate,
     // Pass prevCode here by UpdateConfirmNewPINViewController.prevCode = code
     public var prevCode: String?
     
+    // MARK: - VC Text Definitions
     let navTitle = CotterStrings.instance.getText(for: VCTextKey.navTitle)
     let showPinText = CotterStrings.instance.getText(for: VCTextKey.showPin)
     let hidePinText = CotterStrings.instance.getText(for: VCTextKey.hidePin)

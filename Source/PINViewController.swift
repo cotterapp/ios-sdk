@@ -25,13 +25,15 @@ class PINViewController : UIViewController {
     // we can getaway with typealias here
     typealias VCTextKey = PINViewControllerKey
     
-    // MARK: - Alert Service Text definition
+    // MARK: - Alert Service Text Definition
     // Alert Service
-    let navTitle = CotterStrings.instance.getText(for: VCTextKey.navTitle)
     let closeTitleText = CotterStrings.instance.getText(for: VCTextKey.closeTitle)
     let closeMessageText = CotterStrings.instance.getText(for: VCTextKey.closeMessage)
     let stayText = CotterStrings.instance.getText(for: VCTextKey.stayOnView)
     let leaveText = CotterStrings.instance.getText(for: VCTextKey.leaveView)
+    
+    // MARK: - VC Text Definitions
+    let navTitle = CotterStrings.instance.getText(for: VCTextKey.navTitle)
     let showPinText = CotterStrings.instance.getText(for: VCTextKey.showPin)
     let hidePinText = CotterStrings.instance.getText(for: VCTextKey.hidePin)
     let viewTitle = CotterStrings.instance.getText(for: VCTextKey.title)

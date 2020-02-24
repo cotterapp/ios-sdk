@@ -30,6 +30,7 @@ class PINConfirmViewController : UIViewController, KeyboardViewDelegate {
     // we can getaway with typealias here
     typealias VCTextKey = PINConfirmViewControllerKey
     
+    // MARK: - VC Text Definitions
     let navTitle = CotterStrings.instance.getText(for: VCTextKey.navTitle)
     let viewTitle = CotterStrings.instance.getText(for: VCTextKey.title)
     let showPinText = CotterStrings.instance.getText(for: VCTextKey.showPin)
