@@ -24,10 +24,16 @@ class PINFinalViewController: UIViewController {
     // we can getaway with typealias here
     typealias VCTextKey = PINFinalViewControllerKey
     
+    // MARK: - VC Text Definitions
     let viewTitle = CotterStrings.instance.getText(for: VCTextKey.title)
     let viewSubtitle = CotterStrings.instance.getText(for: VCTextKey.subtitle)
     let buttonText = CotterStrings.instance.getText(for: VCTextKey.buttonText)
     let successImg = CotterStrings.instance.getText(for: VCTextKey.successImage)
+    
+    // MARK: - ColorTextDefinitions
+    let hexSuccessTitleColor = CotterColors.instance.getColor(for: EnrollmentColorVCKey.successTitleColor)
+    let hexSuccessSubtitleColor = CotterColors.instance.getColor(for: EnrollmentColorVCKey.successSubtitleColor)
+    let hexSuccessButtonColor = CotterColors.instance.getColor(for: EnrollmentColorVCKey.successButtonColor)
     
     // Auth Service
     let authService = LocalAuthService()
@@ -54,12 +60,19 @@ class PINFinalViewController: UIViewController {
         
         // Text setup
         populateText()
+        setTextColors()
     }
     
     func populateText() {
         successLabel.text = viewTitle
         successSubLabel.text = viewSubtitle
         finishButton.setTitle(buttonText, for: .normal)
+    }
+    
+    func setTextColors() {
+        self.successLabel.textColor = UIColor(hexString: hexSuccessTitleColor)
+        self.successSubLabel.textColor = UIColor(hexString: hexSuccessSubtitleColor)
+        self.finishButton.setTitleColor(UIColor(hexString: hexSuccessButtonColor), for: .normal)
     }
     
     func configureNav() {

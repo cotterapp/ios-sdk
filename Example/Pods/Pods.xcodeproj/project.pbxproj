@@ -33,6 +33,10 @@
 		60C1B45CD4E2419F316B18E2DE590EAE /* TransactionPINViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274287A65E8956D06CC67DE103FE9AB4 /* TransactionPINViewController.swift */; };
 		635D612E38CD154447049E752D23C0F6 /* PinDisplayText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE8135230F4D46B73C75AB64B40BE3A /* PinDisplayText.swift */; };
 		641C430D60CDDED72A405BAD95211445 /* UpdateProfile.storyboard in Sources */ = {isa = PBXBuildFile; fileRef = FF887D317BC1DF585083CAA5193B5A42 /* UpdateProfile.storyboard */; };
+		6C7B13F02403609600D857FD /* ColorObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B13EF2403609600D857FD /* ColorObject.swift */; };
+		6C7B13F22403610200D857FD /* DefaultColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B13F12403610200D857FD /* DefaultColor.swift */; };
+		6C7B13F4240363F000D857FD /* ColorViewControllerKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B13F3240363F000D857FD /* ColorViewControllerKeys.swift */; };
+		6C7B13F624036AAF00D857FD /* CotterColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B13F524036AAF00D857FD /* CotterColors.swift */; };
 		6E57A3A1B0BFD5FA45174BDC759D3D53 /* Pods-CotterIOS_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E7A8321A666E6CCA738BAF8D3AF161A6 /* Pods-CotterIOS_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		71577CA1441CE64D228D99010CACB788 /* Cotter.storyboard in Sources */ = {isa = PBXBuildFile; fileRef = 680734449DAA7141F754B0FFF84027AE /* Cotter.storyboard */; };
 		7578A6A43BDB7E200A094C5743DCABD9 /* PinErrorMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C60100621424B884F83F5C6387FD14 /* PinErrorMessages.swift */; };
@@ -110,6 +114,10 @@
 		663A77A5ED4156284342BA53E0FFF762 /* Indonesian.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Indonesian.swift; sourceTree = "<group>"; };
 		680734449DAA7141F754B0FFF84027AE /* Cotter.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; name = Cotter.storyboard; path = Source/Cotter.storyboard; sourceTree = "<group>"; };
 		6C0467B76C9E4C4A8AEDB3B3E4F5C074 /* Cotter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Cotter.swift; path = Source/Cotter.swift; sourceTree = "<group>"; };
+		6C7B13EF2403609600D857FD /* ColorObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorObject.swift; sourceTree = "<group>"; };
+		6C7B13F12403610200D857FD /* DefaultColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultColor.swift; sourceTree = "<group>"; };
+		6C7B13F3240363F000D857FD /* ColorViewControllerKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorViewControllerKeys.swift; sourceTree = "<group>"; };
+		6C7B13F524036AAF00D857FD /* CotterColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CotterColors.swift; sourceTree = "<group>"; };
 		6EFD4CEAE9F9224A49ED0EAFCE1E082D /* EventCreateResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EventCreateResponse.swift; sourceTree = "<group>"; };
 		71ED89471F35A789D5E51DC78DB1C80F /* Cotter-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Cotter-Info.plist"; sourceTree = "<group>"; };
 		75C60100621424B884F83F5C6387FD14 /* PinErrorMessages.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PinErrorMessages.swift; sourceTree = "<group>"; };
@@ -262,6 +270,16 @@
 			name = "Development Pods";
 			sourceTree = "<group>";
 		};
+		6C7B13EE2403608100D857FD /* ColorObject */ = {
+			isa = PBXGroup;
+			children = (
+				6C7B13EF2403609600D857FD /* ColorObject.swift */,
+				6C7B13F12403610200D857FD /* DefaultColor.swift */,
+				6C7B13F3240363F000D857FD /* ColorViewControllerKeys.swift */,
+			);
+			path = ColorObject;
+			sourceTree = "<group>";
+		};
 		7225BA699516813152561772EBA139CD /* Pods-CotterIOS_Example */ = {
 			isa = PBXGroup;
 			children = (
@@ -381,11 +399,13 @@
 			isa = PBXGroup;
 			children = (
 				4B70C933FCE976345CFE51C60253E32B /* Config.swift */,
+				6C7B13F524036AAF00D857FD /* CotterColors.swift */,
 				9DEA064CA0F96996FAFFB1D5A6757DB6 /* CotterStrings.swift */,
 				45B8A2461D57FD96899D6E16D1644976 /* Error.swift */,
 				5AE8135230F4D46B73C75AB64B40BE3A /* PinDisplayText.swift */,
 				75C60100621424B884F83F5C6387FD14 /* PinErrorMessages.swift */,
 				8373609F7A3FFABF8E5EF5AD56ACB175 /* PinStepEnums.swift */,
+				6C7B13EE2403608100D857FD /* ColorObject */,
 				864C5CF4982F2E0206FE1F18026F4D50 /* LanguageObject */,
 			);
 			name = Config;
@@ -663,13 +683,16 @@
 				A7CA529DA80B911A1232F6AD8EE7A950 /* EventCreateResponse.swift in Sources */,
 				411D930577F536E417A767FC7E348014 /* HTTPCallback.swift in Sources */,
 				ED9560205F4417E2A2D7972E27356F56 /* Indonesian.swift in Sources */,
+				6C7B13F4240363F000D857FD /* ColorViewControllerKeys.swift in Sources */,
 				C4906A4ED38301A061488101117063F0 /* KeyboardView.swift in Sources */,
 				1AD75E83841124E1A3FD0D0B9AE4CC71 /* KeyboardView.xib in Sources */,
 				41E81BC4A63FD152215F7B27D112FD44 /* KeyGen.swift in Sources */,
+				6C7B13F22403610200D857FD /* DefaultColor.swift in Sources */,
 				AB3E09CF6D851B5701CFE1BF3BCD78CC /* LanguageObject.swift in Sources */,
 				8F7238407DC4018CC506A47F3D00A679 /* LocalAuthService.swift in Sources */,
 				83AF5A6743770F8A95DC1043E3C314CA /* OneTimeCodeTextField.swift in Sources */,
 				A85F0BD5B630D4FC9151E7B58A921802 /* Passwordless.swift in Sources */,
+				6C7B13F02403609600D857FD /* ColorObject.swift in Sources */,
 				30F18192A6993596F90D8A0C8C0D4813 /* PINBaseController.swift in Sources */,
 				1FD077636A6D2DCB7D6BD5C74D66FBE3 /* PINConfirmViewController.swift in Sources */,
 				635D612E38CD154447049E752D23C0F6 /* PinDisplayText.swift in Sources */,
@@ -678,6 +701,7 @@
 				AB78637175BECCB93968B169C5920E4A /* PinStepEnums.swift in Sources */,
 				E903BBCA219AC318D42A42DA19E4CFBF /* PINViewController.swift in Sources */,
 				3B1E5CEE893FFBD0DFF8F9B2A20E56A3 /* Transaction.storyboard in Sources */,
+				6C7B13F624036AAF00D857FD /* CotterColors.swift in Sources */,
 				60C1B45CD4E2419F316B18E2DE590EAE /* TransactionPINViewController.swift in Sources */,
 				C86A83650920F635AF873D947CFD90C4 /* UIExtensions.swift in Sources */,
 				1A966F74397FEF32E31C5E0B3C5FB652 /* UIImageView.swift in Sources */,

@@ -25,16 +25,26 @@ class PINViewController : UIViewController {
     // we can getaway with typealias here
     typealias VCTextKey = PINViewControllerKey
     
-    // MARK: - Alert Service Text definition
+    // MARK: - Alert Service Text Definition
     // Alert Service
-    let navTitle = CotterStrings.instance.getText(for: VCTextKey.navTitle)
     let closeTitleText = CotterStrings.instance.getText(for: VCTextKey.closeTitle)
     let closeMessageText = CotterStrings.instance.getText(for: VCTextKey.closeMessage)
     let stayText = CotterStrings.instance.getText(for: VCTextKey.stayOnView)
     let leaveText = CotterStrings.instance.getText(for: VCTextKey.leaveView)
+    
+    // MARK: - VC Text Definitions
+    let navTitle = CotterStrings.instance.getText(for: VCTextKey.navTitle)
     let showPinText = CotterStrings.instance.getText(for: VCTextKey.showPin)
     let hidePinText = CotterStrings.instance.getText(for: VCTextKey.hidePin)
     let viewTitle = CotterStrings.instance.getText(for: VCTextKey.title)
+    
+    // MARK: - Color Text Definitions
+    let hexTitleColor = CotterColors.instance.getColor(for: EnrollmentColorVCKey.pinTitleColor)
+    let hexButtonColor = CotterColors.instance.getColor(for: EnrollmentColorVCKey.pinButtonColor)
+    let hexEmptyPinColor = CotterColors.instance.getColor(for: EnrollmentColorVCKey.pinEmptyColor)
+    let hexErrorColor = CotterColors.instance.getColor(for: EnrollmentColorVCKey.pinErrorColor)
+    let hexInputPinColor = CotterColors.instance.getColor(for: EnrollmentColorVCKey.pinInputColor)
+    
     
     lazy var alertService: AlertService = {
         let alert = AlertService(vc: self, title: closeTitleText, body: closeMessageText, actionButtonTitle: leaveText, cancelButtonTitle: stayText)
@@ -68,12 +78,27 @@ class PINViewController : UIViewController {
         
         // Text setup
         populateText()
+        setTextColors()
     }
     
     func populateText() {
         self.navigationItem.title = navTitle
         self.titleLabel.text = viewTitle
         self.pinVisibilityButton.setTitle(showPinText, for: .normal)
+    }
+    
+    func setTextColors() {
+        // VC Colors
+        self.titleLabel.textColor = UIColor(hexString: hexTitleColor)
+        self.pinVisibilityButton.setTitleColor(UIColor(hexString: hexButtonColor), for: .normal)
+        self.errorLabel.textColor = UIColor(hexString: hexErrorColor)
+        
+        // Code Text Field Colors
+        self.codeTextField.setColors(
+            defaultColor: UIColor(hexString: hexEmptyPinColor),
+            inputColor: UIColor(hexString: hexInputPinColor),
+            errorColor: UIColor(hexString: hexErrorColor)
+        )
     }
     
     func instantiateCodeTextFieldFunctions() {

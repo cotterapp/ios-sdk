@@ -22,10 +22,18 @@ class UpdateCreateNewPINViewController: UIViewController, KeyboardViewDelegate, 
     // Pass oldCode here by UpdateCreateNewPINViewController.oldCode = code
     public var oldCode: String?
     
+    // MARK: - VC Text Definitions
     let navTitle = CotterStrings.instance.getText(for: VCTextKey.navTitle)
     let showPinText = CotterStrings.instance.getText(for: VCTextKey.showPin)
     let hidePinText = CotterStrings.instance.getText(for: VCTextKey.hidePin)
     let viewTitle = CotterStrings.instance.getText(for: VCTextKey.title)
+    
+    // MARK: - Color Text Definitions
+    let hexTitleColor = CotterColors.instance.getColor(for: UpdateProfileColorVCKey.pinTitleColor)
+    let hexButtonColor = CotterColors.instance.getColor(for: UpdateProfileColorVCKey.pinButtonColor)
+    let hexEmptyPinColor = CotterColors.instance.getColor(for: UpdateProfileColorVCKey.pinEmptyColor)
+    let hexErrorColor = CotterColors.instance.getColor(for: UpdateProfileColorVCKey.pinErrorColor)
+    let hexInputPinColor = CotterColors.instance.getColor(for: UpdateProfileColorVCKey.pinInputColor)
     
     @IBOutlet weak var pinVisibilityButton: UIButton!
     
@@ -49,12 +57,27 @@ class UpdateCreateNewPINViewController: UIViewController, KeyboardViewDelegate, 
         
         // Text setup
         populateText()
+        setTextColors()
     }
     
     func populateText() {
         self.navigationItem.title = navTitle
         self.titleLabel.text = viewTitle
         self.pinVisibilityButton.setTitle(showPinText, for: .normal)
+    }
+    
+    func setTextColors() {
+        // VC Colors
+        self.titleLabel.textColor = UIColor(hexString: hexTitleColor)
+        self.pinVisibilityButton.setTitleColor(UIColor(hexString: hexButtonColor), for: .normal)
+        self.errorLabel.textColor = UIColor(hexString: hexErrorColor)
+        
+        // Code Text Field Colors
+        self.codeTextField.setColors(
+            defaultColor: UIColor(hexString: hexEmptyPinColor),
+            inputColor: UIColor(hexString: hexInputPinColor),
+            errorColor: UIColor(hexString: hexErrorColor)
+        )
     }
     
     func instantiateCodeTextFieldFunctions() {

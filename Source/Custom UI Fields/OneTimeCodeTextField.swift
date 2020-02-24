@@ -9,9 +9,9 @@ import Foundation
 
 class OneTimeCodeTextField : UITextField {
     private var isConfigured = false
-    private let defaultColor = UIColor.lightGray
-    private let populatedColor = UIColor(red: 0.2078, green: 0, blue: 0.7882, alpha: 1.0)
-    private let wrongColor = UIColor(red: 0.7176, green: 0, blue: 0.0353, alpha: 1.0)
+    private var defaultColor = UIColor.lightGray
+    private var populatedColor = UIColor(red: 0.2078, green: 0, blue: 0.7882, alpha: 1.0) // Default Right Color
+    private var wrongColor = UIColor(red: 0.7176, green: 0, blue: 0.0353, alpha: 1.0) // Default Wrong Color
     private var defaultCharacter = "•"
     private var isPinVisible = false
     private var digitLabels = [UILabel]()
@@ -44,6 +44,12 @@ class OneTimeCodeTextField : UITextField {
             labelsStackView.trailingAnchor.constraint(equalTo: trailingAnchor),
             labelsStackView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
+    }
+    
+    public func setColors(defaultColor: UIColor, inputColor: UIColor, errorColor: UIColor) {
+        self.defaultColor = defaultColor
+        self.populatedColor = inputColor
+        self.wrongColor = inputColor
     }
     
     // clear is self explanatory
