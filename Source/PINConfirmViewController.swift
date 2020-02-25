@@ -14,12 +14,6 @@ public class PINConfirmViewControllerKey {
     static let showPin = "PINConfirmViewController/showPin"
     static let hidePin = "PINConfirmViewController/hidePin"
     static let title = "PINConfirmViewController/title"
-    
-    // for alerts - not used
-    static let closeTitle = "PINConfirmViewController/closeTitle"
-    static let closeMessage = "PINConfirmViewController/closeMessage"
-    static let stayOnView = "PINConfirmViewController/stayOnView"
-    static let leaveView = "PINConfirmViewController/leaveView"
 }
 
 class PINConfirmViewController : UIViewController {

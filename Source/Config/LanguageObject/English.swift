@@ -14,20 +14,12 @@ public class English: LanguageObject {
             PINViewControllerKey.navTitle: "Activate PIN",
             PINViewControllerKey.showPin: "Show PIN",
             PINViewControllerKey.hidePin: "Hide PIN",
-            PINViewControllerKey.closeTitle: "Are you sure you want to cancel?",
-            PINViewControllerKey.closeMessage: "Do you know that PIN creates additional security layer for your account?",
-            PINViewControllerKey.stayOnView: "Input PIN",
-            PINViewControllerKey.leaveView: "Yes",
             PINViewControllerKey.title: "Create a PIN to secure your account",
             
             // MARK: - PINConfirmViewController
             PINConfirmViewControllerKey.navTitle: "Activate PIN",
             PINConfirmViewControllerKey.showPin: "Show PIN",
             PINConfirmViewControllerKey.hidePin: "Hide PIN",
-            PINConfirmViewControllerKey.closeTitle: "Are you sure you want to cancel?",
-            PINConfirmViewControllerKey.closeMessage: "Do you know that PIN creates additional security layer for your account?",
-            PINConfirmViewControllerKey.stayOnView: "Input PIN",
-            PINConfirmViewControllerKey.leaveView: "Yes",
             PINConfirmViewControllerKey.title: "Confirm your PIN combination",
             
             // MARK: - PINFinalViewController
@@ -45,10 +37,6 @@ public class English: LanguageObject {
             TransactionPINViewControllerKey.showPin: "Show PIN",
             TransactionPINViewControllerKey.hidePin: "Hide PIN",
             TransactionPINViewControllerKey.title: "Enter your PIN",
-            TransactionPINViewControllerKey.closeTitle: "Are you sure you want to cancel?",
-            TransactionPINViewControllerKey.closeMessage: "Do you know that PIN creates additional security layer for your account?",
-            TransactionPINViewControllerKey.stayOnView: "Input PIN",
-            TransactionPINViewControllerKey.leaveView: "Yes",
             
             // MARK: - UpdatePINViewController
             UpdatePINViewControllerKey.navTitle: "Change PIN",
@@ -77,6 +65,31 @@ public class English: LanguageObject {
             PinErrorMessagesKey.updatePinFailed: "Update PIN failed. Please try again.",
             PinErrorMessagesKey.networkError: "Please check your internet connection, then try again.",
             PinErrorMessagesKey.apiError: "Internal Server Error. Please contact Customer Support.",
+            
+            // MARK: - Navigate Back Alert
+            AuthAlertMessagesKey.navBackTitle: "Are you sure you want to cancel?",
+            AuthAlertMessagesKey.navBackBody: "Do you know that PIN creates additional security layer for your account?",
+            AuthAlertMessagesKey.navBackActionButton: "Input PIN",
+            AuthAlertMessagesKey.navBackCancelButton: "Yes",
+            
+            // MARK: - Biometric Authentication Alert
+            AuthAlertMessagesKey.authTitle: "Verification",
+            AuthAlertMessagesKey.authBody: "Continue Biometric Authentication process using TouchID or FaceID",
+            AuthAlertMessagesKey.authActionButton: "Use PIN",
+            AuthAlertMessagesKey.authCancelButton: "Cancel",
+            
+            // MARK: - Dispatch Result Alert (Success)
+            AuthAlertMessagesKey.successDispatchTitle: "Verification",
+            AuthAlertMessagesKey.successDispatchBody: "Biometrics Successful.",
+            AuthAlertMessagesKey.successDispatchActionButton: "Input PIN",
+            AuthAlertMessagesKey.successDispatchCancelButton: "Cancel",
+            
+            // MARK: - Dispatch Result Alert (Failure)
+            AuthAlertMessagesKey.failureDispatchTitle: "Verification",
+            AuthAlertMessagesKey.failureDispatchBody: "Biometrics Failed.",
+            AuthAlertMessagesKey.failureDispatchActionButton: "Input PIN",
+            AuthAlertMessagesKey.failureDispatchCancelButton: "Cancel",
+            
         ])
     }
 }

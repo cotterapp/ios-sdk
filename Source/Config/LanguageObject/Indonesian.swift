@@ -15,20 +15,12 @@ public class Indonesian: LanguageObject {
             PINViewControllerKey.showPin: "Lihat PIN",
             PINViewControllerKey.hidePin: "Sembunyikan",
             PINViewControllerKey.title: "Buat PIN untuk keamanan akunmu",
-            PINViewControllerKey.closeTitle: "Yakin tidak Mau Buat PIN Sekarang?",
-            PINViewControllerKey.closeMessage: "PIN Ini diperlukan untuk keamanan akunmu, lho.",
-            PINViewControllerKey.stayOnView: "Input PIN",
-            PINViewControllerKey.leaveView: "Lain Kali",
             
             // MARK: - PINConfirmViewController
             PINConfirmViewControllerKey.navTitle: "Konfirmasi PIN",
             PINConfirmViewControllerKey.showPin: "Lihat PIN",
             PINConfirmViewControllerKey.hidePin: "Sembunyikan",
             PINConfirmViewControllerKey.title: "Masukkan PIN sekali lagi untuk konfirmasi",
-            PINConfirmViewControllerKey.closeTitle: "Yakin tidak Mau Buat PIN Sekarang?",
-            PINConfirmViewControllerKey.closeMessage: "PIN Ini diperlukan untuk keamanan akunmu, lho.",
-            PINConfirmViewControllerKey.stayOnView: "Input PIN",
-            PINConfirmViewControllerKey.leaveView: "Lain Kali",
             
             // MARK: - PINFinalViewController
             PINFinalViewControllerKey.closeTitle: "Verifikasi",
@@ -45,10 +37,6 @@ public class Indonesian: LanguageObject {
             TransactionPINViewControllerKey.showPin: "Lihat PIN",
             TransactionPINViewControllerKey.hidePin: "Sembunyikan",
             TransactionPINViewControllerKey.title: "Masukkan PIN",
-            TransactionPINViewControllerKey.closeTitle: "Yakin tidak Mau Buat PIN Sekarang?",
-            TransactionPINViewControllerKey.closeMessage: "PIN Ini diperlukan untuk keamanan akunmu, lho.",
-            TransactionPINViewControllerKey.stayOnView: "Input PIN",
-            TransactionPINViewControllerKey.leaveView: "Lain Kali",
             
             // MARK: - UpdatePINViewController
             UpdatePINViewControllerKey.navTitle: "Ubah PIN",
@@ -77,6 +65,31 @@ public class Indonesian: LanguageObject {
             PinErrorMessagesKey.updatePinFailed: "Membarui PIN gagal. Silahkan coba lagi.",
             PinErrorMessagesKey.networkError: "Coba periksa koneksi internet, terus coba lagi.",
             PinErrorMessagesKey.apiError: "Kesalahan dalam server. Silahkan hubungi layanan pelanggan.",
+            
+            // MARK: - Navigate Back Alert
+            AuthAlertMessagesKey.navBackTitle: "Yakin tidak Mau Buat PIN Sekarang?",
+            AuthAlertMessagesKey.navBackBody: "PIN Ini diperlukan untuk keamanan akunmu, lho.",
+            AuthAlertMessagesKey.navBackActionButton: "Lain Kali",
+            AuthAlertMessagesKey.navBackCancelButton: "Input PIN",
+            
+            // MARK: - Biometric Authentication Alert
+            AuthAlertMessagesKey.authTitle: "Verifikasi",
+            AuthAlertMessagesKey.authBody: "Lanjutkan untuk menggunakan verifikasi TouchID atau FaceID",
+            AuthAlertMessagesKey.authActionButton: "Lanjutkan",
+            AuthAlertMessagesKey.authCancelButton: "Gunakan PIN",
+            
+            // MARK: - Dispatch Result Alert (Success)
+            AuthAlertMessagesKey.successDispatchTitle: "Verifikasi",
+            AuthAlertMessagesKey.successDispatchBody: "Sidik biometrik sesual.",
+            AuthAlertMessagesKey.successDispatchActionButton: "Input PIN",
+            AuthAlertMessagesKey.successDispatchCancelButton: "Batalkan",
+            
+            // MARK: - Dispatch Result Alert (Failure)
+            AuthAlertMessagesKey.failureDispatchTitle: "Verifikasi",
+            AuthAlertMessagesKey.failureDispatchBody: "Biometrik gagal.",
+            AuthAlertMessagesKey.failureDispatchActionButton: "Coba Lagi",
+            AuthAlertMessagesKey.failureDispatchCancelButton: "Input PIN",
+            
         ])
     }
 }
