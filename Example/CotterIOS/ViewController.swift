@@ -11,7 +11,12 @@ import Cotter
 import Foundation
 
 class ViewController: UIViewController {
-
+    @IBOutlet weak var errorLabel: UILabel!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        errorLabel.text = ""
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -47,10 +52,16 @@ class ViewController: UIViewController {
         let sboard = UIStoryboard(name: "Dashboard", bundle: nil)
         let dVC = sboard.instantiateViewController(withIdentifier: "DashboardViewController") as! DashboardViewController
         
-        func cbFunc(accessToken:String) -> Void{
+        func cbFunc(accessToken:String, verified:Bool, error:Error?) -> Void{
             self.navigationController?.popToViewController(self, animated: false)
-            dVC.accessToken = accessToken
-            self.navigationController?.pushViewController(dVC, animated: true)
+            
+            if verified && error == nil {
+                dVC.accessToken = accessToken
+                self.navigationController?.pushViewController(dVC, animated: true)
+                return
+            }
+            // error handling
+            self.errorLabel.text = error?.localizedDescription
         }
         
         // langConfig is an optional language configuration

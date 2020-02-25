@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-func defaultCallback(access_token: String) -> Void {
+func defaultCallback(access_token: String, verified: Bool, error: Error?) -> Void {
     print(access_token)
 }
 
@@ -36,7 +36,7 @@ public class Cotter {
     
     // initializer with configuration
     public convenience init(
-        successCb: CallbackFunc?,
+        successCb: FinalAuthCallback?,
         apiSecretKey: String,
         apiKeyID: String,
         cotterURL: String,
@@ -59,7 +59,7 @@ public class Cotter {
     
     // default initializer
     public init(
-        successCb: CallbackFunc?,
+        successCb: FinalAuthCallback?,
         apiSecretKey: String,
         apiKeyID: String,
         cotterURL: String

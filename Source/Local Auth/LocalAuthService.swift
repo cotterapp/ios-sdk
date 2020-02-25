@@ -49,7 +49,7 @@ class LocalAuthService: UIViewController {
     let noAuthMsg = "Your device is not configured for biometric authentication"
     let tryAgain = "Coba Lagi"
     
-    var successAuthCallbackFunc: ((String) -> Void)?
+    var successAuthCallbackFunc: FinalAuthCallback?
     
     public static var ipAddr: String?
     
@@ -283,7 +283,7 @@ class LocalAuthService: UIViewController {
     public func authenticate(
         view: UIViewController,
         reason: String,
-        callback: ((String) -> Void)?
+        callback: FinalAuthCallback?
     ) {
         successAuthCallbackFunc = callback
         
@@ -328,7 +328,7 @@ class LocalAuthService: UIViewController {
             aService.show()
         } else {
             // no biometric then skip creating the public key
-            successAuthCallbackFunc?("token")
+            successAuthCallbackFunc?("token", true, nil)
         }
     }
     
@@ -355,7 +355,7 @@ class LocalAuthService: UIViewController {
             let timer = DispatchTime.now() + 3
             DispatchQueue.main.asyncAfter(deadline: timer) {
                 successAlert.hide(onComplete: { (finished: Bool) in
-                    self.successAuthCallbackFunc?("This is token from dispatch!")
+                    self.successAuthCallbackFunc?("This is token from dispatch!", true, nil)
                     return
                 })
             }
@@ -382,7 +382,9 @@ class LocalAuthService: UIViewController {
             failedBiometricAlertDelegate.defActionHandler = tryAgain
             failedBiometricAlertDelegate.defCancelHandler = {
                 failedBiometricAlert.hide()
-                self.successAuthCallbackFunc?("Token from failed biometric")
+                
+                // the PIN enrollment is still successful, but biometric registration failed
+                self.successAuthCallbackFunc?("Token from failed biometric", true, nil)
             }
             
             failedBiometricAlert.delegate = failedBiometricAlertDelegate

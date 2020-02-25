@@ -7,16 +7,13 @@
 
 import UIKit
 
-// CallbackFunc takes in a string which is the access token and returns a void
-public typealias CallbackFunc = (String) -> Void
-
 // Config class will be passed around in the Cotter SDK
 class Config: NSObject {
     static let instance = Config()
   
     var parentNav: UINavigationController?
     var callbackView: UIViewController?
-    var callbackFunc: CallbackFunc?
+    var callbackFunc: FinalAuthCallback?
 
     // strings consists text configurations for Cotter
     var strings: LanguageObject = Indonesian() // defaults to indonesian

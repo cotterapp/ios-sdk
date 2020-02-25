@@ -51,7 +51,7 @@ class TransactionPINViewController: UIViewController {
         guard let onFinishCallback = Config.instance.callbackFunc else { return }
         func cb(success: Bool) {
             if success{
-                onFinishCallback("dummy biometric token")
+                onFinishCallback("dummy biometric token", true, nil)
             } else {
                 print("got here!")
                 self.toggleErrorMsg(msg: "Biometric is incorrect, please use PIN")
@@ -118,7 +118,7 @@ extension TransactionPINViewController : PINBaseController {
             // Callback Function to execute after PIN Verification
             func pinVerificationCallback(success: Bool) {
                 if success {
-                    cbFunc("Token from Transaction PIN View!")
+                    cbFunc("Token from Transaction PIN View!", true, nil)
                 } else {
                     if self.errorLabel.isHidden {
                         self.toggleErrorMsg(msg: PinErrorMessages.incorrectPIN)

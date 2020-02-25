@@ -86,21 +86,18 @@ class Passwordless: NSObject, ASWebAuthenticationPresentationContextProviding {
             }
 
             guard let challengeID = queryItems?.filter({ $0.name == "challenge_id" }).first?.value else {
-                print("challenge_id is unavailable")
-                // REMOVE THIS
-                cb("")
+                cb("", false, CotterError.passwordless("challenge_id is unavailable"))
                 return
             }
             
             guard let state = queryItems?.filter({ $0.name == "state" }).first?.value, state == initialState else {
-                print("state is unavailable or inconsistent")
-                cb("")
+                print()
+                cb("", false, CotterError.passwordless("state is unavailable or inconsistent"))
                 return
             }
             
             guard let authorizationCode = queryItems?.filter({ $0.name == "code" }).first?.value else {
-                print("authorization_code is not available")
-                cb("")
+                cb("", false, CotterError.passwordless("authorization_code is not available"))
                 return
             }
             
@@ -120,7 +117,7 @@ class Passwordless: NSObject, ASWebAuthenticationPresentationContextProviding {
                     let tokenString = String(data: jsonData, encoding: .utf8)!
                     
                     // return the token
-                    cb(tokenString)
+                    cb(tokenString, true, nil)
                 } catch {
                     print(error.localizedDescription)
                 }
