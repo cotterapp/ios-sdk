@@ -29,6 +29,15 @@ class Passwordless: NSObject, ASWebAuthenticationPresentationContextProviding {
         print("loading Passwordless \(input)")
         self.anchorView = view
         
+        // create code challenge
+        let codeVerifier = PKCE.createVerifier()
+        let codeChallenge = PKCE.createCodeChallenge(verifier: codeVerifier)
+        if codeChallenge == nil {
+            print("ERROR: code challenge failed to be created")
+        }
+        
+        let initialState = randomString(length: 5)
+        
         // start the authentication process
         guard let url = Config.instance.PLBaseURL else { return }
         guard let scheme = Config.instance.PLScheme else { return }
@@ -38,14 +47,25 @@ class Passwordless: NSObject, ASWebAuthenticationPresentationContextProviding {
             "redirect_url": Config.instance.PLRedirectURL,
             "identifier_field": identifierField,
             "input": input,
-            "direct_login": directLogin
+            "direct_login": directLogin,
+            "state": initialState,
+            "code_challenge": codeChallenge
         ]
+        
+        var cs = CharacterSet.urlQueryAllowed
+        cs.remove("+")
         
         guard var components = URLComponents(string: url) else { return }
         components.queryItems = queryDictionary.map {
-             URLQueryItem(name: $0, value: $1)
+            URLQueryItem(name: $0, value: $1)
         }
+        
+        // encode all occurences of "+" sign
+        components.percentEncodedQuery = components.percentEncodedQuery?
+            .replacingOccurrences(of: "+", with: "%2B")
+        
         let URL = components.url
+        
         print(URL!.absoluteString)
         
         guard let authURL = URL else { return }
@@ -58,22 +78,61 @@ class Passwordless: NSObject, ASWebAuthenticationPresentationContextProviding {
 
             // The callback URL format depends on the provider. For this example:
             //   exampleauth://auth?token=1234
+            
             let queryItems = URLComponents(string: callbackURL.absoluteString)?.queryItems
             guard let cb = Config.instance.callbackFunc else {
                 print("callback is unavailable")
                 return
             }
 
-            guard let token = queryItems?.filter({ $0.name == "token" }).first?.value else {
-                print("token is unavailable 2")
+            guard let challengeID = queryItems?.filter({ $0.name == "challenge_id" }).first?.value else {
+                print("challenge_id is unavailable")
                 // REMOVE THIS
-                cb("no token")
+                cb("")
                 return
             }
-
-            // handle token
-            cb(token)
-
+            
+            guard let state = queryItems?.filter({ $0.name == "state" }).first?.value, state == initialState else {
+                print("state is unavailable or inconsistent")
+                cb("")
+                return
+            }
+            
+            guard let authorizationCode = queryItems?.filter({ $0.name == "code" }).first?.value else {
+                print("authorization_code is not available")
+                cb("")
+                return
+            }
+            
+            // the default callback
+            let httpCb = CotterCallback()
+            httpCb.successfulFunc = { (response) in
+                guard let response = response else {
+                    print("ERROR: response body is nil")
+                    return
+                }
+                let decoder = JSONDecoder()
+                do {
+                    let resp = try decoder.decode(GetIdentityResponse.self, from: response)
+                    
+                    // parse token
+                    let jsonData = try JSONEncoder().encode(resp.token)
+                    let tokenString = String(data: jsonData, encoding: .utf8)!
+                    
+                    // return the token
+                    cb(tokenString)
+                } catch {
+                    print(error.localizedDescription)
+                }
+            }
+            
+            CotterAPIService.shared.requestToken(
+                codeVerifier: codeVerifier,
+                challengeID: Int(challengeID) ?? -1,
+                authorizationCode: authorizationCode,
+                redirectURL: Config.instance.PLRedirectURL!,
+                cb: httpCb
+            )
             return
         }
         
@@ -91,4 +150,9 @@ class Passwordless: NSObject, ASWebAuthenticationPresentationContextProviding {
             print("FAILED TO START SESSION")
         }
     }
+}
+
+func randomString(length: Int) -> String {
+  let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+  return String((0..<length).map{ _ in letters.randomElement()! })
 }

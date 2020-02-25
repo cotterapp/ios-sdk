@@ -27,9 +27,20 @@ class ViewController: UIViewController {
         }
         
         // set the URL path
-        let baseURL = "https://www.cotter.app/api/v0"
-//        let baseURL = "http://192.168.1.9:1234/api/v0"
-//        let baseURL = "http://localhost:1234/api/v0"
+        var baseURL = "https://www.cotter.app/api/v0"
+        if let devMode = ProcessInfo.processInfo.environment["DEV_MODE"] {
+            switch(devMode){
+            case "ios":
+                baseURL = "http://192.168.1.9:1234/api/v0"
+                break
+            case "local":
+                baseURL = "http://localhost:1234/api/v0"
+                break
+            default:
+                break
+            }
+            
+        }
         let clientUserID = randomString(length: 5)
         
         // select the dashboard's ViewController

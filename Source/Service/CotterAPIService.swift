@@ -215,5 +215,32 @@ public class CotterAPIService {
             cb:cb
         )
     }
+    
+    public func requestToken(
+        codeVerifier: String,
+        challengeID: Int,
+        authorizationCode: String,
+        redirectURL: String,
+        cb: HTTPCallback
+    ) {
+        let method = "POST"
+        let path = "/verify/get_identity"
+        let data: [String:Any] = [
+            "code_verifier": codeVerifier,
+            "challenge_id": challengeID,
+            "authorization_code": authorizationCode,
+            "redirect_url": redirectURL
+        ]
+        
+        let body = try? JSONSerialization.data(withJSONObject: data)
+        print(data)
+        
+        self.http(
+            method: method,
+            path: path,
+            body: body,
+            cb:cb
+        )
+    }
 }
 

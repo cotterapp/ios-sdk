@@ -17,6 +17,9 @@
 		5389E8EDBAD1B02CCBFD3210EB8AF7D5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 312B988EF117AE4DE76A268D970131FE /* UIKit.framework */; };
 		58B315CB7C3DD5393CF48EA3D6D35E51 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
 		5EB3E9C0B7FAE3EF6D454055E455C39F /* Pods-CotterIOS_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E7A8321A666E6CCA738BAF8D3AF161A6 /* Pods-CotterIOS_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		852CF6072403D87B003E2B3B /* PKCE.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852CF6062403D87B003E2B3B /* PKCE.swift */; };
+		852CF6092403E79F003E2B3B /* GetIdentity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852CF6082403E79F003E2B3B /* GetIdentity.swift */; };
+		852CF60B2403E99A003E2B3B /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852CF60A2403E99A003E2B3B /* File.swift */; };
 		8594184823F56B5400B4DA6D /* PINConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8594181A23F56B5400B4DA6D /* PINConfirmViewController.swift */; };
 		8594184923F56B5400B4DA6D /* CotterStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8594181C23F56B5400B4DA6D /* CotterStrings.swift */; };
 		8594184A23F56B5400B4DA6D /* PinErrorMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8594181D23F56B5400B4DA6D /* PinErrorMessages.swift */; };
@@ -97,6 +100,9 @@
 		4691BA6B5AFE40AA76AD2CF9D06FE047 /* Pods-CotterIOS_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CotterIOS_Example-dummy.m"; sourceTree = "<group>"; };
 		47CB4681732263DABF1330D08DF141BA /* Cotter-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Cotter-prefix.pch"; sourceTree = "<group>"; };
 		764F5C378AAB225A1497DE1262DF3A93 /* Pods-CotterIOS_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CotterIOS_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		852CF6062403D87B003E2B3B /* PKCE.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKCE.swift; sourceTree = "<group>"; };
+		852CF6082403E79F003E2B3B /* GetIdentity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetIdentity.swift; sourceTree = "<group>"; };
+		852CF60A2403E99A003E2B3B /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		8594181A23F56B5400B4DA6D /* PINConfirmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PINConfirmViewController.swift; sourceTree = "<group>"; };
 		8594181C23F56B5400B4DA6D /* CotterStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CotterStrings.swift; sourceTree = "<group>"; };
 		8594181D23F56B5400B4DA6D /* PinErrorMessages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinErrorMessages.swift; sourceTree = "<group>"; };
@@ -247,9 +253,19 @@
 			path = "Target Support Files/Pods-CotterIOS_Example";
 			sourceTree = "<group>";
 		};
+		852CF6052403D85B003E2B3B /* Crypto */ = {
+			isa = PBXGroup;
+			children = (
+				852CF6062403D87B003E2B3B /* PKCE.swift */,
+				852CF60A2403E99A003E2B3B /* File.swift */,
+			);
+			path = Crypto;
+			sourceTree = "<group>";
+		};
 		8594181923F56B5400B4DA6D /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				852CF6052403D85B003E2B3B /* Crypto */,
 				0BAF8FB923FA1524001D3E24 /* Extensions */,
 				8594181A23F56B5400B4DA6D /* PINConfirmViewController.swift */,
 				8594181B23F56B5400B4DA6D /* Config */,
@@ -348,6 +364,7 @@
 			isa = PBXGroup;
 			children = (
 				8594187023FAB80100B4DA6D /* EventCreateResponse.swift */,
+				852CF6082403E79F003E2B3B /* GetIdentity.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -645,6 +662,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8594185C23F56B5400B4DA6D /* OneTimeCodeTextField.swift in Sources */,
+				852CF6072403D87B003E2B3B /* PKCE.swift in Sources */,
 				8594184923F56B5400B4DA6D /* CotterStrings.swift in Sources */,
 				0BCF85F92400F819008172FE /* ColorSchemeObject.swift in Sources */,
 				8594185923F56B5400B4DA6D /* TransactionPINViewController.swift in Sources */,
@@ -667,11 +685,13 @@
 				8594185F23F56B5400B4DA6D /* UIExtensions.swift in Sources */,
 				8594185D23F56B5400B4DA6D /* KeyboardView.swift in Sources */,
 				8594184E23F56B5400B4DA6D /* PinStepEnums.swift in Sources */,
+				852CF6092403E79F003E2B3B /* GetIdentity.swift in Sources */,
 				8594186723F56B5400B4DA6D /* PINBaseController.swift in Sources */,
 				8594184A23F56B5400B4DA6D /* PinErrorMessages.swift in Sources */,
 				8594185123F56B5400B4DA6D /* Indonesian.swift in Sources */,
 				8594184F23F56B5400B4DA6D /* LanguageObject.swift in Sources */,
 				8594186A23F56B5400B4DA6D /* Passwordless.swift in Sources */,
+				852CF60B2403E99A003E2B3B /* File.swift in Sources */,
 				8594186423F56B5400B4DA6D /* CotterAPIService.swift in Sources */,
 				8594186523F56B5400B4DA6D /* CotterAPIExtensions.swift in Sources */,
 				8594184C23F56B5400B4DA6D /* Config.swift in Sources */,
