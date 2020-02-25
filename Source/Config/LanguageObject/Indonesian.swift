@@ -67,6 +67,16 @@ public class Indonesian: LanguageObject {
             UpdateConfirmNewPINViewControllerKey.showPin: "Lihat PIN",
             UpdateConfirmNewPINViewControllerKey.hidePin: "Sembunyikan",
             UpdateConfirmNewPINViewControllerKey.title: "Masukin PIN baru sekali lagi untuk konfirmasi",
+            
+            // MARK: - Error Messages
+            PinErrorMessagesKey.incorrectPinConfirmation: "Kamu perlu memasukkan PIN yang sama seperti sebelumnya.",
+            PinErrorMessagesKey.badPin: "PIN terlalu mudah. Yuk buat PIN baru dengan kombinasi lebih sulit.",
+            PinErrorMessagesKey.incorrectPinVerification: "PIN buat verifikasi salah. Coba lagi.",
+            PinErrorMessagesKey.similarPinAsBefore: "PIN sama ama dulu punya. Coba ganti PIN baru.",
+            PinErrorMessagesKey.enrollPinFailed: "PIN Registrasi gagal. Silahkan coba lagi.",
+            PinErrorMessagesKey.updatePinFailed: "Membarui PIN gagal. Silahkan coba lagi.",
+            PinErrorMessagesKey.networkError: "Coba periksa koneksi internet, terus coba lagi.",
+            PinErrorMessagesKey.apiError: "Kesalahan dalam server. Silahkan hubungi layanan pelanggan.",
         ])
     }
 }

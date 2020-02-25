@@ -108,16 +108,6 @@ extension TransactionPINViewController : PINBaseController {
         codeTextField.didEnterLastDigit = { code in
             print("PIN Code Entered: ", code)
             
-            // If code has repeating digits or is a straight number, show error.
-            let pattern = "\\b(\\d)\\1+\\b"
-            let result = code.range(of: pattern, options: .regularExpression)
-            if result != nil || code == "123456" || code == "654321" {
-                if self.errorLabel.isHidden {
-                    self.toggleErrorMsg(msg: PinErrorMessages.badPIN)
-                }
-                return false
-            }
-            
             guard let cbFunc = Config.instance.callbackFunc else {
                 print("ERROR: no callback function")
                 return false
@@ -129,7 +119,7 @@ extension TransactionPINViewController : PINBaseController {
                     cbFunc("Token from Transaction PIN View!", true, nil)
                 } else {
                     if self.errorLabel.isHidden {
-                        self.toggleErrorMsg(msg: PinErrorMessages.incorrectPIN)
+                        self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.incorrectPinVerification))
                     }
                 }
             }
@@ -141,9 +131,6 @@ extension TransactionPINViewController : PINBaseController {
                 print(e)
                 return false
             }
-            
-            // Clear the text before continue
-            self.codeTextField.clear()
 
             return true
         }

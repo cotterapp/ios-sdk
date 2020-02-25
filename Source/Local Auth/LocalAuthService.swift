@@ -130,6 +130,7 @@ class LocalAuthService: UIViewController {
         guard let userID = apiclient.userID else {
             return false
         }
+        print("userID: \(userID)")
         
         let data = try? JSONSerialization.data(withJSONObject: [
             "client_user_id": userID,
@@ -277,6 +278,7 @@ class LocalAuthService: UIViewController {
             aService.show()
         }
         // no biometric then do nothing
+        print("No Biometrics Available!")
     }
     
     // Configure Local Authentication

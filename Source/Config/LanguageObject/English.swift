@@ -12,8 +12,8 @@ public class English: LanguageObject {
         super.init(text: [
             // MARK: - PINViewController
             PINViewControllerKey.navTitle: "Activate PIN",
-            PINViewControllerKey.showPin: "Show",
-            PINViewControllerKey.hidePin: "Hide",
+            PINViewControllerKey.showPin: "Show PIN",
+            PINViewControllerKey.hidePin: "Hide PIN",
             PINViewControllerKey.closeTitle: "Are you sure you want to cancel?",
             PINViewControllerKey.closeMessage: "Do you know that PIN creates additional security layer for your account?",
             PINViewControllerKey.stayOnView: "Input PIN",
@@ -22,8 +22,8 @@ public class English: LanguageObject {
             
             // MARK: - PINConfirmViewController
             PINConfirmViewControllerKey.navTitle: "Activate PIN",
-            PINConfirmViewControllerKey.showPin: "Show",
-            PINConfirmViewControllerKey.hidePin: "Hide",
+            PINConfirmViewControllerKey.showPin: "Show PIN",
+            PINConfirmViewControllerKey.hidePin: "Hide PIN",
             PINConfirmViewControllerKey.closeTitle: "Are you sure you want to cancel?",
             PINConfirmViewControllerKey.closeMessage: "Do you know that PIN creates additional security layer for your account?",
             PINConfirmViewControllerKey.stayOnView: "Input PIN",
@@ -67,6 +67,16 @@ public class English: LanguageObject {
             UpdateConfirmNewPINViewControllerKey.showPin: "Show PIN",
             UpdateConfirmNewPINViewControllerKey.hidePin: "Hide PIN",
             UpdateConfirmNewPINViewControllerKey.title: "Confirm your new PIN",
+            
+            // MARK: - Error Messages
+            PinErrorMessagesKey.incorrectPinConfirmation: "Incorrect PIN Confirmation. Please enter the correct PIN and try again.",
+            PinErrorMessagesKey.badPin: "The PIN combination you have entered is insecure. Please enter a stronger PIN.",
+            PinErrorMessagesKey.incorrectPinVerification: "PIN Verification failed. Please try again.",
+            PinErrorMessagesKey.similarPinAsBefore: "Unable to use the same PIN as before. Please try again.",
+            PinErrorMessagesKey.enrollPinFailed: "PIN Enrollment failed. Please try again.",
+            PinErrorMessagesKey.updatePinFailed: "Update PIN failed. Please try again.",
+            PinErrorMessagesKey.networkError: "Please check your internet connection, then try again.",
+            PinErrorMessagesKey.apiError: "Internal Server Error. Please contact Customer Support.",
         ])
     }
 }

@@ -144,7 +144,7 @@ extension PINViewController : PINBaseController {
             // Ensure consecutive PIN number is rejected
             if result != nil || self.findSequence(sequenceLength: code.count, in: code) {
                 if self.errorLabel.isHidden {
-                    self.toggleErrorMsg(msg: PinErrorMessages.badPIN)
+                    self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.badPin))
                 }
                 return false
             }
@@ -152,7 +152,7 @@ extension PINViewController : PINBaseController {
             // Clear Code text Field before continuing
             self.codeTextField.clear()
             
-            // Go to PIN Confirmation page
+            // Go to PIN Confirmation Page
             let confirmVC = self.storyboard?.instantiateViewController(withIdentifier: "PINConfirmViewController") as! PINConfirmViewController
             confirmVC.prevCode = code
             self.navigationController?.pushViewController(confirmVC, animated: true)

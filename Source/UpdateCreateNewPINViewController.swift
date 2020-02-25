@@ -94,14 +94,15 @@ extension UpdateCreateNewPINViewController : PINBaseController {
             let result = code.range(of: pattern, options: .regularExpression)
             if result != nil || code == "123456" || code == "654321" {
                 if self.errorLabel.isHidden {
-                    self.toggleErrorMsg(msg: PinErrorMessages.badPIN)
+                    self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.badPin))
                 }
                 return false
             }
             
+            // if new code is similar as previous code
             if code == self.oldCode {
                 if self.errorLabel.isHidden {
-                    self.toggleErrorMsg(msg: PinErrorMessages.similarPINAsBefore)
+                    self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.similarPinAsBefore))
                 }
                 return false
             }

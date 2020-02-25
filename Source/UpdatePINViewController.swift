@@ -89,16 +89,6 @@ extension UpdatePINViewController : PINBaseController {
         codeTextField.didEnterLastDigit = { code in
             print("PIN Code Entered: ", code)
             
-            // If code has repeating digits or is a straight number, show error.
-            let pattern = "\\b(\\d)\\1+\\b"
-            let result = code.range(of: pattern, options: .regularExpression)
-            if result != nil || code == "123456" || code == "654321" {
-                if self.errorLabel.isHidden {
-                    self.toggleErrorMsg(msg: PinErrorMessages.badPIN)
-                }
-                return false
-            }
-            
             func pinVerificationCallback(success: Bool) {
                 if success {
                     self.codeTextField.clear()
@@ -108,8 +98,9 @@ extension UpdatePINViewController : PINBaseController {
                     updateCreatePINVC.config = self.config
                     self.navigationController?.pushViewController(updateCreatePINVC, animated: true)
                 } else {
+                    // Pin Verification Failed
                     if self.errorLabel.isHidden {
-                        self.toggleErrorMsg(msg: PinErrorMessages.incorrectPIN)
+                        self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.incorrectPinVerification))
                     }
                 }
             }
