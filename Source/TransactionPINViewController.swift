@@ -115,6 +115,9 @@ extension TransactionPINViewController : PINBaseController {
                 print(e)
                 return false
             }
+            
+            // clear the field
+            self.codeTextField.clear()
 
             return true
         }

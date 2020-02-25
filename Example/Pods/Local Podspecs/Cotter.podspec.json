@@ -1,6 +1,6 @@
 {
   "name": "Cotter",
-  "version": "0.0.3",
+  "version": "0.0.16",
   "summary": "Cotter is the client SDK for Cotter authentication services",
   "swift_versions": "5.0",
   "description": "CotterIOS simplifies client's integration with Cotter. It is an SDK that provides necessary pages and API services that connects your application to Cotter authentication services.",
@@ -10,10 +10,10 @@
   },
   "source": {
     "git": "https://github.com/cotterapp/ios-sdk.git",
-    "tag": "0.0.3"
+    "tag": "0.0.16"
   },
   "platforms": {
-    "ios": "13.0"
+    "ios": "12.0"
   },
   "source_files": "Source/**/*",
   "resource_bundles": {
