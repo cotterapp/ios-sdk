@@ -12,12 +12,11 @@ func defaultCallback(access_token: String, verified: Bool, error: Error?) -> Voi
     print(access_token)
 }
 
-// Cotter is the root class
 public class Cotter {
     // this variable is needed to retain the object of ASWebAuthentication,
     // otherwise the login default prompt will be closed immediately because
     // Passwordless object is deallocated
-    var passwordless: Passwordless?
+    var passwordless: Any?
     
     public static var PLBaseURL: String? {
         set {
@@ -117,6 +116,7 @@ public class Cotter {
     }
     
     // startPasswordlessLogin starts the login process
+    @available(iOS 12.0, *)
     public func startPasswordlessLogin(parentView: UIViewController, input: String, identifierField:String, type:String, directLogin: Bool) {
         var str = "false"
         if directLogin {

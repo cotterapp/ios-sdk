@@ -8,6 +8,7 @@
 import Foundation
 import AuthenticationServices
 
+@available(iOS 12.0, *)
 class Passwordless: NSObject, ASWebAuthenticationPresentationContextProviding {
     var authSession: ASWebAuthenticationSession?
     var anchorView: UIViewController?
