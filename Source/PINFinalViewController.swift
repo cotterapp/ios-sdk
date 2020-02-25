@@ -65,7 +65,7 @@ class PINFinalViewController: UIViewController {
             // Touch ID/Face ID Verification
             authService.authenticate(view: self, reason: "Verifikasi", callback: onFinishCallback)
         } else {
-            onFinishCallback("this is token")
+            onFinishCallback("this is token", true, nil)
         }
     }
     

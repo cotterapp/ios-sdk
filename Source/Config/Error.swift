@@ -10,4 +10,5 @@ import Foundation
 enum CotterError: Error {
     case keychainError(String)
     case auth(String)
+    case passwordless(String)
 }

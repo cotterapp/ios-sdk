@@ -23,13 +23,12 @@ class LoginViewController: UIViewController {
         // get the text input
         let textInput = self.phoneInput.text ?? ""
         
-        print("logging in \(textInput)")
         CotterWrapper.cotter?.startPasswordlessLogin(
             parentView: self,
             input: textInput,
-            identifierField: "email",
-            type: "EMAIL",
-            directLogin: false
+            identifierField: "phone",
+            type: "PHONE",
+            directLogin: true
         )
     }
     
