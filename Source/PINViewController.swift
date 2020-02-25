@@ -10,12 +10,9 @@ import UIKit
 
 public class PINViewControllerKey {
     // MARK: - Keys for Strings
+    public static let navTitle = "PINViewController/navTitle"
     public static let showPin = "PINViewController/showPin"
     public static let hidePin = "PINViewController/hidePin"
-    public static let closeTitle = "PINViewController/closeTitle"
-    public static let closeMessage = "PINViewController/closeMessage"
-    public static let stayOnView = "PINViewController/stayOnView"
-    public static let leaveView = "PINViewController/leaveView"
     public static let title = "PINViewController/title"
 }
 
@@ -24,18 +21,20 @@ class PINViewController : UIViewController {
     // we can getaway with typealias here
     typealias VCTextKey = PINViewControllerKey
     
-    // MARK: - Alert Service Text definition
-    // Alert Service
-    let closeTitleText = CotterStrings.instance.getText(for: VCTextKey.closeTitle)
-    let closeMessageText = CotterStrings.instance.getText(for: VCTextKey.closeMessage)
-    let stayText = CotterStrings.instance.getText(for: VCTextKey.stayOnView)
-    let leaveText = CotterStrings.instance.getText(for: VCTextKey.leaveView)
+    // MARK: - Alert Service Text Definition
+    let navBackTitle = CotterStrings.instance.getText(for: AuthAlertMessagesKey.navBackTitle)
+    let navBackBody = CotterStrings.instance.getText(for: AuthAlertMessagesKey.navBackBody)
+    let navBackAction = CotterStrings.instance.getText(for: AuthAlertMessagesKey.navBackActionButton)
+    let navBackCancel = CotterStrings.instance.getText(for: AuthAlertMessagesKey.navBackCancelButton)
+    
+    // MARK: - VC Text Definitions
+    let navTitle = CotterStrings.instance.getText(for: VCTextKey.navTitle)
     let showPinText = CotterStrings.instance.getText(for: VCTextKey.showPin)
     let hidePinText = CotterStrings.instance.getText(for: VCTextKey.hidePin)
     let titleText = CotterStrings.instance.getText(for: VCTextKey.title)
     
     lazy var alertService: AlertService = {
-        let alert = AlertService(vc: self, title: closeTitleText, body: closeMessageText, actionButtonTitle: leaveText, cancelButtonTitle: stayText)
+        let alert = AlertService(vc: self, title: navBackTitle, body: navBackBody, actionButtonTitle: navBackAction, cancelButtonTitle: navBackCancel)
         alert.delegate = self
         return alert
     }()
@@ -140,7 +139,7 @@ extension PINViewController : PINBaseController {
             // Ensure consecutive PIN number is rejected
             if result != nil || self.findSequence(sequenceLength: code.count, in: code) {
                 if self.errorLabel.isHidden {
-                    self.toggleErrorMsg(msg: PinErrorMessages.badPIN)
+                    self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.badPin))
                 }
                 return false
             }
@@ -148,7 +147,7 @@ extension PINViewController : PINBaseController {
             // Clear Code text Field before continuing
             self.codeTextField.clear()
             
-            // Go to PIN Confirmation page
+            // Go to PIN Confirmation Page
             let confirmVC = self.storyboard?.instantiateViewController(withIdentifier: "PINConfirmViewController") as! PINConfirmViewController
             confirmVC.prevCode = code
             self.navigationController?.pushViewController(confirmVC, animated: true)
@@ -168,15 +167,19 @@ extension PINViewController : PINBaseController {
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.layoutIfNeeded()
         
-        self.titleLabel.text = titleText
-        
         codeTextField.configure()
+        configureText()
         configureErrorLabel()
         configurePinVisibilityButton()
     }
     
     func addDelegates() {
         self.keyboardView.delegate = self
+    }
+    
+    func configureText() {
+        self.navigationItem.title = navTitle
+        self.titleLabel.text = titleText
     }
     
     func configurePinVisibilityButton() {

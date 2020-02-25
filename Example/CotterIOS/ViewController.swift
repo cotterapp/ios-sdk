@@ -69,7 +69,9 @@ class ViewController: UIViewController {
         
         // if you want to set text configuration uncomment the following
         // langConfig.set(key: PINViewControllerKey.title, value: "Hi! You've changed the text")
-      
+        // if you want to set success image configuration uncomment the following
+//        langConfig.set(key: PINFinalViewControllerKey.successImage, value: "telegram")
+        
         
         /*
          Available Color Scheme options:

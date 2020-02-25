@@ -9,12 +9,10 @@ import UIKit
 
 public class TransactionPINViewControllerKey {
     // MARK: - Keys for Strings
+    static let navTitle = "TransactionPINViewController/navTitle"
+    static let title = "TransactionPINViewController/title"
     static let showPin = "TransactionPINViewController/showPin"
     static let hidePin = "TransactionPINViewController/hidePin"
-    static let closeTitle = "TransactionPINViewController/closeTitle"
-    static let closeMessage = "TransactionPINViewController/closeMessage"
-    static let stayOnView = "TransactionPINViewController/stayOnView"
-    static let leaveView = "TransactionPINViewController/leaveView"
 }
 
 class TransactionPINViewController: UIViewController {
@@ -22,21 +20,15 @@ class TransactionPINViewController: UIViewController {
   
     typealias VCTextKey = TransactionPINViewControllerKey
     
-    // Constants
-    let closeTitleText = CotterStrings.instance.getText(for: VCTextKey.closeTitle)
-    let closeMessageText = CotterStrings.instance.getText(for: VCTextKey.closeMessage)
-    let stayText = CotterStrings.instance.getText(for: VCTextKey.stayOnView)
-    let leaveText = CotterStrings.instance.getText(for: VCTextKey.leaveView)
+    // MARK: - VC Text Definitions
+    let navTitle = CotterStrings.instance.getText(for: VCTextKey.navTitle)
     let showPinText = CotterStrings.instance.getText(for: VCTextKey.showPin)
     let hidePinText = CotterStrings.instance.getText(for: VCTextKey.hidePin)
-  
-    lazy var alertService: AlertService = {
-        let alert = AlertService(vc: self, title: closeTitleText, body: closeMessageText, actionButtonTitle: leaveText, cancelButtonTitle: stayText)
-        alert.delegate = self
-        return alert
-    }()
+    let titleText = CotterStrings.instance.getText(for: VCTextKey.title)
     
     @IBOutlet weak var pinVisibilityButton: UIButton!
+    
+    @IBOutlet weak var titleLabel: UILabel!
     
     @IBOutlet weak var errorLabel: UILabel!
     
@@ -100,16 +92,6 @@ extension TransactionPINViewController : PINBaseController {
         codeTextField.didEnterLastDigit = { code in
             print("PIN Code Entered: ", code)
             
-            // If code has repeating digits or is a straight number, show error.
-            let pattern = "\\b(\\d)\\1+\\b"
-            let result = code.range(of: pattern, options: .regularExpression)
-            if result != nil || code == "123456" || code == "654321" {
-                if self.errorLabel.isHidden {
-                    self.toggleErrorMsg(msg: PinErrorMessages.badPIN)
-                }
-                return false
-            }
-            
             guard let cbFunc = Config.instance.callbackFunc else {
                 print("ERROR: no callback function")
                 return false
@@ -121,7 +103,7 @@ extension TransactionPINViewController : PINBaseController {
                     cbFunc("Token from Transaction PIN View!", true, nil)
                 } else {
                     if self.errorLabel.isHidden {
-                        self.toggleErrorMsg(msg: PinErrorMessages.incorrectPIN)
+                        self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.incorrectPinVerification))
                     }
                 }
             }
@@ -134,7 +116,7 @@ extension TransactionPINViewController : PINBaseController {
                 return false
             }
             
-            // Clear the text before continue
+            // clear the field
             self.codeTextField.clear()
 
             return true
@@ -148,18 +130,23 @@ extension TransactionPINViewController : PINBaseController {
         self.navigationController?.navigationBar.layoutIfNeeded()
         
         self.navigationItem.hidesBackButton = true
-        let crossButton = UIBarButtonItem(title: "\u{2717}", style: UIBarButtonItem.Style.plain, target: self, action: #selector(TransactionPINViewController.promptClose(sender:)))
+        let crossButton = UIBarButtonItem(title: "\u{2190}", style: UIBarButtonItem.Style.plain, target: self, action: #selector(TransactionPINViewController.promptClose(sender:)))
         crossButton.tintColor = UIColor.black
         self.navigationItem.leftBarButtonItem = crossButton
         
         codeTextField.configure()
+        configureText()
         configureErrorLabel()
         configurePinVisibilityButton()
     }
     
-    // Add any delegates
     func addDelegates() {
         self.keyboardView.delegate = self
+    }
+    
+    func configureText() {
+        self.navigationItem.title = navTitle
+        self.titleLabel.text = titleText
     }
     
     func configureErrorLabel() {
@@ -180,7 +167,9 @@ extension TransactionPINViewController : PINBaseController {
     }
   
     @objc private func promptClose(sender: UIBarButtonItem) {
-        alertService.show()
+//        alertService.show()
+        // Go back to previous screen
+        self.navigationController?.popViewController(animated: true)
     }
 }
 
@@ -192,19 +181,5 @@ extension TransactionPINViewController : KeyboardViewDelegate {
         } else {
             codeTextField.appendNumber(buttonNumber: buttonNumber)
         }
-    }
-}
-
-// MARK: - AlertServiceDelegate
-extension TransactionPINViewController : AlertServiceDelegate {
-    func cancelHandler() {
-        alertService.hide()
-    }
-    
-    func actionHandler() {
-        alertService.hide(onComplete: { (Bool) -> Void in
-            self.navigationController?.popViewController(animated: true)
-            return
-        })
     }
 }

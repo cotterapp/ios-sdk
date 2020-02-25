@@ -7,12 +7,13 @@
 
 import Foundation
 
-public class PinErrorMessages {
-    static let wrongPINConfirm = "Kamu perlu memasukkan PIN yang sama seperti sebelumnya"
-    static let badPIN = "PIN terlalu mudah. Yuk buat PIN baru dengan kombinasi lebih sulit."
-    static let incorrectPIN = "PIN buat verifikasi salah. Coba lagi."
-    static let similarPINAsBefore = "PIN sama ama dulu punya. Coba ganti PIN baru."
-    static let enrollPINFailed = "PIN enroll failed. Try again."
-    static let updatePINFailed = "PIN update failed. Try again."
-    static let networkError = "Check your internet connection, then try again."
+public class PinErrorMessagesKey {
+    static let incorrectPinConfirmation = "PinErrorMessagesKey/incorrectPinConfirmation"
+    static let badPin = "PinErrorMessagesKey/badPin"
+    static let incorrectPinVerification = "PinErrorMessagesKey/incorrectPinVerification"
+    static let similarPinAsBefore = "PinErrorMessagesKey/similarPinAsBefore"
+    static let enrollPinFailed = "PinErrorMessagesKey/enrollPinFailed"
+    static let updatePinFailed = "PinErrorMessagesKey/updatePinFailed"
+    static let networkError = "PinErrorMessagesKey/networkError"
+    static let apiError = "PinErrorMessagesKey/apiError"
 }

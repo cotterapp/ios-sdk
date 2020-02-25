@@ -10,15 +10,10 @@ import UIKit
 // PINConfirmViewControllerKey are a list of strings for key to text configuration
 public class PINConfirmViewControllerKey {
     // MARK: - Keys for Strings
+    static let navTitle = "PINConfirmViewController/navTitle"
     static let showPin = "PINConfirmViewController/showPin"
     static let hidePin = "PINConfirmViewController/hidePin"
     static let title = "PINConfirmViewController/title"
-    
-    // for alerts - not used
-    static let closeTitle = "PINConfirmViewController/closeTitle"
-    static let closeMessage = "PINConfirmViewController/closeMessage"
-    static let stayOnView = "PINConfirmViewController/stayOnView"
-    static let leaveView = "PINConfirmViewController/leaveView"
 }
 
 class PINConfirmViewController : UIViewController {
@@ -29,6 +24,8 @@ class PINConfirmViewController : UIViewController {
     // we can getaway with typealias here
     typealias VCTextKey = PINConfirmViewControllerKey
   
+    // MARK: - VC Text Definitions
+    let navTitle = CotterStrings.instance.getText(for: VCTextKey.navTitle)
     let titleText = CotterStrings.instance.getText(for: VCTextKey.title)
     let showPinText = CotterStrings.instance.getText(for: VCTextKey.showPin)
     let hidePinText = CotterStrings.instance.getText(for: VCTextKey.hidePin)
@@ -53,8 +50,6 @@ class PINConfirmViewController : UIViewController {
         addConfigs()
         addDelegates()
         instantiateCodeTextFieldFunctions()
-        
-        self.titleLabel.text = titleText
     }
     
     @IBAction func onClickPinVis(_ sender: UIButton) {
@@ -88,7 +83,7 @@ extension PINConfirmViewController : PINBaseController {
             // If the entered digits are not the same, show error.
             if code != self.prevCode! {
                 if self.errorLabel.isHidden {
-                    self.toggleErrorMsg(msg: PinErrorMessages.wrongPINConfirm)
+                    self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.incorrectPinConfirmation))
                 }
                 return false
             }
@@ -98,7 +93,7 @@ extension PINConfirmViewController : PINBaseController {
             let result = code.range(of: pattern, options: .regularExpression)
             if result != nil || code == "123456" || code == "654321" {
                 if self.errorLabel.isHidden {
-                    self.toggleErrorMsg(msg: PinErrorMessages.badPIN)
+                    self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.badPin))
                 }
                 return false
             }
@@ -113,7 +108,7 @@ extension PINConfirmViewController : PINBaseController {
                 print(err?.localizedDescription ?? "error in the PINConfirmViewController http request")
                 // Display Error
                 if self.errorLabel.isHidden {
-                    self.toggleErrorMsg(msg: PinErrorMessages.enrollPINFailed)
+                    self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.enrollPinFailed))
                 }
             }
             
@@ -143,12 +138,18 @@ extension PINConfirmViewController : PINBaseController {
         self.navigationController?.navigationBar.layoutIfNeeded()
         
         codeTextField.configure()
+        configureText()
         configurePinVisibilityButton()
         configureErrorLabel()
     }
     
     func addDelegates() {
         self.keyboardView.delegate = self
+    }
+    
+    func configureText() {
+        self.navigationItem.title = navTitle
+        self.titleLabel.text = titleText
     }
     
     func configurePinVisibilityButton() {

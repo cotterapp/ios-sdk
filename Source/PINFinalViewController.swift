@@ -10,6 +10,8 @@ import Foundation
 
 public class PINFinalViewControllerKey {
     // MARK: - Keys for Strings
+    static let navTitle = "PINFinalViewController/navTitle"
+    static let successImage = "PINFinalViewController/successImage"
     static let title = "PINFinalViewController/title"
     static let subtitle = "PINFinalViewController/subtitle"
     static let buttonText = "PINFinalViewController/buttonText"
@@ -19,13 +21,13 @@ public class PINFinalViewControllerKey {
     static let closeMessage = "PINFinalViewController/closeMessage"
     static let stayOnView = "PINFinalViewController/stayOnView"
     static let leaveView = "PINFinalViewController/leaveView"
-    static let successImage = "PINFinalViewController/successImage"
 }
 
 class PINFinalViewController: UIViewController {
     typealias VCTextKey = PINFinalViewControllerKey
     
-    // Text Customizations
+    // MARK: VC Text Definitions
+    let successImage = CotterStrings.instance.getText(for: VCTextKey.successImage)
     let successTitle = CotterStrings.instance.getText(for: VCTextKey.title)
     let successSubtitle = CotterStrings.instance.getText(for: VCTextKey.subtitle)
     let successButtonTitle = CotterStrings.instance.getText(for: VCTextKey.buttonText)
@@ -35,7 +37,6 @@ class PINFinalViewController: UIViewController {
     
     // Config Variables
     var requireAuth = true
-    var imagePath: String?
     
     @IBOutlet weak var imageView: UIImageView!
     
@@ -52,7 +53,7 @@ class PINFinalViewController: UIViewController {
         // Add Set-up here
         configureTexts()
         configureNav()
-        loadImage(imagePath: imagePath)
+        loadImage()
         configureButton()
     }
     
@@ -90,14 +91,14 @@ extension PINFinalViewController {
         self.navigationController?.navigationBar.layoutIfNeeded()
     }
     
-    private func loadImage(imagePath: String?) {
-        guard let imagePath = imagePath else {
+    private func loadImage() {
+        guard successImage != "default-cotter-img" else {
             print("Using Default Image...")
-            imageView.image = UIImage(named: "check", in: Bundle(identifier: "org.cocoapods.Cotter"), compatibleWith: nil)
+            imageView.image = UIImage(named: successImage, in: Bundle(identifier: "org.cocoapods.Cotter"), compatibleWith: nil)
             return
         }
       
-        imageView.image = UIImage(named: imagePath, in: Bundle.main, compatibleWith: nil)
+        imageView.image = UIImage(named: successImage, in: Bundle.main, compatibleWith: nil)
     }
     
     private func configureButton() {

@@ -9,6 +9,8 @@ import UIKit
 
 public class UpdateConfirmNewPINViewControllerKey {
     // MARK: - Keys for Strings
+    static let navTitle = "UpdateConfirmNewPINViewController/navTitle"
+    static let title = "UpdateConfirmNewPINViewController/title"
     static let showPin = "UpdateConfirmNewPINViewController/showPin"
     static let hidePin = "UpdateConfirmNewPINViewController/hidePin"
 }
@@ -16,6 +18,9 @@ public class UpdateConfirmNewPINViewControllerKey {
 class UpdateConfirmNewPINViewController: UIViewController {
     typealias VCTextKey = UpdateConfirmNewPINViewControllerKey
   
+    // MARK: - VC Text Definitions
+    let navTitle = CotterStrings.instance.getText(for: VCTextKey.navTitle)
+    let titleText = CotterStrings.instance.getText(for: VCTextKey.title)
     let showPinText = CotterStrings.instance.getText(for: VCTextKey.showPin)
     let hidePinText = CotterStrings.instance.getText(for: VCTextKey.hidePin)
     
@@ -29,6 +34,8 @@ class UpdateConfirmNewPINViewController: UIViewController {
     public var prevCode: String?
     
     @IBOutlet weak var pinVisibilityButton: UIButton!
+    
+    @IBOutlet weak var titleLabel: UILabel!
     
     @IBOutlet weak var errorLabel: UILabel!
     
@@ -83,7 +90,7 @@ extension UpdateConfirmNewPINViewController : PINBaseController {
             // If code is not the same as previous code, show error.
             if code != self.prevCode {
                 if self.errorLabel.isHidden {
-                    self.toggleErrorMsg(msg: PinErrorMessages.wrongPINConfirm)
+                    self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.incorrectPinConfirmation))
                 }
                 return false
             }
@@ -93,7 +100,7 @@ extension UpdateConfirmNewPINViewController : PINBaseController {
             let result = code.range(of: pattern, options: .regularExpression)
             if result != nil || code == "123456" || code == "654321" {
                 if self.errorLabel.isHidden {
-                    self.toggleErrorMsg(msg: PinErrorMessages.badPIN)
+                    self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.badPin))
                 }
                 return false
             }
@@ -111,7 +118,7 @@ extension UpdateConfirmNewPINViewController : PINBaseController {
                 print(err?.localizedDescription ?? "error in UpdateViewController http request")
                 // Display Error
                 if self.errorLabel.isHidden {
-                    self.toggleErrorMsg(msg: PinErrorMessages.updatePINFailed)
+                    self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.updatePinFailed))
                 }
             }
             
@@ -142,12 +149,18 @@ extension UpdateConfirmNewPINViewController : PINBaseController {
         self.navigationItem.leftBarButtonItem = backButton
         
         codeTextField.configure()
+        configureText()
         configureErrorLabel()
         configurePinVisibilityButton()
     }
     
     func addDelegates() {
         self.keyboardView.delegate = self
+    }
+    
+    func configureText() {
+        self.navigationItem.title = navTitle
+        self.titleLabel.text = titleText
     }
     
     func configureErrorLabel() {

@@ -34,20 +34,20 @@ class LAlertDelegate: AlertServiceDelegate {
 class LocalAuthService: UIViewController {
     
     // Configs
-    let authTitle = "Verifikasi"
-    let authBody = "Sentuh sensor sidikjari untuk melanjutkan"
-    let authCancel = "Batalkan"
-    let authAction = "Gunakan PIN"
+    let authTitle = CotterStrings.instance.getText(for: AuthAlertMessagesKey.authTitle)
+    let authBody = CotterStrings.instance.getText(for: AuthAlertMessagesKey.authBody)
+    let authAction = CotterStrings.instance.getText(for: AuthAlertMessagesKey.authActionButton)
+    let authCancel = CotterStrings.instance.getText(for: AuthAlertMessagesKey.authCancelButton)
     
-    let successAuthTitle = "Verifikasi"
-    let successAuthMsg = "Biometric sesuai"
-    let successCancel = "Batalkan"
-    let successAction = "Input PIN"
+    let successTitle = CotterStrings.instance.getText(for: AuthAlertMessagesKey.successDispatchTitle)
+    let successBody = CotterStrings.instance.getText(for: AuthAlertMessagesKey.successDispatchBody)
+    let successAction = CotterStrings.instance.getText(for: AuthAlertMessagesKey.successDispatchActionButton)
+    let successCancel = CotterStrings.instance.getText(for: AuthAlertMessagesKey.successDispatchCancelButton)
     
-    let failAuthTitle = "Authentication Failed"
-    let failAuthMsg = "You could not be verified; please try again."
-    let noAuthMsg = "Your device is not configured for biometric authentication"
-    let tryAgain = "Coba Lagi"
+    let failureTitle = CotterStrings.instance.getText(for: AuthAlertMessagesKey.failureDispatchTitle)
+    let failureBody = CotterStrings.instance.getText(for: AuthAlertMessagesKey.failureDispatchBody)
+    let failureAction = CotterStrings.instance.getText(for: AuthAlertMessagesKey.failureDispatchActionButton)
+    let failureCancel = CotterStrings.instance.getText(for: AuthAlertMessagesKey.failureDispatchCancelButton)
     
     var successAuthCallbackFunc: FinalAuthCallback?
     
@@ -130,6 +130,7 @@ class LocalAuthService: UIViewController {
         guard let userID = apiclient.userID else {
             return false
         }
+        print("userID: \(userID)")
         
         let data = try? JSONSerialization.data(withJSONObject: [
             "client_user_id": userID,
@@ -169,6 +170,7 @@ class LocalAuthService: UIViewController {
     }
     
     // auth does not register the public key to the server when the user is authenticated
+    // Used for Biometric Authentication Challenge
     public func bioAuth(
         view: UIViewController,
         event: String,
@@ -177,7 +179,13 @@ class LocalAuthService: UIViewController {
         let context = LAContext()
         var error: NSError?
         if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
-            let aService = AlertService(vc: view, title: "Verifikasi", body: "Lanjutkan untuk menggunakan verifikasi TouchID atau FaceID", actionButtonTitle: "Lanjutkan", cancelButtonTitle: "Gunakan PIN")
+            let aService = AlertService(
+                vc: view,
+                title: authTitle,
+                body: authBody,
+                actionButtonTitle: authAction,
+                cancelButtonTitle: authCancel
+            )
             
             alertDelegate.defActionHandler = {
                 aService.hide()
@@ -275,11 +283,14 @@ class LocalAuthService: UIViewController {
             
             aService.delegate = alertDelegate
             aService.show()
+        } else {
+            // no biometric then do nothing
+            print("No Biometrics Available!")
         }
-        // no biometric then do nothing
     }
     
     // Configure Local Authentication
+    // Used for PIN Enrollment
     public func authenticate(
         view: UIViewController,
         reason: String,
@@ -292,10 +303,10 @@ class LocalAuthService: UIViewController {
         if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
             let aService = AlertService(
                 vc: view,
-                title: "Verifikasi",
-                body: "Lanjutkan untuk menggunakan verifikasi TouchID atau FaceID",
-                actionButtonTitle: "Lanjutkan",
-                cancelButtonTitle: "Gunakan PIN"
+                title: authTitle,
+                body: authBody,
+                actionButtonTitle: authAction,
+                cancelButtonTitle: authCancel
             )
             let delegate = LAlertDelegate()
             delegate.defActionHandler = {
@@ -341,10 +352,10 @@ class LocalAuthService: UIViewController {
             // Give Success Alert
             let successAlert = AlertService(
                 vc: view,
-                title: self.successAuthTitle,
-                body: self.successAuthMsg,
-                actionButtonTitle: self.authAction,
-                cancelButtonTitle: self.authCancel
+                title: self.successTitle,
+                body: self.successBody,
+                actionButtonTitle: self.successAction,
+                cancelButtonTitle: self.successCancel
             )
             
             let successAlertDelegate = LAlertDelegate()
@@ -365,10 +376,10 @@ class LocalAuthService: UIViewController {
             
             let failedBiometricAlert = AlertService(
                 vc: view,
-                title: self.authTitle,
-                body: self.failAuthMsg,
-                actionButtonTitle: self.tryAgain,
-                cancelButtonTitle: self.authAction
+                title: self.failureTitle,
+                body: self.failureBody,
+                actionButtonTitle: self.failureAction,
+                cancelButtonTitle: self.failureCancel
             )
             
             // try again will re-authenticate

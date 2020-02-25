@@ -9,6 +9,8 @@ import UIKit
 
 public class UpdatePINViewControllerKey {
     // MARK: - Keys for Strings
+    static let navTitle = "UpdatePINViewController/navTitle"
+    static let title = "UpdatePINViewController/title"
     static let showPin = "UpdatePINViewController/showPin"
     static let hidePin = "UpdatePINViewController/hidePin"
 }
@@ -16,8 +18,11 @@ public class UpdatePINViewControllerKey {
 class UpdatePINViewController: UIViewController {
     var authService: LocalAuthService = LocalAuthService()
   
-    typealias VCTextKey = UpdateCreateNewPINViewControllerKey
+    typealias VCTextKey = UpdatePINViewControllerKey
   
+    // MARK: - VC Text Definitions
+    let navTitle = CotterStrings.instance.getText(for: VCTextKey.navTitle)
+    let titleText = CotterStrings.instance.getText(for: VCTextKey.title)
     let showPinText = CotterStrings.instance.getText(for: VCTextKey.showPin)
     let hidePinText = CotterStrings.instance.getText(for: VCTextKey.hidePin)
     
@@ -25,6 +30,8 @@ class UpdatePINViewController: UIViewController {
     public var config: Config?
     
     @IBOutlet weak var pinVisibilityButton: UIButton!
+    
+    @IBOutlet weak var titleLabel: UILabel!
     
     @IBOutlet weak var errorLabel: UILabel!
     
@@ -82,16 +89,6 @@ extension UpdatePINViewController : PINBaseController {
         codeTextField.didEnterLastDigit = { code in
             print("PIN Code Entered: ", code)
             
-            // If code has repeating digits or is a straight number, show error.
-            let pattern = "\\b(\\d)\\1+\\b"
-            let result = code.range(of: pattern, options: .regularExpression)
-            if result != nil || code == "123456" || code == "654321" {
-                if self.errorLabel.isHidden {
-                    self.toggleErrorMsg(msg: PinErrorMessages.badPIN)
-                }
-                return false
-            }
-            
             func pinVerificationCallback(success: Bool) {
                 if success {
                     self.codeTextField.clear()
@@ -101,8 +98,9 @@ extension UpdatePINViewController : PINBaseController {
                     updateCreatePINVC.config = self.config
                     self.navigationController?.pushViewController(updateCreatePINVC, animated: true)
                 } else {
+                    // Pin Verification Failed
                     if self.errorLabel.isHidden {
-                        self.toggleErrorMsg(msg: PinErrorMessages.incorrectPIN)
+                        self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.incorrectPinVerification))
                     }
                 }
             }
@@ -130,12 +128,18 @@ extension UpdatePINViewController : PINBaseController {
         self.navigationItem.leftBarButtonItem = backButton
         
         codeTextField.configure()
+        configureText()
         configureErrorLabel()
         configurePinVisibilityButton()
     }
     
     func addDelegates() {
         self.keyboardView.delegate = self
+    }
+    
+    func configureText() {
+        self.navigationItem.title = navTitle
+        self.titleLabel.text = titleText
     }
     
     func configureErrorLabel() {
