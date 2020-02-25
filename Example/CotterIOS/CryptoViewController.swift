@@ -11,6 +11,7 @@ import UIKit
 import Security
 import LocalAuthentication
 
+@available(iOS 11.0, *)
 class CryptoViewController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()

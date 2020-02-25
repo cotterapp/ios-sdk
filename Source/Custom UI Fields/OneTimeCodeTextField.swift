@@ -58,7 +58,12 @@ class OneTimeCodeTextField : UITextField {
     private func configureTextField() {
         tintColor = .clear
         textColor = .clear
-        textContentType = .oneTimeCode
+        if #available(iOS 12.0, *) {
+            textContentType = .oneTimeCode
+        } else {
+            // Fallback on earlier versions
+            // in this case textContentType doesn't need to be set.
+        }
         
         addTarget(self, action: #selector(codeDidChange), for: .editingChanged)
         delegate = self

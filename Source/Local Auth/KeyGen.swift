@@ -94,10 +94,14 @@ class KeyGen {
         // setting the access control
         // restrict to user presence on any biometric set and when the device is unlocked
         // this will prompt Face ID or Touch ID upon reading the KeyChain Item
+        var accessFlag = SecAccessControlCreateFlags.userPresence
+        if #available(iOS 11.3, *) {
+            accessFlag = SecAccessControlCreateFlags.biometryAny
+        }
         guard let access = SecAccessControlCreateWithFlags(
             nil,  // Use the default allocator.
             kSecAttrAccessibleWhenPasscodeSetThisDeviceOnly,
-            .biometryAny,
+            accessFlag,
             &error
             ) else {
                 throw error!.takeRetainedValue() as Error
