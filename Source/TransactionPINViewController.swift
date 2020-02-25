@@ -9,6 +9,8 @@ import UIKit
 
 public class TransactionPINViewControllerKey {
     // MARK: - Keys for Strings
+    static let navTitle = "TransactionPINViewController/navTitle"
+    static let title = "TransactionPINViewController/title"
     static let showPin = "TransactionPINViewController/showPin"
     static let hidePin = "TransactionPINViewController/hidePin"
     static let closeTitle = "TransactionPINViewController/closeTitle"
@@ -22,21 +24,27 @@ class TransactionPINViewController: UIViewController {
   
     typealias VCTextKey = TransactionPINViewControllerKey
     
-    // Constants
+    // MARK: - Alert Text Definitions
     let closeTitleText = CotterStrings.instance.getText(for: VCTextKey.closeTitle)
     let closeMessageText = CotterStrings.instance.getText(for: VCTextKey.closeMessage)
     let stayText = CotterStrings.instance.getText(for: VCTextKey.stayOnView)
     let leaveText = CotterStrings.instance.getText(for: VCTextKey.leaveView)
+    
+    // MARK: - VC Text Definitions
+    let navTitle = CotterStrings.instance.getText(for: VCTextKey.navTitle)
     let showPinText = CotterStrings.instance.getText(for: VCTextKey.showPin)
     let hidePinText = CotterStrings.instance.getText(for: VCTextKey.hidePin)
+    let titleText = CotterStrings.instance.getText(for: VCTextKey.title)
   
-    lazy var alertService: AlertService = {
-        let alert = AlertService(vc: self, title: closeTitleText, body: closeMessageText, actionButtonTitle: leaveText, cancelButtonTitle: stayText)
-        alert.delegate = self
-        return alert
-    }()
+//    lazy var alertService: AlertService = {
+//        let alert = AlertService(vc: self, title: closeTitleText, body: closeMessageText, actionButtonTitle: leaveText, cancelButtonTitle: stayText)
+//        alert.delegate = self
+//        return alert
+//    }()
     
     @IBOutlet weak var pinVisibilityButton: UIButton!
+    
+    @IBOutlet weak var titleLabel: UILabel!
     
     @IBOutlet weak var errorLabel: UILabel!
     
@@ -148,18 +156,23 @@ extension TransactionPINViewController : PINBaseController {
         self.navigationController?.navigationBar.layoutIfNeeded()
         
         self.navigationItem.hidesBackButton = true
-        let crossButton = UIBarButtonItem(title: "\u{2717}", style: UIBarButtonItem.Style.plain, target: self, action: #selector(TransactionPINViewController.promptClose(sender:)))
+        let crossButton = UIBarButtonItem(title: "\u{2190}", style: UIBarButtonItem.Style.plain, target: self, action: #selector(TransactionPINViewController.promptClose(sender:)))
         crossButton.tintColor = UIColor.black
         self.navigationItem.leftBarButtonItem = crossButton
         
         codeTextField.configure()
+        configureText()
         configureErrorLabel()
         configurePinVisibilityButton()
     }
     
-    // Add any delegates
     func addDelegates() {
         self.keyboardView.delegate = self
+    }
+    
+    func configureText() {
+        self.navigationItem.title = navTitle
+        self.titleLabel.text = titleText
     }
     
     func configureErrorLabel() {
@@ -180,7 +193,9 @@ extension TransactionPINViewController : PINBaseController {
     }
   
     @objc private func promptClose(sender: UIBarButtonItem) {
-        alertService.show()
+//        alertService.show()
+        // Go back to previous screen
+        self.navigationController?.popViewController(animated: true)
     }
 }
 
@@ -196,15 +211,15 @@ extension TransactionPINViewController : KeyboardViewDelegate {
 }
 
 // MARK: - AlertServiceDelegate
-extension TransactionPINViewController : AlertServiceDelegate {
-    func cancelHandler() {
-        alertService.hide()
-    }
-    
-    func actionHandler() {
-        alertService.hide(onComplete: { (Bool) -> Void in
-            self.navigationController?.popViewController(animated: true)
-            return
-        })
-    }
-}
+//extension TransactionPINViewController : AlertServiceDelegate {
+//    func cancelHandler() {
+//        alertService.hide()
+//    }
+//
+//    func actionHandler() {
+//        alertService.hide(onComplete: { (Bool) -> Void in
+//            self.navigationController?.popViewController(animated: true)
+//            return
+//        })
+//    }
+//}

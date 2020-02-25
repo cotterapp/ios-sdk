@@ -9,6 +9,8 @@ import UIKit
 
 public class UpdateCreateNewPINViewControllerKey {
     // MARK: - Keys for Strings
+    static let navTitle = "UpdateCreateNewPINViewController/navTitle"
+    static let title = "UpdateCreateNewPINViewController/title"
     static let showPin = "UpdateCreateNewPINViewController/showPin"
     static let hidePin = "UpdateCreateNewPINViewController/hidePin"
 }
@@ -21,10 +23,15 @@ class UpdateCreateNewPINViewController: UIViewController {
   
     typealias VCTextKey = UpdateCreateNewPINViewControllerKey
   
+    // MARK: - VC Text Definitions
+    let navTitle = CotterStrings.instance.getText(for: VCTextKey.navTitle)
+    let titleText = CotterStrings.instance.getText(for: VCTextKey.title)
     let showPinText = CotterStrings.instance.getText(for: VCTextKey.showPin)
     let hidePinText = CotterStrings.instance.getText(for: VCTextKey.hidePin)
     
     @IBOutlet weak var pinVisibilityButton: UIButton!
+    
+    @IBOutlet weak var titleLabel: UILabel!
     
     @IBOutlet weak var errorLabel: UILabel!
     
@@ -122,12 +129,18 @@ extension UpdateCreateNewPINViewController : PINBaseController {
         self.navigationItem.leftBarButtonItem = backButton
         
         codeTextField.configure()
+        configureText()
         configureErrorLabel()
         configurePinVisibilityButton()
     }
     
     func addDelegates() {
         self.keyboardView.delegate = self
+    }
+    
+    func configureText() {
+        self.navigationItem.title = navTitle
+        self.titleLabel.text = titleText
     }
     
     func configurePinVisButton() {

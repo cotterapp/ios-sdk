@@ -9,6 +9,8 @@ import UIKit
 
 public class UpdatePINViewControllerKey {
     // MARK: - Keys for Strings
+    static let navTitle = "UpdatePINViewController/navTitle"
+    static let title = "UpdatePINViewController/title"
     static let showPin = "UpdatePINViewController/showPin"
     static let hidePin = "UpdatePINViewController/hidePin"
 }
@@ -16,8 +18,11 @@ public class UpdatePINViewControllerKey {
 class UpdatePINViewController: UIViewController {
     var authService: LocalAuthService = LocalAuthService()
   
-    typealias VCTextKey = UpdateCreateNewPINViewControllerKey
+    typealias VCTextKey = UpdatePINViewControllerKey
   
+    // MARK: - VC Text Definitions
+    let navTitle = CotterStrings.instance.getText(for: VCTextKey.navTitle)
+    let titleText = CotterStrings.instance.getText(for: VCTextKey.title)
     let showPinText = CotterStrings.instance.getText(for: VCTextKey.showPin)
     let hidePinText = CotterStrings.instance.getText(for: VCTextKey.hidePin)
     
@@ -25,6 +30,8 @@ class UpdatePINViewController: UIViewController {
     public var config: Config?
     
     @IBOutlet weak var pinVisibilityButton: UIButton!
+    
+    @IBOutlet weak var titleLabel: UILabel!
     
     @IBOutlet weak var errorLabel: UILabel!
     
@@ -130,12 +137,18 @@ extension UpdatePINViewController : PINBaseController {
         self.navigationItem.leftBarButtonItem = backButton
         
         codeTextField.configure()
+        configureText()
         configureErrorLabel()
         configurePinVisibilityButton()
     }
     
     func addDelegates() {
         self.keyboardView.delegate = self
+    }
+    
+    func configureText() {
+        self.navigationItem.title = navTitle
+        self.titleLabel.text = titleText
     }
     
     func configureErrorLabel() {

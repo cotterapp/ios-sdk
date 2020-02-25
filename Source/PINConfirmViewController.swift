@@ -10,6 +10,7 @@ import UIKit
 // PINConfirmViewControllerKey are a list of strings for key to text configuration
 public class PINConfirmViewControllerKey {
     // MARK: - Keys for Strings
+    static let navTitle = "PINConfirmViewController/navTitle"
     static let showPin = "PINConfirmViewController/showPin"
     static let hidePin = "PINConfirmViewController/hidePin"
     static let title = "PINConfirmViewController/title"
@@ -29,6 +30,8 @@ class PINConfirmViewController : UIViewController {
     // we can getaway with typealias here
     typealias VCTextKey = PINConfirmViewControllerKey
   
+    // MARK: - VC Text Definitions
+    let navTitle = CotterStrings.instance.getText(for: VCTextKey.navTitle)
     let titleText = CotterStrings.instance.getText(for: VCTextKey.title)
     let showPinText = CotterStrings.instance.getText(for: VCTextKey.showPin)
     let hidePinText = CotterStrings.instance.getText(for: VCTextKey.hidePin)
@@ -53,8 +56,6 @@ class PINConfirmViewController : UIViewController {
         addConfigs()
         addDelegates()
         instantiateCodeTextFieldFunctions()
-        
-        self.titleLabel.text = titleText
     }
     
     @IBAction func onClickPinVis(_ sender: UIButton) {
@@ -149,6 +150,11 @@ extension PINConfirmViewController : PINBaseController {
     
     func addDelegates() {
         self.keyboardView.delegate = self
+    }
+    
+    func configureText() {
+        self.navigationItem.title = navTitle
+        self.titleLabel.text = titleText
     }
     
     func configurePinVisibilityButton() {

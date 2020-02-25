@@ -10,6 +10,7 @@ import UIKit
 
 public class PINViewControllerKey {
     // MARK: - Keys for Strings
+    public static let navTitle = "PINViewController/navTitle"
     public static let showPin = "PINViewController/showPin"
     public static let hidePin = "PINViewController/hidePin"
     public static let closeTitle = "PINViewController/closeTitle"
@@ -24,12 +25,15 @@ class PINViewController : UIViewController {
     // we can getaway with typealias here
     typealias VCTextKey = PINViewControllerKey
     
-    // MARK: - Alert Service Text definition
+    // MARK: - Alert Service Text Definition
     // Alert Service
     let closeTitleText = CotterStrings.instance.getText(for: VCTextKey.closeTitle)
     let closeMessageText = CotterStrings.instance.getText(for: VCTextKey.closeMessage)
     let stayText = CotterStrings.instance.getText(for: VCTextKey.stayOnView)
     let leaveText = CotterStrings.instance.getText(for: VCTextKey.leaveView)
+    
+    // MARK: - VC Text Definitions
+    let navTitle = CotterStrings.instance.getText(for: VCTextKey.navTitle)
     let showPinText = CotterStrings.instance.getText(for: VCTextKey.showPin)
     let hidePinText = CotterStrings.instance.getText(for: VCTextKey.hidePin)
     let titleText = CotterStrings.instance.getText(for: VCTextKey.title)
@@ -168,15 +172,19 @@ extension PINViewController : PINBaseController {
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.layoutIfNeeded()
         
-        self.titleLabel.text = titleText
-        
         codeTextField.configure()
+        configureText()
         configureErrorLabel()
         configurePinVisibilityButton()
     }
     
     func addDelegates() {
         self.keyboardView.delegate = self
+    }
+    
+    func configureText() {
+        self.navigationItem.title = navTitle
+        self.titleLabel.text = titleText
     }
     
     func configurePinVisibilityButton() {
