@@ -132,7 +132,7 @@ public class Cotter {
     }
     
     // setText sets the string based on the key string
-    public func setText(key:String, value:String) {
-        Config.instance.strings.set(key: key, value: value)
+    public func setText(for key: String, to value: String) {
+        Config.instance.strings.setText(for: key, to: value)
     }
 }
