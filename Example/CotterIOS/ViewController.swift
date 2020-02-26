@@ -88,11 +88,11 @@ class ViewController: UIViewController {
         // Load Cotter View Controller from SDK
         CotterWrapper.cotter = Cotter(
             from: self,
-            successCb: cbFunc,
             apiSecretKey: apiSecretKey,
             apiKeyID: apiKeyID,
             cotterURL: baseURL,
             userID: clientUserID,
+            onComplete: cbFunc,
             // configuration is an optional argument, remove this below and Cotter app will still function properly
             configuration: [
                 "language": langConfig,   // default value is Indonesian()

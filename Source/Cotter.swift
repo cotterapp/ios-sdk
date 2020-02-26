@@ -32,19 +32,19 @@ public class Cotter {
     // initializer with configuration
     public convenience init(
         from parent: UIViewController!,
-        successCb: FinalAuthCallback?,
         apiSecretKey: String,
         apiKeyID: String,
         cotterURL: String,
         userID: String,
+        onComplete: FinalAuthCallback?,
         configuration: [String: Any]
     ) {
         self.init(
             from: parent,
-            successCb: successCb,
             apiSecretKey: apiSecretKey,
             apiKeyID: apiKeyID,
-            cotterURL: cotterURL
+            cotterURL: cotterURL,
+            onComplete: onComplete
         )
         
         CotterAPIService.shared.userID = userID
@@ -57,14 +57,14 @@ public class Cotter {
     // default initializer
     public init(
         from parent: UIViewController!,
-        successCb: FinalAuthCallback?,
         apiSecretKey: String,
         apiKeyID: String,
-        cotterURL: String
+        cotterURL: String,
+        onComplete: FinalAuthCallback?
     ) {
         print("initializing Cotter's SDK...")
         Config.instance.parent = parent
-        if let successCb = successCb { Config.instance.callbackFunc = successCb }
+        if let onComplete = onComplete { Config.instance.callbackFunc = onComplete }
         
         CotterAPIService.shared.baseURL = URL(string: cotterURL)
         CotterAPIService.shared.apiSecretKey = apiSecretKey
