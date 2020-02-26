@@ -24,11 +24,12 @@ CotterIOS simplifies client's integration with Cotter. It is an SDK that provide
 
   s.homepage         = 'https://github.com/cotterapp/ios-sdk.git'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
-  # s.license          = { :type => 'MIT', :file => 'LICENSE' }
+   s.license          = { :type => 'BSD', :file => 'LICENSE' }
   s.author           = { 'Cotter Team' => 'team@cotter.app' }
   s.source           = { :git => 'https://github.com/cotterapp/ios-sdk.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
-
+  
+  s.platform              = :ios
   s.ios.deployment_target = '10.0'
 
   s.source_files = 'Source/**/*.swift'
