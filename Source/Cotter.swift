@@ -64,7 +64,12 @@ public class Cotter {
     ) {
         print("initializing Cotter's SDK...")
         Config.instance.parent = parent
-        if let onComplete = onComplete { Config.instance.callbackFunc = onComplete }
+        if let onComplete = onComplete {
+            Config.instance.callbackFunc = { (token: String, error: Error?) -> Void in
+                parent.navigationController?.popToViewController(parent, animated: false)
+                onComplete(token, error)
+            }
+        }
         
         CotterAPIService.shared.baseURL = URL(string: cotterURL)
         CotterAPIService.shared.apiSecretKey = apiSecretKey
