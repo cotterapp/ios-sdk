@@ -58,9 +58,9 @@ class PINFinalViewController: UIViewController {
     }
     
     @IBAction func finish(_ sender: Any) {
-        let onFinishCallback: FinalAuthCallback = { (token: String, verified: Bool, error: Error?) -> Void in
+        let onFinishCallback: FinalAuthCallback = { (token: String, error: Error?) -> Void in
             self.navigationController?.popToViewController(Config.instance.parent, animated: false)
-            Config.instance.callbackFunc(token, verified, error)
+            Config.instance.callbackFunc(token, error)
         }
       
         // set access token or return values here
@@ -69,7 +69,7 @@ class PINFinalViewController: UIViewController {
             // Touch ID/Face ID Verification
             authService.authenticate(view: self, reason: "Verifikasi", callback: onFinishCallback)
         } else {
-            onFinishCallback("this is token", true, nil)
+            onFinishCallback("this is token", nil)
         }
     }
     

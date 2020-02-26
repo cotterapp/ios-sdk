@@ -24,7 +24,7 @@ class Config: NSObject {
     var PLRedirectURL: String? = "cotter://auth"
     
     private override init() {
-        callbackFunc = { (access_token: String, verified: Bool, error: Error?) -> Void in
+        callbackFunc = { (access_token: String, error: Error?) -> Void in
             print(access_token)
         }
     }

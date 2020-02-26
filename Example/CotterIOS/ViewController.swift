@@ -52,14 +52,15 @@ class ViewController: UIViewController {
         let sboard = UIStoryboard(name: "Dashboard", bundle: nil)
         let dVC = sboard.instantiateViewController(withIdentifier: "DashboardViewController") as! DashboardViewController
         
-        func cbFunc(accessToken:String, verified:Bool, error:Error?) -> Void{
-            if verified && error == nil {
+        func cbFunc(accessToken: String, error: Error?) -> Void{
+            guard let error = error else {
                 dVC.accessToken = accessToken
                 self.navigationController?.pushViewController(dVC, animated: true)
                 return
             }
+          
             // error handling
-            self.errorLabel.text = error?.localizedDescription
+            self.errorLabel.text = error.localizedDescription
         }
         
         // langConfig is an optional language configuration
