@@ -8,10 +8,6 @@
 import Foundation
 import UIKit
 
-func defaultCallback(access_token: String, verified: Bool, error: Error?) -> Void {
-    print(access_token)
-}
-
 public class Cotter {
     // this variable is needed to retain the object of ASWebAuthentication,
     // otherwise the login default prompt will be closed immediately because
@@ -35,6 +31,7 @@ public class Cotter {
     
     // initializer with configuration
     public convenience init(
+        parent: UIViewController!,
         successCb: FinalAuthCallback?,
         apiSecretKey: String,
         apiKeyID: String,
@@ -43,6 +40,7 @@ public class Cotter {
         configuration: [String: Any]
     ) {
         self.init(
+            parent: parent,
             successCb: successCb,
             apiSecretKey: apiSecretKey,
             apiKeyID: apiKeyID,
@@ -58,13 +56,15 @@ public class Cotter {
     
     // default initializer
     public init(
+        parent: UIViewController!,
         successCb: FinalAuthCallback?,
         apiSecretKey: String,
         apiKeyID: String,
         cotterURL: String
     ) {
         print("initializing Cotter's SDK...")
-        Config.instance.callbackFunc = successCb ?? defaultCallback
+        Config.instance.parent = parent
+        if let successCb = successCb { Config.instance.callbackFunc = successCb }
         
         CotterAPIService.shared.baseURL = URL(string: cotterURL)
         CotterAPIService.shared.apiSecretKey = apiSecretKey
@@ -88,7 +88,7 @@ public class Cotter {
     static var updateProfileStoryboard = UIStoryboard(name: "UpdateProfile", bundle: Bundle(identifier: "org.cocoapods.Cotter"))
     
     // Enrollment Corresponding View
-    private lazy var pinVC = Cotter.cotterStoryboard.instantiateViewController(withIdentifier: "PINViewController")as! PINViewController
+    private lazy var pinVC = Cotter.cotterStoryboard.instantiateViewController(withIdentifier: "PINViewController") as! PINViewController
     
     // Transaction Corresponding View
     private lazy var transactionPinVC = Cotter.transactionStoryboard.instantiateViewController(withIdentifier: "TransactionPINViewController") as! TransactionPINViewController
@@ -98,21 +98,21 @@ public class Cotter {
     
     // MARK: - Cotter flows initializers
     // Start of Enrollment Process
-    public func startEnrollment(parentNav: UINavigationController, animated: Bool) {
+    public func startEnrollment(animated: Bool) {
         // push the viewcontroller to the navController
-        parentNav.pushViewController(self.pinVC, animated: true)
+        Config.instance.parent.navigationController?.pushViewController(self.pinVC, animated: true)
     }
     
     // Start of Transaction Process
-    public func startTransaction(parentNav: UINavigationController, animated: Bool) {
+    public func startTransaction(animated: Bool) {
         // Push the viewController to the navController
-        parentNav.pushViewController(self.transactionPinVC, animated: true)
+        Config.instance.parent.navigationController?.pushViewController(self.transactionPinVC, animated: true)
     }
     
     // Start of Update Profile Process
-    public func startUpdateProfile(parentNav: UINavigationController, animated: Bool) {
+    public func startUpdateProfile(animated: Bool) {
         // Push the viewController to the navController
-        parentNav.pushViewController(self.updateProfilePinVC, animated: true)
+        Config.instance.parent.navigationController?.pushViewController(self.updateProfilePinVC, animated: true)
     }
     
     // startPasswordlessLogin starts the login process

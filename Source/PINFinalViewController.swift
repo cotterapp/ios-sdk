@@ -58,7 +58,10 @@ class PINFinalViewController: UIViewController {
     }
     
     @IBAction func finish(_ sender: Any) {
-        guard let onFinishCallback = Config.instance.callbackFunc else { return }
+        let onFinishCallback: FinalAuthCallback = { (token: String, verified: Bool, error: Error?) -> Void in
+            self.navigationController?.popToViewController(Config.instance.parent, animated: false)
+            Config.instance.callbackFunc(token, verified, error)
+        }
       
         // set access token or return values here
         

@@ -53,8 +53,6 @@ class ViewController: UIViewController {
         let dVC = sboard.instantiateViewController(withIdentifier: "DashboardViewController") as! DashboardViewController
         
         func cbFunc(accessToken:String, verified:Bool, error:Error?) -> Void{
-            self.navigationController?.popToViewController(self, animated: false)
-            
             if verified && error == nil {
                 dVC.accessToken = accessToken
                 self.navigationController?.pushViewController(dVC, animated: true)
@@ -89,6 +87,7 @@ class ViewController: UIViewController {
         
         // Load Cotter View Controller from SDK
         CotterWrapper.cotter = Cotter(
+            parent: self,
             successCb: cbFunc,
             apiSecretKey: apiSecretKey,
             apiKeyID: apiKeyID,
@@ -121,15 +120,15 @@ class ViewController: UIViewController {
     }
 
     @IBAction func clickCotter(_ sender: Any) {
-        CotterWrapper.cotter?.startEnrollment(parentNav: self.navigationController!, animated: true)
+        CotterWrapper.cotter?.startEnrollment(animated: true)
     }
     
     @IBAction func clickStartTransaction(_ sender: Any) {
-        CotterWrapper.cotter?.startTransaction(parentNav: self.navigationController!, animated: true)
+        CotterWrapper.cotter?.startTransaction(animated: true)
     }
     
     @IBAction func clickUpdateProfile(_ sender: Any) {
-        CotterWrapper.cotter?.startUpdateProfile(parentNav: self.navigationController!, animated: true)
+        CotterWrapper.cotter?.startUpdateProfile(animated: true)
     }
 }
 

@@ -40,7 +40,7 @@ class TransactionPINViewController: UIViewController {
         super.viewDidAppear(animated)
         print("Transaction PIN View appeared!")
         
-        guard let onFinishCallback = Config.instance.callbackFunc else { return }
+        let onFinishCallback = Config.instance.callbackFunc
         func cb(success: Bool) {
             if success{
                 onFinishCallback("dummy biometric token", true, nil)
@@ -92,10 +92,7 @@ extension TransactionPINViewController : PINBaseController {
         codeTextField.didEnterLastDigit = { code in
             print("PIN Code Entered: ", code)
             
-            guard let cbFunc = Config.instance.callbackFunc else {
-                print("ERROR: no callback function")
-                return false
-            }
+            let cbFunc = Config.instance.callbackFunc
             
             // Callback Function to execute after PIN Verification
             func pinVerificationCallback(success: Bool) {
