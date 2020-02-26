@@ -31,7 +31,7 @@ public class Cotter {
     
     // initializer with configuration
     public convenience init(
-        parent: UIViewController!,
+        from parent: UIViewController!,
         successCb: FinalAuthCallback?,
         apiSecretKey: String,
         apiKeyID: String,
@@ -40,7 +40,7 @@ public class Cotter {
         configuration: [String: Any]
     ) {
         self.init(
-            parent: parent,
+            from: parent,
             successCb: successCb,
             apiSecretKey: apiSecretKey,
             apiKeyID: apiKeyID,
@@ -56,7 +56,7 @@ public class Cotter {
     
     // default initializer
     public init(
-        parent: UIViewController!,
+        from parent: UIViewController!,
         successCb: FinalAuthCallback?,
         apiSecretKey: String,
         apiKeyID: String,

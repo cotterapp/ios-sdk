@@ -223,9 +223,8 @@ extension PINViewController : AlertServiceDelegate {
     }
     
     func actionHandler() {
-        alertService.hide(onComplete: { (Bool) -> Void in
-            self.navigationController?.popViewController(animated: true)
-            return
-        })
+        alertService.hide()
+        self.navigationController?.popToViewController(Config.instance.parent, animated: false)
+        Config.instance.callbackFunc("this is token", true, nil)
     }
 }

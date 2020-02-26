@@ -87,7 +87,7 @@ class ViewController: UIViewController {
         
         // Load Cotter View Controller from SDK
         CotterWrapper.cotter = Cotter(
-            parent: self,
+            from: self,
             successCb: cbFunc,
             apiSecretKey: apiSecretKey,
             apiKeyID: apiKeyID,
