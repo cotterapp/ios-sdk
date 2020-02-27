@@ -34,7 +34,7 @@ CotterIOS simplifies client's integration with Cotter. It is an SDK that provide
 
   s.source_files = 'Source/**/*.swift'
   s.resource_bundles = {
-      'Cotter' => ['Source/**/*.{png,storyboard,lproj}']
+      'Cotter' => ['Source/**/*.{png,storyboard,lproj,xib}']
   }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'

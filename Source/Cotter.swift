@@ -14,6 +14,15 @@ public class Cotter {
     // Passwordless object is deallocated
     var passwordless: Any?
     
+    // Resource Bundle Initialization
+    // Taken from: https://stackoverflow.com/questions/35692265/how-to-load-resource-in-cocoapods-resource-bundle
+    static var resourceBundle: Bundle = {
+        // Set the resource bundle
+        let frameworkBundle = Bundle(for: Cotter.self)
+        let bundleURL = frameworkBundle.resourceURL?.appendingPathComponent("Cotter.bundle")
+        return Bundle(url: bundleURL!)!
+    }()
+    
     public static var PLBaseURL: String? {
         set {
             Config.instance.PLBaseURL = newValue
@@ -82,15 +91,15 @@ public class Cotter {
     // MARK: - Cotter storyboards and VCs
     // cotterStoryboard refers to Cotter.storyboard
     // bundleidentifier can be found when you click Pods general view.
-    static var cotterStoryboard = UIStoryboard(name:"Cotter", bundle:Bundle(identifier: "org.cocoapods.Cotter"))
+    static var cotterStoryboard = UIStoryboard(name:"Cotter", bundle: Cotter.resourceBundle)
     
     // transactionStoryboard refers to Transaction.storyboard
     // bundleidentifier can be found when you click Pods general view.
-    static var transactionStoryboard = UIStoryboard(name: "Transaction", bundle: Bundle(identifier: "org.cocoapods.Cotter"))
+    static var transactionStoryboard = UIStoryboard(name: "Transaction", bundle: Cotter.resourceBundle)
     
     // updateProfileStoryboard refers to Transaction.storyboard
     // bundleidentifier can be found when you click Pods general view.
-    static var updateProfileStoryboard = UIStoryboard(name: "UpdateProfile", bundle: Bundle(identifier: "org.cocoapods.Cotter"))
+    static var updateProfileStoryboard = UIStoryboard(name: "UpdateProfile", bundle: Cotter.resourceBundle)
     
     // Enrollment Corresponding View
     private lazy var pinVC = Cotter.cotterStoryboard.instantiateViewController(withIdentifier: "PINViewController") as! PINViewController
