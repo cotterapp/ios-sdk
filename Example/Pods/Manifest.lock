@@ -1,5 +1,5 @@
 PODS:
-  - Cotter (1.0.0)
+  - Cotter (1.0.1)
 
 DEPENDENCIES:
   - Cotter (from `../`)
@@ -9,8 +9,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Cotter: 5cebdbc7956c7598e6167e11e505fd5a2984bd1c
+  Cotter: 9640b38d58ed902ab7656a8acce40f4bbcff0298
 
 PODFILE CHECKSUM: 6c330073ca55050ad1f8e5ca8c11eb8f2f2c0281
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.7.1
