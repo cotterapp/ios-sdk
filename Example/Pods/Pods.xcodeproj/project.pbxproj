@@ -7,196 +7,195 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0173E36C2D7F0B38F7D9287A0A072887 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842070FDB087944EA8A5BF583263DDBA /* UIImageView.swift */; };
-		05E6328E15C41BE5756C74679B8CCE34 /* English.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF15B5B9C7E24AD4AA4825991B715230 /* English.swift */; };
-		13B05CA35C5669140254429E5E78524E /* UpdatePINViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A7B29B61B243318919A1ACDFC1B13D /* UpdatePINViewController.swift */; };
-		1693A38DF3E1C8708341C1252299D48F /* PINConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3543892B830B3BDB4B04264C368975A /* PINConfirmViewController.swift */; };
-		2404E407C26434B80953BFE4940A1A82 /* EventCreateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ED76168319BF61831563EA3C02869A /* EventCreateResponse.swift */; };
-		2774238E759C3BC1B278115FC702AB2C /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6384833D57B9D8E6DCCAB7B744F8DD2C /* KeyboardView.swift */; };
-		2D0E795875F49B497364D06841AFA7EA /* Pods-CotterIOS_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF8291F5BE9989ECC799AFC7316EFDE /* Pods-CotterIOS_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		306D3B7540470CF1951EEC0AF1421E9B /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A74488DBDB8B22C7627D5E262555540 /* Error.swift */; };
-		336C8B98562C60B12E822BD052DB03BA /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6C552700A7566494AFE79556DC8A88 /* AlertService.swift */; };
-		338B4FB1DDFE66ECFC2346F3A4B1D08F /* Cotter.storyboard in Sources */ = {isa = PBXBuildFile; fileRef = 37FD1910CF6956329770D5F480B9B709 /* Cotter.storyboard */; };
-		42A6802500EA251BB71A9E5AC16D3327 /* PKCE.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0776C6E4CF867470740171ACA4364656 /* PKCE.swift */; };
-		4373B1F7AD490EA4437AE4CB336605DF /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FD1FEFD2C013C890369DA5E386F128 /* UIExtensions.swift */; };
-		488F0EF740FD79199B94A9C96DD2637B /* Cotter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F4E3712170D8523EFD424DA8624A0C /* Cotter.swift */; };
-		48A99B60CAB7E8B2B37DB4922456E391 /* Cotter-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 41E70B5FC5955DCCF18D6D247D57A50E /* Cotter-dummy.m */; };
-		4990775453EA561C7B043B15740FDB36 /* PinErrorMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9878F302A9103851C3CB0D7B413298 /* PinErrorMessages.swift */; };
-		49E44FB2699690AEA4E246D2122AB358 /* KeyboardView.xib in Sources */ = {isa = PBXBuildFile; fileRef = 45FE7D97F6F1BF6F25FB88640CCA1567 /* KeyboardView.xib */; };
-		4D22505918194786A9996980A3D129BB /* Pods-CotterIOS_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4691BA6B5AFE40AA76AD2CF9D06FE047 /* Pods-CotterIOS_Example-dummy.m */; };
-		4E1727BD4A2F7962F9EC0B8D3B1544D5 /* AuthAlertMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A4B3F47A33E2DDC28D2A7C455F28A7 /* AuthAlertMessages.swift */; };
-		50C870C6235D6EED4C07FB2E8A28060C /* CotterAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD59D99AA010C0ADC6BE701CD4C6D771 /* CotterAPIService.swift */; };
-		538326E79E488D1B8D0F3A58D6E85482 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
-		56D67D18809977E23274896E892A3094 /* Transaction.storyboard in Sources */ = {isa = PBXBuildFile; fileRef = 67EBFABF08787863142E9412551FCBC4 /* Transaction.storyboard */; };
-		58B315CB7C3DD5393CF48EA3D6D35E51 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
-		58E56C7FCE9A88CAF065AEE8307FE58B /* PinStepEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEAF0B892C18F7597FA0848CE311103 /* PinStepEnums.swift */; };
-		5AFC44912D0AB39E2B6BCAFAB6C2DCAA /* GetIdentity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AB5857705381989C7DC2E02A216FDD /* GetIdentity.swift */; };
-		5EB3E9C0B7FAE3EF6D454055E455C39F /* Pods-CotterIOS_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E7A8321A666E6CCA738BAF8D3AF161A6 /* Pods-CotterIOS_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		63529130517B1796A0A4488401825464 /* UpdateConfirmNewPINViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA70C1401BCAAFAE621B3D0499467EC6 /* UpdateConfirmNewPINViewController.swift */; };
-		6606871639D3404BDDB68DEC609ED1B8 /* Cotter-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A00FFFD6BF37A6327F7E2E5BFA4141B /* Cotter-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		663F0C32CE870F11AB9DA6E0C49D3119 /* TransactionPINViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3C65AD676C2DF3F9ABBEDD801D3AA8 /* TransactionPINViewController.swift */; };
-		6B96734F478C286D2790948F2E9B1D17 /* PINViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16DA7E751D25C48CE598A14442228C6 /* PINViewController.swift */; };
-		739790122F4DC8565CCCA6956E334FA9 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD27079B5668F6A4B08EB4B5153A2B5 /* Config.swift */; };
-		8267D8879C8FE09A8FF727AA78B0086B /* UpdateProfile.storyboard in Sources */ = {isa = PBXBuildFile; fileRef = 2752FAE1FC74C00658AB68F9B8C10A35 /* UpdateProfile.storyboard */; };
-		85AD5B7F24059ED700AC3367 /* default-cotter-img.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FD55CECDACDC0AF02121FED2AB7C70E /* default-cotter-img.png */; };
-		878E6EC1E95133481E63BEA545F9FA67 /* Pods-CotterIOS_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C3457BCD4C9F468723349EF548DC9867 /* Pods-CotterIOS_Tests-dummy.m */; };
-		937104382BE701C22ED4F47FFEEF809D /* Callback.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2493516C21F38798D364A14B3CCAC64 /* Callback.swift */; };
-		9D1C002F792AD5811DF8DF61A4763ED6 /* LocalAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0220D2FA010FD41170BBD286E7F235E2 /* LocalAuthService.swift */; };
-		A0DE1D4A11F38FED5A38B1BFF37F85EC /* Indonesian.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8036603D2AF22D9AF2AB09076F9796 /* Indonesian.swift */; };
-		A9D5A2236C4F1D802A8344BA947926E5 /* KeyGen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1076D0C0727B15713844FFB1866ED08D /* KeyGen.swift */; };
-		ABA08A41F82B075EB44F63D92EE2F232 /* Passwordless.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54AC454775D7B02426D64062F5A7C349 /* Passwordless.swift */; };
-		BCEEA6924BB427CE82D0D94B28943C25 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
-		BEEE13D3B844AEE9883BA7A28F78C33B /* HTTPCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491ED1CB2D9AC1CB5E0B61D187959721 /* HTTPCallback.swift */; };
-		C2B4BA562EA38C41899B2805A3CB1BBA /* PINFinalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72592AD9CC4221A6889E606048434CD /* PINFinalViewController.swift */; };
-		C5E1BE50054C5A3D2638C2AE933BC7F1 /* PINBaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495F3E62CA4D050671BD6D01B6A8F0EB /* PINBaseController.swift */; };
-		C5F9A120A61748D0FDACA53293E3DE18 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 312B988EF117AE4DE76A268D970131FE /* UIKit.framework */; };
-		C953E38AED0E232661EDADA15BFBA3D2 /* OneTimeCodeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B355BB72ACB4990CEEFD71BF358FEF34 /* OneTimeCodeTextField.swift */; };
-		D02D4EBD538A2CEC10F6C21A129BFB50 /* CotterStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D981901E8D3E4367099E12D46FBB5B9 /* CotterStrings.swift */; };
-		E7E8033D81EA1AC15F97B14D58D6816E /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865098CD8B7CF3F1200D0842DC6ED4C3 /* UIColor.swift */; };
-		EC34074A9F1B862E5A2EA08597DC2CEB /* LanguageObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A113DEB8EC0C4A0ABE7A8342D44C48E /* LanguageObject.swift */; };
-		F2F3A059CC207DC471E7EA7DF8CF7EC1 /* UpdateCreateNewPINViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AEDAAA5415D7303DA95831A85E81D6 /* UpdateCreateNewPINViewController.swift */; };
-		F8F1909FB54941631711857DD32B06EB /* CotterAPIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166FC373D87E7365868D913FA00D5AF3 /* CotterAPIExtensions.swift */; };
-		FFE56631968B014C72F2FFE450B2ECD8 /* ColorSchemeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263F823500744FB6D90FDCE56C285682 /* ColorSchemeObject.swift */; };
+		02B52A6C091120E7B1C41AB879A42863 /* KeyGen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9689D23052D44DED4357B82912C5AB /* KeyGen.swift */; };
+		03049BEE13F78AC677DFCA0076D2D02D /* PINFinalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02375208D934D3F4ED1272239BB7220D /* PINFinalViewController.swift */; };
+		04A3F9DE7FC216FED7E532B59606A7F5 /* LocalAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415D8D3E83AE34D92BE7FAA14D90A371 /* LocalAuthService.swift */; };
+		068D189E9098A9119BA5559963270BA5 /* PinErrorMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03A00206BD03F36EDC5086D2E85FE5B /* PinErrorMessages.swift */; };
+		090536B818A8E45690ABA817BDF681F3 /* OneTimeCodeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A796822955E7907CA1059D48965E5DCD /* OneTimeCodeTextField.swift */; };
+		1173E71CEC675CF6489E5F8BA7CF7C1D /* Transaction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF604FA76D3AE2C29923BB224F330DEC /* Transaction.storyboard */; };
+		1A708F2AFFE83C7605869E1767B3AD2D /* Pods-CotterIOS_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4691BA6B5AFE40AA76AD2CF9D06FE047 /* Pods-CotterIOS_Example-dummy.m */; };
+		1E81FEE1965C656C5243D2312D20048B /* CotterAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908D345ACCC41F059686BA1CFD961A28 /* CotterAPIService.swift */; };
+		203AF5B81EDBED116526C68AAE6A86B6 /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09A06491B5AC18423145E6DE301C588 /* KeyboardView.swift */; };
+		22C9719FB20E16FE0DAADCA759F28B0B /* PKCE.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6B0132A7C5BE941F147C38B45431AB /* PKCE.swift */; };
+		233CFFDEEF07BD589D9D736945326C4A /* KeyboardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B4BB57D8F9FB1F8DBBC84C91B206D35 /* KeyboardView.xib */; };
+		240B01A5671B8D1092E958C0C5D7E393 /* CotterStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBD618D8A16ACEF9F667FC6C741014C /* CotterStrings.swift */; };
+		247F15D5002D2DBD8EEE5A24DAE20B87 /* UpdateCreateNewPINViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D7840882F7D30464AE99419FD1F766 /* UpdateCreateNewPINViewController.swift */; };
+		297A9465366F85A13564BA21F286137A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
+		30CAC931F6CF13DDAC73CF72FB375D89 /* UpdatePINViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F301DBD00A8FE735546139578E0D8E54 /* UpdatePINViewController.swift */; };
+		47D9C1DCFC72530A217EA8D7EADA242C /* default-cotter-img.png in Resources */ = {isa = PBXBuildFile; fileRef = 4519FA441A6ABC262101ADEEEA4DDEBF /* default-cotter-img.png */; };
+		491504465C1457218BEE6AF333EC986E /* UpdateConfirmNewPINViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060108A520CFF60FC6CDCAA51F6431B3 /* UpdateConfirmNewPINViewController.swift */; };
+		4A8790C8F90021438F3E63AAD6979098 /* LanguageObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314A6EA565D52F4C5ACEC141C2A1AC2E /* LanguageObject.swift */; };
+		4B5370E35864053F3B6C206BED5A1083 /* UpdateProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E088AC46562D4F9F4C7B94D70929CF5 /* UpdateProfile.storyboard */; };
+		51B282A5531A6226C0258339F9EAA0E8 /* Callback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D6831FAE4C6C459CF2928A494E048 /* Callback.swift */; };
+		542704BA4EDF129E8F7EE90DBC52AE5E /* English.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF2908DEC16FC19F37F038371FD9CBD /* English.swift */; };
+		65E14510E75530A3C7C082BE83C43F1E /* Cotter.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 207EBBB645DB56C874845DD1B5362DB3 /* Cotter.bundle */; };
+		6A5FFE625BFF20D6C1AAD668015F6022 /* Cotter-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A7C6ACA1C3CE159A3E2358DD6254F690 /* Cotter-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6E57A3A1B0BFD5FA45174BDC759D3D53 /* Pods-CotterIOS_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E7A8321A666E6CCA738BAF8D3AF161A6 /* Pods-CotterIOS_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7ADCDCF26F80846EFF6240E9377A8701 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 312B988EF117AE4DE76A268D970131FE /* UIKit.framework */; };
+		7B1C646B31B63EE04F94A89A60EE3B10 /* ColorSchemeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A39259C699CEECF9710157F0AE83DA /* ColorSchemeObject.swift */; };
+		7EB4F6FF5C6F32F9B50C003BF4D6CAB0 /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2D7D6CE88523B40CC4BE224EE82F56 /* AlertService.swift */; };
+		7F3857A5B7E3D420374A43C134BA2411 /* PINConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B8FB2C961B4EDDE1D7E3A6DAD52773 /* PINConfirmViewController.swift */; };
+		83CA3C83B3CF440E2EB6ADE978430FF4 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC3FD539153D82E406D7D9CB92887FE /* UIImageView.swift */; };
+		851CB5C3893007AB212B22412DDB7BCD /* Pods-CotterIOS_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF8291F5BE9989ECC799AFC7316EFDE /* Pods-CotterIOS_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8A60D9E1689E52C7BA7738A78931BAA8 /* AuthAlertMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712EB95AB3A162F682989A2C4C6B7570 /* AuthAlertMessages.swift */; };
+		8DF1900E269D204B554A2B7063A10A03 /* PINBaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8BF497768F190C450DF3A02FB47B6C /* PINBaseController.swift */; };
+		8E9E5CD342FDB8723357DC866118C456 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = D392D07E0D21422D20D4C6406979DDFE /* Config.swift */; };
+		92FFC8890C0C3622C84481123E3B1DC1 /* PINViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3377AEB7C39A98A54AC72EA9192054 /* PINViewController.swift */; };
+		93C863DDBDA6E9E1280887548A58F9D1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
+		995DAD3CD6C71EEE4ADC9734B153B1F0 /* EventCreateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7816FCC4EAA46A6605913B7556E5D94 /* EventCreateResponse.swift */; };
+		A50ECBB4DD23CB16AC601F6AFF5929DD /* Passwordless.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE40FE22FCE04D779E85D3DF9D11BCF /* Passwordless.swift */; };
+		AA13592017CE3A1A6644373950C5B1A3 /* HTTPCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A08ACFD59AC4B957D88FFDD90994ED4 /* HTTPCallback.swift */; };
+		AC229E6B385453962D954FE8CB85286E /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51CFEE2279724A57BFC51F5274CBA8B /* UIExtensions.swift */; };
+		C0AFC879A39743835323885E4A12AB42 /* Pods-CotterIOS_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C3457BCD4C9F468723349EF548DC9867 /* Pods-CotterIOS_Tests-dummy.m */; };
+		C6D7E0943F72DCD2EF924038B39EF886 /* CotterAPIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3D51012C1FEBA4E3A51A58232A5AB8 /* CotterAPIExtensions.swift */; };
+		CC9FFF2725DF8AF3EE57A77CD61FFEB7 /* Indonesian.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C57B08B4F1D4A788121760889D9CC3 /* Indonesian.swift */; };
+		D3E051266E51A1B1A2B8FF347AF9A459 /* TransactionPINViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D9D447DAB7327C233192A40C7DB8CD /* TransactionPINViewController.swift */; };
+		D407CABCB9C770B9E24C3F2DB856194F /* Cotter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D7B8359F256EB762E56436DE22539BD /* Cotter.storyboard */; };
+		D86F72BD66DB34D0A9F19DBE2C10AC56 /* GetIdentity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EAC9CAC4C31FF64E60774A69F0002B /* GetIdentity.swift */; };
+		DB6E1E162A2CBEB1E905C28AE9A7B0CB /* Cotter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48166698D4B13920BBDEA677A51BEFB /* Cotter.swift */; };
+		DE9B1701AFFDC7AF305B1A85678884E6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
+		E25E8829B5E31FA62EB38310D6CEBC5D /* PinStepEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0E3DCFA11731B9661DE99019BE4326 /* PinStepEnums.swift */; };
+		E579E647081637B7462C52006EDAF623 /* Cotter-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CD25B321192342506C4AE9C685121796 /* Cotter-dummy.m */; };
+		F9B30FEEEE951993F281215969D3E395 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E037E81D2955ED059D96EC5D0B3B91 /* UIColor.swift */; };
+		FFAA6E0E2E12DAEC29BC251D9AA2F472 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87F1220E831352B3B658B9CCAE50492 /* Error.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		70A8FBE425E07E98BB66C3487749B3F8 /* PBXContainerItemProxy */ = {
+		6380FB9E0D67F7ABE1DCB28DB31C7D98 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 6F7853FE0141DC68336C4306610A0FD7;
 			remoteInfo = "Pods-CotterIOS_Example";
 		};
-		CF7AA8165B41369ED3D21842A4AEEF99 /* PBXContainerItemProxy */ = {
+		6A7AC8EE6C311DC6628399193AA43C81 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 99AEC7CA061D4C26C3F42AFA026FE402;
 			remoteInfo = Cotter;
 		};
+		91FE385F27E60872D8E9DB0C51269B5C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 73D2AD3718E111E4FD58AD933268EE14;
+			remoteInfo = "Cotter-Cotter";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0220D2FA010FD41170BBD286E7F235E2 /* LocalAuthService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LocalAuthService.swift; sourceTree = "<group>"; };
-		0776C6E4CF867470740171ACA4364656 /* PKCE.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PKCE.swift; sourceTree = "<group>"; };
-		093A10918520E26EE055209CB5543A28 /* Cotter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Cotter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		09ED76168319BF61831563EA3C02869A /* EventCreateResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EventCreateResponse.swift; sourceTree = "<group>"; };
-		1076D0C0727B15713844FFB1866ED08D /* KeyGen.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = KeyGen.swift; sourceTree = "<group>"; };
-		10A4B3F47A33E2DDC28D2A7C455F28A7 /* AuthAlertMessages.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AuthAlertMessages.swift; sourceTree = "<group>"; };
-		166FC373D87E7365868D913FA00D5AF3 /* CotterAPIExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CotterAPIExtensions.swift; sourceTree = "<group>"; };
-		186C962BB0FA0079ED68B7C9D6664B84 /* Pods_CotterIOS_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CotterIOS_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		02375208D934D3F4ED1272239BB7220D /* PINFinalViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PINFinalViewController.swift; path = Source/PINFinalViewController.swift; sourceTree = "<group>"; };
+		060108A520CFF60FC6CDCAA51F6431B3 /* UpdateConfirmNewPINViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UpdateConfirmNewPINViewController.swift; path = Source/UpdateConfirmNewPINViewController.swift; sourceTree = "<group>"; };
+		093A10918520E26EE055209CB5543A28 /* Cotter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Cotter.framework; path = Cotter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		09B8FB2C961B4EDDE1D7E3A6DAD52773 /* PINConfirmViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PINConfirmViewController.swift; path = Source/PINConfirmViewController.swift; sourceTree = "<group>"; };
+		186C962BB0FA0079ED68B7C9D6664B84 /* Pods_CotterIOS_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_CotterIOS_Example.framework; path = "Pods-CotterIOS_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D1AF3C474E9238EE975CEAE45323547 /* Pods-CotterIOS_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CotterIOS_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		1D3377AEB7C39A98A54AC72EA9192054 /* PINViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PINViewController.swift; path = Source/PINViewController.swift; sourceTree = "<group>"; };
 		1EF8291F5BE9989ECC799AFC7316EFDE /* Pods-CotterIOS_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-CotterIOS_Example-umbrella.h"; sourceTree = "<group>"; };
-		1FD55CECDACDC0AF02121FED2AB7C70E /* default-cotter-img.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "default-cotter-img.png"; sourceTree = "<group>"; };
-		263F823500744FB6D90FDCE56C285682 /* ColorSchemeObject.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ColorSchemeObject.swift; sourceTree = "<group>"; };
-		2752FAE1FC74C00658AB68F9B8C10A35 /* UpdateProfile.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; name = UpdateProfile.storyboard; path = Source/UpdateProfile.storyboard; sourceTree = "<group>"; };
+		207EBBB645DB56C874845DD1B5362DB3 /* Cotter.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = Cotter.bundle; path = "Cotter-Cotter.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		26D7840882F7D30464AE99419FD1F766 /* UpdateCreateNewPINViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UpdateCreateNewPINViewController.swift; path = Source/UpdateCreateNewPINViewController.swift; sourceTree = "<group>"; };
 		2AADF62347A27FDB783F9CD9EF344424 /* Pods-CotterIOS_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CotterIOS_Example-Info.plist"; sourceTree = "<group>"; };
-		2BD27079B5668F6A4B08EB4B5153A2B5 /* Config.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
-		2C122E4412BFE42DD5703A8F98BFFFD0 /* Cotter.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Cotter.modulemap; sourceTree = "<group>"; };
-		2F8036603D2AF22D9AF2AB09076F9796 /* Indonesian.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Indonesian.swift; sourceTree = "<group>"; };
 		312B988EF117AE4DE76A268D970131FE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		31A7B29B61B243318919A1ACDFC1B13D /* UpdatePINViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UpdatePINViewController.swift; path = Source/UpdatePINViewController.swift; sourceTree = "<group>"; };
-		37FD1910CF6956329770D5F480B9B709 /* Cotter.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; name = Cotter.storyboard; path = Source/Cotter.storyboard; sourceTree = "<group>"; };
-		41E70B5FC5955DCCF18D6D247D57A50E /* Cotter-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Cotter-dummy.m"; sourceTree = "<group>"; };
+		314A6EA565D52F4C5ACEC141C2A1AC2E /* LanguageObject.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LanguageObject.swift; sourceTree = "<group>"; };
+		36CF076233C925635CE6E9E2F6100DC5 /* Cotter.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Cotter.xcconfig; sourceTree = "<group>"; };
+		3DF2908DEC16FC19F37F038371FD9CBD /* English.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = English.swift; sourceTree = "<group>"; };
+		3EBD618D8A16ACEF9F667FC6C741014C /* CotterStrings.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CotterStrings.swift; sourceTree = "<group>"; };
+		3F6B0132A7C5BE941F147C38B45431AB /* PKCE.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PKCE.swift; sourceTree = "<group>"; };
+		3F8D6831FAE4C6C459CF2928A494E048 /* Callback.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Callback.swift; sourceTree = "<group>"; };
+		415D8D3E83AE34D92BE7FAA14D90A371 /* LocalAuthService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LocalAuthService.swift; sourceTree = "<group>"; };
 		436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		45FE7D97F6F1BF6F25FB88640CCA1567 /* KeyboardView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = KeyboardView.xib; sourceTree = "<group>"; };
+		4519FA441A6ABC262101ADEEEA4DDEBF /* default-cotter-img.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "default-cotter-img.png"; sourceTree = "<group>"; };
 		4691BA6B5AFE40AA76AD2CF9D06FE047 /* Pods-CotterIOS_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CotterIOS_Example-dummy.m"; sourceTree = "<group>"; };
-		491ED1CB2D9AC1CB5E0B61D187959721 /* HTTPCallback.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HTTPCallback.swift; sourceTree = "<group>"; };
-		495F3E62CA4D050671BD6D01B6A8F0EB /* PINBaseController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PINBaseController.swift; sourceTree = "<group>"; };
-		4C3C65AD676C2DF3F9ABBEDD801D3AA8 /* TransactionPINViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TransactionPINViewController.swift; path = Source/TransactionPINViewController.swift; sourceTree = "<group>"; };
-		5287F1BEB9A7B6A4AA0231F972794897 /* Cotter-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Cotter-Info.plist"; sourceTree = "<group>"; };
-		54AC454775D7B02426D64062F5A7C349 /* Passwordless.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Passwordless.swift; sourceTree = "<group>"; };
-		5C3929F7120DB3A13A4872E2E2901995 /* Cotter.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = Cotter.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		5D981901E8D3E4367099E12D46FBB5B9 /* CotterStrings.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CotterStrings.swift; sourceTree = "<group>"; };
-		5E6C552700A7566494AFE79556DC8A88 /* AlertService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
-		6384833D57B9D8E6DCCAB7B744F8DD2C /* KeyboardView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
-		6717DBC8EE7B47A6EE59E518E59F3CB6 /* Cotter-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Cotter-prefix.pch"; sourceTree = "<group>"; };
-		67EBFABF08787863142E9412551FCBC4 /* Transaction.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; name = Transaction.storyboard; path = Source/Transaction.storyboard; sourceTree = "<group>"; };
-		6A74488DBDB8B22C7627D5E262555540 /* Error.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
-		72AB5857705381989C7DC2E02A216FDD /* GetIdentity.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GetIdentity.swift; sourceTree = "<group>"; };
+		4A08ACFD59AC4B957D88FFDD90994ED4 /* HTTPCallback.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HTTPCallback.swift; sourceTree = "<group>"; };
+		5212D32E5B4D648ABC6BC5480E8EB366 /* Cotter-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Cotter-Info.plist"; sourceTree = "<group>"; };
+		5E088AC46562D4F9F4C7B94D70929CF5 /* UpdateProfile.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; name = UpdateProfile.storyboard; path = Source/UpdateProfile.storyboard; sourceTree = "<group>"; };
+		6B3DA911DDEC99ACE8D3443845F06550 /* Cotter.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Cotter.modulemap; sourceTree = "<group>"; };
+		6BC3FD539153D82E406D7D9CB92887FE /* UIImageView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		712EB95AB3A162F682989A2C4C6B7570 /* AuthAlertMessages.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AuthAlertMessages.swift; sourceTree = "<group>"; };
 		764F5C378AAB225A1497DE1262DF3A93 /* Pods-CotterIOS_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CotterIOS_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		7A113DEB8EC0C4A0ABE7A8342D44C48E /* LanguageObject.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LanguageObject.swift; sourceTree = "<group>"; };
-		83EBBED6FE3FA119B86E78DAD538762E /* ResourceBundle-CotterIOS-Cotter-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-CotterIOS-Cotter-Info.plist"; sourceTree = "<group>"; };
-		842070FDB087944EA8A5BF583263DDBA /* UIImageView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
-		865098CD8B7CF3F1200D0842DC6ED4C3 /* UIColor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		7A8BF497768F190C450DF3A02FB47B6C /* PINBaseController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PINBaseController.swift; sourceTree = "<group>"; };
 		888780F5C27C89C1910BFBB5EB0977C2 /* Pods-CotterIOS_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CotterIOS_Example.release.xcconfig"; sourceTree = "<group>"; };
 		8C421A2D09FC9A0A5A7EDC42607E0A29 /* Pods-CotterIOS_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-CotterIOS_Example.modulemap"; sourceTree = "<group>"; };
-		94F4E3712170D8523EFD424DA8624A0C /* Cotter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Cotter.swift; path = Source/Cotter.swift; sourceTree = "<group>"; };
-		9A00FFFD6BF37A6327F7E2E5BFA4141B /* Cotter-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Cotter-umbrella.h"; sourceTree = "<group>"; };
-		9B9878F302A9103851C3CB0D7B413298 /* PinErrorMessages.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PinErrorMessages.swift; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		A3543892B830B3BDB4B04264C368975A /* PINConfirmViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PINConfirmViewController.swift; path = Source/PINConfirmViewController.swift; sourceTree = "<group>"; };
+		908D345ACCC41F059686BA1CFD961A28 /* CotterAPIService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CotterAPIService.swift; sourceTree = "<group>"; };
+		9B4BB57D8F9FB1F8DBBC84C91B206D35 /* KeyboardView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = KeyboardView.xib; sourceTree = "<group>"; };
+		9D7B8359F256EB762E56436DE22539BD /* Cotter.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; name = Cotter.storyboard; path = Source/Cotter.storyboard; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A615DB5F1CAB6AE30E9945A54304E735 /* Pods-CotterIOS_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CotterIOS_Tests-Info.plist"; sourceTree = "<group>"; };
-		A9AEDAAA5415D7303DA95831A85E81D6 /* UpdateCreateNewPINViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UpdateCreateNewPINViewController.swift; path = Source/UpdateCreateNewPINViewController.swift; sourceTree = "<group>"; };
+		A796822955E7907CA1059D48965E5DCD /* OneTimeCodeTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OneTimeCodeTextField.swift; sourceTree = "<group>"; };
+		A7C6ACA1C3CE159A3E2358DD6254F690 /* Cotter-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Cotter-umbrella.h"; sourceTree = "<group>"; };
 		AB143A542B8AA687AF7192DBC51ECCCC /* Pods-CotterIOS_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CotterIOS_Example-frameworks.sh"; sourceTree = "<group>"; };
-		B16DA7E751D25C48CE598A14442228C6 /* PINViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PINViewController.swift; path = Source/PINViewController.swift; sourceTree = "<group>"; };
-		B355BB72ACB4990CEEFD71BF358FEF34 /* OneTimeCodeTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OneTimeCodeTextField.swift; sourceTree = "<group>"; };
+		B03A00206BD03F36EDC5086D2E85FE5B /* PinErrorMessages.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PinErrorMessages.swift; sourceTree = "<group>"; };
+		B3C4D4A582BA523604821CA034766655 /* ResourceBundle-Cotter-Cotter-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-Cotter-Cotter-Info.plist"; sourceTree = "<group>"; };
+		B5495314C9E7CF4D09E7149EF3906583 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
 		B6680F1A89E5EA239280C88DCA207FDA /* Pods-CotterIOS_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CotterIOS_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		BF15B5B9C7E24AD4AA4825991B715230 /* English.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = English.swift; sourceTree = "<group>"; };
-		C2493516C21F38798D364A14B3CCAC64 /* Callback.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Callback.swift; sourceTree = "<group>"; };
+		BA3D51012C1FEBA4E3A51A58232A5AB8 /* CotterAPIExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CotterAPIExtensions.swift; sourceTree = "<group>"; };
 		C3457BCD4C9F468723349EF548DC9867 /* Pods-CotterIOS_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CotterIOS_Tests-dummy.m"; sourceTree = "<group>"; };
+		C8D9D447DAB7327C233192A40C7DB8CD /* TransactionPINViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TransactionPINViewController.swift; path = Source/TransactionPINViewController.swift; sourceTree = "<group>"; };
 		CA4C85C434B237A0E8B3B12105B79541 /* Pods-CotterIOS_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-CotterIOS_Tests.modulemap"; sourceTree = "<group>"; };
-		CD59D99AA010C0ADC6BE701CD4C6D771 /* CotterAPIService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CotterAPIService.swift; sourceTree = "<group>"; };
+		CD25B321192342506C4AE9C685121796 /* Cotter-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Cotter-dummy.m"; sourceTree = "<group>"; };
+		CDE40FE22FCE04D779E85D3DF9D11BCF /* Passwordless.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Passwordless.swift; sourceTree = "<group>"; };
+		CF604FA76D3AE2C29923BB224F330DEC /* Transaction.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; name = Transaction.storyboard; path = Source/Transaction.storyboard; sourceTree = "<group>"; };
+		D392D07E0D21422D20D4C6406979DDFE /* Config.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		D432078770DA0D0AC41231B42A87AADA /* Pods-CotterIOS_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CotterIOS_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		D48166698D4B13920BBDEA677A51BEFB /* Cotter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Cotter.swift; path = Source/Cotter.swift; sourceTree = "<group>"; };
+		DF2D7D6CE88523B40CC4BE224EE82F56 /* AlertService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
 		DF385A003E341B9D7DB3D95786CD0EFB /* Pods-CotterIOS_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CotterIOS_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		E09A06491B5AC18423145E6DE301C588 /* KeyboardView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
+		E51CFEE2279724A57BFC51F5274CBA8B /* UIExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
 		E61205360A171FA590FDD5F00DE80816 /* Pods-CotterIOS_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CotterIOS_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		E72592AD9CC4221A6889E606048434CD /* PINFinalViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PINFinalViewController.swift; path = Source/PINFinalViewController.swift; sourceTree = "<group>"; };
+		E7816FCC4EAA46A6605913B7556E5D94 /* EventCreateResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EventCreateResponse.swift; sourceTree = "<group>"; };
 		E7A8321A666E6CCA738BAF8D3AF161A6 /* Pods-CotterIOS_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-CotterIOS_Tests-umbrella.h"; sourceTree = "<group>"; };
-		EA70C1401BCAAFAE621B3D0499467EC6 /* UpdateConfirmNewPINViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UpdateConfirmNewPINViewController.swift; path = Source/UpdateConfirmNewPINViewController.swift; sourceTree = "<group>"; };
-		EBEAF0B892C18F7597FA0848CE311103 /* PinStepEnums.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PinStepEnums.swift; sourceTree = "<group>"; };
+		EAEEA639251C7DDDBCF18FEAA480E4AB /* Cotter.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = Cotter.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		EC0E3DCFA11731B9661DE99019BE4326 /* PinStepEnums.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PinStepEnums.swift; sourceTree = "<group>"; };
 		EF85547857B74F72A8C06F58CA6322B0 /* Pods-CotterIOS_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CotterIOS_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		F5FD1FEFD2C013C890369DA5E386F128 /* UIExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
-		F677FF020BF40D44A86E968A614DB75B /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		F96CD1BD0F1462CD17B26515AC55CEA8 /* Pods_CotterIOS_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CotterIOS_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FB785E877401A9ED6F868A861EC63A45 /* Cotter.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Cotter.xcconfig; sourceTree = "<group>"; };
+		F1A39259C699CEECF9710157F0AE83DA /* ColorSchemeObject.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ColorSchemeObject.swift; sourceTree = "<group>"; };
+		F1E037E81D2955ED059D96EC5D0B3B91 /* UIColor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		F1EAC9CAC4C31FF64E60774A69F0002B /* GetIdentity.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GetIdentity.swift; sourceTree = "<group>"; };
+		F301DBD00A8FE735546139578E0D8E54 /* UpdatePINViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UpdatePINViewController.swift; path = Source/UpdatePINViewController.swift; sourceTree = "<group>"; };
+		F4C57B08B4F1D4A788121760889D9CC3 /* Indonesian.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Indonesian.swift; sourceTree = "<group>"; };
+		F52194BBC5C68CEB8E75D67C58B4411E /* Cotter-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Cotter-prefix.pch"; sourceTree = "<group>"; };
+		F87F1220E831352B3B658B9CCAE50492 /* Error.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		F96CD1BD0F1462CD17B26515AC55CEA8 /* Pods_CotterIOS_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_CotterIOS_Tests.framework; path = "Pods-CotterIOS_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE9689D23052D44DED4357B82912C5AB /* KeyGen.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = KeyGen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		44FBF481DBF64A1100E80AE4BEAC81DB /* Frameworks */ = {
+		784A4722A41D20805730FE6B3CAFA1AE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BCEEA6924BB427CE82D0D94B28943C25 /* Foundation.framework in Frameworks */,
+				297A9465366F85A13564BA21F286137A /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5EF6F0926B597C6ED31CF6FB45806ED7 /* Frameworks */ = {
+		D8624EFF718C65CCC5D018C499860B3C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				58B315CB7C3DD5393CF48EA3D6D35E51 /* Foundation.framework in Frameworks */,
+				93C863DDBDA6E9E1280887548A58F9D1 /* Foundation.framework in Frameworks */,
+				7ADCDCF26F80846EFF6240E9377A8701 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E6ADC3194B846194BBE1FB14D025C3EC /* Frameworks */ = {
+		E61EC09EE85F141CD47ED3D8EE8EFE59 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				538326E79E488D1B8D0F3A58D6E85482 /* Foundation.framework in Frameworks */,
-				C5F9A120A61748D0FDACA53293E3DE18 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EA65D6A1DCA7F5E0607D11DE9964FD6E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE9B1701AFFDC7AF305B1A85678884E6 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		03E36AA599340B18AB99F781F517B1A2 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				C2493516C21F38798D364A14B3CCAC64 /* Callback.swift */,
-			);
-			name = Models;
-			path = Source/Models;
-			sourceTree = "<group>";
-		};
-		06F3508485CD1896D59F4C3C1364E1C7 /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-				1FD55CECDACDC0AF02121FED2AB7C70E /* default-cotter-img.png */,
-			);
-			path = Assets;
-			sourceTree = "<group>";
-		};
 		1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -205,49 +204,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		2273D73114CDF66070614AE37E929525 /* LanguageObject */ = {
+		19BDED736C870FA3FA5027D195A2D7CE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				BF15B5B9C7E24AD4AA4825991B715230 /* English.swift */,
-				2F8036603D2AF22D9AF2AB09076F9796 /* Indonesian.swift */,
-				7A113DEB8EC0C4A0ABE7A8342D44C48E /* LanguageObject.swift */,
+				9D7B8359F256EB762E56436DE22539BD /* Cotter.storyboard */,
+				CF604FA76D3AE2C29923BB224F330DEC /* Transaction.storyboard */,
+				5E088AC46562D4F9F4C7B94D70929CF5 /* UpdateProfile.storyboard */,
+				F75F1103A0B3165BB755381F02369EFF /* Base */,
+				82B859C09176154F1BE46DBB9777C151 /* Custom UI Fields */,
 			);
-			path = LanguageObject;
+			name = Resources;
 			sourceTree = "<group>";
 		};
-		22AA1B076E29292DD53ED8689C8CEC62 /* Extensions */ = {
+		2EAA548BB331525B3549617100F7222C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				865098CD8B7CF3F1200D0842DC6ED4C3 /* UIColor.swift */,
-				842070FDB087944EA8A5BF583263DDBA /* UIImageView.swift */,
-			);
-			name = Extensions;
-			path = Source/Extensions;
-			sourceTree = "<group>";
-		};
-		29A2F73495C462B5EBC034633FD19D77 /* Service */ = {
-			isa = PBXGroup;
-			children = (
-				166FC373D87E7365868D913FA00D5AF3 /* CotterAPIExtensions.swift */,
-				CD59D99AA010C0ADC6BE701CD4C6D771 /* CotterAPIService.swift */,
-				491ED1CB2D9AC1CB5E0B61D187959721 /* HTTPCallback.swift */,
-				642A65F9716916F324A83A8B95F0F379 /* Models */,
-			);
-			name = Service;
-			path = Source/Service;
-			sourceTree = "<group>";
-		};
-		2A074FD3A20E92C84B3BFEC782ECBFA9 /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				51ACCF4385165219C9C4098FE13F74CC /* Cotter */,
-			);
-			name = "Development Pods";
-			sourceTree = "<group>";
-		};
-		2DC797D0267FF2C0E2AFCC9DC2D48204 /* Products */ = {
-			isa = PBXGroup;
-			children = (
+				207EBBB645DB56C874845DD1B5362DB3 /* Cotter.bundle */,
 				093A10918520E26EE055209CB5543A28 /* Cotter.framework */,
 				186C962BB0FA0079ED68B7C9D6664B84 /* Pods_CotterIOS_Example.framework */,
 				F96CD1BD0F1462CD17B26515AC55CEA8 /* Pods_CotterIOS_Tests.framework */,
@@ -255,66 +227,84 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3E86CD4115114F6B43D050459C9EB515 /* Custom UI Fields */ = {
+		30456FF4D31724C86A06F0C966AFC262 /* Config */ = {
 			isa = PBXGroup;
 			children = (
-				B355BB72ACB4990CEEFD71BF358FEF34 /* OneTimeCodeTextField.swift */,
-				F5FD1FEFD2C013C890369DA5E386F128 /* UIExtensions.swift */,
-				DFD534C871276B4B2F2C7D336BE9846A /* Keyboard */,
+				D392D07E0D21422D20D4C6406979DDFE /* Config.swift */,
+				3EBD618D8A16ACEF9F667FC6C741014C /* CotterStrings.swift */,
+				F87F1220E831352B3B658B9CCAE50492 /* Error.swift */,
+				B03A00206BD03F36EDC5086D2E85FE5B /* PinErrorMessages.swift */,
+				EC0E3DCFA11731B9661DE99019BE4326 /* PinStepEnums.swift */,
+				A4B7AF72C39E4ED284CD134F8929F9D1 /* ColorSchemeObject */,
+				59B706A754D63037AB8A8187830A6443 /* LanguageObject */,
 			);
-			name = "Custom UI Fields";
-			path = "Source/Custom UI Fields";
+			name = Config;
+			path = Source/Config;
 			sourceTree = "<group>";
 		};
-		51ACCF4385165219C9C4098FE13F74CC /* Cotter */ = {
+		34F3B91F47F0A9090DFEA98E8FF6F3B3 /* Keyboard */ = {
 			isa = PBXGroup;
 			children = (
-				37FD1910CF6956329770D5F480B9B709 /* Cotter.storyboard */,
-				94F4E3712170D8523EFD424DA8624A0C /* Cotter.swift */,
-				A3543892B830B3BDB4B04264C368975A /* PINConfirmViewController.swift */,
-				E72592AD9CC4221A6889E606048434CD /* PINFinalViewController.swift */,
-				B16DA7E751D25C48CE598A14442228C6 /* PINViewController.swift */,
-				67EBFABF08787863142E9412551FCBC4 /* Transaction.storyboard */,
-				4C3C65AD676C2DF3F9ABBEDD801D3AA8 /* TransactionPINViewController.swift */,
-				EA70C1401BCAAFAE621B3D0499467EC6 /* UpdateConfirmNewPINViewController.swift */,
-				A9AEDAAA5415D7303DA95831A85E81D6 /* UpdateCreateNewPINViewController.swift */,
-				31A7B29B61B243318919A1ACDFC1B13D /* UpdatePINViewController.swift */,
-				2752FAE1FC74C00658AB68F9B8C10A35 /* UpdateProfile.storyboard */,
-				D30B9FC6384D6AB17939C566C790C077 /* Alert */,
-				622C85BA2D0A3796E56FB904361ED7F9 /* Base */,
-				B6DBADF8E2B507B52A42DE2D7A4B9BD7 /* Config */,
-				7FFC350C9FB3ECF599DDCFB1116CFA6E /* Crypto */,
-				3E86CD4115114F6B43D050459C9EB515 /* Custom UI Fields */,
-				22AA1B076E29292DD53ED8689C8CEC62 /* Extensions */,
-				F6162A1D65ED50AD20DB1E0098548B9A /* Local Auth */,
-				03E36AA599340B18AB99F781F517B1A2 /* Models */,
-				AFBA24365E3CBFE60BB62C74E2BFD58B /* Passwordless */,
-				AF2E7F973128FA4372F17B8E153F1077 /* Pod */,
-				B260097F03CB71CB4ACE5646F5FCA096 /* Resources */,
-				29A2F73495C462B5EBC034633FD19D77 /* Service */,
-				81C196F3117977AD3CB0B9E3D3790402 /* Support Files */,
+				9B4BB57D8F9FB1F8DBBC84C91B206D35 /* KeyboardView.xib */,
 			);
-			name = Cotter;
-			path = ../..;
+			name = Keyboard;
+			path = Keyboard;
 			sourceTree = "<group>";
 		};
-		622C85BA2D0A3796E56FB904361ED7F9 /* Base */ = {
+		3BEBEB777916CF27B3ED780E5A95C687 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				495F3E62CA4D050671BD6D01B6A8F0EB /* PINBaseController.swift */,
-				06F3508485CD1896D59F4C3C1364E1C7 /* Assets */,
+				E4693A339C147B69B1C0873B2A6EEBC1 /* Cotter */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		44052A3559B5B380009DB60F9BD0AFFA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E7816FCC4EAA46A6605913B7556E5D94 /* EventCreateResponse.swift */,
+				F1EAC9CAC4C31FF64E60774A69F0002B /* GetIdentity.swift */,
+			);
+			name = Models;
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4CBE84689837518A33611825BF0A26DE /* Keyboard */ = {
+			isa = PBXGroup;
+			children = (
+				E09A06491B5AC18423145E6DE301C588 /* KeyboardView.swift */,
+			);
+			name = Keyboard;
+			path = Keyboard;
+			sourceTree = "<group>";
+		};
+		4DA552E5101A446119AE5526F40D803C /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				EAEEA639251C7DDDBCF18FEAA480E4AB /* Cotter.podspec */,
+				B5495314C9E7CF4D09E7149EF3906583 /* README.md */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		59B706A754D63037AB8A8187830A6443 /* LanguageObject */ = {
+			isa = PBXGroup;
+			children = (
+				3DF2908DEC16FC19F37F038371FD9CBD /* English.swift */,
+				F4C57B08B4F1D4A788121760889D9CC3 /* Indonesian.swift */,
+				314A6EA565D52F4C5ACEC141C2A1AC2E /* LanguageObject.swift */,
+			);
+			name = LanguageObject;
+			path = LanguageObject;
+			sourceTree = "<group>";
+		};
+		66DBB526389C061BF325935322A7F257 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				7A8BF497768F190C450DF3A02FB47B6C /* PINBaseController.swift */,
 			);
 			name = Base;
 			path = Source/Base;
-			sourceTree = "<group>";
-		};
-		642A65F9716916F324A83A8B95F0F379 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				09ED76168319BF61831563EA3C02869A /* EventCreateResponse.swift */,
-				72AB5857705381989C7DC2E02A216FDD /* GetIdentity.swift */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		7225BA699516813152561772EBA139CD /* Pods-CotterIOS_Example */ = {
@@ -334,28 +324,22 @@
 			path = "Target Support Files/Pods-CotterIOS_Example";
 			sourceTree = "<group>";
 		};
-		7FFC350C9FB3ECF599DDCFB1116CFA6E /* Crypto */ = {
+		82B859C09176154F1BE46DBB9777C151 /* Custom UI Fields */ = {
 			isa = PBXGroup;
 			children = (
-				0776C6E4CF867470740171ACA4364656 /* PKCE.swift */,
+				34F3B91F47F0A9090DFEA98E8FF6F3B3 /* Keyboard */,
 			);
-			name = Crypto;
-			path = Source/Crypto;
+			name = "Custom UI Fields";
+			path = "Source/Custom UI Fields";
 			sourceTree = "<group>";
 		};
-		81C196F3117977AD3CB0B9E3D3790402 /* Support Files */ = {
+		8AB6E79475170E575F12167113C82E51 /* Alert */ = {
 			isa = PBXGroup;
 			children = (
-				2C122E4412BFE42DD5703A8F98BFFFD0 /* Cotter.modulemap */,
-				FB785E877401A9ED6F868A861EC63A45 /* Cotter.xcconfig */,
-				41E70B5FC5955DCCF18D6D247D57A50E /* Cotter-dummy.m */,
-				5287F1BEB9A7B6A4AA0231F972794897 /* Cotter-Info.plist */,
-				6717DBC8EE7B47A6EE59E518E59F3CB6 /* Cotter-prefix.pch */,
-				9A00FFFD6BF37A6327F7E2E5BFA4141B /* Cotter-umbrella.h */,
-				83EBBED6FE3FA119B86E78DAD538762E /* ResourceBundle-CotterIOS-Cotter-Info.plist */,
+				DF2D7D6CE88523B40CC4BE224EE82F56 /* AlertService.swift */,
 			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/Cotter";
+			name = Alert;
+			path = Source/Alert;
 			sourceTree = "<group>";
 		};
 		A167738849255009411B5B00D7019540 /* Pods-CotterIOS_Tests */ = {
@@ -374,44 +358,70 @@
 			path = "Target Support Files/Pods-CotterIOS_Tests";
 			sourceTree = "<group>";
 		};
-		AF2E7F973128FA4372F17B8E153F1077 /* Pod */ = {
+		A4B7AF72C39E4ED284CD134F8929F9D1 /* ColorSchemeObject */ = {
 			isa = PBXGroup;
 			children = (
-				5C3929F7120DB3A13A4872E2E2901995 /* Cotter.podspec */,
-				F677FF020BF40D44A86E968A614DB75B /* README.md */,
+				F1A39259C699CEECF9710157F0AE83DA /* ColorSchemeObject.swift */,
 			);
-			name = Pod;
+			name = ColorSchemeObject;
+			path = ColorSchemeObject;
 			sourceTree = "<group>";
 		};
-		AFBA24365E3CBFE60BB62C74E2BFD58B /* Passwordless */ = {
+		AE0707996069B25098B5853AE68A0360 /* Local Auth */ = {
 			isa = PBXGroup;
 			children = (
-				54AC454775D7B02426D64062F5A7C349 /* Passwordless.swift */,
+				712EB95AB3A162F682989A2C4C6B7570 /* AuthAlertMessages.swift */,
+				FE9689D23052D44DED4357B82912C5AB /* KeyGen.swift */,
+				415D8D3E83AE34D92BE7FAA14D90A371 /* LocalAuthService.swift */,
 			);
-			name = Passwordless;
-			path = Source/Passwordless;
+			name = "Local Auth";
+			path = "Source/Local Auth";
 			sourceTree = "<group>";
 		};
-		B260097F03CB71CB4ACE5646F5FCA096 /* Resources */ = {
+		AE43C575660B866D6291B2F89A5CEC7C /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				4519FA441A6ABC262101ADEEEA4DDEBF /* default-cotter-img.png */,
 			);
-			name = Resources;
+			name = Assets;
+			path = Assets;
 			sourceTree = "<group>";
 		};
-		B6DBADF8E2B507B52A42DE2D7A4B9BD7 /* Config */ = {
+		B51CE051630E17AC39EBC1770F3CE6D7 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				2BD27079B5668F6A4B08EB4B5153A2B5 /* Config.swift */,
-				5D981901E8D3E4367099E12D46FBB5B9 /* CotterStrings.swift */,
-				6A74488DBDB8B22C7627D5E262555540 /* Error.swift */,
-				9B9878F302A9103851C3CB0D7B413298 /* PinErrorMessages.swift */,
-				EBEAF0B892C18F7597FA0848CE311103 /* PinStepEnums.swift */,
-				DF1EC111F8FFD7A04931878FF554616E /* ColorSchemeObject */,
-				2273D73114CDF66070614AE37E929525 /* LanguageObject */,
+				6B3DA911DDEC99ACE8D3443845F06550 /* Cotter.modulemap */,
+				36CF076233C925635CE6E9E2F6100DC5 /* Cotter.xcconfig */,
+				CD25B321192342506C4AE9C685121796 /* Cotter-dummy.m */,
+				5212D32E5B4D648ABC6BC5480E8EB366 /* Cotter-Info.plist */,
+				F52194BBC5C68CEB8E75D67C58B4411E /* Cotter-prefix.pch */,
+				A7C6ACA1C3CE159A3E2358DD6254F690 /* Cotter-umbrella.h */,
+				B3C4D4A582BA523604821CA034766655 /* ResourceBundle-Cotter-Cotter-Info.plist */,
 			);
-			name = Config;
-			path = Source/Config;
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/Cotter";
+			sourceTree = "<group>";
+		};
+		C47378379B391E1D548A9A25A06F6A4F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F1E037E81D2955ED059D96EC5D0B3B91 /* UIColor.swift */,
+				6BC3FD539153D82E406D7D9CB92887FE /* UIImageView.swift */,
+			);
+			name = Extensions;
+			path = Source/Extensions;
+			sourceTree = "<group>";
+		};
+		C6192FABCBBEDF8424398AFDE5F173E8 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				BA3D51012C1FEBA4E3A51A58232A5AB8 /* CotterAPIExtensions.swift */,
+				908D345ACCC41F059686BA1CFD961A28 /* CotterAPIService.swift */,
+				4A08ACFD59AC4B957D88FFDD90994ED4 /* HTTPCallback.swift */,
+				44052A3559B5B380009DB60F9BD0AFFA /* Models */,
+			);
+			name = Service;
+			path = Source/Service;
 			sourceTree = "<group>";
 		};
 		C63CC26A06CA5390E20DB3C8A6FAD205 /* Targets Support Files */ = {
@@ -427,37 +437,40 @@
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				2A074FD3A20E92C84B3BFEC782ECBFA9 /* Development Pods */,
+				3BEBEB777916CF27B3ED780E5A95C687 /* Development Pods */,
 				1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */,
-				2DC797D0267FF2C0E2AFCC9DC2D48204 /* Products */,
+				2EAA548BB331525B3549617100F7222C /* Products */,
 				C63CC26A06CA5390E20DB3C8A6FAD205 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		D30B9FC6384D6AB17939C566C790C077 /* Alert */ = {
+		D408D279D0EDC670EE750104B7F8B1B9 /* Custom UI Fields */ = {
 			isa = PBXGroup;
 			children = (
-				5E6C552700A7566494AFE79556DC8A88 /* AlertService.swift */,
+				A796822955E7907CA1059D48965E5DCD /* OneTimeCodeTextField.swift */,
+				E51CFEE2279724A57BFC51F5274CBA8B /* UIExtensions.swift */,
+				4CBE84689837518A33611825BF0A26DE /* Keyboard */,
 			);
-			name = Alert;
-			path = Source/Alert;
+			name = "Custom UI Fields";
+			path = "Source/Custom UI Fields";
 			sourceTree = "<group>";
 		};
-		DF1EC111F8FFD7A04931878FF554616E /* ColorSchemeObject */ = {
+		DB39090CAC105678DCCDE04E01D90907 /* Passwordless */ = {
 			isa = PBXGroup;
 			children = (
-				263F823500744FB6D90FDCE56C285682 /* ColorSchemeObject.swift */,
+				CDE40FE22FCE04D779E85D3DF9D11BCF /* Passwordless.swift */,
 			);
-			path = ColorSchemeObject;
+			name = Passwordless;
+			path = Source/Passwordless;
 			sourceTree = "<group>";
 		};
-		DFD534C871276B4B2F2C7D336BE9846A /* Keyboard */ = {
+		DBEF37AAA1F047D4AFA1834A3469B421 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				6384833D57B9D8E6DCCAB7B744F8DD2C /* KeyboardView.swift */,
-				45FE7D97F6F1BF6F25FB88640CCA1567 /* KeyboardView.xib */,
+				3F8D6831FAE4C6C459CF2928A494E048 /* Callback.swift */,
 			);
-			path = Keyboard;
+			name = Models;
+			path = Source/Models;
 			sourceTree = "<group>";
 		};
 		E2983683FD097A93297E2F5D4E382B36 /* iOS */ = {
@@ -469,41 +482,77 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		F6162A1D65ED50AD20DB1E0098548B9A /* Local Auth */ = {
+		E3C5476F68E267772AB542C3DAA87F05 /* Crypto */ = {
 			isa = PBXGroup;
 			children = (
-				10A4B3F47A33E2DDC28D2A7C455F28A7 /* AuthAlertMessages.swift */,
-				1076D0C0727B15713844FFB1866ED08D /* KeyGen.swift */,
-				0220D2FA010FD41170BBD286E7F235E2 /* LocalAuthService.swift */,
+				3F6B0132A7C5BE941F147C38B45431AB /* PKCE.swift */,
 			);
-			name = "Local Auth";
-			path = "Source/Local Auth";
+			name = Crypto;
+			path = Source/Crypto;
+			sourceTree = "<group>";
+		};
+		E4693A339C147B69B1C0873B2A6EEBC1 /* Cotter */ = {
+			isa = PBXGroup;
+			children = (
+				D48166698D4B13920BBDEA677A51BEFB /* Cotter.swift */,
+				09B8FB2C961B4EDDE1D7E3A6DAD52773 /* PINConfirmViewController.swift */,
+				02375208D934D3F4ED1272239BB7220D /* PINFinalViewController.swift */,
+				1D3377AEB7C39A98A54AC72EA9192054 /* PINViewController.swift */,
+				C8D9D447DAB7327C233192A40C7DB8CD /* TransactionPINViewController.swift */,
+				060108A520CFF60FC6CDCAA51F6431B3 /* UpdateConfirmNewPINViewController.swift */,
+				26D7840882F7D30464AE99419FD1F766 /* UpdateCreateNewPINViewController.swift */,
+				F301DBD00A8FE735546139578E0D8E54 /* UpdatePINViewController.swift */,
+				8AB6E79475170E575F12167113C82E51 /* Alert */,
+				66DBB526389C061BF325935322A7F257 /* Base */,
+				30456FF4D31724C86A06F0C966AFC262 /* Config */,
+				E3C5476F68E267772AB542C3DAA87F05 /* Crypto */,
+				D408D279D0EDC670EE750104B7F8B1B9 /* Custom UI Fields */,
+				C47378379B391E1D548A9A25A06F6A4F /* Extensions */,
+				AE0707996069B25098B5853AE68A0360 /* Local Auth */,
+				DBEF37AAA1F047D4AFA1834A3469B421 /* Models */,
+				DB39090CAC105678DCCDE04E01D90907 /* Passwordless */,
+				4DA552E5101A446119AE5526F40D803C /* Pod */,
+				19BDED736C870FA3FA5027D195A2D7CE /* Resources */,
+				C6192FABCBBEDF8424398AFDE5F173E8 /* Service */,
+				B51CE051630E17AC39EBC1770F3CE6D7 /* Support Files */,
+			);
+			name = Cotter;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		F75F1103A0B3165BB755381F02369EFF /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				AE43C575660B866D6291B2F89A5CEC7C /* Assets */,
+			);
+			name = Base;
+			path = Source/Base;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		1D025AEE51D51196D907EAC1F4C43FB4 /* Headers */ = {
+		AB8CA1031A7337B999EDC6AF7B5CDB86 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6606871639D3404BDDB68DEC609ED1B8 /* Cotter-umbrella.h in Headers */,
+				851CB5C3893007AB212B22412DDB7BCD /* Pods-CotterIOS_Example-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D04F78CD6492166398ECC7E9A32AFEB2 /* Headers */ = {
+		B1EE480738BA6683641E428A6D7916E9 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D0E795875F49B497364D06841AFA7EA /* Pods-CotterIOS_Example-umbrella.h in Headers */,
+				6A5FFE625BFF20D6C1AAD668015F6022 /* Cotter-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EED80FF6241A5687F75E99AAA61C373D /* Headers */ = {
+		C5A39CFB098BCABE477885468984239D /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5EB3E9C0B7FAE3EF6D454055E455C39F /* Pods-CotterIOS_Tests-umbrella.h in Headers */,
+				6E57A3A1B0BFD5FA45174BDC759D3D53 /* Pods-CotterIOS_Tests-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -512,17 +561,17 @@
 /* Begin PBXNativeTarget section */
 		61C2DA80FD4DCC72848FDFA01B2CF7EE /* Pods-CotterIOS_Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 251D450AA5B4141B41B5A5D277CA33C3 /* Build configuration list for PBXNativeTarget "Pods-CotterIOS_Tests" */;
+			buildConfigurationList = D6204143597142E3DAE6CB0F34EC74AC /* Build configuration list for PBXNativeTarget "Pods-CotterIOS_Tests" */;
 			buildPhases = (
-				EED80FF6241A5687F75E99AAA61C373D /* Headers */,
-				CFA95DCB4DDC6C6F4DE88E3B136B2329 /* Sources */,
-				5EF6F0926B597C6ED31CF6FB45806ED7 /* Frameworks */,
-				AAE593A5D10DB8BD27BBD10C9785D276 /* Resources */,
+				C5A39CFB098BCABE477885468984239D /* Headers */,
+				6E5334F2714D9F84F9237EC6550C8C5B /* Sources */,
+				784A4722A41D20805730FE6B3CAFA1AE /* Frameworks */,
+				02AAA913789B72BCB369BC561BEC3C2A /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				42F3587ACDB806C2FE22B143F9EF22A4 /* PBXTargetDependency */,
+				4A43C087A9E99502E71CA47F35BA5098 /* PBXTargetDependency */,
 			);
 			name = "Pods-CotterIOS_Tests";
 			productName = "Pods-CotterIOS_Tests";
@@ -531,35 +580,53 @@
 		};
 		6F7853FE0141DC68336C4306610A0FD7 /* Pods-CotterIOS_Example */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6C910677616C8BA80F4CDA18F88395D3 /* Build configuration list for PBXNativeTarget "Pods-CotterIOS_Example" */;
+			buildConfigurationList = A7F39A76CF306643FAD168C8862A04A1 /* Build configuration list for PBXNativeTarget "Pods-CotterIOS_Example" */;
 			buildPhases = (
-				D04F78CD6492166398ECC7E9A32AFEB2 /* Headers */,
-				B4EBC5A837EE8A6CEE1F148233DAA4C2 /* Sources */,
-				44FBF481DBF64A1100E80AE4BEAC81DB /* Frameworks */,
-				1ABC886458132CFDA12FFDBE3D79384C /* Resources */,
+				AB8CA1031A7337B999EDC6AF7B5CDB86 /* Headers */,
+				FE69C179733E2EB7DBF1030C4CD156D4 /* Sources */,
+				EA65D6A1DCA7F5E0607D11DE9964FD6E /* Frameworks */,
+				2D2ABF82419589A9FE96140B083E0854 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				45F6ED566C42B455886660E96DF31F74 /* PBXTargetDependency */,
+				EA97C1AA1666788A9988DCC7CDF7D99C /* PBXTargetDependency */,
 			);
 			name = "Pods-CotterIOS_Example";
 			productName = "Pods-CotterIOS_Example";
 			productReference = 186C962BB0FA0079ED68B7C9D6664B84 /* Pods_CotterIOS_Example.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		99AEC7CA061D4C26C3F42AFA026FE402 /* Cotter */ = {
+		73D2AD3718E111E4FD58AD933268EE14 /* Cotter-Cotter */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B3DA91C03BC61BF25F47558011644795 /* Build configuration list for PBXNativeTarget "Cotter" */;
+			buildConfigurationList = 9FC28548A8FFD9022E86358068C54D50 /* Build configuration list for PBXNativeTarget "Cotter-Cotter" */;
 			buildPhases = (
-				1D025AEE51D51196D907EAC1F4C43FB4 /* Headers */,
-				2545452865A29BF57F402ABF49773C8C /* Sources */,
-				E6ADC3194B846194BBE1FB14D025C3EC /* Frameworks */,
-				D6AA6547253F6C9A05A6DDFCCB7BC8C6 /* Resources */,
+				CCB75A78C55FFC7B55EA3AFD9CF04F7F /* Sources */,
+				E61EC09EE85F141CD47ED3D8EE8EFE59 /* Frameworks */,
+				D70CFC55E9C7B069BD4621A98E10A7B2 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+			);
+			name = "Cotter-Cotter";
+			productName = "Cotter-Cotter";
+			productReference = 207EBBB645DB56C874845DD1B5362DB3 /* Cotter.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+		99AEC7CA061D4C26C3F42AFA026FE402 /* Cotter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8639AF2DF9AFAFD29FBE6988D8B50ACD /* Build configuration list for PBXNativeTarget "Cotter" */;
+			buildPhases = (
+				B1EE480738BA6683641E428A6D7916E9 /* Headers */,
+				C0DD3CE63E8F31AB7E63C6438F336C3C /* Sources */,
+				D8624EFF718C65CCC5D018C499860B3C /* Frameworks */,
+				E2FCD6C4F080A40A040D13E3063125E2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F3C5FBA164ACB1ADB307921678FAD900 /* PBXTargetDependency */,
 			);
 			name = Cotter;
 			productName = Cotter;
@@ -572,8 +639,8 @@
 		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1100;
-				LastUpgradeCheck = 1100;
+				LastSwiftUpdateCheck = 1020;
+				LastUpgradeCheck = 1020;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -581,14 +648,14 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = 2DC797D0267FF2C0E2AFCC9DC2D48204 /* Products */;
+			productRefGroup = 2EAA548BB331525B3549617100F7222C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				99AEC7CA061D4C26C3F42AFA026FE402 /* Cotter */,
+				73D2AD3718E111E4FD58AD933268EE14 /* Cotter-Cotter */,
 				6F7853FE0141DC68336C4306610A0FD7 /* Pods-CotterIOS_Example */,
 				61C2DA80FD4DCC72848FDFA01B2CF7EE /* Pods-CotterIOS_Tests */,
 			);
@@ -596,115 +663,136 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		1ABC886458132CFDA12FFDBE3D79384C /* Resources */ = {
+		02AAA913789B72BCB369BC561BEC3C2A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AAE593A5D10DB8BD27BBD10C9785D276 /* Resources */ = {
+		2D2ABF82419589A9FE96140B083E0854 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D6AA6547253F6C9A05A6DDFCCB7BC8C6 /* Resources */ = {
+		D70CFC55E9C7B069BD4621A98E10A7B2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				85AD5B7F24059ED700AC3367 /* default-cotter-img.png in Resources */,
+				D407CABCB9C770B9E24C3F2DB856194F /* Cotter.storyboard in Resources */,
+				47D9C1DCFC72530A217EA8D7EADA242C /* default-cotter-img.png in Resources */,
+				233CFFDEEF07BD589D9D736945326C4A /* KeyboardView.xib in Resources */,
+				1173E71CEC675CF6489E5F8BA7CF7C1D /* Transaction.storyboard in Resources */,
+				4B5370E35864053F3B6C206BED5A1083 /* UpdateProfile.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E2FCD6C4F080A40A040D13E3063125E2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65E14510E75530A3C7C082BE83C43F1E /* Cotter.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		2545452865A29BF57F402ABF49773C8C /* Sources */ = {
+		6E5334F2714D9F84F9237EC6550C8C5B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				336C8B98562C60B12E822BD052DB03BA /* AlertService.swift in Sources */,
-				4E1727BD4A2F7962F9EC0B8D3B1544D5 /* AuthAlertMessages.swift in Sources */,
-				937104382BE701C22ED4F47FFEEF809D /* Callback.swift in Sources */,
-				FFE56631968B014C72F2FFE450B2ECD8 /* ColorSchemeObject.swift in Sources */,
-				739790122F4DC8565CCCA6956E334FA9 /* Config.swift in Sources */,
-				48A99B60CAB7E8B2B37DB4922456E391 /* Cotter-dummy.m in Sources */,
-				338B4FB1DDFE66ECFC2346F3A4B1D08F /* Cotter.storyboard in Sources */,
-				488F0EF740FD79199B94A9C96DD2637B /* Cotter.swift in Sources */,
-				F8F1909FB54941631711857DD32B06EB /* CotterAPIExtensions.swift in Sources */,
-				50C870C6235D6EED4C07FB2E8A28060C /* CotterAPIService.swift in Sources */,
-				D02D4EBD538A2CEC10F6C21A129BFB50 /* CotterStrings.swift in Sources */,
-				05E6328E15C41BE5756C74679B8CCE34 /* English.swift in Sources */,
-				306D3B7540470CF1951EEC0AF1421E9B /* Error.swift in Sources */,
-				2404E407C26434B80953BFE4940A1A82 /* EventCreateResponse.swift in Sources */,
-				5AFC44912D0AB39E2B6BCAFAB6C2DCAA /* GetIdentity.swift in Sources */,
-				BEEE13D3B844AEE9883BA7A28F78C33B /* HTTPCallback.swift in Sources */,
-				A0DE1D4A11F38FED5A38B1BFF37F85EC /* Indonesian.swift in Sources */,
-				2774238E759C3BC1B278115FC702AB2C /* KeyboardView.swift in Sources */,
-				49E44FB2699690AEA4E246D2122AB358 /* KeyboardView.xib in Sources */,
-				A9D5A2236C4F1D802A8344BA947926E5 /* KeyGen.swift in Sources */,
-				EC34074A9F1B862E5A2EA08597DC2CEB /* LanguageObject.swift in Sources */,
-				9D1C002F792AD5811DF8DF61A4763ED6 /* LocalAuthService.swift in Sources */,
-				C953E38AED0E232661EDADA15BFBA3D2 /* OneTimeCodeTextField.swift in Sources */,
-				ABA08A41F82B075EB44F63D92EE2F232 /* Passwordless.swift in Sources */,
-				C5E1BE50054C5A3D2638C2AE933BC7F1 /* PINBaseController.swift in Sources */,
-				1693A38DF3E1C8708341C1252299D48F /* PINConfirmViewController.swift in Sources */,
-				4990775453EA561C7B043B15740FDB36 /* PinErrorMessages.swift in Sources */,
-				C2B4BA562EA38C41899B2805A3CB1BBA /* PINFinalViewController.swift in Sources */,
-				58E56C7FCE9A88CAF065AEE8307FE58B /* PinStepEnums.swift in Sources */,
-				6B96734F478C286D2790948F2E9B1D17 /* PINViewController.swift in Sources */,
-				42A6802500EA251BB71A9E5AC16D3327 /* PKCE.swift in Sources */,
-				56D67D18809977E23274896E892A3094 /* Transaction.storyboard in Sources */,
-				663F0C32CE870F11AB9DA6E0C49D3119 /* TransactionPINViewController.swift in Sources */,
-				E7E8033D81EA1AC15F97B14D58D6816E /* UIColor.swift in Sources */,
-				4373B1F7AD490EA4437AE4CB336605DF /* UIExtensions.swift in Sources */,
-				0173E36C2D7F0B38F7D9287A0A072887 /* UIImageView.swift in Sources */,
-				63529130517B1796A0A4488401825464 /* UpdateConfirmNewPINViewController.swift in Sources */,
-				F2F3A059CC207DC471E7EA7DF8CF7EC1 /* UpdateCreateNewPINViewController.swift in Sources */,
-				13B05CA35C5669140254429E5E78524E /* UpdatePINViewController.swift in Sources */,
-				8267D8879C8FE09A8FF727AA78B0086B /* UpdateProfile.storyboard in Sources */,
+				C0AFC879A39743835323885E4A12AB42 /* Pods-CotterIOS_Tests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B4EBC5A837EE8A6CEE1F148233DAA4C2 /* Sources */ = {
+		C0DD3CE63E8F31AB7E63C6438F336C3C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D22505918194786A9996980A3D129BB /* Pods-CotterIOS_Example-dummy.m in Sources */,
+				7EB4F6FF5C6F32F9B50C003BF4D6CAB0 /* AlertService.swift in Sources */,
+				8A60D9E1689E52C7BA7738A78931BAA8 /* AuthAlertMessages.swift in Sources */,
+				51B282A5531A6226C0258339F9EAA0E8 /* Callback.swift in Sources */,
+				7B1C646B31B63EE04F94A89A60EE3B10 /* ColorSchemeObject.swift in Sources */,
+				8E9E5CD342FDB8723357DC866118C456 /* Config.swift in Sources */,
+				E579E647081637B7462C52006EDAF623 /* Cotter-dummy.m in Sources */,
+				DB6E1E162A2CBEB1E905C28AE9A7B0CB /* Cotter.swift in Sources */,
+				C6D7E0943F72DCD2EF924038B39EF886 /* CotterAPIExtensions.swift in Sources */,
+				1E81FEE1965C656C5243D2312D20048B /* CotterAPIService.swift in Sources */,
+				240B01A5671B8D1092E958C0C5D7E393 /* CotterStrings.swift in Sources */,
+				542704BA4EDF129E8F7EE90DBC52AE5E /* English.swift in Sources */,
+				FFAA6E0E2E12DAEC29BC251D9AA2F472 /* Error.swift in Sources */,
+				995DAD3CD6C71EEE4ADC9734B153B1F0 /* EventCreateResponse.swift in Sources */,
+				D86F72BD66DB34D0A9F19DBE2C10AC56 /* GetIdentity.swift in Sources */,
+				AA13592017CE3A1A6644373950C5B1A3 /* HTTPCallback.swift in Sources */,
+				CC9FFF2725DF8AF3EE57A77CD61FFEB7 /* Indonesian.swift in Sources */,
+				203AF5B81EDBED116526C68AAE6A86B6 /* KeyboardView.swift in Sources */,
+				02B52A6C091120E7B1C41AB879A42863 /* KeyGen.swift in Sources */,
+				4A8790C8F90021438F3E63AAD6979098 /* LanguageObject.swift in Sources */,
+				04A3F9DE7FC216FED7E532B59606A7F5 /* LocalAuthService.swift in Sources */,
+				090536B818A8E45690ABA817BDF681F3 /* OneTimeCodeTextField.swift in Sources */,
+				A50ECBB4DD23CB16AC601F6AFF5929DD /* Passwordless.swift in Sources */,
+				8DF1900E269D204B554A2B7063A10A03 /* PINBaseController.swift in Sources */,
+				7F3857A5B7E3D420374A43C134BA2411 /* PINConfirmViewController.swift in Sources */,
+				068D189E9098A9119BA5559963270BA5 /* PinErrorMessages.swift in Sources */,
+				03049BEE13F78AC677DFCA0076D2D02D /* PINFinalViewController.swift in Sources */,
+				E25E8829B5E31FA62EB38310D6CEBC5D /* PinStepEnums.swift in Sources */,
+				92FFC8890C0C3622C84481123E3B1DC1 /* PINViewController.swift in Sources */,
+				22C9719FB20E16FE0DAADCA759F28B0B /* PKCE.swift in Sources */,
+				D3E051266E51A1B1A2B8FF347AF9A459 /* TransactionPINViewController.swift in Sources */,
+				F9B30FEEEE951993F281215969D3E395 /* UIColor.swift in Sources */,
+				AC229E6B385453962D954FE8CB85286E /* UIExtensions.swift in Sources */,
+				83CA3C83B3CF440E2EB6ADE978430FF4 /* UIImageView.swift in Sources */,
+				491504465C1457218BEE6AF333EC986E /* UpdateConfirmNewPINViewController.swift in Sources */,
+				247F15D5002D2DBD8EEE5A24DAE20B87 /* UpdateCreateNewPINViewController.swift in Sources */,
+				30CAC931F6CF13DDAC73CF72FB375D89 /* UpdatePINViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CFA95DCB4DDC6C6F4DE88E3B136B2329 /* Sources */ = {
+		CCB75A78C55FFC7B55EA3AFD9CF04F7F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				878E6EC1E95133481E63BEA545F9FA67 /* Pods-CotterIOS_Tests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FE69C179733E2EB7DBF1030C4CD156D4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A708F2AFFE83C7605869E1767B3AD2D /* Pods-CotterIOS_Example-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		42F3587ACDB806C2FE22B143F9EF22A4 /* PBXTargetDependency */ = {
+		4A43C087A9E99502E71CA47F35BA5098 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-CotterIOS_Example";
 			target = 6F7853FE0141DC68336C4306610A0FD7 /* Pods-CotterIOS_Example */;
-			targetProxy = 70A8FBE425E07E98BB66C3487749B3F8 /* PBXContainerItemProxy */;
+			targetProxy = 6380FB9E0D67F7ABE1DCB28DB31C7D98 /* PBXContainerItemProxy */;
 		};
-		45F6ED566C42B455886660E96DF31F74 /* PBXTargetDependency */ = {
+		EA97C1AA1666788A9988DCC7CDF7D99C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Cotter;
 			target = 99AEC7CA061D4C26C3F42AFA026FE402 /* Cotter */;
-			targetProxy = CF7AA8165B41369ED3D21842A4AEEF99 /* PBXContainerItemProxy */;
+			targetProxy = 6A7AC8EE6C311DC6628399193AA43C81 /* PBXContainerItemProxy */;
+		};
+		F3C5FBA164ACB1ADB307921678FAD900 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Cotter-Cotter";
+			target = 73D2AD3718E111E4FD58AD933268EE14 /* Cotter-Cotter */;
+			targetProxy = 91FE385F27E60872D8E9DB0C51269B5C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		11ACAAB443913D2577F64F0E0FF31D4F /* Debug */ = {
+		17458ED524A4B1BD31C2C412927102D0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DF385A003E341B9D7DB3D95786CD0EFB /* Pods-CotterIOS_Example.debug.xcconfig */;
+			baseConfigurationReference = 888780F5C27C89C1910BFBB5EB0977C2 /* Pods-CotterIOS_Example.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -731,10 +819,11 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
 		196DFA3E4A09A28224918543529A1885 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -800,9 +889,93 @@
 			};
 			name = Debug;
 		};
-		1BE1FD0191DA2604DBCB7147837BAD87 /* Debug */ = {
+		2E367B7F6D7E5AE25BF6BB2214B760B5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FB785E877401A9ED6F868A861EC63A45 /* Cotter.xcconfig */;
+			baseConfigurationReference = 36CF076233C925635CE6E9E2F6100DC5 /* Cotter.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Cotter";
+				INFOPLIST_FILE = "Target Support Files/Cotter/ResourceBundle-Cotter-Cotter-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				PRODUCT_NAME = Cotter;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		3A8EFFFF79438236F4AF4C23C08D0572 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 36CF076233C925635CE6E9E2F6100DC5 /* Cotter.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Cotter/Cotter-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Cotter/Cotter-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Cotter/Cotter.modulemap";
+				PRODUCT_MODULE_NAME = Cotter;
+				PRODUCT_NAME = Cotter;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		545499D2321A20DB11FE383C2857A47B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D1AF3C474E9238EE975CEAE45323547 /* Pods-CotterIOS_Tests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-CotterIOS_Tests/Pods-CotterIOS_Tests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-CotterIOS_Tests/Pods-CotterIOS_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		66B3A9FD5BB5E30CA36A40187251EEAC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 36CF076233C925635CE6E9E2F6100DC5 /* Cotter.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
@@ -831,74 +1004,6 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
-		};
-		468B10FCAC1AF7185E05DCFAFD6C45EB /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 888780F5C27C89C1910BFBB5EB0977C2 /* Pods-CotterIOS_Example.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-CotterIOS_Example/Pods-CotterIOS_Example-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-CotterIOS_Example/Pods-CotterIOS_Example.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		73D86B00D46F4577D73FDAE91517537A /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = FB785E877401A9ED6F868A861EC63A45 /* Cotter.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/Cotter/Cotter-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Cotter/Cotter-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Cotter/Cotter.modulemap";
-				PRODUCT_MODULE_NAME = Cotter;
-				PRODUCT_NAME = Cotter;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
 		};
 		B01D14FDC83DCF9D4BE53066BEA96D05 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -953,13 +1058,48 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Release;
 		};
-		C82A7B4E04B367CDC1862533F185765B /* Debug */ = {
+		D567047933914C95A7D678EE8055419E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DF385A003E341B9D7DB3D95786CD0EFB /* Pods-CotterIOS_Example.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-CotterIOS_Example/Pods-CotterIOS_Example-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-CotterIOS_Example/Pods-CotterIOS_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		DE1ECF529B0C83276D8D71D346B4EECF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 764F5C378AAB225A1497DE1262DF3A93 /* Pods-CotterIOS_Tests.debug.xcconfig */;
 			buildSettings = {
@@ -993,53 +1133,25 @@
 			};
 			name = Debug;
 		};
-		DB761EEF0717DB8ACD254B64627A2FB9 /* Release */ = {
+		FFE07C2CC0CDC58F77BDA2BBF86F7022 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1D1AF3C474E9238EE975CEAE45323547 /* Pods-CotterIOS_Tests.release.xcconfig */;
+			baseConfigurationReference = 36CF076233C925635CE6E9E2F6100DC5 /* Cotter.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-CotterIOS_Tests/Pods-CotterIOS_Tests-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Cotter";
+				INFOPLIST_FILE = "Target Support Files/Cotter/ResourceBundle-Cotter-Cotter-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-CotterIOS_Tests/Pods-CotterIOS_Tests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = Cotter;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
+				WRAPPER_EXTENSION = bundle;
 			};
-			name = Release;
+			name = Debug;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		251D450AA5B4141B41B5A5D277CA33C3 /* Build configuration list for PBXNativeTarget "Pods-CotterIOS_Tests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C82A7B4E04B367CDC1862533F185765B /* Debug */,
-				DB761EEF0717DB8ACD254B64627A2FB9 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1049,20 +1161,38 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6C910677616C8BA80F4CDA18F88395D3 /* Build configuration list for PBXNativeTarget "Pods-CotterIOS_Example" */ = {
+		8639AF2DF9AFAFD29FBE6988D8B50ACD /* Build configuration list for PBXNativeTarget "Cotter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				11ACAAB443913D2577F64F0E0FF31D4F /* Debug */,
-				468B10FCAC1AF7185E05DCFAFD6C45EB /* Release */,
+				66B3A9FD5BB5E30CA36A40187251EEAC /* Debug */,
+				3A8EFFFF79438236F4AF4C23C08D0572 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B3DA91C03BC61BF25F47558011644795 /* Build configuration list for PBXNativeTarget "Cotter" */ = {
+		9FC28548A8FFD9022E86358068C54D50 /* Build configuration list for PBXNativeTarget "Cotter-Cotter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1BE1FD0191DA2604DBCB7147837BAD87 /* Debug */,
-				73D86B00D46F4577D73FDAE91517537A /* Release */,
+				FFE07C2CC0CDC58F77BDA2BBF86F7022 /* Debug */,
+				2E367B7F6D7E5AE25BF6BB2214B760B5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A7F39A76CF306643FAD168C8862A04A1 /* Build configuration list for PBXNativeTarget "Pods-CotterIOS_Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D567047933914C95A7D678EE8055419E /* Debug */,
+				17458ED524A4B1BD31C2C412927102D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D6204143597142E3DAE6CB0F34EC74AC /* Build configuration list for PBXNativeTarget "Pods-CotterIOS_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DE1ECF529B0C83276D8D71D346B4EECF /* Debug */,
+				545499D2321A20DB11FE383C2857A47B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -50,7 +50,7 @@ class KeyboardView: UIView {
     
     private func initialize() {
         // Load KeyboardView.nib File to View
-        Bundle(for: KeyboardView.self).loadNibNamed("KeyboardView", owner: self, options: nil)
+        Cotter.resourceBundle.loadNibNamed("KeyboardView", owner: self, options: nil)
         self.addSubview(view)
         
         // Add extra initialization/edits here
