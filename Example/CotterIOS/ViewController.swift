@@ -52,26 +52,24 @@ class ViewController: UIViewController {
         let sboard = UIStoryboard(name: "Dashboard", bundle: nil)
         let dVC = sboard.instantiateViewController(withIdentifier: "DashboardViewController") as! DashboardViewController
         
-        func cbFunc(accessToken:String, verified:Bool, error:Error?) -> Void{
-            self.navigationController?.popToViewController(self, animated: false)
-            
-            if verified && error == nil {
+        func cbFunc(accessToken: String, error: Error?) -> Void{
+            guard let error = error else {
                 dVC.accessToken = accessToken
                 self.navigationController?.pushViewController(dVC, animated: true)
                 return
             }
+          
             // error handling
-            self.errorLabel.text = error?.localizedDescription
+            self.errorLabel.text = error.localizedDescription
         }
         
         // langConfig is an optional language configuration
         let langConfig = Indonesian()
         
         // if you want to set text configuration uncomment the following
-        // langConfig.set(key: PINViewControllerKey.title, value: "Hi! You've changed the text")
+        // langConfig.setText(for: PINViewControllerKey.title, to: "Hi! You've changed the text")
         // if you want to set success image configuration uncomment the following
-//        langConfig.set(key: PINFinalViewControllerKey.successImage, value: "telegram")
-        
+        // langConfig.setText(for: PINFinalViewControllerKey.successImage, to: "telegram")
         
         /*
          Available Color Scheme options:
@@ -89,11 +87,12 @@ class ViewController: UIViewController {
         
         // Load Cotter View Controller from SDK
         CotterWrapper.cotter = Cotter(
-            successCb: cbFunc,
+            from: self,
             apiSecretKey: apiSecretKey,
             apiKeyID: apiKeyID,
             cotterURL: baseURL,
             userID: clientUserID,
+            onComplete: cbFunc,
             // configuration is an optional argument, remove this below and Cotter app will still function properly
             configuration: [
                 "language": langConfig,   // default value is Indonesian()
@@ -121,15 +120,15 @@ class ViewController: UIViewController {
     }
 
     @IBAction func clickCotter(_ sender: Any) {
-        CotterWrapper.cotter?.startEnrollment(parentNav: self.navigationController!, animated: true)
+        CotterWrapper.cotter?.startEnrollment(animated: true)
     }
     
     @IBAction func clickStartTransaction(_ sender: Any) {
-        CotterWrapper.cotter?.startTransaction(parentNav: self.navigationController!, animated: true)
+        CotterWrapper.cotter?.startTransaction(animated: true)
     }
     
     @IBAction func clickUpdateProfile(_ sender: Any) {
-        CotterWrapper.cotter?.startUpdateProfile(parentNav: self.navigationController!, animated: true)
+        CotterWrapper.cotter?.startUpdateProfile(animated: true)
     }
 }
 

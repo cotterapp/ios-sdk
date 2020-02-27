@@ -339,7 +339,7 @@ class LocalAuthService: UIViewController {
             aService.show()
         } else {
             // no biometric then skip creating the public key
-            successAuthCallbackFunc?("token", true, nil)
+            successAuthCallbackFunc?("token", nil)
         }
     }
     
@@ -366,7 +366,7 @@ class LocalAuthService: UIViewController {
             let timer = DispatchTime.now() + 3
             DispatchQueue.main.asyncAfter(deadline: timer) {
                 successAlert.hide(onComplete: { (finished: Bool) in
-                    self.successAuthCallbackFunc?("This is token from dispatch!", true, nil)
+                    self.successAuthCallbackFunc?("This is token from dispatch!", nil)
                     return
                 })
             }
@@ -395,7 +395,7 @@ class LocalAuthService: UIViewController {
                 failedBiometricAlert.hide()
                 
                 // the PIN enrollment is still successful, but biometric registration failed
-                self.successAuthCallbackFunc?("Token from failed biometric", true, nil)
+                self.successAuthCallbackFunc?("Token from failed biometric", nil)
             }
             
             failedBiometricAlert.delegate = failedBiometricAlertDelegate

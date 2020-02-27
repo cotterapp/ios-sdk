@@ -8,4 +8,4 @@
 import Foundation
 
 // FinalCallbackAuth is the general callback function declaration
-public typealias FinalAuthCallback = (_ token: String, _ verified: Bool, _ error: Error?) -> Void
+public typealias FinalAuthCallback = (_ token: String, _ error: Error?) -> Void

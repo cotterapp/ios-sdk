@@ -81,24 +81,21 @@ class Passwordless: NSObject, ASWebAuthenticationPresentationContextProviding {
             //   exampleauth://auth?token=1234
             
             let queryItems = URLComponents(string: callbackURL.absoluteString)?.queryItems
-            guard let cb = Config.instance.callbackFunc else {
-                print("callback is unavailable")
-                return
-            }
+            let cb = Config.instance.callbackFunc
 
             guard let challengeID = queryItems?.filter({ $0.name == "challenge_id" }).first?.value else {
-                cb("", false, CotterError.passwordless("challenge_id is unavailable"))
+                cb("", CotterError.passwordless("challenge_id is unavailable"))
                 return
             }
             
             guard let state = queryItems?.filter({ $0.name == "state" }).first?.value, state == initialState else {
                 print()
-                cb("", false, CotterError.passwordless("state is unavailable or inconsistent"))
+                cb("", CotterError.passwordless("state is unavailable or inconsistent"))
                 return
             }
             
             guard let authorizationCode = queryItems?.filter({ $0.name == "code" }).first?.value else {
-                cb("", false, CotterError.passwordless("authorization_code is not available"))
+                cb("", CotterError.passwordless("authorization_code is not available"))
                 return
             }
             
@@ -118,7 +115,7 @@ class Passwordless: NSObject, ASWebAuthenticationPresentationContextProviding {
                     let tokenString = String(data: jsonData, encoding: .utf8)!
                     
                     // return the token
-                    cb(tokenString, true, nil)
+                    cb(tokenString, nil)
                 } catch {
                     print(error.localizedDescription)
                 }

@@ -8,10 +8,6 @@
 import Foundation
 import UIKit
 
-func defaultCallback(access_token: String, verified: Bool, error: Error?) -> Void {
-    print(access_token)
-}
-
 public class Cotter {
     // this variable is needed to retain the object of ASWebAuthentication,
     // otherwise the login default prompt will be closed immediately because
@@ -35,18 +31,20 @@ public class Cotter {
     
     // initializer with configuration
     public convenience init(
-        successCb: FinalAuthCallback?,
+        from parent: UIViewController!,
         apiSecretKey: String,
         apiKeyID: String,
         cotterURL: String,
         userID: String,
+        onComplete: FinalAuthCallback?,
         configuration: [String: Any]
     ) {
         self.init(
-            successCb: successCb,
+            from: parent,
             apiSecretKey: apiSecretKey,
             apiKeyID: apiKeyID,
-            cotterURL: cotterURL
+            cotterURL: cotterURL,
+            onComplete: onComplete
         )
         
         CotterAPIService.shared.userID = userID
@@ -58,13 +56,20 @@ public class Cotter {
     
     // default initializer
     public init(
-        successCb: FinalAuthCallback?,
+        from parent: UIViewController!,
         apiSecretKey: String,
         apiKeyID: String,
-        cotterURL: String
+        cotterURL: String,
+        onComplete: FinalAuthCallback?
     ) {
         print("initializing Cotter's SDK...")
-        Config.instance.callbackFunc = successCb ?? defaultCallback
+        Config.instance.parent = parent
+        if let onComplete = onComplete {
+            Config.instance.callbackFunc = { (token: String, error: Error?) -> Void in
+                parent.navigationController?.popToViewController(parent, animated: false)
+                onComplete(token, error)
+            }
+        }
         
         CotterAPIService.shared.baseURL = URL(string: cotterURL)
         CotterAPIService.shared.apiSecretKey = apiSecretKey
@@ -88,7 +93,7 @@ public class Cotter {
     static var updateProfileStoryboard = UIStoryboard(name: "UpdateProfile", bundle: Bundle(identifier: "org.cocoapods.Cotter"))
     
     // Enrollment Corresponding View
-    private lazy var pinVC = Cotter.cotterStoryboard.instantiateViewController(withIdentifier: "PINViewController")as! PINViewController
+    private lazy var pinVC = Cotter.cotterStoryboard.instantiateViewController(withIdentifier: "PINViewController") as! PINViewController
     
     // Transaction Corresponding View
     private lazy var transactionPinVC = Cotter.transactionStoryboard.instantiateViewController(withIdentifier: "TransactionPINViewController") as! TransactionPINViewController
@@ -98,21 +103,21 @@ public class Cotter {
     
     // MARK: - Cotter flows initializers
     // Start of Enrollment Process
-    public func startEnrollment(parentNav: UINavigationController, animated: Bool) {
+    public func startEnrollment(animated: Bool) {
         // push the viewcontroller to the navController
-        parentNav.pushViewController(self.pinVC, animated: true)
+        Config.instance.parent.navigationController?.pushViewController(self.pinVC, animated: true)
     }
     
     // Start of Transaction Process
-    public func startTransaction(parentNav: UINavigationController, animated: Bool) {
+    public func startTransaction(animated: Bool) {
         // Push the viewController to the navController
-        parentNav.pushViewController(self.transactionPinVC, animated: true)
+        Config.instance.parent.navigationController?.pushViewController(self.transactionPinVC, animated: true)
     }
     
     // Start of Update Profile Process
-    public func startUpdateProfile(parentNav: UINavigationController, animated: Bool) {
+    public func startUpdateProfile(animated: Bool) {
         // Push the viewController to the navController
-        parentNav.pushViewController(self.updateProfilePinVC, animated: true)
+        Config.instance.parent.navigationController?.pushViewController(self.updateProfilePinVC, animated: true)
     }
     
     // startPasswordlessLogin starts the login process
@@ -132,7 +137,7 @@ public class Cotter {
     }
     
     // setText sets the string based on the key string
-    public func setText(key:String, value:String) {
-        Config.instance.strings.set(key: key, value: value)
+    public func setText(for key: String, to value: String) {
+        Config.instance.strings.setText(for: key, to: value)
     }
 }

@@ -16,7 +16,7 @@ public class LanguageObject: NSObject {
         self.text = text
     }
     
-    public func set(key:String, value:String) {
+    public func setText(for key: String, to value: String) {
         print("setting \(key) to \(value)")
         self.text[key] = value
     }

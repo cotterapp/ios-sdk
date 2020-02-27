@@ -11,9 +11,8 @@ import UIKit
 class Config: NSObject {
     static let instance = Config()
   
-    var parentNav: UINavigationController?
-    var callbackView: UIViewController?
-    var callbackFunc: FinalAuthCallback?
+    var parent: UIViewController!
+    var callbackFunc: FinalAuthCallback
 
     // strings consists text configurations for Cotter
     var strings: LanguageObject = Indonesian() // defaults to indonesian
@@ -24,5 +23,9 @@ class Config: NSObject {
     var PLScheme: String? = "cotter"
     var PLRedirectURL: String? = "cotter://auth"
     
-    private override init() {}
+    private override init() {
+        callbackFunc = { (access_token: String, error: Error?) -> Void in
+            print(access_token)
+        }
+    }
 }
