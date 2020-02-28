@@ -30,7 +30,7 @@
 		542704BA4EDF129E8F7EE90DBC52AE5E /* English.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF2908DEC16FC19F37F038371FD9CBD /* English.swift */; };
 		65E14510E75530A3C7C082BE83C43F1E /* Cotter.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 207EBBB645DB56C874845DD1B5362DB3 /* Cotter.bundle */; };
 		6A5FFE625BFF20D6C1AAD668015F6022 /* Cotter-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A7C6ACA1C3CE159A3E2358DD6254F690 /* Cotter-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C7B143B2408BFBE00D857FD /* Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B143A2408BFBE00D857FD /* Crypto.swift */; };
+		6C7B143B2408BFBE00D857FD /* CryptoUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B143A2408BFBE00D857FD /* CryptoUtil.swift */; };
 		6C7B143E2408C1E000D857FD /* ImageObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B143D2408C1E000D857FD /* ImageObject.swift */; };
 		6C7B14402408C27D00D857FD /* ImageKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B143F2408C27D00D857FD /* ImageKey.swift */; };
 		6C7B14422408F9B400D857FD /* CotterImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B14412408F9B400D857FD /* CotterImages.swift */; };
@@ -118,7 +118,7 @@
 		5E088AC46562D4F9F4C7B94D70929CF5 /* UpdateProfile.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; name = UpdateProfile.storyboard; path = Source/UpdateProfile.storyboard; sourceTree = "<group>"; };
 		6B3DA911DDEC99ACE8D3443845F06550 /* Cotter.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Cotter.modulemap; sourceTree = "<group>"; };
 		6BC3FD539153D82E406D7D9CB92887FE /* UIImageView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
-		6C7B143A2408BFBE00D857FD /* Crypto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crypto.swift; sourceTree = "<group>"; };
+		6C7B143A2408BFBE00D857FD /* CryptoUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoUtil.swift; sourceTree = "<group>"; };
 		6C7B143D2408C1E000D857FD /* ImageObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageObject.swift; sourceTree = "<group>"; };
 		6C7B143F2408C27D00D857FD /* ImageKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageKey.swift; sourceTree = "<group>"; };
 		6C7B14412408F9B400D857FD /* CotterImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CotterImages.swift; sourceTree = "<group>"; };
@@ -320,7 +320,7 @@
 		6C7B14392408BF7B00D857FD /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				6C7B143A2408BFBE00D857FD /* Crypto.swift */,
+				6C7B143A2408BFBE00D857FD /* CryptoUtil.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -778,7 +778,7 @@
 				F9B30FEEEE951993F281215969D3E395 /* UIColor.swift in Sources */,
 				AC229E6B385453962D954FE8CB85286E /* UIExtensions.swift in Sources */,
 				83CA3C83B3CF440E2EB6ADE978430FF4 /* UIImageView.swift in Sources */,
-				6C7B143B2408BFBE00D857FD /* Crypto.swift in Sources */,
+				6C7B143B2408BFBE00D857FD /* CryptoUtil.swift in Sources */,
 				491504465C1457218BEE6AF333EC986E /* UpdateConfirmNewPINViewController.swift in Sources */,
 				247F15D5002D2DBD8EEE5A24DAE20B87 /* UpdateCreateNewPINViewController.swift in Sources */,
 				30CAC931F6CF13DDAC73CF72FB375D89 /* UpdatePINViewController.swift in Sources */,
