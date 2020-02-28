@@ -23,11 +23,6 @@ public class Indonesian: LanguageObject {
             PINConfirmViewControllerKey.title: "Masukkan PIN sekali lagi untuk konfirmasi",
             
             // MARK: - PINFinalViewController
-            PINFinalViewControllerKey.closeTitle: "Verifikasi",
-            PINFinalViewControllerKey.closeMessage: "Sentuh sensor sidik jari untuk melanjutkan",
-            PINFinalViewControllerKey.stayOnView: "Input PIN",
-            PINFinalViewControllerKey.leaveView: "Batalkan",
-            PINFinalViewControllerKey.successImage: "default-cotter-img",
             PINFinalViewControllerKey.title: "PIN Sukses Didaftarkan!",
             PINFinalViewControllerKey.subtitle: "Mulai sekarang kamu bisa login dan konfirmasi transaksi menggunakan PIN",
             PINFinalViewControllerKey.buttonText: "Selesai",

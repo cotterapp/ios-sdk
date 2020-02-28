@@ -57,7 +57,7 @@ class KeyGen {
             print("fetching private key, authenticating..")
             guard let privKey = fetchKey(pvt: true) else {
                 // try to generate the key first
-                do{
+                do {
                     try KeyGen.generateKey()
                 } catch let e {
                     print(e)
@@ -76,7 +76,7 @@ class KeyGen {
             guard let key = fetchKey(pvt: false) else {
                 print("generating key pair")
                 // try to generate the key first
-                do{
+                do {
                     try KeyGen.generateKey()
                 } catch let e {
                     print(e)
@@ -136,5 +136,37 @@ class KeyGen {
         guard status == errSecSuccess else {
             throw CotterError.keychainError("error saving public key")
         }
+    }
+    
+    static func clearKeys() throws {
+        print("Deleting Private and Public Keys...")
+        let privKeyTag = "org.cocoapods.Cotter.privKey".data(using: .utf8)!
+        
+        // Remove the previous key pair
+        // Deleting the private key
+        let query: [String: Any] = [
+            kSecClass as String: kSecClassKey,
+            kSecAttrApplicationTag as String: privKeyTag,
+            kSecAttrKeyType as String: kSecAttrKeyTypeECSECPrimeRandom,
+        ]
+        let st = SecItemDelete(query as CFDictionary)
+        guard st == errSecSuccess || st == errSecItemNotFound else {
+            throw CotterError.keychainError("Error deleting old Private Key")
+        }
+        
+        let pubKeyTag = "org.cocoapods.Cotter.pubKey".data(using: .utf8)!
+        
+        // Remove the previous key pair
+        // Retrieving the public key
+        let query2: [String: Any] = [
+            kSecClass as String: kSecClassKey,
+            kSecAttrApplicationTag as String: pubKeyTag,
+            kSecAttrKeyType as String: kSecAttrKeyTypeECSECPrimeRandom,
+        ]
+        let st2 = SecItemDelete(query2 as CFDictionary)
+        guard st2 == errSecSuccess || st == errSecItemNotFound else {
+            throw CotterError.keychainError("Error deleting old Public Key")
+        }
+        print("Successfully Deleted Public/Private Key Pair")
     }
 }

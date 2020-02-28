@@ -60,6 +60,8 @@ public class Cotter {
         
         // Assign fields if they are present in configuration param
         if let strings = configuration["language"] as! LanguageObject? { Config.instance.strings = strings }
+        if let images = configuration["images"] as! ImageObject? {
+            Config.instance.images = images }
         if let colors = configuration["colors"] as! ColorSchemeObject? { Config.instance.colors = colors }
     }
     

@@ -77,4 +77,26 @@ public class CotterCallback: HTTPCallback {
         f(response)
         return
     }
+    
+    // internalErrorHandler is the default internal handler for internal errors
+    public func internalErrorHandler(err: String?) {
+        print("error", err ?? "Unknown error")
+        
+        // if the internalErrorFunc is defined then respond with the function
+        if let f = self.internalErrorFunc {
+            f(err)
+        }
+        return
+    }
+    
+    // internalSuccessHandler is the default internal handler for successful HTTP Requests
+    public func internalSuccessHandler() {
+        print("executing internal success callback")
+        
+        // if the internalSuccessFunc is defined then respond with the function
+        if let f = self.internalSuccessFunc {
+            f()
+        }
+        return
+    }
 }
