@@ -10,27 +10,21 @@ import Foundation
 
 public class PINFinalViewControllerKey {
     // MARK: - Keys for Strings
-    static let navTitle = "PINFinalViewController/navTitle"
-    static let successImage = "PINFinalViewController/successImage"
     static let title = "PINFinalViewController/title"
     static let subtitle = "PINFinalViewController/subtitle"
     static let buttonText = "PINFinalViewController/buttonText"
-
-    // for alerts - not used
-    static let closeTitle = "PINFinalViewController/closeTitle"
-    static let closeMessage = "PINFinalViewController/closeMessage"
-    static let stayOnView = "PINFinalViewController/stayOnView"
-    static let leaveView = "PINFinalViewController/leaveView"
 }
 
 class PINFinalViewController: UIViewController {
     typealias VCTextKey = PINFinalViewControllerKey
     
     // MARK: VC Text Definitions
-    let successImage = CotterStrings.instance.getText(for: VCTextKey.successImage)
     let successTitle = CotterStrings.instance.getText(for: VCTextKey.title)
     let successSubtitle = CotterStrings.instance.getText(for: VCTextKey.subtitle)
     let successButtonTitle = CotterStrings.instance.getText(for: VCTextKey.buttonText)
+    
+    // MARK: - VC Image Definitions
+    let successImage = CotterImages.instance.getImage(for: VCImageKey.pinSuccessImg)
     
     // Auth Service
     let authService = LocalAuthService()
@@ -97,7 +91,7 @@ extension PINFinalViewController {
             imageView.image = UIImage(named: successImage, in: Cotter.resourceBundle, compatibleWith: nil)
             return
         }
-      
+        
         imageView.image = UIImage(named: successImage, in: Bundle.main, compatibleWith: nil)
     }
     

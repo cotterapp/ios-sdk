@@ -23,11 +23,6 @@ public class English: LanguageObject {
             PINConfirmViewControllerKey.title: "Confirm your PIN combination",
             
             // MARK: - PINFinalViewController
-            PINFinalViewControllerKey.closeTitle: "Verification",
-            PINFinalViewControllerKey.closeMessage: "Please provide biometric authentication to continue",
-            PINFinalViewControllerKey.stayOnView: "Input PIN",
-            PINFinalViewControllerKey.leaveView: "Exit",
-            PINFinalViewControllerKey.successImage: "default-cotter-img",
             PINFinalViewControllerKey.title: "Successfully Activated PIN!",
             PINFinalViewControllerKey.subtitle: "You can now use your PIN to unlock your account and make transactions",
             PINFinalViewControllerKey.buttonText: "Done",

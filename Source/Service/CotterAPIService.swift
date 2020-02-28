@@ -42,7 +42,8 @@ public class CotterAPIService {
         method: String,
         path: String,
         body: Data?,
-        cb: HTTPCallback // pass in a protocol here
+        cb: HTTPCallback, // pass in a protocol here
+        internalCb: InternalCallback? = nil
     ) {
         // set url path
         let urlString = self.baseURL!.absoluteString + path
@@ -86,6 +87,7 @@ public class CotterAPIService {
             // if it reaches this point, that means the http request is successful
             DispatchQueue.main.async{
                 cb.successfulHandler(response: data)
+                internalCb?.internalSuccessHandler()
             }
         }
         task.resume()
@@ -213,6 +215,76 @@ public class CotterAPIService {
             path: path,
             body: body,
             cb:cb
+        )
+    }
+    
+    public func getBiometricStatus(
+        cb: HTTPCallback
+    ) {
+        let internalCb = CotterCallback()
+        
+        guard let pubKey = KeyGen.pubKey else {
+            internalCb.internalErrorHandler(err: "Unable to attain user's public key!")
+            return
+        }
+        
+        let pubKeyBase64 = CryptoUtil.keyToBase64(pubKey: pubKey)
+        
+        let method = "GET"
+        let path = "/user/enrolled/" + CotterAPIService.shared.userID! + "/BIOMETRIC/" + pubKeyBase64
+        
+        self.http(
+            method: method,
+            path: path,
+            body: nil,
+            cb: cb
+        )
+    }
+    
+    public func updateBiometricStatus(
+        enrollBiometric: Bool,
+        cb: HTTPCallback
+    ) {
+        let internalCb = CotterCallback()
+        
+        guard let pubKey = KeyGen.pubKey else {
+            internalCb.internalErrorHandler(err: "Unable to attain user's public key!")
+            return
+        }
+        
+        let pubKeyBase64 = CryptoUtil.keyToBase64(pubKey: pubKey)
+        
+        let method = "PUT"
+        let path = "/user/" + CotterAPIService.shared.userID!
+        let data: [String: Any] = [
+            "method": "BIOMETRIC",
+            "enrolled": enrollBiometric,
+            "code": pubKeyBase64
+        ]
+        
+        let body = try? JSONSerialization.data(withJSONObject: data)
+        
+        // If we are trying to disable biometrics, we need
+        // to delete the public/private key pair as well after successul HTTP Response
+        if !enrollBiometric {
+            func internalSuccessCb() {
+                do {
+                    try KeyGen.clearKeys()
+                } catch let err {
+                    internalCb.internalErrorHandler(err: err.localizedDescription)
+                    return
+                }
+            }
+            
+            internalCb.internalSuccessFunc = internalSuccessCb
+        }
+        
+        self.http(
+            method: method,
+            path: path,
+            body: body,
+            cb: cb,
+            internalCb: internalCb
         )
     }
     

@@ -21,11 +21,22 @@ public protocol HTTPCallback {
     func successfulHandler(response: Data?) -> Void
 }
 
-class CotterCallback: HTTPCallback {
+public protocol InternalCallback {
+    // internalErrorHandler handles any internal error (i.e. keychain error)
+    // prior to HTTP Requests
+    func internalErrorHandler(err: String?) -> Void
+    
+    // internalSuccessHandler handles successful HTTP Response Request
+    func internalSuccessHandler() -> Void
+}
+
+class CotterCallback: HTTPCallback, InternalCallback {
     // optional functions
     public var networkErrorFunc: ((Error?) -> Void)?
     public var statusNotOKFunc: ((Int) -> Void)?
     public var successfulFunc: ((Data?) -> Void)?
+    public var internalErrorFunc: ((String?) -> Void)?
+    public var internalSuccessFunc: (() -> Void)?
     
     // networkErrorHandler is the default handler for network errors
     public func networkErrorHandler(err: Error?) {
@@ -61,6 +72,28 @@ class CotterCallback: HTTPCallback {
         // if the successfulFunc is defined then respond with the function
         if let f = self.successfulFunc {
             f(response)
+        }
+        return
+    }
+    
+    // internalErrorHandler is the default internal handler for internal errors
+    public func internalErrorHandler(err: String?) {
+        print("error", err ?? "Unknown error")
+        
+        // if the internalErrorFunc is defined then respond with the function
+        if let f = self.internalErrorFunc {
+            f(err)
+        }
+        return
+    }
+    
+    // internalSuccessHandler is the default internal handler for successful HTTP Requests
+    public func internalSuccessHandler() {
+        print("executing internal success callback")
+        
+        // if the internalSuccessFunc is defined then respond with the function
+        if let f = self.internalSuccessFunc {
+            f()
         }
         return
     }
