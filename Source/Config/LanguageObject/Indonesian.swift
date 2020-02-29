@@ -75,7 +75,7 @@ public class Indonesian: LanguageObject {
             
             // MARK: - Dispatch Result Alert (Success)
             AuthAlertMessagesKey.successDispatchTitle: "Verifikasi",
-            AuthAlertMessagesKey.successDispatchBody: "Sidik biometrik sesual.",
+            AuthAlertMessagesKey.successDispatchBody: "Sidik biometrik sesuai.",
             AuthAlertMessagesKey.successDispatchActionButton: "Input PIN",
             AuthAlertMessagesKey.successDispatchCancelButton: "Batalkan",
             
