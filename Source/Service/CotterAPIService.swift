@@ -242,5 +242,20 @@ public class CotterAPIService {
             cb:cb
         )
     }
+    
+    public func getUser(
+        userID: String,
+        cb: HTTPCallback
+    ) {
+        let method = "GET"
+        let path = "/user/" + userID
+        
+        self.http(
+            method: method,
+            path: path,
+            body: nil,
+            cb:cb
+        )
+    }
 }
 

@@ -123,9 +123,10 @@ extension UpdateConfirmNewPINViewController : PINBaseController {
             }
             
             // define the handlers, attach the callbacks
-            let h = CotterCallback()
-            h.successfulFunc = successCb
-            h.networkErrorFunc = errorCb
+            let h = CotterCallback(
+                successfulFunc: successCb,
+                networkErrorFunc: errorCb
+            )
             
             // Run API to update PIN
             CotterAPIService.shared.updateUserPin(

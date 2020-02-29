@@ -13,6 +13,7 @@ import Foundation
 class ViewController: UIViewController {
     @IBOutlet weak var errorLabel: UILabel!
     
+    let userID:String = randomString(length: 5)
     override func viewWillAppear(_ animated: Bool) {
         errorLabel.text = ""
     }
@@ -46,7 +47,6 @@ class ViewController: UIViewController {
             }
             
         }
-        let clientUserID = randomString(length: 5)
         
         // select the dashboard's ViewController
         let sboard = UIStoryboard(name: "Dashboard", bundle: nil)
@@ -91,7 +91,7 @@ class ViewController: UIViewController {
             apiSecretKey: apiSecretKey,
             apiKeyID: apiKeyID,
             cotterURL: baseURL,
-            userID: clientUserID,
+            userID: self.userID,
             onComplete: cbFunc,
             // configuration is an optional argument, remove this below and Cotter app will still function properly
             configuration: [
@@ -107,8 +107,8 @@ class ViewController: UIViewController {
         Cotter.PLBaseURL = "http://localhost:3000/app"
         
         CotterAPIService.shared.registerUser(
-            userID: clientUserID,
-            cb: DefaultCallback()
+            userID: self.userID,
+            cb: CotterCallback()
         )
         
         print(String(format:"%f", Date().timeIntervalSince1970.rounded()))
@@ -129,6 +129,25 @@ class ViewController: UIViewController {
     
     @IBAction func clickUpdateProfile(_ sender: Any) {
         CotterWrapper.cotter?.startUpdateProfile(animated: true)
+    }
+
+    @IBAction func goToUserCheck(_ sender: Any) {
+        print("goToUserCheck")
+        performSegue(withIdentifier: "segueToUserCheck", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let identifier = segue.identifier else { return }
+        switch(identifier) {
+        case "segueToUserCheck":
+            print("prepare segue for UserCheckViewController")
+            let vc = segue.destination as! UserCheckViewController
+            vc.userID = self.userID
+            break
+        default:
+            print("unknown segue identifier: \(identifier)")
+            break
+        }
     }
 }
 

@@ -21,20 +21,35 @@ public protocol HTTPCallback {
     func successfulHandler(response: Data?) -> Void
 }
 
-class CotterCallback: HTTPCallback {
+public class CotterCallback: HTTPCallback {
     // optional functions
-    public var networkErrorFunc: ((Error?) -> Void)?
-    public var statusNotOKFunc: ((Int) -> Void)?
-    public var successfulFunc: ((Data?) -> Void)?
+    public let networkErrorFunc: ((Error?) -> Void)?
+    public let statusNotOKFunc: ((Int) -> Void)?
+    public let successfulFunc: ((Data?) -> Void)?
+    
+    public init() {
+        networkErrorFunc = nil
+        successfulFunc = nil
+        statusNotOKFunc = nil
+    }
+    
+    public init(
+        successfulFunc: ((Data?) -> Void)? = nil,
+        networkErrorFunc: ((Error?) -> Void)? = nil,
+        statusNotOKFunc: ((Int) -> Void)? = nil
+    ) {
+        self.successfulFunc = successfulFunc
+        self.networkErrorFunc = networkErrorFunc
+        self.statusNotOKFunc = statusNotOKFunc
+    }
     
     // networkErrorHandler is the default handler for network errors
     public func networkErrorHandler(err: Error?) {
         print("error", err ?? "Unknown error")
         
         // if the networkErrorFunc is defined then respond with the function
-        if let f = self.networkErrorFunc {
-            f(err)
-        }
+        guard let f = self.networkErrorFunc else { return }
+        f(err)
         return
     }
     
@@ -43,9 +58,8 @@ class CotterCallback: HTTPCallback {
         print("status \(statusCode) for the request")
         
         // if the statusNotOKFunc is defined then respond with the function
-        if let f = self.statusNotOKFunc {
-            f(statusCode)
-        }
+        guard let f = self.statusNotOKFunc else { return }
+        f(statusCode)
         return
     }
     
@@ -59,9 +73,8 @@ class CotterCallback: HTTPCallback {
         print("successfully created the request with response: \(respString)")
         
         // if the successfulFunc is defined then respond with the function
-        if let f = self.successfulFunc {
-            f(response)
-        }
+        guard let f = self.successfulFunc else { return }
+        f(response)
         return
     }
 }

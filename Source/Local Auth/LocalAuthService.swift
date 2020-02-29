@@ -158,8 +158,9 @@ class LocalAuthService: UIViewController {
             }
         }
         
-        let h = CotterCallback()
-        h.successfulFunc = successHandler
+        let h = CotterCallback(
+            successfulFunc: successHandler
+        )
         
         CotterAPIService.shared.auth(
             body: data,
@@ -267,8 +268,9 @@ class LocalAuthService: UIViewController {
                     }
                 }
 
-                let h = CotterCallback()
-                h.successfulFunc = successHandler
+                let h = CotterCallback(
+                    successfulFunc: successHandler
+                )
 
                 // use APIService to send the authentication request
                 CotterAPIService.shared.auth(
