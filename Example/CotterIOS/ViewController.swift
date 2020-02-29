@@ -13,7 +13,7 @@ import Foundation
 class ViewController: UIViewController {
     @IBOutlet weak var errorLabel: UILabel!
     
-    var userID:String = ""
+    let userID:String = randomString(length: 5)
     override func viewWillAppear(_ animated: Bool) {
         errorLabel.text = ""
     }
@@ -47,7 +47,6 @@ class ViewController: UIViewController {
             }
             
         }
-        self.userID = randomString(length: 5)
         
         // select the dashboard's ViewController
         let sboard = UIStoryboard(name: "Dashboard", bundle: nil)
