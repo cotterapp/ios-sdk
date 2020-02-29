@@ -68,6 +68,13 @@
                                 <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dme-5s-tyS">
+                                <rect key="frame" x="145" y="497" width="85" height="30"/>
+                                <state key="normal" title="Client check"/>
+                                <connections>
+                                    <action selector="goToUserCheck:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="qaW-XL-uc2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -77,9 +84,11 @@
                             <constraint firstItem="54v-qE-r26" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="HRM-cx-Fjf"/>
                             <constraint firstItem="mtB-9J-M19" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="KED-hZ-CLP"/>
                             <constraint firstItem="nvg-fr-Lvu" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="M7P-UE-XdM"/>
+                            <constraint firstItem="Dme-5s-tyS" firstAttribute="top" secondItem="oyP-Kn-NiT" secondAttribute="bottom" constant="20" id="Mci-aF-zMh"/>
                             <constraint firstItem="XcD-u1-ZcS" firstAttribute="top" secondItem="nvg-fr-Lvu" secondAttribute="bottom" constant="20" id="Nhk-uZ-heg"/>
                             <constraint firstItem="cJz-AF-KNf" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="Oxd-1w-oNP"/>
                             <constraint firstItem="nvg-fr-Lvu" firstAttribute="top" secondItem="54v-qE-r26" secondAttribute="bottom" constant="20" id="YkY-WG-agN"/>
+                            <constraint firstItem="Dme-5s-tyS" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="bgp-xk-2Ot"/>
                             <constraint firstItem="XcD-u1-ZcS" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="kfe-qm-w0v"/>
                             <constraint firstItem="XcD-u1-ZcS" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="pjb-ef-m5h"/>
                             <constraint firstItem="P3r-wO-R4a" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="xJs-jx-AYg"/>
@@ -90,6 +99,7 @@
                     <navigationItem key="navigationItem" title="Cotter Example App" id="5qM-FL-BNc"/>
                     <connections>
                         <outlet property="errorLabel" destination="P3r-wO-R4a" id="hk4-ks-nqO"/>
+                        <segue destination="gql-Ku-of0" kind="show" identifier="segueToUserCheck" id="vWj-Kv-Fqg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -199,6 +209,71 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wJU-1w-6Zl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="110" y="763"/>
+        </scene>
+        <!--User Check View Controller-->
+        <scene sceneID="NAd-Eg-4Ab">
+            <objects>
+                <viewController storyboardIdentifier="UserCheckViewController" id="gql-Ku-of0" customClass="UserCheckViewController" customModule="Cotter_App" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3yG-gp-P1Q"/>
+                        <viewControllerLayoutGuide type="bottom" id="5lm-8y-yn5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2mj-ZI-WoC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User ID:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oWG-lQ-ILl">
+                                <rect key="frame" x="157" y="20" width="61.333333333333343" height="20.333333333333329"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JDh-OQ-zxB">
+                                <rect key="frame" x="36" y="115.33333333333334" width="303" height="20.333333333333343"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Fl-35-M8M">
+                                <rect key="frame" x="110.00000000000001" y="165.66666666666666" width="155.33333333333337" height="34"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="new User ID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6up-Q9-xZw">
+                                        <rect key="frame" x="0.0" y="0.0" width="106.33333333333333" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q9O-wG-rb0">
+                                        <rect key="frame" x="106.33333333333334" y="0.0" width="49" height="34"/>
+                                        <state key="normal" title="Check!"/>
+                                        <connections>
+                                            <action selector="checkAction:" destination="gql-Ku-of0" eventType="touchUpInside" id="j2Y-cP-YiC"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="7Fl-35-M8M" firstAttribute="top" secondItem="JDh-OQ-zxB" secondAttribute="bottom" constant="30" id="Jc4-ie-lbI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="JDh-OQ-zxB" secondAttribute="trailing" constant="20" id="Kbx-OS-qrl"/>
+                            <constraint firstItem="oWG-lQ-ILl" firstAttribute="top" secondItem="3yG-gp-P1Q" secondAttribute="bottom" constant="20" id="L2S-w6-nbc"/>
+                            <constraint firstItem="JDh-OQ-zxB" firstAttribute="leading" secondItem="2mj-ZI-WoC" secondAttribute="leadingMargin" constant="20" id="Oeh-CV-GAx"/>
+                            <constraint firstItem="JDh-OQ-zxB" firstAttribute="centerX" secondItem="2mj-ZI-WoC" secondAttribute="centerX" id="caC-ql-tdO"/>
+                            <constraint firstItem="oWG-lQ-ILl" firstAttribute="centerX" secondItem="2mj-ZI-WoC" secondAttribute="centerX" id="pNT-AG-hzp"/>
+                            <constraint firstItem="7Fl-35-M8M" firstAttribute="centerX" secondItem="2mj-ZI-WoC" secondAttribute="centerX" id="xYE-L5-dkv"/>
+                            <constraint firstItem="JDh-OQ-zxB" firstAttribute="top" secondItem="oWG-lQ-ILl" secondAttribute="bottom" constant="75" id="y6w-xd-VI3"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="1dc-cs-X3H"/>
+                    <connections>
+                        <outlet property="textFieldUserID" destination="6up-Q9-xZw" id="4sl-Th-Kom"/>
+                        <outlet property="userDetailsLabel" destination="JDh-OQ-zxB" id="1VM-L0-LXz"/>
+                        <outlet property="userIDLabel" destination="oWG-lQ-ILl" id="jwn-8b-bt3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UUN-Sb-KiY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="880.79999999999995" y="762.5615763546798"/>
         </scene>
         <!--Passwordless Login-->
         <scene sceneID="Tjn-1L-6Vc">

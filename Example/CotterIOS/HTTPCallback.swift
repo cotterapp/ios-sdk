@@ -11,10 +11,17 @@ import Cotter
 
 // DefaultCallback should be the client's default error callback implementations
 class DefaultCallback: HTTPCallback {
+    var successFunc: ((_ response:Data?) -> Void)?
+    var networkErrFunc: ((_ err: Error?) -> Void)?
+    var statusNotOKFunc: ((_ statusCode: Int) -> Void)?
+    
     // networkErrorHandler is the default handler for network errors
     public func networkErrorHandler(err: Error?) {
         print("error", err ?? "Unknown error")
-        
+
+        if let f = networkErrFunc {
+            return f(err)
+        }
         return
     }
     
@@ -22,6 +29,9 @@ class DefaultCallback: HTTPCallback {
     public func statusNotOKHandler(statusCode: Int) {
         print("status \(statusCode) for the request")
         
+        if let f = statusNotOKFunc {
+            return f(statusCode)
+        }
         return
     }
     
@@ -30,6 +40,10 @@ class DefaultCallback: HTTPCallback {
         guard let response = response else {
             print("failed parsing data to string")
             return
+        }
+        
+        if let f = successFunc {
+            return f(response)
         }
         let respString = String(decoding:response, as: UTF8.self)
         print("successfully created the request with response: \(respString)")
