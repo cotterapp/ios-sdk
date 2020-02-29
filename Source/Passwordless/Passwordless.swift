@@ -99,9 +99,7 @@ class Passwordless: NSObject, ASWebAuthenticationPresentationContextProviding {
                 return
             }
             
-            // the default callback
-            let httpCb = CotterCallback()
-            httpCb.successfulFunc = { (response) in
+            func success(response:Data?){
                 guard let response = response else {
                     print("ERROR: response body is nil")
                     return
@@ -120,6 +118,10 @@ class Passwordless: NSObject, ASWebAuthenticationPresentationContextProviding {
                     print(error.localizedDescription)
                 }
             }
+            
+            let httpCb = CotterCallback(
+                successfulFunc: success
+            )
             
             CotterAPIService.shared.requestToken(
                 codeVerifier: codeVerifier,

@@ -213,7 +213,7 @@
         <!--User Check View Controller-->
         <scene sceneID="NAd-Eg-4Ab">
             <objects>
-                <viewController storyboardIdentifier="UserCheckViewController" id="gql-Ku-of0" customClass="UserCheckViewController" customModule="Cotter_App" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserCheckViewController" id="gql-Ku-of0" customClass="UserCheckViewController" customModule="CotterIOS_Example" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3yG-gp-P1Q"/>
                         <viewControllerLayoutGuide type="bottom" id="5lm-8y-yn5"/>

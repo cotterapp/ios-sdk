@@ -16,7 +16,7 @@ class UserCheckViewController: UIViewController {
     
     var userID = ""
     
-    var cb = DefaultCallback()
+    var cb: HTTPCallback = CotterCallback()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,11 +24,7 @@ class UserCheckViewController: UIViewController {
         // Do any additional setup after loading the view.
         self.userIDLabel.text = "Client User ID: \(self.userID)"
         
-        self.cb.statusNotOKFunc = { (statusCode:Int) in
-            print("statusCode: \(statusCode)")
-        }
-        
-        self.cb.successFunc = { (response: Data?) in
+        func successCb(response:Data?) {
             guard let response = response else {
                 print("response is nil")
                 return
@@ -43,6 +39,11 @@ class UserCheckViewController: UIViewController {
                 print(error.localizedDescription)
             }
         }
+        
+        self.cb = CotterCallback(
+            successfulFunc: successCb
+        )
+        
         CotterAPIService.shared.getUser(userID:self.userID, cb:self.cb)
     }
     
