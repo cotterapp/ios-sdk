@@ -9,6 +9,6 @@ import Foundation
 
 public struct CotterConstants {
     // MARK: - List of verification methods
-    static let MethodPIN = "PIN"
-    static let MethodBiometric = "BIOMETRIC"
+    public static let MethodPIN = "PIN"
+    public static let MethodBiometric = "BIOMETRIC"
 }

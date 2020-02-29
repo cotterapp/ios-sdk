@@ -47,6 +47,7 @@ public class CotterAPIService {
     ) {
         // set url path
         let urlString = self.baseURL!.absoluteString + path
+        print("urlString: \(urlString)")
         let url = URL(string:urlString)!
         
         // create request
