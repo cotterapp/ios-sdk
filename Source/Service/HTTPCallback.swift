@@ -21,11 +21,21 @@ public protocol HTTPCallback {
     func successfulHandler(response: Data?) -> Void
 }
 
+public protocol InternalCallback {
+    // internalErrorHandler handles any internal error (i.e. keychain error)
+    // prior to HTTP Requests
+    func internalErrorHandler(err: String?) -> Void
+    // internalSuccessHandler handles successful HTTP Response Request
+    func internalSuccessHandler() -> Void
+}
+
 public class CotterCallback: HTTPCallback {
     // optional functions
     public let networkErrorFunc: ((Error?) -> Void)?
     public let statusNotOKFunc: ((Int) -> Void)?
     public let successfulFunc: ((Data?) -> Void)?
+    public var internalErrorFunc: ((String?) -> Void)?
+    public var internalSuccessFunc: (() -> Void)?
     
     public init() {
         networkErrorFunc = nil
