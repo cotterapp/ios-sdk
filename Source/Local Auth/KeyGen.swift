@@ -144,12 +144,8 @@ class KeyGen {
         let pubKeyTag = "org.cocoapods.Cotter.pubKey".data(using: .utf8)!
         
         // Remove the previous key pair
-        do {
-            try deleteKey(tag:privKeyTag)
-            try deleteKey(tag:pubKeyTag)
-        } catch CotterError.keychainError(let errMsg) {
-            throw CotterError.keychainError(errMsg)
-        }
+        try deleteKey(tag:privKeyTag)
+        try deleteKey(tag:pubKeyTag)
         
         print("Successfully Deleted Public/Private Key Pair")
     }
