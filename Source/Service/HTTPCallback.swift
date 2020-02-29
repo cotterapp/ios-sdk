@@ -30,7 +30,7 @@ public protocol InternalCallback {
     func internalSuccessHandler() -> Void
 }
 
-class CotterCallback: HTTPCallback, InternalCallback {
+class CotterCallback: HTTPCallback {
     // optional functions
     public var networkErrorFunc: ((Error?) -> Void)?
     public var statusNotOKFunc: ((Int) -> Void)?
@@ -75,7 +75,10 @@ class CotterCallback: HTTPCallback, InternalCallback {
         }
         return
     }
-    
+}
+
+// MARK: - InternalCallback definition
+extension CotterCallback: InternalCallback {
     // internalErrorHandler is the default internal handler for internal errors
     public func internalErrorHandler(err: String?) {
         print("error", err ?? "Unknown error")
