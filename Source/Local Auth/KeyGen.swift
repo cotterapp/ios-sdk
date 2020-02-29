@@ -57,7 +57,7 @@ class KeyGen {
             print("fetching private key, authenticating..")
             guard let privKey = fetchKey(pvt: true) else {
                 // try to generate the key first
-                do{
+                do {
                     try KeyGen.generateKey()
                 } catch let e {
                     print(e)
@@ -76,7 +76,7 @@ class KeyGen {
             guard let key = fetchKey(pvt: false) else {
                 print("generating key pair")
                 // try to generate the key first
-                do{
+                do {
                     try KeyGen.generateKey()
                 } catch let e {
                     print(e)
@@ -135,6 +135,34 @@ class KeyGen {
         let status = SecItemAdd(addquery as CFDictionary, nil)
         guard status == errSecSuccess else {
             throw CotterError.keychainError("error saving public key")
+        }
+    }
+    
+    static func clearKeys() throws {
+        print("Deleting Private and Public Keys...")
+        let privKeyTag = "org.cocoapods.Cotter.privKey".data(using: .utf8)!
+        let pubKeyTag = "org.cocoapods.Cotter.pubKey".data(using: .utf8)!
+        
+        // Remove the previous key pair
+        try deleteKey(tag:privKeyTag)
+        try deleteKey(tag:pubKeyTag)
+        
+        print("Successfully Deleted Public/Private Key Pair")
+    }
+}
+
+// MARK: - Keychain utilities
+extension KeyGen {
+    private static func deleteKey(tag:Data) throws {
+        // Remove the previous key pair
+        let query: [String: Any] = [
+            kSecClass as String: kSecClassKey,
+            kSecAttrApplicationTag as String: tag,
+            kSecAttrKeyType as String: kSecAttrKeyTypeECSECPrimeRandom,
+        ]
+        let st = SecItemDelete(query as CFDictionary)
+        guard st == errSecSuccess || st == errSecItemNotFound else {
+            throw CotterError.keychainError("Error deleting key: \(String(decoding: tag, as: UTF8.self))")
         }
     }
 }
