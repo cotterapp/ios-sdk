@@ -77,7 +77,10 @@ public class CotterCallback: HTTPCallback {
         f(response)
         return
     }
-    
+}
+
+// MARK: - InternalCallback definition
+extension CotterCallback: InternalCallback {
     // internalErrorHandler is the default internal handler for internal errors
     public func internalErrorHandler(err: String?) {
         print("error", err ?? "Unknown error")

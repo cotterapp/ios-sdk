@@ -141,32 +141,28 @@ class KeyGen {
     static func clearKeys() throws {
         print("Deleting Private and Public Keys...")
         let privKeyTag = "org.cocoapods.Cotter.privKey".data(using: .utf8)!
+        let pubKeyTag = "org.cocoapods.Cotter.pubKey".data(using: .utf8)!
         
         // Remove the previous key pair
-        // Deleting the private key
+        try deleteKey(tag:privKeyTag)
+        try deleteKey(tag:pubKeyTag)
+        
+        print("Successfully Deleted Public/Private Key Pair")
+    }
+}
+
+// MARK: - Keychain utilities
+extension KeyGen {
+    private static func deleteKey(tag:Data) throws {
+        // Remove the previous key pair
         let query: [String: Any] = [
             kSecClass as String: kSecClassKey,
-            kSecAttrApplicationTag as String: privKeyTag,
+            kSecAttrApplicationTag as String: tag,
             kSecAttrKeyType as String: kSecAttrKeyTypeECSECPrimeRandom,
         ]
         let st = SecItemDelete(query as CFDictionary)
         guard st == errSecSuccess || st == errSecItemNotFound else {
-            throw CotterError.keychainError("Error deleting old Private Key")
+            throw CotterError.keychainError("Error deleting key: \(String(decoding: tag, as: UTF8.self))")
         }
-        
-        let pubKeyTag = "org.cocoapods.Cotter.pubKey".data(using: .utf8)!
-        
-        // Remove the previous key pair
-        // Retrieving the public key
-        let query2: [String: Any] = [
-            kSecClass as String: kSecClassKey,
-            kSecAttrApplicationTag as String: pubKeyTag,
-            kSecAttrKeyType as String: kSecAttrKeyTypeECSECPrimeRandom,
-        ]
-        let st2 = SecItemDelete(query2 as CFDictionary)
-        guard st2 == errSecSuccess || st == errSecItemNotFound else {
-            throw CotterError.keychainError("Error deleting old Public Key")
-        }
-        print("Successfully Deleted Public/Private Key Pair")
     }
 }
