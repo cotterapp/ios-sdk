@@ -197,25 +197,16 @@ extension ViewController {
     // only call setupBiometricToggle when the user is successfully been registered
     // to the server
     private func setupBiometricToggle() {
-        print("setting up biometric toggle")
         func success(data:Data?) {
             guard let data = data else { return }
             let decoder = JSONDecoder()
             do {
-                let resp = try decoder.decode(CotterUser.self, from: data)
+                let resp = try decoder.decode(EnrolledMethods.self, from: data)
                 
                 // check if biometric is enrolled
-                let lookFor = CotterConstants.MethodBiometric
-                var biometricAvailable = false
-                for method in resp.enrolled {
-                    if method == lookFor {
-                        biometricAvailable = true
-                        break
-                    }
-                }
+                let biometricAvailable = resp.enrolled
                 
-                self.bioSwitch.setOn(biometricAvailable, animated: true
-                )
+                self.bioSwitch.setOn(biometricAvailable, animated: true)
             } catch {
                 print(error.localizedDescription)
             }
@@ -223,7 +214,7 @@ extension ViewController {
         let cb = CotterCallback(
             successfulFunc: success
         )
-        CotterAPIService.shared.getUser(userID: self.userID, cb: cb)
+        CotterAPIService.shared.getBiometricStatus(cb: cb)
     }
 }
 

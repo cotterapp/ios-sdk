@@ -46,7 +46,9 @@ public class CotterAPIService {
         internalCb: InternalCallback? = nil
     ) {
         // set url path
-        let urlString = self.baseURL!.absoluteString + path
+        guard let base = self.baseURL else { return }
+        
+        let urlString = base.absoluteString + path
         print("urlString: \(urlString)")
         let url = URL(string:urlString)!
         
@@ -229,7 +231,7 @@ public class CotterAPIService {
             return
         }
         
-        let pubKeyBase64 = CryptoUtil.keyToBase64(pubKey: pubKey)
+        let pubKeyBase64 = CryptoUtil.keyToBase64URL(pubKey: pubKey)
         
         let method = "GET"
         let path = "/user/enrolled/" + CotterAPIService.shared.userID! + "/BIOMETRIC/" + pubKeyBase64
