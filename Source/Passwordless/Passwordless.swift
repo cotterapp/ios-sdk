@@ -99,29 +99,23 @@ class Passwordless: NSObject, ASWebAuthenticationPresentationContextProviding {
                 return
             }
             
-            func success(response:Data?){
-                guard let response = response else {
-                    print("ERROR: response body is nil")
-                    return
-                }
-                let decoder = JSONDecoder()
-                do {
-                    let resp = try decoder.decode(GetIdentityResponse.self, from: response)
+            func httpCb(response: CotterResult<CotterIdentity>) {
+                switch response {
+                case .success(let resp):
+                    do {
+                        let jsonData = try JSONEncoder().encode(resp.token)
+                        let tokenString = String(data: jsonData, encoding: .utf8)!
                     
-                    // parse token
-                    let jsonData = try JSONEncoder().encode(resp.token)
-                    let tokenString = String(data: jsonData, encoding: .utf8)!
-                    
-                    // return the token
-                    cb(tokenString, nil)
-                } catch {
-                    print(error.localizedDescription)
+                        // return the token
+                        cb(tokenString, nil)
+                    } catch {
+                        print(error.localizedDescription)
+                    }
+                case .failure(let err):
+                    // we can handle multiple error results here
+                    print(err.localizedDescription)
                 }
             }
-            
-            let httpCb = CotterCallback(
-                successfulFunc: success
-            )
             
             CotterAPIService.shared.requestToken(
                 codeVerifier: codeVerifier,

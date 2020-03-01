@@ -73,19 +73,10 @@ class LocalAuthService: UIViewController {
     private func biometricPubKeyRegistration(pubKey: SecKey) {
         let pubKeyBase64 = CryptoUtil.keyToBase64(pubKey: pubKey)
         
-        let body = try? JSONSerialization.data(withJSONObject: [
-            "method": "BIOMETRIC",
-            "enrolled": true,
-            "code": pubKeyBase64
-        ])
+        guard let userID = CotterAPIService.shared.userID else { return }
         
         // Send the public key to the main server
-        CotterAPIService.shared.http(
-            method: "PUT",
-            path: "/user/"+CotterAPIService.shared.userID!,
-            body: body,
-            cb: CotterCallback() // TODO: define error handler, don't use default
-        )
+        CotterAPIService.shared.registerBiometric(userID:userID, pubKey:pubKeyBase64, cb:DefaultResultCallback)
     }
     
     // pinAuth should authenticate the pin
@@ -96,53 +87,30 @@ class LocalAuthService: UIViewController {
     ) throws -> Bool {
         let apiclient = CotterAPIService.shared
         
-        // get the external ip address
-        var ipAddr = LocalAuthService.ipAddr
-        if ipAddr == nil {
-            ipAddr = "unknown"
-        }
-        
-        // location is still unknown for 0.0.4
-        let location = "unknown"
-        
         guard let userID = apiclient.userID else {
             return false
         }
         print("userID: \(userID)")
         
-        let data = try? JSONSerialization.data(withJSONObject: [
-            "client_user_id": userID,
-            "issuer": apiclient.apiKeyID,
-            "event": event,
-            "ip": ipAddr!, // exclamation mark is fine here because there is a nil check at the top
-            "location": location,
-            "timestamp": String(format:"%.0f",NSDate().timeIntervalSince1970.rounded()),
-            "code": pin,
-            "method":"PIN",
-            "approved": true
-        ])
-        
-        func successHandler(response:Data?) {
-            guard let response = response else {
-                print("ERROR: response body is nil")
-                return
-            }
-            let decoder = JSONDecoder()
-            do {
-                let resp = try decoder.decode(CreateEventResponse.self, from: response)
+        func httpCb(response: CotterResult<CotterEvent>) {
+            switch response {
+            case .success(let resp):
                 callback(resp.approved)
-            } catch {
-                print(error.localizedDescription)
+            case .failure(let err):
+                // we can handle multiple error results here
+                print(err.localizedDescription)
             }
         }
         
-        let h = CotterCallback(
-            successfulFunc: successHandler
-        )
+        print("PIN: \(pin)")
         
         CotterAPIService.shared.auth(
-            body: data,
-            cb: h
+            userID:userID,
+            issuer:apiclient.apiKeyID,
+            event:event,
+            code:pin,
+            method:"PIN",
+            cb: httpCb
         )
         
         return true
@@ -184,13 +152,9 @@ class LocalAuthService: UIViewController {
 
                 let b64PubKey = CryptoUtil.keyToBase64(pubKey: pubKey)
                 
-                // TODO: do biometric authentication to the server
-                let ipAddr = LocalAuthService.ipAddr ?? "unknown"
-                let location = "unknown" // location is unknown as of 0.0.4
-                
                 let cl = CotterAPIService.shared
                 let issuer = cl.apiKeyID
-                guard let client_user_id = cl.userID else {
+                guard let userID = cl.userID else {
                     print("user id not set")
                     return
                 }
@@ -198,7 +162,7 @@ class LocalAuthService: UIViewController {
                 let evtMethod = "BIOMETRIC"
                 let approved = "true"
                 
-                let strToBeSigned = client_user_id + issuer + event + timestamp + evtMethod + approved
+                let strToBeSigned = userID + issuer + event + timestamp + evtMethod + approved
                 let data = strToBeSigned.data(using: .utf8)! as CFData
 
                 // set the signature algorithm
@@ -217,44 +181,29 @@ class LocalAuthService: UIViewController {
                 }
 
                 let strSignature = signature.base64EncodedString()
+                
 
-                // create the http request body
-                let reqBody = try? JSONSerialization.data(withJSONObject:  [
-                    "client_user_id": client_user_id,
-                    "issuer": issuer,
-                    "event": event,
-                    "ip": ipAddr, // exclamation mark is fine here because there is a nil check at the top
-                    "location": location,
-                    "timestamp": timestamp,
-                    "code": strSignature,
-                    "method": evtMethod,
-                    "public_key": b64PubKey,
-                    "approved": true
-                ])
-
-                func successHandler(response:Data?) {
-                    guard let response = response else {
-                        print("ERROR: response body is nil")
-                        return
-                    }
-                    let decoder = JSONDecoder()
-                    do {
-                        let resp = try decoder.decode(CreateEventResponse.self, from: response)
+                func httpCb(response: CotterResult<CotterEvent>) {
+                    switch response {
+                    case .success(let resp):
                         callback(resp.approved)
-                    } catch {
-                        print(error.localizedDescription)
+                    case .failure(let err):
+                        // we can handle multiple error results here
+                        print(err.localizedDescription)
                     }
                 }
-
-                let h = CotterCallback(
-                    successfulFunc: successHandler
-                )
-
-                // use APIService to send the authentication request
+                
                 CotterAPIService.shared.auth(
-                    body: reqBody,
-                    cb: h
+                    userID:userID,
+                    issuer:issuer,
+                    event:event,
+                    code:strSignature,
+                    method:"BIOMETRIC",
+                    pubKey: b64PubKey, // optional
+                    timestamp: timestamp, // optional
+                    cb: httpCb
                 )
+
             }
             
             alertDelegate.defCancelHandler = {
