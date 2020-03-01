@@ -233,8 +233,10 @@ public class CotterAPIService {
         
         let pubKeyBase64 = CryptoUtil.keyToBase64URL(pubKey: pubKey)
         
+        guard let userID = CotterAPIService.shared.userID else { return }
+        
         let method = "GET"
-        let path = "/user/enrolled/" + CotterAPIService.shared.userID! + "/BIOMETRIC/" + pubKeyBase64
+        let path = "/user/enrolled/" + userID + "/BIOMETRIC/" + pubKeyBase64
         
         self.http(
             method: method,
