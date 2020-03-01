@@ -13,9 +13,12 @@ import Foundation
 class ViewController: UIViewController {
     @IBOutlet weak var errorLabel: UILabel!
     
+    @IBOutlet weak var bioSwitch: UISwitch!
+    
     let userID:String = randomString(length: 5)
     override func viewWillAppear(_ animated: Bool) {
         errorLabel.text = ""
+        self.setupBiometricToggle()
     }
     
     override func viewDidLoad() {
@@ -110,10 +113,16 @@ class ViewController: UIViewController {
         
         CotterAPIService.shared.registerUser(
             userID: self.userID,
-            cb: CotterCallback()
+            cb: CotterCallback(
+                successfulFunc: { (data: Data?) in
+                    self.setup()
+                }
+            )
         )
-        
-        print(String(format:"%f", Date().timeIntervalSince1970.rounded()))
+    }
+    
+    func setup() {
+        self.setupBiometricToggle()
     }
     
     override func didReceiveMemoryWarning() {
@@ -150,6 +159,62 @@ class ViewController: UIViewController {
             print("unknown segue identifier: \(identifier)")
             break
         }
+    }
+    
+    @IBAction func switchBiometric(_ sender: Any) {
+        func success(data:Data?) {
+            // toggle on success
+            print("Successfully updated Biometric enrollment")
+            guard let data = data else { return }
+            let decoder = JSONDecoder()
+            
+            do {
+                let resp = try decoder.decode(CotterUser.self, from: data)
+                
+                // check if biometric is enrolled
+                let lookFor = CotterConstants.MethodBiometric
+                var biometricAvailable = false
+                for method in resp.enrolled {
+                    if method == lookFor {
+                        biometricAvailable = true
+                        break
+                    }
+                }
+                
+                self.bioSwitch.setOn(biometricAvailable, animated: true)
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        let cb = CotterCallback(
+            successfulFunc: success
+        )
+        CotterAPIService.shared.updateBiometricStatus(enrollBiometric: self.bioSwitch.isOn, cb: cb)
+    }
+}
+
+extension ViewController {
+    // only call setupBiometricToggle when the user is successfully been registered
+    // to the server
+    private func setupBiometricToggle() {
+        func success(data:Data?) {
+            guard let data = data else { return }
+            let decoder = JSONDecoder()
+            do {
+                let resp = try decoder.decode(EnrolledMethods.self, from: data)
+                
+                // check if biometric is enrolled
+                let biometricAvailable = resp.enrolled
+                
+                self.bioSwitch.setOn(biometricAvailable, animated: true)
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        let cb = CotterCallback(
+            successfulFunc: success
+        )
+        CotterAPIService.shared.getBiometricStatus(cb: cb)
     }
 }
 

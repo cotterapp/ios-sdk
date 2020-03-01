@@ -19,6 +19,8 @@
 		8594181223F5637800B4DA6D /* CotterWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8594181123F5637800B4DA6D /* CotterWrapper.swift */; };
 		8597662923F1914C00ACA96E /* IPAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8597662823F1914C00ACA96E /* IPAddressViewController.swift */; };
 		85AD5B812407C5CF00AC3367 /* UserCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AD5B802407C5CF00AC3367 /* UserCheckViewController.swift */; };
+		85AD5B8C240A9F8600AC3367 /* BasicButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AD5B8B240A9F8600AC3367 /* BasicButton.swift */; };
+		85AD5B91240AA1F200AC3367 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AD5B90240AA1F200AC3367 /* Color.swift */; };
 		85B5A91B23E6ECFF0040E288 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B5A91A23E6ECFF0040E288 /* DashboardViewController.swift */; };
 		85B5A91F23E6EDD20040E288 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85B5A91E23E6EDD20040E288 /* Dashboard.storyboard */; };
 		D9806D9750DE9F43B4FEEFF9 /* Pods_CotterIOS_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 286C43C66329D2B921FC31FD /* Pods_CotterIOS_Tests.framework */; };
@@ -56,6 +58,8 @@
 		8594181123F5637800B4DA6D /* CotterWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CotterWrapper.swift; sourceTree = "<group>"; };
 		8597662823F1914C00ACA96E /* IPAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPAddressViewController.swift; sourceTree = "<group>"; };
 		85AD5B802407C5CF00AC3367 /* UserCheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCheckViewController.swift; sourceTree = "<group>"; };
+		85AD5B8B240A9F8600AC3367 /* BasicButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicButton.swift; sourceTree = "<group>"; };
+		85AD5B90240AA1F200AC3367 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		85B5A91A23E6ECFF0040E288 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		85B5A91E23E6EDD20040E288 /* Dashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
 		8CC6D1264632DE725D859A81 /* Cotter.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Cotter.podspec; path = ../Cotter.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -118,6 +122,8 @@
 		607FACD21AFB9204008FA782 /* Example for CotterIOS */ = {
 			isa = PBXGroup;
 			children = (
+				85AD5B8D240AA1D200AC3367 /* Extensions */,
+				85AD5B8A240A9F7700AC3367 /* Components */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
@@ -178,6 +184,22 @@
 				286C43C66329D2B921FC31FD /* Pods_CotterIOS_Tests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		85AD5B8A240A9F7700AC3367 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				85AD5B8B240A9F8600AC3367 /* BasicButton.swift */,
+			);
+			name = Components;
+			sourceTree = "<group>";
+		};
+		85AD5B8D240AA1D200AC3367 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				85AD5B90240AA1F200AC3367 /* Color.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -357,7 +379,9 @@
 			files = (
 				8594181223F5637800B4DA6D /* CotterWrapper.swift in Sources */,
 				8594181023F55A3F00B4DA6D /* LoginViewController.swift in Sources */,
+				85AD5B91240AA1F200AC3367 /* Color.swift in Sources */,
 				8597662923F1914C00ACA96E /* IPAddressViewController.swift in Sources */,
+				85AD5B8C240A9F8600AC3367 /* BasicButton.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				85292E4223EC21CB008363AB /* CryptoViewController.swift in Sources */,
 				85B5A91B23E6ECFF0040E288 /* DashboardViewController.swift in Sources */,
@@ -551,6 +575,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 820AB7B5B7E543E5278DF99B /* Pods-CotterIOS_Tests.debug.xcconfig */;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				DEVELOPMENT_TEAM = S82KLNTT2U;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
@@ -574,6 +599,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1E3771ABD4A0733C6A59BB42 /* Pods-CotterIOS_Tests.release.xcconfig */;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				DEVELOPMENT_TEAM = S82KLNTT2U;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
