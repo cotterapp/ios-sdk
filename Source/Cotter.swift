@@ -114,25 +114,31 @@ public class Cotter {
     
     // MARK: - Cotter flows initializers
     // Start of Enrollment Process
-    public func startEnrollment(animated: Bool, hideClose:Bool = false) {
+    public func startEnrollment(animated: Bool, hideClose:Bool = false, cb: @escaping FinalAuthCallback) {
         // hide the close button (Optional)
         self.pinVC.hideCloseButton = hideClose
+        
+        Config.instance.callbackFunc = cb
         
         // push the viewcontroller to the navController
         Config.instance.parent.navigationController?.pushViewController(self.pinVC, animated: animated)
     }
     
     // Start of Transaction Process
-    public func startTransaction(animated: Bool, hideClose:Bool = false) {
+    public func startTransaction(animated: Bool, hideClose:Bool = false, cb: @escaping FinalAuthCallback) {
         // hide the close button
         self.transactionPinVC.hideCloseButton = hideClose
+        
+        Config.instance.callbackFunc = cb
         
         // Push the viewController to the navController
         Config.instance.parent.navigationController?.pushViewController(self.transactionPinVC, animated: animated)
     }
     
     // Start of Update Profile Process
-    public func startUpdateProfile(animated: Bool) {
+    public func startUpdateProfile(animated: Bool, hideClose:Bool = false, cb: @escaping FinalAuthCallback) {
+        Config.instance.callbackFunc = cb
+        
         // Push the viewController to the navController
         Config.instance.parent.navigationController?.pushViewController(self.updateProfilePinVC, animated: animated)
     }
