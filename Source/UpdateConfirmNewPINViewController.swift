@@ -105,34 +105,32 @@ extension UpdateConfirmNewPINViewController : PINBaseController {
                 return false
             }
             
-            // Define the callbacks
-            func successCb(resp: Data?) -> Void {
-                self.codeTextField.clear()
-                // Go to PIN Final View
-                let pinFinalVC = Cotter.cotterStoryboard.instantiateViewController(withIdentifier: "PINFinalViewController")as! PINFinalViewController
-                 pinFinalVC.requireAuth = false
-                self.navigationController?.pushViewController(pinFinalVC, animated: true)
-            }
-            
-            func errorCb(err: Error?) -> Void {
-                print(err?.localizedDescription ?? "error in UpdateViewController http request")
-                // Display Error
-                if self.errorLabel.isHidden {
-                    self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.updatePinFailed))
+            // Define the callback
+            func updateCb(response: CotterResult<CotterUser>) {
+                switch response {
+                case .success:
+                    self.codeTextField.clear()
+                    // Go to PIN Final View
+                    let pinFinalVC = Cotter.cotterStoryboard.instantiateViewController(withIdentifier: "PINFinalViewController")as! PINFinalViewController
+                     pinFinalVC.requireAuth = false
+                    self.navigationController?.pushViewController(pinFinalVC, animated: true)
+                    
+                case .failure(let err):
+                    // we can handle multiple error results here
+                    print(err.localizedDescription)
+
+                    // Display Error
+                    if self.errorLabel.isHidden {
+                        self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.updatePinFailed))
+                    }
                 }
             }
-            
-            // define the handlers, attach the callbacks
-            let h = CotterCallback(
-                successfulFunc: successCb,
-                networkErrorFunc: errorCb
-            )
             
             // Run API to update PIN
             CotterAPIService.shared.updateUserPin(
                 oldCode: self.oldCode!,
                 newCode: code,
-                cb: h
+                cb: updateCb
             )
             
             return true

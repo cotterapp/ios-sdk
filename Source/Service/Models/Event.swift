@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CreateEventResponse: Codable {
+public struct CotterEvent: Codable {
     var id:Int
     var createdAt:String
     var updatedAt:String?

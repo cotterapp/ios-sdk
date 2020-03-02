@@ -98,30 +98,27 @@ extension PINConfirmViewController : PINBaseController {
                 return false
             }
             
-            // Define the callbacks
-            func successCb(resp: Data?) -> Void {
-                let finalVC = self.storyboard?.instantiateViewController(withIdentifier: "PINFinalViewController")as! PINFinalViewController
-                self.navigationController?.pushViewController(finalVC, animated: true)
-            }
-            
-            func errorCb(err: Error?) -> Void {
-                print(err?.localizedDescription ?? "error in the PINConfirmViewController http request")
-                // Display Error
-                if self.errorLabel.isHidden {
-                    self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.enrollPinFailed))
+            // define callback
+            func enrollCb(response: CotterResult<CotterUser>) {
+                switch response {
+                case .success:
+                    let finalVC = self.storyboard?.instantiateViewController(withIdentifier: "PINFinalViewController")as! PINFinalViewController
+                    self.navigationController?.pushViewController(finalVC, animated: true)
+                case .failure(let err):
+                    // we can handle multiple error results here
+                    print(err.localizedDescription)
+                    
+                    // Display Error
+                    if self.errorLabel.isHidden {
+                        self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.enrollPinFailed))
+                    }
                 }
             }
-            
-            // define the handlers, attach the callbacks
-            let h = CotterCallback(
-                successfulFunc: successCb,
-                networkErrorFunc: errorCb
-            )
             
             // Run API to enroll PIN
             CotterAPIService.shared.enrollUserPin(
                 code: code,
-                cb: h
+                cb: enrollCb
             )
             
             return true

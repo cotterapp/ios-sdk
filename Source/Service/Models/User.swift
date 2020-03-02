@@ -2,7 +2,7 @@
 //  User.swift
 //  Cotter
 //
-//  Created by Albert Purnama on 2/27/20.
+//  Created by Albert Purnama on 3/1/20.
 //
 
 import Foundation

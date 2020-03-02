@@ -48,7 +48,6 @@ class ViewController: UIViewController {
             default:
                 break
             }
-            
         }
         
         // select the dashboard's ViewController
@@ -111,13 +110,33 @@ class ViewController: UIViewController {
         // set the base URL for PLBaseURL FOR DEVELOPMENT ONLY!
         Cotter.PLBaseURL = "http://localhost:3000/app"
         
+        func registerUserCb(_ response: CotterResult<CotterUser>){
+            switch response{
+            case .success(let user):
+                print("successfully registered: \(user.enrolled)")
+                self.setupBiometricToggle()
+                
+            case .failure(let err):
+                // you can put exhaustive error handling here
+                switch err{
+                case CotterAPIError.decoding:
+                    print("this is decoding error on registering user")
+                    break
+                case CotterAPIError.network:
+                    print("this is network error on registering user")
+                    break
+                case CotterAPIError.status:
+                    print("this is not successful error")
+                    break
+                default:
+                    print("error registering user: \(err)")
+                }
+            }
+        }
+        
         CotterAPIService.shared.registerUser(
             userID: self.userID,
-            cb: CotterCallback(
-                successfulFunc: { (data: Data?) in
-                    self.setup()
-                }
-            )
+            cb: registerUserCb
         )
     }
     
@@ -162,16 +181,11 @@ class ViewController: UIViewController {
     }
     
     @IBAction func switchBiometric(_ sender: Any) {
-        func success(data:Data?) {
-            // toggle on success
+        func cb(response: CotterResult<CotterUser>) {
             print("Successfully updated Biometric enrollment")
-            guard let data = data else { return }
-            let decoder = JSONDecoder()
             
-            do {
-                let resp = try decoder.decode(CotterUser.self, from: data)
-                
-                // check if biometric is enrolled
+            switch response {
+            case .success(let resp):
                 let lookFor = CotterConstants.MethodBiometric
                 var biometricAvailable = false
                 for method in resp.enrolled {
@@ -180,15 +194,12 @@ class ViewController: UIViewController {
                         break
                     }
                 }
-                
                 self.bioSwitch.setOn(biometricAvailable, animated: true)
-            } catch {
-                print(error.localizedDescription)
+            case .failure(let err):
+                // we can handle multiple error results here
+                print(err.localizedDescription)
             }
         }
-        let cb = CotterCallback(
-            successfulFunc: success
-        )
         CotterAPIService.shared.updateBiometricStatus(enrollBiometric: self.bioSwitch.isOn, cb: cb)
     }
 }
@@ -197,23 +208,17 @@ extension ViewController {
     // only call setupBiometricToggle when the user is successfully been registered
     // to the server
     private func setupBiometricToggle() {
-        func success(data:Data?) {
-            guard let data = data else { return }
-            let decoder = JSONDecoder()
-            do {
-                let resp = try decoder.decode(EnrolledMethods.self, from: data)
-                
-                // check if biometric is enrolled
+        func cb(response: CotterResult<EnrolledMethods>) {
+            switch response {
+            case .success(let resp):
                 let biometricAvailable = resp.enrolled
                 
                 self.bioSwitch.setOn(biometricAvailable, animated: true)
-            } catch {
-                print(error.localizedDescription)
+            case .failure(let err):
+                // we can handle multiple error results here
+                print(err.localizedDescription)
             }
         }
-        let cb = CotterCallback(
-            successfulFunc: success
-        )
         CotterAPIService.shared.getBiometricStatus(cb: cb)
     }
 }

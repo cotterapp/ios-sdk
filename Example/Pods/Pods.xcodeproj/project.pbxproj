@@ -41,30 +41,41 @@
 		7F3857A5B7E3D420374A43C134BA2411 /* PINConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B8FB2C961B4EDDE1D7E3A6DAD52773 /* PINConfirmViewController.swift */; };
 		83CA3C83B3CF440E2EB6ADE978430FF4 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC3FD539153D82E406D7D9CB92887FE /* UIImageView.swift */; };
 		851CB5C3893007AB212B22412DDB7BCD /* Pods-CotterIOS_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF8291F5BE9989ECC799AFC7316EFDE /* Pods-CotterIOS_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		85AD5B852407D25800AC3367 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AD5B842407D25800AC3367 /* User.swift */; };
 		85AD5B87240A156500AC3367 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AD5B86240A156500AC3367 /* Constants.swift */; };
-		85AD5B93240AD98C00AC3367 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AD5B92240AD98C00AC3367 /* API.swift */; };
+		85AD5B93240AD98C00AC3367 /* EnrolledMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AD5B92240AD98C00AC3367 /* EnrolledMethods.swift */; };
+		85AD5B95240BD30500AC3367 /* CotterClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AD5B94240BD30500AC3367 /* CotterClient.swift */; };
+		85AD5B97240BD67200AC3367 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AD5B96240BD67200AC3367 /* User.swift */; };
+		85AD5B9A240BD6A700AC3367 /* GetUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AD5B99240BD6A700AC3367 /* GetUser.swift */; };
+		85AD5B9C240BEA9700AC3367 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AD5B9B240BEA9700AC3367 /* Error.swift */; };
+		85AD5B9E240BF21300AC3367 /* RegisterUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AD5B9D240BF21300AC3367 /* RegisterUser.swift */; };
+		85AD5BA0240BF22800AC3367 /* EnrollUserPIN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AD5B9F240BF22800AC3367 /* EnrollUserPIN.swift */; };
+		85AD5BA4240BF26A00AC3367 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AD5BA3240BF26A00AC3367 /* Request.swift */; };
+		85AD5BA6240BFF7800AC3367 /* UpdateUserPIN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AD5BA5240BFF7800AC3367 /* UpdateUserPIN.swift */; };
+		85AD5BA8240C00A200AC3367 /* GetBiometricStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AD5BA7240C00A200AC3367 /* GetBiometricStatus.swift */; };
+		85AD5BAA240C14F600AC3367 /* UpdateBiometricStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AD5BA9240C14F600AC3367 /* UpdateBiometricStatus.swift */; };
+		85AD5BAC240C168600AC3367 /* RequestToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AD5BAB240C168600AC3367 /* RequestToken.swift */; };
+		85AD5BAE240C191400AC3367 /* RegisterBiometric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AD5BAD240C191400AC3367 /* RegisterBiometric.swift */; };
+		85AD5BB0240C1C9500AC3367 /* CreateAuthenticationEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AD5BAF240C1C9500AC3367 /* CreateAuthenticationEvent.swift */; };
 		8A60D9E1689E52C7BA7738A78931BAA8 /* AuthAlertMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712EB95AB3A162F682989A2C4C6B7570 /* AuthAlertMessages.swift */; };
 		8DF1900E269D204B554A2B7063A10A03 /* PINBaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8BF497768F190C450DF3A02FB47B6C /* PINBaseController.swift */; };
 		8E9E5CD342FDB8723357DC866118C456 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = D392D07E0D21422D20D4C6406979DDFE /* Config.swift */; };
 		92FFC8890C0C3622C84481123E3B1DC1 /* PINViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3377AEB7C39A98A54AC72EA9192054 /* PINViewController.swift */; };
 		93C863DDBDA6E9E1280887548A58F9D1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
-		995DAD3CD6C71EEE4ADC9734B153B1F0 /* EventCreateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7816FCC4EAA46A6605913B7556E5D94 /* EventCreateResponse.swift */; };
+		995DAD3CD6C71EEE4ADC9734B153B1F0 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7816FCC4EAA46A6605913B7556E5D94 /* Event.swift */; };
 		A50ECBB4DD23CB16AC601F6AFF5929DD /* Passwordless.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE40FE22FCE04D779E85D3DF9D11BCF /* Passwordless.swift */; };
 		AA13592017CE3A1A6644373950C5B1A3 /* HTTPCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A08ACFD59AC4B957D88FFDD90994ED4 /* HTTPCallback.swift */; };
 		AC229E6B385453962D954FE8CB85286E /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51CFEE2279724A57BFC51F5274CBA8B /* UIExtensions.swift */; };
 		C0AFC879A39743835323885E4A12AB42 /* Pods-CotterIOS_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C3457BCD4C9F468723349EF548DC9867 /* Pods-CotterIOS_Tests-dummy.m */; };
-		C6D7E0943F72DCD2EF924038B39EF886 /* CotterAPIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3D51012C1FEBA4E3A51A58232A5AB8 /* CotterAPIExtensions.swift */; };
 		CC9FFF2725DF8AF3EE57A77CD61FFEB7 /* Indonesian.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C57B08B4F1D4A788121760889D9CC3 /* Indonesian.swift */; };
 		D3E051266E51A1B1A2B8FF347AF9A459 /* TransactionPINViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D9D447DAB7327C233192A40C7DB8CD /* TransactionPINViewController.swift */; };
 		D407CABCB9C770B9E24C3F2DB856194F /* Cotter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D7B8359F256EB762E56436DE22539BD /* Cotter.storyboard */; };
-		D86F72BD66DB34D0A9F19DBE2C10AC56 /* GetIdentity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EAC9CAC4C31FF64E60774A69F0002B /* GetIdentity.swift */; };
+		D86F72BD66DB34D0A9F19DBE2C10AC56 /* Identity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EAC9CAC4C31FF64E60774A69F0002B /* Identity.swift */; };
 		DB6E1E162A2CBEB1E905C28AE9A7B0CB /* Cotter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48166698D4B13920BBDEA677A51BEFB /* Cotter.swift */; };
 		DE9B1701AFFDC7AF305B1A85678884E6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
 		E25E8829B5E31FA62EB38310D6CEBC5D /* PinStepEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0E3DCFA11731B9661DE99019BE4326 /* PinStepEnums.swift */; };
 		E579E647081637B7462C52006EDAF623 /* Cotter-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CD25B321192342506C4AE9C685121796 /* Cotter-dummy.m */; };
 		F9B30FEEEE951993F281215969D3E395 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E037E81D2955ED059D96EC5D0B3B91 /* UIColor.swift */; };
-		FFAA6E0E2E12DAEC29BC251D9AA2F472 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87F1220E831352B3B658B9CCAE50492 /* Error.swift */; };
+		FFAA6E0E2E12DAEC29BC251D9AA2F472 /* CotterError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87F1220E831352B3B658B9CCAE50492 /* CotterError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,9 +137,21 @@
 		712EB95AB3A162F682989A2C4C6B7570 /* AuthAlertMessages.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AuthAlertMessages.swift; sourceTree = "<group>"; };
 		764F5C378AAB225A1497DE1262DF3A93 /* Pods-CotterIOS_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CotterIOS_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		7A8BF497768F190C450DF3A02FB47B6C /* PINBaseController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PINBaseController.swift; sourceTree = "<group>"; };
-		85AD5B842407D25800AC3367 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		85AD5B86240A156500AC3367 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		85AD5B92240AD98C00AC3367 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		85AD5B92240AD98C00AC3367 /* EnrolledMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnrolledMethods.swift; sourceTree = "<group>"; };
+		85AD5B94240BD30500AC3367 /* CotterClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CotterClient.swift; sourceTree = "<group>"; };
+		85AD5B96240BD67200AC3367 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		85AD5B99240BD6A700AC3367 /* GetUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUser.swift; sourceTree = "<group>"; };
+		85AD5B9B240BEA9700AC3367 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		85AD5B9D240BF21300AC3367 /* RegisterUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUser.swift; sourceTree = "<group>"; };
+		85AD5B9F240BF22800AC3367 /* EnrollUserPIN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnrollUserPIN.swift; sourceTree = "<group>"; };
+		85AD5BA3240BF26A00AC3367 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		85AD5BA5240BFF7800AC3367 /* UpdateUserPIN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserPIN.swift; sourceTree = "<group>"; };
+		85AD5BA7240C00A200AC3367 /* GetBiometricStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBiometricStatus.swift; sourceTree = "<group>"; };
+		85AD5BA9240C14F600AC3367 /* UpdateBiometricStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateBiometricStatus.swift; sourceTree = "<group>"; };
+		85AD5BAB240C168600AC3367 /* RequestToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestToken.swift; sourceTree = "<group>"; };
+		85AD5BAD240C191400AC3367 /* RegisterBiometric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterBiometric.swift; sourceTree = "<group>"; };
+		85AD5BAF240C1C9500AC3367 /* CreateAuthenticationEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAuthenticationEvent.swift; sourceTree = "<group>"; };
 		888780F5C27C89C1910BFBB5EB0977C2 /* Pods-CotterIOS_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CotterIOS_Example.release.xcconfig"; sourceTree = "<group>"; };
 		8C421A2D09FC9A0A5A7EDC42607E0A29 /* Pods-CotterIOS_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-CotterIOS_Example.modulemap"; sourceTree = "<group>"; };
 		908D345ACCC41F059686BA1CFD961A28 /* CotterAPIService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CotterAPIService.swift; sourceTree = "<group>"; };
@@ -143,7 +166,6 @@
 		B3C4D4A582BA523604821CA034766655 /* ResourceBundle-Cotter-Cotter-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-Cotter-Cotter-Info.plist"; sourceTree = "<group>"; };
 		B5495314C9E7CF4D09E7149EF3906583 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B6680F1A89E5EA239280C88DCA207FDA /* Pods-CotterIOS_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CotterIOS_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		BA3D51012C1FEBA4E3A51A58232A5AB8 /* CotterAPIExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CotterAPIExtensions.swift; sourceTree = "<group>"; };
 		C3457BCD4C9F468723349EF548DC9867 /* Pods-CotterIOS_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CotterIOS_Tests-dummy.m"; sourceTree = "<group>"; };
 		C8D9D447DAB7327C233192A40C7DB8CD /* TransactionPINViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TransactionPINViewController.swift; path = Source/TransactionPINViewController.swift; sourceTree = "<group>"; };
 		CA4C85C434B237A0E8B3B12105B79541 /* Pods-CotterIOS_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-CotterIOS_Tests.modulemap"; sourceTree = "<group>"; };
@@ -158,18 +180,18 @@
 		E09A06491B5AC18423145E6DE301C588 /* KeyboardView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
 		E51CFEE2279724A57BFC51F5274CBA8B /* UIExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
 		E61205360A171FA590FDD5F00DE80816 /* Pods-CotterIOS_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CotterIOS_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		E7816FCC4EAA46A6605913B7556E5D94 /* EventCreateResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EventCreateResponse.swift; sourceTree = "<group>"; };
+		E7816FCC4EAA46A6605913B7556E5D94 /* Event.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		E7A8321A666E6CCA738BAF8D3AF161A6 /* Pods-CotterIOS_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-CotterIOS_Tests-umbrella.h"; sourceTree = "<group>"; };
 		EAEEA639251C7DDDBCF18FEAA480E4AB /* Cotter.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = Cotter.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		EC0E3DCFA11731B9661DE99019BE4326 /* PinStepEnums.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PinStepEnums.swift; sourceTree = "<group>"; };
 		EF85547857B74F72A8C06F58CA6322B0 /* Pods-CotterIOS_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CotterIOS_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		F1A39259C699CEECF9710157F0AE83DA /* ColorSchemeObject.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ColorSchemeObject.swift; sourceTree = "<group>"; };
 		F1E037E81D2955ED059D96EC5D0B3B91 /* UIColor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
-		F1EAC9CAC4C31FF64E60774A69F0002B /* GetIdentity.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GetIdentity.swift; sourceTree = "<group>"; };
+		F1EAC9CAC4C31FF64E60774A69F0002B /* Identity.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Identity.swift; sourceTree = "<group>"; };
 		F301DBD00A8FE735546139578E0D8E54 /* UpdatePINViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UpdatePINViewController.swift; path = Source/UpdatePINViewController.swift; sourceTree = "<group>"; };
 		F4C57B08B4F1D4A788121760889D9CC3 /* Indonesian.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Indonesian.swift; sourceTree = "<group>"; };
 		F52194BBC5C68CEB8E75D67C58B4411E /* Cotter-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Cotter-prefix.pch"; sourceTree = "<group>"; };
-		F87F1220E831352B3B658B9CCAE50492 /* Error.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		F87F1220E831352B3B658B9CCAE50492 /* CotterError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CotterError.swift; sourceTree = "<group>"; };
 		F96CD1BD0F1462CD17B26515AC55CEA8 /* Pods_CotterIOS_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CotterIOS_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE9689D23052D44DED4357B82912C5AB /* KeyGen.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = KeyGen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -247,7 +269,7 @@
 				D392D07E0D21422D20D4C6406979DDFE /* Config.swift */,
 				6C7B14412408F9B400D857FD /* CotterImages.swift */,
 				3EBD618D8A16ACEF9F667FC6C741014C /* CotterStrings.swift */,
-				F87F1220E831352B3B658B9CCAE50492 /* Error.swift */,
+				F87F1220E831352B3B658B9CCAE50492 /* CotterError.swift */,
 				B03A00206BD03F36EDC5086D2E85FE5B /* PinErrorMessages.swift */,
 				EC0E3DCFA11731B9661DE99019BE4326 /* PinStepEnums.swift */,
 				A4B7AF72C39E4ED284CD134F8929F9D1 /* ColorSchemeObject */,
@@ -277,8 +299,12 @@
 		44052A3559B5B380009DB60F9BD0AFFA /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				E7816FCC4EAA46A6605913B7556E5D94 /* EventCreateResponse.swift */,
-				F1EAC9CAC4C31FF64E60774A69F0002B /* GetIdentity.swift */,
+				E7816FCC4EAA46A6605913B7556E5D94 /* Event.swift */,
+				F1EAC9CAC4C31FF64E60774A69F0002B /* Identity.swift */,
+				85AD5B96240BD67200AC3367 /* User.swift */,
+				85AD5B92240AD98C00AC3367 /* EnrolledMethods.swift */,
+				85AD5B9B240BEA9700AC3367 /* Error.swift */,
+				85AD5BA3240BF26A00AC3367 /* Request.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -352,6 +378,22 @@
 			);
 			name = "Custom UI Fields";
 			path = "Source/Custom UI Fields";
+			sourceTree = "<group>";
+		};
+		85AD5B98240BD69900AC3367 /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				85AD5B99240BD6A700AC3367 /* GetUser.swift */,
+				85AD5B9D240BF21300AC3367 /* RegisterUser.swift */,
+				85AD5B9F240BF22800AC3367 /* EnrollUserPIN.swift */,
+				85AD5BA5240BFF7800AC3367 /* UpdateUserPIN.swift */,
+				85AD5BA7240C00A200AC3367 /* GetBiometricStatus.swift */,
+				85AD5BA9240C14F600AC3367 /* UpdateBiometricStatus.swift */,
+				85AD5BAB240C168600AC3367 /* RequestToken.swift */,
+				85AD5BAD240C191400AC3367 /* RegisterBiometric.swift */,
+				85AD5BAF240C1C9500AC3367 /* CreateAuthenticationEvent.swift */,
+			);
+			path = Requests;
 			sourceTree = "<group>";
 		};
 		8AB6E79475170E575F12167113C82E51 /* Alert */ = {
@@ -434,9 +476,10 @@
 		C6192FABCBBEDF8424398AFDE5F173E8 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				BA3D51012C1FEBA4E3A51A58232A5AB8 /* CotterAPIExtensions.swift */,
+				85AD5B94240BD30500AC3367 /* CotterClient.swift */,
 				908D345ACCC41F059686BA1CFD961A28 /* CotterAPIService.swift */,
 				4A08ACFD59AC4B957D88FFDD90994ED4 /* HTTPCallback.swift */,
+				85AD5B98240BD69900AC3367 /* Requests */,
 				44052A3559B5B380009DB60F9BD0AFFA /* Models */,
 			);
 			name = Service;
@@ -487,9 +530,7 @@
 			isa = PBXGroup;
 			children = (
 				3F8D6831FAE4C6C459CF2928A494E048 /* Callback.swift */,
-				85AD5B842407D25800AC3367 /* User.swift */,
 				85AD5B86240A156500AC3367 /* Constants.swift */,
-				85AD5B92240AD98C00AC3367 /* API.swift */,
 			);
 			name = Models;
 			path = Source/Models;
@@ -735,42 +776,52 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85AD5BA0240BF22800AC3367 /* EnrollUserPIN.swift in Sources */,
 				7EB4F6FF5C6F32F9B50C003BF4D6CAB0 /* AlertService.swift in Sources */,
 				85AD5B87240A156500AC3367 /* Constants.swift in Sources */,
+				85AD5BA6240BFF7800AC3367 /* UpdateUserPIN.swift in Sources */,
+				85AD5BB0240C1C9500AC3367 /* CreateAuthenticationEvent.swift in Sources */,
+				85AD5B9C240BEA9700AC3367 /* Error.swift in Sources */,
 				8A60D9E1689E52C7BA7738A78931BAA8 /* AuthAlertMessages.swift in Sources */,
 				51B282A5531A6226C0258339F9EAA0E8 /* Callback.swift in Sources */,
 				7B1C646B31B63EE04F94A89A60EE3B10 /* ColorSchemeObject.swift in Sources */,
+				85AD5B95240BD30500AC3367 /* CotterClient.swift in Sources */,
 				6C7B14422408F9B400D857FD /* CotterImages.swift in Sources */,
 				8E9E5CD342FDB8723357DC866118C456 /* Config.swift in Sources */,
 				E579E647081637B7462C52006EDAF623 /* Cotter-dummy.m in Sources */,
 				6C7B143E2408C1E000D857FD /* ImageObject.swift in Sources */,
 				DB6E1E162A2CBEB1E905C28AE9A7B0CB /* Cotter.swift in Sources */,
-				C6D7E0943F72DCD2EF924038B39EF886 /* CotterAPIExtensions.swift in Sources */,
 				1E81FEE1965C656C5243D2312D20048B /* CotterAPIService.swift in Sources */,
-				85AD5B93240AD98C00AC3367 /* API.swift in Sources */,
+				85AD5B93240AD98C00AC3367 /* EnrolledMethods.swift in Sources */,
 				240B01A5671B8D1092E958C0C5D7E393 /* CotterStrings.swift in Sources */,
+				85AD5B9A240BD6A700AC3367 /* GetUser.swift in Sources */,
 				542704BA4EDF129E8F7EE90DBC52AE5E /* English.swift in Sources */,
-				FFAA6E0E2E12DAEC29BC251D9AA2F472 /* Error.swift in Sources */,
-				995DAD3CD6C71EEE4ADC9734B153B1F0 /* EventCreateResponse.swift in Sources */,
+				FFAA6E0E2E12DAEC29BC251D9AA2F472 /* CotterError.swift in Sources */,
+				995DAD3CD6C71EEE4ADC9734B153B1F0 /* Event.swift in Sources */,
 				6C7B14472409DAB700D857FD /* Utils.swift in Sources */,
-				D86F72BD66DB34D0A9F19DBE2C10AC56 /* GetIdentity.swift in Sources */,
+				D86F72BD66DB34D0A9F19DBE2C10AC56 /* Identity.swift in Sources */,
 				AA13592017CE3A1A6644373950C5B1A3 /* HTTPCallback.swift in Sources */,
 				CC9FFF2725DF8AF3EE57A77CD61FFEB7 /* Indonesian.swift in Sources */,
 				203AF5B81EDBED116526C68AAE6A86B6 /* KeyboardView.swift in Sources */,
-				85AD5B852407D25800AC3367 /* User.swift in Sources */,
+				85AD5B97240BD67200AC3367 /* User.swift in Sources */,
 				02B52A6C091120E7B1C41AB879A42863 /* KeyGen.swift in Sources */,
+				85AD5BAC240C168600AC3367 /* RequestToken.swift in Sources */,
 				6C7B14402408C27D00D857FD /* ImageKey.swift in Sources */,
 				4A8790C8F90021438F3E63AAD6979098 /* LanguageObject.swift in Sources */,
 				04A3F9DE7FC216FED7E532B59606A7F5 /* LocalAuthService.swift in Sources */,
 				090536B818A8E45690ABA817BDF681F3 /* OneTimeCodeTextField.swift in Sources */,
+				85AD5B9E240BF21300AC3367 /* RegisterUser.swift in Sources */,
 				A50ECBB4DD23CB16AC601F6AFF5929DD /* Passwordless.swift in Sources */,
 				8DF1900E269D204B554A2B7063A10A03 /* PINBaseController.swift in Sources */,
 				7F3857A5B7E3D420374A43C134BA2411 /* PINConfirmViewController.swift in Sources */,
+				85AD5BA4240BF26A00AC3367 /* Request.swift in Sources */,
+				85AD5BAE240C191400AC3367 /* RegisterBiometric.swift in Sources */,
 				068D189E9098A9119BA5559963270BA5 /* PinErrorMessages.swift in Sources */,
 				03049BEE13F78AC677DFCA0076D2D02D /* PINFinalViewController.swift in Sources */,
 				E25E8829B5E31FA62EB38310D6CEBC5D /* PinStepEnums.swift in Sources */,
 				92FFC8890C0C3622C84481123E3B1DC1 /* PINViewController.swift in Sources */,
 				22C9719FB20E16FE0DAADCA759F28B0B /* PKCE.swift in Sources */,
+				85AD5BAA240C14F600AC3367 /* UpdateBiometricStatus.swift in Sources */,
 				D3E051266E51A1B1A2B8FF347AF9A459 /* TransactionPINViewController.swift in Sources */,
 				F9B30FEEEE951993F281215969D3E395 /* UIColor.swift in Sources */,
 				AC229E6B385453962D954FE8CB85286E /* UIExtensions.swift in Sources */,
@@ -778,6 +829,7 @@
 				491504465C1457218BEE6AF333EC986E /* UpdateConfirmNewPINViewController.swift in Sources */,
 				247F15D5002D2DBD8EEE5A24DAE20B87 /* UpdateCreateNewPINViewController.swift in Sources */,
 				30CAC931F6CF13DDAC73CF72FB375D89 /* UpdatePINViewController.swift in Sources */,
+				85AD5BA8240C00A200AC3367 /* GetBiometricStatus.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

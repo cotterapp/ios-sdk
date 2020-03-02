@@ -16,7 +16,7 @@ class UserCheckViewController: UIViewController {
     
     var userID = ""
     
-    var cb: HTTPCallback = CotterCallback()
+    var cb:ResultCallback<CotterUser> = DefaultResultCallback
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,27 +24,27 @@ class UserCheckViewController: UIViewController {
         // Do any additional setup after loading the view.
         self.userIDLabel.text = "Client User ID: \(self.userID)"
         
-        func successCb(response:Data?) {
-            guard let response = response else {
-                print("response is nil")
-                return
-            }
-            let decoder = JSONDecoder()
-            do {
-                let resp = try decoder.decode(CotterUser.self, from: response)
+
+        func enrollCb(response: CotterResult<CotterUser>) {
+            switch response {
+            case .success(let resp):
                 self.userDetailsLabel.text = resp.enrolled.joined(separator: ", ")
-//                let respString = String(decoding:response, as: UTF8.self)
-//                self.userDetailsLabel.text = respString
-            } catch {
-                print(error.localizedDescription)
+            case .failure(let err):
+                // we can handle multiple error results here
+                switch err {
+                case CotterAPIError.status(code: 500):
+                    print("internal server error")
+                case CotterAPIError.status(code: 404):
+                    print("user not found")
+                default:
+                    print(err.localizedDescription)
+                }
             }
         }
         
-        self.cb = CotterCallback(
-            successfulFunc: successCb
-        )
+        self.cb = enrollCb
         
-        CotterAPIService.shared.getUser(userID:self.userID, cb:self.cb)
+        CotterAPIService.shared.getUser(userID:self.userID, cb:cb)
     }
     
     @IBOutlet weak var textFieldUserID: UITextField!

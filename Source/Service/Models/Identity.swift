@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct GetIdentityResponse: Codable {
+public struct CotterIdentity: Codable {
     var identifier: Identifier
     var token: Token
 }
 
-struct Identifier: Codable {
+public struct Identifier: Codable {
     var id:String
     var createdAt:String
     var updatedAt:String?
@@ -39,7 +39,7 @@ struct Identifier: Codable {
     }
 }
 
-struct Token: Codable {
+public struct Token: Codable {
     var identifier: String
     var identifierType: String
     var receiver: String

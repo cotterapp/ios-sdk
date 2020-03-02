@@ -7,18 +7,19 @@
 
 import Foundation
 
-public protocol HTTPCallback {
-    // networkErrorHandler handles any network error
-    func networkErrorHandler(err: Error?) -> Void
-    
-    // statusNotOKHandler handles responsses that indicates
-    // non successful client request
-    func statusNotOKHandler(statusCode: Int) -> Void
-    
-    // successfulHandler handles successful response request
-    // this does not mean that requests are approved
-    // PIN authentication fails whenever approved=false
-    func successfulHandler(response: Data?) -> Void
+public typealias ResultCallback<Value> = (Result<Value, Error>) -> Void
+public typealias CotterResult<Value> = Result<Value, Error>
+
+public func DefaultResultCallback<T:Encodable>(resp: Result<T, Error>) -> Void {
+    switch resp {
+    case .success(let data):
+        let jsonEncoder = JSONEncoder()
+        jsonEncoder.outputFormatting = .prettyPrinted
+        let jsonData = try! jsonEncoder.encode(data)
+        print("successful DefaultResultCallback \(String(decoding:jsonData, as: UTF8.self))")
+    case .failure(let err):
+        print("error on DeffaultResultCallback: \(err.localizedDescription)")
+    }
 }
 
 public protocol InternalCallback {
@@ -29,68 +30,11 @@ public protocol InternalCallback {
     func internalSuccessHandler() -> Void
 }
 
-public class CotterCallback: HTTPCallback {
+public class CotterCallback: InternalCallback {
     // optional functions
-    public let networkErrorFunc: ((Error?) -> Void)?
-    public let statusNotOKFunc: ((Int) -> Void)?
-    public let successfulFunc: ((Data?) -> Void)?
     public var internalErrorFunc: ((String?) -> Void)?
     public var internalSuccessFunc: (() -> Void)?
-    
-    public init() {
-        networkErrorFunc = nil
-        successfulFunc = nil
-        statusNotOKFunc = nil
-    }
-    
-    public init(
-        successfulFunc: ((Data?) -> Void)? = nil,
-        networkErrorFunc: ((Error?) -> Void)? = nil,
-        statusNotOKFunc: ((Int) -> Void)? = nil
-    ) {
-        self.successfulFunc = successfulFunc
-        self.networkErrorFunc = networkErrorFunc
-        self.statusNotOKFunc = statusNotOKFunc
-    }
-    
-    // networkErrorHandler is the default handler for network errors
-    public func networkErrorHandler(err: Error?) {
-        print("error", err ?? "Unknown error")
-        
-        // if the networkErrorFunc is defined then respond with the function
-        guard let f = self.networkErrorFunc else { return }
-        f(err)
-        return
-    }
-    
-    // statusNotOKHandler is the default handler for non 2XX responses
-    public func statusNotOKHandler(statusCode: Int) {
-        print("status \(statusCode) for the request")
-        
-        // if the statusNotOKFunc is defined then respond with the function
-        guard let f = self.statusNotOKFunc else { return }
-        f(statusCode)
-        return
-    }
-    
-    // successfulHandler is the default handler for successful requests
-    public func successfulHandler(response: Data?) {
-        guard let response = response else {
-            print("failed parsing data to string")
-            return
-        }
-        let respString = String(decoding:response, as: UTF8.self)
-        print("successfully created the request with response: \(respString)")
-        
-        // if the successfulFunc is defined then respond with the function
-        guard let f = self.successfulFunc else { return }
-        f(response)
-        return
-    }
-}
 
-// MARK: - InternalCallback definition
-extension CotterCallback: InternalCallback {
     // internalErrorHandler is the default internal handler for internal errors
     public func internalErrorHandler(err: String?) {
         print("error", err ?? "Unknown error")

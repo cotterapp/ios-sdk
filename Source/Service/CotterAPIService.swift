@@ -7,18 +7,10 @@
 
 import Foundation
 
-public typealias Callback = (String) -> Void
-
 public class CotterAPIService {
     // shared cotterAPI service to be used anywhere later
     // when you want to use the APIService, do CotterAPIService.shared.<function-name>
-    public static let shared = CotterAPIService()
-    
-    // defaultCb is the default callback function for token
-    public static func defaultCb(token:String) -> Void{
-        print(token)
-        return
-    }
+    public static var shared = CotterAPIService()
     
     private let urlSession = URLSession.shared
     var baseURL: URL?
@@ -29,200 +21,82 @@ public class CotterAPIService {
     
     private init(){}
     
-    private let jsonDecoder: JSONDecoder = {
-       let jsonDecoder = JSONDecoder()
-       jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
-       let dateFormatter = DateFormatter()
-       dateFormatter.dateFormat = "yyyy-mm-dd"
-       jsonDecoder.dateDecodingStrategy = .formatted(dateFormatter)
-       return jsonDecoder
-    }()
-    
-    public func http(
-        method: String,
-        path: String,
-        body: Data?,
-        cb: HTTPCallback, // pass in a protocol here
-        internalCb: InternalCallback? = nil
-    ) {
-        // set url path
-        guard let base = self.baseURL else { return }
-        
-        let urlString = base.absoluteString + path
-        print("urlString: \(urlString)")
-        let url = URL(string:urlString)!
-        
-        // create request
-        var request = URLRequest(url:url)
-        
-        // fill the required request headers
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue(self.apiSecretKey, forHTTPHeaderField: "API_SECRET_KEY")
-        request.setValue(self.apiKeyID, forHTTPHeaderField: "API_KEY_ID")
-        request.httpMethod = method
-        
-        // fill in the body with json if exist
-        if body != nil {
-            request.httpBody = body
-        }
-        
-        // start http request
-        let task = URLSession.shared.dataTask(with: request) {(data, response, error) in
-            guard let data = data,
-                let response = response as? HTTPURLResponse,
-                error == nil else { // check for fundamental networking error
-                cb.networkErrorHandler(err: error)
-                return
-            }
-            
-            guard (200 ... 299) ~= response.statusCode else {   // check for http errors
-                print("statusCode should be 2xx, but is \(response.statusCode)")
-                print("response = \(response)")
-                print("errMsg = \(String(decoding: data, as:UTF8.self))")
-                
-                // handle error
-                DispatchQueue.main.async{
-                    cb.statusNotOKHandler(statusCode: response.statusCode)
-                }
-                return
-            }
-            
-            // if it reaches this point, that means the http request is successful
-            DispatchQueue.main.async{
-                cb.successfulHandler(response: data)
-                internalCb?.internalSuccessHandler()
-            }
-        }
-        task.resume()
+    private func apiClient() -> APIClient {
+        return CotterClient(apiKeyID: self.apiKeyID, apiSecretKey: self.apiSecretKey, url: self.baseURL!.absoluteString)
     }
     
     public func auth(
-        body: Data?,
-        cb: HTTPCallback
+        userID:String,
+        issuer:String,
+        event:String,
+        code:String,
+        method:String,
+        pubKey:String? = nil,
+        timestamp:String = String(format:"%.0f",NSDate().timeIntervalSince1970.rounded()),
+        cb: @escaping ResultCallback<CotterEvent>
     ) {
-        // set url path
-        let urlString = self.baseURL!.absoluteString + "/event/create"
-        let url = URL(string:urlString)!
+        // initialize new client
+        let apiClient = self.apiClient()
         
-        // create request
-        var request = URLRequest(url:url)
+        // register the user
+        let req = CreateAuthenticationEvent(
+            userID: userID,
+            issuer: issuer,
+            event: event,
+            code: code,
+            method: method,
+            pubKey: pubKey,
+            timestamp: timestamp
+        )
         
-        // fill the required request headers
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue(self.apiSecretKey, forHTTPHeaderField: "API_SECRET_KEY")
-        request.setValue(self.apiKeyID, forHTTPHeaderField: "API_KEY_ID")
-        
-        // always a POST request
-        request.httpMethod = "POST"
-        
-        // fill in the body with json if exist
-        if body != nil {
-            request.httpBody = body
+        apiClient.send(req) { response in
+            cb(response)
         }
-        
-        // start http request
-        let task = URLSession.shared.dataTask(with: request) {(data, response, error) in
-            guard let data = data,
-                let response = response as? HTTPURLResponse,
-                error == nil else { // check for fundamental networking error
-                // TODO: error handling
-                cb.networkErrorHandler(err: error)
-                return
-            }
-            
-            guard (200 ... 299) ~= response.statusCode else {   // check for http errors
-                print("statusCode should be 2xx, but is \(response.statusCode)")
-                print("errorMsg = \(String(decoding: data, as: UTF8.self))")
-                print("response = \(response)")
-                
-                // error handling
-                DispatchQueue.main.async{
-                    // handle failed authentication
-                    cb.statusNotOKHandler(statusCode: response.statusCode)
-                }
-                
-                return
-            }
-            
-            // if it reaches this point, that means the http request is successful
-            DispatchQueue.main.async{
-                // handle success authentication
-                cb.successfulHandler(response: data)
-            }
-        }
-        task.resume()
     }
     
     public func registerUser(
         userID: String,
-        cb: HTTPCallback
+        cb: @escaping ResultCallback<CotterUser>
     ) {
+        // initialize new client
+        let apiClient = self.apiClient()
+       
         // register the user
-        let method = "POST"
-        let path = "/user/create"
-        let data = [
-            "client_user_id": userID
-        ]
-        
-        let body = try? JSONSerialization.data(withJSONObject: data)
-        
-        self.http(
-            method: method,
-            path: path,
-            body: body,
-            cb: cb
-        )
+        apiClient.send(RegisterUser(userID: userID)) { response in
+            cb(response)
+        }
     }
     
     public func enrollUserPin(
         code: String,
-        cb: HTTPCallback
+        cb: @escaping ResultCallback<CotterUser>
     ) {
-        let method = "PUT"
-        let path = "/user/" + CotterAPIService.shared.userID!
-        let data: [String: Any] = [
-            "method": "PIN",
-            "enrolled": true,
-            "code": code
-        ]
-        
-        let body = try? JSONSerialization.data(withJSONObject: data)
-        
-        self.http(
-            method: method,
-            path: path,
-            body: body,
-            cb: cb
-        )
+        // initialize new client
+        let apiClient = self.apiClient()
+
+         // register the user
+        let req = EnrollUserPIN(userID: CotterAPIService.shared.userID!, code: code)
+        apiClient.send(req) { response in
+            cb(response)
+         }
     }
     
     public func updateUserPin(
         oldCode: String,
         newCode: String,
-        cb: HTTPCallback
+        cb: @escaping ResultCallback<CotterUser>
     ) {
-        let method = "PUT"
-        let path = "/user/" + CotterAPIService.shared.userID!
-        let data: [String: Any] = [
-            "method": "PIN",
-            "enrolled": true,
-            "current_code": oldCode,
-            "code": newCode,
-            "change_code": true
-        ]
+        // initialize new client
+        let apiClient = self.apiClient()
         
-        let body = try? JSONSerialization.data(withJSONObject: data)
-        
-        self.http(
-            method: method,
-            path: path,
-            body: body,
-            cb:cb
-        )
+        let req = UpdateUserPIN(userID: CotterAPIService.shared.userID!, newCode:newCode, oldCode: oldCode)
+        apiClient.send(req) { response in
+            cb(response)
+         }
     }
     
     public func getBiometricStatus(
-        cb: HTTPCallback
+        cb: @escaping ResultCallback<EnrolledMethods>
     ) {
         let internalCb = CotterCallback()
         
@@ -235,20 +109,15 @@ public class CotterAPIService {
         
         guard let userID = CotterAPIService.shared.userID else { return }
         
-        let method = "GET"
-        let path = "/user/enrolled/" + userID + "/BIOMETRIC/" + pubKeyBase64
+        let apiClient = self.apiClient()
         
-        self.http(
-            method: method,
-            path: path,
-            body: nil,
-            cb: cb
-        )
+        let req = GetBiometricStatus(userID: userID, pubKey: pubKeyBase64)
+        apiClient.send(req, completion: cb)
     }
     
     public func updateBiometricStatus(
         enrollBiometric: Bool,
-        cb: HTTPCallback
+        cb: @escaping ResultCallback<CotterUser>
     ) {
         let internalCb = CotterCallback()
         
@@ -259,38 +128,30 @@ public class CotterAPIService {
         
         let pubKeyBase64 = CryptoUtil.keyToBase64(pubKey: pubKey)
         
-        let method = "PUT"
-        let path = "/user/" + CotterAPIService.shared.userID!
-        let data: [String: Any] = [
-            "method": "BIOMETRIC",
-            "enrolled": enrollBiometric,
-            "code": pubKeyBase64
-        ]
+        guard let userID = CotterAPIService.shared.userID else { return }
         
-        let body = try? JSONSerialization.data(withJSONObject: data)
+        let apiClient = self.apiClient()
         
-        // If we are trying to disable biometrics, we need
-        // to delete the public/private key pair as well after successul HTTP Response
-        if !enrollBiometric {
-            func internalSuccessCb() {
-                do {
-                    try KeyGen.clearKeys()
-                } catch let err {
-                    internalCb.internalErrorHandler(err: err.localizedDescription)
-                    return
+        let req = UpdateBiometricStatus(userID: userID, enroll:enrollBiometric, pubKey: pubKeyBase64)
+        apiClient.send(req) { response in
+            cb(response)
+
+            // Internal Callback
+            // If we are trying to disable biometrics, we need
+            // to delete the public/private key pair as well after successul HTTP Response
+            if !enrollBiometric {
+                func internalSuccessCb() {
+                    do {
+                        try KeyGen.clearKeys()
+                    } catch let err {
+                        internalCb.internalErrorHandler(err: err.localizedDescription)
+                        return
+                    }
                 }
+                
+                internalCb.internalSuccessFunc = internalSuccessCb
             }
-            
-            internalCb.internalSuccessFunc = internalSuccessCb
         }
-        
-        self.http(
-            method: method,
-            path: path,
-            body: body,
-            cb: cb,
-            internalCb: internalCb
-        )
     }
     
     public func requestToken(
@@ -298,41 +159,38 @@ public class CotterAPIService {
         challengeID: Int,
         authorizationCode: String,
         redirectURL: String,
-        cb: HTTPCallback
+        cb: @escaping ResultCallback<CotterIdentity>
     ) {
-        let method = "POST"
-        let path = "/verify/get_identity"
-        let data: [String:Any] = [
-            "code_verifier": codeVerifier,
-            "challenge_id": challengeID,
-            "authorization_code": authorizationCode,
-            "redirect_url": redirectURL
-        ]
+        let apiClient = self.apiClient()
         
-        let body = try? JSONSerialization.data(withJSONObject: data)
-        print(data)
+        let req = RequestToken(
+            codeVerifier: codeVerifier,
+            challengeID: challengeID,
+            authorizationCode: authorizationCode,
+            redirectURL: redirectURL)
         
-        self.http(
-            method: method,
-            path: path,
-            body: body,
-            cb:cb
-        )
+        apiClient.send(req, completion:cb)
     }
     
     public func getUser(
         userID: String,
-        cb: HTTPCallback
+        cb: @escaping ResultCallback<CotterUser>
     ) {
-        let method = "GET"
-        let path = "/user/" + userID
+        let apiClient = self.apiClient()
         
-        self.http(
-            method: method,
-            path: path,
-            body: nil,
-            cb:cb
-        )
+        let req = GetUser(userID: userID)
+        apiClient.send(req, completion: cb)
+    }
+    
+    public func registerBiometric(
+        userID:String,
+        pubKey:String, // base64 pubKey NOT URL SAFE!
+        cb: @escaping ResultCallback<CotterUser>
+    ) {
+        let apiClient = self.apiClient()
+        
+        let req = RegisterBiometric(userID: userID, pubKey: pubKey)
+        apiClient.send(req, completion:cb)
     }
 }
 
