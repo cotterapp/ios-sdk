@@ -31,6 +31,8 @@ public class CryptoUtil {
         return pubKeyBase64
     }
     
+    // this is encoding used for passing in public key inside path. this is not
+    // a true inmplementation of a base64URL.
     public static func keyToBase64URL(pubKey: SecKey) -> String {
         let pubKeyBase64 = keyToBase64(pubKey: pubKey)
         
