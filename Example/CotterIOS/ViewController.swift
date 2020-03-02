@@ -15,6 +15,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var bioSwitch: UISwitch!
     
+    var cb:((_ accessToken: String, _ error: Error?) -> Void)?
+    
     let userID:String = randomString(length: 5)
     override func viewWillAppear(_ animated: Bool) {
         errorLabel.text = ""
@@ -56,6 +58,7 @@ class ViewController: UIViewController {
         
         func cbFunc(accessToken: String, error: Error?) -> Void{
             guard let error = error else {
+                self.navigationController?.popToViewController(self, animated: false)
                 dVC.accessToken = accessToken
                 self.navigationController?.pushViewController(dVC, animated: true)
                 return
@@ -64,6 +67,8 @@ class ViewController: UIViewController {
             // error handling
             self.errorLabel.text = error.localizedDescription
         }
+        
+        self.cb = cbFunc
         
         // langConfig is an optional language configuration
         let langConfig = Indonesian()
@@ -153,18 +158,18 @@ class ViewController: UIViewController {
         // CotterWrapper.cotter?.startEnrollment(animated: true)
         
         // to optionally hide the close button
-        CotterWrapper.cotter?.startEnrollment(animated: true, hideClose:true)
+        CotterWrapper.cotter?.startEnrollment(animated: true, hideClose:true, cb: self.cb!)
     }
     
     @IBAction func clickStartTransaction(_ sender: Any) {
-        CotterWrapper.cotter?.startTransaction(animated: true)
+        CotterWrapper.cotter?.startTransaction(animated: true, cb: self.cb!)
         
         // to optionally hide the back button
         // CotterWrapper.cotter?.startTransaction(animated: true, hideClose:true)
     }
     
     @IBAction func clickUpdateProfile(_ sender: Any) {
-        CotterWrapper.cotter?.startUpdateProfile(animated: true)
+        CotterWrapper.cotter?.startUpdateProfile(animated: true, cb: self.cb!)
     }
 
     @IBAction func goToUserCheck(_ sender: Any) {

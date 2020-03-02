@@ -13,6 +13,11 @@ class Config: NSObject {
   
     var parent: UIViewController!
     var callbackFunc: FinalAuthCallback
+    
+    // callbacks for each individual flows
+    var pinEnrollmentCb: FinalAuthCallback
+    var updatePINCb: FinalAuthCallback
+    var transactionCb: FinalAuthCallback
 
     // strings consists text configurations for Cotter
     var strings: LanguageObject = Indonesian() // defaults to indonesian
@@ -28,5 +33,9 @@ class Config: NSObject {
         callbackFunc = { (access_token: String, error: Error?) -> Void in
             print(access_token)
         }
+        
+        pinEnrollmentCb = callbackFunc
+        updatePINCb = callbackFunc
+        transactionCb = callbackFunc
     }
 }
