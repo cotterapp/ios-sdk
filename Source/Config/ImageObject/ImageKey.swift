@@ -14,4 +14,5 @@ public class VCImageKey {
 public class AlertImageKey {
     static let promptVerificationImg = "AlertImageKey/promptVerificationImg"
     static let successVerificationImg = "AlertImageKey/successVerificationImg"
+    static let failureVerificationImg = "AlertImageKey/failureVerificationImg"
 }

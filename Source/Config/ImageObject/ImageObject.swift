@@ -13,17 +13,26 @@ struct ImageEntity {
 }
 
 public class ImageObject: NSObject {
+    public static let defaultImages = [
+        "cotter-success-check",
+        "cotter-failure-x",
+        "cotter-fingerprint",
+        "cotter-lapis-logo",
+    ]
+    
     // non constant image path, allowing change of path
     var image: [String: String]
 
-    override init() {
+    public override init() {
+        // Set to defaults inititally
         self.image = [
             // MARK: - VC Image Definitions
-            VCImageKey.pinSuccessImg: "default-cotter-img",
+            VCImageKey.pinSuccessImg: "cotter-success-check",
             
             // MARK: - Alert Image Definitions
-            AlertImageKey.promptVerificationImg: "default-cotter-img",
-            AlertImageKey.successVerificationImg: "default-cotter-img"
+            AlertImageKey.promptVerificationImg: "cotter-fingerprint",
+            AlertImageKey.successVerificationImg: "cotter-success-check",
+            AlertImageKey.failureVerificationImg: "cotter-failure-x",
         ]
     }
       

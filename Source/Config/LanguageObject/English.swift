@@ -64,25 +64,25 @@ public class English: LanguageObject {
             // MARK: - Navigate Back Alert
             AuthAlertMessagesKey.navBackTitle: "Are you sure you want to cancel?",
             AuthAlertMessagesKey.navBackBody: "Do you know that PIN creates additional security layer for your account?",
-            AuthAlertMessagesKey.navBackActionButton: "Input PIN",
-            AuthAlertMessagesKey.navBackCancelButton: "Yes",
+            AuthAlertMessagesKey.navBackActionButton: "Yes",
+            AuthAlertMessagesKey.navBackCancelButton: "Input PIN",
             
             // MARK: - Biometric Authentication Alert
             AuthAlertMessagesKey.authTitle: "Verification",
             AuthAlertMessagesKey.authBody: "Continue Biometric Authentication process using TouchID or FaceID",
-            AuthAlertMessagesKey.authActionButton: "Use PIN",
-            AuthAlertMessagesKey.authCancelButton: "Cancel",
+            AuthAlertMessagesKey.authActionButton: "Continue",
+            AuthAlertMessagesKey.authCancelButton: "Use PIN",
             
             // MARK: - Dispatch Result Alert (Success)
             AuthAlertMessagesKey.successDispatchTitle: "Verification",
             AuthAlertMessagesKey.successDispatchBody: "Biometrics Successful.",
-            AuthAlertMessagesKey.successDispatchActionButton: "Input PIN",
+            AuthAlertMessagesKey.successDispatchActionButton: "Continue",
             AuthAlertMessagesKey.successDispatchCancelButton: "Cancel",
             
             // MARK: - Dispatch Result Alert (Failure)
             AuthAlertMessagesKey.failureDispatchTitle: "Verification",
             AuthAlertMessagesKey.failureDispatchBody: "Biometrics Failed.",
-            AuthAlertMessagesKey.failureDispatchActionButton: "Input PIN",
+            AuthAlertMessagesKey.failureDispatchActionButton: "Try Again",
             AuthAlertMessagesKey.failureDispatchCancelButton: "Cancel",
             
         ])

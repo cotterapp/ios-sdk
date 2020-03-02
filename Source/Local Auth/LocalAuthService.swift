@@ -33,7 +33,7 @@ class LAlertDelegate: AlertServiceDelegate {
 
 class LocalAuthService: UIViewController {
     
-    // Configs
+    // MARK: - Alert Text Definitions
     let authTitle = CotterStrings.instance.getText(for: AuthAlertMessagesKey.authTitle)
     let authBody = CotterStrings.instance.getText(for: AuthAlertMessagesKey.authBody)
     let authAction = CotterStrings.instance.getText(for: AuthAlertMessagesKey.authActionButton)
@@ -48,6 +48,11 @@ class LocalAuthService: UIViewController {
     let failureBody = CotterStrings.instance.getText(for: AuthAlertMessagesKey.failureDispatchBody)
     let failureAction = CotterStrings.instance.getText(for: AuthAlertMessagesKey.failureDispatchActionButton)
     let failureCancel = CotterStrings.instance.getText(for: AuthAlertMessagesKey.failureDispatchCancelButton)
+    
+    // MARK: - Image Path Definitions
+    let fingerprintImg = CotterImages.instance.getImage(for: AlertImageKey.promptVerificationImg)
+    let successImg = CotterImages.instance.getImage(for: AlertImageKey.successVerificationImg)
+    let failureImg = CotterImages.instance.getImage(for: AlertImageKey.failureVerificationImg)
     
     var successAuthCallbackFunc: FinalAuthCallback?
     
@@ -131,7 +136,8 @@ class LocalAuthService: UIViewController {
                 title: authTitle,
                 body: authBody,
                 actionButtonTitle: authAction,
-                cancelButtonTitle: authCancel
+                cancelButtonTitle: authCancel,
+                imagePath: fingerprintImg
             )
             
             alertDelegate.defActionHandler = {
@@ -235,7 +241,8 @@ class LocalAuthService: UIViewController {
                 title: authTitle,
                 body: authBody,
                 actionButtonTitle: authAction,
-                cancelButtonTitle: authCancel
+                cancelButtonTitle: authCancel,
+                imagePath: fingerprintImg
             )
             let delegate = LAlertDelegate()
             delegate.defActionHandler = {
@@ -284,7 +291,8 @@ class LocalAuthService: UIViewController {
                 title: self.successTitle,
                 body: self.successBody,
                 actionButtonTitle: self.successAction,
-                cancelButtonTitle: self.successCancel
+                cancelButtonTitle: self.successCancel,
+                imagePath: successImg
             )
             
             let successAlertDelegate = LAlertDelegate()
@@ -308,7 +316,8 @@ class LocalAuthService: UIViewController {
                 title: self.failureTitle,
                 body: self.failureBody,
                 actionButtonTitle: self.failureAction,
-                cancelButtonTitle: self.failureCancel
+                cancelButtonTitle: self.failureCancel,
+                imagePath: failureImg
             )
             
             // try again will re-authenticate

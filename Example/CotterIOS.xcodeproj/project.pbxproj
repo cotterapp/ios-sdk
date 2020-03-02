@@ -255,13 +255,13 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = S82KLNTT2U;
+						DevelopmentTeam = 7ABU486ASF;
 						LastSwiftMigration = 1130;
 						ProvisioningStyle = Automatic;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = S82KLNTT2U;
+						DevelopmentTeam = 7ABU486ASF;
 						LastSwiftMigration = 1130;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -538,7 +538,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = S82KLNTT2U;
+				DEVELOPMENT_TEAM = 7ABU486ASF;
 				INFOPLIST_FILE = CotterIOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -558,7 +558,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = S82KLNTT2U;
+				DEVELOPMENT_TEAM = 7ABU486ASF;
 				INFOPLIST_FILE = CotterIOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -576,7 +576,7 @@
 			baseConfigurationReference = 820AB7B5B7E543E5278DF99B /* Pods-CotterIOS_Tests.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
-				DEVELOPMENT_TEAM = S82KLNTT2U;
+				DEVELOPMENT_TEAM = 7ABU486ASF;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -600,7 +600,7 @@
 			baseConfigurationReference = 1E3771ABD4A0733C6A59BB42 /* Pods-CotterIOS_Tests.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
-				DEVELOPMENT_TEAM = S82KLNTT2U;
+				DEVELOPMENT_TEAM = 7ABU486ASF;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",

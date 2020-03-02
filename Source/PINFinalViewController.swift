@@ -86,7 +86,9 @@ extension PINFinalViewController {
     }
     
     private func loadImage() {
-        guard successImage != "default-cotter-img" else {
+        let cotterImages = ImageObject.defaultImages
+        
+        guard !cotterImages.contains(successImage) else {
             print("Using Default Image...")
             imageView.image = UIImage(named: successImage, in: Cotter.resourceBundle, compatibleWith: nil)
             return

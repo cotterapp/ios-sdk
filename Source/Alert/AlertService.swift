@@ -81,7 +81,14 @@ class AlertService: NSObject {
         var imageSize: CGFloat = 0.0
         if let path = imagePath {
             imageSize = nc.view.frame.width * 0.15
-            imageView.download(from: path)
+            
+            let cotterImages = ImageObject.defaultImages
+            if cotterImages.contains(path) {
+                imageView.image = UIImage(named: path, in: Cotter.resourceBundle, compatibleWith: nil)
+                
+            } else {
+                imageView.image = UIImage(named: path, in: Bundle.main, compatibleWith: nil)
+            }
         }
         imageView.translatesAutoresizingMaskIntoConstraints = false
         alertView.addSubview(imageView)
