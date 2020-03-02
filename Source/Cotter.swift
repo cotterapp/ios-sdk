@@ -118,7 +118,7 @@ public class Cotter {
         // hide the close button (Optional)
         self.pinVC.hideCloseButton = hideClose
         
-        Config.instance.callbackFunc = cb
+        Config.instance.pinEnrollmentCb = cb
         
         // push the viewcontroller to the navController
         Config.instance.parent.navigationController?.pushViewController(self.pinVC, animated: animated)
@@ -129,7 +129,7 @@ public class Cotter {
         // hide the close button
         self.transactionPinVC.hideCloseButton = hideClose
         
-        Config.instance.callbackFunc = cb
+        Config.instance.transactionCb = cb
         
         // Push the viewController to the navController
         Config.instance.parent.navigationController?.pushViewController(self.transactionPinVC, animated: animated)
@@ -137,7 +137,7 @@ public class Cotter {
     
     // Start of Update Profile Process
     public func startUpdateProfile(animated: Bool, hideClose:Bool = false, cb: @escaping FinalAuthCallback) {
-        Config.instance.callbackFunc = cb
+        Config.instance.updatePINCb = cb
         
         // Push the viewController to the navController
         Config.instance.parent.navigationController?.pushViewController(self.updateProfilePinVC, animated: animated)

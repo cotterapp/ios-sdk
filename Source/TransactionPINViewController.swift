@@ -46,7 +46,7 @@ class TransactionPINViewController: UIViewController {
             switch response {
             case .success(let resp):
                 if resp.enrolled {
-                    let onFinishCallback = Config.instance.callbackFunc
+                    let onFinishCallback = Config.instance.transactionCb
                     func cb(success: Bool) {
                         if success{
                             onFinishCallback("dummy biometric token", nil)
