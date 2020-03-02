@@ -31,7 +31,14 @@ class UserCheckViewController: UIViewController {
                 self.userDetailsLabel.text = resp.enrolled.joined(separator: ", ")
             case .failure(let err):
                 // we can handle multiple error results here
-                print(err.localizedDescription)
+                switch err {
+                case CotterAPIError.status(code: 500):
+                    print("internal server error")
+                case CotterAPIError.status(code: 404):
+                    print("user not found")
+                default:
+                    print(err.localizedDescription)
+                }
             }
         }
         
