@@ -21,6 +21,8 @@ class PINViewController : UIViewController {
     // we can getaway with typealias here
     typealias VCTextKey = PINViewControllerKey
     
+    var hideCloseButton: Bool = false
+    
     // MARK: - Alert Service Text Definition
     let navBackTitle = CotterStrings.instance.getText(for: AuthAlertMessagesKey.navBackTitle)
     let navBackBody = CotterStrings.instance.getText(for: AuthAlertMessagesKey.navBackBody)
@@ -158,9 +160,13 @@ extension PINViewController : PINBaseController {
     func addConfigs() {
         // Implement Custom Back Button instead of default in Nav controller
         self.navigationItem.hidesBackButton = true
-        let crossButton = UIBarButtonItem(title: "\u{2717}", style: UIBarButtonItem.Style.plain, target: self, action: #selector(promptClose(sender:)))
-        crossButton.tintColor = UIColor.black
-        self.navigationItem.leftBarButtonItem = crossButton
+        
+        // if close
+        if !self.hideCloseButton {
+            let crossButton = UIBarButtonItem(title: "\u{2717}", style: UIBarButtonItem.Style.plain, target: self, action: #selector(promptClose(sender:)))
+            crossButton.tintColor = UIColor.black
+            self.navigationItem.leftBarButtonItem = crossButton
+        }
         
         // Remove default Nav controller styling
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)

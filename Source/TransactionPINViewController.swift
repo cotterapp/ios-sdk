@@ -20,6 +20,8 @@ class TransactionPINViewController: UIViewController {
   
     typealias VCTextKey = TransactionPINViewControllerKey
     
+    var hideCloseButton: Bool = false
+    
     // MARK: - VC Text Definitions
     let navTitle = CotterStrings.instance.getText(for: VCTextKey.navTitle)
     let showPinText = CotterStrings.instance.getText(for: VCTextKey.showPin)
@@ -127,9 +129,12 @@ extension TransactionPINViewController : PINBaseController {
         self.navigationController?.navigationBar.layoutIfNeeded()
         
         self.navigationItem.hidesBackButton = true
-        let crossButton = UIBarButtonItem(title: "\u{2190}", style: UIBarButtonItem.Style.plain, target: self, action: #selector(TransactionPINViewController.promptClose(sender:)))
-        crossButton.tintColor = UIColor.black
-        self.navigationItem.leftBarButtonItem = crossButton
+
+        if !self.hideCloseButton {
+            let crossButton = UIBarButtonItem(title: "\u{2190}", style: UIBarButtonItem.Style.plain, target: self, action: #selector(TransactionPINViewController.promptClose(sender:)))
+            crossButton.tintColor = UIColor.black
+            self.navigationItem.leftBarButtonItem = crossButton
+        }
         
         codeTextField.configure()
         configureText()
