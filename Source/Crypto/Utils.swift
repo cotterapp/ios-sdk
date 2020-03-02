@@ -31,19 +31,16 @@ public class CryptoUtil {
         return pubKeyBase64
     }
     
+    // this is encoding used for passing in public key inside path. this is not
+    // a true inmplementation of a base64URL.
     public static func keyToBase64URL(pubKey: SecKey) -> String {
-        let pKey = SecKeyCopyAttributes(pubKey)!
-        let converted = pKey as! [String: Any]
-        let data = converted[kSecValueData as String] as! Data
+        let pubKeyBase64 = keyToBase64(pubKey: pubKey)
         
-
-        let DER = Data(x9_62HeaderECHeader) + data
-        
-        // need to add \n at the end for proper PEM encoding
-        let pubKeyBase64 = DER.base64EncodedString()
+        let pubKeyBase64URL = Data(pubKeyBase64.utf8).base64EncodedString()
             .replacingOccurrences(of: "/", with: "_")
             .replacingOccurrences(of: "+", with: "-")
-        print(pubKeyBase64)
-        return pubKeyBase64
+            .replacingOccurrences(of: "=", with: "")
+        print(pubKeyBase64URL)
+        return pubKeyBase64URL
     }
 }

@@ -42,16 +42,27 @@ class TransactionPINViewController: UIViewController {
         super.viewDidAppear(animated)
         print("Transaction PIN View appeared!")
         
-        let onFinishCallback = Config.instance.callbackFunc
-        func cb(success: Bool) {
-            if success{
-                onFinishCallback("dummy biometric token", nil)
-            } else {
-                print("got here!")
-                self.toggleErrorMsg(msg: "Biometric is incorrect, please use PIN")
+        CotterAPIService.shared.getBiometricStatus(cb: { response in
+            switch response {
+            case .success(let resp):
+                if resp.enrolled {
+                    let onFinishCallback = Config.instance.callbackFunc
+                    func cb(success: Bool) {
+                        if success{
+                            onFinishCallback("dummy biometric token", nil)
+                        } else {
+                            print("got here!")
+                            self.toggleErrorMsg(msg: "Biometric is incorrect, please use PIN")
+                        }
+                    }
+                    self.authService.bioAuth(view: self, event: "TRANSACTION", callback: cb)
+                } else {
+                    print("Biometric not enrolled")
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
             }
-        }
-        authService.bioAuth(view: self, event: "TRANSACTION", callback: cb)
+        })
     }
     
     override func viewDidLoad() {
