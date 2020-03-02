@@ -150,11 +150,17 @@ class ViewController: UIViewController {
     }
 
     @IBAction func clickCotter(_ sender: Any) {
-        CotterWrapper.cotter?.startEnrollment(animated: true)
+        // CotterWrapper.cotter?.startEnrollment(animated: true)
+        
+        // to optionally hide the close button
+        CotterWrapper.cotter?.startEnrollment(animated: true, hideClose:true)
     }
     
     @IBAction func clickStartTransaction(_ sender: Any) {
         CotterWrapper.cotter?.startTransaction(animated: true)
+        
+        // to optionally hide the back button
+        // CotterWrapper.cotter?.startTransaction(animated: true, hideClose:true)
     }
     
     @IBAction func clickUpdateProfile(_ sender: Any) {
