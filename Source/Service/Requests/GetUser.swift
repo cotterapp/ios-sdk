@@ -11,12 +11,10 @@ public struct GetUser: APIRequest {
     public typealias Response = CotterUser
     
     public var path: String {
-        return "/user/" + self.userID
+        return "/user/\(self.userID)"
     }
     
-    public var method: String {
-        return "GET"
-    }
+    public var method: String = "GET"
     
     public var body: Data? {
         return nil

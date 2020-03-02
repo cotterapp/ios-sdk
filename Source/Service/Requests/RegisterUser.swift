@@ -14,9 +14,7 @@ public struct RegisterUser: APIRequest {
         return "/user/create"
     }
     
-    public var method: String {
-        return "POST"
-    }
+    public let method: String = "POST"
     
     public var body: Data? {
         let data = [

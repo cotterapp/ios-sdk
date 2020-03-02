@@ -14,9 +14,7 @@ public struct RequestToken: APIRequest {
         return "/verify/get_identity"
     }
 
-    public var method: String {
-        return "POST"
-    }
+    public var method: String = "POST"
 
     public var body: Data? {
         let data: [String:Any] = [

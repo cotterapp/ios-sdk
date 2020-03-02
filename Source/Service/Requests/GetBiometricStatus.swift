@@ -11,12 +11,10 @@ public struct GetBiometricStatus: APIRequest {
     public typealias Response = EnrolledMethods
     
     public var path: String {
-        return "/user/enrolled/" + self.userID + "/BIOMETRIC/" + self.pubKey
+        return "/user/enrolled/\(self.userID)/BIOMETRIC/\(self.pubKey)"
     }
     
-    public var method: String {
-        return "GET"
-    }
+    public var method: String = "GET"
     
     public var body: Data? {
         return nil

@@ -14,9 +14,7 @@ public struct CreateAuthenticationEvent: APIRequest {
         return  "/event/create"
     }
 
-    public var method: String {
-        return "POST"
-    }
+    public var method: String = "POST"
 
     public var body: Data? {
         let encoder = JSONEncoder()

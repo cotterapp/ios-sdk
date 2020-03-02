@@ -11,12 +11,10 @@ public struct UpdateBiometricStatus: APIRequest {
     public typealias Response = CotterUser
     
     public var path: String {
-        return "/user/" + self.userID
+        return "/user/\(self.userID)"
     }
     
-    public var method: String {
-        return "PUT"
-    }
+    public var method: String = "PUT"
     
     public var body: Data? {
         let data: [String: Any] = [
