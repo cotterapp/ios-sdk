@@ -8,21 +8,21 @@
 import Foundation
 
 public struct CotterIdentity: Codable {
-    var identifier: Identifier
-    var token: Token
+    public var identifier: Identifier
+    public var token: Token
 }
 
 public struct Identifier: Codable {
-    var id:String
-    var createdAt:String
-    var updatedAt:String?
-    var deletedAt:String?
-    var identifier: String
-    var identifierType: String
-    var publicKey: String
-    var deviceType: String
-    var deviceName: String
-    var expiry: String
+    public var id:String
+    public var createdAt:String
+    public var updatedAt:String?
+    public var deletedAt:String?
+    public var identifier: String
+    public var identifierType: String
+    public var publicKey: String
+    public var deviceType: String
+    public var deviceName: String
+    public var expiry: String
     
     
     enum CodingKeys: String, CodingKey {
@@ -40,11 +40,11 @@ public struct Identifier: Codable {
 }
 
 public struct Token: Codable {
-    var identifier: String
-    var identifierType: String
-    var receiver: String
-    var expireAt: String
-    var signature: String
+    public var identifier: String
+    public var identifierType: String
+    public var receiver: String
+    public var expireAt: String
+    public var signature: String
     
     enum CodingKeys: String, CodingKey {
         case identifier
