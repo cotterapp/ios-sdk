@@ -16,7 +16,7 @@ public class Cotter {
     
     // userID inside a Cotter instance is always tied to CotterAPIService's userID.
     // currently there is no reason to separate the userID
-    var userID:String {
+    public var userID:String {
         set {
             CotterAPIService.shared.userID = newValue
         }
