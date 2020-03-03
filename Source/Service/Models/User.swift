@@ -8,14 +8,14 @@
 import Foundation
 
 public struct CotterUser: Codable {
-    var id:String
-    var createdAt:String
-    var updatedAt:String?
-    var deletedAt:String?
-    var issuer:String
-    var clientUserID:String
+    public var id:String
+    public var createdAt:String
+    public var updatedAt:String?
+    public var deletedAt:String?
+    public var issuer:String
+    public var clientUserID:String
     public var enrolled:[String]
-    var defaultMethod:String?
+    public var defaultMethod:String?
     
     enum CodingKeys:String, CodingKey {
         case id = "ID"

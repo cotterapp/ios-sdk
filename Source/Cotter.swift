@@ -14,6 +14,18 @@ public class Cotter {
     // Passwordless object is deallocated
     var passwordless: Any?
     
+    // userID inside a Cotter instance is always tied to CotterAPIService's userID.
+    // currently there is no reason to separate the userID
+    var userID:String {
+        set {
+            CotterAPIService.shared.userID = newValue
+        }
+        
+        get {
+            return CotterAPIService.shared.userID ?? ""
+        }
+    }
+    
     // Resource Bundle Initialization
     // Taken from: https://stackoverflow.com/questions/35692265/how-to-load-resource-in-cocoapods-resource-bundle
     static var resourceBundle: Bundle = {
@@ -44,14 +56,12 @@ public class Cotter {
         apiKeyID: String,
         cotterURL: String,
         userID: String,
-        onComplete: FinalAuthCallback?,
         configuration: [String: Any]
     ) {
         self.init(
             apiSecretKey: apiSecretKey,
             apiKeyID: apiKeyID,
-            cotterURL: cotterURL,
-            onComplete: onComplete
+            cotterURL: cotterURL
         )
         
         CotterAPIService.shared.userID = userID
@@ -67,14 +77,9 @@ public class Cotter {
     public init(
         apiSecretKey: String,
         apiKeyID: String,
-        cotterURL: String,
-        onComplete: FinalAuthCallback?
+        cotterURL: String
     ) {
         print("initializing Cotter's SDK...")
-        if let onComplete = onComplete {
-            Config.instance.callbackFunc = onComplete
-        }
-        
         CotterAPIService.shared.baseURL = URL(string: cotterURL)
         CotterAPIService.shared.apiSecretKey = apiSecretKey
         CotterAPIService.shared.apiKeyID = apiKeyID
@@ -116,7 +121,7 @@ public class Cotter {
         // hide the close button (Optional)
         self.pinVC.hideCloseButton = hideClose
         
-        Config.instance.pinEnrollmentCb = cb
+        Config.instance.pinEnrollmentCb = transformCb(parent: vc, cb: cb)
         
         // push the viewcontroller to the navController
         vc.navigationController?.pushViewController(self.pinVC, animated: animated)
@@ -132,7 +137,7 @@ public class Cotter {
         // hide the close button
         self.transactionPinVC.hideCloseButton = hideClose
         
-        Config.instance.transactionCb = cb
+        Config.instance.transactionCb = transformCb(parent: vc, cb: cb)
         
         // Push the viewController to the navController
         vc.navigationController?.pushViewController(self.transactionPinVC, animated: animated)
@@ -145,7 +150,7 @@ public class Cotter {
         cb: @escaping FinalAuthCallback,
         hideClose:Bool = false
     ) {
-        Config.instance.updatePINCb = cb
+        Config.instance.updatePINCb = transformCb(parent: vc, cb: cb)
         
         // Push the viewController to the navController
         vc.navigationController?.pushViewController(self.updateProfilePinVC, animated: animated)
@@ -170,5 +175,12 @@ public class Cotter {
     // setText sets the string based on the key string
     public func setText(for key: String, to value: String) {
         Config.instance.strings.setText(for: key, to: value)
+    }
+}
+
+func transformCb(parent: UIViewController, cb: @escaping FinalAuthCallback) -> FinalAuthCallback {
+    return { (token:String, err: Error?) in
+        parent.navigationController?.popToViewController(parent, animated: false)
+        cb(token, err)
     }
 }
