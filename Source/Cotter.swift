@@ -14,6 +14,18 @@ public class Cotter {
     // Passwordless object is deallocated
     var passwordless: Any?
     
+    // userID inside a Cotter instance is always tied to CotterAPIService's userID.
+    // currently there is no reason to separate the userID
+    var userID:String {
+        set {
+            CotterAPIService.shared.userID = newValue
+        }
+        
+        get {
+            return CotterAPIService.shared.userID ?? ""
+        }
+    }
+    
     // Resource Bundle Initialization
     // Taken from: https://stackoverflow.com/questions/35692265/how-to-load-resource-in-cocoapods-resource-bundle
     static var resourceBundle: Bundle = {
@@ -44,14 +56,12 @@ public class Cotter {
         apiKeyID: String,
         cotterURL: String,
         userID: String,
-        onComplete: FinalAuthCallback?,
         configuration: [String: Any]
     ) {
         self.init(
             apiSecretKey: apiSecretKey,
             apiKeyID: apiKeyID,
-            cotterURL: cotterURL,
-            onComplete: onComplete
+            cotterURL: cotterURL
         )
         
         CotterAPIService.shared.userID = userID
@@ -67,14 +77,9 @@ public class Cotter {
     public init(
         apiSecretKey: String,
         apiKeyID: String,
-        cotterURL: String,
-        onComplete: FinalAuthCallback?
+        cotterURL: String
     ) {
         print("initializing Cotter's SDK...")
-        if let onComplete = onComplete {
-            Config.instance.callbackFunc = onComplete
-        }
-        
         CotterAPIService.shared.baseURL = URL(string: cotterURL)
         CotterAPIService.shared.apiSecretKey = apiSecretKey
         CotterAPIService.shared.apiKeyID = apiKeyID

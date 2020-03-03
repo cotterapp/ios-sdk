@@ -99,7 +99,6 @@ class ViewController: UIViewController {
             apiKeyID: apiKeyID,
             cotterURL: baseURL,
             userID: self.userID,
-            onComplete: cbFunc,
             // configuration is an optional argument, remove this below and Cotter app will still function properly
             configuration: [
                 "language": langConfig,   // default value is Indonesian()
