@@ -106,6 +106,9 @@ class ViewController: UIViewController {
             ]
         )
         
+        // check the if the userID can be set
+        CotterWrapper.cotter!.userID = self.userID
+        
         // you can also set texts after initialization
         // CotterWrapper.cotter?.setText(key: PINViewController.title, value: "Hello World!")
         
