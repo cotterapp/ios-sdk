@@ -96,7 +96,6 @@ class ViewController: UIViewController {
         
         // Load Cotter View Controller from SDK
         CotterWrapper.cotter = Cotter(
-            from: self,
             apiSecretKey: apiSecretKey,
             apiKeyID: apiKeyID,
             cotterURL: baseURL,
@@ -158,18 +157,18 @@ class ViewController: UIViewController {
         // CotterWrapper.cotter?.startEnrollment(animated: true)
         
         // to optionally hide the close button
-        CotterWrapper.cotter?.startEnrollment(animated: true, hideClose:true, cb: self.cb!)
+        CotterWrapper.cotter?.startEnrollment(vc: self, animated: true, cb: self.cb!, hideClose:true)
     }
     
     @IBAction func clickStartTransaction(_ sender: Any) {
-        CotterWrapper.cotter?.startTransaction(animated: true, cb: self.cb!)
+        CotterWrapper.cotter?.startTransaction(vc: self, animated: true, cb: self.cb!)
         
         // to optionally hide the back button
         // CotterWrapper.cotter?.startTransaction(animated: true, hideClose:true)
     }
     
     @IBAction func clickUpdateProfile(_ sender: Any) {
-        CotterWrapper.cotter?.startUpdateProfile(animated: true, cb: self.cb!)
+        CotterWrapper.cotter?.startUpdateProfile(vc: self, animated: true, cb: self.cb!)
     }
 
     @IBAction func goToUserCheck(_ sender: Any) {
