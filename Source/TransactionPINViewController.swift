@@ -105,7 +105,7 @@ extension TransactionPINViewController : PINBaseController {
         codeTextField.didEnterLastDigit = { code in
             print("PIN Code Entered: ", code)
             
-            let cbFunc = Config.instance.callbackFunc
+            let cbFunc = Config.instance.transactionCb
             
             // Callback Function to execute after PIN Verification
             func pinVerificationCallback(success: Bool) {
