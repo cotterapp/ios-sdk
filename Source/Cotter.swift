@@ -116,7 +116,7 @@ public class Cotter {
         // hide the close button (Optional)
         self.pinVC.hideCloseButton = hideClose
         
-        Config.instance.pinEnrollmentCb = cb
+        Config.instance.pinEnrollmentCb = transformCb(parent: vc, cb: cb)
         
         // push the viewcontroller to the navController
         vc.navigationController?.pushViewController(self.pinVC, animated: animated)
@@ -132,7 +132,7 @@ public class Cotter {
         // hide the close button
         self.transactionPinVC.hideCloseButton = hideClose
         
-        Config.instance.transactionCb = cb
+        Config.instance.transactionCb = transformCb(parent: vc, cb: cb)
         
         // Push the viewController to the navController
         vc.navigationController?.pushViewController(self.transactionPinVC, animated: animated)
@@ -145,7 +145,7 @@ public class Cotter {
         cb: @escaping FinalAuthCallback,
         hideClose:Bool = false
     ) {
-        Config.instance.updatePINCb = cb
+        Config.instance.updatePINCb = transformCb(parent: vc, cb: cb)
         
         // Push the viewController to the navController
         vc.navigationController?.pushViewController(self.updateProfilePinVC, animated: animated)
@@ -170,5 +170,12 @@ public class Cotter {
     // setText sets the string based on the key string
     public func setText(for key: String, to value: String) {
         Config.instance.strings.setText(for: key, to: value)
+    }
+}
+
+func transformCb(parent: UIViewController, cb: @escaping FinalAuthCallback) -> FinalAuthCallback {
+    return { (token:String, err: Error?) in
+        parent.navigationController?.popToViewController(parent, animated: false)
+        cb(token, err)
     }
 }

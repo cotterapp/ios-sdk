@@ -58,7 +58,6 @@ class ViewController: UIViewController {
         
         func cbFunc(accessToken: String, error: Error?) -> Void{
             guard let error = error else {
-                self.navigationController?.popToViewController(self, animated: false)
                 dVC.accessToken = accessToken
                 self.navigationController?.pushViewController(dVC, animated: true)
                 return
