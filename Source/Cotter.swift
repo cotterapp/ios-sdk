@@ -40,7 +40,6 @@ public class Cotter {
     
     // initializer with configuration
     public convenience init(
-        from parent: UIViewController!,
         apiSecretKey: String,
         apiKeyID: String,
         cotterURL: String,
@@ -49,7 +48,6 @@ public class Cotter {
         configuration: [String: Any]
     ) {
         self.init(
-            from: parent,
             apiSecretKey: apiSecretKey,
             apiKeyID: apiKeyID,
             cotterURL: cotterURL,
@@ -67,19 +65,14 @@ public class Cotter {
     
     // default initializer
     public init(
-        from parent: UIViewController!,
         apiSecretKey: String,
         apiKeyID: String,
         cotterURL: String,
         onComplete: FinalAuthCallback?
     ) {
         print("initializing Cotter's SDK...")
-        Config.instance.parent = parent
         if let onComplete = onComplete {
-            Config.instance.callbackFunc = { (token: String, error: Error?) -> Void in
-                parent.navigationController?.popToViewController(parent, animated: false)
-                onComplete(token, error)
-            }
+            Config.instance.callbackFunc = onComplete
         }
         
         CotterAPIService.shared.baseURL = URL(string: cotterURL)
@@ -114,33 +107,48 @@ public class Cotter {
     
     // MARK: - Cotter flows initializers
     // Start of Enrollment Process
-    public func startEnrollment(animated: Bool, hideClose:Bool = false, cb: @escaping FinalAuthCallback) {
+    public func startEnrollment(
+        vc: UIViewController,
+        animated: Bool,
+        cb: @escaping FinalAuthCallback,
+        hideClose:Bool = false
+    ) {
         // hide the close button (Optional)
         self.pinVC.hideCloseButton = hideClose
         
         Config.instance.pinEnrollmentCb = cb
         
         // push the viewcontroller to the navController
-        Config.instance.parent.navigationController?.pushViewController(self.pinVC, animated: animated)
+        vc.navigationController?.pushViewController(self.pinVC, animated: animated)
     }
     
     // Start of Transaction Process
-    public func startTransaction(animated: Bool, hideClose:Bool = false, cb: @escaping FinalAuthCallback) {
+    public func startTransaction(
+        vc: UIViewController,
+        animated: Bool,
+        cb: @escaping FinalAuthCallback,
+        hideClose:Bool = false
+    ) {
         // hide the close button
         self.transactionPinVC.hideCloseButton = hideClose
         
         Config.instance.transactionCb = cb
         
         // Push the viewController to the navController
-        Config.instance.parent.navigationController?.pushViewController(self.transactionPinVC, animated: animated)
+        vc.navigationController?.pushViewController(self.transactionPinVC, animated: animated)
     }
     
     // Start of Update Profile Process
-    public func startUpdateProfile(animated: Bool, hideClose:Bool = false, cb: @escaping FinalAuthCallback) {
+    public func startUpdateProfile(
+        vc: UIViewController,
+        animated: Bool,
+        cb: @escaping FinalAuthCallback,
+        hideClose:Bool = false
+    ) {
         Config.instance.updatePINCb = cb
         
         // Push the viewController to the navController
-        Config.instance.parent.navigationController?.pushViewController(self.updateProfilePinVC, animated: animated)
+        vc.navigationController?.pushViewController(self.updateProfilePinVC, animated: animated)
     }
     
     // startPasswordlessLogin starts the login process
