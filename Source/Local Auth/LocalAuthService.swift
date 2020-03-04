@@ -138,10 +138,10 @@ class LocalAuthService: UIViewController {
         if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
             let aService = AlertService(
                 vc: view,
-                title: enrollAuthTitle,
-                body: enrollAuthBody,
-                actionButtonTitle: enrollAuthAction,
-                cancelButtonTitle: enrollAuthCancel,
+                title: verifyAuthTitle,
+                body: verifyAuthBody,
+                actionButtonTitle: verifyAuthAction,
+                cancelButtonTitle: verifyAuthCancel,
                 imagePath: fingerprintImg
             )
             
@@ -243,10 +243,10 @@ class LocalAuthService: UIViewController {
         if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
             let aService = AlertService(
                 vc: view,
-                title: verifyAuthTitle,
-                body: verifyAuthBody,
-                actionButtonTitle: verifyAuthAction,
-                cancelButtonTitle: verifyAuthCancel,
+                title: enrollAuthTitle,
+                body: enrollAuthBody,
+                actionButtonTitle: enrollAuthAction,
+                cancelButtonTitle: enrollAuthCancel,
                 imagePath: fingerprintImg
             )
             let delegate = LAlertDelegate()

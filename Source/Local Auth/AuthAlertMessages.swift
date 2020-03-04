@@ -17,8 +17,8 @@ public class AuthAlertMessagesKey {
     // MARK: - Biometric Enrollment Authentication Alert
     static let enrollAuthTitle = "AuthAlertMessagesKey/enrollAuthTitle"
     static let enrollAuthBody = "AuthAlertMessagesKey/enrollAuthBody"
-    static let enrollAuthActionButton = "AuthAlertMessagesKey/enrollAuthActionButtonTitle"
-    static let enrollAuthCancelButton = "AuthAlertMessagesKey/enrollAuthCancelButtonTitle"
+    static let enrollAuthActionButton = "AuthAlertMessagesKey/enrollAuthActionButton"
+    static let enrollAuthCancelButton = "AuthAlertMessagesKey/enrollAuthCancelButton"
     
     // MARK: - Biometric Verification Authentication Alert
     static let verifyAuthTitle = "AuthAlertMessagesKey/verifyAuthTitle"
