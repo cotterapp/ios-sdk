@@ -67,11 +67,17 @@ public class Indonesian: LanguageObject {
             AuthAlertMessagesKey.navBackActionButton: "Lain Kali",
             AuthAlertMessagesKey.navBackCancelButton: "Input PIN",
             
-            // MARK: - Biometric Authentication Alert
-            AuthAlertMessagesKey.authTitle: "Verifikasi",
-            AuthAlertMessagesKey.authBody: "Lanjutkan untuk menggunakan verifikasi TouchID atau FaceID",
-            AuthAlertMessagesKey.authActionButton: "Lanjutkan",
-            AuthAlertMessagesKey.authCancelButton: "Gunakan PIN",
+            // MARK: - Biometric Enrollment Authentication Alert
+            AuthAlertMessagesKey.enrollAuthTitle: "Verifikasi",
+            AuthAlertMessagesKey.enrollAuthBody: "Lanjutkan untuk menggunakan verifikasi TouchID atau FaceID",
+            AuthAlertMessagesKey.enrollAuthActionButton: "Lanjutkan",
+            AuthAlertMessagesKey.enrollAuthCancelButton: "Gunakan PIN",
+            
+            // MARK: - Biometric Verification Authentication Alert
+            AuthAlertMessagesKey.verifyAuthTitle: "Verifikasi",
+            AuthAlertMessagesKey.verifyAuthBody: "Verifikasi biometrik Anda untuk melanjutkan",
+            AuthAlertMessagesKey.verifyAuthActionButton: "Lanjutkan",
+            AuthAlertMessagesKey.verifyAuthCancelButton: "Gunaken PIN",
             
             // MARK: - Dispatch Result Alert (Success)
             AuthAlertMessagesKey.successDispatchTitle: "Verifikasi",

@@ -34,10 +34,15 @@ class LAlertDelegate: AlertServiceDelegate {
 class LocalAuthService: UIViewController {
     
     // MARK: - Alert Text Definitions
-    let authTitle = CotterStrings.instance.getText(for: AuthAlertMessagesKey.authTitle)
-    let authBody = CotterStrings.instance.getText(for: AuthAlertMessagesKey.authBody)
-    let authAction = CotterStrings.instance.getText(for: AuthAlertMessagesKey.authActionButton)
-    let authCancel = CotterStrings.instance.getText(for: AuthAlertMessagesKey.authCancelButton)
+    let enrollAuthTitle = CotterStrings.instance.getText(for: AuthAlertMessagesKey.enrollAuthTitle)
+    let enrollAuthBody = CotterStrings.instance.getText(for: AuthAlertMessagesKey.enrollAuthBody)
+    let enrollAuthAction = CotterStrings.instance.getText(for: AuthAlertMessagesKey.enrollAuthActionButton)
+    let enrollAuthCancel = CotterStrings.instance.getText(for: AuthAlertMessagesKey.enrollAuthCancelButton)
+    
+    let verifyAuthTitle = CotterStrings.instance.getText(for: AuthAlertMessagesKey.verifyAuthTitle)
+    let verifyAuthBody = CotterStrings.instance.getText(for: AuthAlertMessagesKey.verifyAuthBody)
+    let verifyAuthAction = CotterStrings.instance.getText(for: AuthAlertMessagesKey.verifyAuthActionButton)
+    let verifyAuthCancel = CotterStrings.instance.getText(for: AuthAlertMessagesKey.verifyAuthCancelButton)
     
     let successTitle = CotterStrings.instance.getText(for: AuthAlertMessagesKey.successDispatchTitle)
     let successBody = CotterStrings.instance.getText(for: AuthAlertMessagesKey.successDispatchBody)
@@ -133,10 +138,10 @@ class LocalAuthService: UIViewController {
         if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
             let aService = AlertService(
                 vc: view,
-                title: authTitle,
-                body: authBody,
-                actionButtonTitle: authAction,
-                cancelButtonTitle: authCancel,
+                title: verifyAuthTitle,
+                body: verifyAuthBody,
+                actionButtonTitle: verifyAuthAction,
+                cancelButtonTitle: verifyAuthCancel,
                 imagePath: fingerprintImg
             )
             
@@ -238,10 +243,10 @@ class LocalAuthService: UIViewController {
         if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
             let aService = AlertService(
                 vc: view,
-                title: authTitle,
-                body: authBody,
-                actionButtonTitle: authAction,
-                cancelButtonTitle: authCancel,
+                title: enrollAuthTitle,
+                body: enrollAuthBody,
+                actionButtonTitle: enrollAuthAction,
+                cancelButtonTitle: enrollAuthCancel,
                 imagePath: fingerprintImg
             )
             let delegate = LAlertDelegate()

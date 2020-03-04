@@ -67,11 +67,17 @@ public class English: LanguageObject {
             AuthAlertMessagesKey.navBackActionButton: "Yes",
             AuthAlertMessagesKey.navBackCancelButton: "Input PIN",
             
-            // MARK: - Biometric Authentication Alert
-            AuthAlertMessagesKey.authTitle: "Verification",
-            AuthAlertMessagesKey.authBody: "Continue Biometric Authentication process using TouchID or FaceID",
-            AuthAlertMessagesKey.authActionButton: "Continue",
-            AuthAlertMessagesKey.authCancelButton: "Use PIN",
+            // MARK: - Biometric Enrollment Authentication Alert
+            AuthAlertMessagesKey.enrollAuthTitle: "Biometric Verification",
+            AuthAlertMessagesKey.enrollAuthBody: "Protect your account using Biometrics",
+            AuthAlertMessagesKey.enrollAuthActionButton: "Continue",
+            AuthAlertMessagesKey.enrollAuthCancelButton: "Use PIN",
+            
+            // MARK: - Biometric Verification Authentication Alert
+            AuthAlertMessagesKey.verifyAuthTitle: "Verify Biometrics",
+            AuthAlertMessagesKey.verifyAuthBody: "Verify your biometrics to continue",
+            AuthAlertMessagesKey.verifyAuthActionButton: "Continue",
+            AuthAlertMessagesKey.verifyAuthCancelButton: "Use PIN",
             
             // MARK: - Dispatch Result Alert (Success)
             AuthAlertMessagesKey.successDispatchTitle: "Verification",
