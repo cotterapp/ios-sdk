@@ -158,11 +158,14 @@ public class Cotter {
     
     // startPasswordlessLogin starts the login process
     @available(iOS 12.0, *)
-    public func startPasswordlessLogin(parentView: UIViewController, input: String, identifierField:String, type:String, directLogin: Bool) {
+    public func startPasswordlessLogin(parentView: UIViewController, input: String, identifierField:String, type:String, directLogin: Bool, cb: @escaping FinalAuthCallback) {
         var str = "false"
         if directLogin {
             str = "true"
         }
+        
+        Config.instance.passwordlessCb = transformCb(parent: parentView, cb: cb)
+        
         self.passwordless = Passwordless(
             view: parentView,
             input: input,

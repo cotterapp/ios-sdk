@@ -81,7 +81,7 @@ class Passwordless: NSObject, ASWebAuthenticationPresentationContextProviding {
             //   exampleauth://auth?token=1234
             
             let queryItems = URLComponents(string: callbackURL.absoluteString)?.queryItems
-            let cb = Config.instance.callbackFunc
+            let cb = Config.instance.passwordlessCb
 
             guard let challengeID = queryItems?.filter({ $0.name == "challenge_id" }).first?.value else {
                 cb("", CotterError.passwordless("challenge_id is unavailable"))

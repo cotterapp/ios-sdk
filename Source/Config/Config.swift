@@ -12,12 +12,12 @@ class Config: NSObject {
     static let instance = Config()
   
     var parent: UIViewController!
-    var callbackFunc: FinalAuthCallback
     
     // callbacks for each individual flows
     var pinEnrollmentCb: FinalAuthCallback
     var updatePINCb: FinalAuthCallback
     var transactionCb: FinalAuthCallback
+    var passwordlessCb: FinalAuthCallback
 
     // strings consists text configurations for Cotter
     var strings: LanguageObject = Indonesian() // defaults to indonesian
@@ -30,12 +30,13 @@ class Config: NSObject {
     var PLRedirectURL: String? = "cotter://auth"
     
     private override init() {
-        callbackFunc = { (access_token: String, error: Error?) -> Void in
+        let defaultCb = { (access_token: String, error: Error?) -> Void in
             print(access_token)
         }
         
-        pinEnrollmentCb = callbackFunc
-        updatePINCb = callbackFunc
-        transactionCb = callbackFunc
+        pinEnrollmentCb = defaultCb
+        updatePINCb = defaultCb
+        transactionCb = defaultCb
+        passwordlessCb = defaultCb
     }
 }
