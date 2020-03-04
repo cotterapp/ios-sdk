@@ -14,11 +14,17 @@ public class AuthAlertMessagesKey {
     static let navBackActionButton = "AuthAlertMessagesKey/navBackActionButton"
     static let navBackCancelButton = "AuthAlertMessagesKey/navBackCancelButton"
     
-    // MARK: - Biometric Authentication Alert
-    static let authTitle = "AuthAlertMessagesKey/authTitle"
-    static let authBody = "AuthAlertMessagesKey/authBody"
-    static let authActionButton = "AuthAlertMessagesKey/authActionButtonTitle"
-    static let authCancelButton = "AuthAlertMessagesKey/authCancelButtonTitle"
+    // MARK: - Biometric Enrollment Authentication Alert
+    static let enrollAuthTitle = "AuthAlertMessagesKey/enrollAuthTitle"
+    static let enrollAuthBody = "AuthAlertMessagesKey/enrollAuthBody"
+    static let enrollAuthActionButton = "AuthAlertMessagesKey/enrollAuthActionButtonTitle"
+    static let enrollAuthCancelButton = "AuthAlertMessagesKey/enrollAuthCancelButtonTitle"
+    
+    // MARK: - Biometric Verification Authentication Alert
+    static let verifyAuthTitle = "AuthAlertMessagesKey/verifyAuthTitle"
+    static let verifyAuthBody = "AuthAlertMessagesKey/verifyAuthBody"
+    static let verifyAuthActionButton = "AuthAlertMessagesKey/verifyAuthActionButton"
+    static let verifyAuthCancelButton = "AuthAlertMessagesKey/verifyAuthCancelButton"
     
     // MARK: - Dispatch Result Alert (Success)
     static let successDispatchTitle = "AuthAlertMessagesKey/successDispatchTitle"
