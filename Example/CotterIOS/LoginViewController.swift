@@ -11,7 +11,6 @@ import UIKit
 
 @available(iOS 12.0, *)
 class LoginViewController: UIViewController {
-    
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var phoneInput: UITextField!
     
@@ -29,7 +28,8 @@ class LoginViewController: UIViewController {
             input: textInput,
             identifierField: "phone",
             type: "PHONE",
-            directLogin: true
+            directLogin: true,
+            cb: Callback.shared.authCb
         )
     }
     
