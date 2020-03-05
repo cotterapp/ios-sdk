@@ -230,7 +230,6 @@ extension PINViewController : AlertServiceDelegate {
     
     func actionHandler() {
         alertService.hide()
-        self.navigationController?.popToViewController(Config.instance.parent, animated: false)
         Config.instance.pinEnrollmentCb("PIN enrollment cancelled - no token", nil)
     }
 }
