@@ -121,6 +121,7 @@ public class Cotter {
         // hide the close button (Optional)
         self.pinVC.hideCloseButton = hideClose
         
+        Config.instance.parent = vc
         Config.instance.pinEnrollmentCb = transformCb(parent: vc, cb: cb)
         
         // push the viewcontroller to the navController

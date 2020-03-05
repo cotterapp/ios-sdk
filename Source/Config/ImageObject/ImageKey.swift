@@ -8,11 +8,11 @@
 import Foundation
 
 public class VCImageKey {
-    static let pinSuccessImg = "VCImageKey/pinSuccessImg"
+    public static let pinSuccessImg = "VCImageKey/pinSuccessImg"
 }
 
 public class AlertImageKey {
-    static let promptVerificationImg = "AlertImageKey/promptVerificationImg"
-    static let successVerificationImg = "AlertImageKey/successVerificationImg"
-    static let failureVerificationImg = "AlertImageKey/failureVerificationImg"
+    public static let promptVerificationImg = "AlertImageKey/promptVerificationImg"
+    public static let successVerificationImg = "AlertImageKey/successVerificationImg"
+    public static let failureVerificationImg = "AlertImageKey/failureVerificationImg"
 }
