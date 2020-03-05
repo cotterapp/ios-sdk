@@ -52,9 +52,9 @@ public class English: LanguageObject {
             UpdateConfirmNewPINViewControllerKey.title: "Confirm your new PIN",
             
             // MARK: - Error Messages
-            PinErrorMessagesKey.incorrectPinConfirmation: "Incorrect PIN Confirmation. Please enter the correct PIN and try again.",
-            PinErrorMessagesKey.badPin: "The PIN combination you have entered is insecure. Please enter a stronger PIN.",
-            PinErrorMessagesKey.incorrectPinVerification: "PIN Verification failed. Please try again.",
+            PinErrorMessagesKey.incorrectPinConfirmation: "Your PIN doesn't match your previous PIN.",
+            PinErrorMessagesKey.badPin: "Your PIN is weak. Please enter a stronger PIN.",
+            PinErrorMessagesKey.incorrectPinVerification: "Your PIN is invalid.",
             PinErrorMessagesKey.similarPinAsBefore: "Unable to use the same PIN as before. Please try again.",
             PinErrorMessagesKey.enrollPinFailed: "PIN Enrollment failed. Please try again.",
             PinErrorMessagesKey.updatePinFailed: "Update PIN failed. Please try again.",
@@ -62,10 +62,10 @@ public class English: LanguageObject {
             PinErrorMessagesKey.apiError: "Internal Server Error. Please contact Customer Support.",
             
             // MARK: - Navigate Back Alert
-            AuthAlertMessagesKey.navBackTitle: "Are you sure you want to cancel?",
-            AuthAlertMessagesKey.navBackBody: "Do you know that PIN creates additional security layer for your account?",
-            AuthAlertMessagesKey.navBackActionButton: "Yes",
-            AuthAlertMessagesKey.navBackCancelButton: "Input PIN",
+            AuthAlertMessagesKey.navBackTitle: "Are you sure you don't want to setup PIN?",
+            AuthAlertMessagesKey.navBackBody: "Setting up your PIN is important to secure your account.",
+            AuthAlertMessagesKey.navBackActionButton: "Next Time",
+            AuthAlertMessagesKey.navBackCancelButton: "Setup PIN",
             
             // MARK: - Biometric Enrollment Authentication Alert
             AuthAlertMessagesKey.enrollAuthTitle: "Biometric Verification",
@@ -86,8 +86,8 @@ public class English: LanguageObject {
             AuthAlertMessagesKey.successDispatchCancelButton: "Cancel",
             
             // MARK: - Dispatch Result Alert (Failure)
-            AuthAlertMessagesKey.failureDispatchTitle: "Verification",
-            AuthAlertMessagesKey.failureDispatchBody: "Biometrics Failed.",
+            AuthAlertMessagesKey.failureDispatchTitle: "Unable to verify biometric",
+            AuthAlertMessagesKey.failureDispatchBody: "Do you want to try again or enter pin instead?",
             AuthAlertMessagesKey.failureDispatchActionButton: "Try Again",
             AuthAlertMessagesKey.failureDispatchCancelButton: "Cancel",
             
