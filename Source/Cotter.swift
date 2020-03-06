@@ -14,6 +14,11 @@ public class Cotter {
     // Passwordless object is deallocated
     var passwordless: Any?
     
+    // this variable is needed to revert the UI Status Bar Style
+    // back to its original
+    @available(iOS 12.0, *)
+    static var originalInterfaceStyle: UIUserInterfaceStyle?
+    
     // userID inside a Cotter instance is always tied to CotterAPIService's userID.
     // currently there is no reason to separate the userID
     public var userID:String {
@@ -184,6 +189,7 @@ public class Cotter {
 func transformCb(parent: UIViewController, cb: @escaping FinalAuthCallback) -> FinalAuthCallback {
     return { (token:String, err: Error?) in
         parent.navigationController?.popToViewController(parent, animated: false)
+        parent.setOriginalStatusBarStyle()
         cb(token, err)
     }
 }
