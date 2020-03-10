@@ -10,8 +10,6 @@ import UIKit
 // Config class will be passed around in the Cotter SDK
 class Config: NSObject {
     static let instance = Config()
-  
-    var parent: UIViewController!
     
     // callbacks for each individual flows
     var pinEnrollmentCb: FinalAuthCallback

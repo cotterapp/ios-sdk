@@ -74,6 +74,7 @@ class TransactionPINViewController: UIViewController {
         addConfigs()
         addDelegates()
         instantiateCodeTextFieldFunctions()
+        setCotterStatusBarStyle()
     }
     
     @IBAction func onClickPinVis(_ sender: UIButton) {
