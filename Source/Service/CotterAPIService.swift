@@ -133,24 +133,9 @@ public class CotterAPIService {
         let apiClient = self.apiClient()
         
         let req = UpdateBiometricStatus(userID: userID, enroll:enrollBiometric, pubKey: pubKeyBase64)
+        
         apiClient.send(req) { response in
             cb(response)
-
-            // Internal Callback
-            // If we are trying to disable biometrics, we need
-            // to delete the public/private key pair as well after successul HTTP Response
-            if !enrollBiometric {
-                func internalSuccessCb() {
-                    do {
-                        try KeyGen.clearKeys()
-                    } catch let err {
-                        internalCb.internalErrorHandler(err: err.localizedDescription)
-                        return
-                    }
-                }
-                
-                internalCb.internalSuccessFunc = internalSuccessCb
-            }
         }
     }
     
