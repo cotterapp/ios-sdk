@@ -55,7 +55,7 @@ class PINFinalViewController: UIViewController {
         // set access token or return values here
         if requireAuth {
             // Touch ID/Face ID Verification
-            authService.authenticate(view: self, reason: "Verifikasi", callback: Config.instance.pinEnrollmentCb)
+            authService.authenticate(view: self, reason: "Verification", callback: Config.instance.pinEnrollmentCb)
         } else {
              Config.instance.updatePINCb("this is token", nil)
         }
