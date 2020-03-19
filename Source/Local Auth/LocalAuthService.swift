@@ -149,7 +149,7 @@ class LocalAuthService: UIViewController {
                 aService.hide()
                 // this will force biometric scan request
                 guard let privateKey = KeyGen.privKey else {
-                    self.dispatchResult(view: view, success: false, authError: nil)
+                    self.dispatchResult(view: view, success: false, authError: CotterError.biometricVerification)
                     return
                 }
 
@@ -157,7 +157,7 @@ class LocalAuthService: UIViewController {
                 guard let pubKey = KeyGen.pubKey else {
                     // if pubkey is unretrievable, then there must be something wrong with the bio scan
                     // TODO: error handling:
-                    self.dispatchResult(view: view, success: false, authError: nil)
+                    self.dispatchResult(view: view, success: false, authError: CotterError.biometricVerification)
                     return
                 }
 
@@ -255,7 +255,7 @@ class LocalAuthService: UIViewController {
                 aService.hide()
                 // this will force biometric scan request
                 guard KeyGen.privKey != nil else {
-                    self.dispatchResult(view: view, success: false, authError: nil)
+                    self.dispatchResult(view: view, success: false, authError: CotterError.biometricEnrollment)
                     return
                 }
 
@@ -263,7 +263,7 @@ class LocalAuthService: UIViewController {
                 guard let pubKey = KeyGen.pubKey else {
                     // if pubkey is unretrievable, then there must be something wrong with the bio scan
                     // TODO: error handling:
-                    self.dispatchResult(view: view, success: false, authError: nil)
+                    self.dispatchResult(view: view, success: false, authError: CotterError.biometricEnrollment)
                     return
                 }
 
@@ -338,7 +338,7 @@ class LocalAuthService: UIViewController {
                 failedBiometricAlert.hide()
                 
                 // the PIN enrollment is still successful, but biometric registration failed
-                self.successAuthCallbackFunc?("Token from failed biometric", nil)
+                self.successAuthCallbackFunc?("Token from failed biometric", authError)
             }
             
             failedBiometricAlert.delegate = failedBiometricAlertDelegate
