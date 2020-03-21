@@ -43,4 +43,28 @@ public class CryptoUtil {
         print(pubKeyBase64URL)
         return pubKeyBase64URL
     }
+    
+    // signBase64 takes a privKey and signs the message. The signature will be converted to base64Encoding
+    public static func signBase64(privKey: SecKey, msg: String) -> String {
+        let data = msg.data(using: .utf8)! as CFData
+
+        // set the signature algorithm
+        let algorithm: SecKeyAlgorithm = .ecdsaSignatureMessageX962SHA256
+        
+        var error: Unmanaged<CFError>?
+        // create a signature
+        guard let signature = SecKeyCreateSignature(
+            privKey,
+            algorithm,
+            data as CFData,
+            &error
+        ) as Data? else {
+            print("failed to create signature")
+            return ""
+        }
+        
+        let strSignature = signature.base64EncodedString()
+        
+        return strSignature
+    }
 }

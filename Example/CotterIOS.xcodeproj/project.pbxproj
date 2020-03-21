@@ -14,6 +14,7 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		76015E93F9E1F98E66E2CD9A /* Pods_CotterIOS_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95A202280DF1D28B43394F0D /* Pods_CotterIOS_Example.framework */; };
+		850F13FE242423BC00E84C5E /* TrustedDeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850F13FD242423BC00E84C5E /* TrustedDeviceViewController.swift */; };
 		85292E4223EC21CB008363AB /* CryptoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85292E4123EC21CB008363AB /* CryptoViewController.swift */; };
 		8594181023F55A3F00B4DA6D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8594180F23F55A3F00B4DA6D /* LoginViewController.swift */; };
 		8594181223F5637800B4DA6D /* CotterWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8594181123F5637800B4DA6D /* CotterWrapper.swift */; };
@@ -54,6 +55,7 @@
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		700A7DEA2797C770A55A1628 /* Pods-CotterIOS_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CotterIOS_Example.debug.xcconfig"; path = "Target Support Files/Pods-CotterIOS_Example/Pods-CotterIOS_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		820AB7B5B7E543E5278DF99B /* Pods-CotterIOS_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CotterIOS_Tests.debug.xcconfig"; path = "Target Support Files/Pods-CotterIOS_Tests/Pods-CotterIOS_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		850F13FD242423BC00E84C5E /* TrustedDeviceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrustedDeviceViewController.swift; sourceTree = "<group>"; };
 		85292E4123EC21CB008363AB /* CryptoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoViewController.swift; sourceTree = "<group>"; };
 		8594180F23F55A3F00B4DA6D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		8594181123F5637800B4DA6D /* CotterWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CotterWrapper.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				8594180F23F55A3F00B4DA6D /* LoginViewController.swift */,
 				8594181123F5637800B4DA6D /* CotterWrapper.swift */,
 				85AD5BBC240FA36700AC3367 /* Callback.swift */,
+				850F13FD242423BC00E84C5E /* TrustedDeviceViewController.swift */,
 			);
 			name = "Example for CotterIOS";
 			path = CotterIOS;
@@ -386,6 +389,7 @@
 				8597662923F1914C00ACA96E /* IPAddressViewController.swift in Sources */,
 				85AD5B8C240A9F8600AC3367 /* BasicButton.swift in Sources */,
 				85AD5BBD240FA36700AC3367 /* Callback.swift in Sources */,
+				850F13FE242423BC00E84C5E /* TrustedDeviceViewController.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				85292E4223EC21CB008363AB /* CryptoViewController.swift in Sources */,
 				85B5A91B23E6ECFF0040E288 /* DashboardViewController.swift in Sources */,

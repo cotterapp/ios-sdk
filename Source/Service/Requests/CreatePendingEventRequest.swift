@@ -1,17 +1,17 @@
 //
-//  CreateAuthenticationEvent.swift
+//  CreatePendingEventRequest.swift
 //  Cotter
 //
-//  Created by Albert Purnama on 3/1/20.
+//  Created by Albert Purnama on 3/20/20.
 //
 
 import Foundation
 
-public struct CreateAuthenticationEvent: APIRequest {
+public struct CreatePendingEventRequest: APIRequest {
     public typealias Response = CotterEvent
     
     public var path: String {
-        return  "/event/create"
+        return  "/event/create_pending"
     }
 
     public var method: String = "POST"
@@ -21,7 +21,7 @@ public struct CreateAuthenticationEvent: APIRequest {
         encoder.outputFormatting = .prettyPrinted
         
         do {
-            let data = try encoder.encode(self.evt)
+            let data = try encoder.encode(self.event)
             print("encoded: \(String(decoding:data, as:UTF8.self))")
             return data
         } catch {
@@ -30,12 +30,11 @@ public struct CreateAuthenticationEvent: APIRequest {
         }
     }
     
-    let evt: CotterEventRequest
+    let event: CotterEventRequest
     
-    // pubKey needs to be a base64 URL safe encoded
     public init(
         evt: CotterEventRequest
-    ){
-        self.evt = evt
+    ) {
+        self.event = evt
     }
 }

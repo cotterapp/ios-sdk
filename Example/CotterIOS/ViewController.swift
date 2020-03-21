@@ -112,6 +112,8 @@ class ViewController: UIViewController {
             ]
         )
         
+        CotterWrapper.cotter!.clearKeys()
+        
         // check the if the userID can be set
         CotterWrapper.cotter!.userID = self.userID
         
@@ -125,7 +127,7 @@ class ViewController: UIViewController {
             switch response{
             case .success(let user):
                 print("successfully registered: \(user.enrolled)")
-                self.setupBiometricToggle()
+                self.setup()
                 
             case .failure(let err):
                 // you can put exhaustive error handling here
@@ -153,6 +155,7 @@ class ViewController: UIViewController {
     
     func setup() {
         self.setupBiometricToggle()
+        self.setupTrustedDevice()
     }
     
     override func didReceiveMemoryWarning() {
@@ -190,10 +193,12 @@ class ViewController: UIViewController {
             print("prepare segue for UserCheckViewController")
             let vc = segue.destination as! UserCheckViewController
             vc.userID = self.userID
-            break
+        case "segueToTrustedDevice":
+            print("prepare segue for TrustedDeviceViewController")
+            let vc = segue.destination as! TrustedDeviceViewController
+            vc.userID = self.userID
         default:
             print("unknown segue identifier: \(identifier)")
-            break
         }
     }
     
@@ -208,7 +213,6 @@ class ViewController: UIViewController {
                 for method in resp.enrolled {
                     if method == lookFor {
                         biometricAvailable = true
-                        break
                     }
                 }
                 self.bioSwitch.setOn(biometricAvailable, animated: true)
@@ -218,6 +222,11 @@ class ViewController: UIViewController {
             }
         }
         CotterAPIService.shared.updateBiometricStatus(enrollBiometric: self.bioSwitch.isOn, cb: cb)
+    }
+    
+    @IBAction func trustedDevice(_ sender: Any) {
+        print("segueToTrustedDevice")
+        performSegue(withIdentifier: "segueToTrustedDevice", sender: self)
     }
 }
 
@@ -237,6 +246,21 @@ extension ViewController {
             }
         }
         CotterAPIService.shared.getBiometricStatus(cb: cb)
+    }
+    
+    private func setupTrustedDevice() {
+        func enrollTrustedDevice(_ response: CotterResult<CotterUser>){
+            switch response{
+            case .success(let user):
+                print("[setupTrustedDevice] successfully registered: \(user.enrolled)")
+                
+            case .failure(let err):
+                // you can put exhaustive error handling here
+                print(err.localizedDescription)
+            }
+        }
+        
+        CotterAPIService.shared.enrollTrustedDevice(userID: self.userID, cb: enrollTrustedDevice)
     }
 }
 

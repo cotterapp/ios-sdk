@@ -86,14 +86,21 @@
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="blw-XG-a4X">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="blw-XG-a4X">
                                         <rect key="frame" x="0.0" y="120" width="344" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dme-5s-tyS" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="344" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="169.5" height="30"/>
                                                 <state key="normal" title="Client check"/>
                                                 <connections>
                                                     <action selector="goToUserCheck:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="qaW-XL-uc2"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KKm-m6-vje" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
+                                                <rect key="frame" x="174.5" y="0.0" width="169.5" height="30"/>
+                                                <state key="normal" title="Trusted Device"/>
+                                                <connections>
+                                                    <action selector="trustedDevice:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="gYM-aB-II9"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -133,6 +140,7 @@
                         <outlet property="bioSwitch" destination="ZDe-Ox-aX7" id="Wwy-Du-rbv"/>
                         <outlet property="errorLabel" destination="P3r-wO-R4a" id="hk4-ks-nqO"/>
                         <segue destination="gql-Ku-of0" kind="show" identifier="segueToUserCheck" id="vWj-Kv-Fqg"/>
+                        <segue destination="B9X-jN-7M4" kind="show" identifier="segueToTrustedDevice" id="NKZ-Di-309"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -284,6 +292,51 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hTc-aK-0a2">
+                                <rect key="frame" x="123.5" y="240" width="167" height="81.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="nt3-2O-1kh">
+                                        <rect key="frame" x="0.0" y="0.0" width="167" height="20.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Biometric" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w0P-su-n3c">
+                                                <rect key="frame" x="0.0" y="0.0" width="115" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5sd-EG-hHH">
+                                                <rect key="frame" x="125" y="0.0" width="42" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="pLO-KS-DXk">
+                                        <rect key="frame" x="0.0" y="30.5" width="167" height="20.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trusted Device" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZIC-E4-cSi">
+                                                <rect key="frame" x="0.0" y="0.0" width="115" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3pE-VA-o6c">
+                                                <rect key="frame" x="125" y="0.0" width="42" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GLP-P7-XnM">
+                                        <rect key="frame" x="0.0" y="61" width="167" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -291,15 +344,20 @@
                             <constraint firstAttribute="trailingMargin" secondItem="JDh-OQ-zxB" secondAttribute="trailing" constant="20" id="Kbx-OS-qrl"/>
                             <constraint firstItem="oWG-lQ-ILl" firstAttribute="top" secondItem="3yG-gp-P1Q" secondAttribute="bottom" constant="20" id="L2S-w6-nbc"/>
                             <constraint firstItem="JDh-OQ-zxB" firstAttribute="leading" secondItem="2mj-ZI-WoC" secondAttribute="leadingMargin" constant="20" id="Oeh-CV-GAx"/>
+                            <constraint firstItem="hTc-aK-0a2" firstAttribute="centerX" secondItem="2mj-ZI-WoC" secondAttribute="centerX" id="Om8-ha-TAP"/>
                             <constraint firstItem="JDh-OQ-zxB" firstAttribute="centerX" secondItem="2mj-ZI-WoC" secondAttribute="centerX" id="caC-ql-tdO"/>
                             <constraint firstItem="oWG-lQ-ILl" firstAttribute="centerX" secondItem="2mj-ZI-WoC" secondAttribute="centerX" id="pNT-AG-hzp"/>
+                            <constraint firstItem="hTc-aK-0a2" firstAttribute="top" secondItem="7Fl-35-M8M" secondAttribute="bottom" constant="40" id="qFc-te-qo8"/>
                             <constraint firstItem="7Fl-35-M8M" firstAttribute="centerX" secondItem="2mj-ZI-WoC" secondAttribute="centerX" id="xYE-L5-dkv"/>
                             <constraint firstItem="JDh-OQ-zxB" firstAttribute="top" secondItem="oWG-lQ-ILl" secondAttribute="bottom" constant="75" id="y6w-xd-VI3"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="1dc-cs-X3H"/>
                     <connections>
+                        <outlet property="bioStatusLabel" destination="5sd-EG-hHH" id="CGy-CI-Ldk"/>
+                        <outlet property="errorLabel" destination="GLP-P7-XnM" id="3AR-1m-Ahu"/>
                         <outlet property="textFieldUserID" destination="6up-Q9-xZw" id="4sl-Th-Kom"/>
+                        <outlet property="trustedStatusLabel" destination="3pE-VA-o6c" id="yTR-Rs-rug"/>
                         <outlet property="userDetailsLabel" destination="JDh-OQ-zxB" id="1VM-L0-LXz"/>
                         <outlet property="userIDLabel" destination="oWG-lQ-ILl" id="jwn-8b-bt3"/>
                     </connections>
@@ -354,6 +412,102 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ix9-gv-8Jy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="110" y="-643"/>
+        </scene>
+        <!--Trusted Device View Controller-->
+        <scene sceneID="Exu-gf-ahE">
+            <objects>
+                <viewController id="B9X-jN-7M4" customClass="TrustedDeviceViewController" customModule="CotterIOS_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="D6x-1J-Xdn"/>
+                        <viewControllerLayoutGuide type="bottom" id="L4c-85-ITP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0Ol-iZ-pYV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="5tp-Qm-JUv">
+                                <rect key="frame" x="40" y="296.5" width="334" height="215"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tRc-Fc-yMj">
+                                        <rect key="frame" x="0.0" y="0.0" width="334" height="20.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trusted Devices" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hEk-yq-cSk">
+                                                <rect key="frame" x="0.0" y="0.0" width="334" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="oCp-rf-Zu9">
+                                        <rect key="frame" x="0.0" y="30.5" width="334" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TWk-la-QnC" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="162" height="30"/>
+                                                <state key="normal" title="Get New Event"/>
+                                                <connections>
+                                                    <action selector="getNewEvent:" destination="B9X-jN-7M4" eventType="touchUpInside" id="qZx-5v-RJe"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MAm-hi-mbp" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
+                                                <rect key="frame" x="172" y="0.0" width="162" height="30"/>
+                                                <state key="normal" title="Request Authentication"/>
+                                                <connections>
+                                                    <action selector="requestAuth:" destination="B9X-jN-7M4" eventType="touchUpInside" id="EKc-73-ezk"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Client User ID Here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VmZ-gB-iTu">
+                                        <rect key="frame" x="0.0" y="70.5" width="334" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zCn-VN-8d1" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="114.5" width="334" height="30"/>
+                                        <state key="normal" title="Get New Event"/>
+                                        <connections>
+                                            <action selector="getNewEventFor:" destination="B9X-jN-7M4" eventType="touchUpInside" id="3UE-1M-F9k"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qS4-P8-GmC" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="154.5" width="334" height="30"/>
+                                        <state key="normal" title="Login w/ Trusted Device"/>
+                                        <connections>
+                                            <action selector="loginTrusted:" destination="B9X-jN-7M4" eventType="touchUpInside" id="rIi-vx-j8q"/>
+                                        </connections>
+                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c4m-oq-wFt">
+                                        <rect key="frame" x="0.0" y="194.5" width="334" height="20.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qou-0Z-lYx">
+                                                <rect key="frame" x="0.0" y="0.0" width="334" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="5tp-Qm-JUv" firstAttribute="centerX" secondItem="0Ol-iZ-pYV" secondAttribute="centerX" id="WX5-nl-jsg"/>
+                            <constraint firstItem="5tp-Qm-JUv" firstAttribute="centerY" secondItem="0Ol-iZ-pYV" secondAttribute="centerY" id="bQU-WH-vfR"/>
+                            <constraint firstItem="5tp-Qm-JUv" firstAttribute="leading" secondItem="0Ol-iZ-pYV" secondAttribute="leadingMargin" constant="20" id="bjU-Pc-Js4"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5tp-Qm-JUv" secondAttribute="trailing" constant="20" id="qBx-yf-2ym"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Y6J-2r-NA5"/>
+                    <connections>
+                        <outlet property="textLabel" destination="Qou-0Z-lYx" id="Xhr-Hy-4OS"/>
+                        <outlet property="userIDTextField" destination="VmZ-gB-iTu" id="WFC-99-LhL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0aY-sj-aoy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="880" y="-644"/>
         </scene>
     </scenes>
 </document>
