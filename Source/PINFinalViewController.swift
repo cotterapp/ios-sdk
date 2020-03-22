@@ -16,6 +16,7 @@ public class PINFinalViewControllerKey {
 }
 
 class PINFinalViewController: UIViewController {
+    
     typealias VCTextKey = PINFinalViewControllerKey
     
     // MARK: VC Text Definitions

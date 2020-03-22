@@ -7,12 +7,17 @@
 
 import UIKit
 
-// TODO: Add Reset New Pin VC Text Keys and add to typealias
+public class ResetNewPINViewControllerKey {
+    // MARK: - Keys for Strings
+    static let navTitle = "ResetNewPINViewController/navTitle"
+    static let title = "ResetNewPINViewController/title"
+    static let showPin = "ResetNewPINViewController/showPin"
+    static let hidePin = "ResetNewPINViewController/hidePin"
+}
 
 class ResetNewPINViewController: UIViewController {
     
-    // TODO: Replace this
-    typealias VCTextKey = PINViewControllerKey
+    typealias VCTextKey = ResetNewPINViewControllerKey
     
     var hideCloseButton: Bool = false
     
@@ -114,7 +119,7 @@ extension ResetNewPINViewController : PINBaseController {
         codeTextField.configure()
         configureText()
         configureErrorLabel()
-        configurePinVisibilityButton()
+        configureButtons()
     }
     
     func addDelegates() {
@@ -126,7 +131,7 @@ extension ResetNewPINViewController : PINBaseController {
         self.titleLabel.text = titleText
     }
     
-    func configurePinVisibilityButton() {
+    func configureButtons() {
         pinVisibilityButton.setTitle(showPinText, for: .normal)
         pinVisibilityButton.setTitleColor(Config.instance.colors.primary, for: .normal)
     }
@@ -144,7 +149,7 @@ extension ResetNewPINViewController : PINBaseController {
     }
   
     @objc private func promptClose(sender: UIBarButtonItem) {
-        // TODO: Go to Home Page?
+        // TODO: Go to Home Page? (Cross Button)
     }
 }
 

@@ -388,6 +388,9 @@
 				A4FD23793597E64C79E3FF553303A55E /* PINViewController.swift */,
 				8D778A342CBC5756FEFBB74177B9271B /* TransactionPINViewController.swift */,
 				6CB7A95924280CD5009E36C3 /* ResetPINViewController.swift */,
+				6CB7A95B24280D1B009E36C3 /* ResetNewPINViewController.swift */,
+				6CB7A95D24280D3D009E36C3 /* ResetConfirmPINViewController.swift */,
+				6CB7A95F24280D74009E36C3 /* ResetPINFinalViewController.swift */,
 				6E003D3D7C48DF0D5EA74E655BEF3061 /* UpdateConfirmNewPINViewController.swift */,
 				9B58E6FAA1513DF95A1FC8205483675A /* UpdateCreateNewPINViewController.swift */,
 				6A74BB5E55D1E273EAF0813BFB53E54C /* UpdatePINViewController.swift */,
@@ -404,9 +407,6 @@
 				6B17C78A2B7124C017959E61E85B4E7D /* Resources */,
 				3C70CD9CE576E733432699DC9EED0CD1 /* Service */,
 				2CB63A7096366BDCC55D00DFD3BABE56 /* Support Files */,
-				6CB7A95B24280D1B009E36C3 /* ResetNewPINViewController.swift */,
-				6CB7A95D24280D3D009E36C3 /* ResetConfirmPINViewController.swift */,
-				6CB7A95F24280D74009E36C3 /* ResetPINFinalViewController.swift */,
 			);
 			name = Cotter;
 			path = ../..;

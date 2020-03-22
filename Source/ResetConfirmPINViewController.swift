@@ -7,14 +7,20 @@
 
 import UIKit
 
-// TODO: Create ResetConfirmPINVC Keys
+public class ResetConfirmPINViewControllerKey {
+    // MARK: - Keys for Strings
+    static let navTitle = "ResetConfirmPINViewController/navTitle"
+    static let title = "ResetConfirmPINViewController/title"
+    static let showPin = "ResetConfirmPINViewController/showPin"
+    static let hidePin = "ResetConfirmPINViewController/hidePin"
+}
 
 class ResetConfirmPINViewController: UIViewController {
     // prevCode should be passed from the previous (PINView) controller
     var prevCode: String?
     
     // TODO: Replace this
-    typealias VCTextKey = UpdateConfirmNewPINViewControllerKey
+    typealias VCTextKey = ResetConfirmPINViewControllerKey
     
     // MARK: - VC Text Definitions
     let navTitle = CotterStrings.instance.getText(for: VCTextKey.navTitle)
@@ -108,8 +114,7 @@ extension ResetConfirmPINViewController : PINBaseController {
                     
                     // Display Error
                     if self.errorLabel.isHidden {
-                        // TODO: Add Reset Pin Failed Here
-//                        self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.enrollPinFailed))
+                        self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.resetPinFailed))
                     }
                 }
             }
@@ -120,10 +125,10 @@ extension ResetConfirmPINViewController : PINBaseController {
 //                newCode: code,
 //                cb: updateCb
 //            )
+            
+            // Remove after
             let resetPINFinalVC = self.storyboard?.instantiateViewController(withIdentifier: "ResetPINFinalViewController")as! ResetPINFinalViewController
             self.navigationController?.pushViewController(resetPINFinalVC, animated: true)
-            
-            // Testing Code Below
             
             
             return true
@@ -142,8 +147,8 @@ extension ResetConfirmPINViewController : PINBaseController {
         
         codeTextField.configure()
         configureText()
-        configurePinVisibilityButton()
         configureErrorLabel()
+        configureButtons()
     }
     
     func addDelegates() {
@@ -155,7 +160,7 @@ extension ResetConfirmPINViewController : PINBaseController {
         self.titleLabel.text = titleText
     }
     
-    func configurePinVisibilityButton() {
+    func configureButtons() {
         pinVisibilityButton.setTitle(showPinText, for: .normal)
         pinVisibilityButton.setTitleColor(Config.instance.colors.primary, for: .normal)
     }

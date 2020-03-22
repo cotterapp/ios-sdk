@@ -7,18 +7,20 @@
 
 import UIKit
 
-// TODO: Add Reset PIN Final VC Keys
+public class ResetPINFinalViewControllerKey {
+    // MARK: - Keys for Strings
+    static let title = "ResetPINFinalViewController/title"
+}
 
 class ResetPINFinalViewController: UIViewController {
     
-    // TODO: Replace this
-    typealias VCTextKey = PINFinalViewControllerKey
+    typealias VCTextKey = ResetPINFinalViewControllerKey
     
     // MARK: VC Text Definitions
     let successTitle = CotterStrings.instance.getText(for: VCTextKey.title)
     
     // MARK: - VC Image Definitions
-    let successImage = CotterImages.instance.getImage(for: VCImageKey.pinSuccessImg)
+    let successImage = CotterImages.instance.getImage(for: VCImageKey.resetPinSuccessImg)
     
     // Auth Service
     let authService = LocalAuthService()

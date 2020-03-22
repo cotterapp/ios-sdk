@@ -13,6 +13,7 @@ public class TransactionPINViewControllerKey {
     static let title = "TransactionPINViewController/title"
     static let showPin = "TransactionPINViewController/showPin"
     static let hidePin = "TransactionPINViewController/hidePin"
+    static let forgetPin = "TransactionPINViewController/forgetPin"
 }
 
 class TransactionPINViewController: UIViewController {
@@ -26,6 +27,7 @@ class TransactionPINViewController: UIViewController {
     let navTitle = CotterStrings.instance.getText(for: VCTextKey.navTitle)
     let showPinText = CotterStrings.instance.getText(for: VCTextKey.showPin)
     let hidePinText = CotterStrings.instance.getText(for: VCTextKey.hidePin)
+    let forgetPinText = CotterStrings.instance.getText(for: VCTextKey.forgetPin)
     let titleText = CotterStrings.instance.getText(for: VCTextKey.title)
     
     @IBOutlet weak var pinVisibilityButton: UIButton!
@@ -37,6 +39,8 @@ class TransactionPINViewController: UIViewController {
     @IBOutlet weak var keyboardView: KeyboardView!
     
     @IBOutlet weak var codeTextField: OneTimeCodeTextField!
+    
+    @IBOutlet weak var forgetPinButton: UIButton!
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -151,7 +155,7 @@ extension TransactionPINViewController : PINBaseController {
         codeTextField.configure()
         configureText()
         configureErrorLabel()
-        configurePinVisibilityButton()
+        configureButtons()
     }
     
     func addDelegates() {
@@ -168,9 +172,11 @@ extension TransactionPINViewController : PINBaseController {
         errorLabel.textColor = Config.instance.colors.danger
     }
   
-    func configurePinVisibilityButton() {
+    func configureButtons() {
         pinVisibilityButton.setTitle(showPinText, for: .normal)
         pinVisibilityButton.setTitleColor(Config.instance.colors.primary, for: .normal)
+        forgetPinButton.setTitle(forgetPinText, for: .normal)
+        forgetPinButton.setTitleColor(Config.instance.colors.primary, for: .normal)
     }
     
     func toggleErrorMsg(msg: String?) {
@@ -181,7 +187,6 @@ extension TransactionPINViewController : PINBaseController {
     }
   
     @objc private func promptClose(sender: UIBarButtonItem) {
-//        alertService.show()
         // Go back to previous screen
         self.navigationController?.popViewController(animated: true)
     }

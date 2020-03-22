@@ -138,7 +138,7 @@ extension PINConfirmViewController : PINBaseController {
         
         codeTextField.configure()
         configureText()
-        configurePinVisibilityButton()
+        configureButtons()
         configureErrorLabel()
     }
     
@@ -151,7 +151,7 @@ extension PINConfirmViewController : PINBaseController {
         self.titleLabel.text = titleText
     }
     
-    func configurePinVisibilityButton() {
+    func configureButtons() {
         pinVisibilityButton.setTitle(showPinText, for: .normal)
         pinVisibilityButton.setTitleColor(Config.instance.colors.primary, for: .normal)
     }

@@ -131,7 +131,7 @@ extension UpdatePINViewController : PINBaseController {
         codeTextField.configure()
         configureText()
         configureErrorLabel()
-        configurePinVisibilityButton()
+        configureButtons()
     }
     
     func addDelegates() {
@@ -148,7 +148,7 @@ extension UpdatePINViewController : PINBaseController {
         errorLabel.textColor = Config.instance.colors.danger
     }
   
-    func configurePinVisibilityButton() {
+    func configureButtons() {
         pinVisibilityButton.setTitle(showPinText, for: .normal)
         pinVisibilityButton.setTitleColor(Config.instance.colors.primary, for: .normal)
     }

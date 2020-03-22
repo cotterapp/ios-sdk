@@ -23,7 +23,10 @@ class ResetPINViewController: UIViewController {
     var hideCloseButton: Bool = false
     
     // MARK: - VC Text Definitions
-    
+    let navTitle = CotterStrings.instance.getText(for: VCTextKey.navTitle)
+    let resetTitle = CotterStrings.instance.getText(for: VCTextKey.title)
+    let resetSubtitle = CotterStrings.instance.getText(for: VCTextKey.subtitle)
+    let resendEmailText = CotterStrings.instance.getText(for: VCTextKey.resendEmail)
     
     @IBOutlet weak var resetPinTitle: UILabel!
     
@@ -38,7 +41,7 @@ class ResetPINViewController: UIViewController {
     @IBOutlet weak var keyboardView: KeyboardView!
     
     override func viewDidAppear(_ animated: Bool) {
-        // MARK: - Call start up functions here
+        // MARK: - Call start up functions here - e.g. getting the email that the code was sent to
     }
     
     override func viewDidLoad() {
@@ -68,15 +71,15 @@ extension ResetPINViewController {
         resetCodeTextField.didEnterLastDigit = { code in
             print("PIN Code Entered: ", code)
             
-            // Testing for Error below
+            // Testing for Error below - Remove after
             if code == "1234" {
                 if self.resetPinError.isHidden {
-                    self.toggleErrorMsg(msg: "Wrong Pin!")
+                    self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.incorrectEmailCode))
                 }
                 return false
             }
             
-            // Callback Function to execute after PIN Verification
+            // Callback Function to execute after Email Code Verification
             func pinResetCallback(success: Bool) {
                 if success {
                     self.resetCodeTextField.clear()
@@ -85,9 +88,7 @@ extension ResetPINViewController {
                     self.navigationController?.pushViewController(resetNewPINVC, animated: true)
                 } else {
                     if self.resetPinError.isHidden {
-                        // TODO: Toggle Pin Error
-//                        self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.incorrectPinVerification))
-                        self.toggleErrorMsg(msg: "Pin Error!")
+                        self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.incorrectEmailCode))
                     }
                 }
             }
@@ -103,7 +104,7 @@ extension ResetPINViewController {
             // clear the field
             self.resetCodeTextField.clear()
             
-
+            // Remove after
             let resetNewPINVC = self.storyboard?.instantiateViewController(withIdentifier: "ResetNewPINViewController")as! ResetNewPINViewController
             self.navigationController?.pushViewController(resetNewPINVC, animated: true)
 
@@ -125,16 +126,29 @@ extension ResetPINViewController {
         self.navigationController?.navigationBar.layoutIfNeeded()
         
         resetCodeTextField.configure()
+        configureText()
         configureErrorLabel()
+        configureButtons()
     }
     
     func addDelegates() {
         self.keyboardView.delegate = self
     }
     
+    func configureText() {
+        self.navigationItem.title = navTitle
+        self.resetPinTitle.text = resetTitle
+        self.resetPinSubtitle.text = resetSubtitle
+    }
+    
     func configureErrorLabel() {
         resetPinError.isHidden = true
         resetPinError.textColor = Config.instance.colors.danger
+    }
+    
+    func configureButtons() {
+        self.resendEmailButton.setTitle(resendEmailText, for: .normal)
+        self.resendEmailButton.setTitleColor(Config.instance.colors.primary, for: .normal)
     }
     
     func toggleErrorMsg(msg: String?) {

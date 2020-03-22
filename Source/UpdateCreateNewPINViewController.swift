@@ -134,7 +134,7 @@ extension UpdateCreateNewPINViewController : PINBaseController {
         codeTextField.configure()
         configureText()
         configureErrorLabel()
-        configurePinVisibilityButton()
+        configureButtons()
     }
     
     func addDelegates() {
@@ -146,7 +146,7 @@ extension UpdateCreateNewPINViewController : PINBaseController {
         self.titleLabel.text = titleText
     }
     
-    func configurePinVisButton() {
+    func configureButtons() {
         // No initial Error Msg
         pinVisibilityButton.setTitle("", for: .normal)
     }

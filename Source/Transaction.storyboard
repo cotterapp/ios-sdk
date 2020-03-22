@@ -88,6 +88,7 @@
                     <connections>
                         <outlet property="codeTextField" destination="WRO-er-uRg" id="KIX-If-10C"/>
                         <outlet property="errorLabel" destination="EgU-4J-7lY" id="BpT-Xc-lRC"/>
+                        <outlet property="forgetPinButton" destination="22X-JY-ong" id="4F0-DP-sXB"/>
                         <outlet property="keyboardView" destination="O4J-TQ-rey" id="gMr-bN-AAc"/>
                         <outlet property="pinVisibilityButton" destination="jcW-nu-fzI" id="VCi-FR-ogl"/>
                         <outlet property="titleLabel" destination="rWV-zf-JbE" id="7bK-mc-aro"/>
@@ -372,14 +373,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2iY-8v-q6r">
-                                <rect key="frame" x="87" y="168.5" width="240" height="240"/>
+                                <rect key="frame" x="87" y="153" width="240" height="240"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="K63-3M-JY2"/>
                                     <constraint firstAttribute="height" constant="240" id="ixV-rd-ydO"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reset PIN Success Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lYu-4e-R6a">
-                                <rect key="frame" x="118" y="438.5" width="178.5" height="19.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reset PIN Success Title" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lYu-4e-R6a">
+                                <rect key="frame" x="57" y="423" width="300" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="XKa-jq-NCd"/>
+                                    <constraint firstAttribute="height" constant="50" id="bXo-lU-8ZO"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>

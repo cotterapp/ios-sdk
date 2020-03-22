@@ -9,6 +9,7 @@ import Foundation
 
 public class VCImageKey {
     public static let pinSuccessImg = "VCImageKey/pinSuccessImg"
+    public static let resetPinSuccessImg = "VCImageKey/resetPinSuccessImg"
 }
 
 public class AlertImageKey {
