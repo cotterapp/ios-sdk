@@ -47,6 +47,11 @@
 		69CECE6E5EB4CB50469FC8300C01E29E /* ImageKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9C5A78845284D2C336D51061DCBED2 /* ImageKey.swift */; };
 		6A1900181E984220F3A550596FF59AF1 /* RequestToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D42FF9053585452676B39E4A37667E0 /* RequestToken.swift */; };
 		6CB7A94A2411F698009E36C3 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB7A9492411F698009E36C3 /* UIViewController.swift */; };
+		6CB7A9502424509E009E36C3 /* ResetCodeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB7A94F2424509E009E36C3 /* ResetCodeTextField.swift */; };
+		6CB7A95A24280CD5009E36C3 /* ResetPINViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB7A95924280CD5009E36C3 /* ResetPINViewController.swift */; };
+		6CB7A95C24280D1B009E36C3 /* ResetNewPINViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB7A95B24280D1B009E36C3 /* ResetNewPINViewController.swift */; };
+		6CB7A95E24280D3D009E36C3 /* ResetConfirmPINViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB7A95D24280D3D009E36C3 /* ResetConfirmPINViewController.swift */; };
+		6CB7A96024280D74009E36C3 /* ResetPINFinalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB7A95F24280D74009E36C3 /* ResetPINFinalViewController.swift */; };
 		718E53336BF4EA2202B2AE256C630CB3 /* RegisterBiometric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BFCA49672B32694F3FDFA7481B0FDF /* RegisterBiometric.swift */; };
 		7BCDD5955F1636AC65CF891685201F2B /* PINConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BD7CE549C0ED5E3585C12106EB070A /* PINConfirmViewController.swift */; };
 		7C63883134580094A02A5E4984456A95 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F984E171F1C5CDCA8B02D0C69CA9C7 /* Config.swift */; };
@@ -148,6 +153,11 @@
 		6A74BB5E55D1E273EAF0813BFB53E54C /* UpdatePINViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UpdatePINViewController.swift; path = Source/UpdatePINViewController.swift; sourceTree = "<group>"; };
 		6AF5A467867C63386AD41093347104B9 /* KeyboardView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = KeyboardView.xib; sourceTree = "<group>"; };
 		6CB7A9492411F698009E36C3 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		6CB7A94F2424509E009E36C3 /* ResetCodeTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetCodeTextField.swift; sourceTree = "<group>"; };
+		6CB7A95924280CD5009E36C3 /* ResetPINViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ResetPINViewController.swift; path = Source/ResetPINViewController.swift; sourceTree = "<group>"; };
+		6CB7A95B24280D1B009E36C3 /* ResetNewPINViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ResetNewPINViewController.swift; path = Source/ResetNewPINViewController.swift; sourceTree = "<group>"; };
+		6CB7A95D24280D3D009E36C3 /* ResetConfirmPINViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ResetConfirmPINViewController.swift; path = Source/ResetConfirmPINViewController.swift; sourceTree = "<group>"; };
+		6CB7A95F24280D74009E36C3 /* ResetPINFinalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ResetPINFinalViewController.swift; path = Source/ResetPINFinalViewController.swift; sourceTree = "<group>"; };
 		6E003D3D7C48DF0D5EA74E655BEF3061 /* UpdateConfirmNewPINViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UpdateConfirmNewPINViewController.swift; path = Source/UpdateConfirmNewPINViewController.swift; sourceTree = "<group>"; };
 		764F5C378AAB225A1497DE1262DF3A93 /* Pods-CotterIOS_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CotterIOS_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		765A93DC71E82D652D105AF211772128 /* CreateAuthenticationEvent.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CreateAuthenticationEvent.swift; sourceTree = "<group>"; };
@@ -377,6 +387,7 @@
 				1F98BBC1CCD2D324ED8E886E0215E1A1 /* PINFinalViewController.swift */,
 				A4FD23793597E64C79E3FF553303A55E /* PINViewController.swift */,
 				8D778A342CBC5756FEFBB74177B9271B /* TransactionPINViewController.swift */,
+				6CB7A95924280CD5009E36C3 /* ResetPINViewController.swift */,
 				6E003D3D7C48DF0D5EA74E655BEF3061 /* UpdateConfirmNewPINViewController.swift */,
 				9B58E6FAA1513DF95A1FC8205483675A /* UpdateCreateNewPINViewController.swift */,
 				6A74BB5E55D1E273EAF0813BFB53E54C /* UpdatePINViewController.swift */,
@@ -393,6 +404,9 @@
 				6B17C78A2B7124C017959E61E85B4E7D /* Resources */,
 				3C70CD9CE576E733432699DC9EED0CD1 /* Service */,
 				2CB63A7096366BDCC55D00DFD3BABE56 /* Support Files */,
+				6CB7A95B24280D1B009E36C3 /* ResetNewPINViewController.swift */,
+				6CB7A95D24280D3D009E36C3 /* ResetConfirmPINViewController.swift */,
+				6CB7A95F24280D74009E36C3 /* ResetPINFinalViewController.swift */,
 			);
 			name = Cotter;
 			path = ../..;
@@ -499,6 +513,7 @@
 			isa = PBXGroup;
 			children = (
 				1F6AD02A7DF31AC5AE500A7987A7DDA0 /* OneTimeCodeTextField.swift */,
+				6CB7A94F2424509E009E36C3 /* ResetCodeTextField.swift */,
 				09E85E9A4DF10964BDC4A8E3AB11379F /* UIExtensions.swift */,
 				1D4C17868F906D022A1344954023BF60 /* Keyboard */,
 			);
@@ -812,6 +827,7 @@
 				0CD6892F0D0CCA682E2761AEA9A95887 /* AlertService.swift in Sources */,
 				835E88C02983175ADB9B2DB0DBA9E5CD /* AuthAlertMessages.swift in Sources */,
 				3764320D6C8BA7AD0EB5A4CF3F6633CD /* Callback.swift in Sources */,
+				6CB7A95A24280CD5009E36C3 /* ResetPINViewController.swift in Sources */,
 				02C1E2516F45674A6D89C4E0C29D7A3A /* ColorSchemeObject.swift in Sources */,
 				7C63883134580094A02A5E4984456A95 /* Config.swift in Sources */,
 				F4253AE9E8A7226968029B11E9C8BF04 /* Constants.swift in Sources */,
@@ -821,9 +837,11 @@
 				BEAC366F351B347DF7555DAE5881A7DE /* CotterClient.swift in Sources */,
 				E2478ABB94F0D7EDC324E06CCC0902F2 /* CotterError.swift in Sources */,
 				E5B591AA45BD21A1FEBFDA60A7AA2C30 /* CotterImages.swift in Sources */,
+				6CB7A95C24280D1B009E36C3 /* ResetNewPINViewController.swift in Sources */,
 				B3B1CAB43A9D605F6BEC7E531F915152 /* CotterStrings.swift in Sources */,
 				20D506D852A2AFDAD41F87C13304CE0D /* CreateAuthenticationEvent.swift in Sources */,
 				6CB7A94A2411F698009E36C3 /* UIViewController.swift in Sources */,
+				6CB7A96024280D74009E36C3 /* ResetPINFinalViewController.swift in Sources */,
 				14300C26347C8D40E84FA90C85F21FC9 /* English.swift in Sources */,
 				1C1EAEA9A7C9965AB3ABFFFDFC36817E /* EnrolledMethods.swift in Sources */,
 				43AE3499F88E41CF69F124F8CD3046AA /* EnrollUserPIN.swift in Sources */,
@@ -836,6 +854,7 @@
 				69CECE6E5EB4CB50469FC8300C01E29E /* ImageKey.swift in Sources */,
 				91B9C4F31FC72B513EB2EE5BC96C3E99 /* ImageObject.swift in Sources */,
 				E6194925315648284E4F22C98288363C /* Indonesian.swift in Sources */,
+				6CB7A9502424509E009E36C3 /* ResetCodeTextField.swift in Sources */,
 				D8F82AF3B48639EC8C339DE9DCFFD40E /* KeyboardView.swift in Sources */,
 				30DAE4477C8EE7E05003245C85403D38 /* KeyGen.swift in Sources */,
 				E81514027E72DFACBADCB84D30E5073F /* LanguageObject.swift in Sources */,
@@ -864,6 +883,7 @@
 				A40A91CE34B50201CD5B8C80ACE2DB12 /* UpdateUserPIN.swift in Sources */,
 				50EF112F6EA038653259C121A953AB21 /* User.swift in Sources */,
 				5CD1E155BFCBA997FB9D77AB03591B51 /* Utils.swift in Sources */,
+				6CB7A95E24280D3D009E36C3 /* ResetConfirmPINViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
