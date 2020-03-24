@@ -19,7 +19,6 @@ class ResetConfirmPINViewController: UIViewController {
     // prevCode should be passed from the previous (PINView) controller
     var prevCode: String?
     
-    // TODO: Replace this
     typealias VCTextKey = ResetConfirmPINViewControllerKey
     
     // MARK: - VC Text Definitions
