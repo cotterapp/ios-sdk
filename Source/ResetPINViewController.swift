@@ -12,6 +12,7 @@ public class ResetPINViewControllerKey {
    static let navTitle = "ResetPINViewController/navTitle"
    static let title = "ResetPINViewController/title"
    static let subtitle = "ResetPINViewController/subtitle"
+   static let resetFailSub = "ResetPINViewController/resetFailSub"
    static let resendEmail = "ResetPINViewController/resendEmail"
 }
 
@@ -20,13 +21,19 @@ class ResetPINViewController: UIViewController {
     
     typealias VCTextKey = ResetPINViewControllerKey
     
-    var hideCloseButton: Bool = false
-    
     // MARK: - VC Text Definitions
     let navTitle = CotterStrings.instance.getText(for: VCTextKey.navTitle)
     let resetTitle = CotterStrings.instance.getText(for: VCTextKey.title)
-    let resetSubtitle = CotterStrings.instance.getText(for: VCTextKey.subtitle)
+    let resetOpeningSub = CotterStrings.instance.getText(for: VCTextKey.subtitle)
+    let resetFailSub = CotterStrings.instance.getText(for: VCTextKey.resetFailSub)
     let resendEmailText = CotterStrings.instance.getText(for: VCTextKey.resendEmail)
+    
+    lazy var resetSubtitle: String = {
+        if let userInfo = Config.instance.userInfo {
+            return "\(resetOpeningSub) \(userInfo.sendingDestination)"
+        }
+        return resetFailSub
+    }()
     
     @IBOutlet weak var resetPinTitle: UILabel!
     
@@ -41,7 +48,46 @@ class ResetPINViewController: UIViewController {
     @IBOutlet weak var keyboardView: KeyboardView!
     
     override func viewDidAppear(_ animated: Bool) {
-        // MARK: - Call start up functions here - e.g. getting the email that the code was sent to
+        // If no user info, do not continue
+        guard let userInfo = Config.instance.userInfo else {
+            if self.resetPinError.isHidden {
+                self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.unableToResetPin))
+            }
+            return
+        }
+        
+        // Define Pin Reset Callback
+        func pinResetCb(response: CotterResult<CotterResponseWithChallenge>) {
+            switch response {
+            case .success(let data):
+                if data.success {
+                    // Store the Challenge and Challenge ID
+                    Config.instance.userInfo?.resetChallengeID = data.challengeID
+                    Config.instance.userInfo?.resetChallenge = data.challenge
+                } else {
+                    // Server returned failure
+                    if self.resetPinError.isHidden {
+                        self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.unableToResetPin))
+                    }
+                }
+            case .failure(let err):
+                // we can handle multiple error results here
+                print(err.localizedDescription)
+                
+                // Display Error
+                if self.resetPinError.isHidden {
+                    self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.unableToResetPin))
+                }
+            }
+        }
+        
+        // Request PIN Reset
+        CotterAPIService.shared.requestPINReset(
+            name: userInfo.name,
+            sendingMethod: userInfo.sendingMethod,
+            sendingDestination: userInfo.sendingDestination,
+            cb: pinResetCb
+        )
     }
     
     override func viewDidLoad() {
@@ -71,42 +117,53 @@ extension ResetPINViewController {
         resetCodeTextField.didEnterLastDigit = { code in
             print("PIN Code Entered: ", code)
             
-            // Testing for Error below - Remove after
-            if code == "1234" {
+            // Remove after
+//            self.resetCodeTextField.clear()
+//            let resetNewPINVC = self.storyboard?.instantiateViewController(withIdentifier: "ResetNewPINViewController")as! ResetNewPINViewController
+//            self.navigationController?.pushViewController(resetNewPINVC, animated: true)
+            
+            guard let userInfo = Config.instance.userInfo, let challengeID = userInfo.resetChallengeID, let challenge = userInfo.resetChallenge else {
                 if self.resetPinError.isHidden {
-                    self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.incorrectEmailCode))
+                    self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.unableToResetPin))
                 }
                 return false
             }
             
             // Callback Function to execute after Email Code Verification
-            func pinResetCallback(success: Bool) {
-                if success {
-                    self.resetCodeTextField.clear()
-                    // Go to Reset New PIN View
-                    let resetNewPINVC = self.storyboard?.instantiateViewController(withIdentifier: "ResetNewPINViewController")as! ResetNewPINViewController
-                    self.navigationController?.pushViewController(resetNewPINVC, animated: true)
-                } else {
+            func verifyPinResetCb(response: CotterResult<CotterBasicResponse>) {
+                switch response {
+                case .success(let data):
+                    if data.success {
+                        // Store the Reset Code
+                        Config.instance.userInfo?.resetCode = code
+                        
+                        self.resetCodeTextField.clear()
+                        // Go to Reset New PIN View
+                        let resetNewPINVC = self.storyboard?.instantiateViewController(withIdentifier: "ResetNewPINViewController")as! ResetNewPINViewController
+                        self.navigationController?.pushViewController(resetNewPINVC, animated: true)
+                    } else {
+                        // Display Error
+                        if self.resetPinError.isHidden {
+                            self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.incorrectEmailCode))
+                        }
+                    }
+                case .failure(let err):
+                    // we can handle multiple error results here
+                    print(err.localizedDescription)
+                    
+                    // Display Error
                     if self.resetPinError.isHidden {
                         self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.incorrectEmailCode))
                     }
                 }
             }
             
-            // TODO: Check 4-Digit Verification Code through API
-//            do {
-//                _ = try self.authService.pinAuth(pin: code, event: "TRANSACTION", callback: pinVerificationCallback)
-//            } catch let e {
-//                print(e)
-//                return false
-//            }
-            
-            // clear the field
-            self.resetCodeTextField.clear()
-            
-            // Remove after
-            let resetNewPINVC = self.storyboard?.instantiateViewController(withIdentifier: "ResetNewPINViewController")as! ResetNewPINViewController
-            self.navigationController?.pushViewController(resetNewPINVC, animated: true)
+            CotterAPIService.shared.verifyPINResetCode(
+                resetCode: code,
+                challengeID: challengeID,
+                challenge: challenge,
+                cb: verifyPinResetCb
+            )
 
             return true
         }

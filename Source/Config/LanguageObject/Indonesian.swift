@@ -37,7 +37,8 @@ public class Indonesian: LanguageObject {
             // MARK: - ResetPINViewController
             ResetPINViewControllerKey.navTitle: "Lupa PIN",
             ResetPINViewControllerKey.title: "Kode Keamanan",
-            ResetPINViewControllerKey.subtitle: "Kami telah mengirimkan kode ke ",
+            ResetPINViewControllerKey.subtitle: "Kami telah mengirimkan kode ke",
+            ResetPINViewControllerKey.resetFailSub: "Silakan hubungi layanan pelanggan untuk mengatur ulang pin Anda",
             ResetPINViewControllerKey.resendEmail: "Kirim ulang email",
             
             // MARK: - ResetNewPINViewController
@@ -82,6 +83,7 @@ public class Indonesian: LanguageObject {
             PinErrorMessagesKey.enrollPinFailed: "PIN Registrasi gagal. Silahkan coba lagi.",
             PinErrorMessagesKey.updatePinFailed: "Membarui PIN gagal. Silahkan coba lagi.",
             PinErrorMessagesKey.resetPinFailed: "Atur ulang PIN gagal. Silahkan coba lagi.",
+            PinErrorMessagesKey.unableToResetPin: "Tidak dapat melanjutkan dengan Reset Proses PIN.",
             PinErrorMessagesKey.networkError: "Coba periksa koneksi internet, terus coba lagi.",
             PinErrorMessagesKey.apiError: "Kesalahan dalam server. Silahkan hubungi layanan pelanggan.",
             

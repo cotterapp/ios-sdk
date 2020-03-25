@@ -19,7 +19,7 @@ class ResetNewPINViewController: UIViewController {
     
     typealias VCTextKey = ResetNewPINViewControllerKey
     
-    var hideCloseButton: Bool = false
+    var hideCloseButton: Bool = true
     
     // MARK: - VC Text Definitions
     let navTitle = CotterStrings.instance.getText(for: VCTextKey.navTitle)
@@ -149,7 +149,7 @@ extension ResetNewPINViewController : PINBaseController {
     }
   
     @objc private func promptClose(sender: UIBarButtonItem) {
-        // TODO: Go to Home Page? (Cross Button)
+        
     }
 }
 

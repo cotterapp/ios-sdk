@@ -37,7 +37,8 @@ public class English: LanguageObject {
             // MARK: - ResetPINViewController
             ResetPINViewControllerKey.navTitle: "Forgot PIN",
             ResetPINViewControllerKey.title: "Verification Code",
-            ResetPINViewControllerKey.subtitle: "We have sent the code to ",
+            ResetPINViewControllerKey.subtitle: "We have sent the code to",
+            ResetPINViewControllerKey.resetFailSub: "Please contact customer service to reset your PIN.",
             ResetPINViewControllerKey.resendEmail: "Resend Email",
             
             // MARK: - ResetNewPINViewController
@@ -82,6 +83,7 @@ public class English: LanguageObject {
             PinErrorMessagesKey.enrollPinFailed: "PIN Enrollment failed. Please try again.",
             PinErrorMessagesKey.updatePinFailed: "Update PIN failed. Please try again.",
             PinErrorMessagesKey.resetPinFailed: "Reset PIN failed. Please try again.",
+            PinErrorMessagesKey.unableToResetPin: "Unable to continue with Reset PIN Process.",
             PinErrorMessagesKey.networkError: "Please check your internet connection, then try again.",
             PinErrorMessagesKey.apiError: "Internal Server Error. Please contact Customer Support.",
             

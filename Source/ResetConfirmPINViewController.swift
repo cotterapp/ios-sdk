@@ -99,14 +99,36 @@ extension ResetConfirmPINViewController : PINBaseController {
                 return false
             }
             
-            // Define the callback
-            func resetNewPinCb(response: CotterResult<CotterUser>) {
+            guard let resetCode = Config.instance.userInfo?.resetCode, let resetChallengeID = Config.instance.userInfo?.resetChallengeID,
+                let resetChallenge = Config.instance.userInfo?.resetChallenge else {
+                    // Display Error
+                    if self.errorLabel.isHidden {
+                        self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.resetPinFailed))
+                    }
+                    return false
+            }
+            
+//            // Remove after
+//            let resetPINFinalVC = self.storyboard?.instantiateViewController(withIdentifier: "ResetPINFinalViewController")as! ResetPINFinalViewController
+//            self.navigationController?.pushViewController(resetPINFinalVC, animated: true)
+            
+            // Define the Reset New PIN Callback
+            func resetPinCb(response: CotterResult<CotterBasicResponse>) {
                 switch response {
-                case .success:
-                    self.codeTextField.clear()
-                    // Go to Reset PIN Final View
-                    let resetPINFinalVC = self.storyboard?.instantiateViewController(withIdentifier: "ResetPINFinalViewController")as! ResetPINFinalViewController
-                    self.navigationController?.pushViewController(resetPINFinalVC, animated: true)
+                case .success(let data):
+                    if data.success {
+                        self.codeTextField.clear()
+                        // Clear Reset Information after success
+                        Config.instance.userInfo?.clearResetInfo()
+                        // Go to Reset PIN Final View
+                        let resetPINFinalVC = self.storyboard?.instantiateViewController(withIdentifier: "ResetPINFinalViewController")as! ResetPINFinalViewController
+                        self.navigationController?.pushViewController(resetPINFinalVC, animated: true)
+                    } else {
+                        // Display Error
+                        if self.errorLabel.isHidden {
+                            self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.resetPinFailed))
+                        }
+                    }
                 case .failure(let err):
                     // we can handle multiple error results here
                     print(err.localizedDescription)
@@ -118,17 +140,13 @@ extension ResetConfirmPINViewController : PINBaseController {
                 }
             }
             
-            // TODO:Run API to reset User's PIN
-//            CotterAPIService.shared.updateUserPin(
-//                oldCode: self.oldCode!,
-//                newCode: code,
-//                cb: updateCb
-//            )
-            
-            // Remove after
-            let resetPINFinalVC = self.storyboard?.instantiateViewController(withIdentifier: "ResetPINFinalViewController")as! ResetPINFinalViewController
-            self.navigationController?.pushViewController(resetPINFinalVC, animated: true)
-            
+            CotterAPIService.shared.resetPIN(
+                resetCode: resetCode,
+                newCode: code,
+                challengeID: resetChallengeID,
+                challenge: resetChallenge,
+                cb: resetPinCb
+            )
             
             return true
         }

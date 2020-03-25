@@ -38,6 +38,8 @@ class ResetPINFinalViewController: UIViewController {
         configureTexts()
         configureNav()
         loadImage()
+        
+        endFlow()
     }
     
     override func didReceiveMemoryWarning() {
@@ -69,5 +71,15 @@ extension ResetPINFinalViewController {
         }
         
         imageView.image = UIImage(named: successImage, in: Bundle.main, compatibleWith: nil)
+    }
+    
+    private func endFlow() {
+        // Dismiss VC after 3 seconds, then run callback
+        let timer = DispatchTime.now() + 3
+        DispatchQueue.main.asyncAfter(deadline: timer) {
+            let cbFunc = Config.instance.transactionCb
+            cbFunc("Token from Transaction PIN View after resetting PIN!", nil)
+            return
+        }
     }
 }

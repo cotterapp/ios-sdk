@@ -12,6 +12,11 @@ class UserInfo {
     let sendingMethod: String
     let sendingDestination: String
     
+    // For Resetting PIN
+    var resetCode: String? = nil
+    var resetChallengeID: Int? = nil
+    var resetChallenge: String? = nil
+    
     public init(
         name: String,
         sendingMethod: String,
@@ -20,5 +25,11 @@ class UserInfo {
         self.name = name
         self.sendingMethod = sendingMethod
         self.sendingDestination = sendingDestination
+    }
+    
+    public func clearResetInfo() {
+        resetCode = nil
+        resetChallengeID = nil
+        resetChallenge = nil
     }
 }

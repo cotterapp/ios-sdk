@@ -51,6 +51,7 @@
 		6CADD567242AA8DE00E1B475 /* ResetPIN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CADD566242AA8DE00E1B475 /* ResetPIN.swift */; };
 		6CADD569242AABAF00E1B475 /* VerifyPINResetCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CADD568242AABAF00E1B475 /* VerifyPINResetCode.swift */; };
 		6CADD56C242AB62F00E1B475 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CADD56B242AB62F00E1B475 /* UserInfo.swift */; };
+		6CADD56E242BE85800E1B475 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CADD56D242BE85800E1B475 /* Collection.swift */; };
 		6CB7A94A2411F698009E36C3 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB7A9492411F698009E36C3 /* UIViewController.swift */; };
 		6CB7A9502424509E009E36C3 /* ResetCodeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB7A94F2424509E009E36C3 /* ResetCodeTextField.swift */; };
 		6CB7A95A24280CD5009E36C3 /* ResetPINViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB7A95924280CD5009E36C3 /* ResetPINViewController.swift */; };
@@ -162,6 +163,7 @@
 		6CADD566242AA8DE00E1B475 /* ResetPIN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPIN.swift; sourceTree = "<group>"; };
 		6CADD568242AABAF00E1B475 /* VerifyPINResetCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyPINResetCode.swift; sourceTree = "<group>"; };
 		6CADD56B242AB62F00E1B475 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		6CADD56D242BE85800E1B475 /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
 		6CB7A9492411F698009E36C3 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		6CB7A94F2424509E009E36C3 /* ResetCodeTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetCodeTextField.swift; sourceTree = "<group>"; };
 		6CB7A95924280CD5009E36C3 /* ResetPINViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ResetPINViewController.swift; path = Source/ResetPINViewController.swift; sourceTree = "<group>"; };
@@ -349,8 +351,8 @@
 				E43857669AA3BA98332D9C5D6F9F38AC /* Event.swift */,
 				E837F78D917D33979E978731D8BEE9D2 /* Identity.swift */,
 				5A274016B8100583F10785FC1A27F813 /* Request.swift */,
-				30520F03D8D0C0869948D3C371D01C76 /* User.swift */,
 				6CADD564242A9EA500E1B475 /* Response.swift */,
+				30520F03D8D0C0869948D3C371D01C76 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -374,11 +376,11 @@
 				2D957CBD866FC1317BA6FD8CFDFDF709 /* GetUser.swift */,
 				89BFCA49672B32694F3FDFA7481B0FDF /* RegisterBiometric.swift */,
 				E7297D809699C4ECDA1D1F70DC5CAE8C /* RegisterUser.swift */,
+				6CADD562242A96BA00E1B475 /* RequestPINReset.swift */,
 				7D42FF9053585452676B39E4A37667E0 /* RequestToken.swift */,
+				6CADD566242AA8DE00E1B475 /* ResetPIN.swift */,
 				1C7B50EF7964AA2D82330109E22CAD75 /* UpdateBiometricStatus.swift */,
 				5486CB189E2AA86406D1C9460552FD1D /* UpdateUserPIN.swift */,
-				6CADD562242A96BA00E1B475 /* RequestPINReset.swift */,
-				6CADD566242AA8DE00E1B475 /* ResetPIN.swift */,
 				6CADD568242AABAF00E1B475 /* VerifyPINResetCode.swift */,
 			);
 			path = Requests;
@@ -400,11 +402,11 @@
 				D0BD7CE549C0ED5E3585C12106EB070A /* PINConfirmViewController.swift */,
 				1F98BBC1CCD2D324ED8E886E0215E1A1 /* PINFinalViewController.swift */,
 				A4FD23793597E64C79E3FF553303A55E /* PINViewController.swift */,
-				8D778A342CBC5756FEFBB74177B9271B /* TransactionPINViewController.swift */,
-				6CB7A95924280CD5009E36C3 /* ResetPINViewController.swift */,
-				6CB7A95B24280D1B009E36C3 /* ResetNewPINViewController.swift */,
 				6CB7A95D24280D3D009E36C3 /* ResetConfirmPINViewController.swift */,
+				6CB7A95B24280D1B009E36C3 /* ResetNewPINViewController.swift */,
 				6CB7A95F24280D74009E36C3 /* ResetPINFinalViewController.swift */,
+				6CB7A95924280CD5009E36C3 /* ResetPINViewController.swift */,
+				8D778A342CBC5756FEFBB74177B9271B /* TransactionPINViewController.swift */,
 				6E003D3D7C48DF0D5EA74E655BEF3061 /* UpdateConfirmNewPINViewController.swift */,
 				9B58E6FAA1513DF95A1FC8205483675A /* UpdateCreateNewPINViewController.swift */,
 				6A74BB5E55D1E273EAF0813BFB53E54C /* UpdatePINViewController.swift */,
@@ -458,6 +460,7 @@
 		6CE84E7047647473709D2BDFD152CBA1 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				6CADD56D242BE85800E1B475 /* Collection.swift */,
 				36890B8EC71E5FA985456FBF35EA702F /* UIColor.swift */,
 				1FDB748EC91E47F484F815EAF445C5C9 /* UIImageView.swift */,
 				6CB7A9492411F698009E36C3 /* UIViewController.swift */,
@@ -610,7 +613,6 @@
 		E8DF747258FED3EF5F787905DC5132C9 /* Config */ = {
 			isa = PBXGroup;
 			children = (
-				6CADD56A242AB62000E1B475 /* Models */,
 				90F984E171F1C5CDCA8B02D0C69CA9C7 /* Config.swift */,
 				CE951D52DE51892461F9114E58F89D47 /* CotterError.swift */,
 				FF48C8F8CDA0FD6BE7C6D2327B8492BD /* CotterImages.swift */,
@@ -620,6 +622,7 @@
 				18CE08ABCE9D750F56E6358F8B2C6AFB /* ColorSchemeObject */,
 				707EC93E614120501673530BBC76F56C /* ImageObject */,
 				6E3018DD37FC4863E31AFD2A8E2D9D8E /* LanguageObject */,
+				6CADD56A242AB62000E1B475 /* Models */,
 			);
 			name = Config;
 			path = Source/Config;
@@ -898,6 +901,7 @@
 				BF02C85E774C2BE037CE5C2F542B1E99 /* RegisterUser.swift in Sources */,
 				4700624B5079E06224D276FF2E641BB1 /* Request.swift in Sources */,
 				6CADD563242A96BA00E1B475 /* RequestPINReset.swift in Sources */,
+				6CADD56E242BE85800E1B475 /* Collection.swift in Sources */,
 				6A1900181E984220F3A550596FF59AF1 /* RequestToken.swift in Sources */,
 				1AF1A6CE61E31E560B1DF585107C7AE5 /* TransactionPINViewController.swift in Sources */,
 				5122DFD5F162C619B304D4B8F2B5130A /* UIColor.swift in Sources */,

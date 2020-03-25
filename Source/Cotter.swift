@@ -123,7 +123,7 @@ public class Cotter {
         cb: @escaping FinalAuthCallback,
         hideClose:Bool = false
     ) {
-        // hide the close button (Optional)
+        // Hide the close button (Optional)
         self.pinVC.hideCloseButton = hideClose
         
         Config.instance.pinEnrollmentCb = transformCb(parent: vc, cb: cb)
@@ -137,12 +137,20 @@ public class Cotter {
         vc: UIViewController,
         animated: Bool,
         cb: @escaping FinalAuthCallback,
-        hideClose:Bool = false
+        hideClose: Bool = false,
+        name: String? = nil,
+        sendingMethod: String? = nil,
+        sendingDestination: String? = nil
     ) {
-        // hide the close button
+        // Hide the close button
         self.transactionPinVC.hideCloseButton = hideClose
         
         Config.instance.transactionCb = transformCb(parent: vc, cb: cb)
+        
+        // Add user info if exist - name, sending method, etc.
+        if let name = name, let sendingMethod = sendingMethod, let sendingDestination = sendingDestination {
+            Config.instance.userInfo = UserInfo(name: name, sendingMethod: sendingMethod, sendingDestination: sendingDestination)
+        }
         
         // Push the viewController to the navController
         vc.navigationController?.pushViewController(self.transactionPinVC, animated: animated)

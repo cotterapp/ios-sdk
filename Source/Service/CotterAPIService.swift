@@ -179,12 +179,13 @@ public class CotterAPIService {
     }
     
     public func requestPINReset(
-        userID: String,
         name: String,
         sendingMethod: String,
         sendingDestination: String,
         cb: @escaping ResultCallback<CotterResponseWithChallenge>
     ) {
+        guard let userID = CotterAPIService.shared.userID else { return }
+        
         let apiClient = self.apiClient()
         
         let req = RequestPINReset(
@@ -198,12 +199,13 @@ public class CotterAPIService {
     }
     
     public func verifyPINResetCode(
-        userID: String,
         resetCode: String,
         challengeID: Int,
         challenge: String,
         cb: @escaping ResultCallback<CotterBasicResponse>
     ) {
+        guard let userID = CotterAPIService.shared.userID else { return }
+        
         let apiClient = self.apiClient()
         
         let req = VerifyPINResetCode(
@@ -217,13 +219,14 @@ public class CotterAPIService {
     }
     
     public func resetPIN(
-        userID: String,
         resetCode: String,
         newCode: String,
         challengeID: Int,
         challenge: String,
         cb: @escaping ResultCallback<CotterBasicResponse>
     ) {
+        guard let userID = CotterAPIService.shared.userID else { return }
+        
         let apiClient = self.apiClient()
         
         let req = ResetPIN(
