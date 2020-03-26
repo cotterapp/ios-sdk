@@ -157,12 +157,12 @@
                         <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="rJZ-9L-Yyo"/>
+                        <segue destination="AgD-eS-bbn" kind="relationship" relationship="rootViewController" id="0mE-W8-4QT"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cDo-h2-0b6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-673" y="41"/>
+            <point key="canvasLocation" x="-1451" y="41"/>
         </scene>
         <!--Cryptography-->
         <scene sceneID="CRP-Kn-YkM">
@@ -216,6 +216,72 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2cj-vp-xEf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="881" y="41"/>
+        </scene>
+        <!--Register View Controller-->
+        <scene sceneID="MsB-U8-BzB">
+            <objects>
+                <viewController id="csI-Yj-sbH" customClass="RegisterViewController" customModule="CotterIOS_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cmH-w7-gES"/>
+                        <viewControllerLayoutGuide type="bottom" id="tnW-Je-h3l"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HCg-dG-YWJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Gjd-Vn-C2Y">
+                                <rect key="frame" x="40" y="267" width="334" height="74"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter User ID Here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nhA-fz-vFe">
+                                        <rect key="frame" x="0.0" y="0.0" width="334" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7UG-7G-mis" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44" width="334" height="30"/>
+                                        <state key="normal" title="Register"/>
+                                        <connections>
+                                            <action selector="register:" destination="csI-Yj-sbH" eventType="touchUpInside" id="m0x-ij-0z8"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Registration" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wBW-Pw-nFm">
+                                <rect key="frame" x="40" y="20" width="165" height="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G4P-fr-5Ha">
+                                <rect key="frame" x="40" y="371" width="334" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="G4P-fr-5Ha" secondAttribute="trailing" constant="20" id="541-2w-nsm"/>
+                            <constraint firstItem="G4P-fr-5Ha" firstAttribute="top" secondItem="Gjd-Vn-C2Y" secondAttribute="bottom" constant="30" id="GrK-Ue-EGZ"/>
+                            <constraint firstItem="Gjd-Vn-C2Y" firstAttribute="leading" secondItem="HCg-dG-YWJ" secondAttribute="leadingMargin" constant="20" id="HCs-DS-9BF"/>
+                            <constraint firstItem="Gjd-Vn-C2Y" firstAttribute="centerX" secondItem="HCg-dG-YWJ" secondAttribute="centerX" id="M82-WO-AIm"/>
+                            <constraint firstItem="G4P-fr-5Ha" firstAttribute="leading" secondItem="HCg-dG-YWJ" secondAttribute="leadingMargin" constant="20" id="Uki-gZ-VaG"/>
+                            <constraint firstItem="wBW-Pw-nFm" firstAttribute="leading" secondItem="HCg-dG-YWJ" secondAttribute="leadingMargin" constant="20" id="V5Z-m5-9uV"/>
+                            <constraint firstItem="Gjd-Vn-C2Y" firstAttribute="centerY" secondItem="HCg-dG-YWJ" secondAttribute="centerY" constant="-100" id="cLY-Jw-uiK"/>
+                            <constraint firstItem="wBW-Pw-nFm" firstAttribute="top" secondItem="cmH-w7-gES" secondAttribute="bottom" constant="20" id="rMC-9g-CrM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Gjd-Vn-C2Y" secondAttribute="trailing" constant="20" id="tcr-zh-Zla"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="VUr-Wb-aFm"/>
+                    <connections>
+                        <outlet property="infoLabel" destination="G4P-fr-5Ha" id="Fbu-XE-z68"/>
+                        <outlet property="textField" destination="nhA-fz-vFe" id="Tx9-vA-Dt0"/>
+                        <segue destination="vXZ-lx-hvc" kind="show" identifier="segueRegisterHome" id="134-dU-HI6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fqt-Vv-tX1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-678" y="763"/>
         </scene>
         <!--Address View Controller-->
         <scene sceneID="lGU-RH-kz4">
@@ -426,7 +492,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="5tp-Qm-JUv">
-                                <rect key="frame" x="40" y="296.5" width="334" height="215"/>
+                                <rect key="frame" x="40" y="256.5" width="334" height="295"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tRc-Fc-yMj">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="20.5"/>
@@ -477,8 +543,22 @@
                                             <action selector="loginTrusted:" destination="B9X-jN-7M4" eventType="touchUpInside" id="rIi-vx-j8q"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6xy-Ai-dXh" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="194.5" width="334" height="30"/>
+                                        <state key="normal" title="Register This Device"/>
+                                        <connections>
+                                            <action selector="registerDevice:" destination="B9X-jN-7M4" eventType="touchUpInside" id="Hka-SK-107"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SL9-D7-HNo" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="234.5" width="334" height="30"/>
+                                        <state key="normal" title="Scan New Device"/>
+                                        <connections>
+                                            <action selector="scanNewDevice:" destination="B9X-jN-7M4" eventType="touchUpInside" id="snO-ds-xi3"/>
+                                        </connections>
+                                    </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c4m-oq-wFt">
-                                        <rect key="frame" x="0.0" y="194.5" width="334" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="274.5" width="334" height="20.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qou-0Z-lYx">
                                                 <rect key="frame" x="0.0" y="0.0" width="334" height="20.5"/>
@@ -491,7 +571,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="5tp-Qm-JUv" firstAttribute="centerX" secondItem="0Ol-iZ-pYV" secondAttribute="centerX" id="WX5-nl-jsg"/>
                             <constraint firstItem="5tp-Qm-JUv" firstAttribute="centerY" secondItem="0Ol-iZ-pYV" secondAttribute="centerY" id="bQU-WH-vfR"/>
@@ -509,5 +589,78 @@
             </objects>
             <point key="canvasLocation" x="880" y="-644"/>
         </scene>
+        <!--Entry View Controller-->
+        <scene sceneID="pIR-Xk-NEI">
+            <objects>
+                <viewController storyboardIdentifier="EntryViewController" id="AgD-eS-bbn" customClass="EntryViewController" customModule="CotterIOS_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="41k-dP-Lxl"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ndq-5I-Edi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bwU-sW-Ruh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello World" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgh-vp-Vpq">
+                                <rect key="frame" x="126.5" y="50" width="161" height="36"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="wQH-ae-vhR">
+                                <rect key="frame" x="40" y="227" width="334" height="154"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter User ID here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qJf-3e-Mi6">
+                                        <rect key="frame" x="0.0" y="0.0" width="334" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1f8-a0-dIx" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44" width="334" height="30"/>
+                                        <state key="normal" title="Login"/>
+                                        <connections>
+                                            <action selector="login:" destination="AgD-eS-bbn" eventType="touchUpInside" id="6rw-Rg-3Uo"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o4D-Wl-Jk0" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="84" width="334" height="30"/>
+                                        <state key="normal" title="Register"/>
+                                        <connections>
+                                            <segue destination="csI-Yj-sbH" kind="show" id="c6r-wk-QO6"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4lS-Dz-y4I" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="124" width="334" height="30"/>
+                                        <state key="normal" title="Quick Start"/>
+                                        <connections>
+                                            <action selector="quickStart:" destination="AgD-eS-bbn" eventType="touchUpInside" id="vfL-QD-2T4"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="wQH-ae-vhR" firstAttribute="centerX" secondItem="bwU-sW-Ruh" secondAttribute="centerX" id="295-v0-BBP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="wQH-ae-vhR" secondAttribute="trailing" constant="20" id="LFo-oh-gNw"/>
+                            <constraint firstItem="fgh-vp-Vpq" firstAttribute="top" secondItem="41k-dP-Lxl" secondAttribute="bottom" constant="50" id="OkH-qQ-YEm"/>
+                            <constraint firstItem="fgh-vp-Vpq" firstAttribute="centerX" secondItem="bwU-sW-Ruh" secondAttribute="centerX" id="Pki-VS-Ro1"/>
+                            <constraint firstItem="wQH-ae-vhR" firstAttribute="leading" secondItem="bwU-sW-Ruh" secondAttribute="leadingMargin" constant="20" id="qbj-DI-iRJ"/>
+                            <constraint firstItem="wQH-ae-vhR" firstAttribute="centerY" secondItem="bwU-sW-Ruh" secondAttribute="centerY" constant="-100" id="zeU-md-DMw"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Kuc-MA-s8T"/>
+                    <connections>
+                        <outlet property="textField" destination="qJf-3e-Mi6" id="Kbk-eR-rak"/>
+                        <segue destination="vXZ-lx-hvc" kind="show" identifier="segueToHome" id="gIW-er-Y7a"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dwx-Xb-bmv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-678" y="41"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="134-dU-HI6"/>
+    </inferredMetricsTieBreakers>
 </document>

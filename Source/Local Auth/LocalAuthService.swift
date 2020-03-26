@@ -148,13 +148,13 @@ class LocalAuthService: UIViewController {
             alertDelegate.defActionHandler = {
                 aService.hide()
                 // this will force biometric scan request
-                guard let privateKey = KeyGen.privKey else {
-                    self.dispatchResult(view: view, success: false, authError: CotterError.biometricVerification)
+                guard let privateKey = KeyStore.biometric.privKey else {
+                    self.dispatchResult(view: view, success: false, authError: nil)
                     return
                 }
 
                 // get the public key, this will trigger the faceID
-                guard let pubKey = KeyGen.pubKey else {
+                guard let pubKey = KeyStore.biometric.pubKey else {
                     // if pubkey is unretrievable, then there must be something wrong with the bio scan
                     // TODO: error handling:
                     self.dispatchResult(view: view, success: false, authError: CotterError.biometricVerification)
@@ -254,13 +254,13 @@ class LocalAuthService: UIViewController {
                 print("got here")
                 aService.hide()
                 // this will force biometric scan request
-                guard KeyGen.privKey != nil else {
-                    self.dispatchResult(view: view, success: false, authError: CotterError.biometricEnrollment)
+                guard KeyStore.biometric.privKey != nil else {
+                    self.dispatchResult(view: view, success: false, authError: nil)
                     return
                 }
 
                 // get the public key, this will trigger the faceID
-                guard let pubKey = KeyGen.pubKey else {
+                guard let pubKey = KeyStore.biometric.pubKey else {
                     // if pubkey is unretrievable, then there must be something wrong with the bio scan
                     // TODO: error handling:
                     self.dispatchResult(view: view, success: false, authError: CotterError.biometricEnrollment)

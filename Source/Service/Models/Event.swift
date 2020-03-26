@@ -54,6 +54,13 @@ public struct CotterEventRequest: Encodable {
     let code:String?
     let approved:Bool
     
+    // Registered devices
+    var registerNewDevice:Bool?
+    var newDevicePublicKey:String?
+    var deviceType:String?
+    var deviceName:String?
+    var newDeviceAlgo:String?
+    
     enum CodingKeys: String, CodingKey {
         case userID = "client_user_id"
         case issuer
@@ -65,6 +72,11 @@ public struct CotterEventRequest: Encodable {
         case approved
         case pubKey = "public_key"
         case code
+        case registerNewDevice = "register_new_device"
+        case newDevicePublicKey = "new_device_public_key"
+        case deviceType = "device_type"
+        case deviceName = "device_name"
+        case newDeviceAlgo = "new_device_algorithm"
     }
     
     public func encode(to encoder: Encoder) throws {
@@ -84,6 +96,26 @@ public struct CotterEventRequest: Encodable {
         
         if pubKey != nil {
             try container.encode(pubKey, forKey: .pubKey)
+        }
+        
+        if registerNewDevice != nil {
+            try container.encode(registerNewDevice, forKey: .registerNewDevice)
+        }
+        
+        if newDevicePublicKey != nil {
+            try container.encode(newDevicePublicKey, forKey: .newDevicePublicKey)
+        }
+        
+        if deviceType != nil {
+            try container.encode(deviceType, forKey: .deviceType)
+        }
+        
+        if deviceName != nil {
+            try container.encode(deviceName, forKey: .deviceName)
+        }
+        
+        if newDeviceAlgo != nil {
+            try container.encode(newDeviceAlgo, forKey: .newDeviceAlgo)
         }
     }
 }

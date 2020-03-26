@@ -9,6 +9,8 @@
 import UIKit
 import Cotter
 
+let baseURL = "https://www.cotter.app/api/v0"
+
 class TrustedDeviceViewController: UIViewController {
     
     var userID = ""
@@ -17,9 +19,15 @@ class TrustedDeviceViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        //Looks for single or multiple taps.
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+
+        //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
+        //tap.cancelsTouchesInView = false
+
+        view.addGestureRecognizer(tap)
     }
     
-
     // textLabel is the return values of each button press
     @IBOutlet weak var textLabel: UILabel!
     @IBOutlet weak var userIDTextField: UITextField!
@@ -79,29 +87,40 @@ class TrustedDeviceViewController: UIViewController {
             }
         }
         CotterAPIService.shared.getNewEvent(userID: userID, cb: cb)
+        
+        CotterWrapper.cotter?.getEventTrustedDevice(vc: self, cb: Callback.shared.authCb)
     }
     
     @IBAction func loginTrusted(_ sender: Any) {
         guard let userID = self.userIDTextField.text else { return }
+
+        CotterWrapper.cotter?.loginWithTrustedDevice(vc: self, cb: Callback.shared.authCb)
+    }
+    
+    @IBAction func registerDevice(_ sender: Any) {
+        guard let userID = self.userIDTextField.text else { return }
         
-        func cb(response: CotterResult<CotterEvent>) {
-            switch response {
-            case .success(let resp):
-                let jsonData = try! JSONEncoder().encode(resp)
-                let jsonString = String(data: jsonData, encoding: .utf8)!
-                self.textLabel.text = jsonString
-            case .failure(let err):
-                print("failed")
-                print(err.localizedDescription)
+        CotterWrapper.cotter?.registerNewDevice(vc: self, cb: Callback.shared.authCb)
+    }
+    
+    @IBAction func scanNewDevice(_ sender: Any) {
+        func callback(token:String, err: Error?) {
+            if err != nil {
+                self.textLabel.text = err?.localizedDescription
+                return
             }
+            self.textLabel.text = "Successfully registered new device"
         }
         
-        CotterAPIService.shared.reqAuth(
-            userID: userID,
-            event: "LOGIN_WITH_TRUSTED_DEVICE",
-            cb: cb
-        )
+        CotterWrapper.cotter?.scanNewDevice(vc: self, cb: callback)
     }
+
+    //Calls this function when the tap is recognized.
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -111,5 +130,4 @@ class TrustedDeviceViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }

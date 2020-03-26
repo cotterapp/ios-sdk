@@ -36,4 +36,4 @@ Carthage/Build
 #
 # Pods/
 
-Env.swift
+CotterEnv.swift

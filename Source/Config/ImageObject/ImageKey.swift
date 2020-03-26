@@ -10,6 +10,8 @@ import Foundation
 public class VCImageKey {
     public static let pinSuccessImg = "VCImageKey/pinSuccessImg"
     public static let resetPinSuccessImg = "VCImageKey/resetPinSuccessImg"
+    public static let nonTrustedPhoneTap = "VCImageKey/nonTrustedPhoneTap"
+    public static let nonTrustedPhoneTapFail = "VCImageKey/nonTrustedPhoneTapFail"
 }
 
 public class AlertImageKey {
