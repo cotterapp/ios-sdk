@@ -108,10 +108,6 @@ extension ResetConfirmPINViewController : PINBaseController {
                     return false
             }
             
-//            // Remove after
-//            let resetPINFinalVC = self.storyboard?.instantiateViewController(withIdentifier: "ResetPINFinalViewController")as! ResetPINFinalViewController
-//            self.navigationController?.pushViewController(resetPINFinalVC, animated: true)
-            
             // Define the Reset New PIN Callback
             func resetPinCb(response: CotterResult<CotterBasicResponse>) {
                 switch response {

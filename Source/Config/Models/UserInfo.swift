@@ -12,7 +12,7 @@ class UserInfo {
     let sendingMethod: String
     let sendingDestination: String
     
-    // For Resetting PIN
+    // For Resetting PIN Process
     var resetCode: String? = nil
     var resetChallengeID: Int? = nil
     var resetChallenge: String? = nil

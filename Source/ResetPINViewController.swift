@@ -30,7 +30,8 @@ class ResetPINViewController: UIViewController {
     
     lazy var resetSubtitle: String = {
         if let userInfo = Config.instance.userInfo {
-            return "\(resetOpeningSub) \(userInfo.sendingDestination)"
+            var maskedSendingDestination = userInfo.sendingDestination.maskContactInfo(method: userInfo.sendingMethod)
+            return "\(resetOpeningSub) \(maskedSendingDestination)"
         }
         return resetFailSub
     }()
@@ -48,6 +49,10 @@ class ResetPINViewController: UIViewController {
     @IBOutlet weak var keyboardView: KeyboardView!
     
     override func viewDidAppear(_ animated: Bool) {
+        makeResetPinRequest()
+    }
+    
+    func makeResetPinRequest() {
         // If no user info, do not continue
         guard let userInfo = Config.instance.userInfo else {
             if self.resetPinError.isHidden {
@@ -56,7 +61,7 @@ class ResetPINViewController: UIViewController {
             return
         }
         
-        // Define Pin Reset Callback
+        // Pin Reset Callback
         func pinResetCb(response: CotterResult<CotterResponseWithChallenge>) {
             switch response {
             case .success(let data):
@@ -65,7 +70,7 @@ class ResetPINViewController: UIViewController {
                     Config.instance.userInfo?.resetChallengeID = data.challengeID
                     Config.instance.userInfo?.resetChallenge = data.challenge
                 } else {
-                    // Server returned failure
+                    // Server failed to start reset PIN process
                     if self.resetPinError.isHidden {
                         self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.unableToResetPin))
                     }
@@ -88,6 +93,11 @@ class ResetPINViewController: UIViewController {
             sendingDestination: userInfo.sendingDestination,
             cb: pinResetCb
         )
+    }
+    
+    @IBAction func onClickResendEmail(_ sender: UIButton) {
+        // User requested a new PIN Reset
+        makeResetPinRequest()
     }
     
     override func viewDidLoad() {
@@ -116,11 +126,6 @@ extension ResetPINViewController {
         
         resetCodeTextField.didEnterLastDigit = { code in
             print("PIN Code Entered: ", code)
-            
-            // Remove after
-//            self.resetCodeTextField.clear()
-//            let resetNewPINVC = self.storyboard?.instantiateViewController(withIdentifier: "ResetNewPINViewController")as! ResetNewPINViewController
-//            self.navigationController?.pushViewController(resetNewPINVC, animated: true)
             
             guard let userInfo = Config.instance.userInfo, let challengeID = userInfo.resetChallengeID, let challenge = userInfo.resetChallenge else {
                 if self.resetPinError.isHidden {
@@ -204,8 +209,12 @@ extension ResetPINViewController {
     }
     
     func configureButtons() {
-        self.resendEmailButton.setTitle(resendEmailText, for: .normal)
-        self.resendEmailButton.setTitleColor(Config.instance.colors.primary, for: .normal)
+        if let _ = Config.instance.userInfo {
+            self.resendEmailButton.setTitle(resendEmailText, for: .normal)
+            self.resendEmailButton.setTitleColor(Config.instance.colors.primary, for: .normal)
+            return
+        }
+        self.resendEmailButton.isEnabled = false
     }
     
     func toggleErrorMsg(msg: String?) {

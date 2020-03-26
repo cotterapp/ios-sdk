@@ -46,6 +46,7 @@
 		6249024EB52A0024CE0A94882BCC78D6 /* HTTPCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F468E1F02C7CA7835BB315B03E339CF /* HTTPCallback.swift */; };
 		69CECE6E5EB4CB50469FC8300C01E29E /* ImageKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9C5A78845284D2C336D51061DCBED2 /* ImageKey.swift */; };
 		6A1900181E984220F3A550596FF59AF1 /* RequestToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D42FF9053585452676B39E4A37667E0 /* RequestToken.swift */; };
+		6C0AD450242D5FB700D59998 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0AD44F242D5FB700D59998 /* String.swift */; };
 		6CADD563242A96BA00E1B475 /* RequestPINReset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CADD562242A96BA00E1B475 /* RequestPINReset.swift */; };
 		6CADD565242A9EA500E1B475 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CADD564242A9EA500E1B475 /* Response.swift */; };
 		6CADD567242AA8DE00E1B475 /* ResetPIN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CADD566242AA8DE00E1B475 /* ResetPIN.swift */; };
@@ -158,6 +159,7 @@
 		5A274016B8100583F10785FC1A27F813 /* Request.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		6A74BB5E55D1E273EAF0813BFB53E54C /* UpdatePINViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UpdatePINViewController.swift; path = Source/UpdatePINViewController.swift; sourceTree = "<group>"; };
 		6AF5A467867C63386AD41093347104B9 /* KeyboardView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = KeyboardView.xib; sourceTree = "<group>"; };
+		6C0AD44F242D5FB700D59998 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		6CADD562242A96BA00E1B475 /* RequestPINReset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestPINReset.swift; sourceTree = "<group>"; };
 		6CADD564242A9EA500E1B475 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		6CADD566242AA8DE00E1B475 /* ResetPIN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPIN.swift; sourceTree = "<group>"; };
@@ -464,6 +466,7 @@
 				36890B8EC71E5FA985456FBF35EA702F /* UIColor.swift */,
 				1FDB748EC91E47F484F815EAF445C5C9 /* UIImageView.swift */,
 				6CB7A9492411F698009E36C3 /* UIViewController.swift */,
+				6C0AD44F242D5FB700D59998 /* String.swift */,
 			);
 			name = Extensions;
 			path = Source/Extensions;
@@ -903,6 +906,7 @@
 				6CADD563242A96BA00E1B475 /* RequestPINReset.swift in Sources */,
 				6CADD56E242BE85800E1B475 /* Collection.swift in Sources */,
 				6A1900181E984220F3A550596FF59AF1 /* RequestToken.swift in Sources */,
+				6C0AD450242D5FB700D59998 /* String.swift in Sources */,
 				1AF1A6CE61E31E560B1DF585107C7AE5 /* TransactionPINViewController.swift in Sources */,
 				5122DFD5F162C619B304D4B8F2B5130A /* UIColor.swift in Sources */,
 				C2956391DCFF3BA8A07FFD16A39D0315 /* UIExtensions.swift in Sources */,

@@ -74,7 +74,7 @@ public class English: LanguageObject {
             UpdateConfirmNewPINViewControllerKey.hidePin: "Hide PIN",
             UpdateConfirmNewPINViewControllerKey.title: "Confirm your new PIN",
             
-            // MARK: - Error Messages
+            // MARK: - PIN Error Messages
             PinErrorMessagesKey.incorrectPinConfirmation: "Your PIN doesn't match your previous PIN.",
             PinErrorMessagesKey.badPin: "Your PIN is weak. Please enter a stronger PIN.",
             PinErrorMessagesKey.incorrectPinVerification: "Your PIN is invalid.",
