@@ -18,6 +18,8 @@ public class ImageObject: NSObject {
         "cotter-failure-x",
         "cotter-fingerprint",
         "cotter-lapis-logo",
+        "tap_device",
+        "warning",
     ]
     
     // non constant image path, allowing change of path
@@ -28,6 +30,8 @@ public class ImageObject: NSObject {
         self.image = [
             // MARK: - VC Image Definitions
             VCImageKey.pinSuccessImg: "cotter-success-check",
+            VCImageKey.nonTrustedPhoneTap: "tap_device",
+            VCImageKey.nonTrustedPhoneTapFail: "warning",
             
             // MARK: - Alert Image Definitions
             AlertImageKey.promptVerificationImg: "cotter-fingerprint",

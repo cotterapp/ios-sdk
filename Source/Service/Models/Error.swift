@@ -13,4 +13,5 @@ public enum CotterAPIError: Error {
     case status(code: Int)
     case server(message: String)
     case network
+    case general(message: String)
 }

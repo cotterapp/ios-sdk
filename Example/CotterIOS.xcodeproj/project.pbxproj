@@ -25,6 +25,9 @@
 		85AD5BBD240FA36700AC3367 /* Callback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AD5BBC240FA36700AC3367 /* Callback.swift */; };
 		85B5A91B23E6ECFF0040E288 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B5A91A23E6ECFF0040E288 /* DashboardViewController.swift */; };
 		85B5A91F23E6EDD20040E288 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85B5A91E23E6EDD20040E288 /* Dashboard.storyboard */; };
+		85FA1131242B712200E99C6F /* CotterEnv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA1130242B712200E99C6F /* CotterEnv.swift */; };
+		85FA1141242CAF7700E99C6F /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA1140242CAF7600E99C6F /* EntryViewController.swift */; };
+		85FA1143242CDFA900E99C6F /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA1142242CDFA800E99C6F /* RegisterViewController.swift */; };
 		D9806D9750DE9F43B4FEEFF9 /* Pods_CotterIOS_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 286C43C66329D2B921FC31FD /* Pods_CotterIOS_Tests.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +69,9 @@
 		85AD5BBC240FA36700AC3367 /* Callback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Callback.swift; sourceTree = "<group>"; };
 		85B5A91A23E6ECFF0040E288 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		85B5A91E23E6EDD20040E288 /* Dashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
+		85FA1130242B712200E99C6F /* CotterEnv.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CotterEnv.swift; sourceTree = "<group>"; };
+		85FA1140242CAF7600E99C6F /* EntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
+		85FA1142242CDFA800E99C6F /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		8CC6D1264632DE725D859A81 /* Cotter.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Cotter.podspec; path = ../Cotter.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		8E481DD009FC68F0AB490D40 /* Pods-CotterIOS_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CotterIOS_Example.release.xcconfig"; path = "Target Support Files/Pods-CotterIOS_Example/Pods-CotterIOS_Example.release.xcconfig"; sourceTree = "<group>"; };
 		95A202280DF1D28B43394F0D /* Pods_CotterIOS_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CotterIOS_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,6 +149,9 @@
 				8594181123F5637800B4DA6D /* CotterWrapper.swift */,
 				85AD5BBC240FA36700AC3367 /* Callback.swift */,
 				850F13FD242423BC00E84C5E /* TrustedDeviceViewController.swift */,
+				85FA1130242B712200E99C6F /* CotterEnv.swift */,
+				85FA1140242CAF7600E99C6F /* EntryViewController.swift */,
+				85FA1142242CDFA800E99C6F /* RegisterViewController.swift */,
 			);
 			name = "Example for CotterIOS";
 			path = CotterIOS;
@@ -383,10 +392,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85FA1131242B712200E99C6F /* CotterEnv.swift in Sources */,
 				8594181223F5637800B4DA6D /* CotterWrapper.swift in Sources */,
 				8594181023F55A3F00B4DA6D /* LoginViewController.swift in Sources */,
+				85FA1141242CAF7700E99C6F /* EntryViewController.swift in Sources */,
 				85AD5B91240AA1F200AC3367 /* Color.swift in Sources */,
 				8597662923F1914C00ACA96E /* IPAddressViewController.swift in Sources */,
+				85FA1143242CDFA900E99C6F /* RegisterViewController.swift in Sources */,
 				85AD5B8C240A9F8600AC3367 /* BasicButton.swift in Sources */,
 				85AD5BBD240FA36700AC3367 /* Callback.swift in Sources */,
 				850F13FE242423BC00E84C5E /* TrustedDeviceViewController.swift in Sources */,
