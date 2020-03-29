@@ -365,7 +365,7 @@
             </objects>
             <point key="canvasLocation" x="2294" y="151"/>
         </scene>
-        <!--Reset Success PIN Nav Title-->
+        <!--ResetPIN Final View Controller-->
         <scene sceneID="xP7-sW-Wfr">
             <objects>
                 <viewController storyboardIdentifier="ResetPINFinalViewController" id="S64-Mm-XOI" customClass="ResetPINFinalViewController" customModule="Cotter" customModuleProvider="target" sceneMemberID="viewController">
@@ -400,7 +400,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4iB-u6-t4U"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Reset Success PIN Nav Title" id="w0M-Mz-Y4b"/>
+                    <navigationItem key="navigationItem" id="w0M-Mz-Y4b"/>
                     <connections>
                         <outlet property="imageView" destination="2iY-8v-q6r" id="6v3-yO-OlA"/>
                         <outlet property="successLabel" destination="lYu-4e-R6a" id="XIg-1p-u2y"/>

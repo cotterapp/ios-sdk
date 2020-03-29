@@ -162,6 +162,16 @@ class ViewController: UIViewController {
     @IBAction func clickStartTransaction(_ sender: Any) {
         CotterWrapper.cotter?.startTransaction(vc: self, animated: true, cb: Callback.shared.authCb)
         
+//        // Required to pass in name, sending method, etc. for Reset PIN Process
+//        CotterWrapper.cotter?.startTransaction(
+//            vc: self,
+//            animated: true,
+//            cb: Callback.shared.authCb,
+//            name: "Cotter",
+//            sendingMethod: "EMAIL",
+//            sendingDestination: "youremail@gmail.com"
+//        )
+        
         // to optionally hide the back button
         // CotterWrapper.cotter?.startTransaction(animated: true, hideClose:true)
     }
