@@ -76,6 +76,9 @@ public class Cotter {
         if let images = configuration["images"] as! ImageObject? {
             Config.instance.images = images }
         if let colors = configuration["colors"] as! ColorSchemeObject? { Config.instance.colors = colors }
+        if let name = configuration["name"] as! String?, let sendingMethod = configuration["sendingMethod"] as! String?, let sendingDestination = configuration["sendingDestination"] as! String? {
+            Config.instance.userInfo = UserInfo(name: name, sendingMethod: sendingMethod, sendingDestination: sendingDestination)
+        }
     }
     
     // default initializer
