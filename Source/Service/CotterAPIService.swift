@@ -246,6 +246,8 @@ public class CotterAPIService {
         )
         
         apiClient.send(req, completion: cb)
+    }
+    
     public func enrollTrustedDevice(
         userID: String,
         cb: @escaping ResultCallback<CotterUser>
