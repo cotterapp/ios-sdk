@@ -16,6 +16,9 @@ class Config: NSObject {
     var updatePINCb: FinalAuthCallback
     var transactionCb: FinalAuthCallback
     var passwordlessCb: FinalAuthCallback
+    
+    // Config objects passed in from SDK User
+    var userInfo: UserInfo? // Required to start reset PIN Process
 
     // strings consists text configurations for Cotter
     var strings: LanguageObject = Indonesian() // defaults to indonesian

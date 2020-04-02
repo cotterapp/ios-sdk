@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="121-lC-Vhv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="121-lC-Vhv">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -56,6 +56,14 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="22X-JY-ong">
+                                <rect key="frame" x="147.5" y="458" width="119" height="29"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                <state key="normal" title="Forget PIN Button"/>
+                                <connections>
+                                    <segue destination="6pz-MC-9vT" kind="show" id="di1-If-81s"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -66,8 +74,10 @@
                             <constraint firstItem="WRO-er-uRg" firstAttribute="top" secondItem="rWV-zf-JbE" secondAttribute="bottom" constant="10" id="MGV-Ge-Eez"/>
                             <constraint firstItem="jcW-nu-fzI" firstAttribute="centerX" secondItem="VH2-NC-nA8" secondAttribute="centerX" id="Nf9-yh-FtT"/>
                             <constraint firstItem="O4J-TQ-rey" firstAttribute="bottom" secondItem="cc2-fq-F3x" secondAttribute="bottom" id="RGP-1u-UFK"/>
+                            <constraint firstItem="22X-JY-ong" firstAttribute="centerX" secondItem="VH2-NC-nA8" secondAttribute="centerX" id="Rhq-E6-dbZ"/>
                             <constraint firstItem="cc2-fq-F3x" firstAttribute="trailing" secondItem="O4J-TQ-rey" secondAttribute="trailing" constant="20" id="XYQ-Gw-ng2"/>
                             <constraint firstItem="EgU-4J-7lY" firstAttribute="top" secondItem="jcW-nu-fzI" secondAttribute="bottom" constant="2" id="bfz-jD-RLI"/>
+                            <constraint firstItem="O4J-TQ-rey" firstAttribute="top" secondItem="22X-JY-ong" secondAttribute="bottom" constant="20" id="ezA-w6-z2E"/>
                             <constraint firstItem="WRO-er-uRg" firstAttribute="centerX" secondItem="VH2-NC-nA8" secondAttribute="centerX" id="q7F-1m-W9z"/>
                             <constraint firstItem="O4J-TQ-rey" firstAttribute="centerX" secondItem="VH2-NC-nA8" secondAttribute="centerX" id="qh2-zC-FaY"/>
                             <constraint firstItem="O4J-TQ-rey" firstAttribute="leading" secondItem="cc2-fq-F3x" secondAttribute="leading" constant="20" id="xuT-2h-Bhi"/>
@@ -78,6 +88,7 @@
                     <connections>
                         <outlet property="codeTextField" destination="WRO-er-uRg" id="KIX-If-10C"/>
                         <outlet property="errorLabel" destination="EgU-4J-7lY" id="BpT-Xc-lRC"/>
+                        <outlet property="forgetPinButton" destination="22X-JY-ong" id="4F0-DP-sXB"/>
                         <outlet property="keyboardView" destination="O4J-TQ-rey" id="gMr-bN-AAc"/>
                         <outlet property="pinVisibilityButton" destination="jcW-nu-fzI" id="VCi-FR-ogl"/>
                         <outlet property="titleLabel" destination="rWV-zf-JbE" id="7bK-mc-aro"/>
@@ -86,6 +97,100 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3TD-OF-SvF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-104" y="151"/>
+        </scene>
+        <!--Reset PIN Nav Title-->
+        <scene sceneID="rhf-yQ-5YU">
+            <objects>
+                <viewController id="6pz-MC-9vT" customClass="ResetPINViewController" customModule="Cotter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eEM-OE-T4l">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reset PIN Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a4e-SC-6fs">
+                                <rect key="frame" x="151.5" y="178" width="111" height="20"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fzP-bP-4sR" customClass="ResetCodeTextField" customModule="Cotter" customModuleProvider="target">
+                                <rect key="frame" x="117" y="278" width="180" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="0Kc-pA-f4g"/>
+                                    <constraint firstAttribute="width" constant="180" id="5cQ-zb-v4A"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reset PIN Subtitle" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aBX-pE-mc6" userLabel="ErrorMsg">
+                                <rect key="frame" x="57" y="218" width="300" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="ZFM-QX-3Lr"/>
+                                    <constraint firstAttribute="width" constant="300" id="tBL-rm-aDB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <color key="textColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PY1-HN-7l5" customClass="KeyboardView" customModule="Cotter" customModuleProvider="target">
+                                <rect key="frame" x="20" y="507" width="374" height="355"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="355" id="nFI-5i-qh2"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wgk-2p-25k">
+                                <rect key="frame" x="150.5" y="448" width="113" height="29"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                <state key="normal" title="Reset PIN Button"/>
+                                <connections>
+                                    <action selector="onClickPinVis:" destination="XD6-bF-oRs" eventType="touchUpInside" id="hct-Ue-JCh"/>
+                                    <action selector="onClickResendEmail:" destination="6pz-MC-9vT" eventType="touchUpInside" id="rcR-GO-thj"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reset PIN Error" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AVM-eP-vTD" userLabel="ErrorMsg">
+                                <rect key="frame" x="57" y="323" width="300" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="QNN-iS-DOW"/>
+                                    <constraint firstAttribute="width" constant="300" id="qXe-lO-zc6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="PY1-HN-7l5" firstAttribute="bottom" secondItem="ZvZ-EL-y31" secondAttribute="bottom" id="1Ug-YJ-3Zq"/>
+                            <constraint firstItem="aBX-pE-mc6" firstAttribute="centerX" secondItem="eEM-OE-T4l" secondAttribute="centerX" id="4Vw-C2-eiI"/>
+                            <constraint firstItem="PY1-HN-7l5" firstAttribute="top" secondItem="Wgk-2p-25k" secondAttribute="bottom" constant="30" id="71v-q3-Cz0"/>
+                            <constraint firstItem="fzP-bP-4sR" firstAttribute="centerX" secondItem="eEM-OE-T4l" secondAttribute="centerX" id="7Oe-w4-HB0"/>
+                            <constraint firstItem="PY1-HN-7l5" firstAttribute="centerX" secondItem="eEM-OE-T4l" secondAttribute="centerX" id="Nf2-jM-J8V"/>
+                            <constraint firstItem="AVM-eP-vTD" firstAttribute="top" secondItem="fzP-bP-4sR" secondAttribute="bottom" constant="5" id="RuQ-nV-w9o"/>
+                            <constraint firstItem="fzP-bP-4sR" firstAttribute="top" secondItem="aBX-pE-mc6" secondAttribute="bottom" constant="10" id="SzA-xk-xF5"/>
+                            <constraint firstItem="Wgk-2p-25k" firstAttribute="centerX" secondItem="eEM-OE-T4l" secondAttribute="centerX" id="daK-vu-3mP"/>
+                            <constraint firstItem="AVM-eP-vTD" firstAttribute="centerX" secondItem="eEM-OE-T4l" secondAttribute="centerX" id="fNA-zX-vqp"/>
+                            <constraint firstItem="a4e-SC-6fs" firstAttribute="centerX" secondItem="eEM-OE-T4l" secondAttribute="centerX" id="g4x-Hl-XEv"/>
+                            <constraint firstItem="PY1-HN-7l5" firstAttribute="leading" secondItem="ZvZ-EL-y31" secondAttribute="leading" constant="20" id="iPR-JV-eRs"/>
+                            <constraint firstItem="fzP-bP-4sR" firstAttribute="centerY" secondItem="eEM-OE-T4l" secondAttribute="centerY" constant="-150" id="mEO-C9-BWB"/>
+                            <constraint firstItem="ZvZ-EL-y31" firstAttribute="trailing" secondItem="PY1-HN-7l5" secondAttribute="trailing" constant="20" id="oaD-di-dlp"/>
+                            <constraint firstItem="fzP-bP-4sR" firstAttribute="top" secondItem="a4e-SC-6fs" secondAttribute="bottom" constant="80" id="tBH-Fk-VCS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ZvZ-EL-y31"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Reset PIN Nav Title" id="Z8m-wz-E9Q"/>
+                    <connections>
+                        <outlet property="keyboardView" destination="PY1-HN-7l5" id="DpJ-KY-Dro"/>
+                        <outlet property="resendEmailButton" destination="Wgk-2p-25k" id="GQv-za-3gZ"/>
+                        <outlet property="resetCodeTextField" destination="fzP-bP-4sR" id="06J-RM-YSY"/>
+                        <outlet property="resetPinError" destination="AVM-eP-vTD" id="k7d-76-UF0"/>
+                        <outlet property="resetPinSubtitle" destination="aBX-pE-mc6" id="kBA-Ju-Sgf"/>
+                        <outlet property="resetPinTitle" destination="a4e-SC-6fs" id="3z3-nR-bqc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XgS-ck-DVF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="702.89855072463774" y="150.66964285714286"/>
         </scene>
         <!--Cotter View Controller-->
         <scene sceneID="Gum-yL-7vs">
@@ -102,6 +207,208 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oLc-Id-X0L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-920" y="151"/>
+        </scene>
+        <!--Reset New PIN Nav Title-->
+        <scene sceneID="vBn-HU-mpk">
+            <objects>
+                <viewController storyboardIdentifier="ResetNewPINViewController" id="9US-hb-bcY" customClass="ResetNewPINViewController" customModule="Cotter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6dj-p3-wW5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WJx-47-fM3" customClass="OneTimeCodeTextField" customModule="Cotter" customModuleProvider="target">
+                                <rect key="frame" x="107" y="230.5" width="200" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="Qmh-0u-Tp3"/>
+                                    <constraint firstAttribute="width" constant="200" id="YiQ-m5-eEj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reset New PIN Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N1E-lP-0wa">
+                                <rect key="frame" x="132.5" y="200.5" width="149" height="20"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kxJ-px-5W9">
+                                <rect key="frame" x="133" y="270.5" width="148" height="29"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                <state key="normal" title="Reset New PIN Button"/>
+                                <connections>
+                                    <action selector="onClickPinVis:" destination="9US-hb-bcY" eventType="touchUpInside" id="4yR-Zp-GYx"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reset PIN Error" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oa8-Wg-ULx">
+                                <rect key="frame" x="57" y="301.5" width="300" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="4HB-zY-QBs"/>
+                                    <constraint firstAttribute="width" constant="300" id="ko4-Z6-Qd6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UCb-j7-xcO" customClass="KeyboardView" customModule="Cotter" customModuleProvider="target">
+                                <rect key="frame" x="20" y="507" width="374" height="355"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="355" id="ITh-bK-Y0a"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="UCb-j7-xcO" firstAttribute="bottom" secondItem="uxL-IN-Kg4" secondAttribute="bottom" id="0RB-Cl-T4h"/>
+                            <constraint firstItem="kxJ-px-5W9" firstAttribute="centerX" secondItem="6dj-p3-wW5" secondAttribute="centerX" id="4ME-bL-fby"/>
+                            <constraint firstItem="kxJ-px-5W9" firstAttribute="top" secondItem="WJx-47-fM3" secondAttribute="bottom" constant="5" id="6Dr-py-k30"/>
+                            <constraint firstItem="Oa8-Wg-ULx" firstAttribute="top" secondItem="kxJ-px-5W9" secondAttribute="bottom" constant="2" id="6SZ-PL-SFj"/>
+                            <constraint firstItem="N1E-lP-0wa" firstAttribute="centerX" secondItem="6dj-p3-wW5" secondAttribute="centerX" id="7uC-zz-3Fe"/>
+                            <constraint firstItem="UCb-j7-xcO" firstAttribute="centerX" secondItem="6dj-p3-wW5" secondAttribute="centerX" id="AX2-lE-UwP"/>
+                            <constraint firstItem="WJx-47-fM3" firstAttribute="centerY" secondItem="6dj-p3-wW5" secondAttribute="centerY" constant="-200" id="Ctt-pS-sE3"/>
+                            <constraint firstItem="uxL-IN-Kg4" firstAttribute="trailing" secondItem="UCb-j7-xcO" secondAttribute="trailing" constant="20" id="Hrc-QU-G9y"/>
+                            <constraint firstItem="UCb-j7-xcO" firstAttribute="leading" secondItem="uxL-IN-Kg4" secondAttribute="leading" constant="20" id="lMI-F5-lJv"/>
+                            <constraint firstItem="Oa8-Wg-ULx" firstAttribute="centerX" secondItem="kxJ-px-5W9" secondAttribute="centerX" id="lXC-rb-OeU"/>
+                            <constraint firstItem="WJx-47-fM3" firstAttribute="centerX" secondItem="6dj-p3-wW5" secondAttribute="centerX" id="vWo-Wl-0Y2"/>
+                            <constraint firstItem="WJx-47-fM3" firstAttribute="top" secondItem="N1E-lP-0wa" secondAttribute="bottom" constant="10" id="vio-Z7-UaK"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="uxL-IN-Kg4"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Reset New PIN Nav Title" id="Klc-F3-UyL"/>
+                    <connections>
+                        <outlet property="codeTextField" destination="WJx-47-fM3" id="QPL-gG-wzW"/>
+                        <outlet property="errorLabel" destination="Oa8-Wg-ULx" id="k20-4u-6Af"/>
+                        <outlet property="keyboardView" destination="UCb-j7-xcO" id="Aow-xk-Xrf"/>
+                        <outlet property="pinVisibilityButton" destination="kxJ-px-5W9" id="mLE-hP-N9y"/>
+                        <outlet property="titleLabel" destination="N1E-lP-0wa" id="AF2-UM-FRC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dWG-Iz-Cb9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1510" y="151"/>
+        </scene>
+        <!--Reset ConfirmPIN View Controller-->
+        <scene sceneID="WjW-B6-TSN">
+            <objects>
+                <viewController storyboardIdentifier="ResetConfirmPINViewController" id="TiI-lv-c1f" customClass="ResetConfirmPINViewController" customModule="Cotter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1wf-mU-Ofj">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ppl-lf-iDH" customClass="OneTimeCodeTextField" customModule="Cotter" customModuleProvider="target">
+                                <rect key="frame" x="107" y="230.5" width="200" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="N4P-Pi-c8b"/>
+                                    <constraint firstAttribute="height" constant="35" id="wn3-4x-Gg2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reset Confirm PIN Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tXK-sx-T6m">
+                                <rect key="frame" x="119" y="200.5" width="176" height="20"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nGQ-m3-YgH">
+                                <rect key="frame" x="120.5" y="270.5" width="173" height="29"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                <state key="normal" title="Reset Confirm PIN Button"/>
+                                <connections>
+                                    <action selector="onClickPinVis:" destination="TiI-lv-c1f" eventType="touchUpInside" id="YE3-sl-u7e"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reset Confirm PIN Error" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CMs-EO-Ykm">
+                                <rect key="frame" x="57" y="301.5" width="300" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="2m5-kA-qlB"/>
+                                    <constraint firstAttribute="height" constant="50" id="Dng-nA-8K4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jzO-H5-sGu" customClass="KeyboardView" customModule="Cotter" customModuleProvider="target">
+                                <rect key="frame" x="20" y="507" width="374" height="355"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="355" id="gRV-pd-zG2"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Ppl-lf-iDH" firstAttribute="top" secondItem="tXK-sx-T6m" secondAttribute="bottom" constant="10" id="9pC-FI-rg9"/>
+                            <constraint firstItem="CMs-EO-Ykm" firstAttribute="top" secondItem="nGQ-m3-YgH" secondAttribute="bottom" constant="2" id="Gdh-lI-UsC"/>
+                            <constraint firstItem="jzO-H5-sGu" firstAttribute="leading" secondItem="ZUL-Nz-3ZU" secondAttribute="leading" constant="20" id="HAq-yW-qdx"/>
+                            <constraint firstItem="tXK-sx-T6m" firstAttribute="centerX" secondItem="1wf-mU-Ofj" secondAttribute="centerX" id="Jwv-P3-kap"/>
+                            <constraint firstItem="Ppl-lf-iDH" firstAttribute="centerY" secondItem="1wf-mU-Ofj" secondAttribute="centerY" constant="-200" id="M1f-9G-nfD"/>
+                            <constraint firstItem="jzO-H5-sGu" firstAttribute="bottom" secondItem="ZUL-Nz-3ZU" secondAttribute="bottom" id="R22-jq-4B5"/>
+                            <constraint firstItem="jzO-H5-sGu" firstAttribute="centerX" secondItem="1wf-mU-Ofj" secondAttribute="centerX" id="ZdM-Qq-eee"/>
+                            <constraint firstItem="ZUL-Nz-3ZU" firstAttribute="trailing" secondItem="jzO-H5-sGu" secondAttribute="trailing" constant="20" id="bGm-zf-SQf"/>
+                            <constraint firstItem="nGQ-m3-YgH" firstAttribute="centerX" secondItem="1wf-mU-Ofj" secondAttribute="centerX" id="dxF-ab-2d7"/>
+                            <constraint firstItem="nGQ-m3-YgH" firstAttribute="top" secondItem="Ppl-lf-iDH" secondAttribute="bottom" constant="5" id="mK1-nU-I3V"/>
+                            <constraint firstItem="CMs-EO-Ykm" firstAttribute="centerX" secondItem="nGQ-m3-YgH" secondAttribute="centerX" id="oyE-76-nkN"/>
+                            <constraint firstItem="Ppl-lf-iDH" firstAttribute="centerX" secondItem="1wf-mU-Ofj" secondAttribute="centerX" id="pEL-HE-fTN"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ZUL-Nz-3ZU"/>
+                    </view>
+                    <connections>
+                        <outlet property="codeTextField" destination="Ppl-lf-iDH" id="Bpq-rS-9Zu"/>
+                        <outlet property="errorLabel" destination="CMs-EO-Ykm" id="rny-7z-26r"/>
+                        <outlet property="keyboardView" destination="jzO-H5-sGu" id="14Z-sL-PPq"/>
+                        <outlet property="pinVisibilityButton" destination="nGQ-m3-YgH" id="eHF-KK-j0u"/>
+                        <outlet property="titleLabel" destination="tXK-sx-T6m" id="tIw-3k-Yf1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wxc-4E-ya1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2294" y="151"/>
+        </scene>
+        <!--ResetPIN Final View Controller-->
+        <scene sceneID="xP7-sW-Wfr">
+            <objects>
+                <viewController storyboardIdentifier="ResetPINFinalViewController" id="S64-Mm-XOI" customClass="ResetPINFinalViewController" customModule="Cotter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ov7-ga-aob">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2iY-8v-q6r">
+                                <rect key="frame" x="87" y="153" width="240" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="K63-3M-JY2"/>
+                                    <constraint firstAttribute="height" constant="240" id="ixV-rd-ydO"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reset PIN Success Title" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lYu-4e-R6a">
+                                <rect key="frame" x="57" y="423" width="300" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="XKa-jq-NCd"/>
+                                    <constraint firstAttribute="height" constant="50" id="bXo-lU-8ZO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="2iY-8v-q6r" firstAttribute="centerX" secondItem="Ov7-ga-aob" secondAttribute="centerX" id="cqR-B4-Y1D"/>
+                            <constraint firstItem="lYu-4e-R6a" firstAttribute="top" secondItem="2iY-8v-q6r" secondAttribute="bottom" constant="30" id="izz-Yy-GgX"/>
+                            <constraint firstItem="lYu-4e-R6a" firstAttribute="centerX" secondItem="Ov7-ga-aob" secondAttribute="centerX" id="oPK-Mq-IIh"/>
+                            <constraint firstItem="lYu-4e-R6a" firstAttribute="centerY" secondItem="Ov7-ga-aob" secondAttribute="centerY" id="qiV-fS-qCp"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="4iB-u6-t4U"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="w0M-Mz-Y4b"/>
+                    <connections>
+                        <outlet property="imageView" destination="2iY-8v-q6r" id="6v3-yO-OlA"/>
+                        <outlet property="successLabel" destination="lYu-4e-R6a" id="XIg-1p-u2y"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IUe-i5-xgr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3100.0000000000005" y="150.66964285714286"/>
         </scene>
     </scenes>
 </document>

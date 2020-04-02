@@ -31,7 +31,30 @@ public class Indonesian: LanguageObject {
             TransactionPINViewControllerKey.navTitle: "Verifikasi",
             TransactionPINViewControllerKey.showPin: "Lihat PIN",
             TransactionPINViewControllerKey.hidePin: "Sembunyikan",
+            TransactionPINViewControllerKey.forgetPin: "Lupa PIN",
             TransactionPINViewControllerKey.title: "Masukkan PIN",
+            
+            // MARK: - ResetPINViewController
+            ResetPINViewControllerKey.navTitle: "Lupa PIN",
+            ResetPINViewControllerKey.title: "Kode Keamanan",
+            ResetPINViewControllerKey.subtitle: "Kami telah mengirimkan kode ke",
+            ResetPINViewControllerKey.resetFailSub: "Silakan hubungi layanan pelanggan untuk mengatur ulang pin Anda",
+            ResetPINViewControllerKey.resendEmail: "Kirim ulang email",
+            
+            // MARK: - ResetNewPINViewController
+            ResetNewPINViewControllerKey.navTitle: "Aktivasi PIN Baru",
+            ResetNewPINViewControllerKey.showPin: "Lihat PIN",
+            ResetNewPINViewControllerKey.hidePin: "Sembunyikan",
+            ResetNewPINViewControllerKey.title: "Buat PIN untuk keamanan akunmu",
+            
+            // MARK: - ResetConfirmPINController
+            ResetConfirmPINViewControllerKey.navTitle: "Konfirmasi PIN Baru",
+            ResetConfirmPINViewControllerKey.showPin: "Lihat PIN",
+            ResetConfirmPINViewControllerKey.hidePin: "Sembunyikan",
+            ResetConfirmPINViewControllerKey.title: "Masukkan PIN sekali lagi untuk konfirmasi",
+            
+            // MARK: - ResetPINFinalViewController
+            ResetPINFinalViewControllerKey.title: "PIN baru berhasil dibuat!",
             
             // MARK: - UpdatePINViewController
             UpdatePINViewControllerKey.navTitle: "Ubah PIN",
@@ -51,13 +74,16 @@ public class Indonesian: LanguageObject {
             UpdateConfirmNewPINViewControllerKey.hidePin: "Sembunyikan",
             UpdateConfirmNewPINViewControllerKey.title: "Masukin PIN baru sekali lagi untuk konfirmasi",
             
-            // MARK: - Error Messages
+            // MARK: - Pin Error Messages
             PinErrorMessagesKey.incorrectPinConfirmation: "Kamu perlu memasukkan PIN yang sama seperti sebelumnya.",
             PinErrorMessagesKey.badPin: "PIN terlalu mudah. Yuk buat PIN baru dengan kombinasi lebih sulit.",
             PinErrorMessagesKey.incorrectPinVerification: "PIN buat verifikasi salah. Coba lagi.",
             PinErrorMessagesKey.similarPinAsBefore: "PIN sama ama dulu punya. Coba ganti PIN baru.",
+            PinErrorMessagesKey.incorrectEmailCode: "Kode yang kamu masukkan salah",
             PinErrorMessagesKey.enrollPinFailed: "PIN Registrasi gagal. Silahkan coba lagi.",
             PinErrorMessagesKey.updatePinFailed: "Membarui PIN gagal. Silahkan coba lagi.",
+            PinErrorMessagesKey.resetPinFailed: "Atur ulang PIN gagal. Silahkan coba lagi.",
+            PinErrorMessagesKey.unableToResetPin: "Tidak dapat melanjutkan dengan Reset Proses PIN.",
             PinErrorMessagesKey.networkError: "Coba periksa koneksi internet, terus coba lagi.",
             PinErrorMessagesKey.apiError: "Kesalahan dalam server. Silahkan hubungi layanan pelanggan.",
             

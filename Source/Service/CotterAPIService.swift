@@ -177,5 +177,67 @@ public class CotterAPIService {
         let req = RegisterBiometric(userID: userID, pubKey: pubKey)
         apiClient.send(req, completion:cb)
     }
+    
+    public func requestPINReset(
+        name: String,
+        sendingMethod: String,
+        sendingDestination: String,
+        cb: @escaping ResultCallback<CotterResponseWithChallenge>
+    ) {
+        guard let userID = CotterAPIService.shared.userID else { return }
+        
+        let apiClient = self.apiClient()
+        
+        let req = RequestPINReset(
+            userID: userID,
+            name: name,
+            sendingMethod: sendingMethod,
+            sendingDestination: sendingDestination
+        )
+        
+        apiClient.send(req, completion: cb)
+    }
+    
+    public func verifyPINResetCode(
+        resetCode: String,
+        challengeID: Int,
+        challenge: String,
+        cb: @escaping ResultCallback<CotterBasicResponse>
+    ) {
+        guard let userID = CotterAPIService.shared.userID else { return }
+        
+        let apiClient = self.apiClient()
+        
+        let req = VerifyPINResetCode(
+            userID: userID,
+            resetCode: resetCode,
+            challengeID: challengeID,
+            challenge: challenge
+        )
+        
+        apiClient.send(req, completion: cb)
+    }
+    
+    public func resetPIN(
+        resetCode: String,
+        newCode: String,
+        challengeID: Int,
+        challenge: String,
+        cb: @escaping ResultCallback<CotterBasicResponse>
+    ) {
+        guard let userID = CotterAPIService.shared.userID else { return }
+        
+        let apiClient = self.apiClient()
+        
+        let req = ResetPIN(
+            userID: userID,
+            resetCode: resetCode,
+            newCode: newCode,
+            challengeID: challengeID,
+            challenge: challenge
+        )
+        
+        apiClient.send(req, completion: cb)
+    }
 }
 

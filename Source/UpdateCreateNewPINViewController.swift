@@ -92,7 +92,9 @@ extension UpdateCreateNewPINViewController : PINBaseController {
             // If code has repeating digits, or is a straight number, or is the old code, show error.
             let pattern = "\\b(\\d)\\1+\\b"
             let result = code.range(of: pattern, options: .regularExpression)
-            if result != nil || code == "123456" || code == "654321" {
+            
+            // Ensure consecutive PIN number is rejected
+            if result != nil || self.findSequence(sequenceLength: code.count, in: code) {
                 if self.errorLabel.isHidden {
                     self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.badPin))
                 }
@@ -132,7 +134,7 @@ extension UpdateCreateNewPINViewController : PINBaseController {
         codeTextField.configure()
         configureText()
         configureErrorLabel()
-        configurePinVisibilityButton()
+        configureButtons()
     }
     
     func addDelegates() {
@@ -144,7 +146,7 @@ extension UpdateCreateNewPINViewController : PINBaseController {
         self.titleLabel.text = titleText
     }
     
-    func configurePinVisButton() {
+    func configureButtons() {
         // No initial Error Msg
         pinVisibilityButton.setTitle("", for: .normal)
     }

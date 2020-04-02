@@ -28,6 +28,7 @@ public class ImageObject: NSObject {
         self.image = [
             // MARK: - VC Image Definitions
             VCImageKey.pinSuccessImg: "cotter-success-check",
+            VCImageKey.resetPinSuccessImg: "cotter-success-check",
             
             // MARK: - Alert Image Definitions
             AlertImageKey.promptVerificationImg: "cotter-fingerprint",

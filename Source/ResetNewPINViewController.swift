@@ -1,33 +1,25 @@
 //
-//  PINViewController.swift
-//  CotterIOS
+//  ResetNewPINViewController.swift
+//  Cotter
 //
-//  Created by Albert Purnama on 2/2/20.
+//  Created by Raymond Andrie on 3/22/20.
 //
 
-import Foundation
 import UIKit
 
-public class PINViewControllerKey {
+public class ResetNewPINViewControllerKey {
     // MARK: - Keys for Strings
-    public static let navTitle = "PINViewController/navTitle"
-    public static let showPin = "PINViewController/showPin"
-    public static let hidePin = "PINViewController/hidePin"
-    public static let title = "PINViewController/title"
+    static let navTitle = "ResetNewPINViewController/navTitle"
+    static let title = "ResetNewPINViewController/title"
+    static let showPin = "ResetNewPINViewController/showPin"
+    static let hidePin = "ResetNewPINViewController/hidePin"
 }
 
-class PINViewController : UIViewController {
-    // since PINViewController is too long to type
-    // we can getaway with typealias here
-    typealias VCTextKey = PINViewControllerKey
+class ResetNewPINViewController: UIViewController {
     
-    var hideCloseButton: Bool = false
+    typealias VCTextKey = ResetNewPINViewControllerKey
     
-    // MARK: - Alert Service Text Definition
-    let navBackTitle = CotterStrings.instance.getText(for: AuthAlertMessagesKey.navBackTitle)
-    let navBackBody = CotterStrings.instance.getText(for: AuthAlertMessagesKey.navBackBody)
-    let navBackAction = CotterStrings.instance.getText(for: AuthAlertMessagesKey.navBackActionButton)
-    let navBackCancel = CotterStrings.instance.getText(for: AuthAlertMessagesKey.navBackCancelButton)
+    var hideCloseButton: Bool = true
     
     // MARK: - VC Text Definitions
     let navTitle = CotterStrings.instance.getText(for: VCTextKey.navTitle)
@@ -35,36 +27,23 @@ class PINViewController : UIViewController {
     let hidePinText = CotterStrings.instance.getText(for: VCTextKey.hidePin)
     let titleText = CotterStrings.instance.getText(for: VCTextKey.title)
     
-    lazy var alertService: AlertService = {
-        let alert = AlertService(vc: self, title: navBackTitle, body: navBackBody, actionButtonTitle: navBackAction, cancelButtonTitle: navBackCancel)
-        alert.delegate = self
-        return alert
-    }()
-    
     @IBOutlet weak var titleLabel: UILabel!
     
-    // Code Text Field
     @IBOutlet weak var codeTextField: OneTimeCodeTextField!
     
-    // PIN Visibility Toggle Button
     @IBOutlet weak var pinVisibilityButton: UIButton!
     
-    // Error Label
     @IBOutlet weak var errorLabel: UILabel!
     
-    // Keyboard
     @IBOutlet weak var keyboardView: KeyboardView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        print("loaded PIN Cotter Enrollment View")
-        
+
         // Set-up
         addConfigs()
         addDelegates()
         instantiateCodeTextFieldFunctions()
-        setCotterStatusBarStyle()
     }
     
     @IBAction func onClickPinVis(_ sender: UIButton) {
@@ -83,7 +62,7 @@ class PINViewController : UIViewController {
 }
 
 // MARK: - PINBaseController
-extension PINViewController : PINBaseController {
+extension ResetNewPINViewController : PINBaseController {
     func instantiateCodeTextFieldFunctions() {
         // Instantiate Function to run when user enters wrong PIN code
         codeTextField.removeErrorMsg = {
@@ -112,10 +91,11 @@ extension PINViewController : PINBaseController {
             // Clear Code text Field before continuing
             self.codeTextField.clear()
             
-            // Go to PIN Confirmation Page
-            let confirmVC = self.storyboard?.instantiateViewController(withIdentifier: "PINConfirmViewController") as! PINConfirmViewController
+            // Go to Reset PIN Confirmation Page
+            let confirmVC = self.storyboard?.instantiateViewController(withIdentifier: "ResetConfirmPINViewController") as! ResetConfirmPINViewController
             confirmVC.prevCode = code
             self.navigationController?.pushViewController(confirmVC, animated: true)
+            
             return true
         }
     }
@@ -169,12 +149,12 @@ extension PINViewController : PINBaseController {
     }
   
     @objc private func promptClose(sender: UIBarButtonItem) {
-        alertService.show()
+        
     }
 }
 
 // MARK: - KeyboardViewDelegate
-extension PINViewController : KeyboardViewDelegate {
+extension ResetNewPINViewController : KeyboardViewDelegate {
     func keyboardButtonTapped(buttonNumber: NSInteger) {
         // If backspace tapped, remove last char. Else, append new char.
         if buttonNumber == -1 {
@@ -182,17 +162,5 @@ extension PINViewController : KeyboardViewDelegate {
         } else {
             codeTextField.appendNumber(buttonNumber: buttonNumber)
         }
-    }
-}
-
-// MARK: - AlertServiceDelegate
-extension PINViewController : AlertServiceDelegate {
-    func cancelHandler() {
-        alertService.hide()
-    }
-    
-    func actionHandler() {
-        alertService.hide()
-        Config.instance.pinEnrollmentCb("PIN enrollment cancelled - no token", nil)
     }
 }

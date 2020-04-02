@@ -20,7 +20,7 @@ public class English: LanguageObject {
             PINConfirmViewControllerKey.navTitle: "Activate PIN",
             PINConfirmViewControllerKey.showPin: "Show PIN",
             PINConfirmViewControllerKey.hidePin: "Hide PIN",
-            PINConfirmViewControllerKey.title: "Confirm your PIN combination",
+            PINConfirmViewControllerKey.title: "Confirm your PIN Combination",
             
             // MARK: - PINFinalViewController
             PINFinalViewControllerKey.title: "Successfully Activated PIN!",
@@ -31,7 +31,30 @@ public class English: LanguageObject {
             TransactionPINViewControllerKey.navTitle: "Verification",
             TransactionPINViewControllerKey.showPin: "Show PIN",
             TransactionPINViewControllerKey.hidePin: "Hide PIN",
+            TransactionPINViewControllerKey.forgetPin: "Forgot your PIN?",
             TransactionPINViewControllerKey.title: "Enter your PIN",
+            
+            // MARK: - ResetPINViewController
+            ResetPINViewControllerKey.navTitle: "Forgot PIN",
+            ResetPINViewControllerKey.title: "Verification Code",
+            ResetPINViewControllerKey.subtitle: "We have sent the code to",
+            ResetPINViewControllerKey.resetFailSub: "Please contact customer service to reset your PIN.",
+            ResetPINViewControllerKey.resendEmail: "Resend Email",
+            
+            // MARK: - ResetNewPINViewController
+            ResetNewPINViewControllerKey.navTitle: "Activate new PIN",
+            ResetNewPINViewControllerKey.showPin: "Show PIN",
+            ResetNewPINViewControllerKey.hidePin: "Hide PIN",
+            ResetNewPINViewControllerKey.title: "Enter your new PIN",
+            
+            // MARK: - ResetConfirmPINController
+            ResetConfirmPINViewControllerKey.navTitle: "Confirm new PIN",
+            ResetConfirmPINViewControllerKey.showPin: "Show PIN",
+            ResetConfirmPINViewControllerKey.hidePin: "Hide PIN",
+            ResetConfirmPINViewControllerKey.title: "Confirm your new PIN",
+            
+            // MARK: - ResetPINFinalViewController
+            ResetPINFinalViewControllerKey.title: "New PIN successfully created!",
             
             // MARK: - UpdatePINViewController
             UpdatePINViewControllerKey.navTitle: "Change PIN",
@@ -51,13 +74,16 @@ public class English: LanguageObject {
             UpdateConfirmNewPINViewControllerKey.hidePin: "Hide PIN",
             UpdateConfirmNewPINViewControllerKey.title: "Confirm your new PIN",
             
-            // MARK: - Error Messages
+            // MARK: - PIN Error Messages
             PinErrorMessagesKey.incorrectPinConfirmation: "Your PIN doesn't match your previous PIN.",
             PinErrorMessagesKey.badPin: "Your PIN is weak. Please enter a stronger PIN.",
             PinErrorMessagesKey.incorrectPinVerification: "Your PIN is invalid.",
             PinErrorMessagesKey.similarPinAsBefore: "Unable to use the same PIN as before. Please try again.",
+            PinErrorMessagesKey.incorrectEmailCode: "Email verification code incorrect.",
             PinErrorMessagesKey.enrollPinFailed: "PIN Enrollment failed. Please try again.",
             PinErrorMessagesKey.updatePinFailed: "Update PIN failed. Please try again.",
+            PinErrorMessagesKey.resetPinFailed: "Reset PIN failed. Please try again.",
+            PinErrorMessagesKey.unableToResetPin: "Unable to continue with Reset PIN Process.",
             PinErrorMessagesKey.networkError: "Please check your internet connection, then try again.",
             PinErrorMessagesKey.apiError: "Internal Server Error. Please contact Customer Support.",
             

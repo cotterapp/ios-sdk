@@ -1,50 +1,46 @@
 //
-//  PINConfirmViewController.swift
-//  CotterIOS
+//  ResetConfirmPINViewController.swift
+//  Cotter
 //
-//  Created by Albert Purnama on 2/2/20.
+//  Created by Raymond Andrie on 3/22/20.
 //
 
 import UIKit
 
-// PINConfirmViewControllerKey are a list of strings for key to text configuration
-public class PINConfirmViewControllerKey {
+public class ResetConfirmPINViewControllerKey {
     // MARK: - Keys for Strings
-    static let navTitle = "PINConfirmViewController/navTitle"
-    static let showPin = "PINConfirmViewController/showPin"
-    static let hidePin = "PINConfirmViewController/hidePin"
-    static let title = "PINConfirmViewController/title"
+    static let navTitle = "ResetConfirmPINViewController/navTitle"
+    static let title = "ResetConfirmPINViewController/title"
+    static let showPin = "ResetConfirmPINViewController/showPin"
+    static let hidePin = "ResetConfirmPINViewController/hidePin"
 }
 
-class PINConfirmViewController : UIViewController {
+class ResetConfirmPINViewController: UIViewController {
     // prevCode should be passed from the previous (PINView) controller
     var prevCode: String?
     
-    // since PinConfirmViewControllerKey is a nuisance to type
-    // we can getaway with typealias here
-    typealias VCTextKey = PINConfirmViewControllerKey
-  
+    typealias VCTextKey = ResetConfirmPINViewControllerKey
+    
     // MARK: - VC Text Definitions
     let navTitle = CotterStrings.instance.getText(for: VCTextKey.navTitle)
     let titleText = CotterStrings.instance.getText(for: VCTextKey.title)
     let showPinText = CotterStrings.instance.getText(for: VCTextKey.showPin)
     let hidePinText = CotterStrings.instance.getText(for: VCTextKey.hidePin)
     
-    // Code Text Field
+    @IBOutlet weak var titleLabel: UILabel!
+    
     @IBOutlet weak var codeTextField: OneTimeCodeTextField!
     
     @IBOutlet weak var pinVisibilityButton: UIButton!
     
     @IBOutlet weak var errorLabel: UILabel!
     
-    @IBOutlet weak var titleLabel: UILabel!
-    
     @IBOutlet weak var keyboardView: KeyboardView!
     
-    public override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        print("loaded PIN Confirmation View!")
+        // Do any additional setup after loading the view.
+        print("loaded PIN Reset Confirmation View!")
         
         // Set-up
         addConfigs()
@@ -60,7 +56,7 @@ class PINConfirmViewController : UIViewController {
             sender.setTitle(showPinText, for: .normal)
         }
     }
-
+    
     public override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -68,7 +64,7 @@ class PINConfirmViewController : UIViewController {
 }
 
 // MARK: - PINBaseController
-extension PINConfirmViewController : PINBaseController {
+extension ResetConfirmPINViewController : PINBaseController {
     func instantiateCodeTextFieldFunctions() {
         codeTextField.removeErrorMsg = {
             // Remove error msg if it is present
@@ -79,6 +75,11 @@ extension PINConfirmViewController : PINBaseController {
         
         codeTextField.didEnterLastDigit = { code in
             print("PIN Code Entered: ", code)
+            
+            if self.prevCode == nil {
+                print("No previous code exists!")
+                return false
+            }
             
             // If the entered digits are not the same, show error.
             if code != self.prevCode! {
@@ -98,28 +99,49 @@ extension PINConfirmViewController : PINBaseController {
                 return false
             }
             
-            // define callback
-            func enrollCb(response: CotterResult<CotterUser>) {
+            guard let resetCode = Config.instance.userInfo?.resetCode, let resetChallengeID = Config.instance.userInfo?.resetChallengeID,
+                let resetChallenge = Config.instance.userInfo?.resetChallenge else {
+                    // Display Error
+                    if self.errorLabel.isHidden {
+                        self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.resetPinFailed))
+                    }
+                    return false
+            }
+            
+            // Define the Reset New PIN Callback
+            func resetPinCb(response: CotterResult<CotterBasicResponse>) {
                 switch response {
-                case .success:
-                    self.codeTextField.clear()
-                    let finalVC = self.storyboard?.instantiateViewController(withIdentifier: "PINFinalViewController")as! PINFinalViewController
-                    self.navigationController?.pushViewController(finalVC, animated: true)
+                case .success(let data):
+                    if data.success {
+                        self.codeTextField.clear()
+                        // Clear Reset Information after success
+                        Config.instance.userInfo?.clearResetInfo()
+                        // Go to Reset PIN Final View
+                        let resetPINFinalVC = self.storyboard?.instantiateViewController(withIdentifier: "ResetPINFinalViewController")as! ResetPINFinalViewController
+                        self.navigationController?.pushViewController(resetPINFinalVC, animated: true)
+                    } else {
+                        // Display Error
+                        if self.errorLabel.isHidden {
+                            self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.resetPinFailed))
+                        }
+                    }
                 case .failure(let err):
                     // we can handle multiple error results here
                     print(err.localizedDescription)
                     
                     // Display Error
                     if self.errorLabel.isHidden {
-                        self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.enrollPinFailed))
+                        self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.resetPinFailed))
                     }
                 }
             }
             
-            // Run API to enroll PIN
-            CotterAPIService.shared.enrollUserPin(
-                code: code,
-                cb: enrollCb
+            CotterAPIService.shared.resetPIN(
+                resetCode: resetCode,
+                newCode: code,
+                challengeID: resetChallengeID,
+                challenge: resetChallenge,
+                cb: resetPinCb
             )
             
             return true
@@ -138,8 +160,8 @@ extension PINConfirmViewController : PINBaseController {
         
         codeTextField.configure()
         configureText()
-        configureButtons()
         configureErrorLabel()
+        configureButtons()
     }
     
     func addDelegates() {
@@ -174,7 +196,7 @@ extension PINConfirmViewController : PINBaseController {
 }
 
 // MARK: - KeyboardViewDelegate
-extension PINConfirmViewController : KeyboardViewDelegate {
+extension ResetConfirmPINViewController : KeyboardViewDelegate {
     func keyboardButtonTapped(buttonNumber: NSInteger) {
         // If backspace tapped, remove last char. Else, append new char.
         if buttonNumber == -1 {
