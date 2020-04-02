@@ -320,7 +320,7 @@ public class CotterAPIService {
         
         // get the trusted device status first
         func innerCb(response: CotterResult<EnrolledMethods>) {
-            let method = "TRUSTED_DEVICE"
+            let method = CotterConstants.MethodTrustedDevice
             
             switch response {
             case .success(let resp):
@@ -507,8 +507,8 @@ public class CotterAPIService {
         
         let apiClient = self.apiClient()
         
-        let event = "ENROLL_NEW_TRUSTED_DEVICE"
-        let method = "TRUSTED_DEVICE"
+        let event = CotterEvents.EnrollNewTrustedDevice
+        let method = CotterConstants.MethodTrustedDevice
         
         guard let privKey = KeyStore.trusted.privKey else {
             internalCb.internalErrorHandler(err: "Unable to attain user's private key!")
