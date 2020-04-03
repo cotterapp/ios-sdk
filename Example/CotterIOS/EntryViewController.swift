@@ -26,17 +26,23 @@ class EntryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print("loaded Entry View Controller!")
         // Do any additional setup after loading the view.
         
         // to set the apiKeyID and apiSecretKey follow this nice tutorial on how to setup xcode env variables
         // https://nshipster.com/launch-arguments-and-environment-variables/
-        let apiKeyID = COTTER_API_KEY_ID
-        let apiSecretKey = COTTER_API_SECRET_KEY
+        guard let apiKeyID = Environment.shared.COTTER_API_KEY_ID else {
+            print("Please set COTTER_API_KEY_ID in your XCode environment variables!")
+            return
+        }
+        guard let apiSecretKey = Environment.shared.COTTER_API_SECRET_KEY else {
+            print("Please set COTTER_API_SECRET_KEY in your XCode environment variables!")
+            return
+        }
         
         // set the URL path
         var baseURL = "https://www.cotter.app/api/v0"
-        if let devMode = DEV_MODE {
+        if let devMode = Environment.shared.DEV_MODE {
             switch(devMode){
             case "ios":
                 baseURL = "http://192.168.1.9:1234/api/v0"
