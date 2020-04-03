@@ -46,6 +46,9 @@
 		69CECE6E5EB4CB50469FC8300C01E29E /* ImageKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9C5A78845284D2C336D51061DCBED2 /* ImageKey.swift */; };
 		6A1900181E984220F3A550596FF59AF1 /* RequestToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D42FF9053585452676B39E4A37667E0 /* RequestToken.swift */; };
 		6C0AD450242D5FB700D59998 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0AD44F242D5FB700D59998 /* String.swift */; };
+		6C0AD4552437707000D59998 /* BasicButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0AD4542437707000D59998 /* BasicButton.swift */; };
+		6C0AD4572437717300D59998 /* BottomPopupModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0AD4562437717300D59998 /* BottomPopupModal.swift */; };
+		6C0AD4592437718800D59998 /* CrossButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0AD4582437718800D59998 /* CrossButton.swift */; };
 		6CADD563242A96BA00E1B475 /* RequestPINReset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CADD562242A96BA00E1B475 /* RequestPINReset.swift */; };
 		6CADD565242A9EA500E1B475 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CADD564242A9EA500E1B475 /* Response.swift */; };
 		6CADD567242AA8DE00E1B475 /* ResetPIN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CADD566242AA8DE00E1B475 /* ResetPIN.swift */; };
@@ -73,14 +76,11 @@
 		85FA111A2428F28300E99C6F /* warning.png in Resources */ = {isa = PBXBuildFile; fileRef = 85FA11132428EE3D00E99C6F /* warning.png */; };
 		85FA11202429651600E99C6F /* GetEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA111F2429651600E99C6F /* GetEvent.swift */; };
 		85FA1129242A3FA800E99C6F /* TrustedDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA1125242A3FA800E99C6F /* TrustedDevice.swift */; };
-		85FA112D242A44F600E99C6F /* BasicButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA112C242A44F600E99C6F /* BasicButton.swift */; };
 		85FA112F242B65AA00E99C6F /* RespondEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA112E242B65AA00E99C6F /* RespondEvent.swift */; };
 		85FA1133242B8DB800E99C6F /* RegisterTrustedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA1132242B8DB800E99C6F /* RegisterTrustedViewController.swift */; };
 		85FA1136242B8DE200E99C6F /* NonTrusted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA1134242B8DE200E99C6F /* NonTrusted.swift */; };
 		85FA1137242B8DE200E99C6F /* TrustedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA1135242B8DE200E99C6F /* TrustedViewController.swift */; };
-		85FA1139242B90AC00E99C6F /* CrossButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA1138242B90AC00E99C6F /* CrossButton.swift */; };
 		85FA113B242BDF2300E99C6F /* QRScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA113A242BDF2300E99C6F /* QRScannerViewController.swift */; };
-		85FA113F242BEC5800E99C6F /* BottomPopupModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA113E242BEC5800E99C6F /* BottomPopupModal.swift */; };
 		878E6EC1E95133481E63BEA545F9FA67 /* Pods-CotterIOS_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C3457BCD4C9F468723349EF548DC9867 /* Pods-CotterIOS_Tests-dummy.m */; };
 		91B9C4F31FC72B513EB2EE5BC96C3E99 /* ImageObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ABDD697266CADC8E6D9D687711DFF9 /* ImageObject.swift */; };
 		944695E96B320187B586F8609A628AB0 /* UpdateCreateNewPINViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B58E6FAA1513DF95A1FC8205483675A /* UpdateCreateNewPINViewController.swift */; };
@@ -177,6 +177,9 @@
 		6A74BB5E55D1E273EAF0813BFB53E54C /* UpdatePINViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UpdatePINViewController.swift; path = Source/UpdatePINViewController.swift; sourceTree = "<group>"; };
 		6AF5A467867C63386AD41093347104B9 /* KeyboardView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = KeyboardView.xib; sourceTree = "<group>"; };
 		6C0AD44F242D5FB700D59998 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		6C0AD4542437707000D59998 /* BasicButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicButton.swift; sourceTree = "<group>"; };
+		6C0AD4562437717300D59998 /* BottomPopupModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomPopupModal.swift; sourceTree = "<group>"; };
+		6C0AD4582437718800D59998 /* CrossButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossButton.swift; sourceTree = "<group>"; };
 		6CADD562242A96BA00E1B475 /* RequestPINReset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestPINReset.swift; sourceTree = "<group>"; };
 		6CADD564242A9EA500E1B475 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		6CADD566242AA8DE00E1B475 /* ResetPIN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPIN.swift; sourceTree = "<group>"; };
@@ -209,14 +212,11 @@
 		85FA11142428EE3D00E99C6F /* cotter_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cotter_logo.png; sourceTree = "<group>"; };
 		85FA111F2429651600E99C6F /* GetEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetEvent.swift; sourceTree = "<group>"; };
 		85FA1125242A3FA800E99C6F /* TrustedDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrustedDevice.swift; sourceTree = "<group>"; };
-		85FA112C242A44F600E99C6F /* BasicButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicButton.swift; sourceTree = "<group>"; };
 		85FA112E242B65AA00E99C6F /* RespondEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RespondEvent.swift; sourceTree = "<group>"; };
 		85FA1132242B8DB800E99C6F /* RegisterTrustedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTrustedViewController.swift; sourceTree = "<group>"; };
 		85FA1134242B8DE200E99C6F /* NonTrusted.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NonTrusted.swift; sourceTree = "<group>"; };
 		85FA1135242B8DE200E99C6F /* TrustedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrustedViewController.swift; sourceTree = "<group>"; };
-		85FA1138242B90AC00E99C6F /* CrossButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossButton.swift; sourceTree = "<group>"; };
 		85FA113A242BDF2300E99C6F /* QRScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerViewController.swift; sourceTree = "<group>"; };
-		85FA113E242BEC5800E99C6F /* BottomPopupModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomPopupModal.swift; sourceTree = "<group>"; };
 		888780F5C27C89C1910BFBB5EB0977C2 /* Pods-CotterIOS_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CotterIOS_Example.release.xcconfig"; sourceTree = "<group>"; };
 		89BFCA49672B32694F3FDFA7481B0FDF /* RegisterBiometric.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegisterBiometric.swift; sourceTree = "<group>"; };
 		8C421A2D09FC9A0A5A7EDC42607E0A29 /* Pods-CotterIOS_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-CotterIOS_Example.modulemap"; sourceTree = "<group>"; };
@@ -607,11 +607,12 @@
 		85FA112B242A44D000E99C6F /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				85FA112C242A44F600E99C6F /* BasicButton.swift */,
-				85FA1138242B90AC00E99C6F /* CrossButton.swift */,
-				85FA113E242BEC5800E99C6F /* BottomPopupModal.swift */,
+				6C0AD4542437707000D59998 /* BasicButton.swift */,
+				6C0AD4562437717300D59998 /* BottomPopupModal.swift */,
+				6C0AD4582437718800D59998 /* CrossButton.swift */,
 			);
-			path = Components;
+			name = Components;
+			path = Source/Components;
 			sourceTree = "<group>";
 		};
 		8C6B1BA0159F885281590E2A2A7978B9 /* Custom UI Fields */ = {
@@ -939,6 +940,7 @@
 				02C1E2516F45674A6D89C4E0C29D7A3A /* ColorSchemeObject.swift in Sources */,
 				7C63883134580094A02A5E4984456A95 /* Config.swift in Sources */,
 				F4253AE9E8A7226968029B11E9C8BF04 /* Constants.swift in Sources */,
+				6C0AD4572437717300D59998 /* BottomPopupModal.swift in Sources */,
 				85FA112F242B65AA00E99C6F /* RespondEvent.swift in Sources */,
 				48442E21CC87EC573D3E890592987FD8 /* Cotter-dummy.m in Sources */,
 				6CADD56C242AB62F00E1B475 /* UserInfo.swift in Sources */,
@@ -947,7 +949,6 @@
 				850F14012424345D00E84C5E /* KeyStore.swift in Sources */,
 				85FA1136242B8DE200E99C6F /* NonTrusted.swift in Sources */,
 				85FA113B242BDF2300E99C6F /* QRScannerViewController.swift in Sources */,
-				85FA112D242A44F600E99C6F /* BasicButton.swift in Sources */,
 				C1093B158F8E342D9329864D5C59BB30 /* CotterAPIService.swift in Sources */,
 				BEAC366F351B347DF7555DAE5881A7DE /* CotterClient.swift in Sources */,
 				E2478ABB94F0D7EDC324E06CCC0902F2 /* CotterError.swift in Sources */,
@@ -955,7 +956,6 @@
 				6CADD569242AABAF00E1B475 /* VerifyPINResetCode.swift in Sources */,
 				6CB7A95C24280D1B009E36C3 /* ResetNewPINViewController.swift in Sources */,
 				B3B1CAB43A9D605F6BEC7E531F915152 /* CotterStrings.swift in Sources */,
-				85FA1139242B90AC00E99C6F /* CrossButton.swift in Sources */,
 				20D506D852A2AFDAD41F87C13304CE0D /* CreateAuthenticationEvent.swift in Sources */,
 				6CB7A94A2411F698009E36C3 /* UIViewController.swift in Sources */,
 				6CB7A96024280D74009E36C3 /* ResetPINFinalViewController.swift in Sources */,
@@ -969,12 +969,14 @@
 				0325F5C05C2A339C5B4CCD8B40E31957 /* GetUser.swift in Sources */,
 				6249024EB52A0024CE0A94882BCC78D6 /* HTTPCallback.swift in Sources */,
 				AF1B494350AA2BE632FD8F1BE0D32E49 /* Identity.swift in Sources */,
+				6C0AD4552437707000D59998 /* BasicButton.swift in Sources */,
 				69CECE6E5EB4CB50469FC8300C01E29E /* ImageKey.swift in Sources */,
 				91B9C4F31FC72B513EB2EE5BC96C3E99 /* ImageObject.swift in Sources */,
 				85FA110A2424826E00E99C6F /* EnrollTrustedDevice.swift in Sources */,
 				850F13FA2423CD6A00E84C5E /* GetTrustedDeviceStatus.swift in Sources */,
 				E6194925315648284E4F22C98288363C /* Indonesian.swift in Sources */,
 				6CB7A9502424509E009E36C3 /* ResetCodeTextField.swift in Sources */,
+				6C0AD4592437718800D59998 /* CrossButton.swift in Sources */,
 				D8F82AF3B48639EC8C339DE9DCFFD40E /* KeyboardView.swift in Sources */,
 				E81514027E72DFACBADCB84D30E5073F /* LanguageObject.swift in Sources */,
 				D4051248E5200F6314B13192B729104A /* LocalAuthService.swift in Sources */,
@@ -1008,7 +1010,6 @@
 				E48285B5A519A74C58635EB678A53BA1 /* UpdatePINViewController.swift in Sources */,
 				A40A91CE34B50201CD5B8C80ACE2DB12 /* UpdateUserPIN.swift in Sources */,
 				85FA11202429651600E99C6F /* GetEvent.swift in Sources */,
-				85FA113F242BEC5800E99C6F /* BottomPopupModal.swift in Sources */,
 				50EF112F6EA038653259C121A953AB21 /* User.swift in Sources */,
 				6CADD567242AA8DE00E1B475 /* ResetPIN.swift in Sources */,
 				5CD1E155BFCBA997FB9D77AB03591B51 /* Utils.swift in Sources */,

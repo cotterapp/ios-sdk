@@ -31,7 +31,7 @@ class TrustedDevice {
                 }
                 
                 // which means non trusted device is logging in..
-                NonTrusted(vc: self.parentVC, eventID: String(resp.id), cb: cb)
+                _ = NonTrusted(vc: self.parentVC, eventID: String(resp.id), cb: cb)
                 
             case .failure(let err):
                 self.cb("", err)
