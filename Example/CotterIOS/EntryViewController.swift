@@ -79,6 +79,11 @@ class EntryViewController: UIViewController {
         // Uncomment the following to set the colors to something different
         // let colorScheme = ColorSchemeObject(primary: "#355C7D", accent: "#6C5B7B", danger: "#F67280")
         
+        /* User Info Configuration: To enable Reset PIN Process in Transaction Flow, required to pass in name, sending method, etc. for Reset PIN Process */
+        let userName = "Albert"
+        let sendingMethod = "EMAIL" // or PHONE
+        let sendingDestination = "something@gmail.com" // Set user email here
+        
         // Load Cotter View Controller from SDK
         CotterWrapper.cotter = Cotter(
             apiSecretKey: apiSecretKey,
@@ -88,6 +93,9 @@ class EntryViewController: UIViewController {
             // configuration is an optional argument, remove this below and Cotter app will still function properly
             configuration: [
                 "language": langConfig,   // default value is Indonesian()
+                "name": userName,
+                "sendingMethod": sendingMethod, // or PHONE
+                "sendingDestination": sendingDestination,
                 // "colors": colorScheme
             ]
         )

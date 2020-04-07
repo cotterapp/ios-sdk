@@ -48,7 +48,7 @@ public class CotterAPIService {
             location: "unknown",
             timestamp: timestamp,
             authMethod: method,
-            code: nil,
+            code: code,
             approved: true
         )
         
