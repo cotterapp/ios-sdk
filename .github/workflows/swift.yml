@@ -20,6 +20,6 @@ jobs:
       shell: bash
     - name: Build and Test
       run: |
-        set -o pipefail && xcodebuild test -enableCodeCoverage YES -workspace Example/CotterIOS.xcworkspace -scheme Cotter -destination "${destination}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
+        set -o pipefail && xcodebuild test -enableCodeCoverage YES -workspace Example/CotterIOS.xcworkspace -scheme Cotter -destination "${destination}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO | xcpretty --color
       env: 
         destination: ${{ matrix.destination }}
