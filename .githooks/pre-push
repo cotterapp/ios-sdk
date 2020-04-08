@@ -4,5 +4,5 @@ echo "running jazzy..";
 jazzy;
 
 echo "adding commits"
-git add .;
+git add docs/;
 git commit -m "Update docs";
