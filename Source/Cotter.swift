@@ -235,15 +235,3 @@ func transformCb(parent: UIViewController, cb: @escaping FinalAuthCallback) -> F
         cb(token, err)
     }
 }
-
-// TODO: Delete this soon
-extension Cotter {
-    public func clearKeys() {
-        print("clearing keys from Cotter..")
-        do {
-            try KeyStore.trusted.clearKeys()
-        } catch {
-            print(error.localizedDescription)
-        }
-    }
-}
