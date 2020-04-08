@@ -1,0 +1,8 @@
+#!/bin/bash
+
+echo "running jazzy..";
+jazzy;
+
+echo "adding commits"
+git add docs/;
+git commit -m "Update docs";

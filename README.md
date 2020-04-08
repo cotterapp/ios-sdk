@@ -24,6 +24,10 @@ it, simply add the following line to your Podfile:
 pod 'Cotter'
 ```
 
+## Developer Notes:
+
+Please run `make init` after you clone the project. Thanks!
+
 ## Author
 
 - [albertputrapurnama](https://github.com/albertputrapurnama)

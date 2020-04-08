@@ -37,16 +37,24 @@ public class CotterAPIService {
     ) {
         // initialize new client
         let apiClient = self.apiClient()
+
+        // request auth from non trusted device
+        let evt = CotterEventRequest(
+            pubKey: pubKey,
+            userID: userID,
+            issuer: CotterAPIService.shared.apiKeyID,
+            event: event,
+            ipAddr: LocalAuthService.ipAddr ?? "unknown",
+            location: "unknown",
+            timestamp: timestamp,
+            authMethod: method,
+            code: code,
+            approved: true
+        )
         
         // register the user
         let req = CreateAuthenticationEvent(
-            userID: userID,
-            issuer: issuer,
-            event: event,
-            code: code,
-            method: method,
-            pubKey: pubKey,
-            timestamp: timestamp
+            evt: evt
         )
         
         apiClient.send(req) { response in
@@ -100,7 +108,7 @@ public class CotterAPIService {
     ) {
         let internalCb = CotterCallback()
         
-        guard let pubKey = KeyGen.pubKey else {
+        guard let pubKey = KeyStore.biometric.pubKey else {
             internalCb.internalErrorHandler(err: "Unable to attain user's public key!")
             return
         }
@@ -121,7 +129,7 @@ public class CotterAPIService {
     ) {
         let internalCb = CotterCallback()
         
-        guard let pubKey = KeyGen.pubKey else {
+        guard let pubKey = KeyStore.biometric.pubKey else {
             internalCb.internalErrorHandler(err: "Unable to attain user's public key!")
             return
         }
@@ -238,6 +246,309 @@ public class CotterAPIService {
         )
         
         apiClient.send(req, completion: cb)
+    }
+    
+    public func enrollTrustedDevice(
+        userID: String,
+        cb: @escaping ResultCallback<CotterUser>
+    ) {
+        let internalCb = CotterCallback()
+        
+        guard let pubKey = KeyStore.trusted.pubKey else {
+            internalCb.internalErrorHandler(err: "Unable to attain user's public key!")
+            return
+        }
+        
+        let pubKeyBase64 = CryptoUtil.keyToBase64(pubKey: pubKey)
+        
+        let apiClient = self.apiClient()
+        
+        let req = EnrollTrustedDevice(userID: userID, code: pubKeyBase64)
+        apiClient.send(req, completion:cb)
+    }
+    
+    public func getNewEvent(
+        userID: String,
+        cb: @escaping ResultCallback<CotterEvent?>
+    ) {
+        let apiClient = self.apiClient()
+        
+        let req = GetNewEvent(userID: userID)
+        apiClient.send(req, completion:cb)
+    }
+    
+    public func getTrustedDeviceStatus(
+        userID: String,
+        cb: @escaping ResultCallback<EnrolledMethods>
+    ) {
+        let internalCb = CotterCallback()
+        
+        guard let pubKey = KeyStore.trusted.pubKey else {
+            internalCb.internalErrorHandler(err: "Unable to attain user's public key!")
+            return
+        }
+        
+        let pubKeyBase64 = CryptoUtil.keyToBase64URL(pubKey: pubKey)
+        
+        let apiClient = self.apiClient()
+        
+        let req = GetTrustedDeviceStatus(userID: userID, pubKey: pubKeyBase64)
+        apiClient.send(req, completion: cb)
+    }
+    
+    public func reqAuth(
+        userID:String,
+        event:String,
+        cb: @escaping ResultCallback<CotterEvent>
+    ) {
+        let timestamp = String(format:"%.0f",NSDate().timeIntervalSince1970.rounded())
+        
+        let internalCb = CotterCallback()
+        
+        // TODO: NEED TO HAVE KeyGen FOR TrustedDevices
+        guard let privKey = KeyStore.trusted.privKey else {
+            internalCb.internalErrorHandler(err: "Unable to attain user's private key!")
+            return
+        }
+        
+        guard let pubKey = KeyStore.trusted.pubKey else {
+            internalCb.internalErrorHandler(err: "Unable to attain user's public key!")
+            return
+        }
+        
+        let pubKeyBase64 = CryptoUtil.keyToBase64(pubKey: pubKey)
+        print("current pubKey: \(pubKeyBase64)")
+        
+        
+        // get the trusted device status first
+        func innerCb(response: CotterResult<EnrolledMethods>) {
+            let method = CotterConstants.MethodTrustedDevice
+            
+            switch response {
+            case .success(let resp):
+                // initialize new client
+                let apiClient = self.apiClient()
+                
+                // authorize device. But also send authorization approval
+                if resp.enrolled && resp.method == method {
+                    print("[reqAuth] enrolled on trusted device")
+                    
+                    // authorize device, create approved event request
+                    let msg = "\(userID)\(CotterAPIService.shared.apiKeyID)\(event)\(timestamp)\(method)true"
+                    let code = CryptoUtil.signBase64(privKey: privKey, msg: msg)
+                    print("message: \(msg)")
+
+                    // request auth from non trusted device
+                    let evt = CotterEventRequest(
+                        pubKey: pubKeyBase64,
+                        userID: userID,
+                        issuer: CotterAPIService.shared.apiKeyID,
+                        event: event,
+                        ipAddr: LocalAuthService.ipAddr ?? "unknown",
+                        location: "unknown",
+                        timestamp: timestamp,
+                        authMethod: method,
+                        code: code,
+                        approved: true
+                    )
+                    
+                    let req = CreateAuthenticationEvent(
+                        evt: evt
+                    )
+                    
+                    apiClient.send(req) { response in
+                        cb(response)
+                    }
+                    break
+                }
+                // request auth from non trusted device
+                let evt = CotterEventRequest(
+                    pubKey: pubKeyBase64,
+                    userID: userID,
+                    issuer: CotterAPIService.shared.apiKeyID,
+                    event: event,
+                    ipAddr: LocalAuthService.ipAddr ?? "unknown",
+                    location: "unknown",
+                    timestamp: timestamp,
+                    authMethod: method,
+                    code: nil,
+                    approved: false
+                )
+                
+                // register the user
+                let req = CreatePendingEventRequest(
+                    evt: evt
+                )
+                
+                apiClient.send(req) { response in
+                    cb(response)
+                }
+
+            case .failure(let err):
+                // propagates the error
+                cb(.failure(err))
+            }
+        }
+        
+        // Flow of trusted device authentication:
+        // 1. Check if the trusted device auth is enabled
+        // 2. Check if this device is a trusted device
+        // 3. If 1 and 2 passed, then send the authentication approval
+        // 4. Otherwise, create a pending authorization request, or propagate the error
+        self.getTrustedDeviceStatus(userID: userID, cb: innerCb)
+    }
+    
+    public func getEvent(
+        eventID:String,
+        cb: @escaping ResultCallback<CotterEvent>
+    ) {
+        let apiClient = self.apiClient()
+        
+        let req = GetEvent(eventID: eventID)
+        apiClient.send(req, completion:cb)
+    }
+    
+    public func approveEvent(
+        event: CotterEvent,
+        cb: @escaping ResultCallback<CotterEvent>
+    ) {
+        let apiClient = self.apiClient()
+        
+        let internalCb = CotterCallback()
+        
+        guard let privKey = KeyStore.trusted.privKey else {
+            internalCb.internalErrorHandler(err: "Unable to attain user's private key!")
+            return
+        }
+        
+        guard let pubKey = KeyStore.trusted.pubKey else {
+            internalCb.internalErrorHandler(err: "Unable to attain user's public key!")
+            return
+        }
+        
+        let pubKeyBase64 = CryptoUtil.keyToBase64(pubKey: pubKey)
+        
+        // String[] list = {Cotter.getUser(Cotter.authRequest).client_user_id, Cotter.ApiKeyID, event, timestamp, method,
+        // approved + ""};
+        let msg = "\(event.clientUserID)\(CotterAPIService.shared.apiKeyID)\(event.event)\(event.timestamp)\(event.method)true"
+        
+        let signature = CryptoUtil.signBase64(privKey: privKey, msg: msg)
+        
+        
+        let evt = CotterEventRequest(
+            pubKey: pubKeyBase64,
+            userID: event.clientUserID,
+            issuer: CotterAPIService.shared.apiKeyID,
+            event: event.event,
+            ipAddr: event.ip,
+            location: event.location,
+            timestamp: event.timestamp,
+            authMethod: event.method,
+            code: signature,
+            approved: true
+        )
+
+        // register the user
+        let req = RespondEvent(
+            evtID: String(event.id),
+            evt: evt
+        )
+        
+        apiClient.send(req) { response in
+            cb(response)
+        }
+    }
+    
+    public func registerOtherDevice(
+        qrData:String,
+        userID:String,
+        cb: @escaping ResultCallback<CotterEvent>
+    ) {
+        let qrArr = qrData.split(separator: ":")
+        
+        if qrArr.count < 5 {
+            cb(.failure(CotterAPIError.general(message: "QR Code invalid")))
+        }
+        
+        let newPubKey = qrArr[0]
+        let newAlgo = qrArr[1]
+        let newIssuer = qrArr[2]
+        let newUserID = qrArr[3]
+        let newTimestamp = qrArr[4]
+        
+        let timestamp = NSDate().timeIntervalSince1970.rounded()
+        let strTimestamp = String(format:"%.0f", timestamp)
+        guard let castNewTimestamp = Double(newTimestamp) else {
+            print("\(newTimestamp) is not a double")
+            return
+        }
+        
+        // check if the qrData has expired
+        let expiry = 60.0 * 3.0 // 3 minutes expiry
+        if (timestamp - castNewTimestamp)/1000 > expiry {
+            // expired
+            cb(.failure(CotterAPIError.general(message: "QR Code expired")))
+        }
+        
+        let internalCb = CotterCallback()
+        guard let pubKey = KeyStore.trusted.pubKey else {
+            internalCb.internalErrorHandler(err: "Unable to attain user's public key!")
+            return
+        }
+        
+        let pubKeyBase64 = CryptoUtil.keyToBase64(pubKey: pubKey)
+        
+        // check userID
+        if newUserID != userID {
+            cb(.failure(CotterAPIError.general(message: "This QR Code belongs to another user, and cannot be registered for this user.")))
+        }
+        
+        if newIssuer != CotterAPIService.shared.apiKeyID {
+             cb(.failure(CotterAPIError.general(message: "This QR Code belongs to another app, and cannot be registered for this app.")))
+        }
+        
+        let apiClient = self.apiClient()
+        
+        let event = CotterEvents.EnrollNewTrustedDevice
+        let method = CotterConstants.MethodTrustedDevice
+        
+        guard let privKey = KeyStore.trusted.privKey else {
+            internalCb.internalErrorHandler(err: "Unable to attain user's private key!")
+            return
+        }
+        
+        // String[] list = {Cotter.getUser(Cotter.authRequest).client_user_id, Cotter.ApiKeyID, event, timestamp, method,
+        // approved + ""};
+        let msg = "\(userID)\(CotterAPIService.shared.apiKeyID)\(event)\(strTimestamp)\(method)true\(newPubKey)"
+        
+        let signature = CryptoUtil.signBase64(privKey: privKey, msg: msg)
+        
+        let evt = CotterEventRequest(
+            pubKey: pubKeyBase64,
+            userID: userID,
+            issuer: CotterAPIService.shared.apiKeyID,
+            event: event,
+            ipAddr: LocalAuthService.ipAddr ?? "unknown",
+            location: "unknown",
+            timestamp: strTimestamp,
+            authMethod: method,
+            code: signature,
+            approved: true,
+            registerNewDevice: true,
+            newDevicePublicKey: String(newPubKey),
+            // TODO: get device type and name
+            deviceType: "some device",
+            deviceName: "New Device",
+            newDeviceAlgo: String(newAlgo)
+        )
+        
+        let req = CreateAuthenticationEvent(
+            evt: evt
+        )
+        
+        apiClient.send(req) { response in
+            cb(response)
+        }
     }
 }
 

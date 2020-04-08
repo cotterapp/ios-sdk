@@ -195,6 +195,37 @@ public class Cotter {
     public func setText(for key: String, to value: String) {
         Config.instance.strings.setText(for: key, to: value)
     }
+    
+    // MARK: - Trusted Devices
+    
+    public func loginWithTrustedDevice(
+        vc: UIViewController,
+        cb: @escaping FinalAuthCallback
+    ) {
+        TrustedDevice(vc: vc, cb: cb).login(userID: self.userID)
+    }
+    
+    // getEventTrustedDevice manually fetches any event for a specified userID
+    public func getEventTrustedDevice(
+        vc: UIViewController,
+        cb: @escaping FinalAuthCallback
+    ) {
+        TrustedDevice(vc:vc, cb:cb).checkEvent(userID: self.userID)
+    }
+    
+    public func registerNewDevice(
+        vc: UIViewController,
+        cb: @escaping FinalAuthCallback
+    ) {
+        TrustedDevice(vc:vc, cb:cb).registerDevice(userID: self.userID)
+    }
+    
+    public func scanNewDevice(
+        vc: UIViewController,
+        cb: @escaping FinalAuthCallback
+    ) {
+        TrustedDevice(vc:vc, cb:cb).scanNewDevice(userID: self.userID)
+    }
 }
 
 func transformCb(parent: UIViewController, cb: @escaping FinalAuthCallback) -> FinalAuthCallback {
