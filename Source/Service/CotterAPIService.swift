@@ -296,6 +296,16 @@ public class CotterAPIService {
         apiClient.send(req, completion: cb)
     }
     
+    public func getTrustedDeviceEnrolledAny(
+        userID: String,
+        cb: @escaping ResultCallback<EnrolledMethods>
+    ) {
+        let apiClient = self.apiClient()
+        
+        let req = GetTrustedDeviceEnrolledAny(userID: userID)
+        apiClient.send(req, completion: cb)
+    }
+    
     public func reqAuth(
         userID:String,
         event:String,
@@ -322,7 +332,7 @@ public class CotterAPIService {
         
         // get the trusted device status first
         func innerCb(response: CotterResult<EnrolledMethods>) {
-            let method = CotterConstants.MethodTrustedDevice
+            let method = CotterMethods.TrustedDevice
             
             switch response {
             case .success(let resp):
@@ -338,7 +348,7 @@ public class CotterAPIService {
                     let code = CryptoUtil.signBase64(privKey: privKey, msg: msg)
                     print("message: \(msg)")
 
-                    // request auth from non trusted device
+                    // request auth from trusted device
                     let evt = CotterEventRequest(
                         pubKey: pubKeyBase64,
                         userID: userID,
@@ -510,7 +520,7 @@ public class CotterAPIService {
         let apiClient = self.apiClient()
         
         let event = CotterEvents.EnrollNewTrustedDevice
-        let method = CotterConstants.MethodTrustedDevice
+        let method = CotterMethods.TrustedDevice
         
         guard let privKey = KeyStore.trusted.privKey else {
             internalCb.internalErrorHandler(err: "Unable to attain user's private key!")
@@ -549,6 +559,39 @@ public class CotterAPIService {
         apiClient.send(req) { response in
             cb(response)
         }
+    }
+    
+    public func removeTrustedDeviceStatus(
+        userID: String,
+        cb: @escaping ResultCallback<CotterUser>
+    ) {
+        let internalCb = CotterCallback()
+        
+        guard let pubKey = KeyStore.trusted.pubKey else {
+            internalCb.internalErrorHandler(err: "Unable to attain user's public key!")
+            return
+        }
+        
+        let pubKeyBase64 = CryptoUtil.keyToBase64(pubKey: pubKey)
+        
+        func innerCb(response: CotterResult<EnrolledMethods>) {
+            switch response {
+            case .success(let resp):
+                if resp.enrolled && resp.method == CotterMethods.TrustedDevice {
+                    let apiClient = self.apiClient()
+                    
+                    let req = RemoveTrustedDeviceStatus(userID: userID, pubKey: pubKeyBase64)
+                    apiClient.send(req, completion: cb)
+                }
+                // else, device is not enrolled in TD, propogate the error
+                cb(.failure(CotterError.trustedDevice("Device not enrolled in Trusted Device feature")))
+            case .failure(let err):
+                // propogates the error
+                cb(.failure(err))
+            }
+        }
+        
+        self.getTrustedDeviceStatus(userID: userID, cb: innerCb)
     }
 }
 

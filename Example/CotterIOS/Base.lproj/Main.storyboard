@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="LXs-oP-w5Y">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="LXs-oP-w5Y">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -492,7 +492,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="5tp-Qm-JUv">
-                                <rect key="frame" x="40" y="256.5" width="334" height="295"/>
+                                <rect key="frame" x="40" y="196.5" width="334" height="415"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tRc-Fc-yMj">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="20.5"/>
@@ -557,8 +557,29 @@
                                             <action selector="scanNewDevice:" destination="B9X-jN-7M4" eventType="touchUpInside" id="snO-ds-xi3"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D3e-dC-LPq" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="274.5" width="334" height="30"/>
+                                        <state key="normal" title="Get Current Device TD Status"/>
+                                        <connections>
+                                            <action selector="getCurrentDeviceTrustedStatus:" destination="B9X-jN-7M4" eventType="touchUpInside" id="f5m-O4-dFl"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KWO-5P-yrc" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="314.5" width="334" height="30"/>
+                                        <state key="normal" title="Get User ID TD Status"/>
+                                        <connections>
+                                            <action selector="getUserTDStatus:" destination="B9X-jN-7M4" eventType="touchUpInside" id="QLi-7l-WJu"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fKE-CK-kHq" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="354.5" width="334" height="30"/>
+                                        <state key="normal" title="Remove This Device as Trusted"/>
+                                        <connections>
+                                            <action selector="removeTrustedDevice:" destination="B9X-jN-7M4" eventType="touchUpInside" id="oSI-73-Zzx"/>
+                                        </connections>
+                                    </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c4m-oq-wFt">
-                                        <rect key="frame" x="0.0" y="274.5" width="334" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="394.5" width="334" height="20.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qou-0Z-lYx">
                                                 <rect key="frame" x="0.0" y="0.0" width="334" height="20.5"/>
@@ -608,7 +629,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="wQH-ae-vhR">
-                                <rect key="frame" x="40" y="227" width="334" height="154"/>
+                                <rect key="frame" x="40" y="207" width="334" height="194"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter User ID here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qJf-3e-Mi6">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="34"/>
@@ -622,15 +643,22 @@
                                             <action selector="login:" destination="AgD-eS-bbn" eventType="touchUpInside" id="6rw-Rg-3Uo"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o4D-Wl-Jk0" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vux-rd-T8P" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="84" width="334" height="30"/>
+                                        <state key="normal" title="Enroll Trusted Device for User ID"/>
+                                        <connections>
+                                            <action selector="enrollTrustedDeviceForUser:" destination="AgD-eS-bbn" eventType="touchUpInside" id="m2y-vU-cy1"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o4D-Wl-Jk0" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="124" width="334" height="30"/>
                                         <state key="normal" title="Register"/>
                                         <connections>
                                             <segue destination="csI-Yj-sbH" kind="show" id="c6r-wk-QO6"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4lS-Dz-y4I" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="124" width="334" height="30"/>
+                                        <rect key="frame" x="0.0" y="164" width="334" height="30"/>
                                         <state key="normal" title="Quick Start"/>
                                         <connections>
                                             <action selector="quickStart:" destination="AgD-eS-bbn" eventType="touchUpInside" id="vfL-QD-2T4"/>
@@ -638,29 +666,40 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ktK-oN-H6u">
+                                <rect key="frame" x="207" y="456" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.5" blue="0.069334282809999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="wQH-ae-vhR" firstAttribute="centerX" secondItem="bwU-sW-Ruh" secondAttribute="centerX" id="295-v0-BBP"/>
+                            <constraint firstItem="ktK-oN-H6u" firstAttribute="top" secondItem="wQH-ae-vhR" secondAttribute="bottom" constant="55" id="5gj-Ot-7LV"/>
                             <constraint firstAttribute="trailingMargin" secondItem="wQH-ae-vhR" secondAttribute="trailing" constant="20" id="LFo-oh-gNw"/>
                             <constraint firstItem="fgh-vp-Vpq" firstAttribute="top" secondItem="41k-dP-Lxl" secondAttribute="bottom" constant="50" id="OkH-qQ-YEm"/>
                             <constraint firstItem="fgh-vp-Vpq" firstAttribute="centerX" secondItem="bwU-sW-Ruh" secondAttribute="centerX" id="Pki-VS-Ro1"/>
                             <constraint firstItem="wQH-ae-vhR" firstAttribute="leading" secondItem="bwU-sW-Ruh" secondAttribute="leadingMargin" constant="20" id="qbj-DI-iRJ"/>
+                            <constraint firstItem="ktK-oN-H6u" firstAttribute="centerX" secondItem="bwU-sW-Ruh" secondAttribute="centerX" id="vh3-6D-G0j"/>
                             <constraint firstItem="wQH-ae-vhR" firstAttribute="centerY" secondItem="bwU-sW-Ruh" secondAttribute="centerY" constant="-100" id="zeU-md-DMw"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Kuc-MA-s8T"/>
                     <connections>
+                        <outlet property="enrollTrustedForUserButton" destination="Vux-rd-T8P" id="bWu-0g-aGa"/>
+                        <outlet property="infoLabel" destination="ktK-oN-H6u" id="YiZ-Ji-VTE"/>
+                        <outlet property="loginButton" destination="1f8-a0-dIx" id="QA9-ef-8j0"/>
                         <outlet property="textField" destination="qJf-3e-Mi6" id="Kbk-eR-rak"/>
                         <segue destination="vXZ-lx-hvc" kind="show" identifier="segueToHome" id="gIW-er-Y7a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dwx-Xb-bmv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-678" y="41"/>
+            <point key="canvasLocation" x="-678.26086956521749" y="40.848214285714285"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="134-dU-HI6"/>
+        <segue reference="gIW-er-Y7a"/>
     </inferredMetricsTieBreakers>
 </document>

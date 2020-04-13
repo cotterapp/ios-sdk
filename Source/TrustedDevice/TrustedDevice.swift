@@ -38,7 +38,7 @@ class TrustedDevice {
             }
         }
         
-        CotterAPIService.shared.reqAuth(userID: userID, event: "LOGIN", cb: loginCb)
+        CotterAPIService.shared.reqAuth(userID: userID, event: CotterEvents.Login, cb: loginCb)
     }
     
     public func checkEvent(userID:String) {
@@ -74,5 +74,19 @@ class TrustedDevice {
         vc.userID = userID
         
         self.parentVC.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    public func removeDevice(userID: String) {
+        func removeTrustedCb(resp: CotterResult<CotterUser>) {
+            switch resp {
+            case .success(_):
+                print("[removeDevice] Successfully removed this device as a Trusted Device!")
+                cb("Successfully removed this device as a Trusted Device!", nil)
+            case .failure(let err):
+                cb("", err)
+            }
+        }
+        
+        CotterAPIService.shared.removeTrustedDeviceStatus(userID: userID, cb: removeTrustedCb)
     }
 }

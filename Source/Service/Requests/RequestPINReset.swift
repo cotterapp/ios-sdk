@@ -30,7 +30,7 @@ public struct RequestPINReset: APIRequest {
     }
     
     let userID: String
-    let authMethod = CotterConstants.MethodPIN
+    let authMethod = CotterMethods.Pin
     let name: String
     let sendingMethod: String
     let sendingDestination: String

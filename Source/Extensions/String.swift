@@ -10,9 +10,9 @@ import Foundation
 extension String {
     func maskContactInfo(method: String) -> String {
         switch method {
-        case CotterConstants.MethodPhone:
+        case CotterMethods.Phone:
             return maskPhoneNumber(number: self)
-        case CotterConstants.MethodEmail:
+        case CotterMethods.Email:
             return maskEmail(email: self)
         default:
             return self // unmasked

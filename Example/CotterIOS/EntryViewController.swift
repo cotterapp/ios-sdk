@@ -12,6 +12,9 @@ import Cotter
 class EntryViewController: UIViewController {
 
     @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var infoLabel: UILabel!
+    @IBOutlet weak var loginButton: BasicButton!
+    @IBOutlet weak var enrollTrustedForUserButton: BasicButton!
     
     var userID:String {
         set {
@@ -28,7 +31,11 @@ class EntryViewController: UIViewController {
         super.viewDidLoad()
         print("loaded Entry View Controller!")
         // Do any additional setup after loading the view.
-        
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+        view.addGestureRecognizer(tap)
+        self.textField.delegate = self
+        // Check if API KEY is passed
+        self.infoLabel.text = Environment.shared.COTTER_API_KEY_ID ?? "No Key"
         // to set the apiKeyID and apiSecretKey follow this nice tutorial on how to setup xcode env variables
         // https://nshipster.com/launch-arguments-and-environment-variables/
         guard let apiKeyID = Environment.shared.COTTER_API_KEY_ID else {
@@ -121,6 +128,23 @@ class EntryViewController: UIViewController {
         })
     }
     
+    @IBAction func enrollTrustedDeviceForUser(_ sender: Any) {
+        guard let userID = self.textField.text else { return }
+        
+        self.userID = userID
+        
+        CotterAPIService.shared.enrollTrustedDevice(userID: self.userID, cb: { response in
+            switch response {
+            case .success(let user):
+                print("[enrollTrustedDevice] successfully registered existing user \(user.clientUserID): \(user.enrolled)")
+                self.infoLabel.text = "Successfully enrolled Trusted Device for user \(user.clientUserID)!"
+            case .failure(let err):
+                // you can put exhaustive error handling here
+                print(err.localizedDescription)
+            }
+        })
+    }
+    
     @IBAction func quickStart(_ sender: Any) {
         self.userID = randomString(length: 5)
 
@@ -167,6 +191,13 @@ class EntryViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+}
+
+extension EntryViewController : UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
 }
 
 func randomString(length: Int) -> String {

@@ -18,7 +18,7 @@ public struct UpdateBiometricStatus: APIRequest {
     
     public var body: Data? {
         let data: [String: Any] = [
-            "method": "BIOMETRIC",
+            "method": CotterMethods.Biometric,
             "enrolled": self.enroll,
             "code": self.pubKey
         ]
