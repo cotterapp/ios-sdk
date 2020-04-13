@@ -16,6 +16,7 @@ class RegisterTrustedViewController: UIViewController {
     let failImage = CotterImages.instance.getImage(for: VCImageKey.nonTrustedPhoneTapFail)
     
     var userID: String?
+    var cb: FinalAuthCallback?
     
     // set the imageViewSize
     let qrWidth = min(300, UIScreen.main.bounds.width - 120)
@@ -121,6 +122,10 @@ class RegisterTrustedViewController: UIViewController {
                 if resp.enrolled {
                     // handle success
                     self.success()
+                    // call callback func
+                    if let cb = self.cb {
+                        cb("successfully enrolled this device as a trusted device!", nil)
+                    }
                 } else {
                     print("not enrolled as trusted device")
                     if !self.stop {
@@ -131,6 +136,9 @@ class RegisterTrustedViewController: UIViewController {
                     } else {
                         // stop retrying
                         print("stopped retrying")
+                        if let cb = self.cb {
+                            cb("", CotterError.trustedDevice("failed to enroll this device as a trusted device!"))
+                        }
                     }
                 }
             case .failure(let err):

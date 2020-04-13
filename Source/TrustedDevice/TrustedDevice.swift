@@ -65,6 +65,7 @@ class TrustedDevice {
     public func registerDevice(userID: String) {
         let vc = Cotter.cotterStoryboard.instantiateViewController(withIdentifier: "RegisterTrustedViewController") as! RegisterTrustedViewController
         vc.userID = userID
+        vc.cb = cb
         
         self.parentVC.present(vc, animated: true)
     }
