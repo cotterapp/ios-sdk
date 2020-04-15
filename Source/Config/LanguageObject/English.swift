@@ -74,6 +74,24 @@ public class English: LanguageObject {
             UpdateConfirmNewPINViewControllerKey.hidePin: "Hide PIN",
             UpdateConfirmNewPINViewControllerKey.title: "Confirm your new PIN",
             
+            // MARK: - TrustedViewController
+            TrustedViewControllerKey.title: "Are you trying to sign in?",
+            TrustedViewControllerKey.subtitle: "Someone is trying to sign in to your account from another device.",
+            TrustedViewControllerKey.buttonNo: "No, it's not me",
+            TrustedViewControllerKey.buttonYes: "Yes",
+            
+            // MARK: - NonTrusted
+            NonTrustedKey.title: "Approve this login from your phone",
+            NonTrustedKey.subtitle: "A notification is sent to your trusted device to confirm it's you.",
+            
+            // MARK: - QRScannerViewController
+            QRScannerViewControllerKey.title: "Success Registering New Device",
+            QRScannerViewControllerKey.subtitle: "You can now use the new device to access your account without approval",
+            
+            // MARK: - RegisterTrustedViewController
+            RegisterTrustedViewControllerKey.title: "Register this Device",
+            RegisterTrustedViewControllerKey.subtitle: "Please scan this QR Code from a Trusted Device.",
+            
             // MARK: - PIN Error Messages
             PinErrorMessagesKey.incorrectPinConfirmation: "Your PIN doesn't match your previous PIN.",
             PinErrorMessagesKey.badPin: "Your PIN is weak. Please enter a stronger PIN.",

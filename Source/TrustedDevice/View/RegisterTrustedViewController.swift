@@ -7,11 +7,25 @@
 
 import UIKit
 
+public class RegisterTrustedViewControllerKey {
+    // MARK: - Keys for Strings
+    public static let title = "RegisterTrustedViewControllerKey/title"
+    public static let subtitle = "RegisterTrustedViewControllerKey/subtitle"
+}
+
 class RegisterTrustedViewController: UIViewController {
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var subtitleLabel: UILabel!
-    @IBOutlet weak var titleLabel: UILabel!
     
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var subtitleLabel: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
+    
+    typealias VCTextKey = RegisterTrustedViewControllerKey
+    
+    // MARK: - VC Text Definitions
+    let registerTitle = CotterStrings.instance.getText(for: VCTextKey.title)
+    let registerSubtitle = CotterStrings.instance.getText(for: VCTextKey.subtitle)
+    
+    // MARK: - VC Image Definitions
     let successImage = CotterImages.instance.getImage(for: VCImageKey.pinSuccessImg)
     let failImage = CotterImages.instance.getImage(for: VCImageKey.nonTrustedPhoneTapFail)
     
@@ -25,8 +39,14 @@ class RegisterTrustedViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        self.configureTexts()
         self.generateQR()
         self.waitForEnrollment()
+    }
+    
+    private func configureTexts() {
+        titleLabel.text = registerTitle
+        subtitleLabel.text = registerSubtitle
     }
     
     private func generateQR() {
@@ -156,16 +176,6 @@ class RegisterTrustedViewController: UIViewController {
         self.stop = true
         self.fail()
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     @IBAction func close(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)

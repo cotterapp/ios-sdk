@@ -18,6 +18,7 @@ public class ImageObject: NSObject {
         "cotter-failure-x",
         "cotter-fingerprint",
         "cotter-lapis-logo",
+        "cotter-logo",
         "tap_device",
         "warning",
     ]
@@ -31,6 +32,7 @@ public class ImageObject: NSObject {
             // MARK: - VC Image Definitions
             VCImageKey.pinSuccessImg: "cotter-success-check",
             VCImageKey.resetPinSuccessImg: "cotter-success-check",
+            VCImageKey.logo: "cotter-logo",
             VCImageKey.nonTrustedPhoneTap: "tap_device",
             VCImageKey.nonTrustedPhoneTapFail: "warning",
             

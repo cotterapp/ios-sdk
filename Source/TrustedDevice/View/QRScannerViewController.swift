@@ -95,6 +95,7 @@ extension QRScannerView {
         
         captureSession?.startRunning()
     }
+    
     func scanningDidFail() {
         delegate?.qrScanningDidFail()
         captureSession = nil
@@ -122,9 +123,22 @@ extension QRScannerView: AVCaptureMetadataOutputObjectsDelegate {
     
 }
 
+public class QRScannerViewControllerKey {
+    // MARK: - Keys for Strings
+    public static let title = "QRScannerViewControllerKey/title"
+    public static let subtitle = "QRScannerViewControllerKey/subtitle"
+}
+
 class QRScannerViewController: UIViewController, QRScannerViewDelegate {
     @IBOutlet weak var navBarItem: UINavigationBar!
     
+    typealias VCTextKey = QRScannerViewControllerKey
+    
+    // MARK: VC Text Definitions
+    let dialogTitle = CotterStrings.instance.getText(for: VCTextKey.title)
+    let dialogSubtitle = CotterStrings.instance.getText(for: VCTextKey.subtitle)
+    
+    // MARK: - VC Image Definitions
     let successImage = CotterImages.instance.getImage(for: VCImageKey.pinSuccessImg)
     let failImage = CotterImages.instance.getImage(for: VCImageKey.nonTrustedPhoneTapFail)
     
@@ -179,7 +193,7 @@ class QRScannerViewController: UIViewController, QRScannerViewDelegate {
                 if evt.approved {
                     // if successful
                     let img = UIImage(named: successImage, in: Cotter.resourceBundle, compatibleWith: nil)!
-                    let popup = BottomPopupModal(vc: self, img: img, title: "Success Registering New Device", body: "You can now use the new device to access your account without approval")
+                    let popup = BottomPopupModal(vc: self, img: img, title: dialogTitle, body: dialogSubtitle)
                     DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
                         popup.dismiss()
                     }

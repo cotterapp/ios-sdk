@@ -74,6 +74,24 @@ public class Indonesian: LanguageObject {
             UpdateConfirmNewPINViewControllerKey.hidePin: "Sembunyikan",
             UpdateConfirmNewPINViewControllerKey.title: "Masukin PIN baru sekali lagi untuk konfirmasi",
             
+            // MARK: - TrustedViewController
+            TrustedViewControllerKey.title: "Apakah Anda mencoba masuk?",
+            TrustedViewControllerKey.subtitle: "Seseorang mencoba masuk ke akun Anda dari perangkat lain.",
+            TrustedViewControllerKey.buttonNo: "Tidak",
+            TrustedViewControllerKey.buttonYes: "Iya",
+            
+            // MARK: - NonTrusted
+            NonTrustedKey.title: "Setujui login ini dari ponsel Anda",
+            NonTrustedKey.subtitle: "Pemberitahuan dikirim ke perangkat tepercaya Anda untuk mengonfirmasi itu adalah Anda.",
+            
+            // MARK: - QRScannerViewController
+            QRScannerViewControllerKey.title: "Berhasil Mendaftarkan Perangkat Baru",
+            QRScannerViewControllerKey.subtitle: "Anda sekarang dapat menggunakan perangkat baru untuk mengakses akun Anda tanpa persetujuan",
+            
+            // MARK: - RegisterTrustedViewController
+            RegisterTrustedViewControllerKey.title: "Daftarkan Perangkat ini",
+            RegisterTrustedViewControllerKey.subtitle: "Silakan pindai Kode QR ini dari Perangkat Tepercaya.",
+            
             // MARK: - Pin Error Messages
             PinErrorMessagesKey.incorrectPinConfirmation: "Kamu perlu memasukkan PIN yang sama seperti sebelumnya.",
             PinErrorMessagesKey.badPin: "PIN terlalu mudah. Yuk buat PIN baru dengan kombinasi lebih sulit.",

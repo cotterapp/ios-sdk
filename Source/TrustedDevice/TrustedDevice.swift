@@ -63,6 +63,10 @@ class TrustedDevice {
     }
     
     public func registerDevice(userID: String) {
+        // TODO: Before registering, check if this device is already trusted one time.
+        // If so, don't continue with the registration process. Else, if this device is
+        // not trusted, continue with the registration.
+        
         let vc = Cotter.cotterStoryboard.instantiateViewController(withIdentifier: "RegisterTrustedViewController") as! RegisterTrustedViewController
         vc.userID = userID
         vc.cb = cb
@@ -71,6 +75,9 @@ class TrustedDevice {
     }
     
     public func scanNewDevice(userID: String) {
+        // TODO: Before scanning, check that this device is already trusted. If so,
+        // proceed with scanning process. If not, show modal that cannot continue.
+        
         let vc = Cotter.cotterStoryboard.instantiateViewController(withIdentifier: "QRScannerViewController") as! QRScannerViewController
         vc.userID = userID
         

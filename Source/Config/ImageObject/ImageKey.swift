@@ -12,6 +12,7 @@ public class VCImageKey {
     public static let resetPinSuccessImg = "VCImageKey/resetPinSuccessImg"
     public static let nonTrustedPhoneTap = "VCImageKey/nonTrustedPhoneTap"
     public static let nonTrustedPhoneTapFail = "VCImageKey/nonTrustedPhoneTapFail"
+    public static let logo = "VCImageKey/logo"
 }
 
 public class AlertImageKey {
