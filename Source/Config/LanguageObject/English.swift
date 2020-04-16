@@ -92,6 +92,11 @@ public class English: LanguageObject {
             RegisterTrustedViewControllerKey.title: "Register this Device",
             RegisterTrustedViewControllerKey.subtitle: "Please scan this QR Code from a Trusted Device.",
             
+            // MARK: - General Error Messages
+            GeneralErrorMessagesKey.someWentWrong: "Something Went Wrong",
+            GeneralErrorMessagesKey.tryAgainLater: "Please try again later.",
+            GeneralErrorMessagesKey.requestTimeout: "This request timed out. Please try again later.",
+            
             // MARK: - PIN Error Messages
             PinErrorMessagesKey.incorrectPinConfirmation: "Your PIN doesn't match your previous PIN.",
             PinErrorMessagesKey.badPin: "Your PIN is weak. Please enter a stronger PIN.",
@@ -104,6 +109,12 @@ public class English: LanguageObject {
             PinErrorMessagesKey.unableToResetPin: "Unable to continue with Reset PIN Process.",
             PinErrorMessagesKey.networkError: "Please check your internet connection, then try again.",
             PinErrorMessagesKey.apiError: "Internal Server Error. Please contact Customer Support.",
+            
+            // MARK: - Trusted Devices Error Messages
+            TrustedErrorMessagesKey.unableToContinue: "Unable to Continue with Registration Process",
+            TrustedErrorMessagesKey.deviceAlreadyReg: "This device is already registered as a Trusted Device!",
+            TrustedErrorMessagesKey.deviceNotReg: "This device is not registered as a Trusted Device! Scanning must be done from a Trusted Device.",
+            TrustedErrorMessagesKey.unableToReg: "Unable to Register New Device",
             
             // MARK: - Navigate Back Alert
             AuthAlertMessagesKey.navBackTitle: "Are you sure you don't want to setup PIN?",

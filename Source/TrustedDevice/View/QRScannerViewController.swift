@@ -137,6 +137,8 @@ class QRScannerViewController: UIViewController, QRScannerViewDelegate {
     // MARK: VC Text Definitions
     let dialogTitle = CotterStrings.instance.getText(for: VCTextKey.title)
     let dialogSubtitle = CotterStrings.instance.getText(for: VCTextKey.subtitle)
+    let unableToReg = CotterStrings.instance.getText(for: TrustedErrorMessagesKey.unableToReg)
+    let tryAgainLater = CotterStrings.instance.getText(for: GeneralErrorMessagesKey.tryAgainLater)
     
     // MARK: - VC Image Definitions
     let successImage = CotterImages.instance.getImage(for: VCImageKey.pinSuccessImg)
@@ -175,7 +177,7 @@ class QRScannerViewController: UIViewController, QRScannerViewDelegate {
     */
     func qrScanningDidFail() {
         let img = UIImage(named: failImage, in: Cotter.resourceBundle, compatibleWith: nil)!
-        let popup = BottomPopupModal(vc: self, img: img, title: "Unable to Register New Device", body: "Please try again later.")
+        let popup = BottomPopupModal(vc: self, img: img, title: unableToReg, body: tryAgainLater)
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
             popup.dismiss()
             self.close()

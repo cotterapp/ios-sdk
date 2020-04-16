@@ -24,6 +24,8 @@ class RegisterTrustedViewController: UIViewController {
     // MARK: - VC Text Definitions
     let registerTitle = CotterStrings.instance.getText(for: VCTextKey.title)
     let registerSubtitle = CotterStrings.instance.getText(for: VCTextKey.subtitle)
+    let somethingWentWrong = CotterStrings.instance.getText(for: GeneralErrorMessagesKey.someWentWrong)
+    let reqTimeout = CotterStrings.instance.getText(for: GeneralErrorMessagesKey.requestTimeout)
     
     // MARK: - VC Image Definitions
     let successImage = CotterImages.instance.getImage(for: VCImageKey.pinSuccessImg)
@@ -98,8 +100,8 @@ class RegisterTrustedViewController: UIViewController {
     private func fail() {
         self.imageView.image = UIImage(named: failImage, in: Cotter.resourceBundle, compatibleWith: nil)
         
-        self.titleLabel.text = "Something Went Wrong"
-        self.subtitleLabel.text = "This request timed out. Please try again later."
+        self.titleLabel.text = somethingWentWrong
+        self.subtitleLabel.text = reqTimeout
         
         // remove all previous Constraints
         self.imageView.removeConstraints(self.imageView.constraints)
