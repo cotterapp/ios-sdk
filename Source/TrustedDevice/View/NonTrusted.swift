@@ -8,6 +8,11 @@
 import UIKit
 import Foundation
 
+public class NonTrustedKey {
+    public static let title = "NonTrustedKey/title"
+    public static let subtitle = "NonTrustedKey/subtitle"
+}
+
 public class NonTrusted {
     var parentVC: UIViewController!
     var eventID: String
@@ -22,6 +27,13 @@ public class NonTrusted {
     let bodyLabel = UILabel()
     let imageView = UIImageView()
     
+    typealias VCTextKey = NonTrustedKey
+    
+    // MARK: - VC Text Definitions
+    let dialogTitle = CotterStrings.instance.getText(for: VCTextKey.title)
+    let dialogSubtitle = CotterStrings.instance.getText(for: VCTextKey.subtitle)
+    
+    // MARK: - VC Image Definitions
     let successImage = CotterImages.instance.getImage(for: VCImageKey.nonTrustedPhoneTap)
     let failImage = CotterImages.instance.getImage(for: VCImageKey.nonTrustedPhoneTapFail)
     
@@ -35,8 +47,8 @@ public class NonTrusted {
         self.popup = BottomPopupModal(
             vc: vc,
             img: UIImage(named: successImage, in: Cotter.resourceBundle, compatibleWith: nil)!,
-            title: "Approve this login from your phone",
-            body: "A notification is sent to your trusted device to confirm it's you"
+            title: dialogTitle,
+            body: dialogSubtitle
         )
         
         self.waitForApproval()
@@ -93,7 +105,7 @@ public class NonTrusted {
             vc: self.parentVC,
             img: UIImage(named: failImage, in: Cotter.resourceBundle, compatibleWith: nil)!,
             title: "Something Went Wrong",
-            body: "We're unable to confirm that it's you. Please try again"
+            body: "We're unable to confirm that it's you. Please try again."
         )
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
             // dismiss 3 seconds later

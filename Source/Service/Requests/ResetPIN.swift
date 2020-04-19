@@ -31,7 +31,7 @@ public struct ResetPIN: APIRequest {
     }
     
     let userID: String
-    let authMethod = CotterConstants.MethodPIN
+    let authMethod = CotterMethods.Pin
     let resetCode: String
     let newCode: String
     let challengeID: Int

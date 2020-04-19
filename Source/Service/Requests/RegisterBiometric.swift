@@ -18,7 +18,7 @@ public struct RegisterBiometric: APIRequest {
 
     public var body: Data? {
         let data: [String:Any] = [
-            "method": "BIOMETRIC",
+            "method": CotterMethods.Biometric,
             "enrolled": true,
             "code": pubKey
         ]

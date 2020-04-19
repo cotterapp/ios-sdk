@@ -226,6 +226,13 @@ public class Cotter {
     ) {
         TrustedDevice(vc:vc, cb:cb).scanNewDevice(userID: self.userID)
     }
+    
+    public func removeTrustedDevice(
+        vc: UIViewController,
+        cb: @escaping FinalAuthCallback
+    ) {
+        TrustedDevice(vc:vc, cb:cb).removeDevice(userID: self.userID)
+    }
 }
 
 func transformCb(parent: UIViewController, cb: @escaping FinalAuthCallback) -> FinalAuthCallback {

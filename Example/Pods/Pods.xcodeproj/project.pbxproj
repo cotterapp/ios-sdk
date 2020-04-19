@@ -49,6 +49,8 @@
 		6C0AD4552437707000D59998 /* BasicButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0AD4542437707000D59998 /* BasicButton.swift */; };
 		6C0AD4572437717300D59998 /* BottomPopupModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0AD4562437717300D59998 /* BottomPopupModal.swift */; };
 		6C0AD4592437718800D59998 /* CrossButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0AD4582437718800D59998 /* CrossButton.swift */; };
+		6C0AD45D2444EAEF00D59998 /* GetTrustedDeviceEnrolledAny.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0AD45C2444EAEF00D59998 /* GetTrustedDeviceEnrolledAny.swift */; };
+		6C0AD45F244519C000D59998 /* RemoveTrustedDeviceStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0AD45E244519C000D59998 /* RemoveTrustedDeviceStatus.swift */; };
 		6CADD563242A96BA00E1B475 /* RequestPINReset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CADD562242A96BA00E1B475 /* RequestPINReset.swift */; };
 		6CADD565242A9EA500E1B475 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CADD564242A9EA500E1B475 /* Response.swift */; };
 		6CADD567242AA8DE00E1B475 /* ResetPIN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CADD566242AA8DE00E1B475 /* ResetPIN.swift */; };
@@ -85,7 +87,7 @@
 		91B9C4F31FC72B513EB2EE5BC96C3E99 /* ImageObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ABDD697266CADC8E6D9D687711DFF9 /* ImageObject.swift */; };
 		944695E96B320187B586F8609A628AB0 /* UpdateCreateNewPINViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B58E6FAA1513DF95A1FC8205483675A /* UpdateCreateNewPINViewController.swift */; };
 		9BB79D1E851BF82A66996BF54D924DDC /* PKCE.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AA310F64E2C0AD33A14CF8E00A05CB /* PKCE.swift */; };
-		9C62429B381B43002CF6ACF51E1BFA65 /* PinErrorMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1F6CECF8AEB3A9F5D96BDA56827D64 /* PinErrorMessages.swift */; };
+		9C62429B381B43002CF6ACF51E1BFA65 /* ErrorMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1F6CECF8AEB3A9F5D96BDA56827D64 /* ErrorMessages.swift */; };
 		A40A91CE34B50201CD5B8C80ACE2DB12 /* UpdateUserPIN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5486CB189E2AA86406D1C9460552FD1D /* UpdateUserPIN.swift */; };
 		AF1B494350AA2BE632FD8F1BE0D32E49 /* Identity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E837F78D917D33979E978731D8BEE9D2 /* Identity.swift */; };
 		B3B1CAB43A9D605F6BEC7E531F915152 /* CotterStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E240D91197FC1DDF0EF08A97A589F876 /* CotterStrings.swift */; };
@@ -180,6 +182,8 @@
 		6C0AD4542437707000D59998 /* BasicButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicButton.swift; sourceTree = "<group>"; };
 		6C0AD4562437717300D59998 /* BottomPopupModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomPopupModal.swift; sourceTree = "<group>"; };
 		6C0AD4582437718800D59998 /* CrossButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossButton.swift; sourceTree = "<group>"; };
+		6C0AD45C2444EAEF00D59998 /* GetTrustedDeviceEnrolledAny.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTrustedDeviceEnrolledAny.swift; sourceTree = "<group>"; };
+		6C0AD45E244519C000D59998 /* RemoveTrustedDeviceStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveTrustedDeviceStatus.swift; sourceTree = "<group>"; };
 		6CADD562242A96BA00E1B475 /* RequestPINReset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestPINReset.swift; sourceTree = "<group>"; };
 		6CADD564242A9EA500E1B475 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		6CADD566242AA8DE00E1B475 /* ResetPIN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPIN.swift; sourceTree = "<group>"; };
@@ -197,7 +201,7 @@
 		765A93DC71E82D652D105AF211772128 /* CreateAuthenticationEvent.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CreateAuthenticationEvent.swift; sourceTree = "<group>"; };
 		79C26CC4FEF18B63B65F788FD8948796 /* Cotter-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Cotter-umbrella.h"; sourceTree = "<group>"; };
 		7AEAACC1782F29D55A924688739A5AF2 /* GetBiometricStatus.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GetBiometricStatus.swift; sourceTree = "<group>"; };
-		7B1F6CECF8AEB3A9F5D96BDA56827D64 /* PinErrorMessages.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PinErrorMessages.swift; sourceTree = "<group>"; };
+		7B1F6CECF8AEB3A9F5D96BDA56827D64 /* ErrorMessages.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ErrorMessages.swift; sourceTree = "<group>"; };
 		7D42FF9053585452676B39E4A37667E0 /* RequestToken.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RequestToken.swift; sourceTree = "<group>"; };
 		7F56943440D570A1BFCA501B667F3264 /* cotter-success-check.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "cotter-success-check.png"; sourceTree = "<group>"; };
 		7F80089DC6E9F6448AB930FBAE50B340 /* cotter-fingerprint.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "cotter-fingerprint.png"; sourceTree = "<group>"; };
@@ -424,6 +428,8 @@
 				85FA11092424826E00E99C6F /* EnrollTrustedDevice.swift */,
 				85FA111F2429651600E99C6F /* GetEvent.swift */,
 				85FA112E242B65AA00E99C6F /* RespondEvent.swift */,
+				6C0AD45C2444EAEF00D59998 /* GetTrustedDeviceEnrolledAny.swift */,
+				6C0AD45E244519C000D59998 /* RemoveTrustedDeviceStatus.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -698,7 +704,7 @@
 				CE951D52DE51892461F9114E58F89D47 /* CotterError.swift */,
 				FF48C8F8CDA0FD6BE7C6D2327B8492BD /* CotterImages.swift */,
 				E240D91197FC1DDF0EF08A97A589F876 /* CotterStrings.swift */,
-				7B1F6CECF8AEB3A9F5D96BDA56827D64 /* PinErrorMessages.swift */,
+				7B1F6CECF8AEB3A9F5D96BDA56827D64 /* ErrorMessages.swift */,
 				14735234662D77DDEC57FDC65B87F585 /* PinStepEnums.swift */,
 				18CE08ABCE9D750F56E6358F8B2C6AFB /* ColorSchemeObject */,
 				707EC93E614120501673530BBC76F56C /* ImageObject */,
@@ -983,12 +989,13 @@
 				DB64226748D8242688FB6A2C2E3E2361 /* OneTimeCodeTextField.swift in Sources */,
 				416066527BF65BBC4818D9CB6A08AA8A /* Passwordless.swift in Sources */,
 				7BCDD5955F1636AC65CF891685201F2B /* PINConfirmViewController.swift in Sources */,
-				9C62429B381B43002CF6ACF51E1BFA65 /* PinErrorMessages.swift in Sources */,
+				9C62429B381B43002CF6ACF51E1BFA65 /* ErrorMessages.swift in Sources */,
 				CA63DCBE022FF5489E105A30E5A2429B /* PINFinalViewController.swift in Sources */,
 				31F80C6016286915E1DF1A3FC127E087 /* PinStepEnums.swift in Sources */,
 				CD2D26DA12B241E9181FF4406B946A21 /* PINViewController.swift in Sources */,
 				85FA1133242B8DB800E99C6F /* RegisterTrustedViewController.swift in Sources */,
 				9BB79D1E851BF82A66996BF54D924DDC /* PKCE.swift in Sources */,
+				6C0AD45D2444EAEF00D59998 /* GetTrustedDeviceEnrolledAny.swift in Sources */,
 				85AD5BB6240D6D8F00AC3367 /* PINBaseController.swift in Sources */,
 				850F13F82423CA7F00E84C5E /* GetNewEvent.swift in Sources */,
 				718E53336BF4EA2202B2AE256C630CB3 /* RegisterBiometric.swift in Sources */,
@@ -1005,6 +1012,7 @@
 				F9AFC0D4286DFF79F604A9F37627DA54 /* UpdateBiometricStatus.swift in Sources */,
 				5B0A9AEA8AA10300E2D1F5669D3DBE91 /* UpdateConfirmNewPINViewController.swift in Sources */,
 				850F13FC2423E6B400E84C5E /* CreatePendingEventRequest.swift in Sources */,
+				6C0AD45F244519C000D59998 /* RemoveTrustedDeviceStatus.swift in Sources */,
 				944695E96B320187B586F8609A628AB0 /* UpdateCreateNewPINViewController.swift in Sources */,
 				85FA1137242B8DE200E99C6F /* TrustedViewController.swift in Sources */,
 				E48285B5A519A74C58635EB678A53BA1 /* UpdatePINViewController.swift in Sources */,

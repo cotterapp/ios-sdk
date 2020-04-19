@@ -95,7 +95,7 @@ class ViewController: UIViewController {
             
             switch response {
             case .success(let resp):
-                let lookFor = CotterConstants.MethodBiometric
+                let lookFor = CotterMethods.Biometric
                 var biometricAvailable = false
                 for method in resp.enrolled {
                     if method == lookFor {

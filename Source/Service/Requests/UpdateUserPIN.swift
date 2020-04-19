@@ -18,7 +18,7 @@ public struct UpdateUserPIN: APIRequest {
     
     public var body: Data? {
         let data: [String: Any] = [
-            "method": "PIN",
+            "method": CotterMethods.Pin,
             "enrolled": true,
             "current_code": self.oldCode,
             "code": self.newCode,

@@ -7,15 +7,32 @@
 
 import UIKit
 
+public class RegisterTrustedViewControllerKey {
+    // MARK: - Keys for Strings
+    public static let title = "RegisterTrustedViewControllerKey/title"
+    public static let subtitle = "RegisterTrustedViewControllerKey/subtitle"
+}
+
 class RegisterTrustedViewController: UIViewController {
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var subtitleLabel: UILabel!
-    @IBOutlet weak var titleLabel: UILabel!
     
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var subtitleLabel: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
+    
+    typealias VCTextKey = RegisterTrustedViewControllerKey
+    
+    // MARK: - VC Text Definitions
+    let registerTitle = CotterStrings.instance.getText(for: VCTextKey.title)
+    let registerSubtitle = CotterStrings.instance.getText(for: VCTextKey.subtitle)
+    let somethingWentWrong = CotterStrings.instance.getText(for: GeneralErrorMessagesKey.someWentWrong)
+    let reqTimeout = CotterStrings.instance.getText(for: GeneralErrorMessagesKey.requestTimeout)
+    
+    // MARK: - VC Image Definitions
     let successImage = CotterImages.instance.getImage(for: VCImageKey.pinSuccessImg)
     let failImage = CotterImages.instance.getImage(for: VCImageKey.nonTrustedPhoneTapFail)
     
     var userID: String?
+    var cb: FinalAuthCallback?
     
     // set the imageViewSize
     let qrWidth = min(300, UIScreen.main.bounds.width - 120)
@@ -24,8 +41,14 @@ class RegisterTrustedViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        self.configureTexts()
         self.generateQR()
         self.waitForEnrollment()
+    }
+    
+    private func configureTexts() {
+        titleLabel.text = registerTitle
+        subtitleLabel.text = registerSubtitle
     }
     
     private func generateQR() {
@@ -77,8 +100,8 @@ class RegisterTrustedViewController: UIViewController {
     private func fail() {
         self.imageView.image = UIImage(named: failImage, in: Cotter.resourceBundle, compatibleWith: nil)
         
-        self.titleLabel.text = "Something Went Wrong"
-        self.subtitleLabel.text = "This request timed out. Please try again later."
+        self.titleLabel.text = somethingWentWrong
+        self.subtitleLabel.text = reqTimeout
         
         // remove all previous Constraints
         self.imageView.removeConstraints(self.imageView.constraints)
@@ -121,6 +144,10 @@ class RegisterTrustedViewController: UIViewController {
                 if resp.enrolled {
                     // handle success
                     self.success()
+                    // call callback func
+                    if let cb = self.cb {
+                        cb("successfully enrolled this device as a trusted device!", nil)
+                    }
                 } else {
                     print("not enrolled as trusted device")
                     if !self.stop {
@@ -131,6 +158,9 @@ class RegisterTrustedViewController: UIViewController {
                     } else {
                         // stop retrying
                         print("stopped retrying")
+                        if let cb = self.cb {
+                            cb("", CotterError.trustedDevice("failed to enroll this device as a trusted device!"))
+                        }
                     }
                 }
             case .failure(let err):
@@ -148,16 +178,6 @@ class RegisterTrustedViewController: UIViewController {
         self.stop = true
         self.fail()
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     @IBAction func close(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)

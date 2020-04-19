@@ -59,7 +59,7 @@ class TransactionPINViewController: UIViewController {
                             self.toggleErrorMsg(msg: "Biometric is incorrect, please use PIN")
                         }
                     }
-                    self.authService.bioAuth(view: self, event: "TRANSACTION", callback: cb)
+                    self.authService.bioAuth(view: self, event: CotterEvents.Transaction, callback: cb)
                 } else {
                     print("Biometric not enrolled")
                 }
@@ -125,7 +125,7 @@ extension TransactionPINViewController : PINBaseController {
             
             // Verify PIN through API
             do {
-                _ = try self.authService.pinAuth(pin: code, event: "TRANSACTION", callback: pinVerificationCallback)
+                _ = try self.authService.pinAuth(pin: code, event: CotterEvents.Transaction, callback: pinVerificationCallback)
             } catch let e {
                 print(e)
                 return false

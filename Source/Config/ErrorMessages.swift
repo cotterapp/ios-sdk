@@ -7,6 +7,12 @@
 
 import Foundation
 
+public class GeneralErrorMessagesKey {
+    static let someWentWrong = "GeneralErrorMessagesKey/someWentWrong"
+    static let tryAgainLater = "GeneralErrorMessagesKey/tryAgainLater"
+    static let requestTimeout = "GeneralErrorMessagesKey/requestTimeout"
+}
+
 public class PinErrorMessagesKey {
     static let incorrectPinConfirmation = "PinErrorMessagesKey/incorrectPinConfirmation"
     static let badPin = "PinErrorMessagesKey/badPin"
@@ -19,4 +25,11 @@ public class PinErrorMessagesKey {
     static let resetPinFailed = "PinErrorMessagesKey/resetPinFailed"
     static let networkError = "PinErrorMessagesKey/networkError"
     static let apiError = "PinErrorMessagesKey/apiError"
+}
+
+public class TrustedErrorMessagesKey {
+    static let unableToContinue = "TrustedErrorMessagesKey/unableToContinue"
+    static let deviceAlreadyReg = "TrustedErrorMessagesKey/deviceAlreadyReg"
+    static let deviceNotReg = "TrustedErrorMessagesKey/deviceNotReg"
+    static let unableToReg = "TrustedErrorMessagesKey/unableToReg"
 }

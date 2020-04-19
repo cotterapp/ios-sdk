@@ -74,6 +74,29 @@ public class Indonesian: LanguageObject {
             UpdateConfirmNewPINViewControllerKey.hidePin: "Sembunyikan",
             UpdateConfirmNewPINViewControllerKey.title: "Masukin PIN baru sekali lagi untuk konfirmasi",
             
+            // MARK: - TrustedViewController
+            TrustedViewControllerKey.title: "Apakah Anda mencoba masuk?",
+            TrustedViewControllerKey.subtitle: "Seseorang mencoba masuk ke akun Anda dari perangkat lain.",
+            TrustedViewControllerKey.buttonNo: "Tidak",
+            TrustedViewControllerKey.buttonYes: "Iya",
+            
+            // MARK: - NonTrusted
+            NonTrustedKey.title: "Setujui login ini dari ponsel Anda",
+            NonTrustedKey.subtitle: "Pemberitahuan dikirim ke perangkat tepercaya Anda untuk mengonfirmasi itu adalah Anda.",
+            
+            // MARK: - QRScannerViewController
+            QRScannerViewControllerKey.title: "Berhasil Mendaftarkan Perangkat Baru",
+            QRScannerViewControllerKey.subtitle: "Anda sekarang dapat menggunakan perangkat baru untuk mengakses akun Anda tanpa persetujuan",
+            
+            // MARK: - RegisterTrustedViewController
+            RegisterTrustedViewControllerKey.title: "Daftarkan Perangkat ini",
+            RegisterTrustedViewControllerKey.subtitle: "Silakan pindai Kode QR ini dari Perangkat Tepercaya.",
+            
+            // MARK: - General Error Messages
+            GeneralErrorMessagesKey.someWentWrong: "Ada Yang Salah",
+            GeneralErrorMessagesKey.tryAgainLater: "Silakan coba lagi nanti.",
+            GeneralErrorMessagesKey.requestTimeout: "Permintaan ini habis waktu. Silakan coba lagi nanti.",
+            
             // MARK: - Pin Error Messages
             PinErrorMessagesKey.incorrectPinConfirmation: "Kamu perlu memasukkan PIN yang sama seperti sebelumnya.",
             PinErrorMessagesKey.badPin: "PIN terlalu mudah. Yuk buat PIN baru dengan kombinasi lebih sulit.",
@@ -86,6 +109,12 @@ public class Indonesian: LanguageObject {
             PinErrorMessagesKey.unableToResetPin: "Tidak dapat melanjutkan dengan Reset Proses PIN.",
             PinErrorMessagesKey.networkError: "Coba periksa koneksi internet, terus coba lagi.",
             PinErrorMessagesKey.apiError: "Kesalahan dalam server. Silahkan hubungi layanan pelanggan.",
+            
+            // MARK: - Trusted Devices Error Messages
+            TrustedErrorMessagesKey.unableToContinue: "Tidak Dapat Melanjutkan dengan Proses Pendaftaran",
+            TrustedErrorMessagesKey.deviceAlreadyReg: "Perangkat ini sudah terdaftar sebagai Perangkat Tepercaya!",
+            TrustedErrorMessagesKey.deviceNotReg: "Perangkat ini tidak terdaftar sebagai Perangkat Tepercaya! Pemindaian harus dilakukan dari Perangkat Tepercaya.",
+            TrustedErrorMessagesKey.unableToReg: "Tidak Dapat Mendaftarkan Perangkat Baru",
             
             // MARK: - Navigate Back Alert
             AuthAlertMessagesKey.navBackTitle: "Yakin tidak Mau Buat PIN Sekarang?",

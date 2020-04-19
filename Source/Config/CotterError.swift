@@ -13,4 +13,5 @@ enum CotterError: Error {
     case biometricVerification
     case auth(String)
     case passwordless(String)
+    case trustedDevice(String)
 }

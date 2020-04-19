@@ -18,7 +18,7 @@ public struct EnrollUserPIN: APIRequest {
     
     public var body: Data? {
         let data: [String: Any] = [
-            "method": "PIN",
+            "method": CotterMethods.Pin,
             "enrolled": true,
             "code": code
         ]

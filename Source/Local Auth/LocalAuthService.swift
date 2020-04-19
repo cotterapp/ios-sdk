@@ -119,7 +119,7 @@ class LocalAuthService: UIViewController {
             issuer:apiclient.apiKeyID,
             event:event,
             code:pin,
-            method:"PIN",
+            method:CotterMethods.Pin,
             cb: httpCb
         )
         
@@ -170,7 +170,7 @@ class LocalAuthService: UIViewController {
                     return
                 }
                 let timestamp = String(format:"%.0f",NSDate().timeIntervalSince1970.rounded())
-                let evtMethod = "BIOMETRIC"
+                let evtMethod = CotterMethods.Biometric
                 let approved = "true"
                 
                 let strToBeSigned = userID + issuer + event + timestamp + evtMethod + approved
@@ -209,7 +209,7 @@ class LocalAuthService: UIViewController {
                     issuer:issuer,
                     event:event,
                     code:strSignature,
-                    method:"BIOMETRIC",
+                    method: CotterMethods.Biometric,
                     pubKey: b64PubKey, // optional
                     timestamp: timestamp, // optional
                     cb: httpCb

@@ -63,7 +63,7 @@ class TrustedDeviceViewController: UIViewController {
         }
         CotterAPIService.shared.reqAuth(
             userID: self.userID,
-            event: "REQUEST_AUTH_MANUAL",
+            event: CotterEvents.RequestAuthManual,
             cb: cb
         )
     }
@@ -114,7 +114,57 @@ class TrustedDeviceViewController: UIViewController {
         
         CotterWrapper.cotter?.scanNewDevice(vc: self, cb: callback)
     }
-
+    
+    @IBAction func getCurrentDeviceTrustedStatus(_ sender: Any) {
+        guard let userID = self.userIDTextField.text else { return }
+        
+        func cb(response: CotterResult<EnrolledMethods>) {
+            switch response {
+            case .success(let resp):
+                if resp.enrolled {
+                    self.textLabel.text = "Current Device enrolled in \(resp.method) feature!"
+                    return
+                }
+                self.textLabel.text = "Current Device not enrolled in \(resp.method) feature!"
+            case .failure(let err):
+                self.textLabel.text = err.localizedDescription
+            }
+        }
+        
+        CotterAPIService.shared.getTrustedDeviceStatus(userID: userID, cb: cb)
+    }
+    
+    @IBAction func getUserTDStatus(_ sender: Any) {
+        guard let userID = self.userIDTextField.text else { return }
+        
+        func cb(response: CotterResult<EnrolledMethods>) {
+            switch response {
+            case .success(let resp):
+                if resp.enrolled {
+                    self.textLabel.text = "User Account \(userID) enrolled in \(resp.method) feature!"
+                    return
+                }
+                self.textLabel.text = "User Account \(userID) not enrolled in \(resp.method) feature!"
+            case .failure(let err):
+                self.textLabel.text = err.localizedDescription
+            }
+        }
+        
+        CotterAPIService.shared.getTrustedDeviceEnrolledAny(userID: userID, cb: cb)
+    }
+    
+    @IBAction func removeTrustedDevice(_ sender: Any) {
+        func callback(token: String, err: Error?) {
+            if err != nil {
+                self.textLabel.text = err?.localizedDescription
+                return
+            }
+            self.textLabel.text = token
+        }
+        
+        CotterWrapper.cotter?.removeTrustedDevice(vc: self, cb: callback)
+    }
+    
     //Calls this function when the tap is recognized.
     @objc func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
