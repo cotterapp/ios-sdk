@@ -18,11 +18,7 @@ public class PINConfirmViewControllerKey {
 // MARK: - Presenter Protocol delegated UI-related logic
 protocol PINConfirmViewPresenter {
     func onViewLoaded()
-    func onClickPinVis()
-    func onToggleErrorMsg()
-    func onInstantiateCodeTextFieldFunctions()
-    func onAddConfigs()
-    func onAddDelegates()
+    func onClickPinVis(button: UIButton)
 }
 
 // MARK: - Properties of PINConfirmViewController
@@ -37,16 +33,20 @@ struct PINConfirmViewProps {
     let dangerColor: UIColor
 }
 
-// MARK: - Component Protocol delegated to render props
+// MARK: - Components of PINConfirmViewController
 protocol PINConfirmViewComponent: AnyObject {
+    func setupUI()
+    func setupDelegates()
     func render(_ props: PINConfirmViewProps)
+    func togglePinVisibility(button: UIButton, showPinText: String, hidePinText: String)
 }
 
-class PINConfirmViewController : UIViewController {
-    // prevCode should be passed from the previous (PINView) controller
-    var prevCode: String?
+// MARK: - PINConfirmViewPresenter Implementation
+class PINConfirmViewPresenterImpl: PINConfirmViewPresenter {
     
     typealias VCTextKey = PINConfirmViewControllerKey
+    
+    weak var viewController: PINConfirmViewComponent!
     
     let props: PINConfirmViewProps = {
         // MARK: - VC Text Definitions
@@ -63,6 +63,25 @@ class PINConfirmViewController : UIViewController {
         return PINConfirmViewProps(navTitle: navTitle, showPinText: showPinText, hidePinText: hidePinText, title: title, primaryColor: primaryColor, accentColor: accentColor, dangerColor: dangerColor)
     }()
     
+    init(_ viewController: PINConfirmViewController) {
+        self.viewController = viewController
+    }
+    
+    func onViewLoaded() {
+        viewController.setupUI()
+        viewController.setupDelegates()
+        viewController.render(props)
+    }
+    
+    func onClickPinVis(button: UIButton) {
+        viewController.togglePinVisibility(button: button, showPinText: props.showPinText, hidePinText: props.hidePinText)
+    }
+}
+
+class PINConfirmViewController : UIViewController {
+    // prevCode should be passed from the previous (PINView) controller
+    var prevCode: String?
+    
     // Code Text Field
     @IBOutlet weak var codeTextField: OneTimeCodeTextField!
     
@@ -74,7 +93,7 @@ class PINConfirmViewController : UIViewController {
     
     @IBOutlet weak var keyboardView: KeyboardView!
     
-    var presenter: PINConfirmViewPresenter?
+    lazy var presenter: PINConfirmViewPresenter = PINConfirmViewPresenterImpl(self)
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,23 +101,12 @@ class PINConfirmViewController : UIViewController {
         print("loaded PIN Confirmation View!")
         
         // Set-up
-        addConfigs()
-        addDelegates()
+        presenter.onViewLoaded()
         instantiateCodeTextFieldFunctions()
-        render(props)
-        
-        presenter?.onViewLoaded()
     }
     
     @IBAction func onClickPinVis(_ sender: UIButton) {
-        codeTextField.togglePinVisibility()
-        if sender.title(for: .normal) == props.showPinText {
-            sender.setTitle(props.hidePinText, for: .normal)
-        } else {
-            sender.setTitle(props.showPinText, for: .normal)
-        }
-        
-        presenter?.onClickPinVis()
+        presenter.onClickPinVis(button: sender)
     }
     
     func toggleErrorMsg(msg: String?) {
@@ -106,8 +114,6 @@ class PINConfirmViewController : UIViewController {
         if !errorLabel.isHidden {
             errorLabel.text = msg
         }
-        
-        presenter?.onToggleErrorMsg()
     }
 }
 
@@ -168,11 +174,12 @@ extension PINConfirmViewController : PINBaseController {
             
             return true
         }
-        
-        presenter?.onInstantiateCodeTextFieldFunctions()
     }
-  
-    func addConfigs() {
+}
+
+// MARK: - PINConfirmViewComponent Render
+extension PINConfirmViewController: PINConfirmViewComponent {
+    func setupUI() {
         self.navigationItem.hidesBackButton = true
         let backButton = UIBarButtonItem(title: "\u{2190}", style: UIBarButtonItem.Style.plain, target: self, action: #selector(navigateBack(sender:)))
         backButton.tintColor = UIColor.black
@@ -185,29 +192,31 @@ extension PINConfirmViewController : PINBaseController {
         errorLabel.isHidden = true
         
         codeTextField.configure()
-        
-        presenter?.onAddConfigs()
-    }
-    
-    func addDelegates() {
-        self.keyboardView.delegate = self
-        
-        presenter?.onAddDelegates()
     }
     
     @objc private func navigateBack(sender: UIBarButtonItem) {
         self.navigationController?.popViewController(animated: true)
     }
-}
-
-// MARK: - PINConfirmViewComponent Render
-extension PINConfirmViewController : PINConfirmViewComponent {
+    
+    func setupDelegates() {
+        self.keyboardView.delegate = self
+    }
+    
     func render(_ props: PINConfirmViewProps) {
         navigationItem.title = props.navTitle
         titleLabel.text = props.title
         pinVisibilityButton.setTitle(props.showPinText, for: .normal)
         pinVisibilityButton.setTitleColor(props.primaryColor, for: .normal)
         errorLabel.textColor = props.dangerColor
+    }
+    
+    func togglePinVisibility(button: UIButton, showPinText: String, hidePinText: String) {
+        codeTextField.togglePinVisibility()
+        if button.title(for: .normal) == showPinText {
+            button.setTitle(hidePinText, for: .normal)
+        } else {
+            button.setTitle(showPinText, for: .normal)
+        }
     }
 }
 

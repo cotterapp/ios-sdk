@@ -28,10 +28,12 @@ class PINFinalViewControllerTests: XCTestCase {
     
     let presenter = PINFinalViewPresenterMock()
 
-    func makeSUT() -> PINFinalViewController {
+    func makeSUT(actualPresenter: Bool = false) -> PINFinalViewController {
         let storyboard = UIStoryboard(name: "Cotter", bundle: Cotter.resourceBundle)
         let sut = storyboard.instantiateViewController(identifier: "PINFinalViewController") as! PINFinalViewController
-        sut.presenter = presenter
+        if !actualPresenter {
+            sut.presenter = presenter
+        }
         sut.loadViewIfNeeded()
         return sut
     }
@@ -47,10 +49,6 @@ class PINFinalViewControllerTests: XCTestCase {
             dangerColor: dangerColor
         )
     }
-    
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
 
     func testViewDidLoadCallsPresenter() {
         let sut = makeSUT()
@@ -58,8 +56,6 @@ class PINFinalViewControllerTests: XCTestCase {
         sut.viewDidLoad()
         
         expect(self.presenter.onViewLoadedCalled).to(beTrue())
-        expect(self.presenter.onConfigureNavCalled).to(beTrue())
-        expect(self.presenter.onConfigureButtonCalled).to(beTrue())
     }
     
     func testOnFinishCallsPresenter() {
@@ -85,7 +81,7 @@ class PINFinalViewControllerTests: XCTestCase {
 
 }
 
-class PINFinalViewPresenterMock : PINFinalViewPresenter {
+class PINFinalViewPresenterMock: PINFinalViewPresenter {
     
     private(set) var onViewLoadedCalled = false
     
@@ -95,19 +91,7 @@ class PINFinalViewPresenterMock : PINFinalViewPresenter {
     
     private(set) var onFinishCalled = false
     
-    func onFinish() {
+    func onFinish(button: UIButton) {
         onFinishCalled = true
-    }
-    
-    private(set) var onConfigureNavCalled = false
-    
-    func onConfigureNav() {
-        onConfigureNavCalled = true
-    }
-    
-    private(set) var onConfigureButtonCalled = false
-    
-    func onConfigureButton() {
-        onConfigureButtonCalled = true
     }
 }

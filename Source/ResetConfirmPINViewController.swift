@@ -7,12 +7,76 @@
 
 import UIKit
 
+// MARK: - Keys for Strings
 public class ResetConfirmPINViewControllerKey {
-    // MARK: - Keys for Strings
     static let navTitle = "ResetConfirmPINViewController/navTitle"
     static let title = "ResetConfirmPINViewController/title"
     static let showPin = "ResetConfirmPINViewController/showPin"
     static let hidePin = "ResetConfirmPINViewController/hidePin"
+}
+
+// MARK: - Presenter Protocol delegated UI-related logic
+protocol ResetConfirmPINViewPresenter {
+    func onViewLoaded()
+    func onClickPinVis(button: UIButton)
+}
+
+// MARK: - Properties of ResetConfirmPINViewController
+struct ResetConfirmPINViewProps {
+    let navTitle: String
+    let title: String
+    let showPinText: String
+    let hidePinText: String
+    
+    let primaryColor: UIColor
+    let accentColor: UIColor
+    let dangerColor: UIColor
+}
+
+// MARK: - Components of ResetConfirmPINViewController
+protocol ResetConfirmPINViewComponent: AnyObject {
+    func setupUI()
+    func setupDelegates()
+    func render(_ props: ResetConfirmPINViewProps)
+    func togglePinVisibility(button: UIButton, showPinText: String, hidePinText: String)
+}
+
+// MARK: - ResetNewPINViewPresenter Implementation
+class ResetConfirmPINViewPresenterImpl: ResetConfirmPINViewPresenter {
+    
+    typealias VCTextKey = ResetConfirmPINViewControllerKey
+    
+    weak var viewController: ResetConfirmPINViewComponent!
+    
+    let props: ResetConfirmPINViewProps = {
+        // MARK: - VC Text Definitions
+        let navTitle = CotterStrings.instance.getText(for: VCTextKey.navTitle)
+        let titleText = CotterStrings.instance.getText(for: VCTextKey.title)
+        let showPinText = CotterStrings.instance.getText(for: VCTextKey.showPin)
+        let hidePinText = CotterStrings.instance.getText(for: VCTextKey.hidePin)
+        
+        // MARK: - VC Color Definitions
+        let primaryColor = Config.instance.colors.primary
+        let accentColor = Config.instance.colors.accent
+        let dangerColor = Config.instance.colors.danger
+        
+        return ResetConfirmPINViewProps(navTitle: navTitle, title: titleText, showPinText: showPinText, hidePinText: hidePinText, primaryColor: primaryColor, accentColor: accentColor, dangerColor: dangerColor)
+    }()
+    
+    init(_ viewController: ResetConfirmPINViewComponent) {
+        self.viewController = viewController
+    }
+    
+    func onViewLoaded() {
+        viewController.setupUI()
+        viewController.setupDelegates()
+        viewController.render(props)
+    }
+    
+    func onClickPinVis(button: UIButton) {
+        viewController.togglePinVisibility(button: button, showPinText: props.showPinText, hidePinText: props.hidePinText)
+    }
+    
 }
 
 class ResetConfirmPINViewController: UIViewController {
@@ -20,12 +84,6 @@ class ResetConfirmPINViewController: UIViewController {
     var prevCode: String?
     
     typealias VCTextKey = ResetConfirmPINViewControllerKey
-    
-    // MARK: - VC Text Definitions
-    let navTitle = CotterStrings.instance.getText(for: VCTextKey.navTitle)
-    let titleText = CotterStrings.instance.getText(for: VCTextKey.title)
-    let showPinText = CotterStrings.instance.getText(for: VCTextKey.showPin)
-    let hidePinText = CotterStrings.instance.getText(for: VCTextKey.hidePin)
     
     @IBOutlet weak var titleLabel: UILabel!
     
@@ -37,30 +95,29 @@ class ResetConfirmPINViewController: UIViewController {
     
     @IBOutlet weak var keyboardView: KeyboardView!
     
+    lazy var presenter: ResetConfirmPINViewPresenter = ResetConfirmPINViewPresenterImpl(self)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         print("loaded PIN Reset Confirmation View!")
         
         // Set-up
-        addConfigs()
-        addDelegates()
+        presenter.onViewLoaded()
         instantiateCodeTextFieldFunctions()
     }
     
     @IBAction func onClickPinVis(_ sender: UIButton) {
-        codeTextField.togglePinVisibility()
-        if sender.title(for: .normal) == showPinText {
-            sender.setTitle(hidePinText, for: .normal)
-        } else {
-            sender.setTitle(showPinText, for: .normal)
+        presenter.onClickPinVis(button: sender)
+    }
+    
+    func toggleErrorMsg(msg: String?) {
+        errorLabel.isHidden.toggle()
+        if !errorLabel.isHidden {
+            errorLabel.text = msg
         }
     }
     
-    public override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 }
 
 // MARK: - PINBaseController
@@ -147,8 +204,11 @@ extension ResetConfirmPINViewController : PINBaseController {
             return true
         }
     }
-  
-    func addConfigs() {
+}
+
+// MARK: - ResetConfirmPINViewComponent Instantiations
+extension ResetConfirmPINViewController: ResetConfirmPINViewComponent {
+    func setupUI() {
         self.navigationItem.hidesBackButton = true
         let backButton = UIBarButtonItem(title: "\u{2190}", style: UIBarButtonItem.Style.plain, target: self, action: #selector(navigateBack(sender:)))
         backButton.tintColor = UIColor.black
@@ -158,41 +218,36 @@ extension ResetConfirmPINViewController : PINBaseController {
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.layoutIfNeeded()
         
-        codeTextField.configure()
-        configureText()
-        configureErrorLabel()
-        configureButtons()
-    }
-    
-    func addDelegates() {
-        self.keyboardView.delegate = self
-    }
-    
-    func configureText() {
-        self.navigationItem.title = navTitle
-        self.titleLabel.text = titleText
-    }
-    
-    func configureButtons() {
-        pinVisibilityButton.setTitle(showPinText, for: .normal)
-        pinVisibilityButton.setTitleColor(Config.instance.colors.primary, for: .normal)
-    }
-    
-    func configureErrorLabel() {
         errorLabel.isHidden = true
-        errorLabel.textColor = Config.instance.colors.danger
-    }
-    
-    func toggleErrorMsg(msg: String?) {
-        errorLabel.isHidden.toggle()
-        if !errorLabel.isHidden {
-            errorLabel.text = msg
-        }
+        
+        codeTextField.configure()
     }
     
     @objc private func navigateBack(sender: UIBarButtonItem) {
         self.navigationController?.popViewController(animated: true)
     }
+    
+    func setupDelegates() {
+        self.keyboardView.delegate = self
+    }
+    
+    func render(_ props: ResetConfirmPINViewProps) {
+        navigationItem.title = props.navTitle
+        titleLabel.text = props.title
+        pinVisibilityButton.setTitle(props.showPinText, for: .normal)
+        pinVisibilityButton.setTitleColor(props.primaryColor, for: .normal)
+        errorLabel.textColor = props.dangerColor
+    }
+    
+    func togglePinVisibility(button: UIButton, showPinText: String, hidePinText: String) {
+        codeTextField.togglePinVisibility()
+        if button.title(for: .normal) == showPinText {
+            button.setTitle(hidePinText, for: .normal)
+        } else {
+            button.setTitle(showPinText, for: .normal)
+        }
+    }
+    
 }
 
 // MARK: - KeyboardViewDelegate

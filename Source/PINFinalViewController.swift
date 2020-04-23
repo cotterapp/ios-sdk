@@ -18,9 +18,7 @@ public class PINFinalViewControllerKey {
 // MARK: - Presenter Protocol delegated UI-related logic
 protocol PINFinalViewPresenter {
     func onViewLoaded()
-    func onFinish()
-    func onConfigureNav()
-    func onConfigureButton()
+    func onFinish(button: UIButton)
 }
 
 // MARK: - Properties of PINViewController
@@ -35,14 +33,19 @@ struct PINFinalViewProps {
     let dangerColor: UIColor
 }
 
-// MARK: - Component Protocol delegated to render props
-protocol PINFinalViewComponent : AnyObject {
+// MARK: - Components of PINFinalViewController
+protocol PINFinalViewComponent: AnyObject {
+    func setupUI()
     func render(_ props: PINFinalViewProps)
+    func didFinish(button: UIButton)
 }
 
-class PINFinalViewController: UIViewController {
+// MARK: - PINFinalViewPresenter Implementation
+class PINFinalViewPresenterImpl: PINFinalViewPresenter {
     
     typealias VCTextKey = PINFinalViewControllerKey
+    
+    weak var viewController: PINFinalViewComponent!
     
     let props: PINFinalViewProps = {
         // MARK: VC Text Definitions
@@ -61,6 +64,22 @@ class PINFinalViewController: UIViewController {
         return PINFinalViewProps(title: successTitle, subtitle: successSubtitle, buttonTitle: successButtonTitle, successImage: successImage, primaryColor: primaryColor, accentColor: accentColor, dangerColor: dangerColor)
     }()
     
+    init(_ viewController: PINFinalViewController) {
+        self.viewController = viewController
+    }
+    
+    func onViewLoaded() {
+        viewController.setupUI()
+        viewController.render(props)
+    }
+    
+    func onFinish(button: UIButton) {
+        viewController.didFinish(button: button)
+    }
+}
+
+class PINFinalViewController: UIViewController {
+    
     // Auth Service
     let authService = LocalAuthService()
     
@@ -76,63 +95,44 @@ class PINFinalViewController: UIViewController {
     
     @IBOutlet weak var finishButton: UIButton!
     
-    var presenter: PINFinalViewPresenter?
+    lazy var presenter: PINFinalViewPresenter = PINFinalViewPresenterImpl(self)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("loaded PIN Final View!")
         
         // Set-up
-        configureNav()
-        configureButton()
-        render(props)
-        
-        presenter?.onViewLoaded()
+        presenter.onViewLoaded()
     }
     
     @IBAction func finish(_ sender: UIButton) {
-        // set access token or return values here
-        if requireAuth {
-            // Touch ID/Face ID Verification
-            authService.authenticate(view: self, reason: "Verification", callback: Config.instance.pinEnrollmentCb)
-        } else {
-             Config.instance.updatePINCb("this is token", nil)
-        }
-        
-        presenter?.onFinish()
+        presenter.onFinish(button: sender)
     }
 }
 
-// MARK: - Private Helper Functions
-extension PINFinalViewController {
-    private func configureNav() {
+// MARK: - PINFinalViewComponent Render
+extension PINFinalViewController: PINFinalViewComponent {
+    func setupUI() {
+        // Remove Navigational UI
         self.navigationItem.hidesBackButton = true
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.layoutIfNeeded()
         
-        presenter?.onConfigureNav()
-    }
-    
-    private func configureButton() {
+        // Button Configuration
         let color = UIColor(red: 0.8588, green: 0.8588, blue: 0.8588, alpha: 1.0)
         let width = CGFloat(2.0)
-        finishButton.setTitleColor(Config.instance.colors.primary, for: .normal)
         finishButton.backgroundColor = UIColor.clear
         finishButton.layer.cornerRadius = 10
         finishButton.layer.borderWidth = width
         finishButton.layer.borderColor = color.cgColor
-        
-        presenter?.onConfigureButton()
     }
-}
-
-// MARK: - PINFinalViewComponent Render
-extension PINFinalViewController : PINFinalViewComponent {
+    
     func render(_ props: PINFinalViewProps) {
         successLabel.text = props.title
         successSubLabel.text = props.subtitle
         finishButton.setTitle(props.buttonTitle, for: .normal)
+        finishButton.setTitleColor(props.primaryColor, for: .normal)
         
         let cotterImages = ImageObject.defaultImages
         if cotterImages.contains(props.successImage) {
@@ -142,5 +142,15 @@ extension PINFinalViewController : PINFinalViewComponent {
             imageView.image = UIImage(named: props.successImage, in: Bundle.main, compatibleWith: nil)
         }
         imagePath = props.successImage
+    }
+    
+    func didFinish(button: UIButton) {
+        // set access token or return values here
+        if requireAuth {
+            // Touch ID/Face ID Verification
+            authService.authenticate(view: self, reason: "Verification", callback: Config.instance.pinEnrollmentCb)
+        } else {
+             Config.instance.updatePINCb("this is token", nil)
+        }
     }
 }

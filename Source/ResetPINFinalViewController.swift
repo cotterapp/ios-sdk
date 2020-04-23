@@ -7,27 +7,67 @@
 
 import UIKit
 
+// MARK: - Keys for Strings
 public class ResetPINFinalViewControllerKey {
-    // MARK: - Keys for Strings
     static let title = "ResetPINFinalViewController/title"
+}
+
+// MARK: - Presenter Protocol delegated UI-related logic
+protocol ResetPINFinalViewPresenter {
+    func onViewLoaded()
+}
+
+// MARK: - Properties of ResetPINFinalViewController
+struct ResetPINFinalViewProps {
+    let successTitle: String
+    let successImage: String
+}
+
+// MARK: - Components of ResetPINFinalViewController
+protocol ResetPINFinalViewComponent: AnyObject {
+    func setupUI()
+    func render(_ props: ResetPINFinalViewProps)
+}
+
+// MARK: - ResetPINFinalViewPresenter Implementation
+class ResetPINFinalViewPresenterImpl: ResetPINFinalViewPresenter {
+    
+    typealias VCTextKey = ResetPINFinalViewControllerKey
+    
+    weak var viewController: ResetPINFinalViewComponent!
+    
+    let props: ResetPINFinalViewProps = {
+        // MARK: VC Text Definitions
+        let successTitle = CotterStrings.instance.getText(for: VCTextKey.title)
+        
+        // MARK: - VC Image Definitions
+        let successImage = CotterImages.instance.getImage(for: VCImageKey.resetPinSuccessImg)
+        
+        return ResetPINFinalViewProps(successTitle: successTitle, successImage: successImage)
+    }()
+    
+    init(_ viewController: ResetPINFinalViewController) {
+        self.viewController = viewController
+    }
+    
+    func onViewLoaded() {
+        viewController.setupUI()
+        viewController.render(props)
+    }
+    
 }
 
 class ResetPINFinalViewController: UIViewController {
     
     typealias VCTextKey = ResetPINFinalViewControllerKey
     
-    // MARK: VC Text Definitions
-    let successTitle = CotterStrings.instance.getText(for: VCTextKey.title)
-    
-    // MARK: - VC Image Definitions
-    let successImage = CotterImages.instance.getImage(for: VCImageKey.resetPinSuccessImg)
-    
-    // Auth Service
-    let authService = LocalAuthService()
+    var imagePath: String? = nil
     
     @IBOutlet weak var imageView: UIImageView!
     
     @IBOutlet weak var successLabel: UILabel!
+    
+    lazy var presenter: ResetPINFinalViewPresenter = ResetPINFinalViewPresenterImpl(self)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,44 +75,38 @@ class ResetPINFinalViewController: UIViewController {
         print("loaded Reset PIN Final View!")
         
         // Add Set-up here
-        configureTexts()
-        configureNav()
-        loadImage()
+        presenter.onViewLoaded()
         
         endFlow()
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 }
 
-// MARK: - Private Helper Functions
-extension ResetPINFinalViewController {
-    private func configureTexts() {
-        successLabel.text = successTitle
-    }
-    
-    private func configureNav() {
+// MARK: - ResetPINFinalViewComponent Instantiations
+extension ResetPINFinalViewController: ResetPINFinalViewComponent {
+    func setupUI() {
         self.navigationItem.hidesBackButton = true
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.layoutIfNeeded()
     }
     
-    private func loadImage() {
+    func render(_ props: ResetPINFinalViewProps) {
+        successLabel.text = props.successTitle
+        
         let cotterImages = ImageObject.defaultImages
-        
-        guard !cotterImages.contains(successImage) else {
-            print("Using Default Image...")
-            imageView.image = UIImage(named: successImage, in: Cotter.resourceBundle, compatibleWith: nil)
-            return
+        if cotterImages.contains(props.successImage) {
+            print("[ResetPINFinalViewController] Using Default Image...")
+            imageView.image = UIImage(named: props.successImage, in: Cotter.resourceBundle, compatibleWith: nil)
+        } else { // User configured their own image
+            imageView.image = UIImage(named: props.successImage, in: Bundle.main, compatibleWith: nil)
         }
-        
-        imageView.image = UIImage(named: successImage, in: Bundle.main, compatibleWith: nil)
+        imagePath = props.successImage
     }
-    
+
+}
+
+// MARK: - Private Helper Functions
+extension ResetPINFinalViewController {
     private func endFlow() {
         // Dismiss VC after 3 seconds, then run callback
         let timer = DispatchTime.now() + 3

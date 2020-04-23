@@ -26,10 +26,12 @@ class PINConfirmViewControllerTests: XCTestCase {
     
     let presenter = PINConfirmViewPresenterMock()
     
-    func makeSUT() -> PINConfirmViewController {
+    func makeSUT(actualPresenter: Bool = false) -> PINConfirmViewController {
         let storyboard = UIStoryboard(name: "Cotter", bundle: Cotter.resourceBundle)
         let sut = storyboard.instantiateViewController(identifier: "PINConfirmViewController") as! PINConfirmViewController
-        sut.presenter = presenter
+        if !actualPresenter {
+            sut.presenter = presenter
+        }
         sut.loadViewIfNeeded()
         return sut
     }
@@ -52,9 +54,6 @@ class PINConfirmViewControllerTests: XCTestCase {
         sut.viewDidLoad()
         
         expect(self.presenter.onViewLoadedCalled).to(beTrue())
-        expect(self.presenter.onAddConfigsCalled).to(beTrue())
-        expect(self.presenter.onAddDelegatesCalled).to(beTrue())
-        expect(self.presenter.onInstantiateCodeTextFieldFunctionsCalled).to(beTrue())
     }
     
     func testOnClickPinVisCallsPresenter() {
@@ -63,14 +62,6 @@ class PINConfirmViewControllerTests: XCTestCase {
         sut.onClickPinVis(.init())
         
         expect(self.presenter.onClickPinVisCalled).to(beTrue())
-    }
-    
-    func testOnToggleErrorMsgCallsPresenter() {
-        let sut = makeSUT()
-        
-        sut.toggleErrorMsg(msg: "")
-        
-        expect(self.presenter.onToggleErrorMsgCalled).to(beTrue())
     }
 
     func testRender() {
@@ -90,7 +81,7 @@ class PINConfirmViewControllerTests: XCTestCase {
     func testOnClickPinVis() {
         let props = setupProps()
         
-        let sut = makeSUT()
+        let sut = makeSUT(actualPresenter: true)
         sut.render(props) // Sets pinVisibilityButton title to be showPinText initially
         
         sut.onClickPinVis(sut.pinVisibilityButton)
@@ -99,7 +90,7 @@ class PINConfirmViewControllerTests: XCTestCase {
     }
     
     func testToggleErrorMsg() {
-        let sut = makeSUT() // errorLabel is hidden initially
+        let sut = makeSUT(actualPresenter: true) // errorLabel is hidden initially
         let msg = "Test Error"
         
         sut.toggleErrorMsg(msg: msg)
@@ -109,7 +100,7 @@ class PINConfirmViewControllerTests: XCTestCase {
     }
 }
 
-class PINConfirmViewPresenterMock : PINConfirmViewPresenter {
+class PINConfirmViewPresenterMock: PINConfirmViewPresenter {
     
     private(set) var onViewLoadedCalled = false
     
@@ -119,31 +110,7 @@ class PINConfirmViewPresenterMock : PINConfirmViewPresenter {
     
     private(set) var onClickPinVisCalled = false
     
-    func onClickPinVis() {
+    func onClickPinVis(button: UIButton) {
         onClickPinVisCalled = true
-    }
-    
-    private(set) var onInstantiateCodeTextFieldFunctionsCalled = false
-    
-    func onInstantiateCodeTextFieldFunctions() {
-        onInstantiateCodeTextFieldFunctionsCalled = true
-    }
-    
-    private(set) var onAddConfigsCalled = false
-    
-    func onAddConfigs() {
-        onAddConfigsCalled = true
-    }
-    
-    private(set) var onAddDelegatesCalled = false
-    
-    func onAddDelegates() {
-        onAddDelegatesCalled = true
-    }
-    
-    private(set) var onToggleErrorMsgCalled = false
-    
-    func onToggleErrorMsg() {
-        onToggleErrorMsgCalled = true
     }
 }

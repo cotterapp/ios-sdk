@@ -7,8 +7,8 @@
 
 import UIKit
 
+// MARK: - Keys for Strings
 public class ResetPINViewControllerKey {
-    // MARK: - Keys for Strings
    static let navTitle = "ResetPINViewController/navTitle"
    static let title = "ResetPINViewController/title"
    static let subtitle = "ResetPINViewController/subtitle"
@@ -16,25 +16,79 @@ public class ResetPINViewControllerKey {
    static let resendEmail = "ResetPINViewController/resendEmail"
 }
 
-class ResetPINViewController: UIViewController {
-    var authService = LocalAuthService()
+// MARK: - Presenter Protocol delegated UI-related logic
+protocol ResetPINViewPresenter {
+    func onViewAppeared()
+    func onViewLoaded()
+    func clickedResendEmail()
+}
+
+// MARK: - Properties of ResetPINViewController
+struct ResetPINViewProps {
+    let navTitle: String
+    let title: String
+    let resetOpeningSub: String
+    let resetFailSub: String
+    let resendEmail: String
+    
+    let primaryColor: UIColor
+    let accentColor: UIColor
+    let dangerColor: UIColor
+}
+
+// MARK: - Components of ResetPINViewController
+protocol ResetPINViewComponent: AnyObject {
+    func setupUI()
+    func setupDelegates()
+    func render(_ props: ResetPINViewProps)
+    func makeResetPinRequest()
+}
+
+// MARK: - ResetPINViewPresenter Implementation
+class ResetPINViewPresenterImpl: ResetPINViewPresenter {
     
     typealias VCTextKey = ResetPINViewControllerKey
     
-    // MARK: - VC Text Definitions
-    let navTitle = CotterStrings.instance.getText(for: VCTextKey.navTitle)
-    let resetTitle = CotterStrings.instance.getText(for: VCTextKey.title)
-    let resetOpeningSub = CotterStrings.instance.getText(for: VCTextKey.subtitle)
-    let resetFailSub = CotterStrings.instance.getText(for: VCTextKey.resetFailSub)
-    let resendEmailText = CotterStrings.instance.getText(for: VCTextKey.resendEmail)
+    weak var viewController: ResetPINViewComponent!
     
-    lazy var resetSubtitle: String = {
-        if let userInfo = Config.instance.userInfo {
-            var maskedSendingDestination = userInfo.sendingDestination.maskContactInfo(method: userInfo.sendingMethod)
-            return "\(resetOpeningSub) \(maskedSendingDestination)"
-        }
-        return resetFailSub
+    let props: ResetPINViewProps = {
+        // MARK: - VC Text Definitions
+        let navTitle = CotterStrings.instance.getText(for: VCTextKey.navTitle)
+        let resetTitle = CotterStrings.instance.getText(for: VCTextKey.title)
+        let resetOpeningSub = CotterStrings.instance.getText(for: VCTextKey.subtitle)
+        let resetFailSub = CotterStrings.instance.getText(for: VCTextKey.resetFailSub)
+        let resendEmailText = CotterStrings.instance.getText(for: VCTextKey.resendEmail)
+        
+        // MARK: - VC Color Definitions
+        let primaryColor = Config.instance.colors.primary
+        let accentColor = Config.instance.colors.accent
+        let dangerColor = Config.instance.colors.danger
+        
+        return ResetPINViewProps(navTitle: navTitle, title: resetTitle, resetOpeningSub: resetOpeningSub, resetFailSub: resetFailSub, resendEmail: resendEmailText, primaryColor: primaryColor, accentColor: accentColor, dangerColor: dangerColor)
     }()
+    
+    init(_ viewController: ResetPINViewComponent) {
+        self.viewController = viewController
+    }
+    
+    func onViewAppeared() {
+        viewController.makeResetPinRequest()
+    }
+    
+    func onViewLoaded() {
+        viewController.setupUI()
+        viewController.setupDelegates()
+        viewController.render(props)
+    }
+    
+    func clickedResendEmail() {
+        viewController.makeResetPinRequest()
+    }
+}
+
+class ResetPINViewController: UIViewController {
+    
+    var authService = LocalAuthService()
     
     @IBOutlet weak var resetPinTitle: UILabel!
     
@@ -48,74 +102,35 @@ class ResetPINViewController: UIViewController {
     
     @IBOutlet weak var keyboardView: KeyboardView!
     
+    lazy var presenter: ResetPINViewPresenter = ResetPINViewPresenterImpl(self)
+    
     override func viewDidAppear(_ animated: Bool) {
-        makeResetPinRequest()
-    }
-    
-    func makeResetPinRequest() {
-        // If no user info, do not continue
-        guard let userInfo = Config.instance.userInfo else {
-            if self.resetPinError.isHidden {
-                self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.unableToResetPin))
-            }
-            return
-        }
-        
-        // Pin Reset Callback
-        func pinResetCb(response: CotterResult<CotterResponseWithChallenge>) {
-            switch response {
-            case .success(let data):
-                if data.success {
-                    // Store the Challenge and Challenge ID
-                    Config.instance.userInfo?.resetChallengeID = data.challengeID
-                    Config.instance.userInfo?.resetChallenge = data.challenge
-                } else {
-                    // Server failed to start reset PIN process
-                    if self.resetPinError.isHidden {
-                        self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.unableToResetPin))
-                    }
-                }
-            case .failure(let err):
-                // we can handle multiple error results here
-                print(err.localizedDescription)
-                
-                // Display Error
-                if self.resetPinError.isHidden {
-                    self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.unableToResetPin))
-                }
-            }
-        }
-        
-        // Request PIN Reset
-        CotterAPIService.shared.requestPINReset(
-            name: userInfo.name,
-            sendingMethod: userInfo.sendingMethod,
-            sendingDestination: userInfo.sendingDestination,
-            cb: pinResetCb
-        )
-    }
-    
-    @IBAction func onClickResendEmail(_ sender: UIButton) {
-        // User requested a new PIN Reset
-        makeResetPinRequest()
+        presenter.onViewAppeared()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
-        addConfigs()
-        addDelegates()
+        print("loaded Reset PIN View!")
+        
+        presenter.onViewLoaded()
         instantiateCodeTextFieldFunctions()
     }
-
-    public override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    @IBAction func onClickResendEmail(_ sender: UIButton) {
+        // User requested a new PIN Reset
+        presenter.clickedResendEmail()
+    }
+    
+    func toggleErrorMsg(msg: String?) {
+        resetPinError.isHidden.toggle()
+        if !resetPinError.isHidden {
+            resetPinError.text = msg
+        }
     }
 }
 
-extension ResetPINViewController {
+extension ResetPINViewController: PINBaseController {
     func instantiateCodeTextFieldFunctions() {
         resetCodeTextField.removeErrorMsg = {
             // Remove error msg if it is present
@@ -173,8 +188,11 @@ extension ResetPINViewController {
             return true
         }
     }
-    
-    func addConfigs() {
+}
+
+// MARK: - ResetPINViewController Instantiations
+extension ResetPINViewController: ResetPINViewComponent {
+    func setupUI() {
         // Implement the Custom Back Button instead of default in Nav Controller
         self.navigationItem.hidesBackButton = true
         
@@ -187,46 +205,83 @@ extension ResetPINViewController {
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.layoutIfNeeded()
         
-        resetCodeTextField.configure()
-        configureText()
-        configureErrorLabel()
-        configureButtons()
-    }
-    
-    func addDelegates() {
-        self.keyboardView.delegate = self
-    }
-    
-    func configureText() {
-        self.navigationItem.title = navTitle
-        self.resetPinTitle.text = resetTitle
-        self.resetPinSubtitle.text = resetSubtitle
-    }
-    
-    func configureErrorLabel() {
         resetPinError.isHidden = true
-        resetPinError.textColor = Config.instance.colors.danger
-    }
-    
-    func configureButtons() {
-        if let _ = Config.instance.userInfo {
-            self.resendEmailButton.setTitle(resendEmailText, for: .normal)
-            self.resendEmailButton.setTitleColor(Config.instance.colors.primary, for: .normal)
-            return
-        }
-        self.resendEmailButton.isEnabled = false
-    }
-    
-    func toggleErrorMsg(msg: String?) {
-        resetPinError.isHidden.toggle()
-        if !resetPinError.isHidden {
-            resetPinError.text = msg
-        }
+        
+        resetCodeTextField.configure()
     }
     
     @objc private func promptClose(sender: UIBarButtonItem) {
         // Go back to previous screen
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    func setupDelegates() {
+        self.keyboardView.delegate = self
+    }
+    
+    func render(_ props: ResetPINViewProps) {
+        navigationItem.title = props.navTitle
+        resetPinTitle.text = props.title
+        resetPinError.textColor = props.dangerColor
+        
+        let subtitle: String = {
+            if let userInfo = Config.instance.userInfo {
+                let maskedSendingDestination = userInfo.sendingDestination.maskContactInfo(method: userInfo.sendingMethod)
+                return "\(props.resetOpeningSub) \(maskedSendingDestination)"
+            }
+            return props.resetFailSub
+        }()
+        resetPinSubtitle.text = subtitle
+        
+        if let _ = Config.instance.userInfo {
+            resendEmailButton.setTitle(props.resendEmail, for: .normal)
+            resendEmailButton.setTitleColor(props.primaryColor, for: .normal)
+        } else {
+            resendEmailButton.isEnabled = false
+        }
+    }
+    
+    func makeResetPinRequest() {
+        // If no user info, do not continue
+        guard let userInfo = Config.instance.userInfo else {
+            if self.resetPinError.isHidden {
+                self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.unableToResetPin))
+            }
+            return
+        }
+        
+        // Pin Reset Callback
+        func pinResetCb(response: CotterResult<CotterResponseWithChallenge>) {
+            switch response {
+            case .success(let data):
+                if data.success {
+                    // Store the Challenge and Challenge ID
+                    Config.instance.userInfo?.resetChallengeID = data.challengeID
+                    Config.instance.userInfo?.resetChallenge = data.challenge
+                } else {
+                    // Server failed to start reset PIN process
+                    if self.resetPinError.isHidden {
+                        self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.unableToResetPin))
+                    }
+                }
+            case .failure(let err):
+                // we can handle multiple error results here
+                print(err.localizedDescription)
+                
+                // Display Error
+                if self.resetPinError.isHidden {
+                    self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.unableToResetPin))
+                }
+            }
+        }
+        
+        // Request PIN Reset
+        CotterAPIService.shared.requestPINReset(
+            name: userInfo.name,
+            sendingMethod: userInfo.sendingMethod,
+            sendingDestination: userInfo.sendingDestination,
+            cb: pinResetCb
+        )
     }
 }
 

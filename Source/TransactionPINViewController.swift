@@ -7,8 +7,8 @@
 
 import UIKit
 
+// MARK: - Keys for Strings
 public class TransactionPINViewControllerKey {
-    // MARK: - Keys for Strings
     static let navTitle = "TransactionPINViewController/navTitle"
     static let title = "TransactionPINViewController/title"
     static let showPin = "TransactionPINViewController/showPin"
@@ -16,19 +16,82 @@ public class TransactionPINViewControllerKey {
     static let forgetPin = "TransactionPINViewController/forgetPin"
 }
 
-class TransactionPINViewController: UIViewController {
-    var authService = LocalAuthService()
-  
+// MARK: - Presenter Protocol delegated UI-related logic
+protocol TransactionPINViewPresenter {
+    func onViewAppeared()
+    func onViewLoaded()
+    func onClickPinVis(button: UIButton)
+}
+
+// MARK: - Properties of TransactionPINViewController
+struct TransactionPINViewProps {
+    let navTitle: String
+    let showPinText: String
+    let hidePinText: String
+    let forgetPinText: String
+    let title: String
+    
+    let primaryColor: UIColor
+    let accentColor: UIColor
+    let dangerColor: UIColor
+}
+
+// MARK: - Components of TransactionPINViewController
+protocol TransactionPINViewComponent: AnyObject {
+    func getBiometricStatus()
+    func setupUI()
+    func setupDelegates()
+    func render(_ props: TransactionPINViewProps)
+    func togglePinVisibility(button: UIButton, showPinText: String, hidePinText: String)
+}
+
+// MARK: - TransactionPINViewPresenter Implementation
+class TransactionPINViewPresenterImpl: TransactionPINViewPresenter {
+    
     typealias VCTextKey = TransactionPINViewControllerKey
     
-    var hideCloseButton: Bool = false
+    weak var viewController: TransactionPINViewComponent!
     
-    // MARK: - VC Text Definitions
-    let navTitle = CotterStrings.instance.getText(for: VCTextKey.navTitle)
-    let showPinText = CotterStrings.instance.getText(for: VCTextKey.showPin)
-    let hidePinText = CotterStrings.instance.getText(for: VCTextKey.hidePin)
-    let forgetPinText = CotterStrings.instance.getText(for: VCTextKey.forgetPin)
-    let titleText = CotterStrings.instance.getText(for: VCTextKey.title)
+    let props: TransactionPINViewProps = {
+        // MARK: - VC Text Definitions
+        let navTitle = CotterStrings.instance.getText(for: VCTextKey.navTitle)
+        let showPinText = CotterStrings.instance.getText(for: VCTextKey.showPin)
+        let hidePinText = CotterStrings.instance.getText(for: VCTextKey.hidePin)
+        let forgetPinText = CotterStrings.instance.getText(for: VCTextKey.forgetPin)
+        let titleText = CotterStrings.instance.getText(for: VCTextKey.title)
+        
+        // MARK: - VC Color Definitions
+        let primaryColor = Config.instance.colors.primary
+        let accentColor = Config.instance.colors.accent
+        let dangerColor = Config.instance.colors.danger
+        
+        return TransactionPINViewProps(navTitle: navTitle, showPinText: showPinText, hidePinText: hidePinText, forgetPinText: forgetPinText, title: titleText, primaryColor: primaryColor, accentColor: accentColor, dangerColor: dangerColor)
+    }()
+    
+    init(_ viewController: TransactionPINViewComponent) {
+        self.viewController = viewController
+    }
+    
+    func onViewAppeared() {
+        viewController.getBiometricStatus()
+    }
+    
+    func onViewLoaded() {
+        viewController.setupUI()
+        viewController.setupDelegates()
+        viewController.render(props)
+    }
+    
+    func onClickPinVis(button: UIButton) {
+        viewController.togglePinVisibility(button: button, showPinText: props.showPinText, hidePinText: props.hidePinText)
+    }
+}
+
+class TransactionPINViewController: UIViewController {
+    
+    var authService = LocalAuthService()
+    
+    var hideCloseButton: Bool = false
     
     @IBOutlet weak var pinVisibilityButton: UIButton!
     
@@ -42,31 +105,13 @@ class TransactionPINViewController: UIViewController {
     
     @IBOutlet weak var forgetPinButton: UIButton!
     
+    lazy var presenter: TransactionPINViewPresenter = TransactionPINViewPresenterImpl(self)
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         print("Transaction PIN View appeared!")
         
-        CotterAPIService.shared.getBiometricStatus(cb: { response in
-            switch response {
-            case .success(let resp):
-                if resp.enrolled {
-                    let onFinishCallback = Config.instance.transactionCb
-                    func cb(success: Bool) {
-                        if success{
-                            onFinishCallback("dummy biometric token", nil)
-                        } else {
-                            print("got here!")
-                            self.toggleErrorMsg(msg: "Biometric is incorrect, please use PIN")
-                        }
-                    }
-                    self.authService.bioAuth(view: self, event: CotterEvents.Transaction, callback: cb)
-                } else {
-                    print("Biometric not enrolled")
-                }
-            case .failure(let err):
-                print(err.localizedDescription)
-            }
-        })
+        presenter.onViewAppeared()
     }
     
     override func viewDidLoad() {
@@ -75,25 +120,20 @@ class TransactionPINViewController: UIViewController {
         print("loaded Transaction PIN View!")
         
         // Set-up
-        addConfigs()
-        addDelegates()
+        presenter.onViewLoaded()
         instantiateCodeTextFieldFunctions()
         setCotterStatusBarStyle()
     }
     
     @IBAction func onClickPinVis(_ sender: UIButton) {
-        codeTextField.togglePinVisibility()
-        if sender.title(for: .normal) == showPinText {
-            sender.setTitle(hidePinText, for: .normal)
-        } else {
-            sender.setTitle(showPinText, for: .normal)
-        }
+        presenter.onClickPinVis(button: sender)
     }
     
-    
-    public override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func toggleErrorMsg(msg: String?) {
+        errorLabel.isHidden.toggle()
+        if !errorLabel.isHidden {
+            errorLabel.text = msg
+        }
     }
 }
 
@@ -137,9 +177,36 @@ extension TransactionPINViewController : PINBaseController {
             return true
         }
     }
+}
+
+// MARK: - TransactionPINViewComponent Instantiations
+extension TransactionPINViewController: TransactionPINViewComponent {
+    func getBiometricStatus() {
+        // Get initial user biometric status
+        CotterAPIService.shared.getBiometricStatus(cb: { response in
+            switch response {
+            case .success(let resp):
+                if resp.enrolled {
+                    let onFinishCallback = Config.instance.transactionCb
+                    func cb(success: Bool) {
+                        if success {
+                            onFinishCallback("dummy biometric token", nil)
+                        } else {
+                            print("[TransactionPINViewController.getBiometricStatus] got here!")
+                            self.toggleErrorMsg(msg: "Biometric is incorrect, please use PIN")
+                        }
+                    }
+                    self.authService.bioAuth(view: self, event: CotterEvents.Transaction, callback: cb)
+                } else {
+                    print("[TransactionPINViewController.getBiometricStatus] Biometric not enrolled")
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+        })
+    }
     
-    // Make Configurations
-    func addConfigs() {
+    func setupUI() {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.layoutIfNeeded()
@@ -152,43 +219,37 @@ extension TransactionPINViewController : PINBaseController {
             self.navigationItem.leftBarButtonItem = crossButton
         }
         
-        codeTextField.configure()
-        configureText()
-        configureErrorLabel()
-        configureButtons()
-    }
-    
-    func addDelegates() {
-        self.keyboardView.delegate = self
-    }
-    
-    func configureText() {
-        self.navigationItem.title = navTitle
-        self.titleLabel.text = titleText
-    }
-    
-    func configureErrorLabel() {
         errorLabel.isHidden = true
-        errorLabel.textColor = Config.instance.colors.danger
-    }
-  
-    func configureButtons() {
-        pinVisibilityButton.setTitle(showPinText, for: .normal)
-        pinVisibilityButton.setTitleColor(Config.instance.colors.primary, for: .normal)
-        forgetPinButton.setTitle(forgetPinText, for: .normal)
-        forgetPinButton.setTitleColor(Config.instance.colors.primary, for: .normal)
+        
+        codeTextField.configure()
     }
     
-    func toggleErrorMsg(msg: String?) {
-        errorLabel.isHidden.toggle()
-        if !errorLabel.isHidden {
-            errorLabel.text = msg
-        }
-    }
-  
     @objc private func promptClose(sender: UIBarButtonItem) {
         // Go back to previous screen
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    func setupDelegates() {
+        self.keyboardView.delegate = self
+    }
+    
+    func render(_ props: TransactionPINViewProps) {
+        navigationItem.title = props.navTitle
+        titleLabel.text = props.title
+        errorLabel.textColor = props.dangerColor
+        pinVisibilityButton.setTitle(props.showPinText, for: .normal)
+        pinVisibilityButton.setTitleColor(props.primaryColor, for: .normal)
+        forgetPinButton.setTitle(props.forgetPinText, for: .normal)
+        forgetPinButton.setTitleColor(props.accentColor, for: .normal)
+    }
+    
+    func togglePinVisibility(button: UIButton, showPinText: String, hidePinText: String) {
+        codeTextField.togglePinVisibility()
+        if button.title(for: .normal) == showPinText {
+            button.setTitle(hidePinText, for: .normal)
+        } else {
+            button.setTitle(showPinText, for: .normal)
+        }
     }
 }
 

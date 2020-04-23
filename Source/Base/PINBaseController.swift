@@ -8,7 +8,5 @@
 import Foundation
 
 protocol PINBaseController {
-    func addConfigs() -> Void
-    func addDelegates() -> Void
     func instantiateCodeTextFieldFunctions() -> Void
 }

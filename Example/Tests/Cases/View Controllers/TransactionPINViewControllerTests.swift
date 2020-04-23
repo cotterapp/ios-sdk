@@ -1,8 +1,8 @@
 //
-//  PINViewControllerTests.swift
+//  TransactionPINViewControllerTests.swift
 //  CotterIOS_Tests
 //
-//  Created by Raymond Andrie on 4/22/20.
+//  Created by Raymond Andrie on 4/23/20.
 //  Copyright © 2020 CocoaPods. All rights reserved.
 //
 
@@ -10,26 +10,26 @@ import XCTest
 import Nimble
 @testable import Cotter
 
-
 @available(iOS 13.0, *)
-class PINViewControllerTests: XCTestCase {
+class TransactionPINViewControllerTests: XCTestCase {
     
     // MARK: - VC Text Definitions
-    let navTitle = CotterStrings.instance.getText(for: PINViewControllerKey.navTitle)
-    let showPinText = CotterStrings.instance.getText(for: PINViewControllerKey.showPin)
-    let hidePinText = CotterStrings.instance.getText(for: PINViewControllerKey.hidePin)
-    let title = CotterStrings.instance.getText(for: PINViewControllerKey.title)
+    let navTitle = CotterStrings.instance.getText(for: TransactionPINViewControllerKey.navTitle)
+    let showPinText = CotterStrings.instance.getText(for: TransactionPINViewControllerKey.showPin)
+    let hidePinText = CotterStrings.instance.getText(for: TransactionPINViewControllerKey.hidePin)
+    let forgetPinText = CotterStrings.instance.getText(for: TransactionPINViewControllerKey.forgetPin)
+    let titleText = CotterStrings.instance.getText(for: TransactionPINViewControllerKey.title)
     
     // MARK: - VC Color Definitions
     let primaryColor = Config.instance.colors.primary
     let accentColor = Config.instance.colors.accent
     let dangerColor = Config.instance.colors.danger
     
-    let presenter = PINViewPresenterMock()
+    let presenter = TransactionPINViewPresenterMock()
     
-    func makeSUT(actualPresenter: Bool = false) -> PINViewController {
-        let storyboard = UIStoryboard(name: "Cotter", bundle: Cotter.resourceBundle)
-        let sut = storyboard.instantiateViewController(identifier: "PINViewController") as! PINViewController
+    func makeSUT(actualPresenter: Bool = false) -> TransactionPINViewController {
+        let storyboard = UIStoryboard(name: "Transaction", bundle: Cotter.resourceBundle)
+        let sut = storyboard.instantiateViewController(identifier: "TransactionPINViewController") as! TransactionPINViewController
         if !actualPresenter {
             sut.presenter = presenter
         }
@@ -37,16 +37,25 @@ class PINViewControllerTests: XCTestCase {
         return sut
     }
     
-    func setupProps() -> PINViewProps {
-        return PINViewProps(
+    func setupProps() -> TransactionPINViewProps {
+        return TransactionPINViewProps(
             navTitle: navTitle,
             showPinText: showPinText,
             hidePinText: hidePinText,
-            title: title,
+            forgetPinText: forgetPinText,
+            title: titleText,
             primaryColor: primaryColor,
             accentColor: accentColor,
             dangerColor: dangerColor
         )
+    }
+    
+    func testViewDidAppearCallsPresenter() {
+        let sut = makeSUT()
+        
+        sut.viewDidAppear(true)
+        
+        expect(self.presenter.onViewAppearCalled).to(beTrue())
     }
 
     func testViewDidLoadCallsPresenter() {
@@ -54,7 +63,7 @@ class PINViewControllerTests: XCTestCase {
         
         sut.viewDidLoad()
         
-        expect(self.presenter.onViewLoadedCalled).to(beTrue())
+        expect(self.presenter.onViewLoadCalled).to(beTrue())
     }
     
     func testOnClickPinVisCallsPresenter() {
@@ -73,10 +82,12 @@ class PINViewControllerTests: XCTestCase {
         sut.render(props)
         
         expect(sut.navigationItem.title).to(match(navTitle))
-        expect(sut.titleLabel.text).to(match(title))
+        expect(sut.titleLabel.text).to(match(titleText))
+        expect(sut.errorLabel.textColor).to(equal(dangerColor))
         expect(sut.pinVisibilityButton.title(for: .normal)).to(match(showPinText))
         expect(sut.pinVisibilityButton.titleColor(for: .normal)).to(equal(primaryColor))
-        expect(sut.errorLabel.textColor).to(equal(dangerColor))
+        expect(sut.forgetPinButton.title(for: .normal)).to(match(forgetPinText))
+        expect(sut.forgetPinButton.titleColor(for: .normal)).to(equal(accentColor))
     }
     
     func testOnClickPinVis() {
@@ -101,12 +112,18 @@ class PINViewControllerTests: XCTestCase {
     }
 }
 
-class PINViewPresenterMock: PINViewPresenter {
+class TransactionPINViewPresenterMock: TransactionPINViewPresenter {
     
-    private(set) var onViewLoadedCalled = false
+    private(set) var onViewAppearCalled = false
+    
+    func onViewAppeared() {
+        onViewAppearCalled = true
+    }
+    
+    private(set) var onViewLoadCalled = false
     
     func onViewLoaded() {
-        onViewLoadedCalled = true
+        onViewLoadCalled = true
     }
     
     private(set) var onClickPinVisCalled = false
@@ -114,5 +131,5 @@ class PINViewPresenterMock: PINViewPresenter {
     func onClickPinVis(button: UIButton) {
         onClickPinVisCalled = true
     }
+    
 }
-

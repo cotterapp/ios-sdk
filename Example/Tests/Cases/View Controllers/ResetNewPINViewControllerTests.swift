@@ -1,8 +1,8 @@
 //
-//  PINViewControllerTests.swift
+//  ResetNewPINViewControllerTests.swift
 //  CotterIOS_Tests
 //
-//  Created by Raymond Andrie on 4/22/20.
+//  Created by Raymond Andrie on 4/23/20.
 //  Copyright © 2020 CocoaPods. All rights reserved.
 //
 
@@ -10,26 +10,25 @@ import XCTest
 import Nimble
 @testable import Cotter
 
-
 @available(iOS 13.0, *)
-class PINViewControllerTests: XCTestCase {
-    
+class ResetNewPINViewControllerTests: XCTestCase {
+
     // MARK: - VC Text Definitions
-    let navTitle = CotterStrings.instance.getText(for: PINViewControllerKey.navTitle)
-    let showPinText = CotterStrings.instance.getText(for: PINViewControllerKey.showPin)
-    let hidePinText = CotterStrings.instance.getText(for: PINViewControllerKey.hidePin)
-    let title = CotterStrings.instance.getText(for: PINViewControllerKey.title)
+    let navTitle = CotterStrings.instance.getText(for: ResetNewPINViewControllerKey.navTitle)
+    let titleText = CotterStrings.instance.getText(for: ResetNewPINViewControllerKey.title)
+    let showPinText = CotterStrings.instance.getText(for: ResetNewPINViewControllerKey.showPin)
+    let hidePinText = CotterStrings.instance.getText(for: ResetNewPINViewControllerKey.hidePin)
     
     // MARK: - VC Color Definitions
     let primaryColor = Config.instance.colors.primary
     let accentColor = Config.instance.colors.accent
     let dangerColor = Config.instance.colors.danger
     
-    let presenter = PINViewPresenterMock()
+    let presenter = ResetNewPINViewPresenterMock()
     
-    func makeSUT(actualPresenter: Bool = false) -> PINViewController {
-        let storyboard = UIStoryboard(name: "Cotter", bundle: Cotter.resourceBundle)
-        let sut = storyboard.instantiateViewController(identifier: "PINViewController") as! PINViewController
+    func makeSUT(actualPresenter: Bool = false) -> ResetNewPINViewController {
+        let storyboard = UIStoryboard(name: "Transaction", bundle: Cotter.resourceBundle)
+        let sut = storyboard.instantiateViewController(identifier: "ResetNewPINViewController") as! ResetNewPINViewController
         if !actualPresenter {
             sut.presenter = presenter
         }
@@ -37,34 +36,34 @@ class PINViewControllerTests: XCTestCase {
         return sut
     }
     
-    func setupProps() -> PINViewProps {
-        return PINViewProps(
+    func setupProps() -> ResetNewPINViewProps {
+        return ResetNewPINViewProps(
             navTitle: navTitle,
+            title: titleText,
             showPinText: showPinText,
             hidePinText: hidePinText,
-            title: title,
             primaryColor: primaryColor,
             accentColor: accentColor,
             dangerColor: dangerColor
         )
     }
-
-    func testViewDidLoadCallsPresenter() {
-        let sut = makeSUT()
-        
-        sut.viewDidLoad()
-        
-        expect(self.presenter.onViewLoadedCalled).to(beTrue())
-    }
     
+    func testViewDidLoadCallsPresenter() {
+       let sut = makeSUT()
+       
+       sut.viewDidLoad()
+       
+       expect(self.presenter.onViewLoadCalled).to(beTrue())
+    }
+       
     func testOnClickPinVisCallsPresenter() {
         let sut = makeSUT()
-        
+           
         sut.onClickPinVis(.init())
-        
+           
         expect(self.presenter.onClickPinVisCalled).to(beTrue())
     }
-    
+
     func testRender() {
         let props = setupProps()
         
@@ -73,7 +72,7 @@ class PINViewControllerTests: XCTestCase {
         sut.render(props)
         
         expect(sut.navigationItem.title).to(match(navTitle))
-        expect(sut.titleLabel.text).to(match(title))
+        expect(sut.titleLabel.text).to(match(titleText))
         expect(sut.pinVisibilityButton.title(for: .normal)).to(match(showPinText))
         expect(sut.pinVisibilityButton.titleColor(for: .normal)).to(equal(primaryColor))
         expect(sut.errorLabel.textColor).to(equal(dangerColor))
@@ -101,12 +100,12 @@ class PINViewControllerTests: XCTestCase {
     }
 }
 
-class PINViewPresenterMock: PINViewPresenter {
+class ResetNewPINViewPresenterMock: ResetNewPINViewPresenter {
     
-    private(set) var onViewLoadedCalled = false
+    private(set) var onViewLoadCalled = false
     
     func onViewLoaded() {
-        onViewLoadedCalled = true
+        onViewLoadCalled = true
     }
     
     private(set) var onClickPinVisCalled = false
@@ -114,5 +113,5 @@ class PINViewPresenterMock: PINViewPresenter {
     func onClickPinVis(button: UIButton) {
         onClickPinVisCalled = true
     }
+    
 }
-
