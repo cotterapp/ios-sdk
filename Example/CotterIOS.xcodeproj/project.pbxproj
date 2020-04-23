@@ -14,6 +14,14 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		6C0AD45B24378E5200D59998 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0AD45A24378E5200D59998 /* Environment.swift */; };
+		6C7AAAB8245109E6005A10F8 /* PINFinalViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7AAAB7245109E6005A10F8 /* PINFinalViewControllerTests.swift */; };
+		6C7AAABA24510F76005A10F8 /* PINViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7AAAB924510F76005A10F8 /* PINViewControllerTests.swift */; };
+		6C7AAABC24510F93005A10F8 /* PINConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7AAABB24510F93005A10F8 /* PINConfirmViewController.swift */; };
+		6C7AAABE24511525005A10F8 /* UserInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7AAABD24511525005A10F8 /* UserInfoTests.swift */; };
+		6C7AAAC024511543005A10F8 /* CotterImagesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7AAABF24511543005A10F8 /* CotterImagesTests.swift */; };
+		6C7AAAC224511574005A10F8 /* CotterStringsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7AAAC124511574005A10F8 /* CotterStringsTests.swift */; };
+		6C7AAAC424511592005A10F8 /* ImageObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7AAAC324511592005A10F8 /* ImageObjectTests.swift */; };
+		6C7AAAC6245115B7005A10F8 /* LanguageObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7AAAC5245115B7005A10F8 /* LanguageObjectTests.swift */; };
 		76015E93F9E1F98E66E2CD9A /* Pods_CotterIOS_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95A202280DF1D28B43394F0D /* Pods_CotterIOS_Example.framework */; };
 		850F13FE242423BC00E84C5E /* TrustedDeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850F13FD242423BC00E84C5E /* TrustedDeviceViewController.swift */; };
 		85292E4223EC21CB008363AB /* CryptoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85292E4123EC21CB008363AB /* CryptoViewController.swift */; };
@@ -57,6 +65,14 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		6C0AD45A24378E5200D59998 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		6C7AAAB7245109E6005A10F8 /* PINFinalViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PINFinalViewControllerTests.swift; sourceTree = "<group>"; };
+		6C7AAAB924510F76005A10F8 /* PINViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PINViewControllerTests.swift; sourceTree = "<group>"; };
+		6C7AAABB24510F93005A10F8 /* PINConfirmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PINConfirmViewController.swift; sourceTree = "<group>"; };
+		6C7AAABD24511525005A10F8 /* UserInfoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoTests.swift; sourceTree = "<group>"; };
+		6C7AAABF24511543005A10F8 /* CotterImagesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CotterImagesTests.swift; sourceTree = "<group>"; };
+		6C7AAAC124511574005A10F8 /* CotterStringsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CotterStringsTests.swift; sourceTree = "<group>"; };
+		6C7AAAC324511592005A10F8 /* ImageObjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageObjectTests.swift; sourceTree = "<group>"; };
+		6C7AAAC5245115B7005A10F8 /* LanguageObjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageObjectTests.swift; sourceTree = "<group>"; };
 		700A7DEA2797C770A55A1628 /* Pods-CotterIOS_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CotterIOS_Example.debug.xcconfig"; path = "Target Support Files/Pods-CotterIOS_Example/Pods-CotterIOS_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		820AB7B5B7E543E5278DF99B /* Pods-CotterIOS_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CotterIOS_Tests.debug.xcconfig"; path = "Target Support Files/Pods-CotterIOS_Tests/Pods-CotterIOS_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		850F13FD242423BC00E84C5E /* TrustedDeviceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrustedDeviceViewController.swift; sourceTree = "<group>"; };
@@ -168,18 +184,12 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				6C7AAA98244FA71C005A10F8 /* Cases */,
+				6C7AAA99244FA746005A10F8 /* Data */,
+				607FACEA1AFB9204008FA782 /* Info.plist */,
 				607FACEB1AFB9204008FA782 /* Tests.swift */,
-				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
-			sourceTree = "<group>";
-		};
-		607FACE91AFB9204008FA782 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				607FACEA1AFB9204008FA782 /* Info.plist */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		607FACF51AFB993E008FA782 /* Podspec Metadata */ = {
@@ -199,6 +209,44 @@
 				286C43C66329D2B921FC31FD /* Pods_CotterIOS_Tests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6C7AAA98244FA71C005A10F8 /* Cases */ = {
+			isa = PBXGroup;
+			children = (
+				6C7AAAAE2450E427005A10F8 /* View Controllers */,
+				6C7AAAA0245099D9005A10F8 /* Models */,
+			);
+			path = Cases;
+			sourceTree = "<group>";
+		};
+		6C7AAA99244FA746005A10F8 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		6C7AAAA0245099D9005A10F8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6C7AAABF24511543005A10F8 /* CotterImagesTests.swift */,
+				6C7AAAC124511574005A10F8 /* CotterStringsTests.swift */,
+				6C7AAAC324511592005A10F8 /* ImageObjectTests.swift */,
+				6C7AAAC5245115B7005A10F8 /* LanguageObjectTests.swift */,
+				6C7AAABD24511525005A10F8 /* UserInfoTests.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		6C7AAAAE2450E427005A10F8 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6C7AAABB24510F93005A10F8 /* PINConfirmViewController.swift */,
+				6C7AAAB7245109E6005A10F8 /* PINFinalViewControllerTests.swift */,
+				6C7AAAB924510F76005A10F8 /* PINViewControllerTests.swift */,
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 		85AD5B8A240A9F7700AC3367 /* Components */ = {
@@ -247,6 +295,7 @@
 				607FACE11AFB9204008FA782 /* Sources */,
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
+				192A49B43F04E3713794EC04 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -323,6 +372,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		192A49B43F04E3713794EC04 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CotterIOS_Tests/Pods-CotterIOS_Tests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CotterIOS_Tests/Pods-CotterIOS_Tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		279B6A0CAB89BD2DF82560A5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -414,7 +481,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C7AAAC024511543005A10F8 /* CotterImagesTests.swift in Sources */,
+				6C7AAAC424511592005A10F8 /* ImageObjectTests.swift in Sources */,
+				6C7AAAB8245109E6005A10F8 /* PINFinalViewControllerTests.swift in Sources */,
+				6C7AAAC224511574005A10F8 /* CotterStringsTests.swift in Sources */,
+				6C7AAABA24510F76005A10F8 /* PINViewControllerTests.swift in Sources */,
+				6C7AAABE24511525005A10F8 /* UserInfoTests.swift in Sources */,
+				6C7AAABC24510F93005A10F8 /* PINConfirmViewController.swift in Sources */,
 				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
+				6C7AAAC6245115B7005A10F8 /* LanguageObjectTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

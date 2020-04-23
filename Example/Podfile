@@ -8,6 +8,7 @@ target 'CotterIOS_Example' do
   target 'CotterIOS_Tests' do
     inherit! :search_paths
 
-    
+   use_frameworks!
+   pod 'Nimble', '~> 8.0'
   end
 end
