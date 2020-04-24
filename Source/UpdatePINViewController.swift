@@ -143,6 +143,7 @@ extension UpdatePINViewController : PINBaseController {
                     if self.errorLabel.isHidden {
                         self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.incorrectPinVerification))
                     }
+                    self.codeTextField.clear()
                 }
             }
             
@@ -211,7 +212,10 @@ extension UpdatePINViewController : KeyboardViewDelegate {
         if buttonNumber == -1 {
             codeTextField.removeNumber()
         } else {
-            // TODO: If we were to clear the text field after each failed input, we need to remove the error message as soon as we enter a new number in the subsequent try
+            // If we were to clear the text field after each failed input, we need to remove the error message as soon as we enter a new number in the subsequent try
+            if !errorLabel.isHidden {
+                toggleErrorMsg(msg: nil)
+            }
             codeTextField.appendNumber(buttonNumber: buttonNumber)
         }
     }
