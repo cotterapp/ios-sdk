@@ -7,27 +7,81 @@
 
 import UIKit
 
+// MARK: - Keys for Strings
 public class UpdateCreateNewPINViewControllerKey {
-    // MARK: - Keys for Strings
     static let navTitle = "UpdateCreateNewPINViewController/navTitle"
     static let title = "UpdateCreateNewPINViewController/title"
     static let showPin = "UpdateCreateNewPINViewController/showPin"
     static let hidePin = "UpdateCreateNewPINViewController/hidePin"
 }
 
-class UpdateCreateNewPINViewController: UIViewController {
-    // Pass config here by UpdateCreateNewPINViewController.config = Config()
-    public var config: Config?
-    // Pass oldCode here by UpdateCreateNewPINViewController.oldCode = code
-    public var oldCode: String?
-  
+// MARK: - Presenter Protocol delegated UI-related logic
+protocol UpdateCreateNewPINViewPresenter {
+    func onViewLoaded()
+    func onClickPinVis(button: UIButton)
+}
+
+// MARK: - Properties of UpdateCreateNewPINViewController
+struct UpdateCreateNewPINViewProps {
+    let navTitle: String
+    let title: String
+    let showPinText: String
+    let hidePinText: String
+    
+    let primaryColor: UIColor
+    let accentColor: UIColor
+    let dangerColor: UIColor
+}
+
+// MARK: - Components of UpdateCreateNewPINViewController
+protocol UpdateCreateNewPINViewComponent: AnyObject {
+    func setupUI()
+    func setupDelegates()
+    func render(_ props: UpdateCreateNewPINViewProps)
+    func togglePinVisibility(button: UIButton, showPinText: String, hidePinText: String)
+}
+
+// MARK: - UpdateCreateNewPINViewPresenter Implementation
+class UpdateCreateNewPINViewPresenterImpl: UpdateCreateNewPINViewPresenter {
+    
     typealias VCTextKey = UpdateCreateNewPINViewControllerKey
-  
-    // MARK: - VC Text Definitions
-    let navTitle = CotterStrings.instance.getText(for: VCTextKey.navTitle)
-    let titleText = CotterStrings.instance.getText(for: VCTextKey.title)
-    let showPinText = CotterStrings.instance.getText(for: VCTextKey.showPin)
-    let hidePinText = CotterStrings.instance.getText(for: VCTextKey.hidePin)
+    
+    weak var viewController: UpdateCreateNewPINViewComponent!
+    
+    let props: UpdateCreateNewPINViewProps = {
+        // MARK: - VC Text Definitions
+        let navTitle = CotterStrings.instance.getText(for: VCTextKey.navTitle)
+        let titleText = CotterStrings.instance.getText(for: VCTextKey.title)
+        let showPinText = CotterStrings.instance.getText(for: VCTextKey.showPin)
+        let hidePinText = CotterStrings.instance.getText(for: VCTextKey.hidePin)
+        
+        // MARK: - VC Color Definitions
+        let primaryColor = Config.instance.colors.primary
+        let accentColor = Config.instance.colors.accent
+        let dangerColor = Config.instance.colors.danger
+        
+        return UpdateCreateNewPINViewProps(navTitle: navTitle, title: titleText, showPinText: showPinText, hidePinText: hidePinText, primaryColor: primaryColor, accentColor: accentColor, dangerColor: dangerColor)
+    }()
+    
+    init(_ viewController: UpdateCreateNewPINViewComponent) {
+        self.viewController = viewController
+    }
+    
+    func onViewLoaded() {
+        viewController.setupUI()
+        viewController.setupDelegates()
+        viewController.render(props)
+    }
+    
+    func onClickPinVis(button: UIButton) {
+        viewController.togglePinVisibility(button: button, showPinText: props.showPinText, hidePinText: props.hidePinText)
+    }
+    
+}
+
+class UpdateCreateNewPINViewController: UIViewController {
+    // Pass oldCode here by UpdateCreateNewPINViewController.oldCode = code
+    var oldCode: String?
     
     @IBOutlet weak var pinVisibilityButton: UIButton!
     
@@ -39,39 +93,26 @@ class UpdateCreateNewPINViewController: UIViewController {
     
     @IBOutlet weak var keyboardView: KeyboardView!
 
+    lazy var presenter: UpdateCreateNewPINViewPresenter = UpdateCreateNewPINViewPresenterImpl(self)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         print("loaded Update Create New PIN View!")
         
         // Set-up
-        addConfigs()
-        addDelegates()
+        presenter.onViewLoaded()
         instantiateCodeTextFieldFunctions()
     }
     
-    @IBAction func OnClickPinVis(_ sender: UIButton) {
-        codeTextField.togglePinVisibility()
-        if sender.title(for: .normal) == showPinText {
-            sender.setTitle(hidePinText, for: .normal)
-        } else {
-            sender.setTitle(showPinText, for: .normal)
-        }
+    @IBAction func onClickPinVis(_ sender: UIButton) {
+        presenter.onClickPinVis(button: sender)
     }
     
-    public override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-}
-
-// MARK: - KeyboardViewDelegate
-extension UpdateCreateNewPINViewController : KeyboardViewDelegate {
-    func keyboardButtonTapped(buttonNumber: NSInteger) {
-        if buttonNumber == -1 {
-            codeTextField.removeNumber()
-        } else {
-            codeTextField.appendNumber(buttonNumber: buttonNumber)
+    func toggleErrorMsg(msg: String?) {
+        errorLabel.isHidden.toggle()
+        if !errorLabel.isHidden {
+            errorLabel.text = msg
         }
     }
 }
@@ -115,13 +156,15 @@ extension UpdateCreateNewPINViewController : PINBaseController {
             let updateConfirmPINVC = self.storyboard?.instantiateViewController(withIdentifier: "UpdateConfirmNewPINViewController")as! UpdateConfirmNewPINViewController
             updateConfirmPINVC.prevCode = code
             updateConfirmPINVC.oldCode = self.oldCode!
-            updateConfirmPINVC.config = self.config
             self.navigationController?.pushViewController(updateConfirmPINVC, animated: true)
             return true
         }
     }
-    
-    func addConfigs() {
+}
+
+// MARK: - UpdateCreateNewPINViewComponent Instantiations
+extension UpdateCreateNewPINViewController: UpdateCreateNewPINViewComponent {
+    func setupUI() {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.layoutIfNeeded()
@@ -131,44 +174,45 @@ extension UpdateCreateNewPINViewController : PINBaseController {
         backButton.tintColor = UIColor.black
         self.navigationItem.leftBarButtonItem = backButton
         
-        codeTextField.configure()
-        configureText()
-        configureErrorLabel()
-        configureButtons()
-    }
-    
-    func addDelegates() {
-        self.keyboardView.delegate = self
-    }
-    
-    func configureText() {
-        self.navigationItem.title = navTitle
-        self.titleLabel.text = titleText
-    }
-    
-    func configureButtons() {
-        // No initial Error Msg
-        pinVisibilityButton.setTitle("", for: .normal)
-    }
-    
-    func configureErrorLabel() {
         errorLabel.isHidden = true
-        errorLabel.textColor = Config.instance.colors.danger
-    }
-  
-  func configurePinVisibilityButton() {
-      pinVisibilityButton.setTitle(showPinText, for: .normal)
-      pinVisibilityButton.setTitleColor(Config.instance.colors.primary, for: .normal)
-  }
-    
-    func toggleErrorMsg(msg: String?) {
-        errorLabel.isHidden.toggle()
-        if !errorLabel.isHidden {
-            errorLabel.text = msg
-        }
+        
+        codeTextField.configure()
     }
     
     @objc private func promptBack(sender: UIBarButtonItem) {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    func setupDelegates() {
+        self.keyboardView.delegate = self
+    }
+    
+    func render(_ props: UpdateCreateNewPINViewProps) {
+        navigationItem.title = props.navTitle
+        titleLabel.text = props.title
+        pinVisibilityButton.setTitle(props.showPinText, for: .normal)
+        pinVisibilityButton.setTitleColor(props.primaryColor, for: .normal)
+        errorLabel.textColor = props.dangerColor
+    }
+    
+    func togglePinVisibility(button: UIButton, showPinText: String, hidePinText: String) {
+        codeTextField.togglePinVisibility()
+        if button.title(for: .normal) == showPinText {
+            button.setTitle(hidePinText, for: .normal)
+        } else {
+            button.setTitle(showPinText, for: .normal)
+        }
+    }
+    
+}
+
+// MARK: - KeyboardViewDelegate
+extension UpdateCreateNewPINViewController : KeyboardViewDelegate {
+    func keyboardButtonTapped(buttonNumber: NSInteger) {
+        if buttonNumber == -1 {
+            codeTextField.removeNumber()
+        } else {
+            codeTextField.appendNumber(buttonNumber: buttonNumber)
+        }
     }
 }

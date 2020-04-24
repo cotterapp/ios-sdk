@@ -54,7 +54,7 @@ class PINViewControllerTests: XCTestCase {
         
         sut.viewDidLoad()
         
-        expect(self.presenter.onViewLoadedCalled).to(beTrue())
+        expect(self.presenter.onViewLoadCalled).to(beTrue())
     }
     
     func testOnClickPinVisCallsPresenter() {
@@ -103,10 +103,10 @@ class PINViewControllerTests: XCTestCase {
 
 class PINViewPresenterMock: PINViewPresenter {
     
-    private(set) var onViewLoadedCalled = false
+    private(set) var onViewLoadCalled = false
     
     func onViewLoaded() {
-        onViewLoadedCalled = true
+        onViewLoadCalled = true
     }
     
     private(set) var onClickPinVisCalled = false

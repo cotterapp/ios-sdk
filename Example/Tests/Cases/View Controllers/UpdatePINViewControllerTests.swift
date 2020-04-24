@@ -1,8 +1,8 @@
 //
-//  PINConfirmViewControllerTests.swift
+//  UpdatePINViewControllerTests.swift
 //  CotterIOS_Tests
 //
-//  Created by Raymond Andrie on 4/22/20.
+//  Created by Raymond Andrie on 4/23/20.
 //  Copyright © 2020 CocoaPods. All rights reserved.
 //
 
@@ -11,24 +11,24 @@ import Nimble
 @testable import Cotter
 
 @available(iOS 13.0, *)
-class PINConfirmViewControllerTests: XCTestCase {
+class UpdatePINViewControllerTests: XCTestCase {
 
     // MARK: - VC Text Definitions
-    let navTitle = CotterStrings.instance.getText(for: PINConfirmViewControllerKey.navTitle)
-    let showPinText = CotterStrings.instance.getText(for: PINConfirmViewControllerKey.showPin)
-    let hidePinText = CotterStrings.instance.getText(for: PINConfirmViewControllerKey.hidePin)
-    let title = CotterStrings.instance.getText(for: PINConfirmViewControllerKey.title)
+    let navTitle = CotterStrings.instance.getText(for: UpdatePINViewControllerKey.navTitle)
+    let titleText = CotterStrings.instance.getText(for: UpdatePINViewControllerKey.title)
+    let showPinText = CotterStrings.instance.getText(for: UpdatePINViewControllerKey.showPin)
+    let hidePinText = CotterStrings.instance.getText(for: UpdatePINViewControllerKey.hidePin)
     
     // MARK: - VC Color Definitions
     let primaryColor = Config.instance.colors.primary
     let accentColor = Config.instance.colors.accent
     let dangerColor = Config.instance.colors.danger
     
-    let presenter = PINConfirmViewPresenterMock()
+    let presenter = UpdatePINViewPresenterMock()
     
-    func makeSUT(actualPresenter: Bool = false) -> PINConfirmViewController {
-        let storyboard = UIStoryboard(name: "Cotter", bundle: Cotter.resourceBundle)
-        let sut = storyboard.instantiateViewController(identifier: "PINConfirmViewController") as! PINConfirmViewController
+    func makeSUT(actualPresenter: Bool = false) -> UpdatePINViewController {
+        let storyboard = UIStoryboard(name: "UpdateProfile", bundle: Cotter.resourceBundle)
+        let sut = storyboard.instantiateViewController(identifier: "UpdatePINViewController") as! UpdatePINViewController
         if !actualPresenter {
             sut.presenter = presenter
         }
@@ -36,18 +36,18 @@ class PINConfirmViewControllerTests: XCTestCase {
         return sut
     }
     
-    func setupProps() -> PINConfirmViewProps {
-        return PINConfirmViewProps(
+    func setupProps() ->UpdatePINViewProps {
+        UpdatePINViewProps(
             navTitle: navTitle,
+            title: titleText,
             showPinText: showPinText,
             hidePinText: hidePinText,
-            title: title,
             primaryColor: primaryColor,
             accentColor: accentColor,
             dangerColor: dangerColor
         )
     }
-
+    
     func testViewDidLoadCallsPresenter() {
         let sut = makeSUT()
         
@@ -63,7 +63,7 @@ class PINConfirmViewControllerTests: XCTestCase {
         
         expect(self.presenter.onClickPinVisCalled).to(beTrue())
     }
-
+    
     func testRender() {
         let props = setupProps()
         
@@ -72,12 +72,12 @@ class PINConfirmViewControllerTests: XCTestCase {
         sut.render(props)
         
         expect(sut.navigationItem.title).to(match(navTitle))
-        expect(sut.titleLabel.text).to(match(title))
+        expect(sut.titleLabel.text).to(match(titleText))
         expect(sut.pinVisibilityButton.title(for: .normal)).to(match(showPinText))
         expect(sut.pinVisibilityButton.titleColor(for: .normal)).to(equal(primaryColor))
         expect(sut.errorLabel.textColor).to(equal(dangerColor))
     }
-    
+
     func testOnClickPinVis() {
         let props = setupProps()
         
@@ -100,7 +100,7 @@ class PINConfirmViewControllerTests: XCTestCase {
     }
 }
 
-class PINConfirmViewPresenterMock: PINConfirmViewPresenter {
+class UpdatePINViewPresenterMock: UpdatePINViewPresenter {
     
     private(set) var onViewLoadCalled = false
     
@@ -113,4 +113,5 @@ class PINConfirmViewPresenterMock: PINConfirmViewPresenter {
     func onClickPinVis(button: UIButton) {
         onClickPinVisCalled = true
     }
+    
 }

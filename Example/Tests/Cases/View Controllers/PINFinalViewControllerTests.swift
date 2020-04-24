@@ -55,7 +55,7 @@ class PINFinalViewControllerTests: XCTestCase {
         
         sut.viewDidLoad()
         
-        expect(self.presenter.onViewLoadedCalled).to(beTrue())
+        expect(self.presenter.onViewLoadCalled).to(beTrue())
     }
     
     func testOnFinishCallsPresenter() {
@@ -83,10 +83,10 @@ class PINFinalViewControllerTests: XCTestCase {
 
 class PINFinalViewPresenterMock: PINFinalViewPresenter {
     
-    private(set) var onViewLoadedCalled = false
+    private(set) var onViewLoadCalled = false
     
     func onViewLoaded() {
-        onViewLoadedCalled = true
+        onViewLoadCalled = true
     }
     
     private(set) var onFinishCalled = false

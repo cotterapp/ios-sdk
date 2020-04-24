@@ -27,6 +27,9 @@
 		6C7AAACC24525330005A10F8 /* ResetNewPINViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7AAACB24525330005A10F8 /* ResetNewPINViewControllerTests.swift */; };
 		6C7AAACE24525928005A10F8 /* ResetConfirmPINViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7AAACD24525928005A10F8 /* ResetConfirmPINViewControllerTests.swift */; };
 		6C7AAAD024525E36005A10F8 /* ResetPINFinalViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7AAACF24525E36005A10F8 /* ResetPINFinalViewControllerTests.swift */; };
+		6C7AAAD224528D48005A10F8 /* UpdatePINViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7AAAD124528D48005A10F8 /* UpdatePINViewControllerTests.swift */; };
+		6C7AAAD424533EAC005A10F8 /* UpdateCreateNewPINViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7AAAD324533EAC005A10F8 /* UpdateCreateNewPINViewControllerTests.swift */; };
+		6C7AAAD624534347005A10F8 /* UpdateConfirmNewPINViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7AAAD524534347005A10F8 /* UpdateConfirmNewPINViewControllerTests.swift */; };
 		76015E93F9E1F98E66E2CD9A /* Pods_CotterIOS_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95A202280DF1D28B43394F0D /* Pods_CotterIOS_Example.framework */; };
 		850F13FE242423BC00E84C5E /* TrustedDeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850F13FD242423BC00E84C5E /* TrustedDeviceViewController.swift */; };
 		85292E4223EC21CB008363AB /* CryptoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85292E4123EC21CB008363AB /* CryptoViewController.swift */; };
@@ -83,6 +86,9 @@
 		6C7AAACB24525330005A10F8 /* ResetNewPINViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetNewPINViewControllerTests.swift; sourceTree = "<group>"; };
 		6C7AAACD24525928005A10F8 /* ResetConfirmPINViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetConfirmPINViewControllerTests.swift; sourceTree = "<group>"; };
 		6C7AAACF24525E36005A10F8 /* ResetPINFinalViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPINFinalViewControllerTests.swift; sourceTree = "<group>"; };
+		6C7AAAD124528D48005A10F8 /* UpdatePINViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePINViewControllerTests.swift; sourceTree = "<group>"; };
+		6C7AAAD324533EAC005A10F8 /* UpdateCreateNewPINViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateCreateNewPINViewControllerTests.swift; sourceTree = "<group>"; };
+		6C7AAAD524534347005A10F8 /* UpdateConfirmNewPINViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateConfirmNewPINViewControllerTests.swift; sourceTree = "<group>"; };
 		700A7DEA2797C770A55A1628 /* Pods-CotterIOS_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CotterIOS_Example.debug.xcconfig"; path = "Target Support Files/Pods-CotterIOS_Example/Pods-CotterIOS_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		820AB7B5B7E543E5278DF99B /* Pods-CotterIOS_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CotterIOS_Tests.debug.xcconfig"; path = "Target Support Files/Pods-CotterIOS_Tests/Pods-CotterIOS_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		850F13FD242423BC00E84C5E /* TrustedDeviceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrustedDeviceViewController.swift; sourceTree = "<group>"; };
@@ -252,6 +258,9 @@
 				6C7AAACB24525330005A10F8 /* ResetNewPINViewControllerTests.swift */,
 				6C7AAACD24525928005A10F8 /* ResetConfirmPINViewControllerTests.swift */,
 				6C7AAACF24525E36005A10F8 /* ResetPINFinalViewControllerTests.swift */,
+				6C7AAAD124528D48005A10F8 /* UpdatePINViewControllerTests.swift */,
+				6C7AAAD324533EAC005A10F8 /* UpdateCreateNewPINViewControllerTests.swift */,
+				6C7AAAD524534347005A10F8 /* UpdateConfirmNewPINViewControllerTests.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -488,6 +497,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C7AAAD424533EAC005A10F8 /* UpdateCreateNewPINViewControllerTests.swift in Sources */,
 				6C7AAAC024511543005A10F8 /* CotterImagesTests.swift in Sources */,
 				6C7AAAD024525E36005A10F8 /* ResetPINFinalViewControllerTests.swift in Sources */,
 				6C7AAACC24525330005A10F8 /* ResetNewPINViewControllerTests.swift in Sources */,
@@ -499,6 +509,8 @@
 				6C7AAABE24511525005A10F8 /* UserInfoTests.swift in Sources */,
 				6C7AAABC24510F93005A10F8 /* PINConfirmViewControllerTests.swift in Sources */,
 				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
+				6C7AAAD224528D48005A10F8 /* UpdatePINViewControllerTests.swift in Sources */,
+				6C7AAAD624534347005A10F8 /* UpdateConfirmNewPINViewControllerTests.swift in Sources */,
 				6C7AAAC6245115B7005A10F8 /* LanguageObjectTests.swift in Sources */,
 				6C7AAAC824523633005A10F8 /* TransactionPINViewControllerTests.swift in Sources */,
 				6C7AAACE24525928005A10F8 /* ResetConfirmPINViewControllerTests.swift in Sources */,

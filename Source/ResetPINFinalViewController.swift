@@ -46,7 +46,7 @@ class ResetPINFinalViewPresenterImpl: ResetPINFinalViewPresenter {
         return ResetPINFinalViewProps(successTitle: successTitle, successImage: successImage)
     }()
     
-    init(_ viewController: ResetPINFinalViewController) {
+    init(_ viewController: ResetPINFinalViewComponent) {
         self.viewController = viewController
     }
     

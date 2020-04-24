@@ -170,9 +170,6 @@ extension TransactionPINViewController : PINBaseController {
                 print(e)
                 return false
             }
-            
-            // clear the field
-            self.codeTextField.clear()
 
             return true
         }
@@ -259,6 +256,7 @@ extension TransactionPINViewController : KeyboardViewDelegate {
         if buttonNumber == -1 {
             codeTextField.removeNumber()
         } else {
+            // TODO: If we were to clear the text field after each failed input, we need to remove the error message as soon as we enter a new number in the subsequent try
             codeTextField.appendNumber(buttonNumber: buttonNumber)
         }
     }
