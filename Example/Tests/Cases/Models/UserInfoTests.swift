@@ -14,8 +14,7 @@ class UserInfoTests: XCTestCase {
 
     var userInfo: UserInfo!
     
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func setup() {
         let name = "Cotter", method = CotterMethods.Email, destination = "user@gmail.com", resetCode = "11", resetChallengeID = 22, resetChallenge = "x12x"
         userInfo = UserInfo(name: name, sendingMethod: method, sendingDestination: destination)
         userInfo.resetCode = resetCode
@@ -23,12 +22,11 @@ class UserInfoTests: XCTestCase {
         userInfo.resetChallenge = resetChallenge
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
     func testClearResetInfo() {
+        setup()
+        
         userInfo.clearResetInfo()
+        
         expect(self.userInfo.name).to(equal("Cotter"))
         expect(self.userInfo.sendingMethod).to(equal(CotterMethods.Email))
         expect(self.userInfo.sendingDestination).to(equal("user@gmail.com"))

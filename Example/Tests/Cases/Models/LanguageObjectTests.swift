@@ -14,24 +14,26 @@ class LanguageObjectTests: XCTestCase {
 
     var langObject: LanguageObject!
     
-    override func setUpWithError() throws {
+    func setup() {
         langObject = LanguageObject(text: [
             "testKey": "testValue"
         ])
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
     
     func testInitialText() {
+        setup()
+        
         let result = langObject.text["testKey"]
+        
         expect(result).to(match("testValue"))
     }
 
     func testSetText() {
+        setup()
         langObject.setText(for: "testKey", to: "testValue2")
+        
         let result = langObject.text["testKey"]
+        
         expect(result).to(match("testValue2"))
     }
     

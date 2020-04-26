@@ -16,6 +16,10 @@ class CotterImagesTests: XCTestCase {
     let testValue = "test-image-path"
     var cotterImages = CotterImages.instance
 
+    func setup() {
+        Config.instance.images.image[testKey] = testValue
+    }
+    
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         Config.instance.images.image[testKey] = testValue
@@ -26,12 +30,16 @@ class CotterImagesTests: XCTestCase {
     }
 
     func testGetImage() {
+        setup()
+        
         let result = cotterImages.getImage(for: testKey)
+        
         expect(result).to(match(testValue))
     }
     
     func testGetNoImage() {
         let result = cotterImages.getImage(for: "fake-key")
+        
         expect(result).to(match("Image not found."))
     }
 

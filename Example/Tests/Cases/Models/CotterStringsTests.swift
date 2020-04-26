@@ -16,22 +16,21 @@ class CotterStringsTests: XCTestCase {
     let testValue = "Test Title"
     var cotterStrings = CotterStrings.instance
     
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func setup() {
         Config.instance.strings.text[testKey] = testValue
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
     func testGetText() throws {
+        setup()
+        
         let result = cotterStrings.getText(for: testKey)
+        
         expect(result).to(match(testValue))
     }
     
     func testGetNoImage() {
         let result = cotterStrings.getText(for: "fake-key")
+        
         expect(result).to(match("Text not found."))
     }
 }

@@ -16,18 +16,16 @@ class ImageObjectTests: XCTestCase {
     let testValue = "success"
     var imageObject: ImageObject!
     
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func setup() {
         imageObject = ImageObject()
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
     func testSetImage() {
+        setup()
         imageObject.setImage(for: testKey, to: testValue)
+        
         let result = imageObject.image[testKey]
+        
         expect(result).to(match(testValue))
     }
 
