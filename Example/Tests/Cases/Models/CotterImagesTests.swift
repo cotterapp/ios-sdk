@@ -19,15 +19,6 @@ class CotterImagesTests: XCTestCase {
     func setup() {
         Config.instance.images.image[testKey] = testValue
     }
-    
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-        Config.instance.images.image[testKey] = testValue
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
 
     func testGetImage() {
         setup()
