@@ -8,35 +8,89 @@
 import Foundation
 import UIKit
 
+// MARK: - Keys for Strings
 public class PINViewControllerKey {
-    // MARK: - Keys for Strings
     public static let navTitle = "PINViewController/navTitle"
     public static let showPin = "PINViewController/showPin"
     public static let hidePin = "PINViewController/hidePin"
     public static let title = "PINViewController/title"
 }
 
-class PINViewController : UIViewController {
-    // since PINViewController is too long to type
-    // we can getaway with typealias here
+// MARK: - Presenter Protocol delegated UI-related logic
+protocol PINViewPresenter {
+    func onViewLoaded()
+    func onClickPinVis(button: UIButton)
+}
+
+// MARK: - Properties of PINViewController
+struct PINViewProps {
+    let navTitle: String
+    let showPinText: String
+    let hidePinText: String
+    let title: String
+    
+    let primaryColor: UIColor
+    let accentColor: UIColor
+    let dangerColor: UIColor
+}
+
+// MARK: - Components of PINViewController
+protocol PINViewComponent: AnyObject {
+    func setupUI()
+    func setupDelegates()
+    func render(_ props: PINViewProps)
+    func togglePinVisibility(button: UIButton, showPinText: String, hidePinText: String)
+}
+
+// MARK: PINViewPresenter Implementation
+class PINViewPresenterImpl: PINViewPresenter {
+    
     typealias VCTextKey = PINViewControllerKey
+    
+    weak var viewController: PINViewComponent!
+    
+    let props: PINViewProps = {
+        // MARK: - VC Text Definitions
+        let navTitle = CotterStrings.instance.getText(for: VCTextKey.navTitle)
+        let showPinText = CotterStrings.instance.getText(for: VCTextKey.showPin)
+        let hidePinText = CotterStrings.instance.getText(for: VCTextKey.hidePin)
+        let title = CotterStrings.instance.getText(for: VCTextKey.title)
+        
+        // MARK: - VC Color Definitions
+        let primaryColor = Config.instance.colors.primary
+        let accentColor = Config.instance.colors.accent
+        let dangerColor = Config.instance.colors.danger
+        
+        return PINViewProps(navTitle: navTitle, showPinText: showPinText, hidePinText: hidePinText, title: title, primaryColor: primaryColor, accentColor: accentColor, dangerColor: dangerColor)
+    }()
+    
+    init(_ viewController: PINViewController) {
+        self.viewController = viewController
+    }
+    
+    func onViewLoaded() {
+        viewController.setupUI()
+        viewController.setupDelegates()
+        viewController.render(props)
+    }
+    
+    func onClickPinVis(button: UIButton) {
+        viewController.togglePinVisibility(button: button, showPinText: props.showPinText, hidePinText: props.hidePinText)
+    }
+}
+
+class PINViewController : UIViewController {
     
     var hideCloseButton: Bool = false
     
-    // MARK: - Alert Service Text Definition
-    let navBackTitle = CotterStrings.instance.getText(for: AuthAlertMessagesKey.navBackTitle)
-    let navBackBody = CotterStrings.instance.getText(for: AuthAlertMessagesKey.navBackBody)
-    let navBackAction = CotterStrings.instance.getText(for: AuthAlertMessagesKey.navBackActionButton)
-    let navBackCancel = CotterStrings.instance.getText(for: AuthAlertMessagesKey.navBackCancelButton)
-    
-    // MARK: - VC Text Definitions
-    let navTitle = CotterStrings.instance.getText(for: VCTextKey.navTitle)
-    let showPinText = CotterStrings.instance.getText(for: VCTextKey.showPin)
-    let hidePinText = CotterStrings.instance.getText(for: VCTextKey.hidePin)
-    let titleText = CotterStrings.instance.getText(for: VCTextKey.title)
-    
     lazy var alertService: AlertService = {
-        let alert = AlertService(vc: self, title: navBackTitle, body: navBackBody, actionButtonTitle: navBackAction, cancelButtonTitle: navBackCancel)
+        // MARK: - Alert Service Text Definition
+        let alertBackTitle = CotterStrings.instance.getText(for: AuthAlertMessagesKey.navBackTitle)
+        let alertBackBody = CotterStrings.instance.getText(for: AuthAlertMessagesKey.navBackBody)
+        let alertBackAction = CotterStrings.instance.getText(for: AuthAlertMessagesKey.navBackActionButton)
+        let alertBackCancel = CotterStrings.instance.getText(for: AuthAlertMessagesKey.navBackCancelButton)
+        
+        let alert = AlertService(vc: self, title: alertBackTitle, body: alertBackBody, actionButtonTitle: alertBackTitle, cancelButtonTitle: alertBackCancel)
         alert.delegate = self
         return alert
     }()
@@ -55,30 +109,28 @@ class PINViewController : UIViewController {
     // Keyboard
     @IBOutlet weak var keyboardView: KeyboardView!
     
+    lazy var presenter: PINViewPresenter = PINViewPresenterImpl(self)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         print("loaded PIN Cotter Enrollment View")
         
         // Set-up
-        addConfigs()
-        addDelegates()
+        presenter.onViewLoaded()
         instantiateCodeTextFieldFunctions()
         setCotterStatusBarStyle()
     }
     
     @IBAction func onClickPinVis(_ sender: UIButton) {
-        codeTextField.togglePinVisibility()
-        if sender.title(for: .normal) == showPinText {
-            sender.setTitle(hidePinText, for: .normal)
-        } else {
-            sender.setTitle(showPinText, for: .normal)
-        }
+        presenter.onClickPinVis(button: sender)
     }
     
-    public override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func toggleErrorMsg(msg: String?) {
+        errorLabel.isHidden.toggle()
+        if !errorLabel.isHidden {
+            errorLabel.text = msg
+        }
     }
 }
 
@@ -119,8 +171,11 @@ extension PINViewController : PINBaseController {
             return true
         }
     }
-    
-    func addConfigs() {
+}
+
+// MARK: - PINViewComponent Implementations
+extension PINViewController: PINViewComponent {
+    func setupUI() {
         // Implement Custom Back Button instead of default in Nav controller
         self.navigationItem.hidesBackButton = true
         
@@ -135,41 +190,37 @@ extension PINViewController : PINBaseController {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.layoutIfNeeded()
+        print("fasdfsafas")
+        // Hide error label initially
+        errorLabel.isHidden = true
         
+        // Configure Code Text Field
         codeTextField.configure()
-        configureText()
-        configureErrorLabel()
-        configureButtons()
     }
     
-    func addDelegates() {
+    @objc private func promptClose(sender: UIBarButtonItem) {
+        alertService.show()
+    }
+    
+    func setupDelegates() {
         self.keyboardView.delegate = self
     }
     
-    func configureText() {
-        self.navigationItem.title = navTitle
-        self.titleLabel.text = titleText
+    func render(_ props: PINViewProps) {
+        navigationItem.title = props.navTitle
+        titleLabel.text = props.title
+        pinVisibilityButton.setTitle(props.showPinText, for: .normal)
+        pinVisibilityButton.setTitleColor(props.primaryColor, for: .normal)
+        errorLabel.textColor = props.dangerColor
     }
     
-    func configureButtons() {
-        pinVisibilityButton.setTitle(showPinText, for: .normal)
-        pinVisibilityButton.setTitleColor(Config.instance.colors.primary, for: .normal)
-    }
-    
-    func configureErrorLabel() {
-        errorLabel.isHidden = true
-        errorLabel.textColor = Config.instance.colors.danger
-    }
-    
-    func toggleErrorMsg(msg: String?) {
-        errorLabel.isHidden.toggle()
-        if !errorLabel.isHidden {
-            errorLabel.text = msg
+    func togglePinVisibility(button: UIButton, showPinText: String, hidePinText: String) {
+        codeTextField.togglePinVisibility()
+        if button.title(for: .normal) == showPinText {
+            button.setTitle(hidePinText, for: .normal)
+        } else {
+            button.setTitle(showPinText, for: .normal)
         }
-    }
-  
-    @objc private func promptClose(sender: UIBarButtonItem) {
-        alertService.show()
     }
 }
 
@@ -193,6 +244,6 @@ extension PINViewController : AlertServiceDelegate {
     
     func actionHandler() {
         alertService.hide()
-        Config.instance.pinEnrollmentCb("PIN enrollment cancelled - no token", nil)
+        Config.instance.pinEnrollmentCb("PIN Enrollment cancelled - no token", nil)
     }
 }

@@ -1,16 +1,23 @@
 PODS:
-  - Cotter (1.3.0)
+  - Cotter (1.4.0)
+  - Nimble (8.0.7)
 
 DEPENDENCIES:
   - Cotter (from `../`)
+  - Nimble (~> 8.0)
+
+SPEC REPOS:
+  trunk:
+    - Nimble
 
 EXTERNAL SOURCES:
   Cotter:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Cotter: 046774092ba756d949ca152dd3a0a701da5354e2
+  Cotter: 6ac1749425a0a6a04f350bb2dccd728410374961
+  Nimble: a73af6ecd4c9106f434f3d55fc54570be3739e0b
 
-PODFILE CHECKSUM: 6c330073ca55050ad1f8e5ca8c11eb8f2f2c0281
+PODFILE CHECKSUM: 0fe619d7626ff42486b531e9c4180cc61cd8dde5
 
 COCOAPODS: 1.8.4
