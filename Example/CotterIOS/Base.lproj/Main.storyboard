@@ -629,7 +629,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="wQH-ae-vhR">
-                                <rect key="frame" x="40" y="207" width="334" height="194"/>
+                                <rect key="frame" x="40" y="227" width="334" height="154"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter User ID here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qJf-3e-Mi6">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="34"/>
@@ -643,31 +643,24 @@
                                             <action selector="login:" destination="AgD-eS-bbn" eventType="touchUpInside" id="6rw-Rg-3Uo"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vux-rd-T8P" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="84" width="334" height="30"/>
-                                        <state key="normal" title="Enroll Trusted Device for User ID"/>
-                                        <connections>
-                                            <action selector="enrollTrustedDeviceForUser:" destination="AgD-eS-bbn" eventType="touchUpInside" id="m2y-vU-cy1"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o4D-Wl-Jk0" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="124" width="334" height="30"/>
+                                        <rect key="frame" x="0.0" y="84" width="334" height="30"/>
                                         <state key="normal" title="Register"/>
                                         <connections>
                                             <segue destination="csI-Yj-sbH" kind="show" id="c6r-wk-QO6"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4lS-Dz-y4I" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="164" width="334" height="30"/>
-                                        <state key="normal" title="Quick Start"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cah-Sg-HYP" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="124" width="334" height="30"/>
+                                        <state key="normal" title="Check Event"/>
                                         <connections>
-                                            <action selector="quickStart:" destination="AgD-eS-bbn" eventType="touchUpInside" id="vfL-QD-2T4"/>
+                                            <action selector="checkEvent:" destination="AgD-eS-bbn" eventType="touchUpInside" id="o7S-PD-bJS"/>
                                         </connections>
                                     </button>
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ktK-oN-H6u">
-                                <rect key="frame" x="207" y="456" width="0.0" height="0.0"/>
+                                <rect key="frame" x="207" y="436" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.5" blue="0.069334282809999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -687,7 +680,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="Kuc-MA-s8T"/>
                     <connections>
-                        <outlet property="enrollTrustedForUserButton" destination="Vux-rd-T8P" id="bWu-0g-aGa"/>
                         <outlet property="infoLabel" destination="ktK-oN-H6u" id="YiZ-Ji-VTE"/>
                         <outlet property="loginButton" destination="1f8-a0-dIx" id="QA9-ef-8j0"/>
                         <outlet property="textField" destination="qJf-3e-Mi6" id="Kbk-eR-rak"/>

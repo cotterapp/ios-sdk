@@ -16,7 +16,7 @@ public class NonTrustedKey {
 public class NonTrusted {
     var parentVC: UIViewController!
     var eventID: String
-    var cb: FinalAuthCallback
+    var cb: CotterAuthCallback
     
     var popup: BottomPopupModal
     
@@ -38,7 +38,7 @@ public class NonTrusted {
     let failImage = CotterImages.instance.getImage(for: VCImageKey.nonTrustedPhoneTapFail)
     
     // init initialize the authorization prompt on a nontrusted device
-    public init(vc:UIViewController, eventID:String, cb: @escaping FinalAuthCallback) {
+    public init(vc:UIViewController, eventID:String, cb: @escaping CotterAuthCallback) {
         parentVC = vc
         self.eventID = eventID
         self.cb = cb
@@ -55,6 +55,7 @@ public class NonTrusted {
     }
     
     private func dismiss() {
+        self.stop = true
         // add some nice animation
         self.popup.dismiss()
     }
@@ -66,7 +67,9 @@ public class NonTrusted {
     private func waitForApproval() {
         self.checkApproval()
         DispatchQueue.main.asyncAfter(deadline: .now() + SECONDS_TO_ERROR) {
-            self.fail()
+            if !self.stop {
+                self.fail()
+            }
         }
     }
     
@@ -81,7 +84,7 @@ public class NonTrusted {
                     // invalidate timers, dismiss the prompt
                     self.dismiss()
                     
-                    self.cb("approved", nil)
+                    self.cb(evt.oauthToken, nil)
                 } else {
                     if !self.stop {
                         DispatchQueue.main.asyncAfter(deadline: .now() + SECONDS_TO_RETRY) {

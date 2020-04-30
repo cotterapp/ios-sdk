@@ -182,7 +182,7 @@ public class Cotter {
         
         Config.instance.passwordlessCb = transformCb(parent: parentView, cb: cb)
         
-        self.passwordless = Passwordless(
+        self.passwordless = CrossApp(
             view: parentView,
             input: input,
             identifierField: identifierField,
@@ -232,6 +232,32 @@ public class Cotter {
         cb: @escaping FinalAuthCallback
     ) {
         TrustedDevice(vc:vc, cb:cb).removeDevice(userID: self.userID)
+    }
+    
+    // MARK: - lean configurations
+    
+    // configure: simple initialization config
+    public static func configure(
+        apiSecretKey: String,
+        apiKeyID: String,
+        configuration: [String:Any] = [:]
+    ) {
+        print("configuring Cotter's object...")
+        CotterAPIService.shared.baseURL = URL(string: "https://www.cotter.app/api/v0")!
+        CotterAPIService.shared.apiSecretKey = apiSecretKey
+        CotterAPIService.shared.apiKeyID = apiKeyID
+        
+        // get the ip address on the background
+        LocalAuthService.setIPAddr()
+        
+        // Assign fields if they are present in configuration param
+        if let strings = configuration["language"] as! LanguageObject? { Config.instance.strings = strings }
+        if let images = configuration["images"] as! ImageObject? {
+            Config.instance.images = images }
+        if let colors = configuration["colors"] as! ColorSchemeObject? { Config.instance.colors = colors }
+        if let name = configuration["name"] as! String?, let sendingMethod = configuration["sendingMethod"] as! String?, let sendingDestination = configuration["sendingDestination"] as! String? {
+            Config.instance.userInfo = UserInfo(name: name, sendingMethod: sendingMethod, sendingDestination: sendingDestination)
+        }
     }
 }
 

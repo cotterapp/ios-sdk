@@ -24,6 +24,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("got here")
         
         // select the dashboard's ViewController
         let sboard = UIStoryboard(name: "Dashboard", bundle: nil)
@@ -79,10 +80,6 @@ class ViewController: UIViewController {
         case "segueToUserCheck":
             print("prepare segue for UserCheckViewController")
             let vc = segue.destination as! UserCheckViewController
-            vc.userID = self.userID
-        case "segueToTrustedDevice":
-            print("prepare segue for TrustedDeviceViewController")
-            let vc = segue.destination as! TrustedDeviceViewController
             vc.userID = self.userID
         default:
             print("unknown segue identifier: \(identifier)")

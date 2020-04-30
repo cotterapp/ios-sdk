@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Cotter
 
 @available(iOS 12.0, *)
 class LoginViewController: UIViewController {
