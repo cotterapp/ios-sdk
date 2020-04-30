@@ -14,17 +14,6 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var textField: UITextField!
     
-    var userID:String {
-        set {
-            CotterWrapper.cotter?.userID = newValue
-        }
-        
-        get {
-            return CotterWrapper.cotter?.userID ?? ""
-            
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -35,38 +24,20 @@ class RegisterViewController: UIViewController {
         self.infoLabel.text = ""
     }
     
-    private func setup() {
-        self.setupTrustedDevice()
-    }
     
     @IBAction func register(_ sender: Any) {
+        self.view.endEditing(true)
         guard let userID = self.textField.text else { return }
-
-        CotterAPIService.shared.registerUser(userID: userID, cb: { resp in
-            switch resp {
-            case .success(let usr):
-                self.infoLabel.text = "Successfully registered user \(usr.clientUserID)"
-                self.userID = userID
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                    self.setup()
-                    self.performSegue(withIdentifier: "segueRegisterHome", sender: self)
-                }
-            case .failure(let err):
-                self.infoLabel.text = err.localizedDescription
+        
+        Passwordless.shared.register(identifier: userID, cb: { (token: CotterOAuthToken?, err:Error?) in
+            if err != nil {
+                // handle error as necessary
             }
+            if token == nil {
+                // user is unauthorized
+            }
+            // user is authorized
         })
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let identifier = segue.identifier else { return }
-        switch(identifier) {
-        case "segueRegisterHome":
-            print("prepare segue for ViewController")
-            let vc = segue.destination as! ViewController
-            vc.userID = self.userID
-        default:
-            print("unknown segue identifier: \(identifier)")
-        }
     }
     
     /*
@@ -79,21 +50,4 @@ class RegisterViewController: UIViewController {
     }
     */
 
-}
-
-extension RegisterViewController {
-    private func setupTrustedDevice() {
-        func enrollTrustedDevice(_ response: CotterResult<CotterUser>){
-            switch response{
-            case .success(let user):
-                print("[setupTrustedDevice] successfully registered: \(user.enrolled)")
-                
-            case .failure(let err):
-                // you can put exhaustive error handling here
-                print(err.localizedDescription)
-            }
-        }
-        
-        CotterAPIService.shared.enrollTrustedDevice(userID: self.userID, cb: enrollTrustedDevice)
-    }
 }

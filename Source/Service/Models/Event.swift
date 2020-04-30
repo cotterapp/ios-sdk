@@ -23,6 +23,7 @@ public struct CotterEvent: Codable {
     var method:String
     var new:Bool
     var approved:Bool
+    var oauthToken:CotterOAuthToken?
     
     enum CodingKeys: String, CodingKey {
         case id = "ID"
@@ -37,6 +38,7 @@ public struct CotterEvent: Codable {
         case method
         case new
         case approved
+        case oauthToken = "oauth_token"
     }
 }
 

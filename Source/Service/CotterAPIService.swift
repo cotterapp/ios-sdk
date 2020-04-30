@@ -363,7 +363,8 @@ public class CotterAPIService {
                     )
                     
                     let req = CreateAuthenticationEvent(
-                        evt: evt
+                        evt: evt,
+                        oauth: true
                     )
                     
                     apiClient.send(req) { response in
@@ -553,7 +554,8 @@ public class CotterAPIService {
         )
         
         let req = CreateAuthenticationEvent(
-            evt: evt
+            evt: evt,
+            oauth: true
         )
         
         apiClient.send(req) { response in

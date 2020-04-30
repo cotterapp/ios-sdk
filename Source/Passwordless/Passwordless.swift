@@ -3,22 +3,191 @@
 //  Cotter
 //
 //  Created by Albert Purnama on 2/13/20.
+//  Starting April 29, 2020 Passwordlesss is the new name for trusted device
 //
 
 import Foundation
 import AuthenticationServices
 
+public class Passwordless: NSObject {
+    // MARK: - VC Text Definitions
+    let unableToContinue = CotterStrings.instance.getText(for: TrustedErrorMessagesKey.unableToContinue)
+    let deviceAlreadyReg = CotterStrings.instance.getText(for: TrustedErrorMessagesKey.deviceAlreadyReg)
+    let deviceNotReg = CotterStrings.instance.getText(for: TrustedErrorMessagesKey.deviceNotReg)
+    let somethingWentWrong = CotterStrings.instance.getText(for: GeneralErrorMessagesKey.someWentWrong)
+    let tryAgainLater = CotterStrings.instance.getText(for: GeneralErrorMessagesKey.tryAgainLater)
+    
+    // MARK: - VC Image Definitions
+    let successImage = CotterImages.instance.getImage(for: VCImageKey.pinSuccessImg)
+    let failImage = CotterImages.instance.getImage(for: VCImageKey.nonTrustedPhoneTapFail)
+    
+    
+    public static var shared = Passwordless()
+    
+    override public init() {
+        self.parentVC = UIViewController()
+    }
+    
+    public var parentVC: UIViewController
+    
+    // MARK: - FIDO Login
+    public func login(identifier:String, cb: @escaping CotterAuthCallback = DoNothingCallback){
+        // create a callback
+        func loginCb(resp: CotterResult<CotterEvent>) {
+            switch resp {
+            case .success(let resp):
+                if resp.approved {
+                    cb(resp.oauthToken, nil)
+                    return
+                }
+                
+                // which means non trusted device is logging in..
+                _ = NonTrusted(vc: self.parentVC, eventID: String(resp.id), cb: cb)
+                
+            case .failure(let err):
+                cb(nil, err)
+            }
+        }
+        
+        CotterAPIService.shared.reqAuth(userID: identifier, event: CotterEvents.Login, cb: loginCb)
+    }
+    
+    public func checkEvent(identifier:String) {
+        // checkEvent then callback
+        func checkCb(resp: CotterResult<CotterEvent?>){
+            switch resp {
+            case .success(let evt):
+                // if there is an authorization event..
+                if evt != nil {
+                    // present the trusted device consent page
+                    let tVC = Cotter.cotterStoryboard.instantiateViewController(withIdentifier: "TrustedViewController") as! TrustedViewController
+                    tVC.event = evt
+                    self.parentVC.present(tVC, animated: true)
+                }
+                // else, nothing happens
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+        }
+        
+        CotterAPIService.shared.getNewEvent(userID: identifier, cb: checkCb)
+    }
+    
+    // register should register the userID on the server and enroll trusted device for the first time
+    public func register(identifier: String, cb: @escaping CotterAuthCallback = DoNothingCallback) {
+        CotterAPIService.shared.registerUser(userID: identifier, cb: { resp in
+            switch resp {
+            case .success(_):
+                func enrollTrustedDevice(_ response: CotterResult<CotterUser>){
+                    switch response{
+                    case .success(_):
+                        cb(nil, nil)
+                        
+                    case .failure(let err):
+                        cb(nil, err)
+                    }
+                }
+                
+                CotterAPIService.shared.enrollTrustedDevice(userID: identifier, cb: enrollTrustedDevice)
+                
+            case .failure(let err):
+                cb(nil, err)
+            }
+        })
+    }
+    
+    public func registerDevice(identifier: String, cb: @escaping CotterAuthCallback = DoNothingCallback) {
+        // TODO: Before registering, check if this device is already trusted one time.
+        // If so, don't continue with the registration process. Else, if this device is
+        // not trusted, continue with the registration.
+        func getTrustedCallback(response: CotterResult<EnrolledMethods>) {
+            switch response {
+            case .success(let resp):
+                if resp.enrolled && resp.method == CotterMethods.TrustedDevice {
+                    // Enrolled in Trusted Devices, do not continue
+                    let img = UIImage(named: failImage, in: Cotter.resourceBundle, compatibleWith: nil)!
+                    let popup = BottomPopupModal(vc: parentVC, img: img, title: unableToContinue, body: deviceAlreadyReg)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                        popup.dismiss()
+                    }
+                } else {
+                    // Not enrolled in Trusted Devices, continue
+                    let vc = Cotter.cotterStoryboard.instantiateViewController(withIdentifier: "RegisterTrustedViewController") as! RegisterTrustedViewController
+                     vc.userID = identifier
+                     vc.cb = cb
+                     
+                     self.parentVC.present(vc, animated: true)
+                }
+            case .failure:
+                let img = UIImage(named: failImage, in: Cotter.resourceBundle, compatibleWith: nil)!
+                let popup = BottomPopupModal(vc: parentVC, img: img, title: somethingWentWrong, body: tryAgainLater)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                    popup.dismiss()
+                }
+            }
+        }
+        
+        CotterAPIService.shared.getTrustedDeviceStatus(userID: identifier, cb: getTrustedCallback)
+    }
+    
+    public func scanNewDevice(identifier: String) {
+        // Before scanning, check that this device is already trusted. If so,
+        // proceed with scanning process. If not, show modal that cannot continue.
+        func getTrustedCallback(response: CotterResult<EnrolledMethods>) {
+            switch response {
+            case .success(let resp):
+                if resp.enrolled && resp.method == CotterMethods.TrustedDevice {
+                    // Enrolled in Trusted Devices, continue
+                    let vc = Cotter.cotterStoryboard.instantiateViewController(withIdentifier: "QRScannerViewController") as! QRScannerViewController
+                    vc.userID = identifier
+                    
+                    self.parentVC.navigationController?.pushViewController(vc, animated: true)
+                } else {
+                    // Not enrolled in Trusted Devices, do not continue
+                    let img = UIImage(named: failImage, in: Cotter.resourceBundle, compatibleWith: nil)!
+                    let popup = BottomPopupModal(vc: parentVC, img: img, title: unableToContinue, body: deviceNotReg)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                        popup.dismiss()
+                    }
+                }
+            case .failure:
+                let img = UIImage(named: failImage, in: Cotter.resourceBundle, compatibleWith: nil)!
+                let popup = BottomPopupModal(vc: parentVC, img: img, title: somethingWentWrong, body: tryAgainLater)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                    popup.dismiss()
+                }
+            }
+        }
+        
+        CotterAPIService.shared.getTrustedDeviceStatus(userID: identifier, cb: getTrustedCallback)
+    }
+    
+    public func removeDevice(identifier: String, cb: @escaping CotterAuthCallback = DoNothingCallback) {
+        func removeTrustedCb(resp: CotterResult<CotterUser>) {
+            switch resp {
+            case .success(_):
+                print("[removeDevice] Successfully removed this device as a Trusted Device!")
+                cb(nil, nil)
+            case .failure(let err):
+                cb(nil, err)
+            }
+        }
+        
+        CotterAPIService.shared.removeTrustedDeviceStatus(userID: identifier, cb: removeTrustedCb)
+    }
+}
+
 @available(iOS 12.0, *)
-class Passwordless: NSObject, ASWebAuthenticationPresentationContextProviding {
+class CrossApp: NSObject, ASWebAuthenticationPresentationContextProviding {
     var authSession: ASWebAuthenticationSession?
     var anchorView: UIViewController?
 
-    func presentationAnchor(for session: ASWebAuthenticationSession) -> ASPresentationAnchor {
+    public func presentationAnchor(for session: ASWebAuthenticationSession) -> ASPresentationAnchor {
         return self.anchorView?.view.window ?? ASPresentationAnchor()
     }
-    
+
     override public init() {}
-    
+
     public convenience init(
         view: UIViewController,
         input: String,

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Cotter
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        guard let apiKeyID = Environment.shared.COTTER_API_KEY_ID else {
+            print("Please set COTTER_API_KEY_ID in your XCode environment variables!")
+            return false
+        }
+        guard let apiSecretKey = Environment.shared.COTTER_API_SECRET_KEY else {
+            print("Please set COTTER_API_SECRET_KEY in your XCode environment variables!")
+            return false
+        }
+        
+        CotterWrapper.cotter = Cotter(
+            apiSecretKey: apiSecretKey,
+            apiKeyID: apiKeyID,
+            cotterURL: "https://www.cotter.app/api/v0",
+            userID: "",
+            // configuration is an optional argument, remove this below and Cotter app will still function properly
+            configuration: [:]
+        )
+        
+        Cotter.configure(apiSecretKey: apiSecretKey, apiKeyID: apiKeyID)
+        
         return true
     }
 

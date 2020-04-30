@@ -11,6 +11,9 @@ public struct CreateAuthenticationEvent: APIRequest {
     public typealias Response = CotterEvent
     
     public var path: String {
+        if oauth {
+            return "/event/create?oauth_token=true"
+        }
         return  "/event/create"
     }
 
@@ -31,11 +34,20 @@ public struct CreateAuthenticationEvent: APIRequest {
     }
     
     let evt: CotterEventRequest
+    var oauth: Bool = false
     
     // pubKey needs to be a base64 URL safe encoded
     public init(
         evt: CotterEventRequest
     ){
         self.evt = evt
+    }
+    
+    public init(
+        evt: CotterEventRequest,
+        oauth: Bool
+    ) {
+        self.evt = evt
+        self.oauth = true
     }
 }

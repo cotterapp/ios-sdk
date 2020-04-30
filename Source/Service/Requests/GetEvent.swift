@@ -11,7 +11,7 @@ public struct GetEvent: APIRequest {
     public typealias Response = CotterEvent
     
     public var path: String {
-        return "/event/get/\(self.eventID)"
+        return "/event/get/\(self.eventID)?oauth_token=true"
     }
     
     public var method: String = "GET"

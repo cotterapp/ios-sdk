@@ -4,11 +4,9 @@
 //
 //  Created by Albert Purnama on 3/24/20.
 //
-
 import Foundation
 
 class TrustedDevice {
-    
     // MARK: - VC Text Definitions
     let unableToContinue = CotterStrings.instance.getText(for: TrustedErrorMessagesKey.unableToContinue)
     let deviceAlreadyReg = CotterStrings.instance.getText(for: TrustedErrorMessagesKey.deviceAlreadyReg)
@@ -43,7 +41,7 @@ class TrustedDevice {
                 }
                 
                 // which means non trusted device is logging in..
-                _ = NonTrusted(vc: self.parentVC, eventID: String(resp.id), cb: cb)
+                _ = NonTrusted(vc: self.parentVC, eventID: String(resp.id), cb: castFunc(cb:cb))
                 
             case .failure(let err):
                 self.cb("", err)
@@ -91,10 +89,10 @@ class TrustedDevice {
                 } else {
                     // Not enrolled in Trusted Devices, continue
                     let vc = Cotter.cotterStoryboard.instantiateViewController(withIdentifier: "RegisterTrustedViewController") as! RegisterTrustedViewController
-                     vc.userID = userID
-                     vc.cb = cb
+                    vc.userID = userID
+                    vc.cb = castFunc(cb:cb)
                      
-                     self.parentVC.present(vc, animated: true)
+                    self.parentVC.present(vc, animated: true)
                 }
             case .failure:
                 let img = UIImage(named: failImage, in: Cotter.resourceBundle, compatibleWith: nil)!
@@ -152,5 +150,14 @@ class TrustedDevice {
         }
         
         CotterAPIService.shared.removeTrustedDeviceStatus(userID: userID, cb: removeTrustedCb)
+    }
+}
+
+func castFunc(cb: @escaping FinalAuthCallback) -> CotterAuthCallback {
+    return { (token: CotterOAuthToken?, err: Error?) in
+        if token != nil {
+            cb("token exists", err)
+        }
+        cb("", err)
     }
 }

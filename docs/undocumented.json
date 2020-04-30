@@ -57,6 +57,27 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Config/ErrorMessages.swift",
+      "line": 10,
+      "symbol": "GeneralErrorMessagesKey",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Config/ErrorMessages.swift",
+      "line": 16,
+      "symbol": "PinErrorMessagesKey",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Config/ErrorMessages.swift",
+      "line": 30,
+      "symbol": "TrustedErrorMessagesKey",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Config/ImageObject/ImageKey.swift",
       "line": 10,
       "symbol": "VCImageKey",
@@ -93,28 +114,35 @@
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Config/ImageObject/ImageKey.swift",
-      "line": 17,
+      "line": 15,
+      "symbol": "VCImageKey.logo",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Config/ImageObject/ImageKey.swift",
+      "line": 18,
       "symbol": "AlertImageKey",
       "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Config/ImageObject/ImageKey.swift",
-      "line": 18,
+      "line": 19,
       "symbol": "AlertImageKey.promptVerificationImg",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Config/ImageObject/ImageKey.swift",
-      "line": 19,
+      "line": 20,
       "symbol": "AlertImageKey.successVerificationImg",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Config/ImageObject/ImageKey.swift",
-      "line": 20,
+      "line": 21,
       "symbol": "AlertImageKey.failureVerificationImg",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
@@ -135,14 +163,14 @@
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Config/ImageObject/ImageObject.swift",
-      "line": 28,
+      "line": 29,
       "symbol": "ImageObject.init()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Config/ImageObject/ImageObject.swift",
-      "line": 44,
+      "line": 46,
       "symbol": "ImageObject.setImage(for:to:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -187,13 +215,6 @@
       "line": 19,
       "symbol": "LanguageObject.setText(for:to:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Config/PinErrorMessages.swift",
-      "line": 10,
-      "symbol": "PinErrorMessagesKey",
-      "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
     },
     {
@@ -313,6 +334,20 @@
       "line": 223,
       "symbol": "Cotter.scanNewDevice(vc:cb:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Cotter.swift",
+      "line": 230,
+      "symbol": "Cotter.removeTrustedDevice(vc:cb:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Cotter.swift",
+      "line": 240,
+      "symbol": "Cotter.configure(apiSecretKey:apiKeyID:configuration:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
       "warning": "undocumented"
     },
     {
@@ -463,44 +498,58 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Models/Callback.swift",
+      "line": 14,
+      "symbol": "CotterAuthCallback",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Models/Callback.swift",
+      "line": 16,
+      "symbol": "DoNothingCallback(_:_:)",
+      "symbol_kind": "source.lang.swift.decl.function.free",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Models/Constants.swift",
       "line": 10,
-      "symbol": "CotterConstants",
+      "symbol": "CotterMethods",
       "symbol_kind": "source.lang.swift.decl.struct",
       "warning": "undocumented"
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Models/Constants.swift",
       "line": 12,
-      "symbol": "CotterConstants.MethodPIN",
+      "symbol": "CotterMethods.Pin",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Models/Constants.swift",
       "line": 13,
-      "symbol": "CotterConstants.MethodBiometric",
+      "symbol": "CotterMethods.Biometric",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Models/Constants.swift",
-      "line": 16,
-      "symbol": "CotterConstants.MethodEmail",
+      "line": 14,
+      "symbol": "CotterMethods.TrustedDevice",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Models/Constants.swift",
       "line": 17,
-      "symbol": "CotterConstants.MethodPhone",
+      "symbol": "CotterMethods.Email",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Models/Constants.swift",
       "line": 18,
-      "symbol": "CotterConstants.MethodTrustedDevice",
+      "symbol": "CotterMethods.Phone",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
@@ -519,6 +568,34 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Models/Constants.swift",
+      "line": 24,
+      "symbol": "CotterEvents.RequestAuthManual",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Models/Constants.swift",
+      "line": 25,
+      "symbol": "CotterEvents.Transaction",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Models/Constants.swift",
+      "line": 26,
+      "symbol": "CotterEvents.Update",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Models/Constants.swift",
+      "line": 27,
+      "symbol": "CotterEvents.Login",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/PINConfirmViewController.swift",
       "line": 11,
       "symbol": "PINConfirmViewControllerKey",
@@ -527,14 +604,14 @@
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/PINFinalViewController.swift",
-      "line": 11,
+      "line": 12,
       "symbol": "PINFinalViewControllerKey",
       "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/PINViewController.swift",
-      "line": 11,
+      "line": 12,
       "symbol": "PINViewControllerKey",
       "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
@@ -568,29 +645,183 @@
       "warning": "undocumented"
     },
     {
-      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/ResetConfirmPINViewController.swift",
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Passwordless/Passwordless.swift",
+      "line": 12,
+      "symbol": "Passwordless",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Passwordless/Passwordless.swift",
+      "line": 25,
+      "symbol": "Passwordless.shared",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Passwordless/Passwordless.swift",
+      "line": 27,
+      "symbol": "Passwordless.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Passwordless/Passwordless.swift",
+      "line": 31,
+      "symbol": "Passwordless.parentVC",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Passwordless/Passwordless.swift",
+      "line": 34,
+      "symbol": "Passwordless.login(identifier:cb:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Passwordless/Passwordless.swift",
+      "line": 55,
+      "symbol": "Passwordless.checkEvent(identifier:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Passwordless/Passwordless.swift",
+      "line": 77,
+      "symbol": "Passwordless.register(identifier:cb:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Passwordless/Passwordless.swift",
+      "line": 99,
+      "symbol": "Passwordless.registerDevice(identifier:cb:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Passwordless/Passwordless.swift",
+      "line": 133,
+      "symbol": "Passwordless.scanNewDevice(identifier:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Passwordless/Passwordless.swift",
+      "line": 165,
+      "symbol": "Passwordless.removeDevice(identifier:cb:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Passwordless/View/NonTrusted.swift",
+      "line": 11,
+      "symbol": "NonTrustedKey",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Passwordless/View/NonTrusted.swift",
+      "line": 12,
+      "symbol": "NonTrustedKey.title",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Passwordless/View/NonTrusted.swift",
+      "line": 13,
+      "symbol": "NonTrustedKey.subtitle",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Passwordless/View/NonTrusted.swift",
+      "line": 16,
+      "symbol": "NonTrusted",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Passwordless/View/NonTrusted.swift",
+      "line": 41,
+      "symbol": "NonTrusted.init(vc:eventID:cb:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Passwordless/View/QRScannerViewController.swift",
+      "line": 126,
+      "symbol": "QRScannerViewControllerKey",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Passwordless/View/QRScannerViewController.swift",
+      "line": 128,
+      "symbol": "QRScannerViewControllerKey.title",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Passwordless/View/QRScannerViewController.swift",
+      "line": 129,
+      "symbol": "QRScannerViewControllerKey.subtitle",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Passwordless/View/RegisterTrustedViewController.swift",
       "line": 10,
+      "symbol": "RegisterTrustedViewControllerKey",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Passwordless/View/RegisterTrustedViewController.swift",
+      "line": 12,
+      "symbol": "RegisterTrustedViewControllerKey.title",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Passwordless/View/RegisterTrustedViewController.swift",
+      "line": 13,
+      "symbol": "RegisterTrustedViewControllerKey.subtitle",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Passwordless/View/TrustedViewController.swift",
+      "line": 10,
+      "symbol": "TrustedViewControllerKey",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/ResetConfirmPINViewController.swift",
+      "line": 11,
       "symbol": "ResetConfirmPINViewControllerKey",
       "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/ResetNewPINViewController.swift",
-      "line": 10,
+      "line": 11,
       "symbol": "ResetNewPINViewControllerKey",
       "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/ResetPINFinalViewController.swift",
-      "line": 10,
+      "line": 11,
       "symbol": "ResetPINFinalViewControllerKey",
       "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/ResetPINViewController.swift",
-      "line": 10,
+      "line": 11,
       "symbol": "ResetPINViewControllerKey",
       "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
@@ -717,28 +948,42 @@
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Service/CotterAPIService.swift",
       "line": 299,
+      "symbol": "CotterAPIService.getTrustedDeviceEnrolledAny(userID:cb:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Service/CotterAPIService.swift",
+      "line": 309,
       "symbol": "CotterAPIService.reqAuth(userID:event:cb:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Service/CotterAPIService.swift",
-      "line": 401,
+      "line": 412,
       "symbol": "CotterAPIService.getEvent(eventID:cb:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Service/CotterAPIService.swift",
-      "line": 411,
+      "line": 422,
       "symbol": "CotterAPIService.approveEvent(event:cb:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Service/CotterAPIService.swift",
-      "line": 462,
+      "line": 473,
       "symbol": "CotterAPIService.registerOtherDevice(qrData:userID:cb:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Service/CotterAPIService.swift",
+      "line": 566,
+      "symbol": "CotterAPIService.removeTrustedDeviceStatus(userID:cb:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
@@ -933,7 +1178,7 @@
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Service/Models/Event.swift",
-      "line": 45,
+      "line": 47,
       "symbol": "CotterEventRequest",
       "symbol_kind": "source.lang.swift.decl.struct",
       "warning": "undocumented"
@@ -1075,6 +1320,55 @@
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Service/Models/Identity.swift",
       "line": 47,
       "symbol": "Token.signature",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Service/Models/OAuthToken.swift",
+      "line": 10,
+      "symbol": "CotterOAuthToken",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Service/Models/OAuthToken.swift",
+      "line": 11,
+      "symbol": "CotterOAuthToken.accessToken",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Service/Models/OAuthToken.swift",
+      "line": 12,
+      "symbol": "CotterOAuthToken.authMethod",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Service/Models/OAuthToken.swift",
+      "line": 13,
+      "symbol": "CotterOAuthToken.expiresIn",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Service/Models/OAuthToken.swift",
+      "line": 14,
+      "symbol": "CotterOAuthToken.idToken",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Service/Models/OAuthToken.swift",
+      "line": 15,
+      "symbol": "CotterOAuthToken.refreshToken",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Service/Models/OAuthToken.swift",
+      "line": 16,
+      "symbol": "CotterOAuthToken.tokenType",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
@@ -1241,22 +1535,29 @@
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Service/Requests/CreateAuthenticationEvent.swift",
-      "line": 17,
+      "line": 20,
       "symbol": "CreateAuthenticationEvent.method",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Service/Requests/CreateAuthenticationEvent.swift",
-      "line": 19,
+      "line": 22,
       "symbol": "CreateAuthenticationEvent.body",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Service/Requests/CreateAuthenticationEvent.swift",
-      "line": 36,
+      "line": 40,
       "symbol": "CreateAuthenticationEvent.init(evt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Service/Requests/CreateAuthenticationEvent.swift",
+      "line": 46,
+      "symbol": "CreateAuthenticationEvent.init(evt:oauth:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
@@ -1513,6 +1814,48 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Service/Requests/GetTrustedDeviceEnrolledAny.swift",
+      "line": 10,
+      "symbol": "GetTrustedDeviceEnrolledAny",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Service/Requests/GetTrustedDeviceEnrolledAny.swift",
+      "line": 11,
+      "symbol": "GetTrustedDeviceEnrolledAny.Response",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Service/Requests/GetTrustedDeviceEnrolledAny.swift",
+      "line": 13,
+      "symbol": "GetTrustedDeviceEnrolledAny.path",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Service/Requests/GetTrustedDeviceEnrolledAny.swift",
+      "line": 17,
+      "symbol": "GetTrustedDeviceEnrolledAny.method",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Service/Requests/GetTrustedDeviceEnrolledAny.swift",
+      "line": 19,
+      "symbol": "GetTrustedDeviceEnrolledAny.body",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Service/Requests/GetTrustedDeviceEnrolledAny.swift",
+      "line": 25,
+      "symbol": "GetTrustedDeviceEnrolledAny.init(userID:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Service/Requests/GetTrustedDeviceStatus.swift",
       "line": 10,
       "symbol": "GetTrustedDeviceStatus",
@@ -1677,6 +2020,48 @@
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Service/Requests/RegisterUser.swift",
       "line": 31,
       "symbol": "RegisterUser.init(userID:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Service/Requests/RemoveTrustedDeviceStatus.swift",
+      "line": 10,
+      "symbol": "RemoveTrustedDeviceStatus",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Service/Requests/RemoveTrustedDeviceStatus.swift",
+      "line": 11,
+      "symbol": "RemoveTrustedDeviceStatus.Response",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Service/Requests/RemoveTrustedDeviceStatus.swift",
+      "line": 13,
+      "symbol": "RemoveTrustedDeviceStatus.path",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Service/Requests/RemoveTrustedDeviceStatus.swift",
+      "line": 17,
+      "symbol": "RemoveTrustedDeviceStatus.method",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Service/Requests/RemoveTrustedDeviceStatus.swift",
+      "line": 19,
+      "symbol": "RemoveTrustedDeviceStatus.body",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Service/Requests/RemoveTrustedDeviceStatus.swift",
+      "line": 35,
+      "symbol": "RemoveTrustedDeviceStatus.init(userID:pubKey:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
@@ -1976,42 +2361,28 @@
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/TransactionPINViewController.swift",
-      "line": 10,
+      "line": 11,
       "symbol": "TransactionPINViewControllerKey",
       "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/TrustedDevice/View/NonTrusted.swift",
-      "line": 11,
-      "symbol": "NonTrusted",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/TrustedDevice/View/NonTrusted.swift",
-      "line": 29,
-      "symbol": "NonTrusted.init(vc:eventID:cb:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/UpdateConfirmNewPINViewController.swift",
-      "line": 10,
+      "line": 11,
       "symbol": "UpdateConfirmNewPINViewControllerKey",
       "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/UpdateCreateNewPINViewController.swift",
-      "line": 10,
+      "line": 11,
       "symbol": "UpdateCreateNewPINViewControllerKey",
       "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/UpdatePINViewController.swift",
-      "line": 10,
+      "line": 11,
       "symbol": "UpdatePINViewControllerKey",
       "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
