@@ -254,7 +254,7 @@ public class CotterAPIService {
     ) {
         let internalCb = CotterCallback()
         
-        guard let pubKey = KeyStore.trusted.pubKey else {
+        guard let pubKey = KeyStore.trusted(userID: userID).pubKey else {
             internalCb.internalErrorHandler(err: "Unable to attain user's public key!")
             return
         }
@@ -283,7 +283,7 @@ public class CotterAPIService {
     ) {
         let internalCb = CotterCallback()
         
-        guard let pubKey = KeyStore.trusted.pubKey else {
+        guard let pubKey = KeyStore.trusted(userID: userID).pubKey else {
             internalCb.internalErrorHandler(err: "Unable to attain user's public key!")
             return
         }
@@ -316,12 +316,12 @@ public class CotterAPIService {
         let internalCb = CotterCallback()
         
         // TODO: NEED TO HAVE KeyGen FOR TrustedDevices
-        guard let privKey = KeyStore.trusted.privKey else {
+        guard let privKey = KeyStore.trusted(userID: userID).privKey else {
             internalCb.internalErrorHandler(err: "Unable to attain user's private key!")
             return
         }
         
-        guard let pubKey = KeyStore.trusted.pubKey else {
+        guard let pubKey = KeyStore.trusted(userID: userID).pubKey else {
             internalCb.internalErrorHandler(err: "Unable to attain user's public key!")
             return
         }
@@ -427,12 +427,12 @@ public class CotterAPIService {
         
         let internalCb = CotterCallback()
         
-        guard let privKey = KeyStore.trusted.privKey else {
+        guard let privKey = KeyStore.trusted(userID: event.clientUserID).privKey else {
             internalCb.internalErrorHandler(err: "Unable to attain user's private key!")
             return
         }
         
-        guard let pubKey = KeyStore.trusted.pubKey else {
+        guard let pubKey = KeyStore.trusted(userID: event.clientUserID).pubKey else {
             internalCb.internalErrorHandler(err: "Unable to attain user's public key!")
             return
         }
@@ -502,7 +502,7 @@ public class CotterAPIService {
         }
         
         let internalCb = CotterCallback()
-        guard let pubKey = KeyStore.trusted.pubKey else {
+        guard let pubKey = KeyStore.trusted(userID: userID).pubKey else {
             internalCb.internalErrorHandler(err: "Unable to attain user's public key!")
             return
         }
@@ -523,7 +523,7 @@ public class CotterAPIService {
         let event = CotterEvents.EnrollNewTrustedDevice
         let method = CotterMethods.TrustedDevice
         
-        guard let privKey = KeyStore.trusted.privKey else {
+        guard let privKey = KeyStore.trusted(userID: userID).privKey else {
             internalCb.internalErrorHandler(err: "Unable to attain user's private key!")
             return
         }
@@ -569,7 +569,7 @@ public class CotterAPIService {
     ) {
         let internalCb = CotterCallback()
         
-        guard let pubKey = KeyStore.trusted.pubKey else {
+        guard let pubKey = KeyStore.trusted(userID: userID).pubKey else {
             internalCb.internalErrorHandler(err: "Unable to attain user's public key!")
             return
         }
@@ -594,6 +594,17 @@ public class CotterAPIService {
         }
         
         self.getTrustedDeviceStatus(userID: userID, cb: innerCb)
+    }
+    
+    // MARK: - notification service support
+    public func getNotificationAppID(
+        cb: @escaping ResultCallback<CotterNotificationCredential>
+    ) {
+        print("getting notification App ID")
+        let apiClient = self.apiClient()
+        
+        let req = GetNotificationAppID()
+        apiClient.send(req, completion: cb)
     }
 }
 

@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import OneSignal
 
 public class Cotter {
     // this variable is needed to retain the object of ASWebAuthentication,
@@ -244,6 +245,8 @@ public class Cotter {
     ) {
         print("configuring Cotter's object...")
         CotterAPIService.shared.baseURL = URL(string: "https://www.cotter.app/api/v0")!
+//        CotterAPIService.shared.baseURL = URL(string: "http://localhost:1234/api/v0")!
+//        CotterAPIService.shared.baseURL = URL(string:"http://192.168.1.17:1234/api/v0")!
         CotterAPIService.shared.apiSecretKey = apiSecretKey
         CotterAPIService.shared.apiKeyID = apiKeyID
         
@@ -258,6 +261,42 @@ public class Cotter {
         if let name = configuration["name"] as! String?, let sendingMethod = configuration["sendingMethod"] as! String?, let sendingDestination = configuration["sendingDestination"] as! String? {
             Config.instance.userInfo = UserInfo(name: name, sendingMethod: sendingMethod, sendingDestination: sendingDestination)
         }
+    }
+    
+    public static func configureWithLaunchOptions(
+        launchOptions: [UIApplication.LaunchOptionsKey: Any]?,
+        apiSecretKey: String,
+        apiKeyID: String,
+        configuration: [String:Any] = [:]
+    ) {
+        // configure stuff
+        Cotter.configure(apiSecretKey: apiSecretKey, apiKeyID: apiKeyID, configuration: configuration)
+        
+        // configure onesignal
+        Cotter.configureOneSignal(launchOptions: launchOptions)
+    }
+    
+    // configureOneSignal configure cotter's onesignal SDK with launchOptions provided
+    private static func configureOneSignal(launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
+        let onesignalInitSettings = [kOSSettingsKeyAutoPrompt: false,
+         kOSSettingsKeyInAppLaunchURL: true]
+
+        func notifCb(res: CotterResult<CotterNotificationCredential>) {
+            switch res {
+                case .success(let cred):
+                    OneSignal.initWithLaunchOptions(launchOptions,
+                                                  appId: cred.appID,
+                                                  handleNotificationReceived: nil,
+                                                  handleNotificationAction: nil,
+                                                  settings: onesignalInitSettings)
+
+                    OneSignal.inFocusDisplayType = OSNotificationDisplayType.notification
+                  
+                case .failure(let err):
+                    print(err)
+            }
+        }
+        CotterAPIService.shared.getNotificationAppID(cb:notifCb)
     }
 }
 

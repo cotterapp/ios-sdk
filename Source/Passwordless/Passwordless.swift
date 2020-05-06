@@ -8,6 +8,7 @@
 
 import Foundation
 import AuthenticationServices
+import OneSignal
 
 public class Passwordless: NSObject {
     // MARK: - VC Text Definitions
@@ -49,6 +50,16 @@ public class Passwordless: NSObject {
             }
         }
         
+        // TODO: get the public key
+        guard let pubKey = KeyStore.trusted(userID: identifier).pubKey else {
+            print("[login] Unable to attain user's public key!")
+            return
+        }
+        let pubKeyBase64 = CryptoUtil.keyToBase64(pubKey: pubKey)
+        print("[login] current pubKey: \(pubKeyBase64)")
+        
+        OneSignal.setExternalUserId(pubKeyBase64)
+        
         CotterAPIService.shared.reqAuth(userID: identifier, event: CotterEvents.Login, cb: loginCb)
     }
     
@@ -81,6 +92,15 @@ public class Passwordless: NSObject {
                 func enrollTrustedDevice(_ response: CotterResult<CotterUser>){
                     switch response{
                     case .success(_):
+                        guard let pubKey = KeyStore.trusted(userID: identifier).pubKey else {
+                            print("[login] Unable to attain user's public key!")
+                            return
+                        }
+                        let pubKeyBase64 = CryptoUtil.keyToBase64(pubKey: pubKey)
+                        print("[login] current pubKey: \(pubKeyBase64)")
+                        
+                        OneSignal.setExternalUserId(pubKeyBase64)
+                        
                         cb(nil, nil)
                         
                     case .failure(let err):
@@ -96,6 +116,12 @@ public class Passwordless: NSObject {
         })
     }
     
+    // logout unmaps the external user id
+    public func logout() {
+        OneSignal.removeExternalUserId()
+    }
+    
+    // registerDevice registers a new trusted device
     public func registerDevice(identifier: String, cb: @escaping CotterAuthCallback = DoNothingCallback) {
         // TODO: Before registering, check if this device is already trusted one time.
         // If so, don't continue with the registration process. Else, if this device is

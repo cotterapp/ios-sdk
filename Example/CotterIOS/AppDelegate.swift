@@ -8,23 +8,30 @@
 
 import UIKit
 import Cotter
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         // Override point for customization after application launch.
         
-        guard let apiKeyID = Environment.shared.COTTER_API_KEY_ID else {
-            print("Please set COTTER_API_KEY_ID in your XCode environment variables!")
-            return false
+        // set credentials
+        var apiKeyID: String
+        var apiSecretKey: String
+        
+        if let key = Environment.shared.COTTER_API_KEY_ID {
+            apiKeyID = key
+        } else {
+            apiKeyID = "fb1f9830-574c-4b0d-bafb-68713ed927a2"
         }
-        guard let apiSecretKey = Environment.shared.COTTER_API_SECRET_KEY else {
-            print("Please set COTTER_API_SECRET_KEY in your XCode environment variables!")
-            return false
+        
+        if let key = Environment.shared.COTTER_API_SECRET_KEY {
+            apiSecretKey = key
+        } else {
+            apiSecretKey = "KLKqAQ6QXEScmQbYvtJm"
         }
         
         CotterWrapper.cotter = Cotter(
@@ -35,10 +42,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // configuration is an optional argument, remove this below and Cotter app will still function properly
             configuration: [:]
         )
-        
-        Cotter.configure(apiSecretKey: apiSecretKey, apiKeyID: apiKeyID)
-        
+        Cotter.configureWithLaunchOptions(launchOptions: launchOptions,apiSecretKey: apiSecretKey, apiKeyID: apiKeyID)
+
+        UNUserNotificationCenter.current() // 1
+        .requestAuthorization(options: [.alert, .sound, .badge]) { // 2
+          granted, error in
+            print("Permission granted: \(granted)") // 3
+
+            guard granted else { return }
+            UNUserNotificationCenter.current().getNotificationSettings { settings in
+                print("Notification settings: \(settings)")
+                guard settings.authorizationStatus == .authorized else { return }
+                DispatchQueue.main.async {
+                  UIApplication.shared.registerForRemoteNotifications()
+                }
+            }
+        }
+
         return true
+    }
+    
+    func application(
+      _ application: UIApplication,
+      didReceiveRemoteNotification userInfo: [AnyHashable: Any],
+      fetchCompletionHandler completionHandler:
+      @escaping (UIBackgroundFetchResult) -> Void
+    ) {
+      guard let aps = userInfo["aps"] as? [String: AnyObject] else {
+        completionHandler(.failed)
+        return
+      }
+        // handle opened aps here from foreground or background
+        print(aps)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
