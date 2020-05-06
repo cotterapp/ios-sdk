@@ -694,6 +694,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 820AB7B5B7E543E5278DF99B /* Pods-CotterIOS_Tests.debug.xcconfig */;
 			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				DEVELOPMENT_TEAM = S82KLNTT2U;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -718,6 +719,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1E3771ABD4A0733C6A59BB42 /* Pods-CotterIOS_Tests.release.xcconfig */;
 			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				DEVELOPMENT_TEAM = S82KLNTT2U;
 				FRAMEWORK_SEARCH_PATHS = (
