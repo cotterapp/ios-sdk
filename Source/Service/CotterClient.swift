@@ -7,7 +7,7 @@
 
 import Foundation
 
-public protocol APIClient {
+public protocol APIClient: MockedClient {
     func send<T: APIRequest>(
         _ request: T,
         completion: @escaping ResultCallback<T.Response>
