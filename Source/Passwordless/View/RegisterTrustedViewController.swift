@@ -54,7 +54,7 @@ class RegisterTrustedViewController: UIViewController {
     private func generateQR() {
         guard let userID = self.userID else { return }
         
-        guard let pubKey = KeyStore.trusted.pubKey else { return }
+        guard let pubKey = KeyStore.trusted(userID: userID).pubKey else { return }
         
         let pubKeyBase64 = CryptoUtil.keyToBase64(pubKey: pubKey)
         

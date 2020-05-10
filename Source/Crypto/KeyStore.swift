@@ -15,7 +15,11 @@ protocol KeyPair {
 }
 
 class KeyStore {
-    public static let trusted = KeyGenV2(generator: TrustedKeyGen())
+    public static func trusted(userID: String) -> KeyPair {
+        return KeyGenV2(generator: TrustedKeyGen(userID: userID))
+    }
+    
+    // old trusted
     public static let biometric = KeyGenV2(generator: BiometricKeyGen())
 }
 
@@ -135,14 +139,37 @@ protocol KeyGenerator {
 }
 
 class TrustedKeyGen: KeyGenerator {
-    public let keyTag = "org.cocoapods.Cotter.trusted.privKey".data(using: .utf8)!
-    public let pubKeyTag = "org.cocoapods.Cotter.trusted.pubKey".data(using: .utf8)!
+    public var keyTag: Data {
+        get {
+            return "org.cocoapods.Cotter.trusted.privKey.\(self.userID).\(self.issuer)".data(using: .utf8)!
+        }
+    }
+    public var pubKeyTag: Data {
+        get {
+            return "org.cocoapods.Cotter.trusted.pubKey.\(self.userID).\(self.issuer)".data(using: .utf8)!
+        }
+    }
+    
     public let keyType = kSecAttrKeyTypeECSECPrimeRandom
     public let keySizeInBits = 256
     public let secClass = kSecClassKey
     
+    var userID:String = ""
+    var issuer:String {
+        get {
+            // issuer must be the current company that is using the SDK
+            return CotterAPIService.shared.apiKeyID
+        }
+    }
+    
     // initialize a key generation
     public init() {}
+    
+    // init that takes in the user id for convenience purposes
+    public convenience init(userID:String) {
+        self.init()
+        self.userID = userID
+    }
     
     // generateKey generates the private key if one does not exist in the storage
     internal func generateKey() throws {

@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Cotter'
-  s.version          = '1.5.0'
+  s.version          = '1.6.0'
   s.summary          = 'Cotter is the client SDK for Cotter authentication services'
   s.swift_versions   = '5.0'
 
@@ -38,6 +38,11 @@ CotterIOS simplifies client's integration with Cotter. It is an SDK that provide
   }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
-   s.frameworks = 'UIKit'
-#   s.dependency 'Alamofire', '~> 5.0.0-rc.3'
+  s.static_framework = true
+  s.frameworks = 'UIKit'
+  s.dependency 'OneSignal', '2.13.1'
+  
+  s.test_spec 'Tests' do |test_spec|
+    test_spec.source_files = 'Example/Tests/**/*'
+  end
 end
