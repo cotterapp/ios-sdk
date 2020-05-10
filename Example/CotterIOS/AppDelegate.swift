@@ -18,20 +18,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         // Override point for customization after application launch.
         
-        // set credentials
-        var apiKeyID: String
-        var apiSecretKey: String
+        // set default credentials
+        var apiKeyID = "fb1f9830-574c-4b0d-bafb-68713ed927a2"
+        var apiSecretKey = "KLKqAQ6QXEScmQbYvtJm"
         
         if let key = Environment.shared.COTTER_API_KEY_ID {
             apiKeyID = key
-        } else {
-            apiKeyID = "fb1f9830-574c-4b0d-bafb-68713ed927a2"
         }
         
         if let key = Environment.shared.COTTER_API_SECRET_KEY {
             apiSecretKey = key
-        } else {
-            apiSecretKey = "KLKqAQ6QXEScmQbYvtJm"
         }
         
         CotterWrapper.cotter = Cotter(
