@@ -44,7 +44,7 @@ public struct CotterEvent: Codable {
 
 // MARK: - Request Type
 
-public struct CotterEventRequest: Encodable {
+public struct CotterEventRequest: Encodable, AutoEquatable {
     let pubKey:String?
     let userID:String
     let issuer:String

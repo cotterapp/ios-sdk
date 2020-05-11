@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct VerifyPINResetCode: APIRequest {
+public struct VerifyPINResetCode: APIRequest, AutoEquatable {
     public typealias Response = CotterBasicResponse
     
     public var path: String {

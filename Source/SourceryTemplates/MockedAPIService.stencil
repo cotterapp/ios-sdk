@@ -1,0 +1,13 @@
+{% for protocol in types.implementing.MockedService|protocol %}
+
+  {{ protocol.accessLevel }} class Mocked{{ protocol.name }}: {{ protocol.name }} {
+    {% for method in protocol.methods %}
+      var {{ method.callName }}Called: Bool = false
+
+      {{ method.accessLevel }} func {{ method.name }} -> {{ method.returnTypeName }} {
+        {{ method.callName }}Called = true
+      }
+      
+    {% endfor %}
+  }
+{% endfor %}

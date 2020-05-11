@@ -7,6 +7,11 @@
 
 import Foundation
 
+// MARK: - For APIClient Class Tests
 public protocol MockedClient {}
 
+// MARK: - For CotterAPIService Class Tests
+public protocol MockedService {}
 
+// MARK: - AutoEquatable
+public protocol AutoEquatable {}

@@ -100,6 +100,9 @@
 		6A22E8ACC290C0EDF62DE38F5BE72810 /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525F4DB1D50DEC16A84ADD84E5280955 /* KeyboardView.swift */; };
 		6C638BF52468A7F90089CE30 /* MockedAPIClient.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C638BF42468A7F90089CE30 /* MockedAPIClient.generated.swift */; };
 		6C638BF72468A84B0089CE30 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C638BF62468A84A0089CE30 /* Protocols.swift */; };
+		6C638C002468E8E20089CE30 /* APIServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C638BFF2468E8E20089CE30 /* APIServiceProtocol.swift */; };
+		6C638C04246999CB0089CE30 /* MockedAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C638C03246999CB0089CE30 /* MockedAPIService.swift */; };
+		6C638C082469ADE60089CE30 /* AutoEquatable.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C638C072469ADE60089CE30 /* AutoEquatable.generated.swift */; };
 		70732B9B36668C02A1CB23BAE9048A06 /* Transaction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C417FE406A193796C6BEE1DAACE343A2 /* Transaction.storyboard */; };
 		70F043AFA2C8CEEFC1DE728AE5C9E95F /* AuthAlertMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384AE886A2720ED9B0624D8DBCD04B58 /* AuthAlertMessages.swift */; };
 		72FB8CEABF346A37D54CC08647489A98 /* ThrowAssertion.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00F28567C5233B81D9CF54EE7B57C5D /* ThrowAssertion.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
@@ -431,6 +434,9 @@
 		6AF0834A3D22D57F61377A92BFA7DC35 /* CotterNotificationCredential.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = CotterNotificationCredential.html; path = docs/Classes/CotterNotificationCredential.html; sourceTree = "<group>"; };
 		6C638BF42468A7F90089CE30 /* MockedAPIClient.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockedAPIClient.generated.swift; sourceTree = "<group>"; };
 		6C638BF62468A84A0089CE30 /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Protocols.swift; path = Mocks/Protocols.swift; sourceTree = "<group>"; };
+		6C638BFF2468E8E20089CE30 /* APIServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceProtocol.swift; sourceTree = "<group>"; };
+		6C638C03246999CB0089CE30 /* MockedAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedAPIService.swift; sourceTree = "<group>"; };
+		6C638C072469ADE60089CE30 /* AutoEquatable.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoEquatable.generated.swift; sourceTree = "<group>"; };
 		6C9AD62857716DB108028D07205BDE58 /* PINFinalViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PINFinalViewController.swift; path = Source/PINFinalViewController.swift; sourceTree = "<group>"; };
 		6E6A084F30109CF03ACE8BF7B39536F4 /* UpdateConfirmNewPINViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UpdateConfirmNewPINViewController.swift; path = Source/UpdateConfirmNewPINViewController.swift; sourceTree = "<group>"; };
 		6FB6377EE7BAF19A43EB9DC55222ADD7 /* PinStepEnums.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PinStepEnums.swift; sourceTree = "<group>"; };
@@ -768,6 +774,7 @@
 		3C110CD5B0D5823B60E2AB100D59CF81 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				6C638BFF2468E8E20089CE30 /* APIServiceProtocol.swift */,
 				E120720BC5A18EFF05D93155BD40EC22 /* CotterAPIService.swift */,
 				6336CDCD498C5A06B6C52CE3A140A0B5 /* CotterClient.swift */,
 				F40C10733022E87E2205FA698FF8899F /* HTTPCallback.swift */,
@@ -862,6 +869,7 @@
 		6C638BEF2468A2C50089CE30 /* GeneratedCode */ = {
 			isa = PBXGroup;
 			children = (
+				6C638C072469ADE60089CE30 /* AutoEquatable.generated.swift */,
 				6C638BF42468A7F90089CE30 /* MockedAPIClient.generated.swift */,
 			);
 			name = GeneratedCode;
@@ -872,6 +880,7 @@
 			isa = PBXGroup;
 			children = (
 				6C638BF62468A84A0089CE30 /* Protocols.swift */,
+				6C638C03246999CB0089CE30 /* MockedAPIService.swift */,
 			);
 			name = Mocks;
 			path = Source;
@@ -1703,6 +1712,7 @@
 				CE770E1CD8C3EE4F0B6458480B0FC9AA /* CotterStrings.swift in Sources */,
 				60974142AAFB52E588431975A5942707 /* CreateAuthenticationEvent.swift in Sources */,
 				4B6A8A5AAEB550459DD1F8A778B6928A /* CreatePendingEventRequest.swift in Sources */,
+				6C638C002468E8E20089CE30 /* APIServiceProtocol.swift in Sources */,
 				565301C731D34AEBC8E6B51035A8AAE1 /* CrossButton.swift in Sources */,
 				CFC70D7A988C38D75D46F58217B9F5F5 /* English.swift in Sources */,
 				1C333A3DBC5F5F0EDBA61F1C9EA0AE81 /* EnrolledMethods.swift in Sources */,
@@ -1710,6 +1720,7 @@
 				7473E3BAFB941ECFABE5C5DF945FCD8A /* EnrollUserPIN.swift in Sources */,
 				D4D716D26EE37219DA278DC6F272E86E /* Error.swift in Sources */,
 				9512F799A06F7DBE32FD3DE835BF4DE5 /* ErrorMessages.swift in Sources */,
+				6C638C082469ADE60089CE30 /* AutoEquatable.generated.swift in Sources */,
 				5943E8FCE6A95DD8311EE9730C39E4AD /* Event.swift in Sources */,
 				89FF43E829EB409D1966850EE6A93D36 /* GetBiometricStatus.swift in Sources */,
 				B7086163A1A194C745BDD43EE724E8FE /* GetEvent.swift in Sources */,
@@ -1733,6 +1744,7 @@
 				28E552A2512BFEB3043B8913A4DCC799 /* OneTimeCodeTextField.swift in Sources */,
 				876E42611E77F1D88AA55E6B6D290EA0 /* Passwordless.swift in Sources */,
 				6C638BF72468A84B0089CE30 /* Protocols.swift in Sources */,
+				6C638C04246999CB0089CE30 /* MockedAPIService.swift in Sources */,
 				E71EF6351C859428EA1B94DFB070436F /* PINBaseController.swift in Sources */,
 				8594D99C4AA4573EB093DB67A931F63D /* PINConfirmViewController.swift in Sources */,
 				512F2B7BC69AE0EE12F15551309DD2B8 /* PINFinalViewController.swift in Sources */,

@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct GetNewEvent: APIRequest {
+public struct GetNewEvent: APIRequest, AutoEquatable {
     public typealias Response = CotterEvent?
     
     public var path: String {

@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct GetBiometricStatus: APIRequest {
+public struct GetBiometricStatus: APIRequest, AutoEquatable {
     public typealias Response = EnrolledMethods
     
     public var path: String {

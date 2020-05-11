@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GetNotificationAppID: APIRequest {
+class GetNotificationAppID: APIRequest, AutoEquatable {
     public typealias Response = CotterNotificationCredential
     
     public var path: String {
