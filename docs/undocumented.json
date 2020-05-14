@@ -254,105 +254,105 @@
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Cotter.swift",
-      "line": 44,
+      "line": 55,
       "symbol": "Cotter.PLBaseURL",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Cotter.swift",
-      "line": 60,
+      "line": 71,
       "symbol": "Cotter.init(apiSecretKey:apiKeyID:cotterURL:userID:configuration:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Cotter.swift",
-      "line": 86,
+      "line": 97,
       "symbol": "Cotter.init(apiSecretKey:apiKeyID:cotterURL:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Cotter.swift",
-      "line": 124,
+      "line": 135,
       "symbol": "Cotter.startEnrollment(vc:animated:cb:hideClose:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Cotter.swift",
-      "line": 140,
+      "line": 151,
       "symbol": "Cotter.startTransaction(vc:animated:cb:hideClose:name:sendingMethod:sendingDestination:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Cotter.swift",
-      "line": 164,
+      "line": 175,
       "symbol": "Cotter.startUpdateProfile(vc:animated:cb:hideClose:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Cotter.swift",
-      "line": 178,
+      "line": 189,
       "symbol": "Cotter.startPasswordlessLogin(parentView:input:identifierField:type:directLogin:cb:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Cotter.swift",
-      "line": 196,
+      "line": 207,
       "symbol": "Cotter.setText(for:to:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Cotter.swift",
-      "line": 202,
+      "line": 213,
       "symbol": "Cotter.loginWithTrustedDevice(vc:cb:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Cotter.swift",
-      "line": 210,
+      "line": 221,
       "symbol": "Cotter.getEventTrustedDevice(vc:cb:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Cotter.swift",
-      "line": 217,
+      "line": 228,
       "symbol": "Cotter.registerNewDevice(vc:cb:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Cotter.swift",
-      "line": 224,
+      "line": 235,
       "symbol": "Cotter.scanNewDevice(vc:cb:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Cotter.swift",
-      "line": 231,
+      "line": 242,
       "symbol": "Cotter.removeTrustedDevice(vc:cb:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Cotter.swift",
-      "line": 241,
+      "line": 252,
       "symbol": "Cotter.configure(apiSecretKey:apiKeyID:configuration:)",
       "symbol_kind": "source.lang.swift.decl.function.method.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Cotter.swift",
-      "line": 266,
+      "line": 277,
       "symbol": "Cotter.configureWithLaunchOptions(launchOptions:apiSecretKey:apiKeyID:configuration:)",
       "symbol_kind": "source.lang.swift.decl.function.method.static",
       "warning": "undocumented"
@@ -1710,7 +1710,7 @@
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Service/Requests/EnrollTrustedDevice.swift",
-      "line": 34,
+      "line": 35,
       "symbol": "EnrollTrustedDevice.init(userID:code:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
