@@ -96,6 +96,7 @@
 		820AB7B5B7E543E5278DF99B /* Pods-CotterIOS_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CotterIOS_Tests.debug.xcconfig"; path = "Target Support Files/Pods-CotterIOS_Tests/Pods-CotterIOS_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		85292E4123EC21CB008363AB /* CryptoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoViewController.swift; sourceTree = "<group>"; };
 		853F307D24619EC000403B87 /* CotterIOS_Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CotterIOS_Example.entitlements; sourceTree = "<group>"; };
+		853F308524634DE100403B87 /* Cotter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Cotter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8594180F23F55A3F00B4DA6D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		8597662823F1914C00ACA96E /* IPAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPAddressViewController.swift; sourceTree = "<group>"; };
 		85AD5B802407C5CF00AC3367 /* UserCheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCheckViewController.swift; sourceTree = "<group>"; };
@@ -223,6 +224,7 @@
 		6594D782F104D284E0C5E07B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				853F308524634DE100403B87 /* Cotter.framework */,
 				95A202280DF1D28B43394F0D /* Pods_CotterIOS_Example.framework */,
 				286C43C66329D2B921FC31FD /* Pods_CotterIOS_Tests.framework */,
 			);
@@ -327,6 +329,8 @@
 				607FACE11AFB9204008FA782 /* Sources */,
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
+				192A49B43F04E3713794EC04 /* [CP] Embed Pods Frameworks */,
+				FB74BB776E53CB9FE808E71D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -515,6 +519,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CotterIOS_Example/Pods-CotterIOS_Example-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FB74BB776E53CB9FE808E71D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CotterIOS_Tests/Pods-CotterIOS_Tests-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/Cotter/Cotter.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Cotter.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CotterIOS_Tests/Pods-CotterIOS_Tests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
