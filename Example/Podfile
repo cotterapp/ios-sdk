@@ -8,23 +8,7 @@ target 'CotterIOS_Example' do
   pod 'Nimble', '~> 8.0'
   pod 'Sourcery'
 
-<<<<<<< Updated upstream
   target 'CotterIOS_Tests' do
     inherit! :search_paths
   end
-=======
-#  target 'CotterIOS_Tests' do
-#    inherit! :search_paths
-#
-#   use_frameworks!
-#   pod 'Nimble', '~> 8.0'
-#  end
-end
-
-target 'CotterIOS_Tests' do
-  pod 'Cotter', :path => '../'
-
- use_frameworks!
- pod 'Nimble', '~> 8.0'
->>>>>>> Stashed changes
 end
