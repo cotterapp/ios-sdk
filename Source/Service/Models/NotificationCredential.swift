@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class CotterNotificationCredential: Codable {
+public struct CotterNotificationCredential: Codable {
     public var id:Int
     public var createdAt:String
     public var updatedAt:String?

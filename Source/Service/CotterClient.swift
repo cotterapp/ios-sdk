@@ -14,15 +14,31 @@ public protocol APIClient: MockedClient {
     )
 }
 
+// MARK: - NetworkSession Protocol for loadData Function
+public protocol NetworkSession {
+    func loadData(urlRequest: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void)
+}
+
+// MARK: - URLSession implements the loadData method, which will call session.dataTask to make the HTTP Request
+extension URLSession: NetworkSession {
+    public func loadData(urlRequest: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) {
+        let task = dataTask(with: urlRequest) { data, response, error in
+            completionHandler(data, response, error)
+        }
+        task.resume()
+    }
+}
+
 public class CotterClient: APIClient {
     private let baseURL: URL
     private let apiPrefixPath: String = "/api/v0"
-    private let session = URLSession.shared
+    private let session: NetworkSession
     
     private let apiKeyID: String
     private let apiSecretKey: String
     
-    public init(apiKeyID: String, apiSecretKey: String, url: String){
+    public init(apiKeyID: String, apiSecretKey: String, url: String, session: NetworkSession = URLSession.shared) {
+        self.session = session
         self.baseURL = URL(string: url)!
         self.apiKeyID = apiKeyID
         self.apiSecretKey = apiSecretKey
@@ -32,7 +48,8 @@ public class CotterClient: APIClient {
     public func send<T: APIRequest>(_ request: T, completion: @escaping ResultCallback<T.Response>) {
         let urlrequest = self.urlrequest(for: request)
         
-        let task = session.dataTask(with: urlrequest) { data, response, error in
+        // loadData will call URLSession.dataTask to make the HTTP Request
+        session.loadData(urlRequest: urlrequest) { data, response, error in
             guard let data = data,
                 let response = response as? HTTPURLResponse,
                 error == nil else { // check for fundamental networking error
@@ -70,7 +87,7 @@ public class CotterClient: APIClient {
                 }
             }
         }
-        task.resume()
+        
     }
     
     private func urlrequest<T: APIRequest>(for request: T) -> URLRequest {

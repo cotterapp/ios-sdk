@@ -98,7 +98,7 @@
 		64E26D7D025AC4462DFA8BA66B38C9D8 /* HaveCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5587C17F1E43A4924D71ED5FC50C143E /* HaveCount.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
 		66C052A0D510FEBC122CADE5DC6FF51D /* EnrollTrustedDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7520387D25A1B91C1D8A6999A2F531CC /* EnrollTrustedDevice.swift */; };
 		6A22E8ACC290C0EDF62DE38F5BE72810 /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525F4DB1D50DEC16A84ADD84E5280955 /* KeyboardView.swift */; };
-		6C638BF52468A7F90089CE30 /* MockedAPIClient.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C638BF42468A7F90089CE30 /* MockedAPIClient.generated.swift */; };
+		6C34D12E2480C23200AE6E07 /* MockedCotterClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C34D12D2480C23200AE6E07 /* MockedCotterClient.swift */; };
 		6C638BF72468A84B0089CE30 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C638BF62468A84A0089CE30 /* Protocols.swift */; };
 		6C638C002468E8E20089CE30 /* APIServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C638BFF2468E8E20089CE30 /* APIServiceProtocol.swift */; };
 		6C638C04246999CB0089CE30 /* MockedAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C638C03246999CB0089CE30 /* MockedAPIService.swift */; };
@@ -432,7 +432,7 @@
 		6A1EA2602BE2ABDA2703A08CE784C7A5 /* TransactionPINViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TransactionPINViewController.swift; path = Source/TransactionPINViewController.swift; sourceTree = "<group>"; };
 		6A33E2FC0E5BF87F106E8537DF289BED /* EnrollTrustedDevice.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = EnrollTrustedDevice.html; path = docs/Structs/EnrollTrustedDevice.html; sourceTree = "<group>"; };
 		6AF0834A3D22D57F61377A92BFA7DC35 /* CotterNotificationCredential.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = CotterNotificationCredential.html; path = docs/Classes/CotterNotificationCredential.html; sourceTree = "<group>"; };
-		6C638BF42468A7F90089CE30 /* MockedAPIClient.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockedAPIClient.generated.swift; sourceTree = "<group>"; };
+		6C34D12D2480C23200AE6E07 /* MockedCotterClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedCotterClient.swift; sourceTree = "<group>"; };
 		6C638BF62468A84A0089CE30 /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Protocols.swift; path = Mocks/Protocols.swift; sourceTree = "<group>"; };
 		6C638BFF2468E8E20089CE30 /* APIServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceProtocol.swift; sourceTree = "<group>"; };
 		6C638C03246999CB0089CE30 /* MockedAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedAPIService.swift; sourceTree = "<group>"; };
@@ -870,7 +870,6 @@
 			isa = PBXGroup;
 			children = (
 				6C638C072469ADE60089CE30 /* AutoEquatable.generated.swift */,
-				6C638BF42468A7F90089CE30 /* MockedAPIClient.generated.swift */,
 			);
 			name = GeneratedCode;
 			path = Source/GeneratedCode;
@@ -881,6 +880,7 @@
 			children = (
 				6C638BF62468A84A0089CE30 /* Protocols.swift */,
 				6C638C03246999CB0089CE30 /* MockedAPIService.swift */,
+				6C34D12D2480C23200AE6E07 /* MockedCotterClient.swift */,
 			);
 			name = Mocks;
 			path = Source;
@@ -1736,6 +1736,7 @@
 				4AA53C90325990022781022BCCFFB42F /* Indonesian.swift in Sources */,
 				6A22E8ACC290C0EDF62DE38F5BE72810 /* KeyboardView.swift in Sources */,
 				DC4D3EB5973F88CE4B0DFF677C7699D3 /* KeyStore.swift in Sources */,
+				6C34D12E2480C23200AE6E07 /* MockedCotterClient.swift in Sources */,
 				2305FA52EC1C9263244838E69A71408F /* LanguageObject.swift in Sources */,
 				23699A4507E8113B2D27ADD3AEDD3F31 /* LocalAuthService.swift in Sources */,
 				9E1024825289A5237F3BF52D95CE1A36 /* NonTrusted.swift in Sources */,
@@ -1780,7 +1781,6 @@
 				3A2B2B4D4484918E7EA7501F5E3E168E /* UpdateCreateNewPINViewController.swift in Sources */,
 				92331DBF066B5E644D557105B2AA8F5A /* UpdatePINViewController.swift in Sources */,
 				7941FC7BB66CA58476630E7890B09409 /* UpdateUserPIN.swift in Sources */,
-				6C638BF52468A7F90089CE30 /* MockedAPIClient.generated.swift in Sources */,
 				F6230016B771F89933AEB25749EA04DC /* User.swift in Sources */,
 				AD7DB3709E62AF98BB0C97F06130B0C5 /* UserInfo.swift in Sources */,
 				88C1A29E42257B8CF092EAB2C48BAB95 /* Utils.swift in Sources */,

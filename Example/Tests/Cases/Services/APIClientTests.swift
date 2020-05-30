@@ -12,16 +12,30 @@ import Nimble
 
 class APIClientTests: XCTestCase {
     
-    let mockedAPIClient = MockedAPIClient()
+    let mockedCotterClient = MockedCotterClient()
 
     func testSend() {
         let testObject = TestObject(id: 1, path: "testpath", method: "GET")
         
-        mockedAPIClient.send(testObject) { _ in
-            
+        var resp: Codable?
+        var err: Error? = nil
+        
+        func cb(_ response: CotterResult<CotterBasicResponse>) {
+            switch response {
+            case .success(let response):
+                resp = response
+            case .failure(let error):
+                err = error
+            }
         }
         
-        expect(self.mockedAPIClient.sendCalled).to(beTrue())
+        mockedCotterClient.send(testObject) { response in
+            cb(response)
+        }
+        
+        expect(self.mockedCotterClient.sendCalled).to(beTrue())
+        expect(resp).to(beAKindOf(CotterBasicResponse.self))
+        expect(err).to(beNil())
     }
 }
 
