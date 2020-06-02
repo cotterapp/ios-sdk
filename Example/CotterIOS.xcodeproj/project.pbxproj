@@ -329,8 +329,6 @@
 				607FACE11AFB9204008FA782 /* Sources */,
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
-				192A49B43F04E3713794EC04 /* [CP] Embed Pods Frameworks */,
-				FB74BB776E53CB9FE808E71D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -519,24 +517,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CotterIOS_Example/Pods-CotterIOS_Example-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FB74BB776E53CB9FE808E71D /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CotterIOS_Tests/Pods-CotterIOS_Tests-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/Cotter/Cotter.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Cotter.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CotterIOS_Tests/Pods-CotterIOS_Tests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

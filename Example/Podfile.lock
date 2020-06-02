@@ -1,5 +1,5 @@
 PODS:
-  - Cotter (1.6.0):
+  - Cotter (1.6.1):
     - OneSignal (= 2.13.1)
   - Nimble (8.0.7)
   - OneSignal (2.13.1)
@@ -22,11 +22,11 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Cotter: ad1b868874d6911be9032d4b3666f4e101d57f23
+  Cotter: 757823d833d2bdb9412a5b054dec62a26726af63
   Nimble: a73af6ecd4c9106f434f3d55fc54570be3739e0b
   OneSignal: fa98eaa90372bb367b6a4a1c1622ffb9832c7600
   Sourcery: e0e8658a1ce6d9f475156ad3ffce4c68f1261b3e
 
-PODFILE CHECKSUM: 22b1db1782610fcdc1b018c544ae84c8d84b1947
+PODFILE CHECKSUM: 255ff4a9d6bf10ef016044b015298b8d6b9f8093
 
 COCOAPODS: 1.8.4
