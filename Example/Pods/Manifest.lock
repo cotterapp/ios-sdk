@@ -1,28 +1,32 @@
 PODS:
-  - Cotter (1.5.0):
+  - Cotter (1.6.0):
     - OneSignal (= 2.13.1)
   - Nimble (8.0.7)
   - OneSignal (2.13.1)
+  - Sourcery (0.18.0)
 
 DEPENDENCIES:
   - Cotter (from `../`)
   - Nimble (~> 8.0)
   - OneSignal (= 2.13.1)
+  - Sourcery
 
 SPEC REPOS:
   trunk:
     - Nimble
     - OneSignal
+    - Sourcery
 
 EXTERNAL SOURCES:
   Cotter:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Cotter: a442b28a86f603c408f842a204ba08bfc6e2094a
+  Cotter: bb3b2c6d4edac615f900b3a0789d2fd58af043b5
   Nimble: a73af6ecd4c9106f434f3d55fc54570be3739e0b
   OneSignal: fa98eaa90372bb367b6a4a1c1622ffb9832c7600
+  Sourcery: e0e8658a1ce6d9f475156ad3ffce4c68f1261b3e
 
-PODFILE CHECKSUM: 659f62ba8c72a0a381576359405a42a4f154ca6a
+PODFILE CHECKSUM: 255ff4a9d6bf10ef016044b015298b8d6b9f8093
 
 COCOAPODS: 1.8.4

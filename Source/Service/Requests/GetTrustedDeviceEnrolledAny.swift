@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct GetTrustedDeviceEnrolledAny: APIRequest {
+public struct GetTrustedDeviceEnrolledAny: APIRequest, AutoEquatable {
     public typealias Response = EnrolledMethods
     
     public var path: String {

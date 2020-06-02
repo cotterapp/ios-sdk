@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct RemoveTrustedDeviceStatus: APIRequest {
+public struct RemoveTrustedDeviceStatus: APIRequest, AutoEquatable {
     public typealias Response = CotterUser
     
     public var path: String {

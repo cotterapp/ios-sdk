@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class CotterAPIService {
+public class CotterAPIService: APIService {
     // shared cotterAPI service to be used anywhere later
     // when you want to use the APIService, do CotterAPIService.shared.<function-name>
     public static var shared = CotterAPIService()
@@ -607,4 +607,3 @@ public class CotterAPIService {
         apiClient.send(req, completion: cb)
     }
 }
-

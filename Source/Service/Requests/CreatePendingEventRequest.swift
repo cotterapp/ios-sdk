@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct CreatePendingEventRequest: APIRequest {
+public struct CreatePendingEventRequest: APIRequest, AutoEquatable {
     public typealias Response = CotterEvent
     
     public var path: String {

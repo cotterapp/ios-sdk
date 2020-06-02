@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct GetUser: APIRequest {
+public struct GetUser: APIRequest, AutoEquatable {
     public typealias Response = CotterUser
     
     public var path: String {
