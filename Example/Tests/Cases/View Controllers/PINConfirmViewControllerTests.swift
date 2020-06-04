@@ -28,9 +28,6 @@ class PINConfirmViewControllerTests: XCTestCase {
     
     func makeSUT(actualPresenter: Bool = false) -> PINConfirmViewController {
         let storyboard = UIStoryboard(name: "Cotter", bundle: Cotter.resourceBundle)
-        let path = Cotter.resourceBundle.resourcePath
-        let bundlePath = Bundle(for: PINConfirmViewController.self).resourcePath
-        
         let sut = storyboard.instantiateViewController(identifier: "PINConfirmViewController") as! PINConfirmViewController
         if !actualPresenter {
             sut.presenter = presenter

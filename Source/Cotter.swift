@@ -37,19 +37,15 @@ public class Cotter {
     static var resourceBundle: Bundle = {
         // Set the resource bundle
         let frameworkBundle = Bundle(for: Cotter.self)
-        let bundleURL = frameworkBundle.resourceURL?.appendingPathComponent("Cotter.bundle")
-        let bundlePath = frameworkBundle.resourcePath
-        print(frameworkBundle.resourcePath ?? "no path")
-        return Bundle(url: bundleURL!)!
-//        guard let bundleURL = frameworkBundle.url(forResource: "Cotter", withExtension: "bundle") else {
-//            fatalError("Cotter.bundle not found!")
-//        }
-//
-//        guard let resBundle = Bundle(url: bundleURL) else {
-//            fatalError("cannot access Cotter.bundle!")
-//        }
-//
-//        return resBundle
+        guard let bundleURL = frameworkBundle.url(forResource: "Cotter", withExtension: "bundle") else {
+            fatalError("Cotter.bundle not found!")
+        }
+
+        guard let resBundle = Bundle(url: bundleURL) else {
+            fatalError("cannot access Cotter.bundle!")
+        }
+
+        return resBundle
     }()
     
     public static var PLBaseURL: String? {
@@ -255,8 +251,8 @@ public class Cotter {
         configuration: [String:Any] = [:]
     ) {
         print("configuring Cotter's object...")
-//        CotterAPIService.shared.baseURL = URL(string: "https://www.cotter.app/api/v0")!
-        CotterAPIService.shared.baseURL = URL(string: "http://localhost:1234/api/v0")!
+        CotterAPIService.shared.baseURL = URL(string: "https://www.cotter.app/api/v0")!
+//        CotterAPIService.shared.baseURL = URL(string: "http://localhost:1234/api/v0")!
 //        CotterAPIService.shared.baseURL = URL(string:"http://192.168.1.17:1234/api/v0")!
         CotterAPIService.shared.apiSecretKey = apiSecretKey
         CotterAPIService.shared.apiKeyID = apiKeyID
