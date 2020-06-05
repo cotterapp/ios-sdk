@@ -20,7 +20,8 @@ public struct EnrollTrustedDevice: APIRequest, AutoEquatable {
         let data: [String: Any] = [
             "method": CotterMethods.TrustedDevice,
             "enrolled": true,
-            "code": code
+            "code": code,
+            "algorithm": "EC"
         ]
         
         let body = try? JSONSerialization.data(withJSONObject: data)

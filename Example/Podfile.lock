@@ -1,5 +1,5 @@
 PODS:
-  - Cotter (1.6.0):
+  - Cotter (1.6.1):
     - OneSignal (= 2.13.1)
   - Nimble (8.0.7)
   - OneSignal (2.13.1)
@@ -22,7 +22,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Cotter: bb3b2c6d4edac615f900b3a0789d2fd58af043b5
+  Cotter: 757823d833d2bdb9412a5b054dec62a26726af63
   Nimble: a73af6ecd4c9106f434f3d55fc54570be3739e0b
   OneSignal: fa98eaa90372bb367b6a4a1c1622ffb9832c7600
   Sourcery: e0e8658a1ce6d9f475156ad3ffce4c68f1261b3e

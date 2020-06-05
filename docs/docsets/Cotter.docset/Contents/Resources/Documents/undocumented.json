@@ -240,113 +240,120 @@
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Cotter.swift",
-      "line": 11,
+      "line": 12,
       "symbol": "Cotter",
       "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Cotter.swift",
-      "line": 24,
+      "line": 25,
       "symbol": "Cotter.userID",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Cotter.swift",
-      "line": 43,
+      "line": 44,
       "symbol": "Cotter.PLBaseURL",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Cotter.swift",
-      "line": 59,
+      "line": 60,
       "symbol": "Cotter.init(apiSecretKey:apiKeyID:cotterURL:userID:configuration:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Cotter.swift",
-      "line": 85,
+      "line": 86,
       "symbol": "Cotter.init(apiSecretKey:apiKeyID:cotterURL:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Cotter.swift",
-      "line": 123,
+      "line": 124,
       "symbol": "Cotter.startEnrollment(vc:animated:cb:hideClose:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Cotter.swift",
-      "line": 139,
+      "line": 140,
       "symbol": "Cotter.startTransaction(vc:animated:cb:hideClose:name:sendingMethod:sendingDestination:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Cotter.swift",
-      "line": 163,
+      "line": 164,
       "symbol": "Cotter.startUpdateProfile(vc:animated:cb:hideClose:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Cotter.swift",
-      "line": 177,
+      "line": 178,
       "symbol": "Cotter.startPasswordlessLogin(parentView:input:identifierField:type:directLogin:cb:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Cotter.swift",
-      "line": 195,
+      "line": 196,
       "symbol": "Cotter.setText(for:to:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Cotter.swift",
-      "line": 201,
+      "line": 202,
       "symbol": "Cotter.loginWithTrustedDevice(vc:cb:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Cotter.swift",
-      "line": 209,
+      "line": 210,
       "symbol": "Cotter.getEventTrustedDevice(vc:cb:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Cotter.swift",
-      "line": 216,
+      "line": 217,
       "symbol": "Cotter.registerNewDevice(vc:cb:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Cotter.swift",
-      "line": 223,
+      "line": 224,
       "symbol": "Cotter.scanNewDevice(vc:cb:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Cotter.swift",
-      "line": 230,
+      "line": 231,
       "symbol": "Cotter.removeTrustedDevice(vc:cb:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Cotter.swift",
-      "line": 240,
+      "line": 241,
       "symbol": "Cotter.configure(apiSecretKey:apiKeyID:configuration:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Cotter.swift",
+      "line": 266,
+      "symbol": "Cotter.configureWithLaunchOptions(launchOptions:apiSecretKey:apiKeyID:configuration:)",
       "symbol_kind": "source.lang.swift.decl.function.method.static",
       "warning": "undocumented"
     },
@@ -646,70 +653,77 @@
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Passwordless/Passwordless.swift",
-      "line": 12,
+      "line": 13,
       "symbol": "Passwordless",
       "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Passwordless/Passwordless.swift",
-      "line": 25,
+      "line": 26,
       "symbol": "Passwordless.shared",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Passwordless/Passwordless.swift",
-      "line": 27,
+      "line": 28,
       "symbol": "Passwordless.init()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Passwordless/Passwordless.swift",
-      "line": 31,
+      "line": 32,
       "symbol": "Passwordless.parentVC",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Passwordless/Passwordless.swift",
-      "line": 34,
+      "line": 35,
       "symbol": "Passwordless.login(identifier:cb:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Passwordless/Passwordless.swift",
-      "line": 55,
+      "line": 66,
       "symbol": "Passwordless.checkEvent(identifier:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Passwordless/Passwordless.swift",
-      "line": 77,
+      "line": 88,
       "symbol": "Passwordless.register(identifier:cb:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Passwordless/Passwordless.swift",
-      "line": 99,
+      "line": 120,
+      "symbol": "Passwordless.logout()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Passwordless/Passwordless.swift",
+      "line": 125,
       "symbol": "Passwordless.registerDevice(identifier:cb:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Passwordless/Passwordless.swift",
-      "line": 133,
+      "line": 159,
       "symbol": "Passwordless.scanNewDevice(identifier:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Passwordless/Passwordless.swift",
-      "line": 165,
+      "line": 191,
       "symbol": "Passwordless.removeDevice(identifier:cb:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -984,6 +998,13 @@
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Service/CotterAPIService.swift",
       "line": 566,
       "symbol": "CotterAPIService.removeTrustedDeviceStatus(userID:cb:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Service/CotterAPIService.swift",
+      "line": 600,
+      "symbol": "CotterAPIService.getNotificationAppID(cb:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
@@ -1320,6 +1341,55 @@
       "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Service/Models/Identity.swift",
       "line": 47,
       "symbol": "Token.signature",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Service/Models/NotificationCredential.swift",
+      "line": 10,
+      "symbol": "CotterNotificationCredential",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Service/Models/NotificationCredential.swift",
+      "line": 11,
+      "symbol": "CotterNotificationCredential.id",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Service/Models/NotificationCredential.swift",
+      "line": 12,
+      "symbol": "CotterNotificationCredential.createdAt",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Service/Models/NotificationCredential.swift",
+      "line": 13,
+      "symbol": "CotterNotificationCredential.updatedAt",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Service/Models/NotificationCredential.swift",
+      "line": 14,
+      "symbol": "CotterNotificationCredential.deletedAt",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Service/Models/NotificationCredential.swift",
+      "line": 15,
+      "symbol": "CotterNotificationCredential.companyID",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/albertpurnama/go/src/gitlab.com/govest/cotter/ios/Source/Service/Models/NotificationCredential.swift",
+      "line": 16,
+      "symbol": "CotterNotificationCredential.appID",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },

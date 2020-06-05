@@ -37,8 +37,15 @@ public class Cotter {
     static var resourceBundle: Bundle = {
         // Set the resource bundle
         let frameworkBundle = Bundle(for: Cotter.self)
-        let bundleURL = frameworkBundle.resourceURL?.appendingPathComponent("Cotter.bundle")
-        return Bundle(url: bundleURL!)!
+        guard let bundleURL = frameworkBundle.url(forResource: "Cotter", withExtension: "bundle") else {
+            fatalError("Cotter.bundle not found!")
+        }
+
+        guard let resBundle = Bundle(url: bundleURL) else {
+            fatalError("cannot access Cotter.bundle!")
+        }
+
+        return resBundle
     }()
     
     public static var PLBaseURL: String? {
