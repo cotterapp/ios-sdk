@@ -187,7 +187,7 @@ public class Cotter {
         input: String,
         identifierField:String,
         type:String,
-//        directLogin: Bool,
+        directLogin: Bool,
         userID: String? = nil,
         cb: @escaping (_ identity: CotterIdentity?, _ error: Error?) -> Void
     ) {
