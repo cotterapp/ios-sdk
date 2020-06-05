@@ -187,7 +187,7 @@ public class Cotter {
         input: String,
         identifierField:String,
         type:String,
-        directLogin: Bool,
+//        directLogin: Bool,
         userID: String? = nil,
         cb: @escaping (_ identity: CotterIdentity?, _ error: Error?) -> Void
     ) {
@@ -264,8 +264,8 @@ public class Cotter {
         configuration: [String:Any] = [:]
     ) {
         print("configuring Cotter's object...")
-//        CotterAPIService.shared.baseURL = URL(string: "https://www.cotter.app/api/v0")!
-        CotterAPIService.shared.baseURL = URL(string: "http://localhost:1234/api/v0")!
+        CotterAPIService.shared.baseURL = URL(string: "https://www.cotter.app/api/v0")!
+//        CotterAPIService.shared.baseURL = URL(string: "http://localhost:1234/api/v0")!
 //        CotterAPIService.shared.baseURL = URL(string:"http://192.168.1.17:1234/api/v0")!
         CotterAPIService.shared.apiSecretKey = apiSecretKey
         CotterAPIService.shared.apiKeyID = apiKeyID
