@@ -304,7 +304,7 @@
 			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "CotterIOS_Example" */;
 			buildPhases = (
 				279B6A0CAB89BD2DF82560A5 /* [CP] Check Pods Manifest.lock */,
-				6C7AAB9C24689732005A10F8 /* ShellScript */,
+				6C7AAB9C24689732005A10F8 /* Run Script */,
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
@@ -462,7 +462,7 @@
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/Sourcery/bin/sourcery\" --sources \"${SRCROOT}/../Source\" --templates \"${SRCROOT}/../Source/SourceryTemplates\" --output \"${SRCROOT}/../Source/GeneratedCode\"\n";
 		};
-		6C7AAB9C24689732005A10F8 /* ShellScript */ = {
+		6C7AAB9C24689732005A10F8 /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -471,6 +471,7 @@
 			);
 			inputPaths = (
 			);
+			name = "Run Script";
 			outputFileListPaths = (
 			);
 			outputPaths = (

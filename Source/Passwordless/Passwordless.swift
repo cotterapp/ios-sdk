@@ -60,7 +60,37 @@ public class Passwordless: NSObject {
         
         OneSignal.setExternalUserId(pubKeyBase64)
         
-        CotterAPIService.shared.reqAuth(userID: identifier, event: CotterEvents.Login, cb: loginCb)
+        CotterAPIService.shared.reqAuth(clientUserID: identifier, event: CotterEvents.Login, cb: loginCb)
+    }
+    
+    // loginWith
+    public func loginWith(cotterUserID: String, cb: @escaping CotterAuthCallback = DoNothingCallback){
+        // retrieve public key
+        guard let pubKey = KeyStore.trusted(userID: cotterUserID).pubKey else {
+            print("[login] Unable to attain user's public key!")
+            return
+        }
+        let pubKeyBase64 = CryptoUtil.keyToBase64(pubKey: pubKey)
+        print("[login] current pubKey: \(pubKeyBase64)")
+        
+        OneSignal.setExternalUserId(pubKeyBase64)
+        
+        // resp is CotterResult<CotterEvent>
+        CotterAPIService.shared.reqAuthWith(cotterUserID: cotterUserID, event: CotterEvents.Login) { resp in
+            switch resp {
+            case .success(let resp):
+                if resp.approved {
+                    cb(resp.oauthToken, nil)
+                    return
+                }
+                
+                // which means non trusted device is logging in..
+                _ = NonTrusted(vc: self.parentVC, eventID: String(resp.id), cb: cb)
+                
+            case .failure(let err):
+                cb(nil, err)
+            }
+        }
     }
     
     public func checkEvent(identifier:String) {
@@ -84,14 +114,16 @@ public class Passwordless: NSObject {
         CotterAPIService.shared.getNewEvent(userID: identifier, cb: checkCb)
     }
     
-    // register should register the userID on the server and enroll trusted device for the first time
-    public func register(identifier: String, cb: @escaping CotterAuthCallback = DoNothingCallback) {
-        CotterAPIService.shared.registerUser(userID: identifier, cb: { resp in
+    // register should register the client's userID on the server and enroll trusted device for the first time
+    public func register(identifier: String, cb: @escaping (_ user: CotterUser?, _ err: Error?) -> Void) {
+        // need userID: "" because as of now client_user_id will be deprecated.
+        CotterAPIService.shared.registerUser(userID: "", cb: { resp in
             switch resp {
-            case .success(_):
-                func enrollTrustedDevice(_ response: CotterResult<CotterUser>){
+            case .success(let user):
+                // response is CotterResult<CotterUser>
+                CotterAPIService.shared.enrollTrustedDeviceWith(cotterUser: user) { (response) in
                     switch response{
-                    case .success(_):
+                    case .success(let user):
                         guard let pubKey = KeyStore.trusted(userID: identifier).pubKey else {
                             print("[login] Unable to attain user's public key!")
                             return
@@ -101,19 +133,30 @@ public class Passwordless: NSObject {
                         
                         OneSignal.setExternalUserId(pubKeyBase64)
                         
-                        cb(nil, nil)
+                        cb(user, nil)
                         
                     case .failure(let err):
                         cb(nil, err)
                     }
                 }
                 
-                CotterAPIService.shared.enrollTrustedDevice(userID: identifier, cb: enrollTrustedDevice)
-                
             case .failure(let err):
                 cb(nil, err)
             }
         })
+    }
+    
+    public func registerWith(cotterUser: CotterUser, cb: @escaping (_ user: CotterUser?, _ err: Error?) -> Void) {
+        // response is CotterResult<CotterUser>
+        CotterAPIService.shared.enrollTrustedDeviceWith(cotterUser: cotterUser) { (response) in
+            switch response{
+            case .success(let user):
+                cb(user, nil)
+                
+            case .failure(let err):
+                cb(nil, err)
+            }
+        }
     }
     
     // logout unmaps the external user id
@@ -153,7 +196,7 @@ public class Passwordless: NSObject {
             }
         }
         
-        CotterAPIService.shared.getTrustedDeviceStatus(userID: identifier, cb: getTrustedCallback)
+        CotterAPIService.shared.getTrustedDeviceStatus(clientUserID: identifier, cb: getTrustedCallback)
     }
     
     public func scanNewDevice(identifier: String) {
@@ -185,7 +228,7 @@ public class Passwordless: NSObject {
             }
         }
         
-        CotterAPIService.shared.getTrustedDeviceStatus(userID: identifier, cb: getTrustedCallback)
+        CotterAPIService.shared.getTrustedDeviceStatus(clientUserID: identifier, cb: getTrustedCallback)
     }
     
     public func removeDevice(identifier: String, cb: @escaping CotterAuthCallback = DoNothingCallback) {
@@ -214,12 +257,19 @@ class CrossApp: NSObject, ASWebAuthenticationPresentationContextProviding {
 
     override public init() {}
 
+    // initiallization of email/SMS verification services
+    // view - the parent view
+    // input - the actual value of email or sms
+    // identifierField - email or phone
+    // type - EMAIL or PHONE
+    // directLogin - true or false
     public convenience init(
         view: UIViewController,
         input: String,
         identifierField: String,
         type: String,
-        directLogin: String
+        directLogin: String,
+        userID: String?
     ) {
         self.init()
         print("loading Passwordless \(input)")
@@ -237,7 +287,7 @@ class CrossApp: NSObject, ASWebAuthenticationPresentationContextProviding {
         // start the authentication process
         guard let url = Config.instance.PLBaseURL else { return }
         guard let scheme = Config.instance.PLScheme else { return }
-        let queryDictionary = [
+        var queryDictionary = [
             "type": type,
             "api_key": CotterAPIService.shared.apiKeyID,
             "redirect_url": Config.instance.PLRedirectURL,
@@ -247,6 +297,10 @@ class CrossApp: NSObject, ASWebAuthenticationPresentationContextProviding {
             "state": initialState,
             "code_challenge": codeChallenge
         ]
+        
+        if let userID = userID {
+            queryDictionary["cotter_user_id"] = userID
+        }
         
         var cs = CharacterSet.urlQueryAllowed
         cs.remove("+")
@@ -279,33 +333,24 @@ class CrossApp: NSObject, ASWebAuthenticationPresentationContextProviding {
             let cb = Config.instance.passwordlessCb
 
             guard let challengeID = queryItems?.filter({ $0.name == "challenge_id" }).first?.value else {
-                cb("", CotterError.passwordless("challenge_id is unavailable"))
+                cb(nil, CotterError.passwordless("challenge_id is unavailable"))
                 return
             }
             
             guard let state = queryItems?.filter({ $0.name == "state" }).first?.value, state == initialState else {
-                print()
-                cb("", CotterError.passwordless("state is unavailable or inconsistent"))
+                cb(nil, CotterError.passwordless("state is unavailable or inconsistent"))
                 return
             }
             
             guard let authorizationCode = queryItems?.filter({ $0.name == "code" }).first?.value else {
-                cb("", CotterError.passwordless("authorization_code is not available"))
+                cb(nil, CotterError.passwordless("authorization_code is not available"))
                 return
             }
             
             func httpCb(response: CotterResult<CotterIdentity>) {
                 switch response {
                 case .success(let resp):
-                    do {
-                        let jsonData = try JSONEncoder().encode(resp.token)
-                        let tokenString = String(data: jsonData, encoding: .utf8)!
-                    
-                        // return the token
-                        cb(tokenString, nil)
-                    } catch {
-                        print(error.localizedDescription)
-                    }
+                    cb(resp, nil)
                 case .failure(let err):
                     // we can handle multiple error results here
                     print(err.localizedDescription)

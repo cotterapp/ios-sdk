@@ -184,11 +184,24 @@ public class MockedAPIService: APIService {
     var enrollTrustedDeviceInputRequest: EnrollTrustedDevice!
     var enrollTrustedDeviceCalled: Bool = false
 
-    public func enrollTrustedDevice(userID: String, cb: @escaping ResultCallback<CotterUser>) -> Void {
-        enrollTrustedDeviceInputRequest = EnrollTrustedDevice(userID: userID, code: mock.publicKey)
+    public func enrollTrustedDevice(clientUserID: String, cb: @escaping ResultCallback<CotterUser>) -> Void {
+        enrollTrustedDeviceInputRequest = EnrollTrustedDevice(clientUserID: clientUserID, code: mock.publicKey)
         enrollTrustedDeviceCalled = true
         
         mockedClient.send(enrollTrustedDeviceInputRequest) { response in
+            cb(response)
+        }
+    }
+    
+    // MARK: - CotterAPIService.enrollTrustedDeviceWith function
+    var enrollTrustedDeviceWithInputRequest: EnrollTrustedDevice!
+    var enrollTrustedDeviceWithCalled: Bool = false
+
+    public func enrollTrustedDeviceWith(cotterUser: CotterUser, cb: @escaping ResultCallback<CotterUser>) -> Void {
+        enrollTrustedDeviceWithInputRequest = EnrollTrustedDevice(cotterUserID: cotterUser.id, code: mock.publicKey)
+        enrollTrustedDeviceWithCalled = true
+        
+        mockedClient.send(enrollTrustedDeviceWithInputRequest) { response in
             cb(response)
         }
     }
@@ -210,11 +223,24 @@ public class MockedAPIService: APIService {
     var getTrustedDeviceStatusInputRequest: GetTrustedDeviceStatus!
     var getTrustedDeviceStatusCalled: Bool = false
 
-    public func getTrustedDeviceStatus(userID: String, cb: @escaping ResultCallback<EnrolledMethods>) -> Void {
-        getTrustedDeviceStatusInputRequest = GetTrustedDeviceStatus(userID: userID, pubKey: mock.publicKey)
+    public func getTrustedDeviceStatus(clientUserID: String, cb: @escaping ResultCallback<EnrolledMethods>) -> Void {
+        getTrustedDeviceStatusInputRequest = GetTrustedDeviceStatus(clientUserID: clientUserID, pubKey: mock.publicKey)
         getTrustedDeviceStatusCalled = true
         
         mockedClient.send(getTrustedDeviceStatusInputRequest) { response in
+            cb(response)
+        }
+    }
+    
+    // MARK: - CotterAPIService.getTrustedDeviceStatusWith function
+    var getTrustedDeviceStatusWithInputRequest: GetTrustedDeviceStatus!
+    var getTrustedDeviceStatusWithCalled: Bool = false
+
+    public func getTrustedDeviceStatusWith(cotterUserID: String, cb: @escaping ResultCallback<EnrolledMethods>) -> Void {
+        getTrustedDeviceStatusWithInputRequest = GetTrustedDeviceStatus(cotterUserID: cotterUserID, pubKey: mock.publicKey)
+        getTrustedDeviceStatusWithCalled = true
+        
+        mockedClient.send(getTrustedDeviceStatusWithInputRequest) { response in
             cb(response)
         }
     }
@@ -236,10 +262,10 @@ public class MockedAPIService: APIService {
     var reqAuthInputRequest: CreatePendingEventRequest!
     var reqAuthCalled: Bool = false
 
-    public func reqAuth(userID: String, event: String, cb: @escaping ResultCallback<CotterEvent>) -> Void {
+    public func reqAuth(clientUserID: String, event: String, cb: @escaping ResultCallback<CotterEvent>) -> Void {
         let evt = CotterEventRequest(
             pubKey: mock.publicKey,
-            userID: userID,
+            userID: clientUserID,
             issuer: mock.issuer,
             event: event,
             ipAddr: mock.ip,
@@ -253,6 +279,31 @@ public class MockedAPIService: APIService {
         reqAuthCalled = true
         
         mockedClient.send(reqAuthInputRequest) { response in
+            cb(response)
+        }
+    }
+    
+    // MARK: - CotterAPIService.reqAuthWith function
+    var reqAuthWithInputRequest: CreatePendingEventRequest!
+    var reqAuthWithCalled: Bool = false
+
+    public func reqAuthWith(cotterUserID: String, event: String, cb: @escaping ResultCallback<CotterEvent>) -> Void {
+        let evt = CotterEventRequest(
+            pubKey: mock.publicKey,
+            userID: cotterUserID,
+            issuer: mock.issuer,
+            event: event,
+            ipAddr: mock.ip,
+            location: mock.location,
+            timestamp: mock.timestamp,
+            authMethod: mock.method,
+            code: nil,
+            approved: mock.approved
+        )
+        reqAuthWithInputRequest = CreatePendingEventRequest(evt: evt)
+        reqAuthWithCalled = true
+        
+        mockedClient.send(reqAuthWithInputRequest) { response in
             cb(response)
         }
     }

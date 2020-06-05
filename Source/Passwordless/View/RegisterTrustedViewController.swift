@@ -31,6 +31,7 @@ class RegisterTrustedViewController: UIViewController {
     let successImage = CotterImages.instance.getImage(for: VCImageKey.pinSuccessImg)
     let failImage = CotterImages.instance.getImage(for: VCImageKey.nonTrustedPhoneTapFail)
     
+    // TODO: this should be changed to cotter's userID
     var userID: String?
     var cb: CotterAuthCallback?
     
@@ -169,7 +170,7 @@ class RegisterTrustedViewController: UIViewController {
             }
         }
         
-        CotterAPIService.shared.getTrustedDeviceStatus(userID: userID, cb: cb)
+        CotterAPIService.shared.getTrustedDeviceStatus(clientUserID: userID, cb: cb)
     }
     
     @objc

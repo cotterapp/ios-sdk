@@ -25,19 +25,83 @@ class RegisterViewController: UIViewController {
     }
     
     
+    // upon registration we want to do:
+    // 1. Verify user's email
+    // 2. Enroll trusted device
+    // or
+    // 1. Enroll trusted device
+    // 2. Verify user's email
     @IBAction func register(_ sender: Any) {
         self.view.endEditing(true)
-        guard let userID = self.textField.text else { return }
+        guard let input = self.textField.text else { return }
         
-        Passwordless.shared.register(identifier: userID, cb: { (token: CotterOAuthToken?, err:Error?) in
-            if err != nil {
-                // handle error as necessary
+        if #available(iOS 12.0, *) {
+            /*
+            // Use the following logic if you want to verify your users first, then register user for trusted device
+            CotterWrapper.cotter?.startPasswordlessLogin(parentView: self, input: userID, identifierField: "email", type: "EMAIL", directLogin: true, cb: { (cotterIdentity, err) in
+                if err != nil {
+                    print("error on processing passwordlessLogin, ", err)
+                    return
+                }
+                
+                guard let cotterIdentity = cotterIdentity else { return }
+                
+                // then register for passwordless
+                Passwordless.shared.registerWith(cotterUser: cotterIdentity.user, cb: { (user: CotterUser?, err:Error?) in
+                    if err != nil {
+                        // handle error as necessary
+                    }
+                    if user == nil {
+                        // user is unauthorized
+                    }
+                    // user is authorized
+                })
+            })
+            */
+            
+            // Flip the logic if you want to register first, then verify the users
+            Passwordless.shared.register(identifier: input){ (user: CotterUser?, err:Error?) in
+                if err != nil {
+                    // handle error as necessary
+                    return
+                }
+                guard let user = user else {
+                    print("user is nil")
+                    return
+                }
+                // user is authorized
+                CotterWrapper.cotter?.startPasswordlessLogin(
+                    parentView: self,
+                    input: input,
+                    identifierField: "email",
+                    type: "EMAIL",
+                    directLogin: true,
+                    userID: user.id
+                ) { (identity, err) in // this is the completion
+                    if err != nil {
+                        // handle error as necessary
+                    }
+                    guard let identity = identity else {
+                        print("identity is nil")
+                        return
+                    }
+                    print(identity.user)
+                }
             }
-            if token == nil {
-                // user is unauthorized
-            }
-            // user is authorized
-        })
+            
+        } else {
+            // Fallback on earlier versions
+            Passwordless.shared.register(identifier: input, cb: { (user: CotterUser?, err:Error?) in
+                if err != nil {
+                    // handle error as necessary
+                }
+                if user == nil {
+                    // user is unauthorized
+                }
+                // user is authorized
+            })
+        }
+        
     }
     
     /*

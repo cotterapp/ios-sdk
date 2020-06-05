@@ -11,7 +11,10 @@ public struct GetTrustedDeviceStatus: APIRequest, AutoEquatable {
     public typealias Response = EnrolledMethods
     
     public var path: String {
-        return "/user/enrolled/\(self.userID)/TRUSTED_DEVICE/\(self.pubKey)"
+        if cotterUserID != "" {
+            return "/user/methods?cotter_user_id=\(self.cotterUserID)&public_key=\(self.pubKey)&method=TRUSTED_DEVICE"
+        }
+        return "/user/enrolled/\(self.clientUserID)/TRUSTED_DEVICE/\(self.pubKey)"
     }
     
     public var method: String = "GET"
@@ -21,11 +24,19 @@ public struct GetTrustedDeviceStatus: APIRequest, AutoEquatable {
     }
     
     var pubKey:String
-    var userID:String
+    var cotterUserID:String
+    var clientUserID:String
     
     // pubKey needs to be a base64 URL safe encoded
-    public init(userID:String, pubKey:String){
-        self.userID = userID
+    public init(cotterUserID:String, pubKey:String){
+        self.cotterUserID = cotterUserID
+        self.clientUserID = ""
+        self.pubKey = pubKey
+    }
+    
+    public init(clientUserID:String, pubKey:String) {
+        self.cotterUserID = ""
+        self.clientUserID = clientUserID
         self.pubKey = pubKey
     }
 }

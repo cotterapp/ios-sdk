@@ -48,7 +48,7 @@ class TrustedDevice {
             }
         }
         
-        CotterAPIService.shared.reqAuth(userID: userID, event: CotterEvents.Login, cb: loginCb)
+        CotterAPIService.shared.reqAuth(clientUserID: userID, event: CotterEvents.Login, cb: loginCb)
     }
     
     public func checkEvent(userID:String) {
@@ -103,7 +103,7 @@ class TrustedDevice {
             }
         }
         
-        CotterAPIService.shared.getTrustedDeviceStatus(userID: userID, cb: getTrustedCallback)
+        CotterAPIService.shared.getTrustedDeviceStatus(clientUserID: userID, cb: getTrustedCallback)
     }
     
     public func scanNewDevice(userID: String) {
@@ -135,7 +135,7 @@ class TrustedDevice {
             }
         }
         
-        CotterAPIService.shared.getTrustedDeviceStatus(userID: userID, cb: getTrustedCallback)
+        CotterAPIService.shared.getTrustedDeviceStatus(clientUserID: userID, cb: getTrustedCallback)
     }
     
     public func removeDevice(userID: String) {

@@ -10,6 +10,7 @@ import Foundation
 public struct CotterIdentity: Codable {
     public var identifier: Identifier
     public var token: Token
+    public var user: CotterUser
 }
 
 public struct Identifier: Codable {

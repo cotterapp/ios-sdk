@@ -182,20 +182,33 @@ public class Cotter {
     
     // startPasswordlessLogin starts the login process
     @available(iOS 12.0, *)
-    public func startPasswordlessLogin(parentView: UIViewController, input: String, identifierField:String, type:String, directLogin: Bool, cb: @escaping FinalAuthCallback) {
+    public func startPasswordlessLogin(
+        parentView: UIViewController,
+        input: String,
+        identifierField:String,
+        type:String,
+        directLogin: Bool,
+        userID: String? = nil,
+        cb: @escaping (_ identity: CotterIdentity?, _ error: Error?) -> Void
+    ) {
         var str = "false"
         if directLogin {
             str = "true"
         }
         
-        Config.instance.passwordlessCb = transformCb(parent: parentView, cb: cb)
+        Config.instance.passwordlessCb = { (_ identity: CotterIdentity?, _ error: Error?) in
+            parentView.navigationController?.popToViewController(parentView, animated: false)
+            parentView.setOriginalStatusBarStyle()
+            cb(identity, error)
+        }
         
         self.passwordless = CrossApp(
             view: parentView,
             input: input,
             identifierField: identifierField,
             type: type,
-            directLogin: str
+            directLogin: str,
+            userID: userID
         )
     }
     
@@ -251,8 +264,8 @@ public class Cotter {
         configuration: [String:Any] = [:]
     ) {
         print("configuring Cotter's object...")
-        CotterAPIService.shared.baseURL = URL(string: "https://www.cotter.app/api/v0")!
-//        CotterAPIService.shared.baseURL = URL(string: "http://localhost:1234/api/v0")!
+//        CotterAPIService.shared.baseURL = URL(string: "https://www.cotter.app/api/v0")!
+        CotterAPIService.shared.baseURL = URL(string: "http://localhost:1234/api/v0")!
 //        CotterAPIService.shared.baseURL = URL(string:"http://192.168.1.17:1234/api/v0")!
         CotterAPIService.shared.apiSecretKey = apiSecretKey
         CotterAPIService.shared.apiKeyID = apiKeyID

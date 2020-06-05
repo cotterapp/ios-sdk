@@ -29,9 +29,8 @@ class LoginViewController: UIViewController {
             input: textInput,
             identifierField: "phone",
             type: "PHONE",
-            directLogin: true,
-            cb: Callback.shared.authCb
-        )
+            directLogin: true
+        ){ (identity , err) in return} // do nothing callback
     }
     
     override func didReceiveMemoryWarning() {
