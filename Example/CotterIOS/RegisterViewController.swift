@@ -63,6 +63,7 @@ class RegisterViewController: UIViewController {
             Passwordless.shared.register(identifier: input){ (user: CotterUser?, err:Error?) in
                 if err != nil {
                     // handle error as necessary
+                    print(err?.localizedDescription)
                     return
                 }
                 guard let user = user else {
@@ -88,7 +89,6 @@ class RegisterViewController: UIViewController {
                     print(identity.user)
                 }
             }
-            
         } else {
             // Fallback on earlier versions
             Passwordless.shared.register(identifier: input, cb: { (user: CotterUser?, err:Error?) in

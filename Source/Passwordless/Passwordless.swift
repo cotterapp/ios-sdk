@@ -117,6 +117,39 @@ public class Passwordless: NSObject {
     // register should register the client's userID on the server and enroll trusted device for the first time
     public func register(identifier: String, cb: @escaping (_ user: CotterUser?, _ err: Error?) -> Void) {
         // need userID: "" because as of now client_user_id will be deprecated.
+        CotterAPIService.shared.registerUser(userID: identifier, cb: { resp in
+            switch resp {
+            case .success(_):
+                // response is CotterResult<CotterUser>
+                CotterAPIService.shared.enrollTrustedDevice(clientUserID: identifier) { (response) in
+                    switch response{
+                    case .success(let user):
+                        guard let pubKey = KeyStore.trusted(userID: identifier).pubKey else {
+                            print("[login] Unable to attain user's public key!")
+                            return
+                        }
+                        let pubKeyBase64 = CryptoUtil.keyToBase64(pubKey: pubKey)
+                        print("[login] current pubKey: \(pubKeyBase64)")
+                        
+                        OneSignal.setExternalUserId(pubKeyBase64)
+                        
+                        cb(user, nil)
+                        
+                    case .failure(let err):
+                        cb(nil, err)
+                    }
+                }
+                
+            case .failure(let err):
+                cb(nil, err)
+            }
+        })
+    }
+    
+    // registerWith is almost the same as register function except it does not use identifier
+    // as client user id
+    public func registerWith(identifier: String, cb: @escaping (_ user: CotterUser?, _ err: Error?) -> Void) {
+        // need userID: "" because as of now client_user_id will be deprecated.
         CotterAPIService.shared.registerUser(userID: "", cb: { resp in
             switch resp {
             case .success(let user):

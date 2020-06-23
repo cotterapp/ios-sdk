@@ -13,7 +13,7 @@ public struct CotterUser: Codable {
     public var updatedAt:String?
     public var deletedAt:String?
     public var issuer:String
-    public var identifier:String
+    public var identifier:String?
     public var clientUserID:String
     public var enrolled:[String]
     public var defaultMethod:String?

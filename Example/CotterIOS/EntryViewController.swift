@@ -35,7 +35,7 @@ class EntryViewController: UIViewController {
         self.view.endEditing(true)
         print("logging in")
         
-        Passwordless.shared.loginWith(cotterUserID: userID, cb: { (token: CotterOAuthToken?, err:Error?) in
+        Passwordless.shared.login(identifier: userID, cb: { (token: CotterOAuthToken?, err:Error?) in
             if err != nil {
                 // handle error as necessary
                 self.infoLabel.text = err?.localizedDescription

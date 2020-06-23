@@ -265,8 +265,9 @@ public class Cotter {
     ) {
         print("configuring Cotter's object...")
         CotterAPIService.shared.baseURL = URL(string: "https://www.cotter.app/api/v0")!
+//        CotterAPIService.shared.baseURL = URL(string: "https://s.www.cotter.app/api/v0")!
 //        CotterAPIService.shared.baseURL = URL(string: "http://localhost:1234/api/v0")!
-//        CotterAPIService.shared.baseURL = URL(string:"http://192.168.1.17:1234/api/v0")!
+//        CotterAPIService.shared.baseURL = URL(string:"http://192.168.86.36:1234/api/v0")!
         CotterAPIService.shared.apiSecretKey = apiSecretKey
         CotterAPIService.shared.apiKeyID = apiKeyID
         
