@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kCl-QE-3LL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kCl-QE-3LL">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment version="4864" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Active PIN Nav Title-->
+        <!--View Controller-->
         <scene sceneID="4lm-bl-fiZ">
             <objects>
                 <viewController storyboardIdentifier="PINViewController" id="LMD-8x-Qra" customClass="PINViewController" customModule="Cotter" customModuleProvider="target" sceneMemberID="viewController">
@@ -74,7 +74,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="S8w-Bm-DxA"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Active PIN Nav Title" id="lKt-Yj-7om"/>
+                    <navigationItem key="navigationItem" id="lKt-Yj-7om"/>
                     <connections>
                         <outlet property="codeTextField" destination="LS9-Ka-A8X" id="niP-1t-0Rq"/>
                         <outlet property="errorLabel" destination="6ar-Es-Gas" id="fHK-ey-nl6"/>
@@ -85,7 +85,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="grD-Dy-e9d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="289.85507246376812" y="290.625"/>
+            <point key="canvasLocation" x="317" y="292"/>
         </scene>
         <!--Cotter View Controller-->
         <scene sceneID="zJx-Uh-2dA">
@@ -103,7 +103,7 @@
             </objects>
             <point key="canvasLocation" x="-526" y="292"/>
         </scene>
-        <!--Confirm PIN Nav Title-->
+        <!--Confirm View Controller-->
         <scene sceneID="4qe-vV-OvK">
             <objects>
                 <viewController storyboardIdentifier="PINConfirmViewController" id="N7j-7F-GIv" customClass="PINConfirmViewController" customModule="Cotter" customModuleProvider="target" sceneMemberID="viewController">
@@ -172,7 +172,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lWl-af-mxx"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Confirm PIN Nav Title" id="1oE-tp-mYK"/>
+                    <navigationItem key="navigationItem" id="1oE-tp-mYK"/>
                     <connections>
                         <outlet property="codeTextField" destination="cLf-RU-y5M" id="SaC-VR-7TA"/>
                         <outlet property="errorLabel" destination="apd-eL-wSJ" id="X24-cM-18c"/>

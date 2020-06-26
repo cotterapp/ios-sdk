@@ -26,8 +26,8 @@ class Config: NSObject {
     var images: ImageObject = ImageObject()
   
     // passwordless configurations
-    var PLBaseURL: String? = "https://js.cotter.app/app"
-//    var PLBaseURL: String? = "http://localhost:3000/app"
+//    var PLBaseURL: String? = "https://js.cotter.app/app"
+    var PLBaseURL: String? = "http://localhost:3000/app"
 //    var PLBaseURL: String? = "http://s.js.cotter.app/app"
     var PLScheme: String? = "cotter"
     var PLRedirectURL: String? = "cotter://auth"

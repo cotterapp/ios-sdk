@@ -55,7 +55,7 @@ class AlertService: NSObject {
         alertView.addSubview(bodyView)
         
         titleLabel.text = title
-        titleLabel.textColor = Config.instance.colors.primary
+        titleLabel.textColor = UIColor.black
         titleLabel.font = UIFont.boldSystemFont(ofSize: 20.0)
         titleLabel.numberOfLines = 0
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -71,11 +71,13 @@ class AlertService: NSObject {
         cancelButton.setTitle(cancelButtonTitle, for: .normal)
         cancelButton.setTitleColor(Config.instance.colors.primary, for: .normal)
         cancelButton.translatesAutoresizingMaskIntoConstraints = false
+        cancelButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17.0)
         alertView.addSubview(cancelButton)
         
         actionButton.setTitle(actionButtonTitle, for: .normal)
         actionButton.setTitleColor(Config.instance.colors.primary, for: .normal)
         actionButton.translatesAutoresizingMaskIntoConstraints = false
+        actionButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17.0)
         alertView.addSubview(actionButton)
       
         var imageSize: CGFloat = 0.0
@@ -93,7 +95,7 @@ class AlertService: NSObject {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         alertView.addSubview(imageView)
       
-        let innerLeftConstraint: CGFloat = 30.0
+        let innerLeftConstraint: CGFloat = 20.0
         let innerRightConstraint: CGFloat = -1 * innerLeftConstraint
       
         let constraints = [
@@ -104,7 +106,7 @@ class AlertService: NSObject {
             alertView.centerXAnchor.constraint(equalTo: nv.centerXAnchor),
             alertView.centerYAnchor.constraint(equalTo: nv.centerYAnchor),
             alertView.widthAnchor.constraint(equalTo: nv.widthAnchor, constant: -80.0),
-            titleLabel.topAnchor.constraint(equalTo: alertView.topAnchor, constant: 30.0),
+            titleLabel.topAnchor.constraint(equalTo: alertView.topAnchor, constant: 20.0),
             titleLabel.leftAnchor.constraint(equalTo: alertView.leftAnchor, constant: innerLeftConstraint),
             titleLabel.rightAnchor.constraint(equalTo: alertView.rightAnchor, constant: innerRightConstraint),
             bodyView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20.0),
@@ -121,8 +123,8 @@ class AlertService: NSObject {
             cancelButton.topAnchor.constraint(equalTo: bodyView.bottomAnchor, constant: 40.0),
             cancelButton.rightAnchor.constraint(equalTo: alertView.rightAnchor, constant: innerRightConstraint),
             actionButton.topAnchor.constraint(equalTo: bodyView.bottomAnchor, constant: 40.0),
-            actionButton.rightAnchor.constraint(equalTo: cancelButton.leftAnchor, constant: innerRightConstraint),
-            alertView.bottomAnchor.constraint(equalTo: cancelButton.bottomAnchor, constant: 30.0),
+            actionButton.rightAnchor.constraint(equalTo: cancelButton.leftAnchor, constant: innerRightConstraint - 10.0),
+            alertView.bottomAnchor.constraint(equalTo: cancelButton.bottomAnchor, constant: 20.0),
         ]
       
         NSLayoutConstraint.activate(constraints)
@@ -134,7 +136,7 @@ class AlertService: NSObject {
         darkOverlayView.addGestureRecognizer(tapRecognizer)
         cancelButton.addTarget(delegate, action: #selector(delegate?.cancelHandler), for: .touchUpInside)
         actionButton.addTarget(delegate, action: #selector(delegate?.actionHandler), for: .touchUpInside)
-      
+    
         UIView.animate(
             withDuration: 0.2,
             delay: 0.0,
@@ -183,5 +185,4 @@ class AlertService: NSObject {
         
         return alert
     }
-
 }

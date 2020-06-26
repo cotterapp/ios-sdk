@@ -83,17 +83,7 @@ class PINViewController : UIViewController {
     
     var hideCloseButton: Bool = false
     
-    lazy var alertService: AlertService = {
-        // MARK: - Alert Service Text Definition
-        let alertBackTitle = CotterStrings.instance.getText(for: AuthAlertMessagesKey.navBackTitle)
-        let alertBackBody = CotterStrings.instance.getText(for: AuthAlertMessagesKey.navBackBody)
-        let alertBackAction = CotterStrings.instance.getText(for: AuthAlertMessagesKey.navBackActionButton)
-        let alertBackCancel = CotterStrings.instance.getText(for: AuthAlertMessagesKey.navBackCancelButton)
-        
-        let alert = AlertService(vc: self, title: alertBackTitle, body: alertBackBody, actionButtonTitle: alertBackTitle, cancelButtonTitle: alertBackCancel)
-        alert.delegate = self
-        return alert
-    }()
+    var alertService: AlertService?
     
     @IBOutlet weak var titleLabel: UILabel!
     
@@ -177,20 +167,20 @@ extension PINViewController : PINBaseController {
 extension PINViewController: PINViewComponent {
     func setupUI() {
         // Implement Custom Back Button instead of default in Nav controller
-        self.navigationItem.hidesBackButton = true
+        self.navigationItem.hidesBackButton = self.hideCloseButton
         
         // if close
         if !self.hideCloseButton {
             let crossButton = UIBarButtonItem(title: "\u{2717}", style: UIBarButtonItem.Style.plain, target: self, action: #selector(promptClose(sender:)))
             crossButton.tintColor = UIColor.black
-            self.navigationItem.leftBarButtonItem = crossButton
+            self.navigationItem.leftBarButtonItems = [crossButton]
         }
         
         // Remove default Nav controller styling
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.layoutIfNeeded()
-        print("fasdfsafas")
+        
         // Hide error label initially
         errorLabel.isHidden = true
         
@@ -199,7 +189,18 @@ extension PINViewController: PINViewComponent {
     }
     
     @objc private func promptClose(sender: UIBarButtonItem) {
-        alertService.show()
+        // Create alert service
+        let alertBackTitle = CotterStrings.instance.getText(for: AuthAlertMessagesKey.navBackTitle)
+        let alertBackBody = CotterStrings.instance.getText(for: AuthAlertMessagesKey.navBackBody)
+        let alertBackAction = CotterStrings.instance.getText(for: AuthAlertMessagesKey.navBackActionButton)
+        let alertBackCancel = CotterStrings.instance.getText(for: AuthAlertMessagesKey.navBackCancelButton)
+        
+        let alert = AlertService(vc: self, title: alertBackTitle, body: alertBackBody, actionButtonTitle: alertBackAction, cancelButtonTitle: alertBackCancel)
+        alert.delegate = self
+        
+        self.alertService = alert
+        
+        alert.show()
     }
     
     func setupDelegates() {
@@ -207,7 +208,7 @@ extension PINViewController: PINViewComponent {
     }
     
     func render(_ props: PINViewProps) {
-        navigationItem.title = props.navTitle
+        setupLeftTitleBar(with: props.navTitle)
         titleLabel.text = props.title
         pinVisibilityButton.setTitle(props.showPinText, for: .normal)
         pinVisibilityButton.setTitleColor(props.primaryColor, for: .normal)
@@ -239,11 +240,11 @@ extension PINViewController : KeyboardViewDelegate {
 // MARK: - AlertServiceDelegate
 extension PINViewController : AlertServiceDelegate {
     func cancelHandler() {
-        alertService.hide()
+        alertService?.hide()
     }
     
     func actionHandler() {
-        alertService.hide()
+        alertService?.hide()
         Config.instance.pinEnrollmentCb("PIN Enrollment cancelled - no token", nil)
     }
 }

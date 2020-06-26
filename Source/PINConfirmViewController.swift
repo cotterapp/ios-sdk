@@ -150,6 +150,7 @@ extension PINConfirmViewController : PINBaseController {
             
             // define callback
             func enrollCb(response: CotterResult<CotterUser>) {
+                LoadingScreen.shared.stop()
                 switch response {
                 case .success:
                     self.codeTextField.clear()
@@ -166,6 +167,8 @@ extension PINConfirmViewController : PINBaseController {
                 }
             }
             
+            
+            LoadingScreen.shared.start(at: self.view.window)
             // Run API to enroll PIN
             CotterAPIService.shared.enrollUserPin(
                 code: code,
@@ -180,11 +183,6 @@ extension PINConfirmViewController : PINBaseController {
 // MARK: - PINConfirmViewComponent Render
 extension PINConfirmViewController: PINConfirmViewComponent {
     func setupUI() {
-        self.navigationItem.hidesBackButton = true
-        let backButton = UIBarButtonItem(title: "\u{2190}", style: UIBarButtonItem.Style.plain, target: self, action: #selector(navigateBack(sender:)))
-        backButton.tintColor = UIColor.black
-        self.navigationItem.leftBarButtonItem = backButton
-        
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.layoutIfNeeded()
@@ -203,7 +201,7 @@ extension PINConfirmViewController: PINConfirmViewComponent {
     }
     
     func render(_ props: PINConfirmViewProps) {
-        navigationItem.title = props.navTitle
+        setupLeftTitleBar(with: props.navTitle)
         titleLabel.text = props.title
         pinVisibilityButton.setTitle(props.showPinText, for: .normal)
         pinVisibilityButton.setTitleColor(props.primaryColor, for: .normal)

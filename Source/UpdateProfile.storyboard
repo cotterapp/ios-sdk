@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Qly-nY-PJb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Qly-nY-PJb">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Update PIN Nav Title-->
+        <!--UpdatePIN View Controller-->
         <scene sceneID="PaJ-lf-mZF">
             <objects>
                 <viewController storyboardIdentifier="UpdatePINViewController" id="vI7-VV-aEK" customClass="UpdatePINViewController" customModule="Cotter" customModuleProvider="target" sceneMemberID="viewController">
@@ -74,7 +74,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nRc-rx-xyg"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Update PIN Nav Title" id="cKc-nH-UR9"/>
+                    <navigationItem key="navigationItem" id="cKc-nH-UR9"/>
                     <connections>
                         <outlet property="codeTextField" destination="BWh-mf-YV2" id="RzK-y8-zaY"/>
                         <outlet property="errorLabel" destination="OtH-nO-4oj" id="ha6-8T-uP9"/>
@@ -103,7 +103,7 @@
             </objects>
             <point key="canvasLocation" x="-952" y="151"/>
         </scene>
-        <!--Create New PIN Nav Title-->
+        <!--Update Create NewPIN View Controller-->
         <scene sceneID="40k-zn-CBx">
             <objects>
                 <viewController storyboardIdentifier="UpdateCreateNewPINViewController" id="jQ2-nb-vGX" customClass="UpdateCreateNewPINViewController" customModule="Cotter" customModuleProvider="target" sceneMemberID="viewController">
@@ -169,7 +169,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3zK-cT-1d5"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Create New PIN Nav Title" id="Ylh-hQ-ksS"/>
+                    <navigationItem key="navigationItem" id="Ylh-hQ-ksS"/>
                     <connections>
                         <outlet property="codeTextField" destination="BXF-WN-O9C" id="8J8-I3-1Xq"/>
                         <outlet property="errorLabel" destination="aHt-eO-I8d" id="IUn-Ao-Of3"/>
@@ -182,7 +182,7 @@
             </objects>
             <point key="canvasLocation" x="731.8840579710145" y="150.66964285714286"/>
         </scene>
-        <!--Confirm New PIN Nav Title-->
+        <!--Update Confirm NewPIN View Controller-->
         <scene sceneID="foa-0V-6wt">
             <objects>
                 <viewController storyboardIdentifier="UpdateConfirmNewPINViewController" id="bsn-Me-hsc" customClass="UpdateConfirmNewPINViewController" customModule="Cotter" customModuleProvider="target" sceneMemberID="viewController">
@@ -251,7 +251,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="v6E-Dc-X8J"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Confirm New PIN Nav Title" id="0CU-by-FLo"/>
+                    <navigationItem key="navigationItem" id="0CU-by-FLo"/>
                     <connections>
                         <outlet property="codeTextField" destination="ZLF-zT-Un2" id="XD8-53-QiK"/>
                         <outlet property="errorLabel" destination="QeR-me-ToR" id="KtF-zZ-4Ya"/>

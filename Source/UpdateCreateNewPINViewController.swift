@@ -172,7 +172,7 @@ extension UpdateCreateNewPINViewController: UpdateCreateNewPINViewComponent {
         self.navigationItem.hidesBackButton = true
         let backButton = UIBarButtonItem(title: "\u{2190}", style: UIBarButtonItem.Style.plain, target: self, action: #selector(UpdateCreateNewPINViewController.promptBack(sender:)))
         backButton.tintColor = UIColor.black
-        self.navigationItem.leftBarButtonItem = backButton
+        self.navigationItem.leftBarButtonItems = [backButton]
         
         errorLabel.isHidden = true
         
@@ -188,7 +188,7 @@ extension UpdateCreateNewPINViewController: UpdateCreateNewPINViewComponent {
     }
     
     func render(_ props: UpdateCreateNewPINViewProps) {
-        navigationItem.title = props.navTitle
+        setupLeftTitleBar(with: props.navTitle)
         titleLabel.text = props.title
         pinVisibilityButton.setTitle(props.showPinText, for: .normal)
         pinVisibilityButton.setTitleColor(props.primaryColor, for: .normal)

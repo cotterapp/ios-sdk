@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="121-lC-Vhv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="121-lC-Vhv">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Transaction PIN Nav Title-->
+        <!--TransactionPIN View Controller-->
         <scene sceneID="uVv-aF-H1X">
             <objects>
                 <viewController storyboardIdentifier="TransactionPINViewController" id="XD6-bF-oRs" customClass="TransactionPINViewController" customModule="Cotter" customModuleProvider="target" sceneMemberID="viewController">
@@ -84,7 +84,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cc2-fq-F3x"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Transaction PIN Nav Title" id="Lbu-jM-esQ"/>
+                    <navigationItem key="navigationItem" id="Lbu-jM-esQ"/>
                     <connections>
                         <outlet property="codeTextField" destination="WRO-er-uRg" id="KIX-If-10C"/>
                         <outlet property="errorLabel" destination="EgU-4J-7lY" id="BpT-Xc-lRC"/>
@@ -98,7 +98,7 @@
             </objects>
             <point key="canvasLocation" x="-104" y="151"/>
         </scene>
-        <!--Reset PIN Nav Title-->
+        <!--ResetPIN View Controller-->
         <scene sceneID="rhf-yQ-5YU">
             <objects>
                 <viewController storyboardIdentifier="ResetPINViewController" id="6pz-MC-9vT" customClass="ResetPINViewController" customModule="Cotter" customModuleProvider="target" sceneMemberID="viewController">
@@ -178,7 +178,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZvZ-EL-y31"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Reset PIN Nav Title" id="Z8m-wz-E9Q"/>
+                    <navigationItem key="navigationItem" id="Z8m-wz-E9Q"/>
                     <connections>
                         <outlet property="keyboardView" destination="PY1-HN-7l5" id="DpJ-KY-Dro"/>
                         <outlet property="resendEmailButton" destination="Wgk-2p-25k" id="GQv-za-3gZ"/>
@@ -208,7 +208,7 @@
             </objects>
             <point key="canvasLocation" x="-920" y="151"/>
         </scene>
-        <!--Reset New PIN Nav Title-->
+        <!--Reset NewPIN View Controller-->
         <scene sceneID="vBn-HU-mpk">
             <objects>
                 <viewController storyboardIdentifier="ResetNewPINViewController" id="9US-hb-bcY" customClass="ResetNewPINViewController" customModule="Cotter" customModuleProvider="target" sceneMemberID="viewController">
@@ -274,7 +274,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uxL-IN-Kg4"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Reset New PIN Nav Title" id="Klc-F3-UyL"/>
+                    <navigationItem key="navigationItem" id="Klc-F3-UyL"/>
                     <connections>
                         <outlet property="codeTextField" destination="WJx-47-fM3" id="QPL-gG-wzW"/>
                         <outlet property="errorLabel" destination="Oa8-Wg-ULx" id="k20-4u-6Af"/>

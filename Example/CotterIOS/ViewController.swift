@@ -55,7 +55,7 @@ class ViewController: UIViewController {
         // CotterWrapper.cotter?.startEnrollment(animated: true)
         
         // to optionally hide the close button
-        CotterWrapper.cotter?.startEnrollment(vc: self, animated: true, cb: Callback.shared.authCb, hideClose:true)
+        CotterWrapper.cotter?.startEnrollment(vc: self, animated: true, cb: Callback.shared.authCb)
     }
     
     @IBAction func clickStartTransaction(_ sender: Any) {
@@ -66,6 +66,9 @@ class ViewController: UIViewController {
     }
     
     @IBAction func clickUpdateProfile(_ sender: Any) {
+        // set the back button navigation
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        
         CotterWrapper.cotter?.startUpdateProfile(vc: self, animated: true, cb: Callback.shared.authCb)
     }
 

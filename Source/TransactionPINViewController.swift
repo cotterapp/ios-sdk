@@ -154,6 +154,7 @@ extension TransactionPINViewController : PINBaseController {
             
             // Callback Function to execute after PIN Verification
             func pinVerificationCallback(success: Bool) {
+                LoadingScreen.shared.stop()
                 if success {
                     self.codeTextField.clear()
                     cbFunc("Token from Transaction PIN View!", nil)
@@ -167,6 +168,7 @@ extension TransactionPINViewController : PINBaseController {
             
             // Verify PIN through API
             do {
+                LoadingScreen.shared.start(at: self.view.window)
                 _ = try self.authService.pinAuth(pin: code, event: CotterEvents.Transaction, callback: pinVerificationCallback)
             } catch let e {
                 print(e)
@@ -181,13 +183,16 @@ extension TransactionPINViewController : PINBaseController {
 // MARK: - TransactionPINViewComponent Instantiations
 extension TransactionPINViewController: TransactionPINViewComponent {
     func getBiometricStatus() {
+        LoadingScreen.shared.start(at: self.view.window)
         // Get initial user biometric status
         CotterAPIService.shared.getBiometricStatus(cb: { response in
+            LoadingScreen.shared.stop()
             switch response {
             case .success(let resp):
                 if resp.enrolled {
                     let onFinishCallback = Config.instance.transactionCb
                     func cb(success: Bool) {
+                        LoadingScreen.shared.stop()
                         if success {
                             onFinishCallback("dummy biometric token", nil)
                         } else {
@@ -195,6 +200,7 @@ extension TransactionPINViewController: TransactionPINViewComponent {
                             self.toggleErrorMsg(msg: "Biometric is incorrect, please use PIN")
                         }
                     }
+                    LoadingScreen.shared.start(at: self.view.window)
                     self.authService.bioAuth(view: self, event: CotterEvents.Transaction, callback: cb)
                 } else {
                     print("[TransactionPINViewController.getBiometricStatus] Biometric not enrolled")
@@ -215,7 +221,7 @@ extension TransactionPINViewController: TransactionPINViewComponent {
         if !self.hideCloseButton {
             let crossButton = UIBarButtonItem(title: "\u{2190}", style: UIBarButtonItem.Style.plain, target: self, action: #selector(TransactionPINViewController.promptClose(sender:)))
             crossButton.tintColor = UIColor.black
-            self.navigationItem.leftBarButtonItem = crossButton
+            self.navigationItem.leftBarButtonItems = [crossButton]
         }
         
         errorLabel.isHidden = true
@@ -225,6 +231,7 @@ extension TransactionPINViewController: TransactionPINViewComponent {
     
     @objc private func promptClose(sender: UIBarButtonItem) {
         // Go back to previous screen
+        self.parent?.dismiss(animated: true, completion: nil)
         self.navigationController?.popViewController(animated: true)
     }
     
@@ -233,7 +240,7 @@ extension TransactionPINViewController: TransactionPINViewComponent {
     }
     
     func render(_ props: TransactionPINViewProps) {
-        navigationItem.title = props.navTitle
+        setupLeftTitleBar(with: props.navTitle)
         titleLabel.text = props.title
         errorLabel.textColor = props.dangerColor
         pinVisibilityButton.setTitle(props.showPinText, for: .normal)

@@ -79,14 +79,7 @@ public class Cotter {
         
         CotterAPIService.shared.userID = userID
         
-        // Assign fields if they are present in configuration param
-        if let strings = configuration["language"] as! LanguageObject? { Config.instance.strings = strings }
-        if let images = configuration["images"] as! ImageObject? {
-            Config.instance.images = images }
-        if let colors = configuration["colors"] as! ColorSchemeObject? { Config.instance.colors = colors }
-        if let name = configuration["name"] as! String?, let sendingMethod = configuration["sendingMethod"] as! String?, let sendingDestination = configuration["sendingDestination"] as! String? {
-            Config.instance.userInfo = UserInfo(name: name, sendingMethod: sendingMethod, sendingDestination: sendingDestination)
-        }
+        Cotter.setConfiguration(configuration: configuration)
     }
     
     // default initializer
@@ -140,7 +133,9 @@ public class Cotter {
         Config.instance.pinEnrollmentCb = transformCb(parent: vc, cb: cb)
         
         // push the viewcontroller to the navController
-        vc.navigationController?.pushViewController(self.pinVC, animated: animated)
+        let nav = UINavigationController(rootViewController: self.pinVC)
+        nav.modalPresentationStyle = .fullScreen
+        vc.present(nav, animated: true, completion: nil)
     }
     
     // Start of Transaction Process
@@ -163,8 +158,15 @@ public class Cotter {
             Config.instance.userInfo = UserInfo(name: name, sendingMethod: sendingMethod, sendingDestination: sendingDestination)
         }
         
-        // Push the viewController to the navController
-        vc.navigationController?.pushViewController(self.transactionPinVC, animated: animated)
+        // if you want to show close button, need to wrap it inside a navigation controller
+        if !hideClose {
+            let nav = UINavigationController(rootViewController: self.transactionPinVC)
+            nav.modalPresentationStyle = .fullScreen
+            vc.present(nav, animated: true, completion: nil)
+        } else {
+            self.transactionPinVC.modalPresentationStyle = .fullScreen
+            vc.present(self.transactionPinVC, animated: true, completion: nil)
+        }
     }
     
     // Start of Update Profile Process
@@ -264,9 +266,9 @@ public class Cotter {
         configuration: [String:Any] = [:]
     ) {
         print("configuring Cotter's object...")
-        CotterAPIService.shared.baseURL = URL(string: "https://www.cotter.app/api/v0")!
+//        CotterAPIService.shared.baseURL = URL(string: "https://www.cotter.app/api/v0")!
 //        CotterAPIService.shared.baseURL = URL(string: "https://s.www.cotter.app/api/v0")!
-//        CotterAPIService.shared.baseURL = URL(string: "http://localhost:1234/api/v0")!
+        CotterAPIService.shared.baseURL = URL(string: "http://localhost:1234/api/v0")!
 //        CotterAPIService.shared.baseURL = URL(string:"http://192.168.86.36:1234/api/v0")!
         CotterAPIService.shared.apiSecretKey = apiSecretKey
         CotterAPIService.shared.apiKeyID = apiKeyID
@@ -274,6 +276,12 @@ public class Cotter {
         // get the ip address on the background
         LocalAuthService.setIPAddr()
         
+        Cotter.setConfiguration(configuration: configuration)
+    }
+    
+    // setConfiguration accepts a configuration object then set the appropriate configuration fields inside the
+    // config instance.
+    private static func setConfiguration(configuration: [String:Any] = [:]) {
         // Assign fields if they are present in configuration param
         if let strings = configuration["language"] as! LanguageObject? { Config.instance.strings = strings }
         if let images = configuration["images"] as! ImageObject? {
@@ -323,6 +331,8 @@ public class Cotter {
 
 func transformCb(parent: UIViewController, cb: @escaping FinalAuthCallback) -> FinalAuthCallback {
     return { (token:String, err: Error?) in
+        // NEW: - untuk dismis prensented VC
+        parent.dismiss(animated: true, completion: nil)
         parent.navigationController?.popToViewController(parent, animated: false)
         parent.setOriginalStatusBarStyle()
         cb(token, err)

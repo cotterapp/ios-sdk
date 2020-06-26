@@ -132,6 +132,7 @@ extension UpdatePINViewController : PINBaseController {
             print("PIN Code Entered: ", code)
             
             func pinVerificationCallback(success: Bool) {
+                LoadingScreen.shared.stop()
                 if success {
                     self.codeTextField.clear()
                     // Go to Create New PIN View
@@ -149,6 +150,7 @@ extension UpdatePINViewController : PINBaseController {
             
             // Verify PIN through API
             do {
+                LoadingScreen.shared.start(at: self.view.window)
                 _ = try self.authService.pinAuth(pin: code, event: CotterEvents.Update, callback: pinVerificationCallback)
             } catch let e {
                 print(e)
@@ -168,11 +170,6 @@ extension UpdatePINViewController: UpdatePINViewComponent {
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.layoutIfNeeded()
         
-        self.navigationItem.hidesBackButton = true
-        let backButton = UIBarButtonItem(title: "\u{2190}", style: UIBarButtonItem.Style.plain, target: self, action: #selector(UpdatePINViewController.promptBack(sender:)))
-        backButton.tintColor = UIColor.black
-        self.navigationItem.leftBarButtonItem = backButton
-        
         errorLabel.isHidden = true
         
         codeTextField.configure()
@@ -188,7 +185,7 @@ extension UpdatePINViewController: UpdatePINViewComponent {
     }
     
     func render(_ props: UpdatePINViewProps) {
-        navigationItem.title = props.navTitle
+        setupLeftTitleBar(with: props.navTitle)
         titleLabel.text = props.title
         pinVisibilityButton.setTitle(props.showPinText, for: .normal)
         pinVisibilityButton.setTitleColor(props.primaryColor, for: .normal)

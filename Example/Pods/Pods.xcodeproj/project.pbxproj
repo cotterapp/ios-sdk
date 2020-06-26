@@ -15,6 +15,7 @@
 			dependencies = (
 			);
 			name = OneSignal;
+			productName = OneSignal;
 		};
 		4D8229B0397AE8C2F7C11B3F9EFC9362 /* Sourcery */ = {
 			isa = PBXAggregateTarget;
@@ -24,6 +25,7 @@
 			dependencies = (
 			);
 			name = Sourcery;
+			productName = Sourcery;
 		};
 /* End PBXAggregateTarget section */
 
@@ -118,6 +120,7 @@
 		80DEBE41D84FBA1C4D4FE00C8D797E82 /* CwlPreconditionTesting.h in Headers */ = {isa = PBXBuildFile; fileRef = 9ED94E95CC2742A7395D49872D5BBEB1 /* CwlPreconditionTesting.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		81C0A9D9506A6900A6FCFBB6C52E0A5E /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FE20E1F9E766FD0BEC2BDB90DD7D11 /* UIViewController.swift */; };
 		831D5835133317D7F3A327EB2770EE92 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79483799DDF8E0E2778D22A4401ED67B /* Config.swift */; };
+		856BCC2B24A5A1AE00DEE35B /* LoadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856BCC2A24A5A1AE00DEE35B /* LoadingScreen.swift */; };
 		86555051FC5CC6429FC1C85BC0CA10A5 /* cotter-fingerprint.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DC62FF30CFAE2DA097E3AF4C4F9182C /* cotter-fingerprint.png */; };
 		86D5D7CEC459418FE50865EE109DCC1E /* ResetPINFinalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29727AEE2EF2331AA68038B7E754EFE9 /* ResetPINFinalViewController.swift */; };
 		8773911AD4F82BAA9F46BB4F12387253 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580BD403A3DDA31223E5717A289EC540 /* Utils.swift */; };
@@ -267,80 +270,80 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		003DB0B296B6F7AA0FC9BF4D6469E6AE /* APIClient.html */ = {isa = PBXFileReference; includeInIndex = 1; name = APIClient.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Protocols/APIClient.html; sourceTree = "<group>"; };
+		003DB0B296B6F7AA0FC9BF4D6469E6AE /* APIClient.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = APIClient.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Protocols/APIClient.html; sourceTree = "<group>"; };
 		00F61AFF2EC821469EA24CBDBF5EA3DD /* KeyboardView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = KeyboardView.xib; sourceTree = "<group>"; };
-		02412A17E3DCE6BD1054EBF723B90815 /* jquery.min.js */ = {isa = PBXFileReference; includeInIndex = 1; name = jquery.min.js; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/js/jquery.min.js; sourceTree = "<group>"; };
-		02610C30BFED3A218358C83A51B04563 /* GetTrustedDeviceEnrolledAny.html */ = {isa = PBXFileReference; includeInIndex = 1; name = GetTrustedDeviceEnrolledAny.html; path = docs/Structs/GetTrustedDeviceEnrolledAny.html; sourceTree = "<group>"; };
+		02412A17E3DCE6BD1054EBF723B90815 /* jquery.min.js */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.javascript; name = jquery.min.js; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/js/jquery.min.js; sourceTree = "<group>"; };
+		02610C30BFED3A218358C83A51B04563 /* GetTrustedDeviceEnrolledAny.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = GetTrustedDeviceEnrolledAny.html; path = docs/Structs/GetTrustedDeviceEnrolledAny.html; sourceTree = "<group>"; };
 		035C5C07E0539B0F4021D704D8FC1148 /* Transaction.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; name = Transaction.storyboard; path = Source/Transaction.storyboard; sourceTree = "<group>"; };
 		0417CD5518778009CD58DD2891B6CFE9 /* NMBStringify.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NMBStringify.h; path = Sources/NimbleObjectiveC/NMBStringify.h; sourceTree = "<group>"; };
-		0465735D88D118DA472C9C5605DC08D0 /* Typealiases.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Typealiases.html; path = docs/Typealiases.html; sourceTree = "<group>"; };
-		0488918396B56AB3672EE94BB1208B3F /* CreatePendingEventRequest.html */ = {isa = PBXFileReference; includeInIndex = 1; name = CreatePendingEventRequest.html; path = docs/Structs/CreatePendingEventRequest.html; sourceTree = "<group>"; };
+		0465735D88D118DA472C9C5605DC08D0 /* Typealiases.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Typealiases.html; path = docs/Typealiases.html; sourceTree = "<group>"; };
+		0488918396B56AB3672EE94BB1208B3F /* CreatePendingEventRequest.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = CreatePendingEventRequest.html; path = docs/Structs/CreatePendingEventRequest.html; sourceTree = "<group>"; };
 		0544B3E8DB71F6D97FBB37BF25B3DDFE /* EnrolledMethods.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EnrolledMethods.swift; sourceTree = "<group>"; };
 		06FBF0176F29E3AF619158FC82AB4A38 /* CotterError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CotterError.swift; sourceTree = "<group>"; };
 		07BA9A9CBFFCA3CB902CFB43C972D00D /* TrustedViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TrustedViewController.swift; sourceTree = "<group>"; };
-		080133BAC39DEA31B08623CAC2982D41 /* RegisterTrustedViewControllerKey.html */ = {isa = PBXFileReference; includeInIndex = 1; name = RegisterTrustedViewControllerKey.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Classes/RegisterTrustedViewControllerKey.html; sourceTree = "<group>"; };
-		093A10918520E26EE055209CB5543A28 /* Cotter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Cotter.framework; path = Cotter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		080133BAC39DEA31B08623CAC2982D41 /* RegisterTrustedViewControllerKey.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = RegisterTrustedViewControllerKey.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Classes/RegisterTrustedViewControllerKey.html; sourceTree = "<group>"; };
+		093A10918520E26EE055209CB5543A28 /* Cotter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Cotter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		09537E6EB97745E856B73A7629046296 /* ResetNewPINViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResetNewPINViewController.swift; path = Source/ResetNewPINViewController.swift; sourceTree = "<group>"; };
-		0956EF0A86A717844438FD15C3DF9290 /* GetEvent.html */ = {isa = PBXFileReference; includeInIndex = 1; name = GetEvent.html; path = docs/Structs/GetEvent.html; sourceTree = "<group>"; };
+		0956EF0A86A717844438FD15C3DF9290 /* GetEvent.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = GetEvent.html; path = docs/Structs/GetEvent.html; sourceTree = "<group>"; };
 		09E3A6AC064F3C2FD3F7C39EAA127EDD /* Pods-CotterIOS_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CotterIOS_Example-Info.plist"; sourceTree = "<group>"; };
-		0B8BD4A1E792DA2784A02D40553C17A1 /* Protocols.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Protocols.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Protocols.html; sourceTree = "<group>"; };
+		0B8BD4A1E792DA2784A02D40553C17A1 /* Protocols.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Protocols.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Protocols.html; sourceTree = "<group>"; };
 		0C443843C0DCE1DA7365487A8DE52466 /* QRScannerViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = QRScannerViewController.swift; sourceTree = "<group>"; };
 		0CB78F9E3C19E0AF7C0D1CBF1767A5E4 /* SourceLocation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SourceLocation.swift; path = Sources/Nimble/Utils/SourceLocation.swift; sourceTree = "<group>"; };
 		0E17D54216ADCD01582EF0E46BC0EE7A /* HaveCount.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HaveCount.swift; path = Sources/Nimble/Matchers/HaveCount.swift; sourceTree = "<group>"; };
 		0E4DC0305202FB079A5287C5A1C27C76 /* User.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0E5637DF90EA7E551C1DBB20849534AB /* UIExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
 		0ED33BF0EA33344D9C2227447FAD2407 /* EndWith.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EndWith.swift; path = Sources/Nimble/Matchers/EndWith.swift; sourceTree = "<group>"; };
-		0F3F6091257D18E6A56578E6CD0B67E6 /* Cotter.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Cotter.html; path = docs/Classes/Cotter.html; sourceTree = "<group>"; };
-		0F6706C470AC4B420897D3C480A2FD4A /* EnrolledMethods.html */ = {isa = PBXFileReference; includeInIndex = 1; name = EnrolledMethods.html; path = docs/Structs/EnrolledMethods.html; sourceTree = "<group>"; };
-		0FCE562F81D67A6BC6012EDAA09ABE1F /* Structs.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Structs.html; path = docs/Structs.html; sourceTree = "<group>"; };
+		0F3F6091257D18E6A56578E6CD0B67E6 /* Cotter.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Cotter.html; path = docs/Classes/Cotter.html; sourceTree = "<group>"; };
+		0F6706C470AC4B420897D3C480A2FD4A /* EnrolledMethods.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = EnrolledMethods.html; path = docs/Structs/EnrolledMethods.html; sourceTree = "<group>"; };
+		0FCE562F81D67A6BC6012EDAA09ABE1F /* Structs.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Structs.html; path = docs/Structs.html; sourceTree = "<group>"; };
 		0FD1D97A6B5CE90D356295AA3EA1A095 /* Pods-CotterIOS_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CotterIOS_Example-resources.sh"; sourceTree = "<group>"; };
 		103DACAB015A256546BC181C38DBEDE1 /* ThrowAssertion.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ThrowAssertion.swift; path = Sources/Nimble/Matchers/ThrowAssertion.swift; sourceTree = "<group>"; };
 		1155C387B23C86A5C910F133B0201D12 /* BottomPopupModal.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BottomPopupModal.swift; sourceTree = "<group>"; };
 		1193813DEB75364EEAE79032BEF53954 /* GetTrustedDeviceEnrolledAny.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GetTrustedDeviceEnrolledAny.swift; sourceTree = "<group>"; };
-		1317EA773F4410CE625D100FCDB2DFE4 /* Enums.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Enums.html; path = docs/Enums.html; sourceTree = "<group>"; };
+		1317EA773F4410CE625D100FCDB2DFE4 /* Enums.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Enums.html; path = docs/Enums.html; sourceTree = "<group>"; };
 		13891F3796E5E64792E5749D2F33B309 /* BeAKindOf.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BeAKindOf.swift; path = Sources/Nimble/Matchers/BeAKindOf.swift; sourceTree = "<group>"; };
-		138D40A6C09A90CB89B0D080CE933C6D /* NonTrustedKey.html */ = {isa = PBXFileReference; includeInIndex = 1; name = NonTrustedKey.html; path = docs/Classes/NonTrustedKey.html; sourceTree = "<group>"; };
-		139FC7EABF614E3ECC9EC3E6CB260B83 /* RespondEvent.html */ = {isa = PBXFileReference; includeInIndex = 1; name = RespondEvent.html; path = docs/Structs/RespondEvent.html; sourceTree = "<group>"; };
-		140B85E0FFC8DFB1BEB8AEDB188A8F43 /* EnrollTrustedDevice.html */ = {isa = PBXFileReference; includeInIndex = 1; name = EnrollTrustedDevice.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/EnrollTrustedDevice.html; sourceTree = "<group>"; };
+		138D40A6C09A90CB89B0D080CE933C6D /* NonTrustedKey.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = NonTrustedKey.html; path = docs/Classes/NonTrustedKey.html; sourceTree = "<group>"; };
+		139FC7EABF614E3ECC9EC3E6CB260B83 /* RespondEvent.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = RespondEvent.html; path = docs/Structs/RespondEvent.html; sourceTree = "<group>"; };
+		140B85E0FFC8DFB1BEB8AEDB188A8F43 /* EnrollTrustedDevice.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = EnrollTrustedDevice.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/EnrollTrustedDevice.html; sourceTree = "<group>"; };
 		141B0B7575A0D8AEFF69F93262040919 /* Async.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Async.swift; path = Sources/Nimble/Matchers/Async.swift; sourceTree = "<group>"; };
 		159200544C214B7EB90E3291E94EE3B0 /* PINViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PINViewController.swift; path = Source/PINViewController.swift; sourceTree = "<group>"; };
-		165A1A927CDBC89E1120BBAB48AE0650 /* VerifyPINResetCode.html */ = {isa = PBXFileReference; includeInIndex = 1; name = VerifyPINResetCode.html; path = docs/Structs/VerifyPINResetCode.html; sourceTree = "<group>"; };
+		165A1A927CDBC89E1120BBAB48AE0650 /* VerifyPINResetCode.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = VerifyPINResetCode.html; path = docs/Structs/VerifyPINResetCode.html; sourceTree = "<group>"; };
 		16D545E528747D00E762BFCE9AE07E57 /* PINConfirmViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PINConfirmViewController.swift; path = Source/PINConfirmViewController.swift; sourceTree = "<group>"; };
-		1725A11A9B414B4D46AFAA58D7BD365D /* GetEvent.html */ = {isa = PBXFileReference; includeInIndex = 1; name = GetEvent.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/GetEvent.html; sourceTree = "<group>"; };
+		1725A11A9B414B4D46AFAA58D7BD365D /* GetEvent.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = GetEvent.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/GetEvent.html; sourceTree = "<group>"; };
 		17649AC2AC702F78D1CE47FAD9B8F7AB /* ImageKey.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ImageKey.swift; sourceTree = "<group>"; };
 		176572D63F1D0C92DD21093E6F044F03 /* Expectation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Expectation.swift; path = Sources/Nimble/Expectation.swift; sourceTree = "<group>"; };
 		17BCFBD046FA4E5D3801B3CC18591463 /* Pods-CotterIOS_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CotterIOS_Tests-Info.plist"; sourceTree = "<group>"; };
 		17D079BBF240FE21598C251BC6846EC1 /* Collection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
 		1868E2BEED8735F49D500D22A9005561 /* UpdateProfile.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; name = UpdateProfile.storyboard; path = Source/UpdateProfile.storyboard; sourceTree = "<group>"; };
-		186C962BB0FA0079ED68B7C9D6664B84 /* Pods_CotterIOS_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_CotterIOS_Example.framework; path = "Pods-CotterIOS_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		18ADBA6725DBF0318C9C93D2827EC1EC /* UpdatePinStep.html */ = {isa = PBXFileReference; includeInIndex = 1; name = UpdatePinStep.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Enums/UpdatePinStep.html; sourceTree = "<group>"; };
-		1999CEC1B77911EBFF39B3C38F99D91D /* Functions.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Functions.html; path = docs/Functions.html; sourceTree = "<group>"; };
-		1AAF4F94317CC1B9468FD9C3C3FE7222 /* EnrolledMethods.html */ = {isa = PBXFileReference; includeInIndex = 1; name = EnrolledMethods.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/EnrolledMethods.html; sourceTree = "<group>"; };
-		1AED08094A438F8D8C1F5A76D01AF46C /* undocumented.json */ = {isa = PBXFileReference; includeInIndex = 1; name = undocumented.json; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/undocumented.json; sourceTree = "<group>"; };
+		186C962BB0FA0079ED68B7C9D6664B84 /* Pods_CotterIOS_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CotterIOS_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		18ADBA6725DBF0318C9C93D2827EC1EC /* UpdatePinStep.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = UpdatePinStep.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Enums/UpdatePinStep.html; sourceTree = "<group>"; };
+		1999CEC1B77911EBFF39B3C38F99D91D /* Functions.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Functions.html; path = docs/Functions.html; sourceTree = "<group>"; };
+		1AAF4F94317CC1B9468FD9C3C3FE7222 /* EnrolledMethods.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = EnrolledMethods.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/EnrolledMethods.html; sourceTree = "<group>"; };
+		1AED08094A438F8D8C1F5A76D01AF46C /* undocumented.json */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.json; name = undocumented.json; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/undocumented.json; sourceTree = "<group>"; };
 		1B74F89D0F38227A31E2BBBBA2FD09F7 /* PKCE.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PKCE.swift; sourceTree = "<group>"; };
 		1BA655D899DDB1064D1FED5A0E88D6E5 /* tap_device.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = tap_device.png; sourceTree = "<group>"; };
 		1D15A2B4F2645426EB3B592B8B67A5D8 /* UpdateBiometricStatus.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UpdateBiometricStatus.swift; sourceTree = "<group>"; };
-		1DE5E2766C2C2746B623C3A998DAA07F /* RemoveTrustedDeviceStatus.html */ = {isa = PBXFileReference; includeInIndex = 1; name = RemoveTrustedDeviceStatus.html; path = docs/Structs/RemoveTrustedDeviceStatus.html; sourceTree = "<group>"; };
+		1DE5E2766C2C2746B623C3A998DAA07F /* RemoveTrustedDeviceStatus.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = RemoveTrustedDeviceStatus.html; path = docs/Structs/RemoveTrustedDeviceStatus.html; sourceTree = "<group>"; };
 		1F635AA40B1BD89635373C60880FB577 /* Nimble-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Nimble-dummy.m"; sourceTree = "<group>"; };
 		1F99FC2C8F2654223DC2034A9D6028B3 /* Pods-CotterIOS_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CotterIOS_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		1FE97FCC1BC03C9F41B092F28EC2E862 /* DSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DSL.swift; path = Sources/Nimble/DSL.swift; sourceTree = "<group>"; };
-		207EBBB645DB56C874845DD1B5362DB3 /* Cotter.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = Cotter.bundle; path = "Cotter-Cotter.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
-		20E5B9D8605A7584004E3AE5DD524078 /* Passwordless.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Passwordless.html; path = docs/Classes/Passwordless.html; sourceTree = "<group>"; };
-		225A264B161DCA68C673A398E7751765 /* GetTrustedDeviceEnrolledAny.html */ = {isa = PBXFileReference; includeInIndex = 1; name = GetTrustedDeviceEnrolledAny.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/GetTrustedDeviceEnrolledAny.html; sourceTree = "<group>"; };
-		228927D3B15952BBB09C6690F6D568DF /* PINViewControllerKey.html */ = {isa = PBXFileReference; includeInIndex = 1; name = PINViewControllerKey.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Classes/PINViewControllerKey.html; sourceTree = "<group>"; };
-		23B77080B1AF6E8DA3634AE77F7EAF3F /* APIRequest.html */ = {isa = PBXFileReference; includeInIndex = 1; name = APIRequest.html; path = docs/Protocols/APIRequest.html; sourceTree = "<group>"; };
-		24432BB6730FEBB6A37922DE06682D0F /* CotterAPIError.html */ = {isa = PBXFileReference; includeInIndex = 1; name = CotterAPIError.html; path = docs/Enums/CotterAPIError.html; sourceTree = "<group>"; };
-		257E217C223556CA020183640F6E0114 /* LanguageObject.html */ = {isa = PBXFileReference; includeInIndex = 1; name = LanguageObject.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Classes/LanguageObject.html; sourceTree = "<group>"; };
+		207EBBB645DB56C874845DD1B5362DB3 /* Cotter.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Cotter.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		20E5B9D8605A7584004E3AE5DD524078 /* Passwordless.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Passwordless.html; path = docs/Classes/Passwordless.html; sourceTree = "<group>"; };
+		225A264B161DCA68C673A398E7751765 /* GetTrustedDeviceEnrolledAny.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = GetTrustedDeviceEnrolledAny.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/GetTrustedDeviceEnrolledAny.html; sourceTree = "<group>"; };
+		228927D3B15952BBB09C6690F6D568DF /* PINViewControllerKey.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = PINViewControllerKey.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Classes/PINViewControllerKey.html; sourceTree = "<group>"; };
+		23B77080B1AF6E8DA3634AE77F7EAF3F /* APIRequest.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = APIRequest.html; path = docs/Protocols/APIRequest.html; sourceTree = "<group>"; };
+		24432BB6730FEBB6A37922DE06682D0F /* CotterAPIError.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = CotterAPIError.html; path = docs/Enums/CotterAPIError.html; sourceTree = "<group>"; };
+		257E217C223556CA020183640F6E0114 /* LanguageObject.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = LanguageObject.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Classes/LanguageObject.html; sourceTree = "<group>"; };
 		25C6D14A1ECEDAC051F550ED3386CAA3 /* UpdateCreateNewPINViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UpdateCreateNewPINViewController.swift; path = Source/UpdateCreateNewPINViewController.swift; sourceTree = "<group>"; };
-		25FF3630A0E4DF272C26079FAA6C15E1 /* GetUser.html */ = {isa = PBXFileReference; includeInIndex = 1; name = GetUser.html; path = docs/Structs/GetUser.html; sourceTree = "<group>"; };
+		25FF3630A0E4DF272C26079FAA6C15E1 /* GetUser.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = GetUser.html; path = docs/Structs/GetUser.html; sourceTree = "<group>"; };
 		26016200677AE32CA6F6492632F176B1 /* Protocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		26185E2448C13FFF00F3FD8DE2FC37B1 /* RegisterBiometric.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegisterBiometric.swift; sourceTree = "<group>"; };
-		269C1ADEB0E31E2DC74880C0C9DF6A6D /* Classes.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Classes.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Classes.html; sourceTree = "<group>"; };
-		26B1C6B1BA5F361F630663A558B79BF9 /* EnrollTrustedDevice.html */ = {isa = PBXFileReference; includeInIndex = 1; name = EnrollTrustedDevice.html; path = docs/Structs/EnrollTrustedDevice.html; sourceTree = "<group>"; };
-		28BF19B4681B4DB8E2D1A8A37E8FB20B /* UpdateUserPIN.html */ = {isa = PBXFileReference; includeInIndex = 1; name = UpdateUserPIN.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/UpdateUserPIN.html; sourceTree = "<group>"; };
+		269C1ADEB0E31E2DC74880C0C9DF6A6D /* Classes.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Classes.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Classes.html; sourceTree = "<group>"; };
+		26B1C6B1BA5F361F630663A558B79BF9 /* EnrollTrustedDevice.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = EnrollTrustedDevice.html; path = docs/Structs/EnrollTrustedDevice.html; sourceTree = "<group>"; };
+		28BF19B4681B4DB8E2D1A8A37E8FB20B /* UpdateUserPIN.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = UpdateUserPIN.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/UpdateUserPIN.html; sourceTree = "<group>"; };
 		29727AEE2EF2331AA68038B7E754EFE9 /* ResetPINFinalViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResetPINFinalViewController.swift; path = Source/ResetPINFinalViewController.swift; sourceTree = "<group>"; };
-		2A3FCF30917D1DCB16759E481CA3A43A /* UpdateBiometricStatus.html */ = {isa = PBXFileReference; includeInIndex = 1; name = UpdateBiometricStatus.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/UpdateBiometricStatus.html; sourceTree = "<group>"; };
-		2AD3447B33FF0FF33F9C60C979A6A475 /* Passwordless.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Passwordless.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Classes/Passwordless.html; sourceTree = "<group>"; };
+		2A3FCF30917D1DCB16759E481CA3A43A /* UpdateBiometricStatus.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = UpdateBiometricStatus.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/UpdateBiometricStatus.html; sourceTree = "<group>"; };
+		2AD3447B33FF0FF33F9C60C979A6A475 /* Passwordless.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Passwordless.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Classes/Passwordless.html; sourceTree = "<group>"; };
 		2AF03B9FA5D00022ABD77AE532A2B675 /* PinStepEnums.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PinStepEnums.swift; sourceTree = "<group>"; };
 		2BEACC5DCEEFC91F92A0C37774BE9654 /* HTTPCallback.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HTTPCallback.swift; sourceTree = "<group>"; };
 		2C469C84133E0E69ADE80F4FB17F81A7 /* RemoveTrustedDeviceStatus.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RemoveTrustedDeviceStatus.swift; sourceTree = "<group>"; };
@@ -350,31 +353,31 @@
 		2CD40FE51A55D4A77ADEDDE837309384 /* Functional.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Functional.swift; path = Sources/Nimble/Utils/Functional.swift; sourceTree = "<group>"; };
 		2D718E8EC38FF582251C1891335A80E7 /* AdapterProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AdapterProtocols.swift; path = Sources/Nimble/Adapters/AdapterProtocols.swift; sourceTree = "<group>"; };
 		30E5E8B0F19F20AB0732CE753CB6CD2C /* OneSignal.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = OneSignal.xcconfig; sourceTree = "<group>"; };
-		30F844164C611AE71D0DBE097CB776C1 /* CotterUser.html */ = {isa = PBXFileReference; includeInIndex = 1; name = CotterUser.html; path = docs/Structs/CotterUser.html; sourceTree = "<group>"; };
+		30F844164C611AE71D0DBE097CB776C1 /* CotterUser.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = CotterUser.html; path = docs/Structs/CotterUser.html; sourceTree = "<group>"; };
 		31689347F512D20D0728C73A60AC16D0 /* MatcherProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MatcherProtocols.swift; path = Sources/Nimble/Matchers/MatcherProtocols.swift; sourceTree = "<group>"; };
-		31B1BE86E892DA2C38FDB8F6436778F0 /* RegisterUser.html */ = {isa = PBXFileReference; includeInIndex = 1; name = RegisterUser.html; path = docs/Structs/RegisterUser.html; sourceTree = "<group>"; };
+		31B1BE86E892DA2C38FDB8F6436778F0 /* RegisterUser.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = RegisterUser.html; path = docs/Structs/RegisterUser.html; sourceTree = "<group>"; };
 		3209890947D8FE82722FB7BB4EC5DD5C /* ErrorMessages.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ErrorMessages.swift; sourceTree = "<group>"; };
 		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		32D02A35B66DA39387461705DB3499BB /* Pods-CotterIOS_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CotterIOS_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		32E2F91BDE38042B5B9FDB4F46437E93 /* Functions.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Functions.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Functions.html; sourceTree = "<group>"; };
+		32E2F91BDE38042B5B9FDB4F46437E93 /* Functions.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Functions.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Functions.html; sourceTree = "<group>"; };
 		34E464495ACE1A7CA6F91F1B37CAC387 /* gh.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = gh.png; path = docs/img/gh.png; sourceTree = "<group>"; };
 		351F09C1ED1071E3C54E13A992706086 /* cotter-failure-x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "cotter-failure-x.png"; sourceTree = "<group>"; };
 		364EEB99639826BD25CF40A6EB4BB17F /* OneTimeCodeTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OneTimeCodeTextField.swift; sourceTree = "<group>"; };
 		3721D2FB443A14EB244E6536920391BE /* GetNewEvent.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GetNewEvent.swift; sourceTree = "<group>"; };
-		37BCD34492C271DF99FEAEC55CC74DEB /* CotterConstants.html */ = {isa = PBXFileReference; includeInIndex = 1; name = CotterConstants.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/CotterConstants.html; sourceTree = "<group>"; };
-		387F7DEAEB961AF84D6C5BBCDBFF5AD2 /* RegisterTrustedViewControllerKey.html */ = {isa = PBXFileReference; includeInIndex = 1; name = RegisterTrustedViewControllerKey.html; path = docs/Classes/RegisterTrustedViewControllerKey.html; sourceTree = "<group>"; };
+		37BCD34492C271DF99FEAEC55CC74DEB /* CotterConstants.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = CotterConstants.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/CotterConstants.html; sourceTree = "<group>"; };
+		387F7DEAEB961AF84D6C5BBCDBFF5AD2 /* RegisterTrustedViewControllerKey.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = RegisterTrustedViewControllerKey.html; path = docs/Classes/RegisterTrustedViewControllerKey.html; sourceTree = "<group>"; };
 		39D5733412FB91AB0637E07AC713BDC7 /* UpdatePINViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UpdatePINViewController.swift; path = Source/UpdatePINViewController.swift; sourceTree = "<group>"; };
 		39DB4DFA4DBC6240E7F0082BEB5AECC8 /* PostNotification.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PostNotification.swift; path = Sources/Nimble/Matchers/PostNotification.swift; sourceTree = "<group>"; };
-		3A5129B350F158511C4E81EF16CCF538 /* Token.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Token.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/Token.html; sourceTree = "<group>"; };
-		3B686FF5378D4BADF4F3A149E7370FBB /* UIColor.html */ = {isa = PBXFileReference; includeInIndex = 1; name = UIColor.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Extensions/UIColor.html; sourceTree = "<group>"; };
+		3A5129B350F158511C4E81EF16CCF538 /* Token.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Token.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/Token.html; sourceTree = "<group>"; };
+		3B686FF5378D4BADF4F3A149E7370FBB /* UIColor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = UIColor.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Extensions/UIColor.html; sourceTree = "<group>"; };
 		3C09B3B3BD3F1AD3773BAD744CD605DE /* Pods-CotterIOS_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CotterIOS_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		3CE30D3F1BBE586F55331D7897F60BFA /* Enums.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Enums.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Enums.html; sourceTree = "<group>"; };
+		3CE30D3F1BBE586F55331D7897F60BFA /* Enums.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Enums.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Enums.html; sourceTree = "<group>"; };
 		3DB7C966A494723FD217DFF7620589D5 /* NMBExceptionCapture.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NMBExceptionCapture.m; path = Sources/NimbleObjectiveC/NMBExceptionCapture.m; sourceTree = "<group>"; };
-		3E4F34EE2F052C052794A87297A7BB06 /* highlight.css */ = {isa = PBXFileReference; includeInIndex = 1; name = highlight.css; path = docs/css/highlight.css; sourceTree = "<group>"; };
+		3E4F34EE2F052C052794A87297A7BB06 /* highlight.css */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.css; name = highlight.css; path = docs/css/highlight.css; sourceTree = "<group>"; };
 		412F243278AE36241B91EC82A7B49B83 /* TransactionPINViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TransactionPINViewController.swift; path = Source/TransactionPINViewController.swift; sourceTree = "<group>"; };
-		415C644D36D3A3DA552E5106150EEB9A /* RegisterBiometric.html */ = {isa = PBXFileReference; includeInIndex = 1; name = RegisterBiometric.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/RegisterBiometric.html; sourceTree = "<group>"; };
-		43D59C4A1530F5529DC5D11D186CAD79 /* RespondEvent.html */ = {isa = PBXFileReference; includeInIndex = 1; name = RespondEvent.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/RespondEvent.html; sourceTree = "<group>"; };
-		444907FFE5F05CB1C71D54811E9960F5 /* NonTrustedKey.html */ = {isa = PBXFileReference; includeInIndex = 1; name = NonTrustedKey.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Classes/NonTrustedKey.html; sourceTree = "<group>"; };
+		415C644D36D3A3DA552E5106150EEB9A /* RegisterBiometric.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = RegisterBiometric.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/RegisterBiometric.html; sourceTree = "<group>"; };
+		43D59C4A1530F5529DC5D11D186CAD79 /* RespondEvent.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = RespondEvent.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/RespondEvent.html; sourceTree = "<group>"; };
+		444907FFE5F05CB1C71D54811E9960F5 /* NonTrustedKey.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = NonTrustedKey.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Classes/NonTrustedKey.html; sourceTree = "<group>"; };
 		4463F07A608C04EDFA2518F965C2BED0 /* Pods-CotterIOS_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-CotterIOS_Tests.modulemap"; sourceTree = "<group>"; };
 		45601B05B5A24CE3CBEA798FDBA8AABC /* dash.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = dash.png; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/img/dash.png; sourceTree = "<group>"; };
 		45E0A075BC9E5C16DDF2D6E320EC78F8 /* BeVoid.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BeVoid.swift; path = Sources/Nimble/Matchers/BeVoid.swift; sourceTree = "<group>"; };
@@ -382,265 +385,266 @@
 		45F33C7510D1CD136186FB3576FA0541 /* CwlMachBadInstructionHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CwlMachBadInstructionHandler.h; path = Carthage/Checkouts/CwlPreconditionTesting/Sources/CwlMachBadInstructionHandler/include/CwlMachBadInstructionHandler.h; sourceTree = "<group>"; };
 		46CEC2E3DD10E8577ED2B01F84419F4C /* BeEmpty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BeEmpty.swift; path = Sources/Nimble/Matchers/BeEmpty.swift; sourceTree = "<group>"; };
 		46CF7C659FCC2BACCDEAAB2E7584D64C /* BeGreaterThanOrEqualTo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BeGreaterThanOrEqualTo.swift; path = Sources/Nimble/Matchers/BeGreaterThanOrEqualTo.swift; sourceTree = "<group>"; };
-		473186EAC3511C37FD7EC48320F13482 /* CotterCallback.html */ = {isa = PBXFileReference; includeInIndex = 1; name = CotterCallback.html; path = docs/Classes/CotterCallback.html; sourceTree = "<group>"; };
-		48CDAADB49C54EA8399D3581B2BFD87F /* CotterAPIService.html */ = {isa = PBXFileReference; includeInIndex = 1; name = CotterAPIService.html; path = docs/Classes/CotterAPIService.html; sourceTree = "<group>"; };
-		4951DC4D7ABA5215ACF3A19A621A2CD8 /* UpdateUserPIN.html */ = {isa = PBXFileReference; includeInIndex = 1; name = UpdateUserPIN.html; path = docs/Structs/UpdateUserPIN.html; sourceTree = "<group>"; };
-		4BADFE25B314A8E99683E761637DFC7A /* UIButtonBorderSide.html */ = {isa = PBXFileReference; includeInIndex = 1; name = UIButtonBorderSide.html; path = docs/Enums/UIButtonBorderSide.html; sourceTree = "<group>"; };
-		4C3BC0F2893A117A4233C17F542DB580 /* CryptoUtil.html */ = {isa = PBXFileReference; includeInIndex = 1; name = CryptoUtil.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Classes/CryptoUtil.html; sourceTree = "<group>"; };
+		473186EAC3511C37FD7EC48320F13482 /* CotterCallback.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = CotterCallback.html; path = docs/Classes/CotterCallback.html; sourceTree = "<group>"; };
+		48CDAADB49C54EA8399D3581B2BFD87F /* CotterAPIService.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = CotterAPIService.html; path = docs/Classes/CotterAPIService.html; sourceTree = "<group>"; };
+		4951DC4D7ABA5215ACF3A19A621A2CD8 /* UpdateUserPIN.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = UpdateUserPIN.html; path = docs/Structs/UpdateUserPIN.html; sourceTree = "<group>"; };
+		4BADFE25B314A8E99683E761637DFC7A /* UIButtonBorderSide.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = UIButtonBorderSide.html; path = docs/Enums/UIButtonBorderSide.html; sourceTree = "<group>"; };
+		4C3BC0F2893A117A4233C17F542DB580 /* CryptoUtil.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = CryptoUtil.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Classes/CryptoUtil.html; sourceTree = "<group>"; };
 		4D95B46BE949EAA71A9B147C7623E49C /* PINBaseController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PINBaseController.swift; sourceTree = "<group>"; };
-		4DF8D6FBB8289631739AF21ABC6B9600 /* RequestPINReset.html */ = {isa = PBXFileReference; includeInIndex = 1; name = RequestPINReset.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/RequestPINReset.html; sourceTree = "<group>"; };
-		4E646F7ED3F63BA335CE24774996E540 /* APIClient.html */ = {isa = PBXFileReference; includeInIndex = 1; name = APIClient.html; path = docs/Protocols/APIClient.html; sourceTree = "<group>"; };
+		4DF8D6FBB8289631739AF21ABC6B9600 /* RequestPINReset.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = RequestPINReset.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/RequestPINReset.html; sourceTree = "<group>"; };
+		4E646F7ED3F63BA335CE24774996E540 /* APIClient.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = APIClient.html; path = docs/Protocols/APIClient.html; sourceTree = "<group>"; };
 		4ED3106FEA76E1343EB02CC451E85D54 /* MatchError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MatchError.swift; path = Sources/Nimble/Matchers/MatchError.swift; sourceTree = "<group>"; };
-		4F39C9B169E001C13366B11ABC3BF622 /* EnrollUserPIN.html */ = {isa = PBXFileReference; includeInIndex = 1; name = EnrollUserPIN.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/EnrollUserPIN.html; sourceTree = "<group>"; };
-		4FEB198B10EF5A1D544C981BBCDEF012 /* Extensions.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Extensions.html; path = docs/Extensions.html; sourceTree = "<group>"; };
+		4F39C9B169E001C13366B11ABC3BF622 /* EnrollUserPIN.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = EnrollUserPIN.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/EnrollUserPIN.html; sourceTree = "<group>"; };
+		4FEB198B10EF5A1D544C981BBCDEF012 /* Extensions.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Extensions.html; path = docs/Extensions.html; sourceTree = "<group>"; };
 		5124784252C7FFA3625ADAD76063919E /* AlertService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
 		51E5F498EB9D8ADE9EDEE73FD123D04E /* OneSignal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OneSignal.framework; path = iOS_SDK/OneSignalSDK/Framework/OneSignal.framework; sourceTree = "<group>"; };
-		521C5F3DDF5929A16E717C3BDCD6B414 /* ColorSchemeObject.html */ = {isa = PBXFileReference; includeInIndex = 1; name = ColorSchemeObject.html; path = docs/Classes/ColorSchemeObject.html; sourceTree = "<group>"; };
-		53C04B0F03E21C476905D75CD8BABDD4 /* Extensions.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Extensions.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Extensions.html; sourceTree = "<group>"; };
-		5512DB138D5051F0CD162148C3B38630 /* index.html */ = {isa = PBXFileReference; includeInIndex = 1; name = index.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/index.html; sourceTree = "<group>"; };
+		521C5F3DDF5929A16E717C3BDCD6B414 /* ColorSchemeObject.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = ColorSchemeObject.html; path = docs/Classes/ColorSchemeObject.html; sourceTree = "<group>"; };
+		53C04B0F03E21C476905D75CD8BABDD4 /* Extensions.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Extensions.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Extensions.html; sourceTree = "<group>"; };
+		5512DB138D5051F0CD162148C3B38630 /* index.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = index.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/index.html; sourceTree = "<group>"; };
 		55674913A985D1D37A5FAB9BF004A66E /* Match.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Match.swift; path = Sources/Nimble/Matchers/Match.swift; sourceTree = "<group>"; };
 		56AD8FA43C9E59A217EA12FE2C54204C /* RegisterUser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegisterUser.swift; sourceTree = "<group>"; };
 		57CE92111750B2729E63AB7CD8FEED2A /* RaisesException.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RaisesException.swift; path = Sources/Nimble/Matchers/RaisesException.swift; sourceTree = "<group>"; };
 		580BD403A3DDA31223E5717A289EC540 /* Utils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		5856210090888ADE367B52B2C1AB985C /* Pods-CotterIOS_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CotterIOS_Tests-dummy.m"; sourceTree = "<group>"; };
 		59A92F2E9855BD4316CBEFAAE9E16377 /* Pods-CotterIOS_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-CotterIOS_Tests-umbrella.h"; sourceTree = "<group>"; };
-		5C391140406E2A61B0068E6E82DA59DE /* CotterEvents.html */ = {isa = PBXFileReference; includeInIndex = 1; name = CotterEvents.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/CotterEvents.html; sourceTree = "<group>"; };
+		5C391140406E2A61B0068E6E82DA59DE /* CotterEvents.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = CotterEvents.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/CotterEvents.html; sourceTree = "<group>"; };
 		5D3DEFCA4EBBDB6C8BF6A3EDA60A48B4 /* CrossButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CrossButton.swift; sourceTree = "<group>"; };
 		5DDAD566009376DEA8B7BE88CF328390 /* CotterImages.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CotterImages.swift; sourceTree = "<group>"; };
-		5DE3AA1AA07EE332BA9DDEC88E4A1679 /* docSet.dsidx */ = {isa = PBXFileReference; includeInIndex = 1; name = docSet.dsidx; path = docs/docsets/Cotter.docset/Contents/Resources/docSet.dsidx; sourceTree = "<group>"; };
-		5F0C63AE89F95286009AF274D41AF99D /* UIButton.html */ = {isa = PBXFileReference; includeInIndex = 1; name = UIButton.html; path = docs/Extensions/UIButton.html; sourceTree = "<group>"; };
-		5FAC0D958475FD5EC67CA0B86C8E64EE /* English.html */ = {isa = PBXFileReference; includeInIndex = 1; name = English.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Classes/English.html; sourceTree = "<group>"; };
+		5DE3AA1AA07EE332BA9DDEC88E4A1679 /* docSet.dsidx */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = docSet.dsidx; path = docs/docsets/Cotter.docset/Contents/Resources/docSet.dsidx; sourceTree = "<group>"; };
+		5F0C63AE89F95286009AF274D41AF99D /* UIButton.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = UIButton.html; path = docs/Extensions/UIButton.html; sourceTree = "<group>"; };
+		5FAC0D958475FD5EC67CA0B86C8E64EE /* English.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = English.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Classes/English.html; sourceTree = "<group>"; };
 		5FB3B229B4C8B0039FDC60E7DF074BC0 /* NonTrusted.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NonTrusted.swift; sourceTree = "<group>"; };
 		5FC7D40B878DFC41C50D93BB3E1E3AAB /* ResetCodeTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResetCodeTextField.swift; sourceTree = "<group>"; };
 		601E938586C98AC4A91C92184F6A225A /* Cotter-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Cotter-dummy.m"; sourceTree = "<group>"; };
 		60EC48D14D5902DB9B3E39C22C61BE6A /* GetEvent.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GetEvent.swift; sourceTree = "<group>"; };
-		621D76B72F127A24C925E6C33D27AF79 /* CotterCallback.html */ = {isa = PBXFileReference; includeInIndex = 1; name = CotterCallback.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Classes/CotterCallback.html; sourceTree = "<group>"; };
-		62F24FEC56822167904A63803C131458 /* ImageObject.html */ = {isa = PBXFileReference; includeInIndex = 1; name = ImageObject.html; path = docs/Classes/ImageObject.html; sourceTree = "<group>"; };
-		63AD9F162AB24A4248EACD590AD5E62C /* UpdateBiometricStatus.html */ = {isa = PBXFileReference; includeInIndex = 1; name = UpdateBiometricStatus.html; path = docs/Structs/UpdateBiometricStatus.html; sourceTree = "<group>"; };
+		621D76B72F127A24C925E6C33D27AF79 /* CotterCallback.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = CotterCallback.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Classes/CotterCallback.html; sourceTree = "<group>"; };
+		62F24FEC56822167904A63803C131458 /* ImageObject.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = ImageObject.html; path = docs/Classes/ImageObject.html; sourceTree = "<group>"; };
+		63AD9F162AB24A4248EACD590AD5E62C /* UpdateBiometricStatus.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = UpdateBiometricStatus.html; path = docs/Structs/UpdateBiometricStatus.html; sourceTree = "<group>"; };
 		63ED52A03A377B8C040E16C307667003 /* UpdateUserPIN.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UpdateUserPIN.swift; sourceTree = "<group>"; };
-		64740581E5BEC9FDA506C82D5ED109CC /* ResetPIN.html */ = {isa = PBXFileReference; includeInIndex = 1; name = ResetPIN.html; path = docs/Structs/ResetPIN.html; sourceTree = "<group>"; };
+		64740581E5BEC9FDA506C82D5ED109CC /* ResetPIN.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = ResetPIN.html; path = docs/Structs/ResetPIN.html; sourceTree = "<group>"; };
 		657B7F37F0E7D4D1CEA5DCFA99BC096E /* Sourcery.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Sourcery.xcconfig; sourceTree = "<group>"; };
-		658669F10FCEC77CE8D365F838158041 /* VerifyPINResetCode.html */ = {isa = PBXFileReference; includeInIndex = 1; name = VerifyPINResetCode.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/VerifyPINResetCode.html; sourceTree = "<group>"; };
+		658669F10FCEC77CE8D365F838158041 /* VerifyPINResetCode.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = VerifyPINResetCode.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/VerifyPINResetCode.html; sourceTree = "<group>"; };
 		66ED0D9AAF340608A60993910F60CED4 /* English.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = English.swift; sourceTree = "<group>"; };
 		67C80119761B82F495852D587A5386E7 /* Event.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
-		67FAA0AFBCBF85F89AFA11F08C68699B /* Classes.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Classes.html; path = docs/Classes.html; sourceTree = "<group>"; };
-		6916733843B1DA636578BE53A32F37A4 /* CotterIdentity.html */ = {isa = PBXFileReference; includeInIndex = 1; name = CotterIdentity.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/CotterIdentity.html; sourceTree = "<group>"; };
-		69CF05A5B63AE1DE3DD45A5D70B3254D /* RegisterBiometric.html */ = {isa = PBXFileReference; includeInIndex = 1; name = RegisterBiometric.html; path = docs/Structs/RegisterBiometric.html; sourceTree = "<group>"; };
+		67FAA0AFBCBF85F89AFA11F08C68699B /* Classes.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Classes.html; path = docs/Classes.html; sourceTree = "<group>"; };
+		6916733843B1DA636578BE53A32F37A4 /* CotterIdentity.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = CotterIdentity.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/CotterIdentity.html; sourceTree = "<group>"; };
+		69CF05A5B63AE1DE3DD45A5D70B3254D /* RegisterBiometric.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = RegisterBiometric.html; path = docs/Structs/RegisterBiometric.html; sourceTree = "<group>"; };
 		6A7A02C7E541F978C1373DD06DA8536C /* Indonesian.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Indonesian.swift; sourceTree = "<group>"; };
 		6AF8B302F8ADF772775B6641FFC754A0 /* DSL+Wait.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DSL+Wait.swift"; path = "Sources/Nimble/DSL+Wait.swift"; sourceTree = "<group>"; };
-		6B3A692A37DD05AF4C140E8F558EC7AD /* Identifier.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Identifier.html; path = docs/Structs/Identifier.html; sourceTree = "<group>"; };
+		6B3A692A37DD05AF4C140E8F558EC7AD /* Identifier.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Identifier.html; path = docs/Structs/Identifier.html; sourceTree = "<group>"; };
 		6D11B765BC8C4CCEBAC257F38A56ADB8 /* Cotter-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Cotter-umbrella.h"; sourceTree = "<group>"; };
 		6DC62FF30CFAE2DA097E3AF4C4F9182C /* cotter-fingerprint.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "cotter-fingerprint.png"; sourceTree = "<group>"; };
 		6E675570722DB2CC3BB19911AC31214B /* Pods-CotterIOS_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CotterIOS_Tests-frameworks.sh"; sourceTree = "<group>"; };
-		6E8864AAA205C2AAB4AA57F5B73F4518 /* UILabel.html */ = {isa = PBXFileReference; includeInIndex = 1; name = UILabel.html; path = docs/Extensions/UILabel.html; sourceTree = "<group>"; };
+		6E8864AAA205C2AAB4AA57F5B73F4518 /* UILabel.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = UILabel.html; path = docs/Extensions/UILabel.html; sourceTree = "<group>"; };
 		6F75479CACE2318C89E578761C04B24D /* BeIdenticalTo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BeIdenticalTo.swift; path = Sources/Nimble/Matchers/BeIdenticalTo.swift; sourceTree = "<group>"; };
 		709EC98B5DB4A9E462944DBAC460BF13 /* UIColor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		72BC635F8232CBD67D172EE4348846F7 /* CwlBadInstructionException.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CwlBadInstructionException.swift; path = Carthage/Checkouts/CwlPreconditionTesting/Sources/CwlPreconditionTesting/CwlBadInstructionException.swift; sourceTree = "<group>"; };
 		74917F7F3B1216321CA04CF0D2A943C7 /* NimbleEnvironment.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NimbleEnvironment.swift; path = Sources/Nimble/Adapters/NimbleEnvironment.swift; sourceTree = "<group>"; };
 		74FC954C1D091CB1142BDACC806A4E4E /* BasicButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BasicButton.swift; sourceTree = "<group>"; };
-		7524D748876E6C5424884DEA7813AA29 /* GetTrustedDeviceStatus.html */ = {isa = PBXFileReference; includeInIndex = 1; name = GetTrustedDeviceStatus.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/GetTrustedDeviceStatus.html; sourceTree = "<group>"; };
-		76D09D7EBB5C63846E51355C7E74B177 /* GetBiometricStatus.html */ = {isa = PBXFileReference; includeInIndex = 1; name = GetBiometricStatus.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/GetBiometricStatus.html; sourceTree = "<group>"; };
-		76D8FBBDFE009E9854FA34F4B3C9C1FE /* index.html */ = {isa = PBXFileReference; includeInIndex = 1; name = index.html; path = docs/index.html; sourceTree = "<group>"; };
+		7524D748876E6C5424884DEA7813AA29 /* GetTrustedDeviceStatus.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = GetTrustedDeviceStatus.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/GetTrustedDeviceStatus.html; sourceTree = "<group>"; };
+		76D09D7EBB5C63846E51355C7E74B177 /* GetBiometricStatus.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = GetBiometricStatus.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/GetBiometricStatus.html; sourceTree = "<group>"; };
+		76D8FBBDFE009E9854FA34F4B3C9C1FE /* index.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = index.html; path = docs/index.html; sourceTree = "<group>"; };
 		77036C78E916C676862782119CA215C0 /* cotter-success-check.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "cotter-success-check.png"; sourceTree = "<group>"; };
-		777DF61276809CF06772D06C2D14A5E0 /* Indonesian.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Indonesian.html; path = docs/Classes/Indonesian.html; sourceTree = "<group>"; };
+		777DF61276809CF06772D06C2D14A5E0 /* Indonesian.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Indonesian.html; path = docs/Classes/Indonesian.html; sourceTree = "<group>"; };
 		78F58F90FA4607513D86391FFAECFAFA /* CreatePendingEventRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CreatePendingEventRequest.swift; sourceTree = "<group>"; };
-		792F95513A4F01A206085B20059D69A4 /* mach_excServer.c */ = {isa = PBXFileReference; includeInIndex = 1; name = mach_excServer.c; path = Carthage/Checkouts/CwlPreconditionTesting/Sources/CwlMachBadInstructionHandler/mach_excServer.c; sourceTree = "<group>"; };
+		792F95513A4F01A206085B20059D69A4 /* mach_excServer.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = mach_excServer.c; path = Carthage/Checkouts/CwlPreconditionTesting/Sources/CwlMachBadInstructionHandler/mach_excServer.c; sourceTree = "<group>"; };
 		79483799DDF8E0E2778D22A4401ED67B /* Config.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		79972F912B140BF2437454600D49AEBC /* ResetPIN.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResetPIN.swift; sourceTree = "<group>"; };
 		7DBEAAA2E8681714517199551E435BD3 /* ExpectationMessage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpectationMessage.swift; path = Sources/Nimble/ExpectationMessage.swift; sourceTree = "<group>"; };
-		7EC2508814361C3A81135BCA5083C97D /* CotterIdentity.html */ = {isa = PBXFileReference; includeInIndex = 1; name = CotterIdentity.html; path = docs/Structs/CotterIdentity.html; sourceTree = "<group>"; };
-		7F1B0FD7C017ADBF9B537EDAB9995097 /* GetUser.html */ = {isa = PBXFileReference; includeInIndex = 1; name = GetUser.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/GetUser.html; sourceTree = "<group>"; };
-		7FB341A109B9CF2F7CD98EE82285ADF9 /* NonTrusted.html */ = {isa = PBXFileReference; includeInIndex = 1; name = NonTrusted.html; path = docs/Classes/NonTrusted.html; sourceTree = "<group>"; };
+		7EC2508814361C3A81135BCA5083C97D /* CotterIdentity.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = CotterIdentity.html; path = docs/Structs/CotterIdentity.html; sourceTree = "<group>"; };
+		7F1B0FD7C017ADBF9B537EDAB9995097 /* GetUser.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = GetUser.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/GetUser.html; sourceTree = "<group>"; };
+		7FB341A109B9CF2F7CD98EE82285ADF9 /* NonTrusted.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = NonTrusted.html; path = docs/Classes/NonTrusted.html; sourceTree = "<group>"; };
 		8007FE281CDFD5183E43C5C9CBCEC5D1 /* APIServiceProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = APIServiceProtocol.swift; sourceTree = "<group>"; };
-		802DFEF9614C6A337F91035AA3CDE5F3 /* jquery.min.js */ = {isa = PBXFileReference; includeInIndex = 1; name = jquery.min.js; path = docs/js/jquery.min.js; sourceTree = "<group>"; };
+		802DFEF9614C6A337F91035AA3CDE5F3 /* jquery.min.js */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.javascript; name = jquery.min.js; path = docs/js/jquery.min.js; sourceTree = "<group>"; };
 		8035141DD79B43AE01B559993D58F6DB /* BeginWith.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BeginWith.swift; path = Sources/Nimble/Matchers/BeginWith.swift; sourceTree = "<group>"; };
-		80C2A22206C45AFCFDEEDAF4BEA255C7 /* RequestToken.html */ = {isa = PBXFileReference; includeInIndex = 1; name = RequestToken.html; path = docs/Structs/RequestToken.html; sourceTree = "<group>"; };
+		80C2A22206C45AFCFDEEDAF4BEA255C7 /* RequestToken.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = RequestToken.html; path = docs/Structs/RequestToken.html; sourceTree = "<group>"; };
 		80C763FAB38F6DDB19DD8F1ADD5BF6B0 /* Nimble.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Nimble.xcconfig; sourceTree = "<group>"; };
 		8146AF0D01AEBEC5E27B143C8ACB842F /* Pods-CotterIOS_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CotterIOS_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		828996267D06033EAF442D87F22BA7A7 /* NonTrusted.html */ = {isa = PBXFileReference; includeInIndex = 1; name = NonTrusted.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Classes/NonTrusted.html; sourceTree = "<group>"; };
+		828996267D06033EAF442D87F22BA7A7 /* NonTrusted.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = NonTrusted.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Classes/NonTrusted.html; sourceTree = "<group>"; };
 		82E731DA96AFC3BD24792AC573EF6E17 /* GetUser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GetUser.swift; sourceTree = "<group>"; };
 		84834A490B994E29705DEA348AB922E5 /* LocalAuthService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LocalAuthService.swift; sourceTree = "<group>"; };
+		856BCC2A24A5A1AE00DEE35B /* LoadingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreen.swift; sourceTree = "<group>"; };
 		8652A4179700F9ACC17A4F45DA84F256 /* Nimble-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Nimble-umbrella.h"; sourceTree = "<group>"; };
-		86C3CFCBD5CCAB2A7A0EB4A14DEFE13A /* jazzy.css */ = {isa = PBXFileReference; includeInIndex = 1; name = jazzy.css; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/css/jazzy.css; sourceTree = "<group>"; };
-		871EDF953BC6F98DB1D6F7F5AE4C21B7 /* VCImageKey.html */ = {isa = PBXFileReference; includeInIndex = 1; name = VCImageKey.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Classes/VCImageKey.html; sourceTree = "<group>"; };
-		87A6BCBFF4EDB075033CBB06A415B790 /* UIColor.html */ = {isa = PBXFileReference; includeInIndex = 1; name = UIColor.html; path = docs/Extensions/UIColor.html; sourceTree = "<group>"; };
+		86C3CFCBD5CCAB2A7A0EB4A14DEFE13A /* jazzy.css */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.css; name = jazzy.css; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/css/jazzy.css; sourceTree = "<group>"; };
+		871EDF953BC6F98DB1D6F7F5AE4C21B7 /* VCImageKey.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = VCImageKey.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Classes/VCImageKey.html; sourceTree = "<group>"; };
+		87A6BCBFF4EDB075033CBB06A415B790 /* UIColor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = UIColor.html; path = docs/Extensions/UIColor.html; sourceTree = "<group>"; };
 		883E7A8C84820101F674CFAE0F253361 /* CwlCatchException.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CwlCatchException.h; path = Carthage/Checkouts/CwlPreconditionTesting/Dependencies/CwlCatchException/Sources/CwlCatchExceptionSupport/include/CwlCatchException.h; sourceTree = "<group>"; };
 		8A3F86328AF708679BE9B6824861DBEA /* ImageObject.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ImageObject.swift; sourceTree = "<group>"; };
-		8B1C612702B9FFE750F962ED560DC629 /* VCImageKey.html */ = {isa = PBXFileReference; includeInIndex = 1; name = VCImageKey.html; path = docs/Classes/VCImageKey.html; sourceTree = "<group>"; };
+		8B1C612702B9FFE750F962ED560DC629 /* VCImageKey.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = VCImageKey.html; path = docs/Classes/VCImageKey.html; sourceTree = "<group>"; };
 		8B56CFF017F28F83E9384F70D79D9BB8 /* Pods-CotterIOS_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-CotterIOS_Example-umbrella.h"; sourceTree = "<group>"; };
-		8C8A366214213F1F9D0B54AB0FDEC6B7 /* ColorSchemeObject.html */ = {isa = PBXFileReference; includeInIndex = 1; name = ColorSchemeObject.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Classes/ColorSchemeObject.html; sourceTree = "<group>"; };
-		8DEBBD1C1E0EDCB01ABB6D9D6A608F59 /* English.html */ = {isa = PBXFileReference; includeInIndex = 1; name = English.html; path = docs/Classes/English.html; sourceTree = "<group>"; };
+		8C8A366214213F1F9D0B54AB0FDEC6B7 /* ColorSchemeObject.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = ColorSchemeObject.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Classes/ColorSchemeObject.html; sourceTree = "<group>"; };
+		8DEBBD1C1E0EDCB01ABB6D9D6A608F59 /* English.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = English.html; path = docs/Classes/English.html; sourceTree = "<group>"; };
 		8E8BCCBDAD4568437D8A883C336943A0 /* Pods-CotterIOS_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CotterIOS_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		8F4E065CE2B7EB642B1607CA326ED038 /* String.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
-		8F71438F2249B2B478C8B6A24254A170 /* CotterEventRequest.html */ = {isa = PBXFileReference; includeInIndex = 1; name = CotterEventRequest.html; path = docs/Structs/CotterEventRequest.html; sourceTree = "<group>"; };
+		8F71438F2249B2B478C8B6A24254A170 /* CotterEventRequest.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = CotterEventRequest.html; path = docs/Structs/CotterEventRequest.html; sourceTree = "<group>"; };
 		9184E3A1125CC934D06DE13BEE1A7CCF /* ToSucceed.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ToSucceed.swift; path = Sources/Nimble/Matchers/ToSucceed.swift; sourceTree = "<group>"; };
 		920821D2F8C32203E7EDF3A2EE2D9490 /* RespondEvent.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RespondEvent.swift; sourceTree = "<group>"; };
 		9243C0EBECD5D797C0BF935E15E8767D /* cotter-lapis-logo.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "cotter-lapis-logo.png"; sourceTree = "<group>"; };
-		925390954E1AA3564E21A345D96DB1F9 /* CotterAPIError.html */ = {isa = PBXFileReference; includeInIndex = 1; name = CotterAPIError.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Enums/CotterAPIError.html; sourceTree = "<group>"; };
+		925390954E1AA3564E21A345D96DB1F9 /* CotterAPIError.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = CotterAPIError.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Enums/CotterAPIError.html; sourceTree = "<group>"; };
 		92E6B3793A380AADE7E23F2EA548BDE6 /* gh.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = gh.png; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/img/gh.png; sourceTree = "<group>"; };
-		9302CEFF629292C59D1C71F916F730B4 /* jazzy.js */ = {isa = PBXFileReference; includeInIndex = 1; name = jazzy.js; path = docs/js/jazzy.js; sourceTree = "<group>"; };
-		9354F042DA2509A635F468C37F807D29 /* UILabel.html */ = {isa = PBXFileReference; includeInIndex = 1; name = UILabel.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Extensions/UILabel.html; sourceTree = "<group>"; };
-		93B30CB5067CCB78523D780220C5989D /* InternalCallback.html */ = {isa = PBXFileReference; includeInIndex = 1; name = InternalCallback.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Protocols/InternalCallback.html; sourceTree = "<group>"; };
+		9302CEFF629292C59D1C71F916F730B4 /* jazzy.js */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.javascript; name = jazzy.js; path = docs/js/jazzy.js; sourceTree = "<group>"; };
+		9354F042DA2509A635F468C37F807D29 /* UILabel.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = UILabel.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Extensions/UILabel.html; sourceTree = "<group>"; };
+		93B30CB5067CCB78523D780220C5989D /* InternalCallback.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = InternalCallback.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Protocols/InternalCallback.html; sourceTree = "<group>"; };
 		93FC3E474D97DB52C8F133FB86648641 /* Identity.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Identity.swift; sourceTree = "<group>"; };
 		94C351BBF4EFBB1286B309D570F062B9 /* carat.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = carat.png; path = docs/img/carat.png; sourceTree = "<group>"; };
-		94E7D38ECA83C18142B13E34DBC75E4D /* CotterEvents.html */ = {isa = PBXFileReference; includeInIndex = 1; name = CotterEvents.html; path = docs/Structs/CotterEvents.html; sourceTree = "<group>"; };
-		95AC0113D4E9B93B8BA62C34D90F0764 /* CotterResponseWithChallenge.html */ = {isa = PBXFileReference; includeInIndex = 1; name = CotterResponseWithChallenge.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/CotterResponseWithChallenge.html; sourceTree = "<group>"; };
+		94E7D38ECA83C18142B13E34DBC75E4D /* CotterEvents.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = CotterEvents.html; path = docs/Structs/CotterEvents.html; sourceTree = "<group>"; };
+		95AC0113D4E9B93B8BA62C34D90F0764 /* CotterResponseWithChallenge.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = CotterResponseWithChallenge.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/CotterResponseWithChallenge.html; sourceTree = "<group>"; };
 		9675F1914B64DAEFBB7B0D94D1C90B5F /* OAuthToken.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OAuthToken.swift; sourceTree = "<group>"; };
 		969EABE05809E1AAF4F560957DDE3FA5 /* Cotter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Cotter.swift; path = Source/Cotter.swift; sourceTree = "<group>"; };
-		96A5FFCD1FC2820F8D9AE17940E21DFB /* CotterClient.html */ = {isa = PBXFileReference; includeInIndex = 1; name = CotterClient.html; path = docs/Classes/CotterClient.html; sourceTree = "<group>"; };
+		96A5FFCD1FC2820F8D9AE17940E21DFB /* CotterClient.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = CotterClient.html; path = docs/Classes/CotterClient.html; sourceTree = "<group>"; };
 		9816CC9A8A28D389ED63CC7FAACCED03 /* Nimble.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Nimble.h; path = Sources/Nimble/Nimble.h; sourceTree = "<group>"; };
 		98767DFF21FCA54D73AC07E8485F8612 /* Pods-CotterIOS_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CotterIOS_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		9AA5E64FD60A9AEB01EC0C568C58629C /* APIRequest.html */ = {isa = PBXFileReference; includeInIndex = 1; name = APIRequest.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Protocols/APIRequest.html; sourceTree = "<group>"; };
-		9AC734A8D01FE54677D6467706DDD250 /* CryptoUtil.html */ = {isa = PBXFileReference; includeInIndex = 1; name = CryptoUtil.html; path = docs/Classes/CryptoUtil.html; sourceTree = "<group>"; };
+		9AA5E64FD60A9AEB01EC0C568C58629C /* APIRequest.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = APIRequest.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Protocols/APIRequest.html; sourceTree = "<group>"; };
+		9AC734A8D01FE54677D6467706DDD250 /* CryptoUtil.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = CryptoUtil.html; path = docs/Classes/CryptoUtil.html; sourceTree = "<group>"; };
 		9AC9AD3E9FCCB17EDBB8748529DBAC99 /* LanguageObject.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LanguageObject.swift; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9ED94E95CC2742A7395D49872D5BBEB1 /* CwlPreconditionTesting.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CwlPreconditionTesting.h; path = Carthage/Checkouts/CwlPreconditionTesting/Sources/CwlPreconditionTesting/include/CwlPreconditionTesting.h; sourceTree = "<group>"; };
-		9F3246D4847754054105D5C61CC7B081 /* RequestToken.html */ = {isa = PBXFileReference; includeInIndex = 1; name = RequestToken.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/RequestToken.html; sourceTree = "<group>"; };
-		9F74414CF566872A7A43AF3D8C9107C6 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		9F3246D4847754054105D5C61CC7B081 /* RequestToken.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = RequestToken.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/RequestToken.html; sourceTree = "<group>"; };
+		9F74414CF566872A7A43AF3D8C9107C6 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		9F7D0E9F08365B658CF95A355EB31D4B /* SatisfyAnyOf.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SatisfyAnyOf.swift; path = Sources/Nimble/Matchers/SatisfyAnyOf.swift; sourceTree = "<group>"; };
-		A0AB296E79F72A8F59D94C775AE246B0 /* Cotter.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Cotter.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Classes/Cotter.html; sourceTree = "<group>"; };
+		A0AB296E79F72A8F59D94C775AE246B0 /* Cotter.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Cotter.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Classes/Cotter.html; sourceTree = "<group>"; };
 		A1AA7025F0DB18B064BD35182F81966D /* CwlMachBadInstructionHandler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CwlMachBadInstructionHandler.m; path = Carthage/Checkouts/CwlPreconditionTesting/Sources/CwlMachBadInstructionHandler/CwlMachBadInstructionHandler.m; sourceTree = "<group>"; };
-		A269B69CF331D6DCFDB851AD3C769F09 /* GetNewEvent.html */ = {isa = PBXFileReference; includeInIndex = 1; name = GetNewEvent.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/GetNewEvent.html; sourceTree = "<group>"; };
+		A269B69CF331D6DCFDB851AD3C769F09 /* GetNewEvent.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = GetNewEvent.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/GetNewEvent.html; sourceTree = "<group>"; };
 		A2FE20E1F9E766FD0BEC2BDB90DD7D11 /* UIViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		A309CB2090767E567B8EDF8F2B8CB747 /* DSL.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DSL.h; path = Sources/NimbleObjectiveC/DSL.h; sourceTree = "<group>"; };
 		A3ACFA50385826736E541B980DAC26E0 /* NMBObjCMatcher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NMBObjCMatcher.swift; path = Sources/Nimble/Adapters/NMBObjCMatcher.swift; sourceTree = "<group>"; };
-		A4BE5D92624929699A3766090C10D73F /* CotterAPIService.html */ = {isa = PBXFileReference; includeInIndex = 1; name = CotterAPIService.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Classes/CotterAPIService.html; sourceTree = "<group>"; };
+		A4BE5D92624929699A3766090C10D73F /* CotterAPIService.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = CotterAPIService.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Classes/CotterAPIService.html; sourceTree = "<group>"; };
 		A60CFC6CD3FA8325BB416D903FC32896 /* Contain.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Contain.swift; path = Sources/Nimble/Matchers/Contain.swift; sourceTree = "<group>"; };
 		A7884E2FE81D5897B833F0F74618F8CE /* Expression.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Expression.swift; path = Sources/Nimble/Expression.swift; sourceTree = "<group>"; };
 		A7F39063EF54C38A5BE4F889BC2ABA2C /* BeAnInstanceOf.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BeAnInstanceOf.swift; path = Sources/Nimble/Matchers/BeAnInstanceOf.swift; sourceTree = "<group>"; };
 		A81FAE8ADC0E1ED0809972E1DB11667F /* MatcherFunc.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MatcherFunc.swift; path = Sources/Nimble/Matchers/MatcherFunc.swift; sourceTree = "<group>"; };
-		A8B353052B4A9813DACF2CDA27C82433 /* CotterEventRequest.html */ = {isa = PBXFileReference; includeInIndex = 1; name = CotterEventRequest.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/CotterEventRequest.html; sourceTree = "<group>"; };
-		A91C754CF03074424ED8490F27DB9B05 /* LanguageObject.html */ = {isa = PBXFileReference; includeInIndex = 1; name = LanguageObject.html; path = docs/Classes/LanguageObject.html; sourceTree = "<group>"; };
-		A9AC2A07D717042D534EC8C7C69CD3AA /* GetTrustedDeviceStatus.html */ = {isa = PBXFileReference; includeInIndex = 1; name = GetTrustedDeviceStatus.html; path = docs/Structs/GetTrustedDeviceStatus.html; sourceTree = "<group>"; };
-		AAEB2EAA5ADCFEC0A587E98A2F8F75FE /* badge.svg */ = {isa = PBXFileReference; includeInIndex = 1; name = badge.svg; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/badge.svg; sourceTree = "<group>"; };
+		A8B353052B4A9813DACF2CDA27C82433 /* CotterEventRequest.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = CotterEventRequest.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/CotterEventRequest.html; sourceTree = "<group>"; };
+		A91C754CF03074424ED8490F27DB9B05 /* LanguageObject.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = LanguageObject.html; path = docs/Classes/LanguageObject.html; sourceTree = "<group>"; };
+		A9AC2A07D717042D534EC8C7C69CD3AA /* GetTrustedDeviceStatus.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = GetTrustedDeviceStatus.html; path = docs/Structs/GetTrustedDeviceStatus.html; sourceTree = "<group>"; };
+		AAEB2EAA5ADCFEC0A587E98A2F8F75FE /* badge.svg */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = badge.svg; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/badge.svg; sourceTree = "<group>"; };
 		AB47C6EC9CBE31B7B3066C042EE4BB83 /* CreateAuthenticationEvent.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CreateAuthenticationEvent.swift; sourceTree = "<group>"; };
 		AC007874A4B198ACEE19063374A7273B /* ColorSchemeObject.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ColorSchemeObject.swift; sourceTree = "<group>"; };
 		AC148BA2E23DBBC392D6635BEF3DAD43 /* NMBExceptionCapture.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NMBExceptionCapture.h; path = Sources/NimbleObjectiveC/NMBExceptionCapture.h; sourceTree = "<group>"; };
-		AC6DB5AEF17ABA8199B061EC0A44A25A /* UpdatePinStep.html */ = {isa = PBXFileReference; includeInIndex = 1; name = UpdatePinStep.html; path = docs/Enums/UpdatePinStep.html; sourceTree = "<group>"; };
-		AC8D8965961C1679CA47F0ECE7290372 /* CreateAuthenticationEvent.html */ = {isa = PBXFileReference; includeInIndex = 1; name = CreateAuthenticationEvent.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/CreateAuthenticationEvent.html; sourceTree = "<group>"; };
+		AC6DB5AEF17ABA8199B061EC0A44A25A /* UpdatePinStep.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = UpdatePinStep.html; path = docs/Enums/UpdatePinStep.html; sourceTree = "<group>"; };
+		AC8D8965961C1679CA47F0ECE7290372 /* CreateAuthenticationEvent.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = CreateAuthenticationEvent.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/CreateAuthenticationEvent.html; sourceTree = "<group>"; };
 		AD7D85888084A01BD211C9B7120489F6 /* Predicate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Predicate.swift; path = Sources/Nimble/Matchers/Predicate.swift; sourceTree = "<group>"; };
 		ADA31BB824C2771BEB7325A80CCE41C1 /* CotterClient.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CotterClient.swift; sourceTree = "<group>"; };
-		ADDF0F31A517C51C509F1E41B131E433 /* Structs.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Structs.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs.html; sourceTree = "<group>"; };
+		ADDF0F31A517C51C509F1E41B131E433 /* Structs.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Structs.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs.html; sourceTree = "<group>"; };
 		AE935158009356DFEDB2938C45A25DC5 /* carat.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = carat.png; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/img/carat.png; sourceTree = "<group>"; };
 		AE9B3AF7165789D67B147F51B253C36E /* RequestToken.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RequestToken.swift; sourceTree = "<group>"; };
 		AEC9E2301915B1AE7AC6794D01058F62 /* Error.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		AF117E8F40A38F2168FE86D13BFCB553 /* Pods-CotterIOS_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-CotterIOS_Example.modulemap"; sourceTree = "<group>"; };
 		AF334BB5F2D174E438CD8F06F88A243E /* CwlCatchException.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CwlCatchException.swift; path = Carthage/Checkouts/CwlPreconditionTesting/Dependencies/CwlCatchException/Sources/CwlCatchException/CwlCatchException.swift; sourceTree = "<group>"; };
-		AF3C205364E29440D0C398FBCE8A27B6 /* GetBiometricStatus.html */ = {isa = PBXFileReference; includeInIndex = 1; name = GetBiometricStatus.html; path = docs/Structs/GetBiometricStatus.html; sourceTree = "<group>"; };
+		AF3C205364E29440D0C398FBCE8A27B6 /* GetBiometricStatus.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = GetBiometricStatus.html; path = docs/Structs/GetBiometricStatus.html; sourceTree = "<group>"; };
 		AFACDAAAC645D01590586641C1EED498 /* ResetPINViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResetPINViewController.swift; path = Source/ResetPINViewController.swift; sourceTree = "<group>"; };
 		B0AA4B9296AC527A937D3F818B0CF9DC /* BeLessThan.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BeLessThan.swift; path = Sources/Nimble/Matchers/BeLessThan.swift; sourceTree = "<group>"; };
-		B2421B82C80099F00428E2595919705E /* AlertImageKey.html */ = {isa = PBXFileReference; includeInIndex = 1; name = AlertImageKey.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Classes/AlertImageKey.html; sourceTree = "<group>"; };
+		B2421B82C80099F00428E2595919705E /* AlertImageKey.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = AlertImageKey.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Classes/AlertImageKey.html; sourceTree = "<group>"; };
 		B2E466BCF124A0AA32A807B225F67892 /* SatisfyAllOf.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SatisfyAllOf.swift; path = Sources/Nimble/Matchers/SatisfyAllOf.swift; sourceTree = "<group>"; };
-		B300AC2B8BBD55752BFB69D27B4BE837 /* CotterBasicResponse.html */ = {isa = PBXFileReference; includeInIndex = 1; name = CotterBasicResponse.html; path = docs/Structs/CotterBasicResponse.html; sourceTree = "<group>"; };
+		B300AC2B8BBD55752BFB69D27B4BE837 /* CotterBasicResponse.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = CotterBasicResponse.html; path = docs/Structs/CotterBasicResponse.html; sourceTree = "<group>"; };
 		B3BBE7EE0FF6FA1D865E393A475D487C /* KeyboardView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
-		B422290238DB1549BD8AD14318DD2434 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		B422290238DB1549BD8AD14318DD2434 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		B43EE67921C9B1AE485AA6C561923ADB /* warning.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = warning.png; sourceTree = "<group>"; };
 		B4837B515914D97D4985BFBC009A73D9 /* GetTrustedDeviceStatus.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GetTrustedDeviceStatus.swift; sourceTree = "<group>"; };
 		B512A16360A3E324A74E9E36C0FA76BC /* CwlDarwinDefinitions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CwlDarwinDefinitions.swift; path = Carthage/Checkouts/CwlPreconditionTesting/Sources/CwlPreconditionTesting/CwlDarwinDefinitions.swift; sourceTree = "<group>"; };
-		B64D755047F7C1D8425E3367A2B91979 /* RemoveTrustedDeviceStatus.html */ = {isa = PBXFileReference; includeInIndex = 1; name = RemoveTrustedDeviceStatus.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/RemoveTrustedDeviceStatus.html; sourceTree = "<group>"; };
-		B64F79271D6F6644C076B804E0D0323A /* RequestPINReset.html */ = {isa = PBXFileReference; includeInIndex = 1; name = RequestPINReset.html; path = docs/Structs/RequestPINReset.html; sourceTree = "<group>"; };
+		B64D755047F7C1D8425E3367A2B91979 /* RemoveTrustedDeviceStatus.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = RemoveTrustedDeviceStatus.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/RemoveTrustedDeviceStatus.html; sourceTree = "<group>"; };
+		B64F79271D6F6644C076B804E0D0323A /* RequestPINReset.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = RequestPINReset.html; path = docs/Structs/RequestPINReset.html; sourceTree = "<group>"; };
 		B6CFA4938D8C8840E399286463B9B8D6 /* CwlCatchBadInstruction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CwlCatchBadInstruction.swift; path = Carthage/Checkouts/CwlPreconditionTesting/Sources/CwlPreconditionTesting/CwlCatchBadInstruction.swift; sourceTree = "<group>"; };
 		B76C38F23288513EE172775D07FB70D3 /* EnrollUserPIN.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EnrollUserPIN.swift; sourceTree = "<group>"; };
-		B7AA3B2A6F55441439E3AB1C5DF60ECF /* CotterMethods.html */ = {isa = PBXFileReference; includeInIndex = 1; name = CotterMethods.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/CotterMethods.html; sourceTree = "<group>"; };
-		B7C9208B63A40C00E5A25D048296F98D /* QRScannerViewControllerKey.html */ = {isa = PBXFileReference; includeInIndex = 1; name = QRScannerViewControllerKey.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Classes/QRScannerViewControllerKey.html; sourceTree = "<group>"; };
+		B7AA3B2A6F55441439E3AB1C5DF60ECF /* CotterMethods.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = CotterMethods.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/CotterMethods.html; sourceTree = "<group>"; };
+		B7C9208B63A40C00E5A25D048296F98D /* QRScannerViewControllerKey.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = QRScannerViewControllerKey.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Classes/QRScannerViewControllerKey.html; sourceTree = "<group>"; };
 		B9AE2E3762CF513F7F7D06846D33F060 /* EnrollTrustedDevice.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EnrollTrustedDevice.swift; sourceTree = "<group>"; };
-		B9D617BC9985507D98328D254C1136A2 /* CotterOAuthToken.html */ = {isa = PBXFileReference; includeInIndex = 1; name = CotterOAuthToken.html; path = docs/Structs/CotterOAuthToken.html; sourceTree = "<group>"; };
+		B9D617BC9985507D98328D254C1136A2 /* CotterOAuthToken.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = CotterOAuthToken.html; path = docs/Structs/CotterOAuthToken.html; sourceTree = "<group>"; };
 		BA0F8D03C1C81D4655E2782C00F320B8 /* cotter_logo.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = cotter_logo.png; sourceTree = "<group>"; };
-		BA6CDD7D54CCE7C2CFA9D8F6EBCD3FF8 /* CotterNotificationCredential.html */ = {isa = PBXFileReference; includeInIndex = 1; name = CotterNotificationCredential.html; path = docs/Classes/CotterNotificationCredential.html; sourceTree = "<group>"; };
-		BAE263041362D074978BB3B577DF0A05 /* Nimble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Nimble.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BC7BE40C4380F4603920781A600CD5EC /* CotterUser.html */ = {isa = PBXFileReference; includeInIndex = 1; name = CotterUser.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/CotterUser.html; sourceTree = "<group>"; };
+		BA6CDD7D54CCE7C2CFA9D8F6EBCD3FF8 /* CotterNotificationCredential.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = CotterNotificationCredential.html; path = docs/Classes/CotterNotificationCredential.html; sourceTree = "<group>"; };
+		BAE263041362D074978BB3B577DF0A05 /* Nimble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC7BE40C4380F4603920781A600CD5EC /* CotterUser.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = CotterUser.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/CotterUser.html; sourceTree = "<group>"; };
 		BD0C1B1462A03BA9418800422F5A0ABE /* AssertionRecorder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AssertionRecorder.swift; path = Sources/Nimble/Adapters/AssertionRecorder.swift; sourceTree = "<group>"; };
-		BDAFBCD182FDF4632321CAFEE437F006 /* CreateAuthenticationEvent.html */ = {isa = PBXFileReference; includeInIndex = 1; name = CreateAuthenticationEvent.html; path = docs/Structs/CreateAuthenticationEvent.html; sourceTree = "<group>"; };
+		BDAFBCD182FDF4632321CAFEE437F006 /* CreateAuthenticationEvent.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = CreateAuthenticationEvent.html; path = docs/Structs/CreateAuthenticationEvent.html; sourceTree = "<group>"; };
 		BF962C4374FC9C869177BCDD1D0A29D7 /* NMBStringify.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NMBStringify.m; path = Sources/NimbleObjectiveC/NMBStringify.m; sourceTree = "<group>"; };
-		C01CCA88EBCAB98705ABCB764A11FD4B /* UIButtonBorderSide.html */ = {isa = PBXFileReference; includeInIndex = 1; name = UIButtonBorderSide.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Enums/UIButtonBorderSide.html; sourceTree = "<group>"; };
-		C08E57BEA7F322F2661E1945D204BA43 /* CotterClient.html */ = {isa = PBXFileReference; includeInIndex = 1; name = CotterClient.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Classes/CotterClient.html; sourceTree = "<group>"; };
+		C01CCA88EBCAB98705ABCB764A11FD4B /* UIButtonBorderSide.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = UIButtonBorderSide.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Enums/UIButtonBorderSide.html; sourceTree = "<group>"; };
+		C08E57BEA7F322F2661E1945D204BA43 /* CotterClient.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = CotterClient.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Classes/CotterClient.html; sourceTree = "<group>"; };
 		C18F9FB3DE2FC9D0D940BB902A6FF3CB /* Constants.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C27AB03D8F13ABFF5B8D1D541B9A4FDA /* UserInfo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
-		C2B65A16828D8F465439AD2E50B24E95 /* jazzy.js */ = {isa = PBXFileReference; includeInIndex = 1; name = jazzy.js; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/js/jazzy.js; sourceTree = "<group>"; };
-		C44155B9BB5377D37072210DBCF58401 /* PINViewControllerKey.html */ = {isa = PBXFileReference; includeInIndex = 1; name = PINViewControllerKey.html; path = docs/Classes/PINViewControllerKey.html; sourceTree = "<group>"; };
+		C2B65A16828D8F465439AD2E50B24E95 /* jazzy.js */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.javascript; name = jazzy.js; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/js/jazzy.js; sourceTree = "<group>"; };
+		C44155B9BB5377D37072210DBCF58401 /* PINViewControllerKey.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = PINViewControllerKey.html; path = docs/Classes/PINViewControllerKey.html; sourceTree = "<group>"; };
 		C44C0AAD1D77EFB89C17D6C43A926F27 /* ElementsEqual.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ElementsEqual.swift; path = Sources/Nimble/Matchers/ElementsEqual.swift; sourceTree = "<group>"; };
-		C6528688151B2851BA40F593E70444D3 /* InternalCallback.html */ = {isa = PBXFileReference; includeInIndex = 1; name = InternalCallback.html; path = docs/Protocols/InternalCallback.html; sourceTree = "<group>"; };
+		C6528688151B2851BA40F593E70444D3 /* InternalCallback.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = InternalCallback.html; path = docs/Protocols/InternalCallback.html; sourceTree = "<group>"; };
 		C6E00104A88A3D2C6D24A0D804657A8A /* Nimble-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Nimble-prefix.pch"; sourceTree = "<group>"; };
 		C7572B979F0F46A05CAA3677D66EF3F2 /* Nimble.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Nimble.modulemap; sourceTree = "<group>"; };
-		C757F308461F0718648D45A7CCC758F3 /* CotterResponseWithChallenge.html */ = {isa = PBXFileReference; includeInIndex = 1; name = CotterResponseWithChallenge.html; path = docs/Structs/CotterResponseWithChallenge.html; sourceTree = "<group>"; };
+		C757F308461F0718648D45A7CCC758F3 /* CotterResponseWithChallenge.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = CotterResponseWithChallenge.html; path = docs/Structs/CotterResponseWithChallenge.html; sourceTree = "<group>"; };
 		C7EBB3DB55C917639F952CB9A1A6B7F0 /* GetBiometricStatus.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GetBiometricStatus.swift; sourceTree = "<group>"; };
 		C845DA8D86498F4BBD88E46D13E0DA8E /* Cotter.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Cotter.xcconfig; sourceTree = "<group>"; };
 		C86FC3616AC4B178EF313761B0F3D996 /* MockedAPIService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MockedAPIService.swift; path = Source/MockedAPIService.swift; sourceTree = "<group>"; };
-		C92F2ACC5B5861EF310B771174BCAF81 /* CreatePendingEventRequest.html */ = {isa = PBXFileReference; includeInIndex = 1; name = CreatePendingEventRequest.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/CreatePendingEventRequest.html; sourceTree = "<group>"; };
-		C9798BA89F10A3BF73C91284466EF974 /* AlertImageKey.html */ = {isa = PBXFileReference; includeInIndex = 1; name = AlertImageKey.html; path = docs/Classes/AlertImageKey.html; sourceTree = "<group>"; };
-		C9EF58B9536E4A996B8519CD18BBE0A6 /* RegisterUser.html */ = {isa = PBXFileReference; includeInIndex = 1; name = RegisterUser.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/RegisterUser.html; sourceTree = "<group>"; };
+		C92F2ACC5B5861EF310B771174BCAF81 /* CreatePendingEventRequest.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = CreatePendingEventRequest.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/CreatePendingEventRequest.html; sourceTree = "<group>"; };
+		C9798BA89F10A3BF73C91284466EF974 /* AlertImageKey.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = AlertImageKey.html; path = docs/Classes/AlertImageKey.html; sourceTree = "<group>"; };
+		C9EF58B9536E4A996B8519CD18BBE0A6 /* RegisterUser.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = RegisterUser.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/RegisterUser.html; sourceTree = "<group>"; };
 		CA5DDFED6C8BEE6757ACB850FB4C65A5 /* CwlCatchException.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CwlCatchException.m; path = Carthage/Checkouts/CwlPreconditionTesting/Dependencies/CwlCatchException/Sources/CwlCatchExceptionSupport/CwlCatchException.m; sourceTree = "<group>"; };
 		CB3243E32A343B4B3843B1C88695C1C6 /* RegisterTrustedViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegisterTrustedViewController.swift; sourceTree = "<group>"; };
-		CB32FCA74F94195D51837F5CBEB9F2C9 /* Identifier.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Identifier.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/Identifier.html; sourceTree = "<group>"; };
+		CB32FCA74F94195D51837F5CBEB9F2C9 /* Identifier.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Identifier.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/Identifier.html; sourceTree = "<group>"; };
 		CBAEF409351A1A5F49DE201E42444257 /* PINFinalViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PINFinalViewController.swift; path = Source/PINFinalViewController.swift; sourceTree = "<group>"; };
 		CC2AD96A611207082534A4E8B3A6DFED /* Stringers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Stringers.swift; path = Sources/Nimble/Utils/Stringers.swift; sourceTree = "<group>"; };
-		CC7CCCA193B9A9C87A2F116F840DD805 /* ResetPIN.html */ = {isa = PBXFileReference; includeInIndex = 1; name = ResetPIN.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/ResetPIN.html; sourceTree = "<group>"; };
+		CC7CCCA193B9A9C87A2F116F840DD805 /* ResetPIN.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = ResetPIN.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/ResetPIN.html; sourceTree = "<group>"; };
 		CD2FF16F8096926F47F7864A1269AC13 /* Pods-CotterIOS_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CotterIOS_Example.release.xcconfig"; sourceTree = "<group>"; };
 		CEED89FD09B7D2FEA8FB6ECC1536A3A4 /* Await.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Await.swift; path = Sources/Nimble/Utils/Await.swift; sourceTree = "<group>"; };
 		CFA1DF28B0F236211E743355E899E5D9 /* Equal.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Equal.swift; path = Sources/Nimble/Matchers/Equal.swift; sourceTree = "<group>"; };
-		D04335F4B4DEB58F44D48080B590A1B3 /* Protocols.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Protocols.html; path = docs/Protocols.html; sourceTree = "<group>"; };
+		D04335F4B4DEB58F44D48080B590A1B3 /* Protocols.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Protocols.html; path = docs/Protocols.html; sourceTree = "<group>"; };
 		D09D40986821BAE1CA4FB090369629CA /* Nimble-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Nimble-Info.plist"; sourceTree = "<group>"; };
 		D0BF6764242D00AE2F6D84367B3FFFCD /* Cotter.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Cotter.modulemap; sourceTree = "<group>"; };
-		D0D99B76DA95DC840D3945FFEBFAF16B /* Cotter.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = Cotter.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		D0D99B76DA95DC840D3945FFEBFAF16B /* Cotter.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = Cotter.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		D1FF952E6C31B0E110F597454F9F29E0 /* CotterAPIService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CotterAPIService.swift; sourceTree = "<group>"; };
-		D322A7894C7AFAF23BEF9C9E936DC2CD /* search.json */ = {isa = PBXFileReference; includeInIndex = 1; name = search.json; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/search.json; sourceTree = "<group>"; };
+		D322A7894C7AFAF23BEF9C9E936DC2CD /* search.json */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.json; name = search.json; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/search.json; sourceTree = "<group>"; };
 		D3FCC49DBC15F16D9B16543BFCE6FA7A /* Request.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		D4C3FD2ED38707CA18F14A9E7A5E0FDC /* NimbleXCTestHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NimbleXCTestHandler.swift; path = Sources/Nimble/Adapters/NimbleXCTestHandler.swift; sourceTree = "<group>"; };
 		D5DE784206F2728E8FAA1D5C369738C4 /* XCTestObservationCenter+Register.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "XCTestObservationCenter+Register.m"; path = "Sources/NimbleObjectiveC/XCTestObservationCenter+Register.m"; sourceTree = "<group>"; };
 		D694DEF6AA3BC53E91592867A632FA98 /* Response.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		D6BB35A6E0D2A6BB875AC2DB04A079CE /* AssertionDispatcher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AssertionDispatcher.swift; path = Sources/Nimble/Adapters/AssertionDispatcher.swift; sourceTree = "<group>"; };
-		D6F5557C04600F563ABCF72FD1EC82B6 /* badge.svg */ = {isa = PBXFileReference; includeInIndex = 1; name = badge.svg; path = docs/badge.svg; sourceTree = "<group>"; };
+		D6F5557C04600F563ABCF72FD1EC82B6 /* badge.svg */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = badge.svg; path = docs/badge.svg; sourceTree = "<group>"; };
 		D7076F0E66C712A13F03480B0178CA8A /* TrustedDevice.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TrustedDevice.swift; sourceTree = "<group>"; };
-		D85D6374615D6B03F93F245B441AD67D /* search.json */ = {isa = PBXFileReference; includeInIndex = 1; name = search.json; path = docs/search.json; sourceTree = "<group>"; };
-		D8E12AE35DC398D60DE0C54D3CEFFB8E /* CotterOAuthToken.html */ = {isa = PBXFileReference; includeInIndex = 1; name = CotterOAuthToken.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/CotterOAuthToken.html; sourceTree = "<group>"; };
-		DB61C0ED931A8F598C194A22CE9C8844 /* ImageObject.html */ = {isa = PBXFileReference; includeInIndex = 1; name = ImageObject.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Classes/ImageObject.html; sourceTree = "<group>"; };
-		DC7859C4C855CB9690DBB32706CE477D /* Typealiases.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Typealiases.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Typealiases.html; sourceTree = "<group>"; };
+		D85D6374615D6B03F93F245B441AD67D /* search.json */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.json; name = search.json; path = docs/search.json; sourceTree = "<group>"; };
+		D8E12AE35DC398D60DE0C54D3CEFFB8E /* CotterOAuthToken.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = CotterOAuthToken.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/CotterOAuthToken.html; sourceTree = "<group>"; };
+		DB61C0ED931A8F598C194A22CE9C8844 /* ImageObject.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = ImageObject.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Classes/ImageObject.html; sourceTree = "<group>"; };
+		DC7859C4C855CB9690DBB32706CE477D /* Typealiases.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Typealiases.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Typealiases.html; sourceTree = "<group>"; };
 		DCB239EB5461CE99F70CEA2484E95D90 /* AutoEquatable.generated.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AutoEquatable.generated.swift; sourceTree = "<group>"; };
 		DD1A005A343FE86F270EE5642FB76F23 /* VerifyPINResetCode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VerifyPINResetCode.swift; sourceTree = "<group>"; };
 		DD7F03C1B4107E1C7824594D452885C4 /* Passwordless.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Passwordless.swift; sourceTree = "<group>"; };
-		DEC4825366AF5AF32492358846EAAFC8 /* Token.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Token.html; path = docs/Structs/Token.html; sourceTree = "<group>"; };
-		E0215D6E536D6F0FE9A96895AE40B302 /* jazzy.css */ = {isa = PBXFileReference; includeInIndex = 1; name = jazzy.css; path = docs/css/jazzy.css; sourceTree = "<group>"; };
+		DEC4825366AF5AF32492358846EAAFC8 /* Token.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Token.html; path = docs/Structs/Token.html; sourceTree = "<group>"; };
+		E0215D6E536D6F0FE9A96895AE40B302 /* jazzy.css */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.css; name = jazzy.css; path = docs/css/jazzy.css; sourceTree = "<group>"; };
 		E13404FFC8141D0DC47DBB7969DD8324 /* BeGreaterThan.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BeGreaterThan.swift; path = Sources/Nimble/Matchers/BeGreaterThan.swift; sourceTree = "<group>"; };
 		E177E522FA9E8558D82BF57DBC3ADE01 /* MockedCotterClient.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MockedCotterClient.swift; path = Source/MockedCotterClient.swift; sourceTree = "<group>"; };
 		E1F74113108B2FE331398F2D48985179 /* MockedAPIClient.generated.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MockedAPIClient.generated.swift; sourceTree = "<group>"; };
 		E3048FE8B266903220A214E5DB121FE6 /* NotificationCredential.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NotificationCredential.swift; sourceTree = "<group>"; };
 		E30D8A0DC34EE7B8A92D6F2F153A1C14 /* Errors.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Errors.swift; path = Sources/Nimble/Utils/Errors.swift; sourceTree = "<group>"; };
-		E34CD5BE62B69E3F8849E47AA65112C9 /* QRScannerViewControllerKey.html */ = {isa = PBXFileReference; includeInIndex = 1; name = QRScannerViewControllerKey.html; path = docs/Classes/QRScannerViewControllerKey.html; sourceTree = "<group>"; };
+		E34CD5BE62B69E3F8849E47AA65112C9 /* QRScannerViewControllerKey.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = QRScannerViewControllerKey.html; path = docs/Classes/QRScannerViewControllerKey.html; sourceTree = "<group>"; };
 		E37E2C826E9948B98C398BD54E288B8C /* KeyStore.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = KeyStore.swift; sourceTree = "<group>"; };
 		E4A6C8FE0CD5B1C941BC9BAE4C0E8036 /* Pods-CotterIOS_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CotterIOS_Example-dummy.m"; sourceTree = "<group>"; };
 		E53230CB98BF61C1EA8E319B7FEE1C94 /* Cotter-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Cotter-prefix.pch"; sourceTree = "<group>"; };
 		E58E20944A6BB0DC9D7D910442520EBC /* mach_excServer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = mach_excServer.h; path = Carthage/Checkouts/CwlPreconditionTesting/Sources/CwlMachBadInstructionHandler/mach_excServer.h; sourceTree = "<group>"; };
-		E64AFC7B9C8D4BCC40342E77235CFCF9 /* undocumented.json */ = {isa = PBXFileReference; includeInIndex = 1; name = undocumented.json; path = docs/undocumented.json; sourceTree = "<group>"; };
+		E64AFC7B9C8D4BCC40342E77235CFCF9 /* undocumented.json */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.json; name = undocumented.json; path = docs/undocumented.json; sourceTree = "<group>"; };
 		E7B635AD73299852F2667F4523829E0B /* BeNil.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BeNil.swift; path = Sources/Nimble/Matchers/BeNil.swift; sourceTree = "<group>"; };
-		E885E3197A8FF5DFDD83229884740AF5 /* CotterMethods.html */ = {isa = PBXFileReference; includeInIndex = 1; name = CotterMethods.html; path = docs/Structs/CotterMethods.html; sourceTree = "<group>"; };
-		E8D1F1025A10E033FD69A042F0FAFEB8 /* CotterNotificationCredential.html */ = {isa = PBXFileReference; includeInIndex = 1; name = CotterNotificationCredential.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Classes/CotterNotificationCredential.html; sourceTree = "<group>"; };
+		E885E3197A8FF5DFDD83229884740AF5 /* CotterMethods.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = CotterMethods.html; path = docs/Structs/CotterMethods.html; sourceTree = "<group>"; };
+		E8D1F1025A10E033FD69A042F0FAFEB8 /* CotterNotificationCredential.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = CotterNotificationCredential.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Classes/CotterNotificationCredential.html; sourceTree = "<group>"; };
 		E8D7539980A752C56BFB11E28425F5D2 /* BeLogical.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BeLogical.swift; path = Sources/Nimble/Matchers/BeLogical.swift; sourceTree = "<group>"; };
 		EAF879577098FCEA3D3DC048DF2BF62F /* Cotter-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Cotter-Info.plist"; sourceTree = "<group>"; };
 		EB7D8710518B1458AD6014FFECEE4174 /* ThrowError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ThrowError.swift; path = Sources/Nimble/Matchers/ThrowError.swift; sourceTree = "<group>"; };
 		EB7F85214A4D6FA0D2E397740578B170 /* BeCloseTo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BeCloseTo.swift; path = Sources/Nimble/Matchers/BeCloseTo.swift; sourceTree = "<group>"; };
-		ECB860285E8E339A7DE24AF722D53D50 /* highlight.css */ = {isa = PBXFileReference; includeInIndex = 1; name = highlight.css; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/css/highlight.css; sourceTree = "<group>"; };
+		ECB860285E8E339A7DE24AF722D53D50 /* highlight.css */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.css; name = highlight.css; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/css/highlight.css; sourceTree = "<group>"; };
 		EDA2C42EA4C6FB6D5C7CA392EC17F411 /* FailureMessage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FailureMessage.swift; path = Sources/Nimble/FailureMessage.swift; sourceTree = "<group>"; };
-		EE3EB0B40E1854937CF66A8500AFD968 /* CotterConstants.html */ = {isa = PBXFileReference; includeInIndex = 1; name = CotterConstants.html; path = docs/Structs/CotterConstants.html; sourceTree = "<group>"; };
+		EE3EB0B40E1854937CF66A8500AFD968 /* CotterConstants.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = CotterConstants.html; path = docs/Structs/CotterConstants.html; sourceTree = "<group>"; };
 		EF61A63148D64404EAEFC67330B71520 /* ResetConfirmPINViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResetConfirmPINViewController.swift; path = Source/ResetConfirmPINViewController.swift; sourceTree = "<group>"; };
 		EF6F228845844B4797DAE50E9DC7E24F /* Callback.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Callback.swift; sourceTree = "<group>"; };
 		EFE453A35BC3174C7E772A8AA2EEA365 /* UIImageView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		EFEE0EEBFE9018B3769058D3E630EF18 /* AuthAlertMessages.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AuthAlertMessages.swift; sourceTree = "<group>"; };
-		F0DA9ED152325723D02850C946710720 /* Cotter.tgz */ = {isa = PBXFileReference; includeInIndex = 1; name = Cotter.tgz; path = docs/docsets/Cotter.tgz; sourceTree = "<group>"; };
-		F1D21998A4FC98803D581B76A9035F75 /* EnrollUserPIN.html */ = {isa = PBXFileReference; includeInIndex = 1; name = EnrollUserPIN.html; path = docs/Structs/EnrollUserPIN.html; sourceTree = "<group>"; };
+		F0DA9ED152325723D02850C946710720 /* Cotter.tgz */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = Cotter.tgz; path = docs/docsets/Cotter.tgz; sourceTree = "<group>"; };
+		F1D21998A4FC98803D581B76A9035F75 /* EnrollUserPIN.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = EnrollUserPIN.html; path = docs/Structs/EnrollUserPIN.html; sourceTree = "<group>"; };
 		F3EAB9320B3272944C970C2373B2B815 /* AllPass.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AllPass.swift; path = Sources/Nimble/Matchers/AllPass.swift; sourceTree = "<group>"; };
 		F489780E20E0162DF8933382CC1A5FBE /* RequestPINReset.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RequestPINReset.swift; sourceTree = "<group>"; };
 		F55C4D5CF5B3F621551A760B071CD544 /* GetNotificationAppID.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GetNotificationAppID.swift; sourceTree = "<group>"; };
-		F5D911E525D599EEEF6D92D8AE8809B7 /* CotterBasicResponse.html */ = {isa = PBXFileReference; includeInIndex = 1; name = CotterBasicResponse.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/CotterBasicResponse.html; sourceTree = "<group>"; };
+		F5D911E525D599EEEF6D92D8AE8809B7 /* CotterBasicResponse.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = CotterBasicResponse.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/CotterBasicResponse.html; sourceTree = "<group>"; };
 		F837CE4C34802DBEC129FEDFE9A7CC3D /* BeLessThanOrEqual.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BeLessThanOrEqual.swift; path = Sources/Nimble/Matchers/BeLessThanOrEqual.swift; sourceTree = "<group>"; };
-		F96CD1BD0F1462CD17B26515AC55CEA8 /* Pods_CotterIOS_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_CotterIOS_Tests.framework; path = "Pods-CotterIOS_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F96CD1BD0F1462CD17B26515AC55CEA8 /* Pods_CotterIOS_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CotterIOS_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9B13626A5D862924ABCE6DBA9FEC165 /* Cotter.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; name = Cotter.storyboard; path = Source/Cotter.storyboard; sourceTree = "<group>"; };
-		FAAE20D0AB6AD71245F9668913CA8D1B /* UIButton.html */ = {isa = PBXFileReference; includeInIndex = 1; name = UIButton.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Extensions/UIButton.html; sourceTree = "<group>"; };
+		FAAE20D0AB6AD71245F9668913CA8D1B /* UIButton.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = UIButton.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Extensions/UIButton.html; sourceTree = "<group>"; };
 		FAE3BCE7CAC8223221CD0C47EEAF874C /* ResourceBundle-Cotter-Cotter-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-Cotter-Cotter-Info.plist"; sourceTree = "<group>"; };
 		FC0DC71F35AFD7E7710DDF29DB32DE9D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Info.plist; path = docs/docsets/Cotter.docset/Contents/Info.plist; sourceTree = "<group>"; };
 		FC299F135965502F42897DA93E08C661 /* CotterStrings.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CotterStrings.swift; sourceTree = "<group>"; };
 		FC3DF74A22434EBA111C80798CE19D83 /* ContainElementSatisfying.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ContainElementSatisfying.swift; path = Sources/Nimble/Matchers/ContainElementSatisfying.swift; sourceTree = "<group>"; };
-		FDA037561C7B2D41E10371C90A000A64 /* Indonesian.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Indonesian.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Classes/Indonesian.html; sourceTree = "<group>"; };
-		FFA15E4065FDC659FBBFB62F3C33889B /* GetNewEvent.html */ = {isa = PBXFileReference; includeInIndex = 1; name = GetNewEvent.html; path = docs/Structs/GetNewEvent.html; sourceTree = "<group>"; };
+		FDA037561C7B2D41E10371C90A000A64 /* Indonesian.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Indonesian.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Classes/Indonesian.html; sourceTree = "<group>"; };
+		FFA15E4065FDC659FBBFB62F3C33889B /* GetNewEvent.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = GetNewEvent.html; path = docs/Structs/GetNewEvent.html; sourceTree = "<group>"; };
 		FFFCB2069B5311E62AF6F62FAC55C2DD /* NMBExpectation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NMBExpectation.swift; path = Sources/Nimble/Adapters/NMBExpectation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -702,7 +706,6 @@
 			children = (
 				C27AB03D8F13ABFF5B8D1D541B9A4FDA /* UserInfo.swift */,
 			);
-			name = Models;
 			path = Models;
 			sourceTree = "<group>";
 		};
@@ -781,7 +784,6 @@
 				D5DE784206F2728E8FAA1D5C369738C4 /* XCTestObservationCenter+Register.m */,
 				F257099F506FEBA1A05F505E3EE7A337 /* Support Files */,
 			);
-			name = Nimble;
 			path = Nimble;
 			sourceTree = "<group>";
 		};
@@ -798,7 +800,6 @@
 				D694DEF6AA3BC53E91592867A632FA98 /* Response.swift */,
 				0E4DC0305202FB079A5287C5A1C27C76 /* User.swift */,
 			);
-			name = Models;
 			path = Models;
 			sourceTree = "<group>";
 		};
@@ -828,7 +829,6 @@
 			children = (
 				AC007874A4B198ACEE19063374A7273B /* ColorSchemeObject.swift */,
 			);
-			name = ColorSchemeObject;
 			path = ColorSchemeObject;
 			sourceTree = "<group>";
 		};
@@ -849,7 +849,6 @@
 				17649AC2AC702F78D1CE47FAD9B8F7AB /* ImageKey.swift */,
 				8A3F86328AF708679BE9B6824861DBEA /* ImageObject.swift */,
 			);
-			name = ImageObject;
 			path = ImageObject;
 			sourceTree = "<group>";
 		};
@@ -864,7 +863,6 @@
 				1BA655D899DDB1064D1FED5A0E88D6E5 /* tap_device.png */,
 				B43EE67921C9B1AE485AA6C561923ADB /* warning.png */,
 			);
-			name = Assets;
 			path = Assets;
 			sourceTree = "<group>";
 		};
@@ -882,7 +880,6 @@
 			children = (
 				B66B3C25D208108EFE5553F470D9C692 /* Support Files */,
 			);
-			name = Sourcery;
 			path = Sourcery;
 			sourceTree = "<group>";
 		};
@@ -966,7 +963,6 @@
 				6A7A02C7E541F978C1373DD06DA8536C /* Indonesian.swift */,
 				9AC9AD3E9FCCB17EDBB8748529DBAC99 /* LanguageObject.swift */,
 			);
-			name = LanguageObject;
 			path = LanguageObject;
 			sourceTree = "<group>";
 		};
@@ -976,7 +972,6 @@
 				5A3931D6F2D576DF155B2190B4AC5198 /* Frameworks */,
 				9510CAE111FA86438AD2548479B54249 /* Support Files */,
 			);
-			name = OneSignal;
 			path = OneSignal;
 			sourceTree = "<group>";
 		};
@@ -1094,7 +1089,6 @@
 				63ED52A03A377B8C040E16C307667003 /* UpdateUserPIN.swift */,
 				DD1A005A343FE86F270EE5642FB76F23 /* VerifyPINResetCode.swift */,
 			);
-			name = Requests;
 			path = Requests;
 			sourceTree = "<group>";
 		};
@@ -1106,7 +1100,6 @@
 				CB3243E32A343B4B3843B1C88695C1C6 /* RegisterTrustedViewController.swift */,
 				07BA9A9CBFFCA3CB902CFB43C972D00D /* TrustedViewController.swift */,
 			);
-			name = View;
 			path = View;
 			sourceTree = "<group>";
 		};
@@ -1114,6 +1107,7 @@
 			isa = PBXGroup;
 			children = (
 				969EABE05809E1AAF4F560957DDE3FA5 /* Cotter.swift */,
+				856BCC2A24A5A1AE00DEE35B /* LoadingScreen.swift */,
 				C86FC3616AC4B178EF313761B0F3D996 /* MockedAPIService.swift */,
 				E177E522FA9E8558D82BF57DBC3ADE01 /* MockedCotterClient.swift */,
 				16D545E528747D00E762BFCE9AE07E57 /* PINConfirmViewController.swift */,
@@ -1411,7 +1405,6 @@
 			children = (
 				00F61AFF2EC821469EA24CBDBF5EA3DD /* KeyboardView.xib */,
 			);
-			name = Keyboard;
 			path = Keyboard;
 			sourceTree = "<group>";
 		};
@@ -1420,7 +1413,6 @@
 			children = (
 				B3BBE7EE0FF6FA1D865E393A475D487C /* KeyboardView.swift */,
 			);
-			name = Keyboard;
 			path = Keyboard;
 			sourceTree = "<group>";
 		};
@@ -1734,6 +1726,7 @@
 				97B6C5B0E8CB803EC3FD6F0515E7F349 /* EnrollTrustedDevice.swift in Sources */,
 				712C07D3A0F31349EC450413E27BCAA1 /* EnrollUserPIN.swift in Sources */,
 				6F56A98DCCC5D3CDA21BBF11850C3633 /* Error.swift in Sources */,
+				856BCC2B24A5A1AE00DEE35B /* LoadingScreen.swift in Sources */,
 				079638CB8478FF506DAFCAEA1B26CB2C /* ErrorMessages.swift in Sources */,
 				DBD2FE9D163BB5257502E68C68EA82F2 /* Event.swift in Sources */,
 				7F5FCC5629BB73A8C16DC395548B5FE5 /* GetBiometricStatus.swift in Sources */,
@@ -2300,8 +2293,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};

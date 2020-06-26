@@ -159,6 +159,7 @@ extension UpdateConfirmNewPINViewController : PINBaseController {
             
             // Define the callback
             func updateCb(response: CotterResult<CotterUser>) {
+                LoadingScreen.shared.stop()
                 switch response {
                 case .success:
                     self.codeTextField.clear()
@@ -178,6 +179,7 @@ extension UpdateConfirmNewPINViewController : PINBaseController {
                 }
             }
             
+            LoadingScreen.shared.start(at: self.view.window)
             // Run API to update PIN
             CotterAPIService.shared.updateUserPin(
                 oldCode: self.oldCode!,
@@ -201,7 +203,7 @@ extension UpdateConfirmNewPINViewController: UpdateConfirmNewPINViewComponent {
         self.navigationItem.hidesBackButton = true
         let backButton = UIBarButtonItem(title: "\u{2190}", style: UIBarButtonItem.Style.plain, target: self, action: #selector(UpdateConfirmNewPINViewController.promptBack(sender:)))
         backButton.tintColor = UIColor.black
-        self.navigationItem.leftBarButtonItem = backButton
+        self.navigationItem.leftBarButtonItems = [backButton]
         
         errorLabel.isHidden = true
         
@@ -217,7 +219,7 @@ extension UpdateConfirmNewPINViewController: UpdateConfirmNewPINViewComponent {
     }
     
     func render(_ props: UpdateConfirmNewPINViewProps) {
-        navigationItem.title = props.navTitle
+        setupLeftTitleBar(with: props.navTitle)
         titleLabel.text = props.title
         pinVisibilityButton.setTitle(props.showPinText, for: .normal)
         pinVisibilityButton.setTitleColor(props.primaryColor, for: .normal)
