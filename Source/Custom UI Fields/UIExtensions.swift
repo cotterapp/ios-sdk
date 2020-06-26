@@ -74,9 +74,14 @@ public func getBorderDiff() -> CGFloat {
     } else if screenWidth <= 375.0 {
         // iPhone 8, iPhone X, etc.
         return CGFloat(15.0)
+    } else if screenWidth <= 414.0 {
+        // iPhone 11, etc.
+        return CGFloat(0.0)
+    } else if screenWidth <= 768.0 {
+        return CGFloat(-20.0)
     }
-    // iPhone 11, etc.
-    return CGFloat(0.0)
+    // iPad Pro 12.9-inch 4th Gen
+    return CGFloat(-200.0)
 }
 
 extension UIButton {
