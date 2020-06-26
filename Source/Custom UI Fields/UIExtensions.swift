@@ -75,6 +75,12 @@ public func getBorderDiff() -> CGFloat {
         // iPhone 8, iPhone X, etc.
         return CGFloat(15.0)
     }
+    
+    if screenWidth >= 834 {
+        // for iPad Pro 10.5 inches
+        return CGFloat(-200)
+    }
+    
     // iPhone 11, etc.
     return CGFloat(0.0)
 }

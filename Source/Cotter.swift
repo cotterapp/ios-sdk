@@ -138,6 +138,26 @@ public class Cotter {
         vc.present(nav, animated: true, completion: nil)
     }
     
+    // when you want to render PINViewController on startup
+    public func getPINViewController(hideClose:Bool, cb: @escaping FinalAuthCallback) -> UIViewController {
+        Config.instance.pinEnrollmentCb = cb
+        
+        // Hide the close button (Optional)
+        self.pinVC.hideCloseButton = hideClose
+        
+        return self.pinVC
+    }
+    
+    // when you want to render TransactionViewController on startup
+    public func getTransactionViewController(hideClose:Bool, cb: @escaping FinalAuthCallback) -> UIViewController {
+        Config.instance.transactionCb = cb
+        
+        // Hide the close button (Optional)
+        self.transactionPinVC.hideCloseButton = hideClose
+        
+        return self.transactionPinVC
+    }
+    
     // Start of Transaction Process
     public func startTransaction(
         vc: UIViewController,
