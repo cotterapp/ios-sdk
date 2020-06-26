@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kCl-QE-3LL">
-    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment version="4864" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -13,11 +13,11 @@
             <objects>
                 <viewController storyboardIdentifier="PINViewController" id="LMD-8x-Qra" customClass="PINViewController" customModule="Cotter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hW0-cu-n3w">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LS9-Ka-A8X" customClass="OneTimeCodeTextField" customModule="Cotter" customModuleProvider="target">
-                                <rect key="frame" x="60" y="66.5" width="200" height="35"/>
+                                <rect key="frame" x="107" y="230.5" width="200" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="9YV-f6-c8z"/>
                                     <constraint firstAttribute="width" constant="200" id="W72-Nw-7nO"/>
@@ -26,13 +26,13 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Activate PIN Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1PK-2f-0wS">
-                                <rect key="frame" x="95" y="37" width="130" height="19.5"/>
+                                <rect key="frame" x="142" y="201" width="130" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0PC-5d-syA">
-                                <rect key="frame" x="94" y="106.5" width="132" height="29"/>
+                                <rect key="frame" x="141" y="270.5" width="132" height="29"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                 <state key="normal" title="Activate PIN Button"/>
                                 <connections>
@@ -40,7 +40,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Activate PIN Error" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ar-Es-Gas">
-                                <rect key="frame" x="10" y="137.5" width="300" height="50"/>
+                                <rect key="frame" x="57" y="301.5" width="300" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Jml-aA-zrC"/>
                                     <constraint firstAttribute="width" constant="300" id="jkE-oT-ETU"/>
@@ -50,7 +50,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q6m-1D-Kw7" customClass="KeyboardView" customModule="Cotter" customModuleProvider="target">
-                                <rect key="frame" x="20" y="213" width="280" height="355"/>
+                                <rect key="frame" x="20" y="507" width="374" height="355"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="355" id="L74-9L-Pqn"/>
@@ -64,9 +64,7 @@
                             <constraint firstItem="0PC-5d-syA" firstAttribute="centerX" secondItem="hW0-cu-n3w" secondAttribute="centerX" id="DOx-mk-sX3"/>
                             <constraint firstItem="Q6m-1D-Kw7" firstAttribute="leading" secondItem="S8w-Bm-DxA" secondAttribute="leading" constant="20" id="EsJ-Gc-gTg"/>
                             <constraint firstItem="S8w-Bm-DxA" firstAttribute="trailing" secondItem="Q6m-1D-Kw7" secondAttribute="trailing" constant="20" id="Nco-4Z-WdH"/>
-                            <constraint firstItem="LS9-Ka-A8X" firstAttribute="centerY" secondItem="hW0-cu-n3w" secondAttribute="centerY" constant="-200" id="Z7f-2Y-sb3">
-                                <variation key="heightClass=regular" constant="-200"/>
-                            </constraint>
+                            <constraint firstItem="LS9-Ka-A8X" firstAttribute="centerY" secondItem="hW0-cu-n3w" secondAttribute="centerY" constant="-200" id="Z7f-2Y-sb3"/>
                             <constraint firstItem="6ar-Es-Gas" firstAttribute="top" secondItem="0PC-5d-syA" secondAttribute="bottom" constant="2" id="Zxs-La-zRN"/>
                             <constraint firstItem="1PK-2f-0wS" firstAttribute="centerX" secondItem="hW0-cu-n3w" secondAttribute="centerX" id="pdx-um-6ic"/>
                             <constraint firstItem="Q6m-1D-Kw7" firstAttribute="centerX" secondItem="hW0-cu-n3w" secondAttribute="centerX" id="sIB-e4-c0K"/>
@@ -87,14 +85,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="grD-Dy-e9d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="317" y="292"/>
+            <point key="canvasLocation" x="289.85507246376812" y="290.625"/>
         </scene>
         <!--Cotter View Controller-->
         <scene sceneID="zJx-Uh-2dA">
             <objects>
                 <navigationController id="kCl-QE-3LL" customClass="CotterViewController" customModule="Cotter" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5Yh-GC-yE1">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -110,11 +108,11 @@
             <objects>
                 <viewController storyboardIdentifier="PINConfirmViewController" id="N7j-7F-GIv" customClass="PINConfirmViewController" customModule="Cotter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="r8d-Au-sDb">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cLf-RU-y5M" customClass="OneTimeCodeTextField" customModule="Cotter" customModuleProvider="target">
-                                <rect key="frame" x="60" y="66.5" width="200" height="35"/>
+                                <rect key="frame" x="107" y="230.5" width="200" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="3L3-IG-5ko"/>
                                     <constraint firstAttribute="width" constant="200" id="aJE-11-YJ4"/>
@@ -123,7 +121,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm PIN Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dj7-fR-Vc3">
-                                <rect key="frame" x="95.5" y="36.5" width="129" height="20"/>
+                                <rect key="frame" x="142.5" y="200.5" width="129" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="wGH-PK-ljk"/>
                                 </constraints>
@@ -132,7 +130,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RoK-2U-CM6">
-                                <rect key="frame" x="94.5" y="106.5" width="131" height="29"/>
+                                <rect key="frame" x="141.5" y="270.5" width="131" height="29"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                 <state key="normal" title="Confirm PIN Button"/>
                                 <connections>
@@ -140,7 +138,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm PIN Error" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="apd-eL-wSJ">
-                                <rect key="frame" x="10" y="137.5" width="300" height="50"/>
+                                <rect key="frame" x="57" y="301.5" width="300" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="PWU-E4-41Q"/>
                                     <constraint firstAttribute="width" constant="300" id="U9U-hl-6bE"/>
@@ -150,7 +148,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qXS-Hd-xxe" customClass="KeyboardView" customModule="Cotter" customModuleProvider="target">
-                                <rect key="frame" x="20" y="208" width="280" height="355"/>
+                                <rect key="frame" x="20" y="502" width="374" height="355"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="355" id="cCa-O9-yKc"/>
@@ -192,30 +190,30 @@
             <objects>
                 <viewController storyboardIdentifier="PINFinalViewController" id="AQt-eA-WLz" customClass="PINFinalViewController" customModule="Cotter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dwC-pu-rcB">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Success PIN Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aGh-er-BJg">
-                                <rect key="frame" x="80" y="272" width="160" height="24"/>
+                                <rect key="frame" x="127.5" y="436" width="159.5" height="24"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="InA-FS-oBh">
-                                <rect key="frame" x="20" y="88" width="280" height="150"/>
+                                <rect key="frame" x="67" y="252" width="280" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="280" id="QW2-VY-Xmc"/>
                                     <constraint firstAttribute="height" constant="150" id="S2R-9m-3Q3"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Success PIN Subtitle" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FmG-qK-LLI">
-                                <rect key="frame" x="50" y="306" width="220" height="19.5"/>
+                                <rect key="frame" x="50" y="470" width="314" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S0P-TZ-rJE">
-                                <rect key="frame" x="50" y="380" width="220" height="41"/>
+                                <rect key="frame" x="50" y="544" width="314" height="41"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="41" id="obu-aR-Efx"/>
                                 </constraints>
@@ -260,11 +258,11 @@
             <objects>
                 <viewController storyboardIdentifier="RegisterTrustedViewController" id="jxS-Qx-ese" customClass="RegisterTrustedViewController" customModule="Cotter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lvg-Mz-u5v">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s4m-PC-lvg" customClass="CrossButton" customModule="Cotter" customModuleProvider="target">
-                                <rect key="frame" x="10" y="10" width="56" height="39"/>
+                                <rect key="frame" x="10" y="54" width="56" height="39"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Cross"/>
                                 <connections>
@@ -273,22 +271,22 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="wCK-dl-Qzd">
-                                <rect key="frame" x="20" y="49.5" width="280" height="369.5"/>
+                                <rect key="frame" x="20" y="166.5" width="374" height="463.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SbC-Bh-cSb">
-                                        <rect key="frame" x="65.5" y="0.0" width="149" height="29"/>
+                                        <rect key="frame" x="112.5" y="0.0" width="149" height="29"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register Subtitle" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PsZ-Nn-1FP">
-                                        <rect key="frame" x="77" y="49" width="126.5" height="20.5"/>
+                                        <rect key="frame" x="124" y="49" width="126.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rzl-xb-vSf">
-                                        <rect key="frame" x="0.0" y="89.5" width="280" height="280"/>
+                                        <rect key="frame" x="0.0" y="89.5" width="374" height="374"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="rzl-xb-vSf" secondAttribute="height" multiplier="1:1" id="FOn-LL-5p6"/>
                                         </constraints>
@@ -322,14 +320,14 @@
             <objects>
                 <viewController storyboardIdentifier="TrustedViewController" id="WT6-Cc-tgB" customClass="TrustedViewController" customModule="Cotter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="haK-Mj-IV6" customClass="Trusted">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="n52-B5-AzL">
-                                <rect key="frame" x="40" y="508" width="240" height="30"/>
+                                <rect key="frame" x="40" y="802" width="334" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w3E-8K-opm" customClass="BasicButton" customModule="Cotter" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="115" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="162" height="30"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                         <state key="normal" title="No Button"/>
                                         <connections>
@@ -337,7 +335,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M21-CN-xer" customClass="BasicButton" customModule="Cotter" customModuleProvider="target">
-                                        <rect key="frame" x="125" y="0.0" width="115" height="30"/>
+                                        <rect key="frame" x="172" y="0.0" width="162" height="30"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                         <state key="normal" title="Yes Button"/>
                                         <connections>
@@ -347,7 +345,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GmC-9h-esH" customClass="CrossButton" customModule="Cotter" customModuleProvider="target">
-                                <rect key="frame" x="10" y="10" width="56" height="39"/>
+                                <rect key="frame" x="10" y="54" width="56" height="39"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Cross"/>
                                 <connections>
@@ -355,28 +353,28 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="bo7-vR-afg">
-                                <rect key="frame" x="20" y="30.5" width="280" height="207.5"/>
+                                <rect key="frame" x="20" y="194.5" width="374" height="207.5"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cotter_logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="mgX-tU-q9z">
-                                        <rect key="frame" x="0.0" y="0.0" width="280" height="80"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="eUD-QF-w71"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KbW-qm-qPT">
-                                        <rect key="frame" x="0.0" y="100" width="280" height="30"/>
+                                        <rect key="frame" x="0.0" y="100" width="374" height="30"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtitle" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="esI-Jd-Hub">
-                                        <rect key="frame" x="0.0" y="150" width="280" height="17"/>
+                                        <rect key="frame" x="0.0" y="150" width="374" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error message" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ck-QD-nPu">
-                                        <rect key="frame" x="0.0" y="187" width="280" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="187" width="374" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -417,7 +415,7 @@
             <objects>
                 <viewController storyboardIdentifier="QRScannerViewController" id="QSu-yE-s1L" customClass="QRScannerViewController" customModule="Cotter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6B4-JU-1iA" customClass="QRScannerView" customModule="Cotter" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="mjU-zT-aqM"/>

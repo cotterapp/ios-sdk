@@ -39,7 +39,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             configuration: [:]
         )
         Cotter.configureWithLaunchOptions(launchOptions: launchOptions,apiSecretKey: apiSecretKey, apiKeyID: apiKeyID)
-        
+
+        // if you want to start PINViewControler on startup, use getPINViewController
         let vc = CotterWrapper.cotter!.getPINViewController(hideClose: true, cb: Callback.shared.authCb)
         let nav = UINavigationController(rootViewController: vc)
         self.window?.rootViewController = nav
