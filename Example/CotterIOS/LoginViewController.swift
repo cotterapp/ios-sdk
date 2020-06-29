@@ -27,9 +27,10 @@ class LoginViewController: UIViewController {
         CotterWrapper.cotter?.startPasswordlessLogin(
             parentView: self,
             input: textInput,
-            identifierField: "phone",
-            type: "PHONE",
-            directLogin: true
+            identifierField: "email",
+            type: "EMAIL",
+            directLogin: true,
+            authMethod: .magicLink
         ){ (identity , err) in return} // do nothing callback
     }
     

@@ -120,6 +120,8 @@
 		80DEBE41D84FBA1C4D4FE00C8D797E82 /* CwlPreconditionTesting.h in Headers */ = {isa = PBXBuildFile; fileRef = 9ED94E95CC2742A7395D49872D5BBEB1 /* CwlPreconditionTesting.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		81C0A9D9506A6900A6FCFBB6C52E0A5E /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FE20E1F9E766FD0BEC2BDB90DD7D11 /* UIViewController.swift */; };
 		831D5835133317D7F3A327EB2770EE92 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79483799DDF8E0E2778D22A4401ED67B /* Config.swift */; };
+		8509A99724A802DA0067B5B0 /* AuthMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8509A99624A802DA0067B5B0 /* AuthMethod.swift */; };
+		8509A99B24A805CC0067B5B0 /* CrossApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8509A99A24A805CC0067B5B0 /* CrossApp.swift */; };
 		856BCC2B24A5A1AE00DEE35B /* LoadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856BCC2A24A5A1AE00DEE35B /* LoadingScreen.swift */; };
 		856BCC2D24A691EB00DEE35B /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856BCC2C24A691EB00DEE35B /* Keyboard.swift */; };
 		86555051FC5CC6429FC1C85BC0CA10A5 /* cotter-fingerprint.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DC62FF30CFAE2DA097E3AF4C4F9182C /* cotter-fingerprint.png */; };
@@ -464,6 +466,8 @@
 		828996267D06033EAF442D87F22BA7A7 /* NonTrusted.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = NonTrusted.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Classes/NonTrusted.html; sourceTree = "<group>"; };
 		82E731DA96AFC3BD24792AC573EF6E17 /* GetUser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GetUser.swift; sourceTree = "<group>"; };
 		84834A490B994E29705DEA348AB922E5 /* LocalAuthService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LocalAuthService.swift; sourceTree = "<group>"; };
+		8509A99624A802DA0067B5B0 /* AuthMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthMethod.swift; sourceTree = "<group>"; };
+		8509A99A24A805CC0067B5B0 /* CrossApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossApp.swift; sourceTree = "<group>"; };
 		856BCC2A24A5A1AE00DEE35B /* LoadingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreen.swift; sourceTree = "<group>"; };
 		856BCC2C24A691EB00DEE35B /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
 		8652A4179700F9ACC17A4F45DA84F256 /* Nimble-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Nimble-umbrella.h"; sourceTree = "<group>"; };
@@ -988,6 +992,7 @@
 		7F7361852C4685A3851717E267AC7C0E /* Passwordless */ = {
 			isa = PBXGroup;
 			children = (
+				8509A99A24A805CC0067B5B0 /* CrossApp.swift */,
 				DD7F03C1B4107E1C7824594D452885C4 /* Passwordless.swift */,
 				9FFAE36E3D6C72ECEF60AF41145E2986 /* View */,
 			);
@@ -1008,6 +1013,14 @@
 			);
 			name = "Support Files";
 			path = "Example/Pods/Target Support Files/Cotter";
+			sourceTree = "<group>";
+		};
+		8509A99524A802C60067B5B0 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				8509A99624A802DA0067B5B0 /* AuthMethod.swift */,
+			);
+			path = Enum;
 			sourceTree = "<group>";
 		};
 		8AFC81ED38BA0D135158A1004D9A393D /* Extensions */ = {
@@ -1108,6 +1121,7 @@
 		A30D9A050D78CB9D6C31A70DDF81A18E /* Cotter */ = {
 			isa = PBXGroup;
 			children = (
+				8509A99524A802C60067B5B0 /* Enum */,
 				969EABE05809E1AAF4F560957DDE3FA5 /* Cotter.swift */,
 				856BCC2A24A5A1AE00DEE35B /* LoadingScreen.swift */,
 				C86FC3616AC4B178EF313761B0F3D996 /* MockedAPIService.swift */,
@@ -1763,6 +1777,7 @@
 				615DC4466051470D58CD7F16821412E5 /* PinStepEnums.swift in Sources */,
 				5C8014F282153A4E826E48D193E74F61 /* PINViewController.swift in Sources */,
 				E6E54BA3DEF4C1D7D531529EF87ECCD0 /* PKCE.swift in Sources */,
+				8509A99B24A805CC0067B5B0 /* CrossApp.swift in Sources */,
 				CA5FA9CDA8A35960F0C4F65D0371A060 /* Protocols.swift in Sources */,
 				7B5FF9F1DA88A14C7BF815065AA83040 /* QRScannerViewController.swift in Sources */,
 				52F4261FA92A3B6B65159535114F7E71 /* RegisterBiometric.swift in Sources */,
@@ -1796,6 +1811,7 @@
 				9F5A615449CC5D428F285A11D1F59D80 /* User.swift in Sources */,
 				FB3D114A45B06A5EA2ACF51D62561A40 /* UserInfo.swift in Sources */,
 				8773911AD4F82BAA9F46BB4F12387253 /* Utils.swift in Sources */,
+				8509A99724A802DA0067B5B0 /* AuthMethod.swift in Sources */,
 				E657521FF9BE5C3AAA705654612693F7 /* VerifyPINResetCode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

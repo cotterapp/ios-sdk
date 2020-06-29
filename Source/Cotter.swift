@@ -211,6 +211,7 @@ public class Cotter {
         type:String,
         directLogin: Bool,
         userID: String? = nil,
+        authMethod: AuthMethod? = nil,
         cb: @escaping (_ identity: CotterIdentity?, _ error: Error?) -> Void
     ) {
         var str = "false"
@@ -230,7 +231,8 @@ public class Cotter {
             identifierField: identifierField,
             type: type,
             directLogin: str,
-            userID: userID
+            userID: userID,
+            authMethod: authMethod
         )
     }
     
