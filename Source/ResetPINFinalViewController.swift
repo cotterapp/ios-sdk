@@ -92,6 +92,7 @@ extension ResetPINFinalViewController: ResetPINFinalViewComponent {
     
     func render(_ props: ResetPINFinalViewProps) {
         successLabel.text = props.successTitle
+        successLabel.font = Config.instance.fonts.paragraph
         
         let cotterImages = ImageObject.defaultImages
         if cotterImages.contains(props.successImage) {

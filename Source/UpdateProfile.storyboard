@@ -50,7 +50,7 @@
                                     <constraint firstAttribute="height" constant="355" id="sLl-mk-RVm"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Update PIN Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zrC-oU-0pq">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Update PIN Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zrC-oU-0pq">
                                 <rect key="frame" x="145.5" y="201" width="123.5" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -138,7 +138,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create New PIN Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="joL-uv-SPw">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create New PIN Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="joL-uv-SPw">
                                 <rect key="frame" x="129" y="201" width="156.5" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -218,10 +218,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm new PIN Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5RD-iA-TLr">
-                                <rect key="frame" x="125" y="200.5" width="164.5" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="cbm-dn-8fU"/>
-                                </constraints>
+                                <rect key="frame" x="20" y="201" width="374" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -236,12 +233,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="v6E-Dc-X8J" firstAttribute="trailing" secondItem="5RD-iA-TLr" secondAttribute="trailing" constant="20" id="0zS-bq-uoB"/>
                             <constraint firstItem="vhx-8N-xWa" firstAttribute="bottom" secondItem="v6E-Dc-X8J" secondAttribute="bottom" id="Dy9-Uh-vKg"/>
                             <constraint firstItem="vhx-8N-xWa" firstAttribute="leading" secondItem="v6E-Dc-X8J" secondAttribute="leading" constant="20" id="ENt-2z-qTb"/>
                             <constraint firstItem="ZLF-zT-Un2" firstAttribute="centerX" secondItem="au9-2G-nrz" secondAttribute="centerX" id="Edt-XW-3rx"/>
                             <constraint firstItem="QeR-me-ToR" firstAttribute="centerX" secondItem="au9-2G-nrz" secondAttribute="centerX" id="GHV-5u-9Hb"/>
                             <constraint firstItem="QeR-me-ToR" firstAttribute="top" secondItem="npw-sC-zME" secondAttribute="bottom" constant="2" id="OLI-n1-Eqa"/>
                             <constraint firstItem="v6E-Dc-X8J" firstAttribute="trailing" secondItem="vhx-8N-xWa" secondAttribute="trailing" constant="20" id="ge0-wr-ZVX"/>
+                            <constraint firstItem="5RD-iA-TLr" firstAttribute="leading" secondItem="v6E-Dc-X8J" secondAttribute="leading" constant="20" id="j0U-cP-s1g"/>
                             <constraint firstItem="vhx-8N-xWa" firstAttribute="centerX" secondItem="au9-2G-nrz" secondAttribute="centerX" id="nc9-NS-gsm"/>
                             <constraint firstItem="npw-sC-zME" firstAttribute="centerX" secondItem="au9-2G-nrz" secondAttribute="centerX" id="pD1-5x-BZA"/>
                             <constraint firstItem="5RD-iA-TLr" firstAttribute="centerX" secondItem="au9-2G-nrz" secondAttribute="centerX" id="sTr-Tu-81R"/>

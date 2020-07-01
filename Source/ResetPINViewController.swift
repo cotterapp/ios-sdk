@@ -223,6 +223,7 @@ extension ResetPINViewController: ResetPINViewComponent {
         navigationItem.title = props.navTitle
         resetPinTitle.text = props.title
         resetPinError.textColor = props.dangerColor
+        resetPinTitle.font = Config.instance.fonts.title
         
         let subtitle: String = {
             if let userInfo = Config.instance.userInfo {
@@ -232,10 +233,12 @@ extension ResetPINViewController: ResetPINViewComponent {
             return props.resetFailSub
         }()
         resetPinSubtitle.text = subtitle
+        resetPinSubtitle.font = Config.instance.fonts.subtitle
         
         if let _ = Config.instance.userInfo {
             resendEmailButton.setTitle(props.resendEmail, for: .normal)
             resendEmailButton.setTitleColor(props.primaryColor, for: .normal)
+            resendEmailButton.titleLabel?.font = Config.instance.fonts.subtitle
         } else {
             resendEmailButton.isEnabled = false
         }

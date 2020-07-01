@@ -35,8 +35,7 @@ extension UIViewController {
         let label = UILabel()
         label.text = text
         
-        // TODO: custom font and text color?
-//        label.font = # headline6
+        label.font = Config.instance.fonts.heading
 //        label.textColor = # BAREKSA_COLOR.blackOriginal.withAlphaComponent(0.87) #000000
         label.numberOfLines = 1
         label.textAlignment = .left

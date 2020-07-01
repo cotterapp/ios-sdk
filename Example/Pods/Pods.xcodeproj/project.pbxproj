@@ -123,6 +123,8 @@
 		8509A99724A802DA0067B5B0 /* AuthMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8509A99624A802DA0067B5B0 /* AuthMethod.swift */; };
 		8509A99B24A805CC0067B5B0 /* CrossApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8509A99A24A805CC0067B5B0 /* CrossApp.swift */; };
 		8509A99D24A9CF280067B5B0 /* ViewControllerClassNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8509A99C24A9CF280067B5B0 /* ViewControllerClassNames.swift */; };
+		8509A9A024AD0F8B0067B5B0 /* FontObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8509A99F24AD0F8B0067B5B0 /* FontObject.swift */; };
+		8509A9A224AD101A0067B5B0 /* Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8509A9A124AD101A0067B5B0 /* Default.swift */; };
 		856BCC2B24A5A1AE00DEE35B /* LoadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856BCC2A24A5A1AE00DEE35B /* LoadingScreen.swift */; };
 		86555051FC5CC6429FC1C85BC0CA10A5 /* cotter-fingerprint.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DC62FF30CFAE2DA097E3AF4C4F9182C /* cotter-fingerprint.png */; };
 		86D5D7CEC459418FE50865EE109DCC1E /* ResetPINFinalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29727AEE2EF2331AA68038B7E754EFE9 /* ResetPINFinalViewController.swift */; };
@@ -469,6 +471,8 @@
 		8509A99624A802DA0067B5B0 /* AuthMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthMethod.swift; sourceTree = "<group>"; };
 		8509A99A24A805CC0067B5B0 /* CrossApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossApp.swift; sourceTree = "<group>"; };
 		8509A99C24A9CF280067B5B0 /* ViewControllerClassNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerClassNames.swift; sourceTree = "<group>"; };
+		8509A99F24AD0F8B0067B5B0 /* FontObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontObject.swift; sourceTree = "<group>"; };
+		8509A9A124AD101A0067B5B0 /* Default.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Default.swift; sourceTree = "<group>"; };
 		856BCC2A24A5A1AE00DEE35B /* LoadingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreen.swift; sourceTree = "<group>"; };
 		8652A4179700F9ACC17A4F45DA84F256 /* Nimble-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Nimble-umbrella.h"; sourceTree = "<group>"; };
 		86C3CFCBD5CCAB2A7A0EB4A14DEFE13A /* jazzy.css */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.css; name = jazzy.css; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/css/jazzy.css; sourceTree = "<group>"; };
@@ -953,6 +957,7 @@
 				FC299F135965502F42897DA93E08C661 /* CotterStrings.swift */,
 				3209890947D8FE82722FB7BB4EC5DD5C /* ErrorMessages.swift */,
 				2AF03B9FA5D00022ABD77AE532A2B675 /* PinStepEnums.swift */,
+				8509A99E24AD0F4C0067B5B0 /* FontObject */,
 				261515BAEC1EDBF1F3E3CD9F186ECDC0 /* ColorSchemeObject */,
 				3D829AB9ED73117715694AC5A7269CED /* ImageObject */,
 				69926A571E0BA70A58F0A07547B43F6E /* LanguageObject */,
@@ -1022,6 +1027,15 @@
 				8509A99C24A9CF280067B5B0 /* ViewControllerClassNames.swift */,
 			);
 			path = Enum;
+			sourceTree = "<group>";
+		};
+		8509A99E24AD0F4C0067B5B0 /* FontObject */ = {
+			isa = PBXGroup;
+			children = (
+				8509A99F24AD0F8B0067B5B0 /* FontObject.swift */,
+				8509A9A124AD101A0067B5B0 /* Default.swift */,
+			);
+			path = FontObject;
 			sourceTree = "<group>";
 		};
 		8AFC81ED38BA0D135158A1004D9A393D /* Extensions */ = {
@@ -1718,6 +1732,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				79AE619EC6FDC98A8049DB9A3B2ABBAF /* AlertService.swift in Sources */,
+				8509A9A224AD101A0067B5B0 /* Default.swift in Sources */,
 				E6B1014CE00A449BB3FF604A9292121B /* APIServiceProtocol.swift in Sources */,
 				A28D3B97EE0134B05ADBD4C30ED308D1 /* AuthAlertMessages.swift in Sources */,
 				AC096A525DB894FB90F2A0B2F368B200 /* AutoEquatable.generated.swift in Sources */,
@@ -1797,6 +1812,7 @@
 				B900FB64CEF3CB740C961D5953533580 /* Response.swift in Sources */,
 				883F0B8BD943516E36A3EA9B65BB6D03 /* String.swift in Sources */,
 				D62A19F76E4415E0E2FCD4723019CAF4 /* TransactionPINViewController.swift in Sources */,
+				8509A9A024AD0F8B0067B5B0 /* FontObject.swift in Sources */,
 				314239E76769AD4772EC11D111A994D0 /* TrustedDevice.swift in Sources */,
 				6849571B02C40FFAF91272C33D7C5CE4 /* TrustedViewController.swift in Sources */,
 				C748D1EBB0D6646E3EEDCF0DA593B6BD /* UIColor.swift in Sources */,

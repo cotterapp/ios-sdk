@@ -24,6 +24,7 @@ class Config: NSObject {
     var strings: LanguageObject = Indonesian() // defaults to indonesian
     var colors: ColorSchemeObject = ColorSchemeObject()
     var images: ImageObject = ImageObject()
+    var fonts: FontObject = FontObject()
   
     // passwordless configurations
 //    var PLBaseURL: String? = "https://js.cotter.app/app"

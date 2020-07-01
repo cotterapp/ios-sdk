@@ -38,7 +38,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // configuration is an optional argument, remove this below and Cotter app will still function properly
             configuration: [:]
         )
-        Cotter.configureWithLaunchOptions(launchOptions: launchOptions,apiSecretKey: apiSecretKey, apiKeyID: apiKeyID)
+        
+        let customFont = FontObject()
+        customFont.subtitle = UIFont.boldSystemFont(ofSize: 35.0)
+        
+        Cotter.configureWithLaunchOptions(
+            launchOptions: launchOptions,
+            apiSecretKey: apiSecretKey,
+            apiKeyID: apiKeyID,
+            configuration: [
+                "fonts": customFont,
+            ]
+        )
 
         // if you want to start PINViewControler on startup, use getPINViewController
         // let vc = CotterWrapper.cotter!.getPINViewController(hideClose: true, cb: Callback.shared.authCb)

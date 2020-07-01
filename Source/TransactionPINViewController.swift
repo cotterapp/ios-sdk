@@ -240,11 +240,15 @@ extension TransactionPINViewController: TransactionPINViewComponent {
     func render(_ props: TransactionPINViewProps) {
         setupLeftTitleBar(with: props.navTitle)
         titleLabel.text = props.title
+        titleLabel.font = Config.instance.fonts.title
         errorLabel.textColor = props.dangerColor
+        errorLabel.font = Config.instance.fonts.paragraph
         pinVisibilityButton.setTitle(props.showPinText, for: .normal)
         pinVisibilityButton.setTitleColor(props.primaryColor, for: .normal)
+        pinVisibilityButton.titleLabel?.font = Config.instance.fonts.subtitle
         forgetPinButton.setTitle(props.forgetPinText, for: .normal)
         forgetPinButton.setTitleColor(props.accentColor, for: .normal)
+        forgetPinButton.titleLabel?.font = Config.instance.fonts.subtitle
     }
     
     func togglePinVisibility(button: UIButton, showPinText: String, hidePinText: String) {

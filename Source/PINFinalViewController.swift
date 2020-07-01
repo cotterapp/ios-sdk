@@ -130,9 +130,12 @@ extension PINFinalViewController: PINFinalViewComponent {
     
     func render(_ props: PINFinalViewProps) {
         successLabel.text = props.title
+        successLabel.font = Config.instance.fonts.title
         successSubLabel.text = props.subtitle
+        successSubLabel.font = Config.instance.fonts.paragraph
         finishButton.setTitle(props.buttonTitle, for: .normal)
         finishButton.setTitleColor(props.primaryColor, for: .normal)
+        finishButton.titleLabel?.font = Config.instance.fonts.subtitle
         
         let cotterImages = ImageObject.defaultImages
         if cotterImages.contains(props.successImage) {

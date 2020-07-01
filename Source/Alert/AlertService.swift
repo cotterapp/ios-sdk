@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 @objc protocol AlertServiceDelegate : class {
     @objc func cancelHandler()
@@ -56,14 +57,14 @@ class AlertService: NSObject {
         
         titleLabel.text = title
         titleLabel.textColor = UIColor.black
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 20.0)
+        titleLabel.font = Config.instance.fonts.title
         titleLabel.numberOfLines = 0
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         alertView.addSubview(titleLabel)
         
         bodyLabel.text = body
         bodyLabel.textColor = UIColor.darkGray
-        bodyLabel.font = UIFont.systemFont(ofSize: 17.0)
+        bodyLabel.font = Config.instance.fonts.paragraph
         bodyLabel.numberOfLines = 0
         bodyLabel.translatesAutoresizingMaskIntoConstraints = false
         alertView.addSubview(bodyLabel)
@@ -71,13 +72,13 @@ class AlertService: NSObject {
         cancelButton.setTitle(cancelButtonTitle, for: .normal)
         cancelButton.setTitleColor(Config.instance.colors.primary, for: .normal)
         cancelButton.translatesAutoresizingMaskIntoConstraints = false
-        cancelButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17.0)
+        cancelButton.titleLabel?.font = Config.instance.fonts.subtitle
         alertView.addSubview(cancelButton)
         
         actionButton.setTitle(actionButtonTitle, for: .normal)
         actionButton.setTitleColor(Config.instance.colors.primary, for: .normal)
         actionButton.translatesAutoresizingMaskIntoConstraints = false
-        actionButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17.0)
+        actionButton.titleLabel?.font = Config.instance.fonts.subtitle
         alertView.addSubview(actionButton)
       
         var imageSize: CGFloat = 0.0

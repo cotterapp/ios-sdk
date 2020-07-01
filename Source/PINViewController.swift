@@ -210,9 +210,12 @@ extension PINViewController: PINViewComponent {
     func render(_ props: PINViewProps) {
         setupLeftTitleBar(with: props.navTitle)
         titleLabel.text = props.title
+        titleLabel.font = Config.instance.fonts.heading
         pinVisibilityButton.setTitle(props.showPinText, for: .normal)
         pinVisibilityButton.setTitleColor(props.primaryColor, for: .normal)
+        pinVisibilityButton.titleLabel?.font = Config.instance.fonts.subtitle
         errorLabel.textColor = props.dangerColor
+        errorLabel.font = Config.instance.fonts.paragraph
     }
     
     func togglePinVisibility(button: UIButton, showPinText: String, hidePinText: String) {
