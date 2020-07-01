@@ -33,8 +33,8 @@ class EntryViewController: UIViewController {
     @IBAction func login(_ sender: Any) {
         guard let userID = self.textField.text else { return }
         self.view.endEditing(true)
-        print("logging in")
         
+        Passwordless.shared.parentVC = self
         Passwordless.shared.login(identifier: userID, cb: { (token: CotterOAuthToken?, err:Error?) in
             if err != nil {
                 // handle error as necessary

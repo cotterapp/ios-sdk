@@ -55,7 +55,7 @@ class ViewController: UIViewController {
         // CotterWrapper.cotter?.startEnrollment(animated: true)
         
         // to optionally hide the close button
-        CotterWrapper.cotter?.startEnrollment(vc: self, animated: true, cb: Callback.shared.authCb)
+        CotterWrapper.cotter?.startEnrollment(vc: self, animated: true, cb: Callback.shared.authCb, hideClose: true)
     }
     
     @IBAction func clickStartTransaction(_ sender: Any) {

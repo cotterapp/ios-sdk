@@ -132,7 +132,7 @@ public class Indonesian: LanguageObject {
             AuthAlertMessagesKey.verifyAuthTitle: "Verifikasi",
             AuthAlertMessagesKey.verifyAuthBody: "Verifikasi biometrik Anda untuk melanjutkan",
             AuthAlertMessagesKey.verifyAuthActionButton: "Lanjutkan",
-            AuthAlertMessagesKey.verifyAuthCancelButton: "Gunaken PIN",
+            AuthAlertMessagesKey.verifyAuthCancelButton: "Gunakan PIN",
             
             // MARK: - Dispatch Result Alert (Success)
             AuthAlertMessagesKey.successDispatchTitle: "Verifikasi",
@@ -145,7 +145,6 @@ public class Indonesian: LanguageObject {
             AuthAlertMessagesKey.failureDispatchBody: "Biometrik gagal.",
             AuthAlertMessagesKey.failureDispatchActionButton: "Coba Lagi",
             AuthAlertMessagesKey.failureDispatchCancelButton: "Input PIN",
-            
         ])
     }
 }

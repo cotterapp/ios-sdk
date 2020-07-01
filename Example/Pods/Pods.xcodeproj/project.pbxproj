@@ -122,6 +122,7 @@
 		831D5835133317D7F3A327EB2770EE92 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79483799DDF8E0E2778D22A4401ED67B /* Config.swift */; };
 		8509A99724A802DA0067B5B0 /* AuthMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8509A99624A802DA0067B5B0 /* AuthMethod.swift */; };
 		8509A99B24A805CC0067B5B0 /* CrossApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8509A99A24A805CC0067B5B0 /* CrossApp.swift */; };
+		8509A99D24A9CF280067B5B0 /* ViewControllerClassNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8509A99C24A9CF280067B5B0 /* ViewControllerClassNames.swift */; };
 		856BCC2B24A5A1AE00DEE35B /* LoadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856BCC2A24A5A1AE00DEE35B /* LoadingScreen.swift */; };
 		856BCC2D24A691EB00DEE35B /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856BCC2C24A691EB00DEE35B /* Keyboard.swift */; };
 		86555051FC5CC6429FC1C85BC0CA10A5 /* cotter-fingerprint.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DC62FF30CFAE2DA097E3AF4C4F9182C /* cotter-fingerprint.png */; };
@@ -468,6 +469,7 @@
 		84834A490B994E29705DEA348AB922E5 /* LocalAuthService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LocalAuthService.swift; sourceTree = "<group>"; };
 		8509A99624A802DA0067B5B0 /* AuthMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthMethod.swift; sourceTree = "<group>"; };
 		8509A99A24A805CC0067B5B0 /* CrossApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossApp.swift; sourceTree = "<group>"; };
+		8509A99C24A9CF280067B5B0 /* ViewControllerClassNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerClassNames.swift; sourceTree = "<group>"; };
 		856BCC2A24A5A1AE00DEE35B /* LoadingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreen.swift; sourceTree = "<group>"; };
 		856BCC2C24A691EB00DEE35B /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
 		8652A4179700F9ACC17A4F45DA84F256 /* Nimble-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Nimble-umbrella.h"; sourceTree = "<group>"; };
@@ -1019,6 +1021,7 @@
 			isa = PBXGroup;
 			children = (
 				8509A99624A802DA0067B5B0 /* AuthMethod.swift */,
+				8509A99C24A9CF280067B5B0 /* ViewControllerClassNames.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -1761,6 +1764,7 @@
 				2ABA1919C59BD8459626671158B9AF06 /* Indonesian.swift in Sources */,
 				26E02433DFE8324A91CBCDA720359255 /* KeyboardView.swift in Sources */,
 				BDA7E5CF34F90CA71EB4F3B1DD741C88 /* KeyStore.swift in Sources */,
+				8509A99D24A9CF280067B5B0 /* ViewControllerClassNames.swift in Sources */,
 				3932F508DF9C909FDE0A098299CE8402 /* LanguageObject.swift in Sources */,
 				8E0661FAE63691A5F743AEB910311E33 /* LocalAuthService.swift in Sources */,
 				417813EE2C0D17D6C516218AA04E2AF3 /* MockedAPIClient.generated.swift in Sources */,

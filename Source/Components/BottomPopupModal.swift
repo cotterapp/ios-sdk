@@ -69,7 +69,7 @@ class BottomPopupModal {
         bodyLabel.translatesAutoresizingMaskIntoConstraints = false
         promptBody.addSubview(bodyLabel)
 
-        let imageSize = nc.view.frame.height * 0.15
+        let imageSize = nv.frame.height * 0.15
         imageView.image = self.img
         imageView.translatesAutoresizingMaskIntoConstraints = false
         promptBody.addSubview(imageView)

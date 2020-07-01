@@ -192,7 +192,6 @@ extension TransactionPINViewController: TransactionPINViewComponent {
                 if resp.enrolled {
                     let onFinishCallback = Config.instance.transactionCb
                     func cb(success: Bool) {
-                        LoadingScreen.shared.stop()
                         if success {
                             onFinishCallback("dummy biometric token", nil)
                         } else {
@@ -200,7 +199,6 @@ extension TransactionPINViewController: TransactionPINViewComponent {
                             self.toggleErrorMsg(msg: "Biometric is incorrect, please use PIN")
                         }
                     }
-                    LoadingScreen.shared.start(at: self.view.window)
                     self.authService.bioAuth(view: self, event: CotterEvents.Transaction, callback: cb)
                 } else {
                     print("[TransactionPINViewController.getBiometricStatus] Biometric not enrolled")
