@@ -124,7 +124,6 @@
 		8509A99B24A805CC0067B5B0 /* CrossApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8509A99A24A805CC0067B5B0 /* CrossApp.swift */; };
 		8509A99D24A9CF280067B5B0 /* ViewControllerClassNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8509A99C24A9CF280067B5B0 /* ViewControllerClassNames.swift */; };
 		856BCC2B24A5A1AE00DEE35B /* LoadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856BCC2A24A5A1AE00DEE35B /* LoadingScreen.swift */; };
-		856BCC2D24A691EB00DEE35B /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856BCC2C24A691EB00DEE35B /* Keyboard.swift */; };
 		86555051FC5CC6429FC1C85BC0CA10A5 /* cotter-fingerprint.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DC62FF30CFAE2DA097E3AF4C4F9182C /* cotter-fingerprint.png */; };
 		86D5D7CEC459418FE50865EE109DCC1E /* ResetPINFinalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29727AEE2EF2331AA68038B7E754EFE9 /* ResetPINFinalViewController.swift */; };
 		8773911AD4F82BAA9F46BB4F12387253 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580BD403A3DDA31223E5717A289EC540 /* Utils.swift */; };
@@ -471,7 +470,6 @@
 		8509A99A24A805CC0067B5B0 /* CrossApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossApp.swift; sourceTree = "<group>"; };
 		8509A99C24A9CF280067B5B0 /* ViewControllerClassNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerClassNames.swift; sourceTree = "<group>"; };
 		856BCC2A24A5A1AE00DEE35B /* LoadingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreen.swift; sourceTree = "<group>"; };
-		856BCC2C24A691EB00DEE35B /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
 		8652A4179700F9ACC17A4F45DA84F256 /* Nimble-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Nimble-umbrella.h"; sourceTree = "<group>"; };
 		86C3CFCBD5CCAB2A7A0EB4A14DEFE13A /* jazzy.css */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.css; name = jazzy.css; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/css/jazzy.css; sourceTree = "<group>"; };
 		871EDF953BC6F98DB1D6F7F5AE4C21B7 /* VCImageKey.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = VCImageKey.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Classes/VCImageKey.html; sourceTree = "<group>"; };
@@ -1431,7 +1429,6 @@
 			isa = PBXGroup;
 			children = (
 				B3BBE7EE0FF6FA1D865E393A475D487C /* KeyboardView.swift */,
-				856BCC2C24A691EB00DEE35B /* Keyboard.swift */,
 			);
 			path = Keyboard;
 			sourceTree = "<group>";
@@ -1748,7 +1745,6 @@
 				6F56A98DCCC5D3CDA21BBF11850C3633 /* Error.swift in Sources */,
 				856BCC2B24A5A1AE00DEE35B /* LoadingScreen.swift in Sources */,
 				079638CB8478FF506DAFCAEA1B26CB2C /* ErrorMessages.swift in Sources */,
-				856BCC2D24A691EB00DEE35B /* Keyboard.swift in Sources */,
 				DBD2FE9D163BB5257502E68C68EA82F2 /* Event.swift in Sources */,
 				7F5FCC5629BB73A8C16DC395548B5FE5 /* GetBiometricStatus.swift in Sources */,
 				059886A46846E14707E5571A1E1AFB86 /* GetEvent.swift in Sources */,

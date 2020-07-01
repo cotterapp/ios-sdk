@@ -12,7 +12,7 @@ protocol KeyboardViewDelegate: class {
 }
 
 class KeyboardView: UIView {
-    let color = UIColor(red: 0.8588, green: 0.8588, blue: 0.8588, alpha: 1.0)
+    let color = UIColor(red: 0.8588, green: 0.8588, blue: 0.8588, alpha: 0.5)
     let width = CGFloat(2.0)
     
     @IBOutlet var view: UIView!
