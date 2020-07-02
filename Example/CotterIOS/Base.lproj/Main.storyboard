@@ -96,7 +96,7 @@
                                                     <action selector="goToUserCheck:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="qaW-XL-uc2"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KKm-m6-vje" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KKm-m6-vje" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
                                                 <rect key="frame" x="174.5" y="0.0" width="169.5" height="30"/>
                                                 <state key="normal" title="Trusted Device"/>
                                                 <connections>
@@ -364,13 +364,13 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="nt3-2O-1kh">
                                         <rect key="frame" x="0.0" y="0.0" width="167" height="20.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Biometric" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w0P-su-n3c">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Biometric" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w0P-su-n3c">
                                                 <rect key="frame" x="0.0" y="0.0" width="115" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5sd-EG-hHH">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5sd-EG-hHH">
                                                 <rect key="frame" x="125" y="0.0" width="42" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -482,7 +482,7 @@
         <!--Trusted Device View Controller-->
         <scene sceneID="Exu-gf-ahE">
             <objects>
-                <viewController id="B9X-jN-7M4" customClass="TrustedDeviceViewController" customModule="CotterIOS_Example" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="B9X-jN-7M4" customClass="TrustedDeviceViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="D6x-1J-Xdn"/>
                         <viewControllerLayoutGuide type="bottom" id="L4c-85-ITP"/>
