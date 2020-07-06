@@ -7,12 +7,15 @@
 
 import UIKit
 
+protocol BottomPopupModalDelegate {
+    func dismissCompletion()
+}
+
 class BottomPopupModal {
-    let parentVC: UIViewController
+    var delegate: BottomPopupModalDelegate? = nil
     let img: UIImage
     let title: String
     let body: String
-    
     
     let darkOverlayView = UIView()
     let promptView = UIView()
@@ -22,12 +25,10 @@ class BottomPopupModal {
     let imageView = UIImageView()
     
     public init(
-        vc: UIViewController,
         img: UIImage,
         title: String,
         body: String
     ) {
-        self.parentVC = vc
         self.img = img
         self.title = title
         self.body = body
@@ -36,12 +37,15 @@ class BottomPopupModal {
     }
     
     private func initView() {
-        guard let nc = self.parentVC.navigationController, let nv = nc.view else { return }
+        guard let window = UIApplication.shared.delegate?.window, let nv = window  else { return }
         
         // Dark overlay right below the alert view, covering the whole current UIViewController vc
         darkOverlayView.backgroundColor = UIColor.black
         darkOverlayView.alpha = 0.6
         darkOverlayView.translatesAutoresizingMaskIntoConstraints = false
+        let tapRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismiss))
+        darkOverlayView.addGestureRecognizer(tapRecognizer)
+        
         nv.addSubview(darkOverlayView)
 
         // The actual alert view
@@ -69,7 +73,7 @@ class BottomPopupModal {
         bodyLabel.translatesAutoresizingMaskIntoConstraints = false
         promptBody.addSubview(bodyLabel)
 
-        let imageSize = nc.view.frame.height * 0.15
+        let imageSize = nv.frame.height * 0.15
         imageView.image = self.img
         imageView.translatesAutoresizingMaskIntoConstraints = false
         promptBody.addSubview(imageView)
@@ -105,7 +109,7 @@ class BottomPopupModal {
         NSLayoutConstraint.activate(constraints)
     }
     
-    public func dismiss(animated:Bool = true) {
+    @objc public func dismiss(animated:Bool = true) {
         if animated {
             // add some nice animation
             UIView.animate(withDuration: 0.5, delay: 0, options: [.curveEaseIn],
@@ -120,5 +124,7 @@ class BottomPopupModal {
             self.promptView.removeFromSuperview()
             self.darkOverlayView.removeFromSuperview()
         }
+        
+        delegate?.dismissCompletion()
     }
 }

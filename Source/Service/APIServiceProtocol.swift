@@ -20,14 +20,23 @@ public protocol APIService : MockedService {
     func requestPINReset(name: String, sendingMethod: String, sendingDestination: String, cb: @escaping ResultCallback<CotterResponseWithChallenge>)
     func verifyPINResetCode(resetCode: String, challengeID: Int, challenge: String, cb: @escaping ResultCallback<CotterBasicResponse>)
     func resetPIN(resetCode: String, newCode: String, challengeID: Int, challenge: String, cb: @escaping ResultCallback<CotterBasicResponse>)
-    func enrollTrustedDevice(userID: String, cb: @escaping ResultCallback<CotterUser>)
+    func enrollTrustedDevice(clientUserID: String, cb: @escaping ResultCallback<CotterUser>)
     func getNewEvent(userID: String, cb: @escaping ResultCallback<CotterEvent?>)
-    func getTrustedDeviceStatus(userID: String, cb: @escaping ResultCallback<EnrolledMethods>)
+    func getTrustedDeviceStatus(clientUserID: String, cb: @escaping ResultCallback<EnrolledMethods>)
     func getTrustedDeviceEnrolledAny(userID: String, cb: @escaping ResultCallback<EnrolledMethods>)
-    func reqAuth(userID: String, event: String, cb: @escaping ResultCallback<CotterEvent>)
+    func reqAuth(clientUserID: String, event: String, cb: @escaping ResultCallback<CotterEvent>)
     func getEvent(eventID:String, cb: @escaping ResultCallback<CotterEvent>)
     func approveEvent(event: CotterEvent, cb: @escaping ResultCallback<CotterEvent>)
     func registerOtherDevice(qrData:String, userID:String, cb: @escaping ResultCallback<CotterEvent>)
     func removeTrustedDeviceStatus(userID: String, cb: @escaping ResultCallback<CotterUser>)
     func getNotificationAppID(cb: @escaping ResultCallback<CotterNotificationCredential>)
+    
+    // enrollTrustedDeviceWith cotter's user ID, this indicates that a user has been created in cotter's server and we would like
+    // to enroll trusted device on that user
+    func enrollTrustedDeviceWith(cotterUser: CotterUser, cb: @escaping ResultCallback<CotterUser>)
+    
+    // reqAuthWith does exactly what reqAuth do but with different parameters
+    func reqAuthWith(cotterUserID: String, event: String, cb: @escaping ResultCallback<CotterEvent>)
+    
+    func getTrustedDeviceStatusWith(cotterUserID: String, cb: @escaping ResultCallback<EnrolledMethods>)
 }

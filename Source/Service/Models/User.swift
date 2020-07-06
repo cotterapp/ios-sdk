@@ -13,6 +13,7 @@ public struct CotterUser: Codable {
     public var updatedAt:String?
     public var deletedAt:String?
     public var issuer:String
+    public var identifier:String?
     public var clientUserID:String
     public var enrolled:[String]
     public var defaultMethod:String?
@@ -24,6 +25,7 @@ public struct CotterUser: Codable {
         case updatedAt = "update_at" // notice that this is update_at instead of updated_at!
         case issuer
         case clientUserID = "client_user_id"
+        case identifier
         case enrolled
         case defaultMethod = "default_method"
     }

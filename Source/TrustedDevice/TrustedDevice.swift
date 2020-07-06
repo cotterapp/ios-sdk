@@ -48,7 +48,7 @@ class TrustedDevice {
             }
         }
         
-        CotterAPIService.shared.reqAuth(userID: userID, event: CotterEvents.Login, cb: loginCb)
+        CotterAPIService.shared.reqAuth(clientUserID: userID, event: CotterEvents.Login, cb: loginCb)
     }
     
     public func checkEvent(userID:String) {
@@ -82,7 +82,7 @@ class TrustedDevice {
                 if resp.enrolled && resp.method == CotterMethods.TrustedDevice {
                     // Enrolled in Trusted Devices, do not continue
                     let img = UIImage(named: failImage, in: Cotter.resourceBundle, compatibleWith: nil)!
-                    let popup = BottomPopupModal(vc: parentVC, img: img, title: unableToContinue, body: deviceAlreadyReg)
+                    let popup = BottomPopupModal(img: img, title: unableToContinue, body: deviceAlreadyReg)
                     DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
                         popup.dismiss()
                     }
@@ -96,14 +96,14 @@ class TrustedDevice {
                 }
             case .failure:
                 let img = UIImage(named: failImage, in: Cotter.resourceBundle, compatibleWith: nil)!
-                let popup = BottomPopupModal(vc: parentVC, img: img, title: somethingWentWrong, body: tryAgainLater)
+                let popup = BottomPopupModal(img: img, title: somethingWentWrong, body: tryAgainLater)
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
                     popup.dismiss()
                 }
             }
         }
         
-        CotterAPIService.shared.getTrustedDeviceStatus(userID: userID, cb: getTrustedCallback)
+        CotterAPIService.shared.getTrustedDeviceStatus(clientUserID: userID, cb: getTrustedCallback)
     }
     
     public func scanNewDevice(userID: String) {
@@ -121,21 +121,21 @@ class TrustedDevice {
                 } else {
                     // Not enrolled in Trusted Devices, do not continue
                     let img = UIImage(named: failImage, in: Cotter.resourceBundle, compatibleWith: nil)!
-                    let popup = BottomPopupModal(vc: parentVC, img: img, title: unableToContinue, body: deviceNotReg)
+                    let popup = BottomPopupModal(img: img, title: unableToContinue, body: deviceNotReg)
                     DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
                         popup.dismiss()
                     }
                 }
             case .failure:
                 let img = UIImage(named: failImage, in: Cotter.resourceBundle, compatibleWith: nil)!
-                let popup = BottomPopupModal(vc: parentVC, img: img, title: somethingWentWrong, body: tryAgainLater)
+                let popup = BottomPopupModal(img: img, title: somethingWentWrong, body: tryAgainLater)
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
                     popup.dismiss()
                 }
             }
         }
         
-        CotterAPIService.shared.getTrustedDeviceStatus(userID: userID, cb: getTrustedCallback)
+        CotterAPIService.shared.getTrustedDeviceStatus(clientUserID: userID, cb: getTrustedCallback)
     }
     
     public func removeDevice(userID: String) {

@@ -15,7 +15,7 @@ class Config: NSObject {
     var pinEnrollmentCb: FinalAuthCallback
     var updatePINCb: FinalAuthCallback
     var transactionCb: FinalAuthCallback
-    var passwordlessCb: FinalAuthCallback
+    var passwordlessCb: (_ identity: CotterIdentity?, _ error: Error?) -> Void
     
     // Config objects passed in from SDK User
     var userInfo: UserInfo? // Required to start reset PIN Process
@@ -24,9 +24,12 @@ class Config: NSObject {
     var strings: LanguageObject = Indonesian() // defaults to indonesian
     var colors: ColorSchemeObject = ColorSchemeObject()
     var images: ImageObject = ImageObject()
+    var fonts: FontObject = FontObject()
   
     // passwordless configurations
     var PLBaseURL: String? = "https://js.cotter.app/app"
+//    var PLBaseURL: String? = "http://localhost:3000/app"
+//    var PLBaseURL: String? = "http://192.168.86.28:3000/app"
     var PLScheme: String? = "cotter"
     var PLRedirectURL: String? = "cotter://auth"
     
@@ -38,6 +41,6 @@ class Config: NSObject {
         pinEnrollmentCb = defaultCb
         updatePINCb = defaultCb
         transactionCb = defaultCb
-        passwordlessCb = defaultCb
+        passwordlessCb = {(_ identity: CotterIdentity?, _ error: Error?) in return}
     }
 }

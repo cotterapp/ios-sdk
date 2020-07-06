@@ -58,6 +58,7 @@ class LocalAuthService: UIViewController {
     let fingerprintImg = CotterImages.instance.getImage(for: AlertImageKey.promptVerificationImg)
     let successImg = CotterImages.instance.getImage(for: AlertImageKey.successVerificationImg)
     let failureImg = CotterImages.instance.getImage(for: AlertImageKey.failureVerificationImg)
+    let bioFailImg = CotterImages.instance.getImage(for: AlertImageKey.failureBiometricImg)
     
     var successAuthCallbackFunc: FinalAuthCallback?
     
@@ -108,6 +109,7 @@ class LocalAuthService: UIViewController {
                 callback(resp.approved)
             case .failure(let err):
                 // we can handle multiple error results here
+                callback(false)
                 print(err.localizedDescription)
             }
         }
@@ -146,6 +148,7 @@ class LocalAuthService: UIViewController {
             )
             
             alertDelegate.defActionHandler = {
+                LoadingScreen.shared.start(at: self.view.window)
                 aService.hide()
                 // this will force biometric scan request
                 guard let privateKey = KeyStore.biometric.privKey else {
@@ -197,6 +200,7 @@ class LocalAuthService: UIViewController {
                 func httpCb(response: CotterResult<CotterEvent>) {
                     switch response {
                     case .success(let resp):
+                        LoadingScreen.shared.stop()
                         callback(resp.approved)
                     case .failure(let err):
                         // we can handle multiple error results here
@@ -285,6 +289,9 @@ class LocalAuthService: UIViewController {
     }
     
     private func dispatchResult(view: UIViewController?, success: Bool, authError: Error?) {
+        // stop loading screen
+        LoadingScreen.shared.stop()
+        
         guard let view = view else { return }
         
         if success {
@@ -322,7 +329,7 @@ class LocalAuthService: UIViewController {
                 body: self.failureBody,
                 actionButtonTitle: self.failureAction,
                 cancelButtonTitle: self.failureCancel,
-                imagePath: failureImg
+                imagePath: bioFailImg
             )
             
             // try again will re-authenticate

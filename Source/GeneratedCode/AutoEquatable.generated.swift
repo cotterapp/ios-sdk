@@ -45,7 +45,8 @@ extension EnrollTrustedDevice: Equatable {
     public static func ==(lhs: EnrollTrustedDevice, rhs: EnrollTrustedDevice) -> Bool {
         guard lhs.method == rhs.method else { return false }
         guard lhs.code == rhs.code else { return false }
-        guard lhs.userID == rhs.userID else { return false }
+        guard lhs.clientUserID == rhs.clientUserID else { return false }
+        guard lhs.cotterUserID == rhs.cotterUserID else { return false }
         return true
     }
 }
@@ -103,7 +104,8 @@ extension GetTrustedDeviceStatus: Equatable {
     public static func ==(lhs: GetTrustedDeviceStatus, rhs: GetTrustedDeviceStatus) -> Bool {
         guard lhs.method == rhs.method else { return false }
         guard lhs.pubKey == rhs.pubKey else { return false }
-        guard lhs.userID == rhs.userID else { return false }
+        guard lhs.cotterUserID == rhs.cotterUserID else { return false }
+        guard lhs.clientUserID == rhs.clientUserID else { return false }
         return true
     }
 }

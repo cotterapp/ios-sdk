@@ -11,7 +11,11 @@ public struct EnrollTrustedDevice: APIRequest, AutoEquatable {
     public typealias Response = CotterUser
     
     public var path: String {
-        return "/user/\(self.userID)"
+        // cotter's user ID takes precedence
+        if self.cotterUserID != "" {
+            return "/user/methods?cotter_user_id=\(self.cotterUserID)"
+        }
+        return "/user/\(self.clientUserID)"
     }
     
     public let method: String = "PUT"
@@ -21,7 +25,7 @@ public struct EnrollTrustedDevice: APIRequest, AutoEquatable {
             "method": CotterMethods.TrustedDevice,
             "enrolled": true,
             "code": code,
-            "algorithm": "EC"
+            "algorithm": "EC" // default algo
         ]
         
         let body = try? JSONSerialization.data(withJSONObject: data)
@@ -30,10 +34,18 @@ public struct EnrollTrustedDevice: APIRequest, AutoEquatable {
     }
     
     var code:String
-    var userID:String
+    var clientUserID:String
+    var cotterUserID:String
     
-    public init(userID:String, code:String){
-        self.userID = userID
+    public init(clientUserID:String, code:String){
+        self.clientUserID = clientUserID
         self.code = code
+        self.cotterUserID = ""
+    }
+    
+    public init(cotterUserID:String, code:String) {
+        self.clientUserID = ""
+        self.code = code
+        self.cotterUserID = cotterUserID
     }
 }

@@ -90,7 +90,7 @@ class UserCheckViewController: UIViewController {
                 self.errorLabel.text = err.localizedDescription
             }
         }
-        CotterAPIService.shared.getTrustedDeviceStatus(userID: self.userID, cb: cb)
+        CotterAPIService.shared.getTrustedDeviceStatus(clientUserID: self.userID, cb: cb)
     }
     
     @IBOutlet weak var textFieldUserID: UITextField!

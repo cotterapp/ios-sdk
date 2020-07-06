@@ -154,6 +154,7 @@ extension TransactionPINViewController : PINBaseController {
             
             // Callback Function to execute after PIN Verification
             func pinVerificationCallback(success: Bool) {
+                LoadingScreen.shared.stop()
                 if success {
                     self.codeTextField.clear()
                     cbFunc("Token from Transaction PIN View!", nil)
@@ -167,6 +168,7 @@ extension TransactionPINViewController : PINBaseController {
             
             // Verify PIN through API
             do {
+                LoadingScreen.shared.start(at: self.view.window)
                 _ = try self.authService.pinAuth(pin: code, event: CotterEvents.Transaction, callback: pinVerificationCallback)
             } catch let e {
                 print(e)
@@ -181,8 +183,10 @@ extension TransactionPINViewController : PINBaseController {
 // MARK: - TransactionPINViewComponent Instantiations
 extension TransactionPINViewController: TransactionPINViewComponent {
     func getBiometricStatus() {
+        LoadingScreen.shared.start(at: self.view.window)
         // Get initial user biometric status
         CotterAPIService.shared.getBiometricStatus(cb: { response in
+            LoadingScreen.shared.stop()
             switch response {
             case .success(let resp):
                 if resp.enrolled {
@@ -206,17 +210,9 @@ extension TransactionPINViewController: TransactionPINViewComponent {
     }
     
     func setupUI() {
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.layoutIfNeeded()
+        self.navigationItem.hidesBackButton = self.hideCloseButton
         
-        self.navigationItem.hidesBackButton = true
-
-        if !self.hideCloseButton {
-            let crossButton = UIBarButtonItem(title: "\u{2190}", style: UIBarButtonItem.Style.plain, target: self, action: #selector(TransactionPINViewController.promptClose(sender:)))
-            crossButton.tintColor = UIColor.black
-            self.navigationItem.leftBarButtonItem = crossButton
-        }
+        self.navigationController?.setup()
         
         errorLabel.isHidden = true
         
@@ -225,6 +221,7 @@ extension TransactionPINViewController: TransactionPINViewComponent {
     
     @objc private func promptClose(sender: UIBarButtonItem) {
         // Go back to previous screen
+        self.parent?.dismiss(animated: true, completion: nil)
         self.navigationController?.popViewController(animated: true)
     }
     
@@ -233,13 +230,17 @@ extension TransactionPINViewController: TransactionPINViewComponent {
     }
     
     func render(_ props: TransactionPINViewProps) {
-        navigationItem.title = props.navTitle
+        setupLeftTitleBar(with: props.navTitle)
         titleLabel.text = props.title
+        titleLabel.font = Config.instance.fonts.title
         errorLabel.textColor = props.dangerColor
+        errorLabel.font = Config.instance.fonts.paragraph
         pinVisibilityButton.setTitle(props.showPinText, for: .normal)
         pinVisibilityButton.setTitleColor(props.primaryColor, for: .normal)
+        pinVisibilityButton.titleLabel?.font = Config.instance.fonts.subtitle
         forgetPinButton.setTitle(props.forgetPinText, for: .normal)
         forgetPinButton.setTitleColor(props.accentColor, for: .normal)
+        forgetPinButton.titleLabel?.font = Config.instance.fonts.subtitle
     }
     
     func togglePinVisibility(button: UIButton, showPinText: String, hidePinText: String) {

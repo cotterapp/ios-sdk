@@ -17,6 +17,7 @@ public class ImageObject: NSObject {
         "cotter-success-check",
         "cotter-failure-x",
         "cotter-fingerprint",
+        "cotter-fingerprint-failed",
         "cotter-lapis-logo",
         "cotter-logo",
         "tap_device",
@@ -40,6 +41,7 @@ public class ImageObject: NSObject {
             AlertImageKey.promptVerificationImg: "cotter-fingerprint",
             AlertImageKey.successVerificationImg: "cotter-success-check",
             AlertImageKey.failureVerificationImg: "cotter-failure-x",
+            AlertImageKey.failureBiometricImg: "cotter-fingerprint-failed",
         ]
     }
       

@@ -291,7 +291,7 @@ class APIServiceTests: XCTestCase {
         var resp: Codable?
         var err: Error? = nil
         
-        mockAPIService.enrollTrustedDevice(userID: mock.userID) { response in
+        mockAPIService.enrollTrustedDevice(clientUserID: mock.userID) { response in
             switch response {
             case .success(let response):
                 resp = response
@@ -300,7 +300,7 @@ class APIServiceTests: XCTestCase {
             }
         }
         
-        let req = EnrollTrustedDevice(userID: mock.userID, code: mock.publicKey)
+        let req = EnrollTrustedDevice(clientUserID: mock.userID, code: mock.publicKey)
         
         expect(self.mockAPIService.enrollTrustedDeviceCalled).to(beTrue())
         expect(self.mockAPIService.enrollTrustedDeviceInputRequest).to(equal(req))
@@ -333,7 +333,7 @@ class APIServiceTests: XCTestCase {
         var resp: Codable?
         var err: Error? = nil
         
-        mockAPIService.getTrustedDeviceStatus(userID: mock.userID) { response in
+        mockAPIService.getTrustedDeviceStatus(clientUserID: mock.userID) { response in
             switch response {
             case .success(let response):
                 resp = response
@@ -342,7 +342,7 @@ class APIServiceTests: XCTestCase {
             }
         }
         
-        let req = GetTrustedDeviceStatus(userID: mock.userID, pubKey: mock.publicKey)
+        let req = GetTrustedDeviceStatus(clientUserID: mock.userID, pubKey: mock.publicKey)
         
         expect(self.mockAPIService.getTrustedDeviceStatusCalled).to(beTrue())
         expect(self.mockAPIService.getTrustedDeviceStatusInputRequest).to(equal(req))
@@ -375,7 +375,7 @@ class APIServiceTests: XCTestCase {
         var resp: Codable?
         var err: Error? = nil
         
-        mockAPIService.reqAuth(userID: mock.userID, event: mock.event) { response in
+        mockAPIService.reqAuth(clientUserID: mock.userID, event: mock.event) { response in
             switch response {
             case .success(let response):
                 resp = response

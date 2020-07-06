@@ -11,7 +11,7 @@ import Cotter
 import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
 
@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         // set default credentials
-        var apiKeyID = "fb1f9830-574c-4b0d-bafb-68713ed927a2"
+        var apiKeyID = "e8e4ae62-f291-4e95-8203-5ac38c3d0058"
         var apiSecretKey = "KLKqAQ6QXEScmQbYvtJm"
         
         if let key = Environment.shared.COTTER_API_KEY_ID {
@@ -38,8 +38,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // configuration is an optional argument, remove this below and Cotter app will still function properly
             configuration: [:]
         )
-        Cotter.configureWithLaunchOptions(launchOptions: launchOptions,apiSecretKey: apiSecretKey, apiKeyID: apiKeyID)
+        
+        // the following configuration is optional, only use this if you want to use your own fonts
+        // let customFont = FontObject()
+        // customFont.title = UIFont.systemFont(ofSize: 9.0)
+        // customFont.subtitle = UIFont.boldSystemFont(ofSize: 35.0)
+        
+        // let lang = Indonesian()
+        // lang.setText(for: PINViewControllerKey.navTitle, to: "Hello world!")
+        
+        // let img = ImageObject()
+        // img.setImage(for: VCImageKey.pinSuccessImg, to: "telegram")
+        
+        // custom coloring
+        let color = ColorSchemeObject(primary: CotterColor.purple, accent: CotterColor.orange)
+        
+        Cotter.configureWithLaunchOptions(
+            launchOptions: launchOptions,
+            apiSecretKey: apiSecretKey,
+            apiKeyID: apiKeyID,
+            configuration: [
+                // "fonts": customFont,
+                "colors": color,
+                // "images": img,
+                // "language": lang
+            ]
+        )
 
+        // if you want to start PINViewControler on startup, use getPINViewController
+        // let vc = CotterWrapper.cotter!.getPINViewController(hideClose: true, cb: Callback.shared.authCb)
+        // let nav = UINavigationController(rootViewController: vc)
+        // self.window?.rootViewController = nav
+        // self.window?.makeKeyAndVisible()
+        
+        // Granting user permission using notification center
         UNUserNotificationCenter.current() // 1
         .requestAuthorization(options: [.alert, .sound, .badge]) { // 2
           granted, error in
@@ -59,17 +91,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(
-      _ application: UIApplication,
-      didReceiveRemoteNotification userInfo: [AnyHashable: Any],
-      fetchCompletionHandler completionHandler:
-      @escaping (UIBackgroundFetchResult) -> Void
+      _ center: UNUserNotificationCenter,
+      didReceive response: UNNotificationResponse,
+      withCompletionHandler completionHandler: @escaping () -> Void
     ) {
-      guard let aps = userInfo["aps"] as? [String: AnyObject] else {
-        completionHandler(.failed)
-        return
-      }
+        print("\n\n\n called here \n\n\n\n")
+        if response.actionIdentifier ==  UNNotificationDefaultActionIdentifier {
+            print("actionIdentifier is UNNotificationDefaultActionIdentifier")
+            print(response.notification.request.content)
+        } else {
+            print("actionIdentifier is not UNNotificationDefaultActionIdentifier")
+            print(response)
+        }
+        
         // handle opened aps here from foreground or background
-        print(aps)
+        completionHandler()
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -93,7 +129,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
 }
-

@@ -24,15 +24,16 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("got here")
         
         // select the dashboard's ViewController
         let sboard = UIStoryboard(name: "Dashboard", bundle: nil)
         let dVC = sboard.instantiateViewController(withIdentifier: "DashboardViewController") as! DashboardViewController
         
-        func cbFunc(accessToken: String, error: Error?) -> Void{
+        func cbFunc(accessToken: String, error: Error?) -> Void {
+            print("hello world!")
             guard let error = error else {
                 dVC.accessToken = accessToken
+                print("[cbFunc] accessToken:", accessToken)
                 self.navigationController?.pushViewController(dVC, animated: true)
                 return
             }
@@ -55,17 +56,29 @@ class ViewController: UIViewController {
         // CotterWrapper.cotter?.startEnrollment(animated: true)
         
         // to optionally hide the close button
-        CotterWrapper.cotter?.startEnrollment(vc: self, animated: true, cb: Callback.shared.authCb, hideClose:true)
+        CotterWrapper.cotter?.startEnrollment(vc: self, animated: true, cb: Callback.shared.authCb)
     }
     
     @IBAction func clickStartTransaction(_ sender: Any) {
-        CotterWrapper.cotter?.startTransaction(vc: self, animated: true, cb: Callback.shared.authCb)
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        
+        CotterWrapper.cotter?.startTransaction(
+            vc: self,
+            animated: true,
+            cb: Callback.shared.authCb,
+            name: "", // fill the user's name
+            sendingMethod: "EMAIL", // fill user's email
+            sendingDestination: CotterWrapper.cotter?.userID
+        )
         
         // to optionally hide the back button
         // CotterWrapper.cotter?.startTransaction(animated: true, hideClose:true)
     }
     
     @IBAction func clickUpdateProfile(_ sender: Any) {
+        // set the back button navigation
+         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        
         CotterWrapper.cotter?.startUpdateProfile(vc: self, animated: true, cb: Callback.shared.authCb)
     }
 

@@ -34,20 +34,14 @@ public struct CreateAuthenticationEvent: APIRequest, AutoEquatable {
     }
     
     let evt: CotterEventRequest
-    var oauth: Bool = false
+    let oauth: Bool
     
     // pubKey needs to be a base64 URL safe encoded
     public init(
-        evt: CotterEventRequest
+        evt: CotterEventRequest,
+        oauth: Bool = false
     ){
         self.evt = evt
-    }
-    
-    public init(
-        evt: CotterEventRequest,
-        oauth: Bool
-    ) {
-        self.evt = evt
-        self.oauth = true
+        self.oauth = oauth
     }
 }

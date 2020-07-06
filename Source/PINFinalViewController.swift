@@ -78,6 +78,10 @@ class PINFinalViewPresenterImpl: PINFinalViewPresenter {
     }
 }
 
+protocol CallbackDelegate {
+    func callback(token: String, error: Error?)
+}
+
 class PINFinalViewController: UIViewController {
     
     // Auth Service
@@ -97,6 +101,8 @@ class PINFinalViewController: UIViewController {
     
     lazy var presenter: PINFinalViewPresenter = PINFinalViewPresenterImpl(self)
     
+    var delegate: CallbackDelegate? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("loaded PIN Final View!")
@@ -115,13 +121,10 @@ extension PINFinalViewController: PINFinalViewComponent {
     func setupUI() {
         // Remove Navigational UI
         self.navigationItem.hidesBackButton = true
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.layoutIfNeeded()
         
         // Button Configuration
-        let color = UIColor(red: 0.8588, green: 0.8588, blue: 0.8588, alpha: 1.0)
-        let width = CGFloat(2.0)
+        let color = Config.instance.colors.primary
+        let width = CGFloat(1.0)
         finishButton.backgroundColor = UIColor.clear
         finishButton.layer.cornerRadius = 10
         finishButton.layer.borderWidth = width
@@ -130,9 +133,12 @@ extension PINFinalViewController: PINFinalViewComponent {
     
     func render(_ props: PINFinalViewProps) {
         successLabel.text = props.title
+        successLabel.font = Config.instance.fonts.title
         successSubLabel.text = props.subtitle
+        successSubLabel.font = Config.instance.fonts.paragraph
         finishButton.setTitle(props.buttonTitle, for: .normal)
         finishButton.setTitleColor(props.primaryColor, for: .normal)
+        finishButton.titleLabel?.font = Config.instance.fonts.subtitle
         
         let cotterImages = ImageObject.defaultImages
         if cotterImages.contains(props.successImage) {
@@ -149,8 +155,10 @@ extension PINFinalViewController: PINFinalViewComponent {
         if requireAuth {
             // Touch ID/Face ID Verification
             authService.authenticate(view: self, reason: "Verification", callback: Config.instance.pinEnrollmentCb)
+        } else if delegate == nil {
+            Config.instance.updatePINCb("this is token", nil)
         } else {
-             Config.instance.updatePINCb("this is token", nil)
+            delegate?.callback(token: "token", error: nil)
         }
     }
 }

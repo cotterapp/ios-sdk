@@ -53,9 +53,6 @@ public class English: LanguageObject {
             ResetConfirmPINViewControllerKey.hidePin: "Hide PIN",
             ResetConfirmPINViewControllerKey.title: "Confirm your new PIN",
             
-            // MARK: - ResetPINFinalViewController
-            ResetPINFinalViewControllerKey.title: "New PIN successfully created!",
-            
             // MARK: - UpdatePINViewController
             UpdatePINViewControllerKey.navTitle: "Change PIN",
             UpdatePINViewControllerKey.showPin: "Show PIN",

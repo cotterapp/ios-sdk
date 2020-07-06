@@ -29,3 +29,33 @@ extension UIViewController {
         }
     }
 }
+
+extension UIViewController {
+    func getTitleLeft(with text: String) -> UIBarButtonItem {
+        let label = UILabel()
+        label.text = text
+        
+        label.font = Config.instance.fonts.heading
+        label.textColor = .black
+        label.numberOfLines = 1
+        label.textAlignment = .left
+        // fix ios 10 not show left bar button item
+        label.sizeToFit()
+        let titleLeft = UIBarButtonItem(customView: label)
+        return titleLeft
+    }
+    
+    func setupLeftTitleBar(with text: String) {
+        let leftItem = self.getTitleLeft(with: text)
+        if self.navigationItem.leftBarButtonItems != nil { self.navigationItem.leftBarButtonItems?.append(leftItem) }
+        else { self.navigationItem.leftBarButtonItem = leftItem }
+        
+        self.navigationItem.leftItemsSupplementBackButton = true
+        
+        self.setupDefaultNavbar()
+    }
+    
+    func setupDefaultNavbar() {
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+    }
+}

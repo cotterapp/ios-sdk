@@ -3,12 +3,13 @@
 # use_modular_headers!
 
 target 'CotterIOS_Example' do
+  pod 'TweeTextField'
   pod 'OneSignal', '2.13.1'
   pod 'Cotter', :path => '../'
-  pod 'Nimble', '~> 8.0'
-  pod 'Sourcery'
 
   target 'CotterIOS_Tests' do
     inherit! :search_paths
+    pod 'Nimble', '~> 8.0'
+    pod 'Sourcery'
   end
 end

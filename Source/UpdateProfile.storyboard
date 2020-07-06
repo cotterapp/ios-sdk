@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Qly-nY-PJb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Update PIN Nav Title-->
+        <!--UpdatePIN View Controller-->
         <scene sceneID="PaJ-lf-mZF">
             <objects>
                 <viewController storyboardIdentifier="UpdatePINViewController" id="vI7-VV-aEK" customClass="UpdatePINViewController" customModule="Cotter" customModuleProvider="target" sceneMemberID="viewController">
@@ -50,8 +50,8 @@
                                     <constraint firstAttribute="height" constant="355" id="sLl-mk-RVm"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Update PIN Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zrC-oU-0pq">
-                                <rect key="frame" x="145.5" y="201" width="123.5" height="19.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Update PIN Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zrC-oU-0pq">
+                                <rect key="frame" x="20" y="201" width="374" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -68,13 +68,15 @@
                             <constraint firstItem="Twk-8B-euK" firstAttribute="centerX" secondItem="ecN-oR-0oF" secondAttribute="centerX" id="ZWd-WA-g1F"/>
                             <constraint firstItem="BWh-mf-YV2" firstAttribute="centerX" secondItem="ecN-oR-0oF" secondAttribute="centerX" id="aKi-dj-lYa"/>
                             <constraint firstItem="BWh-mf-YV2" firstAttribute="centerY" secondItem="ecN-oR-0oF" secondAttribute="centerY" constant="-200" id="ajX-BL-TmJ"/>
+                            <constraint firstItem="zrC-oU-0pq" firstAttribute="leading" secondItem="nRc-rx-xyg" secondAttribute="leading" constant="20" id="eUO-EO-VdP"/>
                             <constraint firstItem="Twk-8B-euK" firstAttribute="top" secondItem="BWh-mf-YV2" secondAttribute="bottom" constant="5" id="ldU-Gn-KwL"/>
                             <constraint firstItem="CbK-dh-RzR" firstAttribute="leading" secondItem="nRc-rx-xyg" secondAttribute="leading" constant="20" id="x11-6K-mli"/>
                             <constraint firstItem="zrC-oU-0pq" firstAttribute="centerX" secondItem="ecN-oR-0oF" secondAttribute="centerX" id="yWK-bR-aHl"/>
+                            <constraint firstItem="nRc-rx-xyg" firstAttribute="trailing" secondItem="zrC-oU-0pq" secondAttribute="trailing" constant="20" id="zez-sx-xTK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nRc-rx-xyg"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Update PIN Nav Title" id="cKc-nH-UR9"/>
+                    <navigationItem key="navigationItem" id="cKc-nH-UR9"/>
                     <connections>
                         <outlet property="codeTextField" destination="BWh-mf-YV2" id="RzK-y8-zaY"/>
                         <outlet property="errorLabel" destination="OtH-nO-4oj" id="ha6-8T-uP9"/>
@@ -87,23 +89,7 @@
             </objects>
             <point key="canvasLocation" x="-104" y="151"/>
         </scene>
-        <!--Cotter View Controller-->
-        <scene sceneID="dVs-f6-bjJ">
-            <objects>
-                <navigationController id="Qly-nY-PJb" customClass="CotterViewController" customModule="Cotter" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2dh-I0-oAW">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="vI7-VV-aEK" kind="relationship" relationship="rootViewController" id="dlf-xW-05k"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bpy-KK-Rvp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-952" y="151"/>
-        </scene>
-        <!--Create New PIN Nav Title-->
+        <!--Update Create NewPIN View Controller-->
         <scene sceneID="40k-zn-CBx">
             <objects>
                 <viewController storyboardIdentifier="UpdateCreateNewPINViewController" id="jQ2-nb-vGX" customClass="UpdateCreateNewPINViewController" customModule="Cotter" customModuleProvider="target" sceneMemberID="viewController">
@@ -138,8 +124,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create New PIN Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="joL-uv-SPw">
-                                <rect key="frame" x="129" y="201" width="156.5" height="19.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create New PIN Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="joL-uv-SPw">
+                                <rect key="frame" x="20" y="201" width="374" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -156,7 +142,9 @@
                         <constraints>
                             <constraint firstItem="9PV-bv-3bZ" firstAttribute="centerX" secondItem="Ano-B6-oq4" secondAttribute="centerX" id="0Oe-CS-URZ"/>
                             <constraint firstItem="BXF-WN-O9C" firstAttribute="centerX" secondItem="Ano-B6-oq4" secondAttribute="centerX" id="LMa-A7-OY9"/>
+                            <constraint firstItem="joL-uv-SPw" firstAttribute="leading" secondItem="3zK-cT-1d5" secondAttribute="leading" constant="20" id="MEc-KG-25E"/>
                             <constraint firstItem="QCa-u7-BXw" firstAttribute="leading" secondItem="3zK-cT-1d5" secondAttribute="leading" constant="20" id="XFc-fD-vBc"/>
+                            <constraint firstItem="3zK-cT-1d5" firstAttribute="trailing" secondItem="joL-uv-SPw" secondAttribute="trailing" constant="20" id="Y6y-u6-GT5"/>
                             <constraint firstItem="QCa-u7-BXw" firstAttribute="bottom" secondItem="3zK-cT-1d5" secondAttribute="bottom" id="hW4-fc-XfA"/>
                             <constraint firstItem="aHt-eO-I8d" firstAttribute="centerX" secondItem="Ano-B6-oq4" secondAttribute="centerX" id="kwy-8N-wEl"/>
                             <constraint firstItem="3zK-cT-1d5" firstAttribute="trailing" secondItem="QCa-u7-BXw" secondAttribute="trailing" constant="20" id="laM-3D-jsb"/>
@@ -169,7 +157,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3zK-cT-1d5"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Create New PIN Nav Title" id="Ylh-hQ-ksS"/>
+                    <navigationItem key="navigationItem" id="Ylh-hQ-ksS"/>
                     <connections>
                         <outlet property="codeTextField" destination="BXF-WN-O9C" id="8J8-I3-1Xq"/>
                         <outlet property="errorLabel" destination="aHt-eO-I8d" id="IUn-Ao-Of3"/>
@@ -182,7 +170,7 @@
             </objects>
             <point key="canvasLocation" x="731.8840579710145" y="150.66964285714286"/>
         </scene>
-        <!--Confirm New PIN Nav Title-->
+        <!--Update Confirm NewPIN View Controller-->
         <scene sceneID="foa-0V-6wt">
             <objects>
                 <viewController storyboardIdentifier="UpdateConfirmNewPINViewController" id="bsn-Me-hsc" customClass="UpdateConfirmNewPINViewController" customModule="Cotter" customModuleProvider="target" sceneMemberID="viewController">
@@ -218,10 +206,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm new PIN Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5RD-iA-TLr">
-                                <rect key="frame" x="125" y="200.5" width="164.5" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="cbm-dn-8fU"/>
-                                </constraints>
+                                <rect key="frame" x="20" y="201" width="374" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -236,12 +221,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="v6E-Dc-X8J" firstAttribute="trailing" secondItem="5RD-iA-TLr" secondAttribute="trailing" constant="20" id="0zS-bq-uoB"/>
                             <constraint firstItem="vhx-8N-xWa" firstAttribute="bottom" secondItem="v6E-Dc-X8J" secondAttribute="bottom" id="Dy9-Uh-vKg"/>
                             <constraint firstItem="vhx-8N-xWa" firstAttribute="leading" secondItem="v6E-Dc-X8J" secondAttribute="leading" constant="20" id="ENt-2z-qTb"/>
                             <constraint firstItem="ZLF-zT-Un2" firstAttribute="centerX" secondItem="au9-2G-nrz" secondAttribute="centerX" id="Edt-XW-3rx"/>
                             <constraint firstItem="QeR-me-ToR" firstAttribute="centerX" secondItem="au9-2G-nrz" secondAttribute="centerX" id="GHV-5u-9Hb"/>
                             <constraint firstItem="QeR-me-ToR" firstAttribute="top" secondItem="npw-sC-zME" secondAttribute="bottom" constant="2" id="OLI-n1-Eqa"/>
                             <constraint firstItem="v6E-Dc-X8J" firstAttribute="trailing" secondItem="vhx-8N-xWa" secondAttribute="trailing" constant="20" id="ge0-wr-ZVX"/>
+                            <constraint firstItem="5RD-iA-TLr" firstAttribute="leading" secondItem="v6E-Dc-X8J" secondAttribute="leading" constant="20" id="j0U-cP-s1g"/>
                             <constraint firstItem="vhx-8N-xWa" firstAttribute="centerX" secondItem="au9-2G-nrz" secondAttribute="centerX" id="nc9-NS-gsm"/>
                             <constraint firstItem="npw-sC-zME" firstAttribute="centerX" secondItem="au9-2G-nrz" secondAttribute="centerX" id="pD1-5x-BZA"/>
                             <constraint firstItem="5RD-iA-TLr" firstAttribute="centerX" secondItem="au9-2G-nrz" secondAttribute="centerX" id="sTr-Tu-81R"/>
@@ -251,7 +238,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="v6E-Dc-X8J"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Confirm New PIN Nav Title" id="0CU-by-FLo"/>
+                    <navigationItem key="navigationItem" id="0CU-by-FLo"/>
                     <connections>
                         <outlet property="codeTextField" destination="ZLF-zT-Un2" id="XD8-53-QiK"/>
                         <outlet property="errorLabel" destination="QeR-me-ToR" id="KtF-zZ-4Ya"/>

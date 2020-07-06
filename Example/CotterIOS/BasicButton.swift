@@ -22,10 +22,11 @@ class BasicButton: UIButton {
     func setup() {
         // MARK: - Appearance Setup
         heightAnchor.constraint(equalToConstant: 50).isActive = true
-        backgroundColor = UIColor.random()
+        backgroundColor = UIColor.init(red: 125, green: 68, blue: 250, alpha: 1)
+        
+        self.layer.cornerRadius = 10
         
         // MARK: - Title Setup
         setTitleColor(UIColor.white, for: .normal)
-
     }
 }

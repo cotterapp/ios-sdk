@@ -165,14 +165,11 @@ extension UpdateCreateNewPINViewController : PINBaseController {
 // MARK: - UpdateCreateNewPINViewComponent Instantiations
 extension UpdateCreateNewPINViewController: UpdateCreateNewPINViewComponent {
     func setupUI() {
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.layoutIfNeeded()
-        
-        self.navigationItem.hidesBackButton = true
-        let backButton = UIBarButtonItem(title: "\u{2190}", style: UIBarButtonItem.Style.plain, target: self, action: #selector(UpdateCreateNewPINViewController.promptBack(sender:)))
-        backButton.tintColor = UIColor.black
-        self.navigationItem.leftBarButtonItem = backButton
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+//        self.navigationItem.hidesBackButton = true
+//        let backButton = UIBarButtonItem(title: "\u{2190}", style: UIBarButtonItem.Style.plain, target: self, action: #selector(UpdateCreateNewPINViewController.promptBack(sender:)))
+//        backButton.tintColor = UIColor.black
+//        self.navigationItem.leftBarButtonItems = [backButton]
         
         errorLabel.isHidden = true
         
@@ -188,11 +185,14 @@ extension UpdateCreateNewPINViewController: UpdateCreateNewPINViewComponent {
     }
     
     func render(_ props: UpdateCreateNewPINViewProps) {
-        navigationItem.title = props.navTitle
+        setupLeftTitleBar(with: props.navTitle)
         titleLabel.text = props.title
+        titleLabel.font = Config.instance.fonts.title
         pinVisibilityButton.setTitle(props.showPinText, for: .normal)
         pinVisibilityButton.setTitleColor(props.primaryColor, for: .normal)
+        pinVisibilityButton.titleLabel?.font = Config.instance.fonts.subtitle
         errorLabel.textColor = props.dangerColor
+        errorLabel.font = Config.instance.fonts.paragraph
     }
     
     func togglePinVisibility(button: UIButton, showPinText: String, hidePinText: String) {

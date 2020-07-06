@@ -27,11 +27,11 @@ class LoginViewController: UIViewController {
         CotterWrapper.cotter?.startPasswordlessLogin(
             parentView: self,
             input: textInput,
-            identifierField: "phone",
-            type: "PHONE",
+            identifierField: "email",
+            type: "EMAIL",
             directLogin: true,
-            cb: Callback.shared.authCb
-        )
+            authMethod: .magicLink
+        ){ (identity , err) in return} // do nothing callback
     }
     
     override func didReceiveMemoryWarning() {

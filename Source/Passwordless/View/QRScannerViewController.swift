@@ -177,7 +177,7 @@ class QRScannerViewController: UIViewController, QRScannerViewDelegate {
     */
     func qrScanningDidFail() {
         let img = UIImage(named: failImage, in: Cotter.resourceBundle, compatibleWith: nil)!
-        let popup = BottomPopupModal(vc: self, img: img, title: unableToReg, body: tryAgainLater)
+        let popup = BottomPopupModal(img: img, title: unableToReg, body: tryAgainLater)
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
             popup.dismiss()
             self.close()
@@ -195,7 +195,7 @@ class QRScannerViewController: UIViewController, QRScannerViewDelegate {
                 if evt.approved {
                     // if successful
                     let img = UIImage(named: successImage, in: Cotter.resourceBundle, compatibleWith: nil)!
-                    let popup = BottomPopupModal(vc: self, img: img, title: dialogTitle, body: dialogSubtitle)
+                    let popup = BottomPopupModal(img: img, title: dialogTitle, body: dialogSubtitle)
                     DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
                         popup.dismiss()
                     }

@@ -53,9 +53,6 @@ public class Indonesian: LanguageObject {
             ResetConfirmPINViewControllerKey.hidePin: "Sembunyikan",
             ResetConfirmPINViewControllerKey.title: "Masukkan PIN sekali lagi untuk konfirmasi",
             
-            // MARK: - ResetPINFinalViewController
-            ResetPINFinalViewControllerKey.title: "PIN baru berhasil dibuat!",
-            
             // MARK: - UpdatePINViewController
             UpdatePINViewControllerKey.navTitle: "Ubah PIN",
             UpdatePINViewControllerKey.showPin: "Lihat PIN",
@@ -132,7 +129,7 @@ public class Indonesian: LanguageObject {
             AuthAlertMessagesKey.verifyAuthTitle: "Verifikasi",
             AuthAlertMessagesKey.verifyAuthBody: "Verifikasi biometrik Anda untuk melanjutkan",
             AuthAlertMessagesKey.verifyAuthActionButton: "Lanjutkan",
-            AuthAlertMessagesKey.verifyAuthCancelButton: "Gunaken PIN",
+            AuthAlertMessagesKey.verifyAuthCancelButton: "Gunakan PIN",
             
             // MARK: - Dispatch Result Alert (Success)
             AuthAlertMessagesKey.successDispatchTitle: "Verifikasi",
@@ -145,7 +142,6 @@ public class Indonesian: LanguageObject {
             AuthAlertMessagesKey.failureDispatchBody: "Biometrik gagal.",
             AuthAlertMessagesKey.failureDispatchActionButton: "Coba Lagi",
             AuthAlertMessagesKey.failureDispatchCancelButton: "Input PIN",
-            
         ])
     }
 }

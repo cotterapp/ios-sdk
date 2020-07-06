@@ -19,4 +19,5 @@ public class AlertImageKey {
     public static let promptVerificationImg = "AlertImageKey/promptVerificationImg"
     public static let successVerificationImg = "AlertImageKey/successVerificationImg"
     public static let failureVerificationImg = "AlertImageKey/failureVerificationImg"
+    public static let failureBiometricImg = "AlertImageKey/failureBiometricImg"
 }

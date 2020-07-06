@@ -120,7 +120,8 @@ public class MockedCotterClient: APIClient {
             // MARK: - CotterIdentity Response
             let identifier = Identifier(id: mock.ID, createdAt: mock.createdAt, updatedAt: mock.updatedAt, deletedAt: mock.deletedAt, identifier: mock.identifier, identifierType: mock.identifierType, publicKey: mock.publicKey, deviceType: mock.deviceType, deviceName: mock.deviceName, expiry: mock.expiry)
             let token = Token(identifier: mock.identifier, identifierType: mock.identifierType, receiver: mock.receiver, expireAt: mock.expireAt, signature: mock.signature)
-            let identity = CotterIdentity(identifier: identifier, token: token)
+            let user = CotterUser(id: mock.ID, createdAt: mock.createdAt, updatedAt: mock.updatedAt, deletedAt: mock.deletedAt, issuer: mock.issuer, identifier: mock.identifier, clientUserID: mock.clientUserID, enrolled: mock.enrolledArray, defaultMethod: mock.defaultMethod)
+            let identity = CotterIdentity(identifier: identifier, token: token, user: user)
             return encodedMockObject(obj: identity)
         case is CotterNotificationCredential.Type:
             // MARK: - CotterNotificationCredential Response
@@ -140,7 +141,7 @@ public class MockedCotterClient: APIClient {
             return encodedMockObject(obj: resp)
         case is CotterUser.Type:
             // MARK: - CotterUser Response
-            let user = CotterUser(id: mock.ID, createdAt: mock.createdAt, updatedAt: mock.updatedAt, deletedAt: mock.deletedAt, issuer: mock.issuer, clientUserID: mock.clientUserID, enrolled: mock.enrolledArray, defaultMethod: mock.defaultMethod)
+            let user = CotterUser(id: mock.ID, createdAt: mock.createdAt, updatedAt: mock.updatedAt, deletedAt: mock.deletedAt, issuer: mock.issuer, identifier: mock.identifier, clientUserID: mock.clientUserID, enrolled: mock.enrolledArray, defaultMethod: mock.defaultMethod)
             return encodedMockObject(obj: user)
         default:
             return Data()
