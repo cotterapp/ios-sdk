@@ -54,7 +54,7 @@ class AlertService: NSObject {
         nv.addSubview(alertView)
         
         titleLabel.text = title
-        titleLabel.textColor = UIColor.black
+        titleLabel.textColor = .black
         titleLabel.font = Config.instance.fonts.title
         titleLabel.numberOfLines = 0
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
