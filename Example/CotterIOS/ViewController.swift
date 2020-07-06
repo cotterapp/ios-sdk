@@ -24,7 +24,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("got here")
         
         // select the dashboard's ViewController
         let sboard = UIStoryboard(name: "Dashboard", bundle: nil)
@@ -59,6 +58,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func clickStartTransaction(_ sender: Any) {
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        
         CotterWrapper.cotter?.startTransaction(vc: self, animated: true, cb: Callback.shared.authCb)
         
         // to optionally hide the back button
@@ -67,7 +68,7 @@ class ViewController: UIViewController {
     
     @IBAction func clickUpdateProfile(_ sender: Any) {
         // set the back button navigation
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
         CotterWrapper.cotter?.startUpdateProfile(vc: self, animated: true, cb: Callback.shared.authCb)
     }

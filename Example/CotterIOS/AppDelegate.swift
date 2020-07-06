@@ -11,7 +11,7 @@ import Cotter
 import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
 
@@ -39,8 +39,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             configuration: [:]
         )
         
+        // the following configuration is optional, only use this if you want to use your own fonts
         let customFont = FontObject()
-        customFont.subtitle = UIFont.boldSystemFont(ofSize: 35.0)
+        // customFont.subtitle = UIFont.boldSystemFont(ofSize: 35.0)
+        
+        // custom coloring
+        let color = ColorSchemeObject(primary: CotterColor.purple, accent: CotterColor.orange)
         
         Cotter.configureWithLaunchOptions(
             launchOptions: launchOptions,
@@ -48,6 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             apiKeyID: apiKeyID,
             configuration: [
                 "fonts": customFont,
+                "colors": color
             ]
         )
 
@@ -57,6 +62,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // self.window?.rootViewController = nav
         // self.window?.makeKeyAndVisible()
         
+        // Granting user permission using notification center
         UNUserNotificationCenter.current() // 1
         .requestAuthorization(options: [.alert, .sound, .badge]) { // 2
           granted, error in
@@ -76,17 +82,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(
-      _ application: UIApplication,
-      didReceiveRemoteNotification userInfo: [AnyHashable: Any],
-      fetchCompletionHandler completionHandler:
-      @escaping (UIBackgroundFetchResult) -> Void
+      _ center: UNUserNotificationCenter,
+      didReceive response: UNNotificationResponse,
+      withCompletionHandler completionHandler: @escaping () -> Void
     ) {
-      guard let aps = userInfo["aps"] as? [String: AnyObject] else {
-        completionHandler(.failed)
-        return
-      }
+        print("\n\n\n called here \n\n\n\n")
+        if response.actionIdentifier ==  UNNotificationDefaultActionIdentifier {
+            print("actionIdentifier is UNNotificationDefaultActionIdentifier")
+            print(response.notification.request.content)
+        } else {
+            print("actionIdentifier is not UNNotificationDefaultActionIdentifier")
+            print(response)
+        }
+        
         // handle opened aps here from foreground or background
-        print(aps)
+        completionHandler()
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -110,7 +120,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
 }
-

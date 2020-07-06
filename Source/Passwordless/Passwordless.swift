@@ -24,11 +24,6 @@ public class Passwordless: NSObject {
     
     public static var shared = Passwordless()
     
-    override public init() {
-        self.parentVC = UIViewController()
-    }
-    
-    public var parentVC: UIViewController
     
     // MARK: - FIDO Login
     public func login(identifier:String, cb: @escaping CotterAuthCallback = DoNothingCallback){
@@ -42,7 +37,7 @@ public class Passwordless: NSObject {
                 }
                 
                 // which means non trusted device is logging in..
-                _ = NonTrusted(vc: self.parentVC, eventID: String(resp.id), cb: cb)
+                _ = NonTrusted(eventID: String(resp.id), cb: cb)
                 
             case .failure(let err):
                 cb(nil, err)
@@ -84,7 +79,7 @@ public class Passwordless: NSObject {
                 }
                 
                 // which means non trusted device is logging in..
-                _ = NonTrusted(vc: self.parentVC, eventID: String(resp.id), cb: cb)
+                _ = NonTrusted(eventID: String(resp.id), cb: cb)
                 
             case .failure(let err):
                 cb(nil, err)
@@ -102,7 +97,8 @@ public class Passwordless: NSObject {
                     // present the trusted device consent page
                     let tVC = Cotter.cotterStoryboard.instantiateViewController(withIdentifier: "TrustedViewController") as! TrustedViewController
                     tVC.event = evt
-                    self.parentVC.present(tVC, animated: true)
+                    
+                    getTopMostViewController()?.present(tVC, animated: true)
                 }
                 // else, nothing happens
             case .failure(let err):
@@ -207,7 +203,8 @@ public class Passwordless: NSObject {
                 if resp.enrolled && resp.method == CotterMethods.TrustedDevice {
                     // Enrolled in Trusted Devices, do not continue
                     let img = UIImage(named: failImage, in: Cotter.resourceBundle, compatibleWith: nil)!
-                    let popup = BottomPopupModal(vc: parentVC, img: img, title: unableToContinue, body: deviceAlreadyReg)
+
+                    let popup = BottomPopupModal(img: img, title: unableToContinue, body: deviceAlreadyReg)
                     DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
                         popup.dismiss()
                     }
@@ -216,12 +213,14 @@ public class Passwordless: NSObject {
                     let vc = Cotter.cotterStoryboard.instantiateViewController(withIdentifier: "RegisterTrustedViewController") as! RegisterTrustedViewController
                      vc.userID = identifier
                      vc.cb = cb
-                     
-                     self.parentVC.present(vc, animated: true)
+                    
+                    guard let window = UIApplication.shared.delegate?.window else { return }
+                    window?.rootViewController?.present(vc, animated: true) // why need optional on window?
                 }
             case .failure:
                 let img = UIImage(named: failImage, in: Cotter.resourceBundle, compatibleWith: nil)!
-                let popup = BottomPopupModal(vc: parentVC, img: img, title: somethingWentWrong, body: tryAgainLater)
+                
+                let popup = BottomPopupModal(img: img, title: somethingWentWrong, body: tryAgainLater)
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
                     popup.dismiss()
                 }
@@ -242,18 +241,20 @@ public class Passwordless: NSObject {
                     let vc = Cotter.cotterStoryboard.instantiateViewController(withIdentifier: "QRScannerViewController") as! QRScannerViewController
                     vc.userID = identifier
                     
-                    self.parentVC.navigationController?.pushViewController(vc, animated: true)
+                    guard let window = UIApplication.shared.delegate?.window else { return }
+                    window?.rootViewController?.present(vc, animated: true)
                 } else {
                     // Not enrolled in Trusted Devices, do not continue
                     let img = UIImage(named: failImage, in: Cotter.resourceBundle, compatibleWith: nil)!
-                    let popup = BottomPopupModal(vc: parentVC, img: img, title: unableToContinue, body: deviceNotReg)
+                    
+                    let popup = BottomPopupModal(img: img, title: unableToContinue, body: deviceNotReg)
                     DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
                         popup.dismiss()
                     }
                 }
             case .failure:
                 let img = UIImage(named: failImage, in: Cotter.resourceBundle, compatibleWith: nil)!
-                let popup = BottomPopupModal(vc: parentVC, img: img, title: somethingWentWrong, body: tryAgainLater)
+                let popup = BottomPopupModal(img: img, title: somethingWentWrong, body: tryAgainLater)
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
                     popup.dismiss()
                 }
@@ -281,4 +282,16 @@ public class Passwordless: NSObject {
 func randomString(length: Int) -> String {
   let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
   return String((0..<length).map{ _ in letters.randomElement()! })
+}
+
+func getTopMostViewController() -> UIViewController? {
+    guard let root = UIApplication.shared.delegate?.window??.rootViewController else { return nil }
+    
+    var topController = root
+    
+    while let newController = topController.presentedViewController {
+        topController = newController
+    }
+    
+    return topController
 }

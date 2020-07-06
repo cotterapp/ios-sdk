@@ -161,11 +161,6 @@ extension ResetNewPINViewController: ResetNewPINViewComponent {
         // Implement Custom Back Button instead of default in Nav controller
         self.navigationItem.hidesBackButton = true
         
-        // Remove default Nav controller styling
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.layoutIfNeeded()
-        
         errorLabel.isHidden = true
         
         codeTextField.configure()

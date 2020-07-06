@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="121-lC-Vhv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -61,7 +61,7 @@
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                 <state key="normal" title="Forget PIN Button"/>
                                 <connections>
-                                    <segue destination="6pz-MC-9vT" kind="show" id="di1-If-81s"/>
+                                    <segue destination="6pz-MC-9vT" kind="presentation" modalPresentationStyle="fullScreen" id="di1-If-81s"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -191,22 +191,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XgS-ck-DVF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="702.89855072463774" y="150.66964285714286"/>
-        </scene>
-        <!--Cotter View Controller-->
-        <scene sceneID="Gum-yL-7vs">
-            <objects>
-                <navigationController id="121-lC-Vhv" customClass="CotterViewController" customModule="Cotter" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9P1-Gj-Jlx">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="XD6-bF-oRs" kind="relationship" relationship="rootViewController" id="ipt-4W-2cC"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oLc-Id-X0L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-920" y="151"/>
         </scene>
         <!--Reset NewPIN View Controller-->
         <scene sceneID="vBn-HU-mpk">

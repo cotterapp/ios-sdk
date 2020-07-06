@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-               BuildableName = "CotterIOS_Example.app"
+               BuildableName = "CotteIOS_Example.app"
                BlueprintName = "CotterIOS_Example"
                ReferencedContainer = "container:CotterIOS.xcodeproj">
             </BuildableReference>
@@ -46,7 +46,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "CotterIOS_Example.app"
+            BuildableName = "CotteIOS_Example.app"
             BlueprintName = "CotterIOS_Example"
             ReferencedContainer = "container:CotterIOS.xcodeproj">
          </BuildableReference>
@@ -79,7 +79,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "CotterIOS_Example.app"
+            BuildableName = "CotteIOS_Example.app"
             BlueprintName = "CotterIOS_Example"
             ReferencedContainer = "container:CotterIOS.xcodeproj">
          </BuildableReference>
@@ -108,7 +108,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "CotterIOS_Example.app"
+            BuildableName = "CotteIOS_Example.app"
             BlueprintName = "CotterIOS_Example"
             ReferencedContainer = "container:CotterIOS.xcodeproj">
          </BuildableReference>

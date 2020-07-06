@@ -8,10 +8,10 @@
 
 import UIKit
 import Cotter
+import TweeTextField
 
 class EntryViewController: UIViewController {
-
-    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var textField: TweeBorderedTextField!
     @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var loginButton: BasicButton!
     @IBOutlet weak var enrollTrustedForUserButton: BasicButton!
@@ -28,13 +28,22 @@ class EntryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // setup dismiss keyboard on tap anywhere
+        self.hideKeyboardWhenTappedAround()
+        
+        self.setupUI()
+    }
+    
+    func setupUI() {
+        // setup text field
+        self.textField.setup()
     }
     
     @IBAction func login(_ sender: Any) {
         guard let userID = self.textField.text else { return }
         self.view.endEditing(true)
         
-        Passwordless.shared.parentVC = self
         Passwordless.shared.login(identifier: userID, cb: { (token: CotterOAuthToken?, err:Error?) in
             if err != nil {
                 // handle error as necessary
@@ -58,7 +67,6 @@ class EntryViewController: UIViewController {
     @IBAction func checkEvent(_ sender: Any) {
         guard let userID = self.textField.text else { return }
         self.view.endEditing(true)
-        Passwordless.shared.parentVC = self
         Passwordless.shared.checkEvent(identifier:userID)
     }
     
@@ -67,8 +75,6 @@ class EntryViewController: UIViewController {
         switch(identifier) {
         case "segueToHome":
             print("prepare segue for ViewController")
-            let vc = segue.destination as! ViewController
-            vc.userID = self.userID
         default:
             print("unknown segue identifier: \(identifier)")
         }

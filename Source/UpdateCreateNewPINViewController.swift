@@ -165,14 +165,11 @@ extension UpdateCreateNewPINViewController : PINBaseController {
 // MARK: - UpdateCreateNewPINViewComponent Instantiations
 extension UpdateCreateNewPINViewController: UpdateCreateNewPINViewComponent {
     func setupUI() {
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.layoutIfNeeded()
-        
-        self.navigationItem.hidesBackButton = true
-        let backButton = UIBarButtonItem(title: "\u{2190}", style: UIBarButtonItem.Style.plain, target: self, action: #selector(UpdateCreateNewPINViewController.promptBack(sender:)))
-        backButton.tintColor = UIColor.black
-        self.navigationItem.leftBarButtonItems = [backButton]
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+//        self.navigationItem.hidesBackButton = true
+//        let backButton = UIBarButtonItem(title: "\u{2190}", style: UIBarButtonItem.Style.plain, target: self, action: #selector(UpdateCreateNewPINViewController.promptBack(sender:)))
+//        backButton.tintColor = UIColor.black
+//        self.navigationItem.leftBarButtonItems = [backButton]
         
         errorLabel.isHidden = true
         

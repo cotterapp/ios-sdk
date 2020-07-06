@@ -4,18 +4,21 @@ PODS:
   - Nimble (8.0.7)
   - OneSignal (2.13.1)
   - Sourcery (0.18.0)
+  - TweeTextField (1.6.3)
 
 DEPENDENCIES:
   - Cotter (from `../`)
   - Nimble (~> 8.0)
   - OneSignal (= 2.13.1)
   - Sourcery
+  - TweeTextField
 
 SPEC REPOS:
   trunk:
     - Nimble
     - OneSignal
     - Sourcery
+    - TweeTextField
 
 EXTERNAL SOURCES:
   Cotter:
@@ -26,7 +29,8 @@ SPEC CHECKSUMS:
   Nimble: a73af6ecd4c9106f434f3d55fc54570be3739e0b
   OneSignal: fa98eaa90372bb367b6a4a1c1622ffb9832c7600
   Sourcery: e0e8658a1ce6d9f475156ad3ffce4c68f1261b3e
+  TweeTextField: 47bf8e7f0433364a7f7e119c45e7f278ea50eb62
 
-PODFILE CHECKSUM: a851759e06dc520458cec6c743ff00b11c159bda
+PODFILE CHECKSUM: bfeaa59c6541292b0abf767e8cdf8cc9b40c4652
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.9.1

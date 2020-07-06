@@ -14,6 +14,9 @@ class CotterColor {
         UIColor(red: 248, green: 80, blue: 96) // orange
     ]
     
+    static let purple: UIColor = UIColor(red: 129, green: 75, blue: 237)
+    static let orange: UIColor = UIColor(red: 248, green: 80, blue: 96)
+    
     static let size = colors.count
     
     public static func random() -> UIColor {

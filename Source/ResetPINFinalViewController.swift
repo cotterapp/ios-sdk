@@ -85,9 +85,6 @@ class ResetPINFinalViewController: UIViewController {
 extension ResetPINFinalViewController: ResetPINFinalViewComponent {
     func setupUI() {
         self.navigationItem.hidesBackButton = true
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.layoutIfNeeded()
     }
     
     func render(_ props: ResetPINFinalViewProps) {

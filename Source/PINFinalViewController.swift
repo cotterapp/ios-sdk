@@ -115,9 +115,6 @@ extension PINFinalViewController: PINFinalViewComponent {
     func setupUI() {
         // Remove Navigational UI
         self.navigationItem.hidesBackButton = true
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.layoutIfNeeded()
         
         // Button Configuration
         let color = UIColor(red: 0.8588, green: 0.8588, blue: 0.8588, alpha: 1.0)

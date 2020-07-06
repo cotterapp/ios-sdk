@@ -58,6 +58,7 @@ class LocalAuthService: UIViewController {
     let fingerprintImg = CotterImages.instance.getImage(for: AlertImageKey.promptVerificationImg)
     let successImg = CotterImages.instance.getImage(for: AlertImageKey.successVerificationImg)
     let failureImg = CotterImages.instance.getImage(for: AlertImageKey.failureVerificationImg)
+    let bioFailImg = CotterImages.instance.getImage(for: AlertImageKey.failureBiometricImg)
     
     var successAuthCallbackFunc: FinalAuthCallback?
     
@@ -108,6 +109,7 @@ class LocalAuthService: UIViewController {
                 callback(resp.approved)
             case .failure(let err):
                 // we can handle multiple error results here
+                callback(false)
                 print(err.localizedDescription)
             }
         }
@@ -327,7 +329,7 @@ class LocalAuthService: UIViewController {
                 body: self.failureBody,
                 actionButtonTitle: self.failureAction,
                 cancelButtonTitle: self.failureCancel,
-                imagePath: failureImg
+                imagePath: bioFailImg
             )
             
             // try again will re-authenticate

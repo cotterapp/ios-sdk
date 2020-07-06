@@ -214,10 +214,6 @@ extension ResetConfirmPINViewController: ResetConfirmPINViewComponent {
         backButton.tintColor = UIColor.black
         self.navigationItem.leftBarButtonItem = backButton
         
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.layoutIfNeeded()
-        
         errorLabel.isHidden = true
         
         codeTextField.configure()

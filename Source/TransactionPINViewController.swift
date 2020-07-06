@@ -210,17 +210,8 @@ extension TransactionPINViewController: TransactionPINViewComponent {
     }
     
     func setupUI() {
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.layoutIfNeeded()
-        
-        self.navigationItem.hidesBackButton = true
-
-        if !self.hideCloseButton {
-            let crossButton = UIBarButtonItem(title: "\u{2190}", style: UIBarButtonItem.Style.plain, target: self, action: #selector(TransactionPINViewController.promptClose(sender:)))
-            crossButton.tintColor = UIColor.black
-            self.navigationItem.leftBarButtonItems = [crossButton]
-        }
+        self.navigationItem.hidesBackButton = self.hideCloseButton
+        self.navigationController?.setup()
         
         errorLabel.isHidden = true
         

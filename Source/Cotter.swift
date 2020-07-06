@@ -133,7 +133,7 @@ public class Cotter {
         Config.instance.pinEnrollmentCb = transformCb(parent: vc, cb: cb)
         
         // push the viewcontroller to the navController
-        let nav = UINavigationController(rootViewController: self.pinVC)
+        let nav = CotterNavigationViewController(rootViewController: self.pinVC)
         nav.modalPresentationStyle = .fullScreen
         vc.present(nav, animated: true, completion: nil)
     }
@@ -180,9 +180,7 @@ public class Cotter {
         
         // if you want to show close button, need to wrap it inside a navigation controller
         if !hideClose {
-            let nav = UINavigationController(rootViewController: self.transactionPinVC)
-            nav.modalPresentationStyle = .fullScreen
-            vc.present(nav, animated: true, completion: nil)
+            vc.navigationController?.pushViewController(self.transactionPinVC, animated: true)
         } else {
             self.transactionPinVC.modalPresentationStyle = .fullScreen
             vc.present(self.transactionPinVC, animated: true, completion: nil)
@@ -289,7 +287,6 @@ public class Cotter {
     ) {
         print("configuring Cotter's object...")
         CotterAPIService.shared.baseURL = URL(string: "https://www.cotter.app/api/v0")!
-//        CotterAPIService.shared.baseURL = URL(string: "https://s.www.cotter.app/api/v0")!
 //        CotterAPIService.shared.baseURL = URL(string: "http://localhost:1234/api/v0")!
 //        CotterAPIService.shared.baseURL = URL(string:"http://192.168.86.28:1234/api/v0")!
         CotterAPIService.shared.apiSecretKey = apiSecretKey
@@ -315,6 +312,7 @@ public class Cotter {
         }
     }
     
+    // configureWithLaunchOptions configures cotter with notification services (OneSignal)
     public static func configureWithLaunchOptions(
         launchOptions: [UIApplication.LaunchOptionsKey: Any]?,
         apiSecretKey: String,
@@ -330,19 +328,24 @@ public class Cotter {
     
     // configureOneSignal configure cotter's onesignal SDK with launchOptions provided
     private static func configureOneSignal(launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
+        print("configuringOneSignal")
         let onesignalInitSettings = [kOSSettingsKeyAutoPrompt: false,
          kOSSettingsKeyInAppLaunchURL: true]
 
         func notifCb(res: CotterResult<CotterNotificationCredential>) {
+            print("getting notification app id");
             switch res {
                 case .success(let cred):
+                    // if appID is not setup don't use initiate OneSignal
+                    if cred.appID == "" { return }
+                    
                     OneSignal.initWithLaunchOptions(launchOptions,
                                                   appId: cred.appID,
                                                   handleNotificationReceived: nil,
-                                                  handleNotificationAction: nil,
+                                                  handleNotificationAction: notificationOpenedHandler,
                                                   settings: onesignalInitSettings)
 
-                    OneSignal.inFocusDisplayType = OSNotificationDisplayType.notification
+                    OneSignal.inFocusDisplayType = .notification
                   
                 case .failure(let err):
                     print(err)
@@ -354,10 +357,26 @@ public class Cotter {
 
 func transformCb(parent: UIViewController, cb: @escaping FinalAuthCallback) -> FinalAuthCallback {
     return { (token:String, err: Error?) in
-        // NEW: - untuk dismis prensented VC
-        parent.dismiss(animated: true, completion: nil)
+        // to dismiss views
+        parent.presentedViewController?.dismiss(animated: true, completion: nil)
         parent.navigationController?.popToViewController(parent, animated: false)
         parent.setOriginalStatusBarStyle()
         cb(token, err)
+    }
+}
+
+func notificationOpenedHandler( result: OSNotificationOpenedResult? ) {
+    // This block gets called when the user reacts to a notification received
+    let payload: OSNotificationPayload = result!.notification.payload
+    
+    if payload.additionalData != nil {
+        let customData = payload.additionalData
+        if customData?["cotter"] != nil, let authMethod = customData?["auth_method"] as! String?, authMethod == "TRUSTED_DEVICE" {
+            guard let userID = CotterAPIService.shared.userID else {
+                print("user ID is not set")
+                return
+            }
+            Passwordless.shared.checkEvent(identifier: userID)
+        }
     }
 }

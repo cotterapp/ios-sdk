@@ -172,14 +172,11 @@ extension PINViewController: PINViewComponent {
         // if close
         if !self.hideCloseButton {
             let crossButton = UIBarButtonItem(title: "\u{2717}", style: UIBarButtonItem.Style.plain, target: self, action: #selector(promptClose(sender:)))
-            crossButton.tintColor = UIColor.black
+            crossButton.tintColor = Config.instance.colors.primary
             self.navigationItem.leftBarButtonItems = [crossButton]
         }
         
-        // Remove default Nav controller styling
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.layoutIfNeeded()
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
         // Hide error label initially
         errorLabel.isHidden = true

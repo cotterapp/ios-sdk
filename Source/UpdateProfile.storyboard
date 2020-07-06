@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Qly-nY-PJb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -50,8 +50,8 @@
                                     <constraint firstAttribute="height" constant="355" id="sLl-mk-RVm"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Update PIN Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zrC-oU-0pq">
-                                <rect key="frame" x="145.5" y="201" width="123.5" height="19.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Update PIN Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zrC-oU-0pq">
+                                <rect key="frame" x="20" y="201" width="374" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -68,9 +68,11 @@
                             <constraint firstItem="Twk-8B-euK" firstAttribute="centerX" secondItem="ecN-oR-0oF" secondAttribute="centerX" id="ZWd-WA-g1F"/>
                             <constraint firstItem="BWh-mf-YV2" firstAttribute="centerX" secondItem="ecN-oR-0oF" secondAttribute="centerX" id="aKi-dj-lYa"/>
                             <constraint firstItem="BWh-mf-YV2" firstAttribute="centerY" secondItem="ecN-oR-0oF" secondAttribute="centerY" constant="-200" id="ajX-BL-TmJ"/>
+                            <constraint firstItem="zrC-oU-0pq" firstAttribute="leading" secondItem="nRc-rx-xyg" secondAttribute="leading" constant="20" id="eUO-EO-VdP"/>
                             <constraint firstItem="Twk-8B-euK" firstAttribute="top" secondItem="BWh-mf-YV2" secondAttribute="bottom" constant="5" id="ldU-Gn-KwL"/>
                             <constraint firstItem="CbK-dh-RzR" firstAttribute="leading" secondItem="nRc-rx-xyg" secondAttribute="leading" constant="20" id="x11-6K-mli"/>
                             <constraint firstItem="zrC-oU-0pq" firstAttribute="centerX" secondItem="ecN-oR-0oF" secondAttribute="centerX" id="yWK-bR-aHl"/>
+                            <constraint firstItem="nRc-rx-xyg" firstAttribute="trailing" secondItem="zrC-oU-0pq" secondAttribute="trailing" constant="20" id="zez-sx-xTK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nRc-rx-xyg"/>
                     </view>
@@ -86,22 +88,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8YW-zG-2Lu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-104" y="151"/>
-        </scene>
-        <!--Cotter View Controller-->
-        <scene sceneID="dVs-f6-bjJ">
-            <objects>
-                <navigationController id="Qly-nY-PJb" customClass="CotterViewController" customModule="Cotter" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2dh-I0-oAW">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="vI7-VV-aEK" kind="relationship" relationship="rootViewController" id="dlf-xW-05k"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bpy-KK-Rvp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-952" y="151"/>
         </scene>
         <!--Update Create NewPIN View Controller-->
         <scene sceneID="40k-zn-CBx">
@@ -138,8 +124,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create New PIN Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="joL-uv-SPw">
-                                <rect key="frame" x="129" y="201" width="156.5" height="19.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create New PIN Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="joL-uv-SPw">
+                                <rect key="frame" x="20" y="201" width="374" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -156,7 +142,9 @@
                         <constraints>
                             <constraint firstItem="9PV-bv-3bZ" firstAttribute="centerX" secondItem="Ano-B6-oq4" secondAttribute="centerX" id="0Oe-CS-URZ"/>
                             <constraint firstItem="BXF-WN-O9C" firstAttribute="centerX" secondItem="Ano-B6-oq4" secondAttribute="centerX" id="LMa-A7-OY9"/>
+                            <constraint firstItem="joL-uv-SPw" firstAttribute="leading" secondItem="3zK-cT-1d5" secondAttribute="leading" constant="20" id="MEc-KG-25E"/>
                             <constraint firstItem="QCa-u7-BXw" firstAttribute="leading" secondItem="3zK-cT-1d5" secondAttribute="leading" constant="20" id="XFc-fD-vBc"/>
+                            <constraint firstItem="3zK-cT-1d5" firstAttribute="trailing" secondItem="joL-uv-SPw" secondAttribute="trailing" constant="20" id="Y6y-u6-GT5"/>
                             <constraint firstItem="QCa-u7-BXw" firstAttribute="bottom" secondItem="3zK-cT-1d5" secondAttribute="bottom" id="hW4-fc-XfA"/>
                             <constraint firstItem="aHt-eO-I8d" firstAttribute="centerX" secondItem="Ano-B6-oq4" secondAttribute="centerX" id="kwy-8N-wEl"/>
                             <constraint firstItem="3zK-cT-1d5" firstAttribute="trailing" secondItem="QCa-u7-BXw" secondAttribute="trailing" constant="20" id="laM-3D-jsb"/>

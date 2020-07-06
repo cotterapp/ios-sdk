@@ -36,7 +36,7 @@ extension UIViewController {
         label.text = text
         
         label.font = Config.instance.fonts.heading
-//        label.textColor = # BAREKSA_COLOR.blackOriginal.withAlphaComponent(0.87) #000000
+        label.textColor = .black
         label.numberOfLines = 1
         label.textAlignment = .left
         // fix ios 10 not show left bar button item

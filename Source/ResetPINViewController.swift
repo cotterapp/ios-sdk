@@ -200,11 +200,6 @@ extension ResetPINViewController: ResetPINViewComponent {
         crossButton.tintColor = UIColor.black
         self.navigationItem.leftBarButtonItem = crossButton
         
-        // Remove default Nav controller styling
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.layoutIfNeeded()
-        
         resetPinError.isHidden = true
         
         resetCodeTextField.configure()

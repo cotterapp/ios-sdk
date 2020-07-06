@@ -166,11 +166,11 @@ extension UpdatePINViewController : PINBaseController {
 // MARK: - UpdatePINViewComponent Instantiations
 extension UpdatePINViewController: UpdatePINViewComponent {
     func setupUI() {
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.layoutIfNeeded()
-        
         errorLabel.isHidden = true
+        
+        // navigation controller setup
+        self.navigationController?.setup()
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
         codeTextField.configure()
     }

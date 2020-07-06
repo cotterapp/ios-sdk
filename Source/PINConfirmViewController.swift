@@ -183,10 +183,6 @@ extension PINConfirmViewController : PINBaseController {
 // MARK: - PINConfirmViewComponent Render
 extension PINConfirmViewController: PINConfirmViewComponent {
     func setupUI() {
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.layoutIfNeeded()
-        
         errorLabel.isHidden = true
         
         codeTextField.configure()

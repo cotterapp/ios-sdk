@@ -8,22 +8,28 @@
 
 import UIKit
 import Cotter
+import TweeTextField
 
 class RegisterViewController: UIViewController {
     
     @IBOutlet weak var infoLabel: UILabel!
-    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var textField: TweeBorderedTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.setupUI()
+    }
+    
+    func setupUI() {
+        // setup textField
+        self.textField.setup()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.infoLabel.text = ""
     }
-    
     
     // upon registration we want to do:
     // 1. Verify user's email

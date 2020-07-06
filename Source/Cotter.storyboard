@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kCl-QE-3LL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment version="4864" identifier="iOS"/>
@@ -11,6 +11,7 @@
         <!--View Controller-->
         <scene sceneID="4lm-bl-fiZ">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="grD-Dy-e9d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="PINViewController" id="LMD-8x-Qra" customClass="PINViewController" customModule="Cotter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hW0-cu-n3w">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -25,8 +26,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Activate PIN Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1PK-2f-0wS">
-                                <rect key="frame" x="142" y="201" width="130" height="19.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Activate PIN Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1PK-2f-0wS">
+                                <rect key="frame" x="20" y="201" width="374" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -63,8 +64,10 @@
                             <constraint firstItem="LS9-Ka-A8X" firstAttribute="centerX" secondItem="hW0-cu-n3w" secondAttribute="centerX" id="5X2-ee-MZd"/>
                             <constraint firstItem="0PC-5d-syA" firstAttribute="centerX" secondItem="hW0-cu-n3w" secondAttribute="centerX" id="DOx-mk-sX3"/>
                             <constraint firstItem="Q6m-1D-Kw7" firstAttribute="leading" secondItem="S8w-Bm-DxA" secondAttribute="leading" constant="20" id="EsJ-Gc-gTg"/>
+                            <constraint firstItem="1PK-2f-0wS" firstAttribute="leading" secondItem="S8w-Bm-DxA" secondAttribute="leading" constant="20" id="MaT-VX-ITB"/>
                             <constraint firstItem="S8w-Bm-DxA" firstAttribute="trailing" secondItem="Q6m-1D-Kw7" secondAttribute="trailing" constant="20" id="Nco-4Z-WdH"/>
                             <constraint firstItem="LS9-Ka-A8X" firstAttribute="centerY" secondItem="hW0-cu-n3w" secondAttribute="centerY" constant="-200" id="Z7f-2Y-sb3"/>
+                            <constraint firstItem="S8w-Bm-DxA" firstAttribute="trailing" secondItem="1PK-2f-0wS" secondAttribute="trailing" constant="20" id="ZRn-Ci-Ibf"/>
                             <constraint firstItem="6ar-Es-Gas" firstAttribute="top" secondItem="0PC-5d-syA" secondAttribute="bottom" constant="2" id="Zxs-La-zRN"/>
                             <constraint firstItem="1PK-2f-0wS" firstAttribute="centerX" secondItem="hW0-cu-n3w" secondAttribute="centerX" id="pdx-um-6ic"/>
                             <constraint firstItem="Q6m-1D-Kw7" firstAttribute="centerX" secondItem="hW0-cu-n3w" secondAttribute="centerX" id="sIB-e4-c0K"/>
@@ -74,7 +77,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="S8w-Bm-DxA"/>
                     </view>
-                    <navigationItem key="navigationItem" id="lKt-Yj-7om"/>
+                    <navigationItem key="navigationItem" id="TrB-ZK-Zy4"/>
                     <connections>
                         <outlet property="codeTextField" destination="LS9-Ka-A8X" id="niP-1t-0Rq"/>
                         <outlet property="errorLabel" destination="6ar-Es-Gas" id="fHK-ey-nl6"/>
@@ -83,25 +86,8 @@
                         <outlet property="titleLabel" destination="1PK-2f-0wS" id="fnc-nt-6Xu"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="grD-Dy-e9d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="289.85507246376812" y="290.625"/>
-        </scene>
-        <!--Cotter View Controller-->
-        <scene sceneID="zJx-Uh-2dA">
-            <objects>
-                <navigationController id="kCl-QE-3LL" customClass="CotterViewController" customModule="Cotter" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5Yh-GC-yE1">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="LMD-8x-Qra" kind="relationship" relationship="rootViewController" id="mOr-g8-YSw"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="47I-et-vnp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-526" y="292"/>
         </scene>
         <!--Confirm View Controller-->
         <scene sceneID="4qe-vV-OvK">
@@ -121,10 +107,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm PIN Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dj7-fR-Vc3">
-                                <rect key="frame" x="142.5" y="200.5" width="129" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="wGH-PK-ljk"/>
-                                </constraints>
+                                <rect key="frame" x="20" y="201" width="374" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -158,6 +141,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="cLf-RU-y5M" firstAttribute="centerY" secondItem="r8d-Au-sDb" secondAttribute="centerY" constant="-200" id="3Qc-ip-5OJ"/>
+                            <constraint firstItem="Dj7-fR-Vc3" firstAttribute="leading" secondItem="lWl-af-mxx" secondAttribute="leading" constant="20" id="Dk9-QR-xXx"/>
                             <constraint firstItem="Dj7-fR-Vc3" firstAttribute="centerX" secondItem="r8d-Au-sDb" secondAttribute="centerX" id="Hzj-A8-3bh"/>
                             <constraint firstItem="apd-eL-wSJ" firstAttribute="centerX" secondItem="r8d-Au-sDb" secondAttribute="centerX" id="T1B-Yw-7sy"/>
                             <constraint firstItem="cLf-RU-y5M" firstAttribute="top" secondItem="Dj7-fR-Vc3" secondAttribute="bottom" constant="10" id="a9x-HV-pnd"/>
@@ -165,6 +149,7 @@
                             <constraint firstItem="cLf-RU-y5M" firstAttribute="centerX" secondItem="r8d-Au-sDb" secondAttribute="centerX" id="bVR-03-7xY"/>
                             <constraint firstItem="RoK-2U-CM6" firstAttribute="top" secondItem="cLf-RU-y5M" secondAttribute="bottom" constant="5" id="hxK-Jk-hhQ"/>
                             <constraint firstItem="apd-eL-wSJ" firstAttribute="top" secondItem="RoK-2U-CM6" secondAttribute="bottom" constant="2" id="i6s-KD-mG9"/>
+                            <constraint firstItem="lWl-af-mxx" firstAttribute="trailing" secondItem="Dj7-fR-Vc3" secondAttribute="trailing" constant="20" id="rc0-Xe-dNn"/>
                             <constraint firstItem="lWl-af-mxx" firstAttribute="bottom" secondItem="qXS-Hd-xxe" secondAttribute="bottom" constant="5" id="u0Z-LR-kdY"/>
                             <constraint firstItem="lWl-af-mxx" firstAttribute="trailing" secondItem="qXS-Hd-xxe" secondAttribute="trailing" constant="20" id="vJ2-Wh-yJS"/>
                             <constraint firstItem="qXS-Hd-xxe" firstAttribute="centerX" secondItem="r8d-Au-sDb" secondAttribute="centerX" id="yK8-Qn-YZz"/>

@@ -14,7 +14,6 @@ public class NonTrustedKey {
 }
 
 public class NonTrusted {
-    var parentVC: UIViewController!
     var eventID: String
     var cb: CotterAuthCallback
     
@@ -37,25 +36,29 @@ public class NonTrusted {
     let successImage = CotterImages.instance.getImage(for: VCImageKey.nonTrustedPhoneTap)
     let failImage = CotterImages.instance.getImage(for: VCImageKey.nonTrustedPhoneTapFail)
     
+    // initializer for old TrustedDevice class
+    // do not need to use init function
+    public convenience init(vc: UIViewController, eventID:String, cb: @escaping CotterAuthCallback) {
+        self.init(eventID:eventID, cb:cb)
+    }
+    
     // init initialize the authorization prompt on a nontrusted device
-    public init(vc:UIViewController, eventID:String, cb: @escaping CotterAuthCallback) {
-        parentVC = vc
+    public init(eventID:String, cb: @escaping CotterAuthCallback) {
         self.eventID = eventID
         self.cb = cb
         
         // initialize the view
         self.popup = BottomPopupModal(
-            vc: vc,
             img: UIImage(named: successImage, in: Cotter.resourceBundle, compatibleWith: nil)!,
             title: dialogTitle,
             body: dialogSubtitle
         )
         
+        self.popup.delegate = self
         self.waitForApproval()
     }
     
     private func dismiss() {
-        self.stop = true
         // add some nice animation
         self.popup.dismiss()
     }
@@ -105,7 +108,6 @@ public class NonTrusted {
         
         self.popup.dismiss(animated: false)
         self.popup = BottomPopupModal(
-            vc: self.parentVC,
             img: UIImage(named: failImage, in: Cotter.resourceBundle, compatibleWith: nil)!,
             title: "Something Went Wrong",
             body: "We're unable to confirm that it's you. Please try again."
@@ -114,5 +116,12 @@ public class NonTrusted {
             // dismiss 3 seconds later
             self.dismiss()
         }
+    }
+}
+
+extension NonTrusted: BottomPopupModalDelegate {
+    // When dismissed by tapping the dark overlay, BottomPopupModal will do the completion
+    func dismissCompletion() {
+        self.stop = true
     }
 }
