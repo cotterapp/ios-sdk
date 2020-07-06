@@ -4,7 +4,7 @@
 
 target 'CotterIOS_Example' do
   pod 'TweeTextField'
-  pod 'OneSignal', '2.13.1'
+  pod 'OneSignal', '2.14.3'
   pod 'Cotter', :path => '../'
 
   target 'CotterIOS_Tests' do
