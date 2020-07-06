@@ -128,8 +128,6 @@ extension PINConfirmViewController : PINBaseController {
         }
         
         codeTextField.didEnterLastDigit = { code in
-            print("PIN Code Entered: ", code)
-            
             // If the entered digits are not the same, show error.
             if code != self.prevCode! {
                 if self.errorLabel.isHidden {
@@ -222,7 +220,6 @@ extension PINConfirmViewController : KeyboardViewDelegate {
     func keyboardButtonTapped(buttonNumber: NSInteger) {
         // If backspace tapped, remove last char. Else, append new char.
         if buttonNumber == -1 {
-            print("removing number")
             codeTextField.removeNumber()
         } else {
             codeTextField.appendNumber(buttonNumber: buttonNumber)

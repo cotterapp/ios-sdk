@@ -27,7 +27,6 @@
 		6C7AAACA24524829005A10F8 /* ResetPINViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7AAAC924524829005A10F8 /* ResetPINViewControllerTests.swift */; };
 		6C7AAACC24525330005A10F8 /* ResetNewPINViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7AAACB24525330005A10F8 /* ResetNewPINViewControllerTests.swift */; };
 		6C7AAACE24525928005A10F8 /* ResetConfirmPINViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7AAACD24525928005A10F8 /* ResetConfirmPINViewControllerTests.swift */; };
-		6C7AAAD024525E36005A10F8 /* ResetPINFinalViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7AAACF24525E36005A10F8 /* ResetPINFinalViewControllerTests.swift */; };
 		6C7AAAD224528D48005A10F8 /* UpdatePINViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7AAAD124528D48005A10F8 /* UpdatePINViewControllerTests.swift */; };
 		6C7AAAD424533EAC005A10F8 /* UpdateCreateNewPINViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7AAAD324533EAC005A10F8 /* UpdateCreateNewPINViewControllerTests.swift */; };
 		6C7AAAD624534347005A10F8 /* UpdateConfirmNewPINViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7AAAD524534347005A10F8 /* UpdateConfirmNewPINViewControllerTests.swift */; };
@@ -92,7 +91,6 @@
 		6C7AAAC924524829005A10F8 /* ResetPINViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPINViewControllerTests.swift; sourceTree = "<group>"; };
 		6C7AAACB24525330005A10F8 /* ResetNewPINViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetNewPINViewControllerTests.swift; sourceTree = "<group>"; };
 		6C7AAACD24525928005A10F8 /* ResetConfirmPINViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetConfirmPINViewControllerTests.swift; sourceTree = "<group>"; };
-		6C7AAACF24525E36005A10F8 /* ResetPINFinalViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPINFinalViewControllerTests.swift; sourceTree = "<group>"; };
 		6C7AAAD124528D48005A10F8 /* UpdatePINViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePINViewControllerTests.swift; sourceTree = "<group>"; };
 		6C7AAAD324533EAC005A10F8 /* UpdateCreateNewPINViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateCreateNewPINViewControllerTests.swift; sourceTree = "<group>"; };
 		6C7AAAD524534347005A10F8 /* UpdateConfirmNewPINViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateConfirmNewPINViewControllerTests.swift; sourceTree = "<group>"; };
@@ -273,7 +271,6 @@
 				6C7AAAC924524829005A10F8 /* ResetPINViewControllerTests.swift */,
 				6C7AAACB24525330005A10F8 /* ResetNewPINViewControllerTests.swift */,
 				6C7AAACD24525928005A10F8 /* ResetConfirmPINViewControllerTests.swift */,
-				6C7AAACF24525E36005A10F8 /* ResetPINFinalViewControllerTests.swift */,
 				6C7AAAD124528D48005A10F8 /* UpdatePINViewControllerTests.swift */,
 				6C7AAAD324533EAC005A10F8 /* UpdateCreateNewPINViewControllerTests.swift */,
 				6C7AAAD524534347005A10F8 /* UpdateConfirmNewPINViewControllerTests.swift */,
@@ -589,7 +586,6 @@
 			files = (
 				6C7AAAD424533EAC005A10F8 /* UpdateCreateNewPINViewControllerTests.swift in Sources */,
 				6C7AAAC024511543005A10F8 /* CotterImagesTests.swift in Sources */,
-				6C7AAAD024525E36005A10F8 /* ResetPINFinalViewControllerTests.swift in Sources */,
 				6C638BFE2468E8890089CE30 /* APIServiceTests.swift in Sources */,
 				6C7AAACC24525330005A10F8 /* ResetNewPINViewControllerTests.swift in Sources */,
 				6C7AAAC424511592005A10F8 /* ImageObjectTests.swift in Sources */,

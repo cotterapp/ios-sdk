@@ -211,6 +211,7 @@ extension TransactionPINViewController: TransactionPINViewComponent {
     
     func setupUI() {
         self.navigationItem.hidesBackButton = self.hideCloseButton
+        
         self.navigationController?.setup()
         
         errorLabel.isHidden = true

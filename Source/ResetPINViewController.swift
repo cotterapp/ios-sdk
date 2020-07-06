@@ -140,8 +140,6 @@ extension ResetPINViewController: PINBaseController {
         }
         
         resetCodeTextField.didEnterLastDigit = { code in
-            print("PIN Code Entered: ", code)
-            
             guard let userInfo = Config.instance.userInfo, let challengeID = userInfo.resetChallengeID, let challenge = userInfo.resetChallenge else {
                 if self.resetPinError.isHidden {
                     self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.unableToResetPin))
@@ -156,10 +154,9 @@ extension ResetPINViewController: PINBaseController {
                     if data.success {
                         // Store the Reset Code
                         Config.instance.userInfo?.resetCode = code
-                        
                         self.resetCodeTextField.clear()
                         // Go to Reset New PIN View
-                        let resetNewPINVC = self.storyboard?.instantiateViewController(withIdentifier: "ResetNewPINViewController")as! ResetNewPINViewController
+                        let resetNewPINVC = self.storyboard?.instantiateViewController(withIdentifier: "ResetNewPINViewController") as! ResetNewPINViewController
                         self.navigationController?.pushViewController(resetNewPINVC, animated: true)
                     } else {
                         // Display Error
@@ -193,13 +190,6 @@ extension ResetPINViewController: PINBaseController {
 // MARK: - ResetPINViewController Instantiations
 extension ResetPINViewController: ResetPINViewComponent {
     func setupUI() {
-        // Implement the Custom Back Button instead of default in Nav Controller
-        self.navigationItem.hidesBackButton = true
-        
-        let crossButton = UIBarButtonItem(title: "\u{2190}", style: UIBarButtonItem.Style.plain, target: self, action: #selector(promptClose(sender:)))
-        crossButton.tintColor = UIColor.black
-        self.navigationItem.leftBarButtonItem = crossButton
-        
         resetPinError.isHidden = true
         
         resetCodeTextField.configure()
@@ -215,7 +205,7 @@ extension ResetPINViewController: ResetPINViewComponent {
     }
     
     func render(_ props: ResetPINViewProps) {
-        navigationItem.title = props.navTitle
+        setupLeftTitleBar(with: props.navTitle)
         resetPinTitle.text = props.title
         resetPinError.textColor = props.dangerColor
         resetPinTitle.font = Config.instance.fonts.title

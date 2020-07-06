@@ -29,9 +29,11 @@ class ViewController: UIViewController {
         let sboard = UIStoryboard(name: "Dashboard", bundle: nil)
         let dVC = sboard.instantiateViewController(withIdentifier: "DashboardViewController") as! DashboardViewController
         
-        func cbFunc(accessToken: String, error: Error?) -> Void{
+        func cbFunc(accessToken: String, error: Error?) -> Void {
+            print("hello world!")
             guard let error = error else {
                 dVC.accessToken = accessToken
+                print("[cbFunc] accessToken:", accessToken)
                 self.navigationController?.pushViewController(dVC, animated: true)
                 return
             }
@@ -60,7 +62,14 @@ class ViewController: UIViewController {
     @IBAction func clickStartTransaction(_ sender: Any) {
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
-        CotterWrapper.cotter?.startTransaction(vc: self, animated: true, cb: Callback.shared.authCb)
+        CotterWrapper.cotter?.startTransaction(
+            vc: self,
+            animated: true,
+            cb: Callback.shared.authCb,
+            name: "", // fill the user's name
+            sendingMethod: "EMAIL", // fill user's email
+            sendingDestination: CotterWrapper.cotter?.userID
+        )
         
         // to optionally hide the back button
         // CotterWrapper.cotter?.startTransaction(animated: true, hideClose:true)

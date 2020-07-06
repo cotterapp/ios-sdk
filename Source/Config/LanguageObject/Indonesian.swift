@@ -53,9 +53,6 @@ public class Indonesian: LanguageObject {
             ResetConfirmPINViewControllerKey.hidePin: "Sembunyikan",
             ResetConfirmPINViewControllerKey.title: "Masukkan PIN sekali lagi untuk konfirmasi",
             
-            // MARK: - ResetPINFinalViewController
-            ResetPINFinalViewControllerKey.title: "PIN baru berhasil dibuat!",
-            
             // MARK: - UpdatePINViewController
             UpdatePINViewControllerKey.navTitle: "Ubah PIN",
             UpdatePINViewControllerKey.showPin: "Lihat PIN",

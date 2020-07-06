@@ -172,7 +172,6 @@
 		B79FC6E46F642C3FC74B3E6D9175B1AB /* SatisfyAllOf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DC0E623A13595D23CB47A0172CD511 /* SatisfyAllOf.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
 		B7E7246DD98E09A6B66B9E0D73158197 /* BottomPopupModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A46DA30B9FCE85C2588A1D69352F21A /* BottomPopupModal.swift */; };
 		B807A71C6B766EF6547AA276E9A561DF /* RegisterBiometric.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2E47EEEA9D48BA5140C819C6971B5D /* RegisterBiometric.swift */; };
-		BAA8D652116D6B1C6419CFD917E0A0EE /* ResetPINFinalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBFEE4D1DFA0920AB108E469E9EA87 /* ResetPINFinalViewController.swift */; };
 		BBE6B5B9B15FEF978C460DE04E41321C /* Transaction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5495317E9B67C2AE4168B20EBBA0311C /* Transaction.storyboard */; };
 		C051C0411627BD5FCDA031782EB1F716 /* DSL.h in Headers */ = {isa = PBXBuildFile; fileRef = C3422C7A5395F98960DBF27E6DEBBFF5 /* DSL.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C0C98C8C7D07E1598F20EE2F0539197D /* NMBExpectation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23026408AF132EC629B4CF546D950E90 /* NMBExpectation.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
@@ -586,7 +585,6 @@
 		B15896BF7266C88E0A555CDAC3ECD7C8 /* Pods-CotterIOS_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CotterIOS_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		B282B2F0054BCD5145589A41986CEA6E /* VerifyPINResetCode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VerifyPINResetCode.swift; sourceTree = "<group>"; };
 		B31A1F66D133666DDF5FF4FC13DE4C36 /* TweeTextField.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TweeTextField.debug.xcconfig; sourceTree = "<group>"; };
-		B5CBFEE4D1DFA0920AB108E469E9EA87 /* ResetPINFinalViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResetPINFinalViewController.swift; path = Source/ResetPINFinalViewController.swift; sourceTree = "<group>"; };
 		B5EC561E8F0D727E44A6E53102841BC1 /* BeAnInstanceOf.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BeAnInstanceOf.swift; path = Sources/Nimble/Matchers/BeAnInstanceOf.swift; sourceTree = "<group>"; };
 		B6000248A84A07EAE379D66F02CC5F85 /* APIClient.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = APIClient.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Protocols/APIClient.html; sourceTree = "<group>"; };
 		B63F3E29446815A013B9A0B9D004B94C /* MatcherFunc.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MatcherFunc.swift; path = Sources/Nimble/Matchers/MatcherFunc.swift; sourceTree = "<group>"; };
@@ -1057,7 +1055,6 @@
 				3A59D3FFEEDEB90538F1676E8DE167AF /* PINViewController.swift */,
 				A32B7169ACF78366027E28D8446C4857 /* ResetConfirmPINViewController.swift */,
 				10C0AEFA661B99BAED7F3360B64DA542 /* ResetNewPINViewController.swift */,
-				B5CBFEE4D1DFA0920AB108E469E9EA87 /* ResetPINFinalViewController.swift */,
 				C5CB5D368D88761B1AC92E0DC2A0D03D /* ResetPINViewController.swift */,
 				87210210341B4F393ADA30D3791F635A /* TransactionPINViewController.swift */,
 				61DFB5B16D0D3374C93A4878487604EC /* UpdateConfirmNewPINViewController.swift */,
@@ -1922,7 +1919,6 @@
 				EA996679A175055326DD37DED3570F30 /* ResetConfirmPINViewController.swift in Sources */,
 				2B0FED58626418775364C8DBB07E14CA /* ResetNewPINViewController.swift in Sources */,
 				369121B9C3BD25256A610507860B98DA /* ResetPIN.swift in Sources */,
-				BAA8D652116D6B1C6419CFD917E0A0EE /* ResetPINFinalViewController.swift in Sources */,
 				83900D927F3881ABF40D2CADDE621C69 /* ResetPINViewController.swift in Sources */,
 				E2905704F238303FE14D46584261EEEE /* RespondEvent.swift in Sources */,
 				6A9DCEEBB63D4CE2CCA1FE11592A832C /* Response.swift in Sources */,

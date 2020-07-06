@@ -127,8 +127,6 @@ extension ResetNewPINViewController : PINBaseController {
         
         // Instantiate Function to run when PIN is fully entered
         codeTextField.didEnterLastDigit = { code in
-            print("PIN Code Entered: ", code)
-            
             // If code has repeating digits or is a straight number, show error.
             let pattern = "\\b(\\d)\\1+\\b"
             let result = code.range(of: pattern, options: .regularExpression)
@@ -158,9 +156,6 @@ extension ResetNewPINViewController : PINBaseController {
 // MARK: - ResetNewPINViewComponent Instantiations
 extension ResetNewPINViewController: ResetNewPINViewComponent {
     func setupUI() {
-        // Implement Custom Back Button instead of default in Nav controller
-        self.navigationItem.hidesBackButton = true
-        
         errorLabel.isHidden = true
         
         codeTextField.configure()
@@ -171,7 +166,7 @@ extension ResetNewPINViewController: ResetNewPINViewComponent {
     }
     
     func render(_ props: ResetNewPINViewProps) {
-        navigationItem.title = props.navTitle
+        self.setupLeftTitleBar(with: props.navTitle)
         titleLabel.text = props.title
         titleLabel.font = Config.instance.fonts.title
         pinVisibilityButton.setTitle(props.showPinText, for: .normal)

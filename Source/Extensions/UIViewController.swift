@@ -51,5 +51,11 @@ extension UIViewController {
         else { self.navigationItem.leftBarButtonItem = leftItem }
         
         self.navigationItem.leftItemsSupplementBackButton = true
+        
+        self.setupDefaultNavbar()
+    }
+    
+    func setupDefaultNavbar() {
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
 }

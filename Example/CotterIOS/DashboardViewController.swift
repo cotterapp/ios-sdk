@@ -21,6 +21,11 @@ class DashboardViewController: UIViewController {
         accessTokenLabel.text = accessToken!
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        accessTokenLabel.text = accessToken
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

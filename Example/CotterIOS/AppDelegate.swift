@@ -40,8 +40,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         )
         
         // the following configuration is optional, only use this if you want to use your own fonts
-        let customFont = FontObject()
+        // let customFont = FontObject()
+        // customFont.title = UIFont.systemFont(ofSize: 9.0)
         // customFont.subtitle = UIFont.boldSystemFont(ofSize: 35.0)
+        
+        // let lang = Indonesian()
+        // lang.setText(for: PINViewControllerKey.navTitle, to: "Hello world!")
+        
+        // let img = ImageObject()
+        // img.setImage(for: VCImageKey.pinSuccessImg, to: "telegram")
         
         // custom coloring
         let color = ColorSchemeObject(primary: CotterColor.purple, accent: CotterColor.orange)
@@ -51,8 +58,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             apiSecretKey: apiSecretKey,
             apiKeyID: apiKeyID,
             configuration: [
-                "fonts": customFont,
-                "colors": color
+                // "fonts": customFont,
+                "colors": color,
+                // "images": img,
+                // "language": lang
             ]
         )
 

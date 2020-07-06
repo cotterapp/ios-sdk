@@ -174,7 +174,9 @@ extension ResetConfirmPINViewController : PINBaseController {
                         // Clear Reset Information after success
                         Config.instance.userInfo?.clearResetInfo()
                         // Go to Reset PIN Final View
-                        let resetPINFinalVC = self.storyboard?.instantiateViewController(withIdentifier: "ResetPINFinalViewController")as! ResetPINFinalViewController
+                        let resetPINFinalVC = Cotter.cotterStoryboard.instantiateViewController(withIdentifier: "PINFinalViewController") as! PINFinalViewController
+                        resetPINFinalVC.requireAuth = false
+                        resetPINFinalVC.delegate = self
                         self.navigationController?.pushViewController(resetPINFinalVC, animated: true)
                     } else {
                         // Display Error
@@ -209,11 +211,6 @@ extension ResetConfirmPINViewController : PINBaseController {
 // MARK: - ResetConfirmPINViewComponent Instantiations
 extension ResetConfirmPINViewController: ResetConfirmPINViewComponent {
     func setupUI() {
-        self.navigationItem.hidesBackButton = true
-        let backButton = UIBarButtonItem(title: "\u{2190}", style: UIBarButtonItem.Style.plain, target: self, action: #selector(navigateBack(sender:)))
-        backButton.tintColor = UIColor.black
-        self.navigationItem.leftBarButtonItem = backButton
-        
         errorLabel.isHidden = true
         
         codeTextField.configure()
@@ -228,7 +225,7 @@ extension ResetConfirmPINViewController: ResetConfirmPINViewComponent {
     }
     
     func render(_ props: ResetConfirmPINViewProps) {
-        navigationItem.title = props.navTitle
+        self.setupLeftTitleBar(with: props.navTitle)
         titleLabel.text = props.title
         titleLabel.font = Config.instance.fonts.title
         pinVisibilityButton.setTitle(props.showPinText, for: .normal)
@@ -259,5 +256,11 @@ extension ResetConfirmPINViewController : KeyboardViewDelegate {
         } else {
             codeTextField.appendNumber(buttonNumber: buttonNumber)
         }
+    }
+}
+
+extension ResetConfirmPINViewController: CallbackDelegate {
+    func callback(token: String, error: Error?) {
+        Config.instance.transactionCb(token, error)
     }
 }

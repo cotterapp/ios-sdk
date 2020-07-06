@@ -176,8 +176,6 @@ extension PINViewController: PINViewComponent {
             self.navigationItem.leftBarButtonItems = [crossButton]
         }
         
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        
         // Hide error label initially
         errorLabel.isHidden = true
         
@@ -207,7 +205,7 @@ extension PINViewController: PINViewComponent {
     func render(_ props: PINViewProps) {
         setupLeftTitleBar(with: props.navTitle)
         titleLabel.text = props.title
-        titleLabel.font = Config.instance.fonts.heading
+        titleLabel.font = Config.instance.fonts.title
         pinVisibilityButton.setTitle(props.showPinText, for: .normal)
         pinVisibilityButton.setTitleColor(props.primaryColor, for: .normal)
         pinVisibilityButton.titleLabel?.font = Config.instance.fonts.subtitle
