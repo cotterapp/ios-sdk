@@ -6,6 +6,7 @@ target 'CotterIOS_Example' do
   pod 'TweeTextField'
   pod 'OneSignal', '2.14.3'
   pod 'Cotter', :path => '../'
+  pod 'SwiftJWT'
 
   target 'CotterIOS_Tests' do
     inherit! :search_paths

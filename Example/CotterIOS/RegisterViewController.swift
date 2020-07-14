@@ -66,7 +66,7 @@ class RegisterViewController: UIViewController {
             */
             
             // Flip the logic if you want to register first, then verify the users
-            Passwordless.shared.register(identifier: input){ (user: CotterUser?, err:Error?) in
+            Passwordless.shared.registerWith(identifier: input){ (user: CotterUser?, err:Error?) in
                 if err != nil {
                     // handle error as necessary
                     print(err?.localizedDescription)
@@ -97,7 +97,7 @@ class RegisterViewController: UIViewController {
             }
         } else {
             // Fallback on earlier versions
-            Passwordless.shared.register(identifier: input, cb: { (user: CotterUser?, err:Error?) in
+            Passwordless.shared.registerWith(identifier: input, cb: { (user: CotterUser?, err:Error?) in
                 if err != nil {
                     // handle error as necessary
                 }

@@ -24,7 +24,6 @@ public class Passwordless: NSObject {
     
     public static var shared = Passwordless()
     
-    
     // MARK: - FIDO Login
     public func login(identifier:String, cb: @escaping CotterAuthCallback = DoNothingCallback){
         // create a callback
@@ -32,6 +31,7 @@ public class Passwordless: NSObject {
             switch resp {
             case .success(let resp):
                 if resp.approved {
+                    setCotterDefaultToken(token: resp.oauthToken)
                     cb(resp.oauthToken, nil)
                     return
                 }
@@ -44,7 +44,7 @@ public class Passwordless: NSObject {
             }
         }
         
-        // TODO: get the public key
+        // get the public key then set the external id
         guard let pubKey = KeyStore.trusted(userID: identifier).pubKey else {
             print("[login] Unable to attain user's public key!")
             return
@@ -54,7 +54,14 @@ public class Passwordless: NSObject {
         
         OneSignal.setExternalUserId(pubKeyBase64)
         
-        CotterAPIService.shared.reqAuth(clientUserID: identifier, event: CotterEvents.Login, cb: loginCb)
+        CotterAPIService.shared.getUser(identifier: identifier) { resp in
+            switch resp {
+            case .success(let user):
+                CotterAPIService.shared.reqAuth(clientUserID: user.clientUserID, event: CotterEvents.Login, cb: loginCb)
+            case .failure(let err):
+                cb(nil, err)
+            }
+        }
     }
     
     // loginWith
@@ -74,6 +81,7 @@ public class Passwordless: NSObject {
             switch resp {
             case .success(let resp):
                 if resp.approved {
+                    setCotterDefaultToken(token: resp.oauthToken)
                     cb(resp.oauthToken, nil)
                     return
                 }
@@ -98,7 +106,16 @@ public class Passwordless: NSObject {
                     let tVC = Cotter.cotterStoryboard.instantiateViewController(withIdentifier: "TrustedViewController") as! TrustedViewController
                     tVC.event = evt
                     
-                    getTopMostViewController()?.present(tVC, animated: true)
+                    if let topView = getTopMostViewController() {
+                        topView.present(tVC, animated: true)
+                    } else {
+                        // this means that the app was killed.
+                        // present the event controller as the top VC.
+                        let window = UIApplication.shared.delegate?.window
+                        let nav = UINavigationController(rootViewController: tVC)
+                        window??.rootViewController = nav
+                        window??.makeKeyAndVisible()
+                    }
                 }
                 // else, nothing happens
             case .failure(let err):
@@ -128,6 +145,8 @@ public class Passwordless: NSObject {
                         
                         OneSignal.setExternalUserId(pubKeyBase64)
                         
+                        // need to do the login action so we can get some access token for this account
+                        self.login(identifier: identifier)
                         cb(user, nil)
                         
                     case .failure(let err):
@@ -161,6 +180,7 @@ public class Passwordless: NSObject {
                         
                         OneSignal.setExternalUserId(pubKeyBase64)
                         
+                        self.loginWith(cotterUserID: user.id)
                         cb(user, nil)
                         
                     case .failure(let err):
@@ -179,6 +199,7 @@ public class Passwordless: NSObject {
         CotterAPIService.shared.enrollTrustedDeviceWith(cotterUser: cotterUser) { (response) in
             switch response{
             case .success(let user):
+                self.loginWith(cotterUserID: user.id)
                 cb(user, nil)
                 
             case .failure(let err):
@@ -190,6 +211,7 @@ public class Passwordless: NSObject {
     // logout unmaps the external user id
     public func logout() {
         OneSignal.removeExternalUserId()
+        deleteCotterDefaultToken()
     }
     
     // registerDevice registers a new trusted device

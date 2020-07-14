@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgD-eS-bbn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="LXs-oP-w5Y">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -11,7 +11,7 @@
         <!--Cotter Example App-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="CotteIOS_Example" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" id="vXZ-lx-hvc" customClass="ViewController" customModule="CotterIOS_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -21,7 +21,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P3r-wO-R4a">
-                                <rect key="frame" x="165.5" y="20" width="83.5" height="20.5"/>
+                                <rect key="frame" x="40" y="20" width="83.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -32,14 +32,14 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="h66-OQ-Arc">
                                         <rect key="frame" x="0.0" y="0.0" width="344" height="30"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cJz-AF-KNf" customClass="BasicButton" customModule="CotteIOS_Example" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cJz-AF-KNf" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="169.5" height="30"/>
                                                 <state key="normal" title="Start PIN Transaction"/>
                                                 <connections>
                                                     <action selector="clickStartTransaction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="9pP-S0-Fge"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mtB-9J-M19" customClass="BasicButton" customModule="CotteIOS_Example" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mtB-9J-M19" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
                                                 <rect key="frame" x="174.5" y="0.0" width="169.5" height="30"/>
                                                 <state key="normal" title="Login Page"/>
                                                 <connections>
@@ -51,14 +51,14 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ZM5-hZ-3vX">
                                         <rect key="frame" x="0.0" y="40" width="344" height="30"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XcD-u1-ZcS" customClass="BasicButton" customModule="CotteIOS_Example" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XcD-u1-ZcS" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="169.5" height="30"/>
                                                 <state key="normal" title="Start PIN Enrollment"/>
                                                 <connections>
                                                     <action selector="clickCotter:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="gYu-5u-4Xg"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nvg-fr-Lvu" customClass="BasicButton" customModule="CotteIOS_Example" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nvg-fr-Lvu" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
                                                 <rect key="frame" x="174.5" y="0.0" width="169.5" height="30"/>
                                                 <state key="normal" title="Cryptographic test"/>
                                                 <connections>
@@ -70,14 +70,14 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="PbB-P8-gOJ">
                                         <rect key="frame" x="0.0" y="80" width="344" height="30"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oyP-Kn-NiT" customClass="BasicButton" customModule="CotteIOS_Example" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oyP-Kn-NiT" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="169.5" height="30"/>
                                                 <state key="normal" title="Start Update Profile"/>
                                                 <connections>
                                                     <action selector="clickUpdateProfile:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="dgr-HS-ghW"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="54v-qE-r26" customClass="BasicButton" customModule="CotteIOS_Example" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="54v-qE-r26" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
                                                 <rect key="frame" x="174.5" y="0.0" width="169.5" height="30"/>
                                                 <state key="normal" title="IP Address"/>
                                                 <connections>
@@ -89,14 +89,14 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="blw-XG-a4X">
                                         <rect key="frame" x="0.0" y="120" width="344" height="30"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dme-5s-tyS" customClass="BasicButton" customModule="CotteIOS_Example" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dme-5s-tyS" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="169.5" height="30"/>
                                                 <state key="normal" title="Client check"/>
                                                 <connections>
                                                     <action selector="goToUserCheck:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="qaW-XL-uc2"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KKm-m6-vje" customClass="BasicButton" customModule="CotteIOS_Example" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KKm-m6-vje" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
                                                 <rect key="frame" x="174.5" y="0.0" width="169.5" height="30"/>
                                                 <state key="normal" title="Trusted Device"/>
                                                 <connections>
@@ -124,33 +124,53 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e6I-FM-IyY" customClass="InvertedBasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
+                                <rect key="frame" x="40" y="724" width="334" height="30"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="logout:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="2qN-A5-vrv"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xez-sV-4Cg">
+                                <rect key="frame" x="347.5" y="20" width="26.5" height="12"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="lpw-R3-8f6" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="15" id="14s-PW-KGz"/>
                             <constraint firstItem="lpw-R3-8f6" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="2SJ-q1-xhx"/>
+                            <constraint firstItem="xez-sV-4Cg" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="20" id="3of-0W-hIf"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="e6I-FM-IyY" secondAttribute="bottom" constant="20" id="54x-Lw-FqR"/>
                             <constraint firstItem="P3r-wO-R4a" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="20" id="8UO-GF-GbZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="e6I-FM-IyY" secondAttribute="trailing" constant="20" id="MzF-wz-WQ6"/>
                             <constraint firstItem="lpw-R3-8f6" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="Tgm-VC-khD"/>
                             <constraint firstAttribute="trailingMargin" secondItem="lpw-R3-8f6" secondAttribute="trailing" constant="15" id="XQp-rn-2Pq"/>
-                            <constraint firstItem="P3r-wO-R4a" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="xJs-jx-AYg"/>
+                            <constraint firstItem="e6I-FM-IyY" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="20" id="h1q-0p-XPw"/>
+                            <constraint firstItem="P3r-wO-R4a" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="20" id="pla-OP-YVA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xez-sV-4Cg" secondAttribute="trailing" constant="20" id="vnI-Wv-jj6"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Cotter Example App" id="5qM-FL-BNc"/>
                     <connections>
                         <outlet property="bioSwitch" destination="ZDe-Ox-aX7" id="Wwy-Du-rbv"/>
                         <outlet property="errorLabel" destination="P3r-wO-R4a" id="hk4-ks-nqO"/>
+                        <outlet property="userInfoLabel" destination="xez-sV-4Cg" id="Fyk-lV-Y4q"/>
                         <segue destination="gql-Ku-of0" kind="show" identifier="segueToUserCheck" id="vWj-Kv-Fqg"/>
                         <segue destination="B9X-jN-7M4" kind="show" identifier="segueToTrustedDevice" id="NKZ-Di-309"/>
+                        <segue destination="LXs-oP-w5Y" kind="show" identifier="segueToEntrance" id="Cjx-5L-RNB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="111" y="41"/>
+            <point key="canvasLocation" x="68" y="41"/>
         </scene>
         <!--Custom Navigation View Controller-->
         <scene sceneID="IIA-KP-u4Z">
             <objects>
-                <navigationController id="LXs-oP-w5Y" customClass="CustomNavigationViewController" customModule="CotteIOS_Example" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController id="LXs-oP-w5Y" customClass="CustomNavigationViewController" customModule="CotterIOS_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="6zE-nQ-alY"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="IEY-Ij-qSn">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -158,17 +178,17 @@
                         <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="uoX-kt-pxK"/>
+                        <segue destination="AgD-eS-bbn" kind="relationship" relationship="rootViewController" id="OKF-Uf-t7c"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cDo-h2-0b6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-738" y="41"/>
+            <point key="canvasLocation" x="-1536" y="41"/>
         </scene>
         <!--Cryptography-->
         <scene sceneID="CRP-Kn-YkM">
             <objects>
-                <viewController storyboardIdentifier="CryptoViewController" id="Nwm-5x-Spd" customClass="CryptoViewController" customModule="CotteIOS_Example" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CryptoViewController" id="Nwm-5x-Spd" customClass="CryptoViewController" customModule="CotterIOS_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fYH-Xz-830">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -221,7 +241,7 @@
         <!--Register View Controller-->
         <scene sceneID="MsB-U8-BzB">
             <objects>
-                <viewController id="csI-Yj-sbH" customClass="RegisterViewController" customModule="CotteIOS_Example" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegisterViewController" id="csI-Yj-sbH" customClass="RegisterViewController" customModule="CotterIOS_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cmH-w7-gES"/>
                         <viewControllerLayoutGuide type="bottom" id="tnW-Je-h3l"/>
@@ -242,7 +262,7 @@
                                             <userDefinedRuntimeAttribute type="string" keyPath="tweePlaceholder" value="Email"/>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7UG-7G-mis" customClass="BasicButton" customModule="CotteIOS_Example" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7UG-7G-mis" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44" width="334" height="30"/>
                                         <state key="normal" title="Register"/>
                                         <connections>
@@ -291,7 +311,7 @@
         <!--Address View Controller-->
         <scene sceneID="lGU-RH-kz4">
             <objects>
-                <viewController id="wLo-lE-YUX" customClass="IPAddressViewController" customModule="CotteIOS_Example" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="wLo-lE-YUX" customClass="IPAddressViewController" customModule="CotterIOS_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Bq5-dg-IGk"/>
                         <viewControllerLayoutGuide type="bottom" id="lKn-uN-Ad1"/>
@@ -440,7 +460,7 @@
         <!--Passwordless Login-->
         <scene sceneID="Tjn-1L-6Vc">
             <objects>
-                <viewController id="6he-wz-mZJ" customClass="LoginViewController" customModule="CotteIOS_Example" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="6he-wz-mZJ" customClass="LoginViewController" customModule="CotterIOS_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6OW-If-XL1"/>
                         <viewControllerLayoutGuide type="bottom" id="uW0-i6-v4f"/>
@@ -513,14 +533,14 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="oCp-rf-Zu9">
                                         <rect key="frame" x="0.0" y="30.5" width="334" height="30"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TWk-la-QnC" customClass="BasicButton" customModule="CotteIOS_Example" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TWk-la-QnC" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="162" height="30"/>
                                                 <state key="normal" title="Get New Event"/>
                                                 <connections>
                                                     <action selector="getNewEvent:" destination="B9X-jN-7M4" eventType="touchUpInside" id="qZx-5v-RJe"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MAm-hi-mbp" customClass="BasicButton" customModule="CotteIOS_Example" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MAm-hi-mbp" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
                                                 <rect key="frame" x="172" y="0.0" width="162" height="30"/>
                                                 <state key="normal" title="Request Authentication"/>
                                                 <connections>
@@ -534,49 +554,49 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zCn-VN-8d1" customClass="BasicButton" customModule="CotteIOS_Example" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zCn-VN-8d1" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="114.5" width="334" height="30"/>
                                         <state key="normal" title="Get New Event"/>
                                         <connections>
                                             <action selector="getNewEventFor:" destination="B9X-jN-7M4" eventType="touchUpInside" id="3UE-1M-F9k"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qS4-P8-GmC" customClass="BasicButton" customModule="CotteIOS_Example" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qS4-P8-GmC" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="154.5" width="334" height="30"/>
                                         <state key="normal" title="Login w/ Trusted Device"/>
                                         <connections>
                                             <action selector="loginTrusted:" destination="B9X-jN-7M4" eventType="touchUpInside" id="rIi-vx-j8q"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6xy-Ai-dXh" customClass="BasicButton" customModule="CotteIOS_Example" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6xy-Ai-dXh" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="194.5" width="334" height="30"/>
                                         <state key="normal" title="Register This Device"/>
                                         <connections>
                                             <action selector="registerDevice:" destination="B9X-jN-7M4" eventType="touchUpInside" id="Hka-SK-107"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SL9-D7-HNo" customClass="BasicButton" customModule="CotteIOS_Example" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SL9-D7-HNo" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="234.5" width="334" height="30"/>
                                         <state key="normal" title="Scan New Device"/>
                                         <connections>
                                             <action selector="scanNewDevice:" destination="B9X-jN-7M4" eventType="touchUpInside" id="snO-ds-xi3"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D3e-dC-LPq" customClass="BasicButton" customModule="CotteIOS_Example" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D3e-dC-LPq" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="274.5" width="334" height="30"/>
                                         <state key="normal" title="Get Current Device TD Status"/>
                                         <connections>
                                             <action selector="getCurrentDeviceTrustedStatus:" destination="B9X-jN-7M4" eventType="touchUpInside" id="f5m-O4-dFl"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KWO-5P-yrc" customClass="BasicButton" customModule="CotteIOS_Example" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KWO-5P-yrc" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="314.5" width="334" height="30"/>
                                         <state key="normal" title="Get User ID TD Status"/>
                                         <connections>
                                             <action selector="getUserTDStatus:" destination="B9X-jN-7M4" eventType="touchUpInside" id="QLi-7l-WJu"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fKE-CK-kHq" customClass="BasicButton" customModule="CotteIOS_Example" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fKE-CK-kHq" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="354.5" width="334" height="30"/>
                                         <state key="normal" title="Remove This Device as Trusted"/>
                                         <connections>
@@ -618,17 +638,17 @@
         <!--Entry View Controller-->
         <scene sceneID="pIR-Xk-NEI">
             <objects>
-                <viewController storyboardIdentifier="EntryViewController" modalPresentationStyle="fullScreen" id="AgD-eS-bbn" customClass="EntryViewController" customModule="CotteIOS_Example" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EntryViewController" modalPresentationStyle="fullScreen" id="AgD-eS-bbn" customClass="EntryViewController" customModule="CotterIOS_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="41k-dP-Lxl"/>
                         <viewControllerLayoutGuide type="bottom" id="Ndq-5I-Edi"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="bwU-sW-Ruh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qJf-3e-Mi6" customClass="TweeBorderedTextField" customModule="TweeTextField">
-                                <rect key="frame" x="40" y="433" width="334" height="30"/>
+                                <rect key="frame" x="40" y="389" width="334" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="1mO-mc-SIX"/>
@@ -647,30 +667,30 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chicken" translatesAutoresizingMaskIntoConstraints="NO" id="jPm-Qy-hYn">
-                                <rect key="frame" x="40" y="64" width="100" height="100"/>
+                                <rect key="frame" x="40" y="20" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="PLE-QD-fMk"/>
                                     <constraint firstAttribute="width" constant="100" id="op2-oS-Fyp"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="wQH-ae-vhR">
-                                <rect key="frame" x="40" y="732" width="334" height="110"/>
+                                <rect key="frame" x="40" y="644" width="334" height="110"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1f8-a0-dIx" customClass="BasicButton" customModule="CotteIOS_Example" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1f8-a0-dIx" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="30"/>
                                         <state key="normal" title="Login"/>
                                         <connections>
                                             <action selector="login:" destination="AgD-eS-bbn" eventType="touchUpInside" id="6rw-Rg-3Uo"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o4D-Wl-Jk0" customClass="InvertedBasicButton" customModule="CotteIOS_Example" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o4D-Wl-Jk0" customClass="InvertedBasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="40" width="334" height="30"/>
                                         <state key="normal" title="Register"/>
                                         <connections>
                                             <segue destination="csI-Yj-sbH" kind="presentation" identifier="" id="c6r-wk-QO6"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cah-Sg-HYP" customClass="BasicButton" customModule="CotteIOS_Example" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cah-Sg-HYP" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="80" width="334" height="30"/>
                                         <state key="normal" title="Check Event"/>
                                         <connections>
@@ -680,7 +700,7 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ktK-oN-H6u">
-                                <rect key="frame" x="50" y="483" width="314" height="60"/>
+                                <rect key="frame" x="50" y="439" width="314" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="SQ7-FA-9I0"/>
                                 </constraints>
@@ -689,13 +709,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVX-8d-QU6" customClass="ColorThemeLabel" customModule="CotteIOS_Example">
-                                <rect key="frame" x="40" y="164" width="91" height="20.5"/>
+                                <rect key="frame" x="40" y="120" width="91" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chicken App" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgh-vp-Vpq" customClass="ColorThemeLabel" customModule="CotteIOS_Example" customModuleProvider="target">
-                                <rect key="frame" x="40" y="184.5" width="178.5" height="36"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chicken App" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgh-vp-Vpq" customClass="ColorThemeLabel" customModule="CotterIOS_Example" customModuleProvider="target">
+                                <rect key="frame" x="40" y="140.5" width="178.5" height="36"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -728,16 +748,16 @@
                         <outlet property="infoLabel" destination="ktK-oN-H6u" id="YiZ-Ji-VTE"/>
                         <outlet property="loginButton" destination="1f8-a0-dIx" id="QA9-ef-8j0"/>
                         <outlet property="textField" destination="qJf-3e-Mi6" id="Kbk-eR-rak"/>
-                        <segue destination="LXs-oP-w5Y" kind="presentation" identifier="segueToHome" modalPresentationStyle="fullScreen" id="MPB-IT-dgR"/>
+                        <segue destination="vXZ-lx-hvc" kind="show" identifier="segueToHome" id="uxJ-x0-cQf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dwx-Xb-bmv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1584.057971014493" y="40.848214285714285"/>
+            <point key="canvasLocation" x="-678" y="41"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="uoX-kt-pxK"/>
+        <segue reference="uxJ-x0-cQf"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="chicken" width="40" height="40"/>

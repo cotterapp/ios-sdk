@@ -24,7 +24,7 @@ CotterIOS simplifies client's integration with Cotter. It is an SDK that provide
 
   s.homepage         = 'https://github.com/cotterapp/ios-sdk.git'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
-   s.license          = { :type => 'BSD', :file => 'LICENSE' }
+  s.license          = { :type => 'BSD', :file => 'LICENSE' }
   s.author           = { 'Cotter Team' => 'team@cotter.app' }
   s.source           = { :git => 'https://github.com/cotterapp/ios-sdk.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
@@ -41,6 +41,7 @@ CotterIOS simplifies client's integration with Cotter. It is an SDK that provide
   s.static_framework = true
   s.frameworks = 'UIKit'
   s.dependency 'OneSignal', '2.14.3'
+  s.dependency 'SwiftJWT'
 
 #  s.test_spec 'Tests' do |test_spec|
 #    test_spec.source_files = 'Example/Tests/**/*.{swift}'

@@ -114,6 +114,15 @@ extension GetUser: Equatable {
     public static func ==(lhs: GetUser, rhs: GetUser) -> Bool {
         guard lhs.method == rhs.method else { return false }
         guard lhs.userID == rhs.userID else { return false }
+        guard lhs.identifier == rhs.identifier else { return false }
+        return true
+    }
+}
+// MARK: RefreshToken Equatable
+extension RefreshToken: Equatable {
+    public static func ==(lhs: RefreshToken, rhs: RefreshToken) -> Bool {
+        guard lhs.method == rhs.method else { return false }
+        guard lhs.refreshToken == rhs.refreshToken else { return false }
         return true
     }
 }
