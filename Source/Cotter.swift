@@ -287,9 +287,9 @@ public class Cotter {
         configuration: [String:Any] = [:]
     ) {
         print("configuring Cotter's object...")
-//        Config.instance.baseURL = URL(string: "https://www.cotter.app/api/v0")!
+        Config.instance.baseURL = URL(string: "https://www.cotter.app/api/v0")!
 //        Config.instance.baseURL = URL(string: "http://localhost:1234/api/v0")!
-        Config.instance.baseURL = URL(string:"http://192.168.86.28:1234/api/v0")!
+//        Config.instance.baseURL = URL(string:"http://192.168.86.28:1234/api/v0")!
         CotterAPIService.shared.apiSecretKey = apiSecretKey
         CotterAPIService.shared.apiKeyID = apiKeyID
         
@@ -440,7 +440,7 @@ extension Cotter {
         // so this phone will not receive any notification for this user
         OneSignal.removeExternalUserId()
         
-        // TODO: purge oauth tokens
+        // purge oauth tokens
         deleteCotterDefaultToken()
         
         // TODO: purge loggedInUser

@@ -32,24 +32,5 @@
       "2.14.3"
     ]
   },
-  "testspecs": [
-    {
-      "name": "Tests",
-      "test_type": "unit",
-      "source_files": "Example/Tests/**/*.{swift}",
-      "frameworks": [
-        "UIKit",
-        "UserNotifications"
-      ],
-      "dependencies": {
-        "Nimble": [
-          "~> 8.0"
-        ],
-        "Sourcery": [
-
-        ]
-      }
-    }
-  ],
   "swift_version": "5.0"
 }

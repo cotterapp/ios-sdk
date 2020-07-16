@@ -25,7 +25,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Cotter: 7dbda85b482ca5f09435d6a63f394748ed72a3d6
+  Cotter: aed41af8020e6ad8be4402874d4e41bf406a6361
   Nimble: a73af6ecd4c9106f434f3d55fc54570be3739e0b
   OneSignal: 7dfe466265c05f02b95a274b9c997a0619ad2117
   Sourcery: e0e8658a1ce6d9f475156ad3ffce4c68f1261b3e
