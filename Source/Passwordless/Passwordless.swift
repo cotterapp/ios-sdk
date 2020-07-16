@@ -59,6 +59,7 @@ public class Passwordless: NSObject {
             case .success(let user):
                 CotterAPIService.shared.reqAuth(clientUserID: user.clientUserID, event: CotterEvents.Login, cb: loginCb)
             case .failure(let err):
+                print("[login]", err.localizedDescription)
                 cb(nil, err)
             }
         }

@@ -33,7 +33,7 @@ class UserCheckViewController: UIViewController {
         func enrollCb(response: CotterResult<CotterUser>) {
             switch response {
             case .success(let resp):
-                self.userDetailsLabel.text = resp.enrolled.joined(separator: ", ")
+                self.userDetailsLabel.text = resp.enrolled?.joined(separator: ", ")
             case .failure(let err):
                 // we can handle multiple error results here
                 switch err {

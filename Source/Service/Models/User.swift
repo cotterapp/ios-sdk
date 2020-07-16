@@ -15,7 +15,7 @@ public struct CotterUser: Codable {
     public var issuer:String
     public var identifier:String?
     public var clientUserID:String
-    public var enrolled:[String]
+    public var enrolled:[String]?
     public var defaultMethod:String?
     
     enum CodingKeys:String, CodingKey {

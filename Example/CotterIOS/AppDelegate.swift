@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             apiKeyID = key
         }
         
-        if let key = Environment.shared.COTTER_API_SECRET_KEY {
+        if let key = Environment.shared.COTTER_API_SECRET_KEY { 
             apiSecretKey = key
         }
         
