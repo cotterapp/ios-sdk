@@ -11,7 +11,11 @@ public struct GetUser: APIRequest, AutoEquatable {
     public typealias Response = CotterUser
     
     public var path: String {
-        return "/user/\(self.userID)"
+        if self.userID != "" {
+            return "/user/\(self.userID)"
+        } else {
+            return "/user?identifier=\(self.identifier)"
+        }
     }
     
     public var method: String = "GET"
@@ -21,8 +25,15 @@ public struct GetUser: APIRequest, AutoEquatable {
     }
     
     let userID: String
+    let identifier: String
     
     public init(userID:String){
         self.userID = userID
+        self.identifier = ""
+    }
+    
+    public init(identifier:String) {
+        self.userID = ""
+        self.identifier = identifier
     }
 }

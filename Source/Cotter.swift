@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import OneSignal
+import UserNotifications
 
 public class Cotter {
     // this variable is needed to retain the object of ASWebAuthentication,
@@ -89,7 +90,7 @@ public class Cotter {
         cotterURL: String
     ) {
         print("initializing Cotter's SDK...")
-        CotterAPIService.shared.baseURL = URL(string: cotterURL)
+        Config.instance.baseURL = URL(string: cotterURL)!
         CotterAPIService.shared.apiSecretKey = apiSecretKey
         CotterAPIService.shared.apiKeyID = apiKeyID
         
@@ -286,9 +287,9 @@ public class Cotter {
         configuration: [String:Any] = [:]
     ) {
         print("configuring Cotter's object...")
-        CotterAPIService.shared.baseURL = URL(string: "https://www.cotter.app/api/v0")!
-//        CotterAPIService.shared.baseURL = URL(string: "http://localhost:1234/api/v0")!
-//        CotterAPIService.shared.baseURL = URL(string:"http://192.168.86.28:1234/api/v0")!
+        Config.instance.baseURL = URL(string: "https://www.cotter.app/api/v0")!
+//        Config.instance.baseURL = URL(string: "http://localhost:1234/api/v0")!
+//        Config.instance.baseURL = URL(string:"http://192.168.86.28:1234/api/v0")!
         CotterAPIService.shared.apiSecretKey = apiSecretKey
         CotterAPIService.shared.apiKeyID = apiKeyID
         
@@ -324,6 +325,12 @@ public class Cotter {
         
         // configure onesignal
         Cotter.configureOneSignal(launchOptions: launchOptions)
+        
+        // we handle notification from killed state by checking if the user has any pending event
+        // everytime the app loads.
+        if let userID = getLoggedInUserID() {
+            Passwordless.shared.checkEvent(identifier: userID)
+        }
     }
     
     // configureOneSignal configure cotter's onesignal SDK with launchOptions provided
@@ -338,20 +345,105 @@ public class Cotter {
                 case .success(let cred):
                     // if appID is not setup don't use initiate OneSignal
                     if cred.appID == "" { return }
-                    
                     OneSignal.initWithLaunchOptions(launchOptions,
                                                   appId: cred.appID,
                                                   handleNotificationReceived: nil,
                                                   handleNotificationAction: notificationOpenedHandler,
                                                   settings: onesignalInitSettings)
-
                     OneSignal.inFocusDisplayType = .notification
-                  
+                
+                    if let userID = Cotter.getLoggedInUserID() {
+                        guard let pubKey = KeyStore.trusted(userID: userID).pubKey else {
+                            print("[configureOneSignal] Unable to attain user's public key!")
+                            return
+                        }
+                        
+                        let pubKeyBase64 = CryptoUtil.keyToBase64(pubKey: pubKey)
+                        print("[configureOneSignal] current pubKey: \(pubKeyBase64)")
+                        
+                        OneSignal.setExternalUserId(pubKeyBase64)
+                    }
                 case .failure(let err):
                     print(err)
             }
         }
         CotterAPIService.shared.getNotificationAppID(cb:notifCb)
+    }
+}
+
+// OAauth tools
+extension Cotter {
+    static public func getAccessToken() -> String? {
+        let t = getCotterDefaultToken()
+        
+        guard let token = t else { return nil }
+        
+        guard let accessToken = decodeBase64AccessTokenJWT(token.accessToken) else { return nil }
+        
+        if Int(NSDate().timeIntervalSince1970) > accessToken.exp {
+            print(Int(NSDate().timeIntervalSince1970), ">", accessToken.exp)
+            
+            // access token expired. refetch token, this function is synchronous
+            Cotter.refreshToken()
+            
+            // refetch token
+            let newToken = getCotterDefaultToken()
+            
+            return newToken?.accessToken
+        }
+        
+        return token.accessToken
+    }
+    
+    // refresh token is synchronous.
+    static public func refreshToken() {
+        let t = getCotterDefaultToken()
+        
+        guard let token = t else { return }
+        
+        let group = DispatchGroup()
+        
+        group.enter()
+        
+        CotterAPIService.shared.refreshTokens(refreshToken: token.refreshToken) { (response) in
+            switch(response) {
+            case .success(var tkn):
+                // persist the refresh token
+                tkn.refreshToken = token.refreshToken
+                setCotterDefaultToken(token: tkn)
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+            
+            group.leave()
+        }
+    }
+}
+
+// login utilities
+extension Cotter {
+    static public func getLoggedInUserID() -> String? {
+        // get the ID of the token
+        guard let accessToken = Cotter.getAccessToken() else {
+            return nil
+        }
+        
+        guard let t = decodeBase64AccessTokenJWT(accessToken) else {
+            return nil
+        }
+        
+        return t.sub
+    }
+    
+    static public func logout() {
+        // remove onesignal notification,
+        // so this phone will not receive any notification for this user
+        OneSignal.removeExternalUserId()
+        
+        // purge oauth tokens
+        deleteCotterDefaultToken()
+        
+        // TODO: purge loggedInUser
     }
 }
 
@@ -372,8 +464,7 @@ func notificationOpenedHandler( result: OSNotificationOpenedResult? ) {
     if payload.additionalData != nil {
         let customData = payload.additionalData
         if customData?["cotter"] != nil, let authMethod = customData?["auth_method"] as! String?, authMethod == "TRUSTED_DEVICE" {
-            guard let userID = CotterAPIService.shared.userID else {
-                print("user ID is not set")
+            guard let userID = Cotter.getLoggedInUserID() else {
                 return
             }
             Passwordless.shared.checkEvent(identifier: userID)

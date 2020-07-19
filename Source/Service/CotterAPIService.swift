@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  CotterAPIService.swift
 //  CotterIOS
 //
 //  Created by Albert Purnama on 2/3/20.
@@ -13,16 +13,29 @@ public class CotterAPIService: APIService {
     public static var shared = CotterAPIService()
     
     private let urlSession = URLSession.shared
-    var baseURL: URL?
     var path: String?
     var apiSecretKey: String=""
     var apiKeyID: String=""
     var userID: String?
     
+    var cotterUserID: String {
+        get {
+            // if userID is set then return that.
+            // this is for older authentication flows
+            if let uID = self.userID, uID != "" {
+                return uID
+            }
+            
+            // return cotter's user id
+            return Cotter.getLoggedInUserID() ?? ""
+        }
+    }
+    
     private init(){}
     
     private func apiClient() -> APIClient {
-        return CotterClient(apiKeyID: self.apiKeyID, apiSecretKey: self.apiSecretKey, url: self.baseURL!.absoluteString)
+        let baseURL = Config.instance.baseURL.absoluteString
+        return CotterClient(apiKeyID: self.apiKeyID, apiSecretKey: self.apiSecretKey, url: baseURL)
     }
     
     public func auth(
@@ -81,9 +94,9 @@ public class CotterAPIService: APIService {
     ) {
         // initialize new client
         let apiClient = self.apiClient()
-
+        
          // register the user
-        let req = EnrollUserPIN(userID: CotterAPIService.shared.userID!, code: code)
+        let req = EnrollUserPIN(userID: self.cotterUserID, code: code)
         apiClient.send(req) { response in
             cb(response)
          }
@@ -97,7 +110,7 @@ public class CotterAPIService: APIService {
         // initialize new client
         let apiClient = self.apiClient()
         
-        let req = UpdateUserPIN(userID: CotterAPIService.shared.userID!, newCode:newCode, oldCode: oldCode)
+        let req = UpdateUserPIN(userID: self.cotterUserID, newCode:newCode, oldCode: oldCode)
         apiClient.send(req) { response in
             cb(response)
          }
@@ -115,7 +128,7 @@ public class CotterAPIService: APIService {
         
         let pubKeyBase64 = CryptoUtil.keyToBase64URL(pubKey: pubKey)
         
-        guard let userID = CotterAPIService.shared.userID else { return }
+        let userID = self.cotterUserID
         
         let apiClient = self.apiClient()
         
@@ -136,7 +149,7 @@ public class CotterAPIService: APIService {
         
         let pubKeyBase64 = CryptoUtil.keyToBase64(pubKey: pubKey)
         
-        guard let userID = CotterAPIService.shared.userID else { return }
+        let userID = self.cotterUserID
         
         let apiClient = self.apiClient()
         
@@ -175,6 +188,16 @@ public class CotterAPIService: APIService {
         apiClient.send(req, completion: cb)
     }
     
+    public func getUser(
+        identifier: String,
+        cb: @escaping ResultCallback<CotterUser>
+    ) {
+        let apiClient = self.apiClient()
+        
+        let req = GetUser(identifier: identifier)
+        apiClient.send(req, completion: cb)
+    }
+    
     public func registerBiometric(
         userID:String,
         pubKey:String, // base64 pubKey NOT URL SAFE!
@@ -192,7 +215,7 @@ public class CotterAPIService: APIService {
         sendingDestination: String,
         cb: @escaping ResultCallback<CotterResponseWithChallenge>
     ) {
-        guard let userID = CotterAPIService.shared.userID else { return }
+        let userID = self.cotterUserID
         
         let apiClient = self.apiClient()
         
@@ -212,7 +235,7 @@ public class CotterAPIService: APIService {
         challenge: String,
         cb: @escaping ResultCallback<CotterBasicResponse>
     ) {
-        guard let userID = CotterAPIService.shared.userID else { return }
+        let userID = self.cotterUserID
         
         let apiClient = self.apiClient()
         
@@ -233,7 +256,7 @@ public class CotterAPIService: APIService {
         challenge: String,
         cb: @escaping ResultCallback<CotterBasicResponse>
     ) {
-        guard let userID = CotterAPIService.shared.userID else { return }
+        let userID = self.cotterUserID
         
         let apiClient = self.apiClient()
         
@@ -739,6 +762,17 @@ public class CotterAPIService: APIService {
         let apiClient = self.apiClient()
         
         let req = GetNotificationAppID()
+        apiClient.send(req, completion: cb)
+    }
+    
+    public func refreshTokens(
+        refreshToken: String,
+        cb: @escaping ResultCallback<CotterOAuthToken>
+    ){
+        print("refreshing access tokens")
+        let apiClient = self.apiClient()
+        
+        let req = RefreshToken(refreshToken: refreshToken)
         apiClient.send(req, completion: cb)
     }
 }

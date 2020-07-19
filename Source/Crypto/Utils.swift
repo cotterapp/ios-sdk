@@ -27,7 +27,7 @@ public class CryptoUtil {
         
         // need to add \n at the end for proper PEM encoding
         let pubKeyBase64 = DER.base64EncodedString(options:[[.lineLength64Characters, .endLineWithLineFeed]]) + "\n"
-        print(pubKeyBase64)
+        print("[CryptoUtil]", pubKeyBase64)
         return pubKeyBase64
     }
     

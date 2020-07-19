@@ -15,10 +15,14 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var bioSwitch: UISwitch!
     
+    @IBOutlet weak var userInfoLabel: UILabel!
+    
     var userID:String = ""
     
     override func viewWillAppear(_ animated: Bool) {
         errorLabel.text = ""
+        userInfoLabel.text = Cotter.getLoggedInUserID()
+        print("userInfoLabel", userInfoLabel.text)
         self.setupBiometricToggle()
     }
     
@@ -107,7 +111,7 @@ class ViewController: UIViewController {
             case .success(let resp):
                 let lookFor = CotterMethods.Biometric
                 var biometricAvailable = false
-                for method in resp.enrolled {
+                for method in resp.enrolled ?? [] {
                     if method == lookFor {
                         biometricAvailable = true
                     }
@@ -119,6 +123,13 @@ class ViewController: UIViewController {
             }
         }
         CotterAPIService.shared.updateBiometricStatus(enrollBiometric: self.bioSwitch.isOn, cb: cb)
+    }
+    
+    @IBAction func logout(_ sender: Any) {
+        Cotter.logout()
+        
+        // your logout logic...
+        self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func trustedDevice(_ sender: Any) {

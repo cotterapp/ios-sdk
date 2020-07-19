@@ -26,6 +26,9 @@ class Config: NSObject {
     var images: ImageObject = ImageObject()
     var fonts: FontObject = FontObject()
   
+    // space configurations
+    var baseURL: URL = URL(string: "https://www.cotter.app")!
+    
     // passwordless configurations
     var PLBaseURL: String? = "https://js.cotter.app/app"
 //    var PLBaseURL: String? = "http://localhost:3000/app"

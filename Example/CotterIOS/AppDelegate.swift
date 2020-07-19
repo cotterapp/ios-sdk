@@ -19,15 +19,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // Override point for customization after application launch.
         
         // set default credentials
-        var apiKeyID = "e8e4ae62-f291-4e95-8203-5ac38c3d0058"
+        var apiKeyID = "ef6de61b-efa7-45b2-9942-0d01cf69dfc2"
         var apiSecretKey = "KLKqAQ6QXEScmQbYvtJm"
         
         if let key = Environment.shared.COTTER_API_KEY_ID {
             apiKeyID = key
         }
         
-        if let key = Environment.shared.COTTER_API_SECRET_KEY {
+        if let key = Environment.shared.COTTER_API_SECRET_KEY { 
             apiSecretKey = key
+        }
+        
+        // check if any user is already logged in by checking the access token
+        let userID = Cotter.getLoggedInUserID()
+        if userID != nil {
+            // for test redirect to PIN
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ViewController") as! ViewController
+            let nav = UINavigationController(rootViewController: vc)
+            self.window?.rootViewController = nav
+            self.window?.makeKeyAndVisible()
         }
         
         CotterWrapper.cotter = Cotter(

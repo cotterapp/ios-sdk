@@ -84,7 +84,7 @@ class LocalAuthService: UIViewController {
     private func biometricPubKeyRegistration(pubKey: SecKey) {
         let pubKeyBase64 = CryptoUtil.keyToBase64(pubKey: pubKey)
         
-        guard let userID = CotterAPIService.shared.userID else { return }
+        let userID = CotterAPIService.shared.cotterUserID
         
         // Send the public key to the main server
         CotterAPIService.shared.registerBiometric(userID:userID, pubKey:pubKeyBase64, cb:DefaultResultCallback)
@@ -98,7 +98,8 @@ class LocalAuthService: UIViewController {
     ) throws -> Bool {
         let apiclient = CotterAPIService.shared
         
-        guard let userID = apiclient.userID else {
+        let userID = apiclient.cotterUserID
+        if userID == "" {
             return false
         }
         print("userID: \(userID)")
@@ -168,10 +169,12 @@ class LocalAuthService: UIViewController {
                 
                 let cl = CotterAPIService.shared
                 let issuer = cl.apiKeyID
-                guard let userID = cl.userID else {
-                    print("user id not set")
+                let userID = cl.cotterUserID
+                if userID == "" {
+                    print("[bioAuth] userID is empty")
                     return
                 }
+                
                 let timestamp = String(format:"%.0f",NSDate().timeIntervalSince1970.rounded())
                 let evtMethod = CotterMethods.Biometric
                 let approved = "true"
@@ -196,7 +199,6 @@ class LocalAuthService: UIViewController {
 
                 let strSignature = signature.base64EncodedString()
                 
-
                 func httpCb(response: CotterResult<CotterEvent>) {
                     switch response {
                     case .success(let resp):

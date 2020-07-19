@@ -41,10 +41,10 @@ class EntryViewController: UIViewController {
     }
     
     @IBAction func login(_ sender: Any) {
-        guard let userID = self.textField.text else { return }
+        guard let email = self.textField.text else { return }
         self.view.endEditing(true)
         
-        Passwordless.shared.login(identifier: userID, cb: { (token: CotterOAuthToken?, err:Error?) in
+        Passwordless.shared.login(identifier: email, cb: { (token: CotterOAuthToken?, err:Error?) in
             if err != nil {
                 // handle error as necessary
                 self.infoLabel.text = err?.localizedDescription
@@ -57,7 +57,7 @@ class EntryViewController: UIViewController {
             }
             
             // set the userID
-            self.userID = userID
+            self.userID = Cotter.getLoggedInUserID() ?? ""
             
             // user is authorized
             self.performSegue(withIdentifier: "segueToHome", sender: nil)
