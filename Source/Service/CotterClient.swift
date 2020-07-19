@@ -47,7 +47,6 @@ public class CotterClient: APIClient {
     // send will run completion function inside a Dispatch.main.async function
     public func send<T: APIRequest>(_ request: T, completion: @escaping ResultCallback<T.Response>) {
         let urlrequest = self.urlrequest(for: request)
-        print("requesting: ", request.path)
         
         // loadData will call URLSession.dataTask to make the HTTP Request
         session.loadData(urlRequest: urlrequest) { data, response, error in
