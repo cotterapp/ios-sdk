@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // Override point for customization after application launch.
         
         // set default credentials
-        var apiKeyID = "ef6de61b-efa7-45b2-9942-0d01cf69dfc2"
+        var apiKeyID = "a237e565-ac20-4b13-a4d5-b77ed269d357"
         var apiSecretKey = "KLKqAQ6QXEScmQbYvtJm"
         
         if let key = Environment.shared.COTTER_API_KEY_ID {

@@ -31,6 +31,7 @@ class Config: NSObject {
     
     // passwordless configurations
     var PLBaseURL: String? = "https://js.cotter.app/app"
+//    var PLBaseURL: String? = "https://s.js.cotter.app/app"
 //    var PLBaseURL: String? = "http://localhost:3000/app"
 //    var PLBaseURL: String? = "http://192.168.86.28:3000/app"
     var PLScheme: String? = "cotter"
