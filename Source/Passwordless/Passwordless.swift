@@ -31,6 +31,13 @@ public class Passwordless: NSObject {
             switch resp {
             case .success(let resp):
                 if resp.approved {
+                    // get the public key then set the external id
+                    guard let pubKey = KeyStore.trusted(userID: resp.clientUserID).pubKey else {
+                        print("[login] Unable to attain user's public key!")
+                        return
+                    }
+                    let pubKeyBase64 = CryptoUtil.keyToBase64(pubKey: pubKey)
+                    OneSignal.setExternalUserId(pubKeyBase64)
                     setCotterDefaultToken(token: resp.oauthToken)
                     cb(resp.oauthToken, nil)
                     return
@@ -43,16 +50,6 @@ public class Passwordless: NSObject {
                 cb(nil, err)
             }
         }
-        
-        // get the public key then set the external id
-        guard let pubKey = KeyStore.trusted(userID: identifier).pubKey else {
-            print("[login] Unable to attain user's public key!")
-            return
-        }
-        let pubKeyBase64 = CryptoUtil.keyToBase64(pubKey: pubKey)
-        print("[login] current pubKey: \(pubKeyBase64)")
-        
-        OneSignal.setExternalUserId(pubKeyBase64)
         
         CotterAPIService.shared.getUser(identifier: identifier) { resp in
             switch resp {
@@ -75,14 +72,13 @@ public class Passwordless: NSObject {
         let pubKeyBase64 = CryptoUtil.keyToBase64(pubKey: pubKey)
         print("[login] current pubKey: \(pubKeyBase64)")
         
-        OneSignal.setExternalUserId(pubKeyBase64)
-        
         // resp is CotterResult<CotterEvent>
         CotterAPIService.shared.reqAuthWith(cotterUserID: cotterUserID, event: CotterEvents.Login) { resp in
             switch resp {
             case .success(let resp):
                 if resp.approved {
                     setCotterDefaultToken(token: resp.oauthToken)
+                    OneSignal.setExternalUserId(pubKeyBase64)
                     cb(resp.oauthToken, nil)
                     return
                 }
@@ -137,15 +133,6 @@ public class Passwordless: NSObject {
                 CotterAPIService.shared.enrollTrustedDevice(clientUserID: identifier) { (response) in
                     switch response{
                     case .success(let user):
-                        guard let pubKey = KeyStore.trusted(userID: identifier).pubKey else {
-                            print("[login] Unable to attain user's public key!")
-                            return
-                        }
-                        let pubKeyBase64 = CryptoUtil.keyToBase64(pubKey: pubKey)
-                        print("[login] current pubKey: \(pubKeyBase64)")
-                        
-                        OneSignal.setExternalUserId(pubKeyBase64)
-                        
                         // need to do the login action so we can get some access token for this account
                         self.login(identifier: identifier)
                         cb(user, nil)
@@ -172,15 +159,6 @@ public class Passwordless: NSObject {
                 CotterAPIService.shared.enrollTrustedDeviceWith(cotterUser: user) { (response) in
                     switch response{
                     case .success(let user):
-                        guard let pubKey = KeyStore.trusted(userID: identifier).pubKey else {
-                            print("[login] Unable to attain user's public key!")
-                            return
-                        }
-                        let pubKeyBase64 = CryptoUtil.keyToBase64(pubKey: pubKey)
-                        print("[login] current pubKey: \(pubKeyBase64)")
-                        
-                        OneSignal.setExternalUserId(pubKeyBase64)
-                        
                         self.loginWith(cotterUserID: user.id)
                         cb(user, nil)
                         
