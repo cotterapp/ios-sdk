@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import LocalAuthentication
 
 // MARK: - Keys for Strings
 public class TransactionPINViewControllerKey {
@@ -185,28 +186,34 @@ extension TransactionPINViewController: TransactionPINViewComponent {
     func getBiometricStatus() {
         LoadingScreen.shared.start(at: self.view.window)
         // Get initial user biometric status
-        CotterAPIService.shared.getBiometricStatus(cb: { response in
-            LoadingScreen.shared.stop()
-            switch response {
-            case .success(let resp):
-                if resp.enrolled {
-                    let onFinishCallback = Config.instance.transactionCb
-                    func cb(success: Bool) {
-                        if success {
-                            onFinishCallback("dummy biometric token", nil)
-                        } else {
-                            print("[TransactionPINViewController.getBiometricStatus] got here!")
-                            self.toggleErrorMsg(msg: "Biometric is incorrect, please use PIN")
+        let context = LAContext()
+        var error: NSError?
+        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+            CotterAPIService.shared.getBiometricStatus(cb: { response in
+                LoadingScreen.shared.stop()
+                switch response {
+                case .success(let resp):
+                    if resp.enrolled {
+                        let onFinishCallback = Config.instance.transactionCb
+                        func cb(success: Bool) {
+                            if success {
+                                onFinishCallback("dummy biometric token", nil)
+                            } else {
+                                print("[TransactionPINViewController.getBiometricStatus] got here!")
+                                self.toggleErrorMsg(msg: "Biometric is incorrect, please use PIN")
+                            }
                         }
+                        self.authService.bioAuth(view: self, event: CotterEvents.Transaction, callback: cb)
+                    } else {
+                        print("[TransactionPINViewController.getBiometricStatus] Biometric not enrolled")
                     }
-                    self.authService.bioAuth(view: self, event: CotterEvents.Transaction, callback: cb)
-                } else {
-                    print("[TransactionPINViewController.getBiometricStatus] Biometric not enrolled")
+                case .failure(let err):
+                    print(err.localizedDescription)
                 }
-            case .failure(let err):
-                print(err.localizedDescription)
-            }
-        })
+            })
+        } else {
+            LoadingScreen.shared.stop()
+        }
     }
     
     func setupUI() {
