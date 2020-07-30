@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // Override point for customization after application launch.
         
         // set default credentials
-        var apiKeyID = "a237e565-ac20-4b13-a4d5-b77ed269d357"
+        var apiKeyID = "b6e64a6d-ecc9-4582-b8bb-cdd1715b063b"
         var apiSecretKey = "KLKqAQ6QXEScmQbYvtJm"
         
         if let key = Environment.shared.COTTER_API_KEY_ID {
@@ -43,11 +43,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         CotterWrapper.cotter = Cotter(
             apiSecretKey: apiSecretKey,
             apiKeyID: apiKeyID,
+//            cotterURL: "http://192.168.86.28:1234/api/v0",
             cotterURL: "https://www.cotter.app/api/v0",
-            userID: "",
+            userID: "ff570626-56e7-4260-a82b-5951038e29ea",
             // configuration is an optional argument, remove this below and Cotter app will still function properly
             configuration: [:]
         )
+        
+        // if you want to start PINViewControler on startup, use getPINViewController
+//        let vc = CotterWrapper.cotter!.getTransactionViewController(hideClose: true, cb: Callback.shared.authCb)
+//        let nav = UINavigationController(rootViewController: vc)
+//        self.window?.rootViewController = nav
+//        self.window?.makeKeyAndVisible()
         
         // the following configuration is optional, only use this if you want to use your own fonts
         // let customFont = FontObject()
@@ -74,12 +81,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 // "language": lang
             ]
         )
-
-        // if you want to start PINViewControler on startup, use getPINViewController
-        // let vc = CotterWrapper.cotter!.getPINViewController(hideClose: true, cb: Callback.shared.authCb)
-        // let nav = UINavigationController(rootViewController: vc)
-        // self.window?.rootViewController = nav
-        // self.window?.makeKeyAndVisible()
         
         // Granting user permission using notification center
         UNUserNotificationCenter.current() // 1
