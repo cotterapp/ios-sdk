@@ -116,23 +116,22 @@ class PINViewController : UIViewController {
         presenter.onClickPinVis(button: sender)
     }
     
-    func toggleErrorMsg(msg: String?) {
-        errorLabel.isHidden.toggle()
-        if !errorLabel.isHidden {
-            errorLabel.text = msg
-        }
+    func setError(msg: String?) {
+        errorLabel.isHidden = msg == nil
+        errorLabel.text = msg ?? ""
     }
 }
 
 // MARK: - PINBaseController
 extension PINViewController : PINBaseController {
+    func generateErrorMessageFrom(error: CotterError) -> String {
+        return ""
+    }
+
     func instantiateCodeTextFieldFunctions() {
         // Instantiate Function to run when user enters wrong PIN code
         codeTextField.removeErrorMsg = {
-            // Remove error msg if it is present
-            if !self.errorLabel.isHidden {
-                self.toggleErrorMsg(msg: nil)
-            }
+            self.setError(msg: nil)
         }
         
         // Instantiate Function to run when PIN is fully entered
@@ -145,9 +144,7 @@ extension PINViewController : PINBaseController {
             
             // Ensure consecutive PIN number is rejected
             if result != nil || self.findSequence(sequenceLength: code.count, in: code) {
-                if self.errorLabel.isHidden {
-                    self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.badPin))
-                }
+                self.setError(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.badPin))
                 return false
             }
 

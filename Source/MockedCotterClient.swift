@@ -94,7 +94,7 @@ public class MockedCotterClient: APIClient {
                 completion(.success(resp))
             } catch {
                 print("fail")
-                completion(.failure(CotterAPIError.general(message: "Mock Error")))
+                completion(.failure(CotterError.general(message: "Mock Error")))
             }
         }
         

@@ -10,9 +10,9 @@ import Foundation
 
 // MARK: - Keys for Strings
 public class PINFinalViewControllerKey {
-    static let title = "PINFinalViewController/title"
-    static let subtitle = "PINFinalViewController/subtitle"
-    static let buttonText = "PINFinalViewController/buttonText"
+    public static let title = "PINFinalViewController/title"
+    public static let subtitle = "PINFinalViewController/subtitle"
+    public static let buttonText = "PINFinalViewController/buttonText"
 }
 
 // MARK: - Presenter Protocol delegated UI-related logic

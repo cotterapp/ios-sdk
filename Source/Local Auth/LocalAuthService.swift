@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 import LocalAuthentication
 
 class LAlertDelegate: AlertServiceDelegate {
@@ -94,7 +95,7 @@ class LocalAuthService: UIViewController {
     public func pinAuth(
         pin: String,
         event: String,
-        callback: @escaping ((Bool) -> Void)
+        callback: @escaping ((Bool, CotterError?) -> Void)
     ) throws -> Bool {
         let apiclient = CotterAPIService.shared
         
@@ -107,10 +108,10 @@ class LocalAuthService: UIViewController {
         func httpCb(response: CotterResult<CotterEvent>) {
             switch response {
             case .success(let resp):
-                callback(resp.approved)
+                callback(resp.approved, nil)
             case .failure(let err):
                 // we can handle multiple error results here
-                callback(false)
+                callback(false, err)
                 print(err.localizedDescription)
             }
         }
@@ -134,7 +135,7 @@ class LocalAuthService: UIViewController {
     public func bioAuth(
         view: UIViewController,
         event: String,
-        callback: @escaping ((Bool) -> Void)
+        callback: @escaping ((Bool, CotterError?) -> Void)
     ) {
         let context = LAContext()
         var error: NSError?
@@ -203,10 +204,10 @@ class LocalAuthService: UIViewController {
                     switch response {
                     case .success(let resp):
                         LoadingScreen.shared.stop()
-                        callback(resp.approved)
+                        callback(resp.approved, nil)
                     case .failure(let err):
-                        // we can handle multiple error results here
-                        print(err.localizedDescription)
+                        LoadingScreen.shared.stop()
+                        callback(false, err)
                     }
                 }
                 

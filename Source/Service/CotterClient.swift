@@ -54,7 +54,7 @@ public class CotterClient: APIClient {
                 let response = response as? HTTPURLResponse,
                 error == nil else { // check for fundamental networking error
                     DispatchQueue.main.async {
-                        completion(.failure(CotterAPIError.network))
+                        completion(.failure(CotterError.network))
                     }
                 return
             }
@@ -66,7 +66,7 @@ public class CotterClient: APIClient {
                 
                 // TODO: handle error
                 DispatchQueue.main.async {
-                    completion(.failure(CotterAPIError.status(code: response.statusCode)))
+                    completion(.failure(CotterError.status(code: response.statusCode)))
                 }
                 return
             }
@@ -83,7 +83,7 @@ public class CotterClient: APIClient {
             } catch {
                 // failing to decode will result in failure
                 DispatchQueue.main.async {
-                    completion(.failure(error))
+                    completion(.failure(CotterError.general(message: error.localizedDescription)))
                 }
             }
         }

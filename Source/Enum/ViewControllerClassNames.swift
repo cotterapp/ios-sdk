@@ -6,6 +6,6 @@
 //
 
 public struct CotterClassNames {
-    static let pinVC: String = "PINViewController"
-    static let transactionVC: String = "TransactionViewController"
+    public static let pinVC: String = "PINViewController"
+    public static let transactionPinVC: String = "TransactionPINViewController"
 }

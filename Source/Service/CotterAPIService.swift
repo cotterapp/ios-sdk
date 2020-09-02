@@ -636,7 +636,7 @@ public class CotterAPIService: APIService {
         let qrArr = qrData.split(separator: ":")
         
         if qrArr.count < 5 {
-            cb(.failure(CotterAPIError.general(message: "QR Code invalid")))
+            cb(.failure(CotterError.general(message: "QR Code invalid")))
         }
         
         let newPubKey = qrArr[0]
@@ -656,7 +656,7 @@ public class CotterAPIService: APIService {
         let expiry = 60.0 * 3.0 // 3 minutes expiry
         if (timestamp - castNewTimestamp)/1000 > expiry {
             // expired
-            cb(.failure(CotterAPIError.general(message: "QR Code expired")))
+            cb(.failure(CotterError.general(message: "QR Code expired")))
         }
         
         let internalCb = CotterCallback()
@@ -669,11 +669,11 @@ public class CotterAPIService: APIService {
         
         // check userID
         if newUserID != userID {
-            cb(.failure(CotterAPIError.general(message: "This QR Code belongs to another user, and cannot be registered for this user.")))
+            cb(.failure(CotterError.general(message: "This QR Code belongs to another user, and cannot be registered for this user.")))
         }
         
         if newIssuer != CotterAPIService.shared.apiKeyID {
-             cb(.failure(CotterAPIError.general(message: "This QR Code belongs to another app, and cannot be registered for this app.")))
+             cb(.failure(CotterError.general(message: "This QR Code belongs to another app, and cannot be registered for this app.")))
         }
         
         let apiClient = self.apiClient()

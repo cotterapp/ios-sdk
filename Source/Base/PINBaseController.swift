@@ -9,4 +9,5 @@ import Foundation
 
 protocol PINBaseController {
     func instantiateCodeTextFieldFunctions() -> Void
+    func generateErrorMessageFrom(error: CotterError) -> String
 }

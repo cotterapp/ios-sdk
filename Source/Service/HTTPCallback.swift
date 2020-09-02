@@ -7,10 +7,10 @@
 
 import Foundation
 
-public typealias ResultCallback<Value> = (Result<Value, Error>) -> Void
-public typealias CotterResult<Value> = Result<Value, Error>
+public typealias ResultCallback<Value> = (Result<Value, CotterError>) -> Void
+public typealias CotterResult<Value> = Result<Value, CotterError>
 
-public func DefaultResultCallback<T:Encodable>(resp: Result<T, Error>) -> Void {
+public func DefaultResultCallback<T:Encodable>(resp: Result<T, CotterError>) -> Void {
     switch resp {
     case .success(let data):
         let jsonEncoder = JSONEncoder()

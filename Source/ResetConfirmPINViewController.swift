@@ -9,10 +9,10 @@ import UIKit
 
 // MARK: - Keys for Strings
 public class ResetConfirmPINViewControllerKey {
-    static let navTitle = "ResetConfirmPINViewController/navTitle"
-    static let title = "ResetConfirmPINViewController/title"
-    static let showPin = "ResetConfirmPINViewController/showPin"
-    static let hidePin = "ResetConfirmPINViewController/hidePin"
+    public static let navTitle = "ResetConfirmPINViewController/navTitle"
+    public static let title = "ResetConfirmPINViewController/title"
+    public static let showPin = "ResetConfirmPINViewController/showPin"
+    public static let hidePin = "ResetConfirmPINViewController/hidePin"
 }
 
 // MARK: - Presenter Protocol delegated UI-related logic
@@ -111,23 +111,29 @@ class ResetConfirmPINViewController: UIViewController {
         presenter.onClickPinVis(button: sender)
     }
     
-    func toggleErrorMsg(msg: String?) {
-        errorLabel.isHidden.toggle()
-        if !errorLabel.isHidden {
-            errorLabel.text = msg
-        }
+    func setError(msg: String?) {
+        errorLabel.isHidden = msg == nil
+        errorLabel.text = msg
     }
-    
 }
 
 // MARK: - PINBaseController
 extension ResetConfirmPINViewController : PINBaseController {
+    func generateErrorMessageFrom(error: CotterError) -> String {
+        let strings = CotterStrings.instance
+        switch(error) {
+        case CotterError.status(code: 500):
+            return strings.getText(for: PinErrorMessagesKey.serverError)
+        case CotterError.network:
+            return strings.getText(for: PinErrorMessagesKey.networkError)
+        default:
+            return strings.getText(for: PinErrorMessagesKey.resetPinFailed)
+        }
+    }
+    
     func instantiateCodeTextFieldFunctions() {
         codeTextField.removeErrorMsg = {
-            // Remove error msg if it is present
-            if !self.errorLabel.isHidden {
-                self.toggleErrorMsg(msg: nil)
-            }
+            self.setError(msg: nil)
         }
         
         codeTextField.didEnterLastDigit = { code in
@@ -140,9 +146,7 @@ extension ResetConfirmPINViewController : PINBaseController {
             
             // If the entered digits are not the same, show error.
             if code != self.prevCode! {
-                if self.errorLabel.isHidden {
-                    self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.incorrectPinConfirmation))
-                }
+                self.setError(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.incorrectPinConfirmation))
                 return false
             }
             
@@ -150,18 +154,13 @@ extension ResetConfirmPINViewController : PINBaseController {
             let pattern = "\\b(\\d)\\1+\\b"
             let result = code.range(of: pattern, options: .regularExpression)
             if result != nil || self.findSequence(sequenceLength: code.count, in: code) {
-                if self.errorLabel.isHidden {
-                    self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.badPin))
-                }
+                self.setError(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.badPin))
                 return false
             }
             
             guard let resetCode = Config.instance.userInfo?.resetCode, let resetChallengeID = Config.instance.userInfo?.resetChallengeID,
                 let resetChallenge = Config.instance.userInfo?.resetChallenge else {
-                    // Display Error
-                    if self.errorLabel.isHidden {
-                        self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.resetPinFailed))
-                    }
+                    self.setError(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.resetPinFailed))
                     return false
             }
             
@@ -179,19 +178,10 @@ extension ResetConfirmPINViewController : PINBaseController {
                         resetPINFinalVC.delegate = self
                         self.navigationController?.pushViewController(resetPINFinalVC, animated: true)
                     } else {
-                        // Display Error
-                        if self.errorLabel.isHidden {
-                            self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.resetPinFailed))
-                        }
+                        self.setError(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.resetPinFailed))
                     }
                 case .failure(let err):
-                    // we can handle multiple error results here
-                    print(err.localizedDescription)
-                    
-                    // Display Error
-                    if self.errorLabel.isHidden {
-                        self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.resetPinFailed))
-                    }
+                    self.setError(msg: self.generateErrorMessageFrom(error: err))
                 }
             }
             
@@ -251,7 +241,6 @@ extension ResetConfirmPINViewController : KeyboardViewDelegate {
     func keyboardButtonTapped(buttonNumber: NSInteger) {
         // If backspace tapped, remove last char. Else, append new char.
         if buttonNumber == -1 {
-            print("removing number")
             codeTextField.removeNumber()
         } else {
             codeTextField.appendNumber(buttonNumber: buttonNumber)

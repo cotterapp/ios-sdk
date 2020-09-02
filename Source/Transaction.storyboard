@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -103,7 +103,7 @@
         <!--ResetPIN View Controller-->
         <scene sceneID="rhf-yQ-5YU">
             <objects>
-                <viewController storyboardIdentifier="ResetPINViewController" id="6pz-MC-9vT" customClass="ResetPINViewController" customModule="Cotter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ResetPINViewController" modalPresentationStyle="fullScreen" id="6pz-MC-9vT" customClass="ResetPINViewController" customModule="Cotter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eEM-OE-T4l">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

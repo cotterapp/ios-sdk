@@ -9,10 +9,10 @@ import UIKit
 
 // MARK: - Keys for Strings
 public class UpdateConfirmNewPINViewControllerKey {
-    static let navTitle = "UpdateConfirmNewPINViewController/navTitle"
-    static let title = "UpdateConfirmNewPINViewController/title"
-    static let showPin = "UpdateConfirmNewPINViewController/showPin"
-    static let hidePin = "UpdateConfirmNewPINViewController/hidePin"
+    public static let navTitle = "UpdateConfirmNewPINViewController/navTitle"
+    public static let title = "UpdateConfirmNewPINViewController/title"
+    public static let showPin = "UpdateConfirmNewPINViewController/showPin"
+    public static let hidePin = "UpdateConfirmNewPINViewController/hidePin"
 }
 
 // MARK: - Presenter Protocol delegated UI-related logic
@@ -112,23 +112,30 @@ class UpdateConfirmNewPINViewController: UIViewController {
         presenter.onClickPinVis(button: sender)
     }
     
-    func toggleErrorMsg(msg: String?) {
-        errorLabel.isHidden.toggle()
-        if !errorLabel.isHidden {
-            errorLabel.text = msg
-        }
+    func setError(msg: String?) {
+        errorLabel.isHidden = msg == nil
+        errorLabel.text = msg
     }
     
 }
 
 // MARK: - PINBaseController
 extension UpdateConfirmNewPINViewController : PINBaseController {
+    func generateErrorMessageFrom(error: CotterError) -> String {
+        let strings = CotterStrings.instance
+        switch(error) {
+        case CotterError.network:
+            return strings.getText(for: PinErrorMessagesKey.networkError)
+        case CotterError.status(code: 500):
+            return strings.getText(for: PinErrorMessagesKey.serverError)
+        default:
+            return strings.getText(for: PinErrorMessagesKey.updatePinFailed)
+        }
+    }
+    
     func instantiateCodeTextFieldFunctions() {
         codeTextField.removeErrorMsg = {
-            // Remove error msg if it is present
-            if !self.errorLabel.isHidden {
-                self.toggleErrorMsg(msg: nil)
-            }
+            self.setError(msg: nil)
         }
         
         codeTextField.didEnterLastDigit = { code in
@@ -141,9 +148,7 @@ extension UpdateConfirmNewPINViewController : PINBaseController {
             
             // If code is not the same as previous code, show error.
             if code != self.prevCode {
-                if self.errorLabel.isHidden {
-                    self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.incorrectPinConfirmation))
-                }
+                self.setError(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.incorrectPinConfirmation))
                 return false
             }
             
@@ -151,9 +156,7 @@ extension UpdateConfirmNewPINViewController : PINBaseController {
             let pattern = "\\b(\\d)\\1+\\b"
             let result = code.range(of: pattern, options: .regularExpression)
             if result != nil || self.findSequence(sequenceLength: code.count, in: code) {
-                if self.errorLabel.isHidden {
-                    self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.badPin))
-                }
+                self.setError(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.badPin))
                 return false
             }
             
@@ -169,13 +172,7 @@ extension UpdateConfirmNewPINViewController : PINBaseController {
                     self.navigationController?.pushViewController(pinFinalVC, animated: true)
                     
                 case .failure(let err):
-                    // we can handle multiple error results here
-                    print(err.localizedDescription)
-
-                    // Display Error
-                    if self.errorLabel.isHidden {
-                        self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.updatePinFailed))
-                    }
+                    self.setError(msg: self.generateErrorMessageFrom(error: err))
                 }
             }
             
@@ -197,11 +194,6 @@ extension UpdateConfirmNewPINViewController : PINBaseController {
 extension UpdateConfirmNewPINViewController: UpdateConfirmNewPINViewComponent {
     func setupUI() {
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-
-//        self.navigationItem.hidesBackButton = true
-//        let backButton = UIBarButtonItem(title: "\u{2190}", style: UIBarButtonItem.Style.plain, target: self, action: #selector(UpdateConfirmNewPINViewController.promptBack(sender:)))
-//        backButton.tintColor = UIColor.black
-//        self.navigationItem.leftBarButtonItems = [backButton]
         
         errorLabel.isHidden = true
         

@@ -150,7 +150,7 @@ public class Cotter {
     }
     
     // when you want to render TransactionViewController on startup
-    public func getTransactionViewController(hideClose:Bool, cb: @escaping FinalAuthCallback) -> UIViewController {
+    public func getTransactionPINViewController(hideClose:Bool, cb: @escaping FinalAuthCallback) -> UIViewController {
         Config.instance.transactionCb = cb
         
         // Hide the close button (Optional)
@@ -290,7 +290,7 @@ public class Cotter {
         Config.instance.baseURL = URL(string: "https://www.cotter.app/api/v0")!
 //        Config.instance.baseURL = URL(string: "https://s.www.cotter.app/api/v0")!
 //        Config.instance.baseURL = URL(string: "http://localhost:1234/api/v0")!
-//        Config.instance.baseURL = URL(string:"http://192.168.86.28:1234/api/v0")!
+//        Config.instance.baseURL = URL(string:"http://192.168.86.33:1234/api/v0")!
         CotterAPIService.shared.apiSecretKey = apiSecretKey
         CotterAPIService.shared.apiKeyID = apiKeyID
         

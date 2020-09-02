@@ -9,10 +9,10 @@ import UIKit
 
 // MARK: - Keys for Strings
 public class UpdateCreateNewPINViewControllerKey {
-    static let navTitle = "UpdateCreateNewPINViewController/navTitle"
-    static let title = "UpdateCreateNewPINViewController/title"
-    static let showPin = "UpdateCreateNewPINViewController/showPin"
-    static let hidePin = "UpdateCreateNewPINViewController/hidePin"
+    public static let navTitle = "UpdateCreateNewPINViewController/navTitle"
+    public static let title = "UpdateCreateNewPINViewController/title"
+    public static let showPin = "UpdateCreateNewPINViewController/showPin"
+    public static let hidePin = "UpdateCreateNewPINViewController/hidePin"
 }
 
 // MARK: - Presenter Protocol delegated UI-related logic
@@ -109,22 +109,21 @@ class UpdateCreateNewPINViewController: UIViewController {
         presenter.onClickPinVis(button: sender)
     }
     
-    func toggleErrorMsg(msg: String?) {
-        errorLabel.isHidden.toggle()
-        if !errorLabel.isHidden {
-            errorLabel.text = msg
-        }
+    func setError(msg: String?) {
+        errorLabel.isHidden = msg == nil
+        errorLabel.text = msg
     }
 }
 
 // MARK: - PINBaseController
 extension UpdateCreateNewPINViewController : PINBaseController {
+    func generateErrorMessageFrom(error: CotterError) -> String {
+        return ""
+    }
+    
     func instantiateCodeTextFieldFunctions() {
         codeTextField.removeErrorMsg = {
-            // Remove error msg if it is present
-            if !self.errorLabel.isHidden {
-                self.toggleErrorMsg(msg: nil)
-            }
+            self.setError(msg: nil)
         }
         
         codeTextField.didEnterLastDigit = { code in
@@ -136,17 +135,13 @@ extension UpdateCreateNewPINViewController : PINBaseController {
             
             // Ensure consecutive PIN number is rejected
             if result != nil || self.findSequence(sequenceLength: code.count, in: code) {
-                if self.errorLabel.isHidden {
-                    self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.badPin))
-                }
+                self.setError(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.badPin))
                 return false
             }
             
             // if new code is similar as previous code
             if code == self.oldCode {
-                if self.errorLabel.isHidden {
-                    self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.similarPinAsBefore))
-                }
+                self.setError(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.similarPinAsBefore))
                 return false
             }
             

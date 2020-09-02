@@ -10,11 +10,11 @@ import LocalAuthentication
 
 // MARK: - Keys for Strings
 public class TransactionPINViewControllerKey {
-    static let navTitle = "TransactionPINViewController/navTitle"
-    static let title = "TransactionPINViewController/title"
-    static let showPin = "TransactionPINViewController/showPin"
-    static let hidePin = "TransactionPINViewController/hidePin"
-    static let forgetPin = "TransactionPINViewController/forgetPin"
+    public static let navTitle = "TransactionPINViewController/navTitle"
+    public static let title = "TransactionPINViewController/title"
+    public static let showPin = "TransactionPINViewController/showPin"
+    public static let hidePin = "TransactionPINViewController/hidePin"
+    public static let forgetPin = "TransactionPINViewController/forgetPin"
 }
 
 // MARK: - Presenter Protocol delegated UI-related logic
@@ -130,39 +130,49 @@ class TransactionPINViewController: UIViewController {
         presenter.onClickPinVis(button: sender)
     }
     
-    func toggleErrorMsg(msg: String?) {
-        errorLabel.isHidden.toggle()
-        if !errorLabel.isHidden {
-            errorLabel.text = msg
-        }
+    func setError(msg: String?) {
+        errorLabel.isHidden = msg == nil
+        errorLabel.text = msg
     }
 }
 
 // MARK: - PINBaseController
 extension TransactionPINViewController : PINBaseController {
+    func generateErrorMessageFrom(error: CotterError) -> String {
+        let strings = CotterStrings.instance
+        switch(error) {
+        case CotterError.network:
+            return strings.getText(for: PinErrorMessagesKey.networkError)
+        case CotterError.status(code: 500):
+            return strings.getText(for: PinErrorMessagesKey.serverError)
+        case CotterError.status(code: 403):
+            return strings.getText(for: PinErrorMessagesKey.incorrectPinVerification)
+        default:
+            return strings.getText(for: PinErrorMessagesKey.clientError)
+        }
+    }
+    
     func instantiateCodeTextFieldFunctions() {
         codeTextField.removeErrorMsg = {
-            // Remove error msg if it is present
-            if !self.errorLabel.isHidden {
-                self.toggleErrorMsg(msg: nil)
-            }
+            self.setError(msg: nil)
         }
         
         codeTextField.didEnterLastDigit = { code in
-            print("PIN Code Entered: ", code)
-            
             let cbFunc = Config.instance.transactionCb
             
             // Callback Function to execute after PIN Verification
-            func pinVerificationCallback(success: Bool) {
+            func pinVerificationCallback(success: Bool, error: CotterError?) {
                 LoadingScreen.shared.stop()
+                if let err = error {
+                    self.setError(msg: self.generateErrorMessageFrom(error: err))
+                    return
+                }
+                
                 if success {
                     self.codeTextField.clear()
-                    cbFunc("Token from Transaction PIN View!", nil)
+                    cbFunc("", nil)
                 } else {
-                    if self.errorLabel.isHidden {
-                        self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.incorrectPinVerification))
-                    }
+                    self.setError(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.incorrectPinVerification))
                     self.codeTextField.clear()
                 }
             }
@@ -195,12 +205,12 @@ extension TransactionPINViewController: TransactionPINViewComponent {
                 case .success(let resp):
                     if resp.enrolled {
                         let onFinishCallback = Config.instance.transactionCb
-                        func cb(success: Bool) {
+                        func cb(success: Bool, error: CotterError?) {
                             if success {
                                 onFinishCallback("dummy biometric token", nil)
                             } else {
-                                print("[TransactionPINViewController.getBiometricStatus] got here!")
-                                self.toggleErrorMsg(msg: "Biometric is incorrect, please use PIN")
+                                print("[TransactionPINViewController.getBiometricStatus] biometric incorrect")
+                                self.setError(msg: "Biometric is incorrect, please use PIN")
                             }
                         }
                         self.authService.bioAuth(view: self, event: CotterEvents.Transaction, callback: cb)
@@ -208,7 +218,7 @@ extension TransactionPINViewController: TransactionPINViewComponent {
                         print("[TransactionPINViewController.getBiometricStatus] Biometric not enrolled")
                     }
                 case .failure(let err):
-                    print(err.localizedDescription)
+                    self.setError(msg: self.generateErrorMessageFrom(error: err))
                 }
             })
         } else {
@@ -268,7 +278,7 @@ extension TransactionPINViewController : KeyboardViewDelegate {
         } else {
             // If we were to clear the text field after each failed input, we need to remove the error message as soon as we enter a new number in the subsequent try
             if !errorLabel.isHidden {
-                toggleErrorMsg(msg: nil)
+                setError(msg: nil)
             }
             codeTextField.appendNumber(buttonNumber: buttonNumber)
         }

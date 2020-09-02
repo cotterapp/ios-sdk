@@ -9,10 +9,10 @@ import UIKit
 
 public class TrustedViewControllerKey {
     // MARK: - Keys for Strings
-    static let title = "TrustedViewController/title"
-    static let subtitle = "TrustedViewController/subtitle"
-    static let buttonNo = "TrustedViewController/buttonNo"
-    static let buttonYes = "TrustedViewController/buttonYes"
+    public static let title = "TrustedViewController/title"
+    public static let subtitle = "TrustedViewController/subtitle"
+    public static let buttonNo = "TrustedViewController/buttonNo"
+    public static let buttonYes = "TrustedViewController/buttonYes"
 }
 
 class TrustedViewController: UIViewController {
