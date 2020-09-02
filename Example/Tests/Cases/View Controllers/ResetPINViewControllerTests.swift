@@ -111,7 +111,7 @@ class ResetPINViewControllerTests: XCTestCase {
         let sut = makeSUT(actualPresenter: true) // errorLabel is hidden initially
         let msg = "Test Error"
         
-        sut.toggleErrorMsg(msg: msg)
+        sut.setError(msg: msg)
         
         expect(sut.resetPinError.isHidden).to(beFalse())
         expect(sut.resetPinError.text).to(match(msg))

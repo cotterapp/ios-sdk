@@ -94,7 +94,7 @@ class PINViewControllerTests: XCTestCase {
         let sut = makeSUT(actualPresenter: true) // errorLabel is hidden initially
         let msg = "Test Error"
         
-        sut.toggleErrorMsg(msg: msg)
+        sut.setError(msg: msg)
         
         expect(sut.errorLabel.isHidden).to(beFalse())
         expect(sut.errorLabel.text).to(match(msg))
