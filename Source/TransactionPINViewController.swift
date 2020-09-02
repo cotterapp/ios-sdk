@@ -276,10 +276,7 @@ extension TransactionPINViewController : KeyboardViewDelegate {
         if buttonNumber == -1 {
             codeTextField.removeNumber()
         } else {
-            // If we were to clear the text field after each failed input, we need to remove the error message as soon as we enter a new number in the subsequent try
-            if !errorLabel.isHidden {
-                setError(msg: nil)
-            }
+            setError(msg: nil)
             codeTextField.appendNumber(buttonNumber: buttonNumber)
         }
     }

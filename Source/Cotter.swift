@@ -287,7 +287,7 @@ public class Cotter {
         configuration: [String:Any] = [:]
     ) {
         print("configuring Cotter's object...")
-        Config.instance.baseURL = URL(string: "https://www.cotter.app/api/v0")!
+//        Config.instance.baseURL = URL(string: "https://www.cotter.app/api/v0")!
 //        Config.instance.baseURL = URL(string: "https://s.www.cotter.app/api/v0")!
 //        Config.instance.baseURL = URL(string: "http://localhost:1234/api/v0")!
 //        Config.instance.baseURL = URL(string:"http://192.168.86.33:1234/api/v0")!
