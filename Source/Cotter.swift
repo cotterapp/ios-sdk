@@ -356,12 +356,10 @@ public class Cotter {
                 
                     if let userID = Cotter.getLoggedInUserID() {
                         guard let pubKey = KeyStore.trusted(userID: userID).pubKey else {
-                            print("[configureOneSignal] Unable to attain user's public key!")
                             return
                         }
                         
                         let pubKeyBase64 = CryptoUtil.keyToBase64(pubKey: pubKey)
-                        print("[configureOneSignal] current pubKey: \(pubKeyBase64)")
                         
                         OneSignal.setExternalUserId(pubKeyBase64)
                     }
