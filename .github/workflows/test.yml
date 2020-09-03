@@ -10,6 +10,8 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@master
+    - name: Force XCode 11.7
+      run: sudo xcode-select -switch /Applications/Xcode_11.7.app
     - name: Install Dependences
       run: |
         cd Example
