@@ -6,13 +6,14 @@
 //
 
 import UIKit
+import os.log
 
 // MARK: - Keys for Strings
 public class UpdatePINViewControllerKey {
-    static let navTitle = "UpdatePINViewController/navTitle"
-    static let title = "UpdatePINViewController/title"
-    static let showPin = "UpdatePINViewController/showPin"
-    static let hidePin = "UpdatePINViewController/hidePin"
+    public static let navTitle = "UpdatePINViewController/navTitle"
+    public static let title = "UpdatePINViewController/title"
+    public static let showPin = "UpdatePINViewController/showPin"
+    public static let hidePin = "UpdatePINViewController/hidePin"
 }
 
 // MARK: - Presenter Protocol delegated UI-related logic
@@ -97,8 +98,6 @@ class UpdatePINViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        print("loaded Update Profile PIN View!")
         
         // Set-up
         presenter.onViewLoaded()
@@ -110,29 +109,41 @@ class UpdatePINViewController: UIViewController {
         presenter.onClickPinVis(button: sender)
     }
     
-    func toggleErrorMsg(msg: String?) {
-        errorLabel.isHidden.toggle()
-        if !errorLabel.isHidden {
-            errorLabel.text = msg
-        }
+    func setError(msg: String?) {
+        errorLabel.isHidden = msg == nil
+        errorLabel.text = msg
     }
 }
 
 // MARK: - PINBaseController
 extension UpdatePINViewController : PINBaseController {
+    func generateErrorMessageFrom(error: CotterError) -> String {
+        let strings = CotterStrings.instance
+        switch(error) {
+        case CotterError.network:
+            return strings.getText(for: PinErrorMessagesKey.networkError)
+        case CotterError.status(code: 500):
+            return strings.getText(for: PinErrorMessagesKey.serverError)
+        case CotterError.status(code: 403):
+            return strings.getText(for: PinErrorMessagesKey.incorrectPinVerification)
+        default:
+            return strings.getText(for: PinErrorMessagesKey.updatePinFailed)
+        }
+    }
+    
     func instantiateCodeTextFieldFunctions() {
         codeTextField.removeErrorMsg = {
-            // Remove error msg if it is present
-            if !self.errorLabel.isHidden {
-                self.toggleErrorMsg(msg: nil)
-            }
+            self.setError(msg: nil)
         }
         
         codeTextField.didEnterLastDigit = { code in
-            print("PIN Code Entered: ", code)
-            
-            func pinVerificationCallback(success: Bool) {
+            func pinVerificationCallback(success: Bool, err: CotterError?) {
                 LoadingScreen.shared.stop()
+                if let error = err {
+                    self.setError(msg: self.generateErrorMessageFrom(error: error))
+                    return
+                }
+                
                 if success {
                     self.codeTextField.clear()
                     // Go to Create New PIN View
@@ -140,10 +151,7 @@ extension UpdatePINViewController : PINBaseController {
                     updateCreatePINVC.oldCode = code
                     self.navigationController?.pushViewController(updateCreatePINVC, animated: true)
                 } else {
-                    // Pin Verification Failed
-                    if self.errorLabel.isHidden {
-                        self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.incorrectPinVerification))
-                    }
+                    self.setError(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.incorrectPinVerification))
                     self.codeTextField.clear()
                 }
             }
@@ -153,7 +161,9 @@ extension UpdatePINViewController : PINBaseController {
                 LoadingScreen.shared.start(at: self.view.window)
                 _ = try self.authService.pinAuth(pin: code, event: CotterEvents.Update, callback: pinVerificationCallback)
             } catch let e {
-                print(e)
+                os_log("%{public}@ update pin verify failed { err: %{public}@ }",
+                       log: Config.instance.log, type: .error,
+                       #function, e.localizedDescription)
                 return false
             }
             
@@ -212,10 +222,7 @@ extension UpdatePINViewController : KeyboardViewDelegate {
         if buttonNumber == -1 {
             codeTextField.removeNumber()
         } else {
-            // If we were to clear the text field after each failed input, we need to remove the error message as soon as we enter a new number in the subsequent try
-            if !errorLabel.isHidden {
-                toggleErrorMsg(msg: nil)
-            }
+            setError(msg: nil)
             codeTextField.appendNumber(buttonNumber: buttonNumber)
         }
     }

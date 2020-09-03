@@ -7,11 +7,17 @@
 
 import Foundation
 
-enum CotterError: Error {
+public enum CotterError: Error {
     case keychainError(String)
     case biometricEnrollment
     case biometricVerification
     case auth(String)
     case passwordless(String)
     case trustedDevice(String)
+    case encoding
+    case decoding
+    case status(code: Int)
+    case server(message: String)
+    case network
+    case general(message: String)
 }

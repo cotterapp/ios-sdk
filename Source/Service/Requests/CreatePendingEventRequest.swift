@@ -22,10 +22,8 @@ public struct CreatePendingEventRequest: APIRequest, AutoEquatable {
         
         do {
             let data = try encoder.encode(self.event)
-            print("encoded: \(String(decoding:data, as:UTF8.self))")
             return data
         } catch {
-            print("error generating CreateAuthenticationEvent request")
             return nil
         }
     }

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import os.log
 
 public protocol APIClient: MockedClient {
     func send<T: APIRequest>(
@@ -54,25 +55,23 @@ public class CotterClient: APIClient {
                 let response = response as? HTTPURLResponse,
                 error == nil else { // check for fundamental networking error
                     DispatchQueue.main.async {
-                        completion(.failure(CotterAPIError.network))
+                        completion(.failure(CotterError.network))
                     }
                 return
             }
+            
+            os_log("%{public}@ http {status: %d msg: %{public}@ response: %{public}@}",
+                   log: Config.instance.log, type: .debug,
+                   #function, response.statusCode, String(decoding: data, as:UTF8.self), response)
 
             guard (200 ... 299) ~= response.statusCode else {   // check for http errors
-                print("statusCode should be 2xx, but is \(response.statusCode)")
-                print("response = \(response)")
-                print("errMsg = \(String(decoding: data, as:UTF8.self))")
-                
-                // TODO: handle error
                 DispatchQueue.main.async {
-                    completion(.failure(CotterAPIError.status(code: response.statusCode)))
+                    completion(.failure(CotterError.status(code: response.statusCode)))
                 }
                 return
             }
             
             do {
-                print("response \(String(decoding: data, as:UTF8.self))")
                 // Decode the response using given response object
                 let resp = try JSONDecoder().decode(T.Response.self, from: data)
                 
@@ -83,7 +82,7 @@ public class CotterClient: APIClient {
             } catch {
                 // failing to decode will result in failure
                 DispatchQueue.main.async {
-                    completion(.failure(error))
+                    completion(.failure(CotterError.general(message: error.localizedDescription)))
                 }
             }
         }
@@ -96,9 +95,6 @@ public class CotterClient: APIClient {
         }
 
         let components = URLComponents(url: baseUrl, resolvingAgainstBaseURL: true)!
-        
-        print("urlComponent \(components.url!)")
-        print("urlComponent \(request.method)")
         
         // create request
         var req = URLRequest(url: components.url!)

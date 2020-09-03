@@ -37,9 +37,9 @@ class UserCheckViewController: UIViewController {
             case .failure(let err):
                 // we can handle multiple error results here
                 switch err {
-                case CotterAPIError.status(code: 500):
+                case CotterError.status(code: 500):
                     print("internal server error")
-                case CotterAPIError.status(code: 404):
+                case CotterError.status(code: 404):
                     print("user not found")
                 default:
                     print(err.localizedDescription)

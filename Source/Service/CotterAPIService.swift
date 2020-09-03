@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import os.log
 
 public class CotterAPIService: APIService {
     // shared cotterAPI service to be used anywhere later
@@ -385,7 +386,6 @@ public class CotterAPIService: APIService {
            }
            
            let pubKeyBase64 = CryptoUtil.keyToBase64(pubKey: pubKey)
-           print("current pubKey: \(pubKeyBase64)")
            
            
            // Flow of trusted device authentication:
@@ -403,12 +403,10 @@ public class CotterAPIService: APIService {
                     
                     // authorize device. But also send authorization approval
                     if resp.enrolled && resp.method == method {
-                        print("[reqAuth] enrolled on trusted device")
                         
                         // authorize device, create approved event request
                         let msg = "\(cotterUserID)\(CotterAPIService.shared.apiKeyID)\(event)\(timestamp)\(method)true"
                         let code = CryptoUtil.signBase64(privKey: privKey, msg: msg)
-                        print("message: \(msg)")
 
                         // request auth from trusted device
                         let evt = CotterEventRequest(
@@ -485,7 +483,6 @@ public class CotterAPIService: APIService {
         }
         
         let pubKeyBase64 = CryptoUtil.keyToBase64(pubKey: pubKey)
-        print("current pubKey: \(pubKeyBase64)")
         
         
         // get the trusted device status first
@@ -499,13 +496,11 @@ public class CotterAPIService: APIService {
                 
                 // authorize device. But also send authorization approval
                 if resp.enrolled && resp.method == method {
-                    print("[reqAuth] enrolled on trusted device")
                     
                     // authorize device, create approved event request
                     let msg = "\(clientUserID)\(CotterAPIService.shared.apiKeyID)\(event)\(timestamp)\(method)true"
                     let code = CryptoUtil.signBase64(privKey: privKey, msg: msg)
-                    print("message: \(msg)")
-
+                    
                     // request auth from trusted device
                     let evt = CotterEventRequest(
                         pubKey: pubKeyBase64,
@@ -636,7 +631,7 @@ public class CotterAPIService: APIService {
         let qrArr = qrData.split(separator: ":")
         
         if qrArr.count < 5 {
-            cb(.failure(CotterAPIError.general(message: "QR Code invalid")))
+            cb(.failure(CotterError.general(message: "QR Code invalid")))
         }
         
         let newPubKey = qrArr[0]
@@ -648,7 +643,9 @@ public class CotterAPIService: APIService {
         let timestamp = NSDate().timeIntervalSince1970.rounded()
         let strTimestamp = String(format:"%.0f", timestamp)
         guard let castNewTimestamp = Double(newTimestamp) else {
-            print("\(newTimestamp) is not a double")
+            os_log("%{public}@ timestamp is not a double {qrData: %{public}@}",
+                   log: Config.instance.log, type: .error,
+                   #function, qrData)
             return
         }
         
@@ -656,7 +653,7 @@ public class CotterAPIService: APIService {
         let expiry = 60.0 * 3.0 // 3 minutes expiry
         if (timestamp - castNewTimestamp)/1000 > expiry {
             // expired
-            cb(.failure(CotterAPIError.general(message: "QR Code expired")))
+            cb(.failure(CotterError.general(message: "QR Code expired")))
         }
         
         let internalCb = CotterCallback()
@@ -669,11 +666,11 @@ public class CotterAPIService: APIService {
         
         // check userID
         if newUserID != userID {
-            cb(.failure(CotterAPIError.general(message: "This QR Code belongs to another user, and cannot be registered for this user.")))
+            cb(.failure(CotterError.general(message: "This QR Code belongs to another user, and cannot be registered for this user.")))
         }
         
         if newIssuer != CotterAPIService.shared.apiKeyID {
-             cb(.failure(CotterAPIError.general(message: "This QR Code belongs to another app, and cannot be registered for this app.")))
+             cb(.failure(CotterError.general(message: "This QR Code belongs to another app, and cannot be registered for this app.")))
         }
         
         let apiClient = self.apiClient()
@@ -758,7 +755,6 @@ public class CotterAPIService: APIService {
     public func getNotificationAppID(
         cb: @escaping ResultCallback<CotterNotificationCredential>
     ) {
-        print("getting notification App ID")
         let apiClient = self.apiClient()
         
         let req = GetNotificationAppID()
@@ -769,7 +765,6 @@ public class CotterAPIService: APIService {
         refreshToken: String,
         cb: @escaping ResultCallback<CotterOAuthToken>
     ){
-        print("refreshing access tokens")
         let apiClient = self.apiClient()
         
         let req = RefreshToken(refreshToken: refreshToken)

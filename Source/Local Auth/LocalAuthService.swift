@@ -6,26 +6,24 @@
 //
 
 import Foundation
+import UIKit
+import os.log
 import LocalAuthentication
 
 class LAlertDelegate: AlertServiceDelegate {
     var defActionHandler = {
-        print("LAlertDelegate default action handler")
         return
     }
     var defCancelHandler = {
-        print("LAlertDelegate default cancel handler")
         return
     }
     
     func actionHandler() {
-        print("action")
         defActionHandler()
         return
     }
     
     func cancelHandler() {
-        print("cancel")
         defCancelHandler()
         return
     }
@@ -94,28 +92,27 @@ class LocalAuthService: UIViewController {
     public func pinAuth(
         pin: String,
         event: String,
-        callback: @escaping ((Bool) -> Void)
+        callback: @escaping ((Bool, CotterError?) -> Void)
     ) throws -> Bool {
         let apiclient = CotterAPIService.shared
         
         let userID = apiclient.cotterUserID
         if userID == "" {
+            os_log("%{public}@ user id is not provided",
+                   log: Config.instance.log, type: .error,
+                   #function)
             return false
         }
-        print("userID: \(userID)")
         
         func httpCb(response: CotterResult<CotterEvent>) {
             switch response {
             case .success(let resp):
-                callback(resp.approved)
+                callback(resp.approved, nil)
             case .failure(let err):
                 // we can handle multiple error results here
-                callback(false)
-                print(err.localizedDescription)
+                callback(false, err)
             }
         }
-        
-        print("PIN: \(pin)")
         
         CotterAPIService.shared.auth(
             userID:userID,
@@ -134,7 +131,7 @@ class LocalAuthService: UIViewController {
     public func bioAuth(
         view: UIViewController,
         event: String,
-        callback: @escaping ((Bool) -> Void)
+        callback: @escaping ((Bool, CotterError?) -> Void)
     ) {
         let context = LAContext()
         var error: NSError?
@@ -151,16 +148,13 @@ class LocalAuthService: UIViewController {
             alertDelegate.defActionHandler = {
                 LoadingScreen.shared.start(at: self.view.window)
                 aService.hide()
-                // this will force biometric scan request
+
                 guard let privateKey = KeyStore.biometric.privKey else {
                     self.dispatchResult(view: view, success: false, authError: nil)
                     return
                 }
 
-                // get the public key, this will trigger the faceID
                 guard let pubKey = KeyStore.biometric.pubKey else {
-                    // if pubkey is unretrievable, then there must be something wrong with the bio scan
-                    // TODO: error handling:
                     self.dispatchResult(view: view, success: false, authError: CotterError.biometricVerification)
                     return
                 }
@@ -171,7 +165,9 @@ class LocalAuthService: UIViewController {
                 let issuer = cl.apiKeyID
                 let userID = cl.cotterUserID
                 if userID == "" {
-                    print("[bioAuth] userID is empty")
+                    os_log("%{public}@ user id is not provided",
+                           log: Config.instance.log, type: .error,
+                           #function)
                     return
                 }
                 
@@ -193,7 +189,9 @@ class LocalAuthService: UIViewController {
                     data as CFData,
                     &error
                 ) as Data? else {
-                    print("failed to create signature")
+                    os_log("%{public}@ failed to create signature",
+                           log: Config.instance.log, type: .error,
+                           #function)
                     return
                 }
 
@@ -203,10 +201,10 @@ class LocalAuthService: UIViewController {
                     switch response {
                     case .success(let resp):
                         LoadingScreen.shared.stop()
-                        callback(resp.approved)
+                        callback(resp.approved, nil)
                     case .failure(let err):
-                        // we can handle multiple error results here
-                        print(err.localizedDescription)
+                        LoadingScreen.shared.stop()
+                        callback(false, err)
                     }
                 }
                 
@@ -231,7 +229,9 @@ class LocalAuthService: UIViewController {
             aService.show()
         } else {
             // no biometric then do nothing
-            print("No Biometrics Available!")
+            os_log("%{public}@ biometric not available",
+                   log: Config.instance.log, type: .debug,
+                   #function)
         }
     }
     
@@ -257,7 +257,6 @@ class LocalAuthService: UIViewController {
             )
             let delegate = LAlertDelegate()
             delegate.defActionHandler = {
-                print("got here")
                 aService.hide()
                 // this will force biometric scan request
                 guard KeyStore.biometric.privKey != nil else {
@@ -278,7 +277,6 @@ class LocalAuthService: UIViewController {
             }
 
             delegate.defCancelHandler =  {
-                print("defCancelHandler")
                 aService.hide()
                 self.dispatchResult(view: view, success: true, authError: nil)
             }
@@ -297,8 +295,6 @@ class LocalAuthService: UIViewController {
         guard let view = view else { return }
         
         if success {
-            print("Successful local authentication!")
-            
             // Give Success Alert
             let successAlert = AlertService(
                 vc: view,
@@ -323,7 +319,9 @@ class LocalAuthService: UIViewController {
             }
         } else {
             // Give Failed Authentication Alert
-            print("Failed local authentication!")
+            os_log("%{public}@ biometric authentication failed",
+                   log: Config.instance.log, type: .debug,
+                   #function)
             
             let failedBiometricAlert = AlertService(
                 vc: view,

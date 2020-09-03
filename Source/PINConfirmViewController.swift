@@ -9,10 +9,10 @@ import UIKit
 
 // MARK: - Keys for Strings
 public class PINConfirmViewControllerKey {
-    static let navTitle = "PINConfirmViewController/navTitle"
-    static let showPin = "PINConfirmViewController/showPin"
-    static let hidePin = "PINConfirmViewController/hidePin"
-    static let title = "PINConfirmViewController/title"
+    public static let navTitle = "PINConfirmViewController/navTitle"
+    public static let showPin = "PINConfirmViewController/showPin"
+    public static let hidePin = "PINConfirmViewController/hidePin"
+    public static let title = "PINConfirmViewController/title"
 }
 
 // MARK: - Presenter Protocol delegated UI-related logic
@@ -97,9 +97,6 @@ class PINConfirmViewController : UIViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        print("loaded PIN Confirmation View!")
-        
         // Set-up
         presenter.onViewLoaded()
         instantiateCodeTextFieldFunctions()
@@ -109,30 +106,35 @@ class PINConfirmViewController : UIViewController {
         presenter.onClickPinVis(button: sender)
     }
     
-    func toggleErrorMsg(msg: String?) {
-        errorLabel.isHidden.toggle()
-        if !errorLabel.isHidden {
-            errorLabel.text = msg
-        }
+    func setError(msg: String?) {
+        errorLabel.isHidden = msg == nil
+        errorLabel.text = msg ?? ""
     }
 }
 
 // MARK: - PINBaseController
 extension PINConfirmViewController : PINBaseController {
+    func generateErrorMessageFrom(error: CotterError) -> String {
+        let strings = CotterStrings.instance
+        switch(error) {
+        case CotterError.status(code: 500):
+            return strings.getText(for: PinErrorMessagesKey.serverError)
+        case CotterError.network:
+            return strings.getText(for: PinErrorMessagesKey.networkError)
+        default:
+            return strings.getText(for: PinErrorMessagesKey.enrollPinFailed)
+        }
+    }
+    
     func instantiateCodeTextFieldFunctions() {
         codeTextField.removeErrorMsg = {
-            // Remove error msg if it is present
-            if !self.errorLabel.isHidden {
-                self.toggleErrorMsg(msg: nil)
-            }
+            self.setError(msg: nil)
         }
         
         codeTextField.didEnterLastDigit = { code in
             // If the entered digits are not the same, show error.
             if code != self.prevCode! {
-                if self.errorLabel.isHidden {
-                    self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.incorrectPinConfirmation))
-                }
+                self.setError(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.incorrectPinConfirmation))
                 return false
             }
             
@@ -140,9 +142,7 @@ extension PINConfirmViewController : PINBaseController {
             let pattern = "\\b(\\d)\\1+\\b"
             let result = code.range(of: pattern, options: .regularExpression)
             if result != nil || self.findSequence(sequenceLength: code.count, in: code) {
-                if self.errorLabel.isHidden {
-                    self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.badPin))
-                }
+                self.setError(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.badPin))
                 return false
             }
             
@@ -155,13 +155,7 @@ extension PINConfirmViewController : PINBaseController {
                     let finalVC = self.storyboard?.instantiateViewController(withIdentifier: "PINFinalViewController")as! PINFinalViewController
                     self.navigationController?.pushViewController(finalVC, animated: true)
                 case .failure(let err):
-                    // we can handle multiple error results here
-                    print(err.localizedDescription)
-                    
-                    // Display Error
-                    if self.errorLabel.isHidden {
-                        self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.enrollPinFailed))
-                    }
+                    self.setError(msg: self.generateErrorMessageFrom(error: err))
                 }
             }
             

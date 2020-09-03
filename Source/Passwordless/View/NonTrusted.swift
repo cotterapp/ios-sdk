@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import os.log
 import Foundation
 
 public class NonTrustedKey {
@@ -77,7 +78,6 @@ public class NonTrusted {
     }
     
     private func checkApproval() {
-        print("checking approval..")
         func checkCb(resp: CotterResult<CotterEvent>) {
             switch resp {
             case .success(let evt):
@@ -97,7 +97,9 @@ public class NonTrusted {
                 }
             case .failure(let err):
                 // network error or parsing error
-                print(err.localizedDescription)
+                os_log("%{public}@ {err: %{public}@}",
+                       log: Config.instance.log, type: .debug,
+                       #function, err.localizedDescription)
             }
         }
         CotterAPIService.shared.getEvent(eventID:self.eventID, cb:checkCb)

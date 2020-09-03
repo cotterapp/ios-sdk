@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import os
 import UIKit
 import OneSignal
 import UserNotifications
@@ -39,10 +40,12 @@ public class Cotter {
         // Set the resource bundle
         let frameworkBundle = Bundle(for: Cotter.self)
         guard let bundleURL = frameworkBundle.url(forResource: "Cotter", withExtension: "bundle") else {
+            os_log("Cotter.bundle not found!", log: Config.instance.log, type: .fault)
             fatalError("Cotter.bundle not found!")
         }
 
         guard let resBundle = Bundle(url: bundleURL) else {
+            os_log("cannot access Cotter.bundle!", log: Config.instance.log, type: .fault)
             fatalError("cannot access Cotter.bundle!")
         }
 
@@ -61,7 +64,7 @@ public class Cotter {
     // default initializers, this should not be called without proper configurationss
     @available(*, unavailable, message: "Unknown initializer")
     public init() {
-        print("Unknown initializer")
+        os_log("unknown initializer", log: Config.instance.log, type: .fault)
     }
     
     // initializer with configuration
@@ -89,7 +92,6 @@ public class Cotter {
         apiKeyID: String,
         cotterURL: String
     ) {
-        print("initializing Cotter's SDK...")
         Config.instance.baseURL = URL(string: cotterURL)!
         CotterAPIService.shared.apiSecretKey = apiSecretKey
         CotterAPIService.shared.apiKeyID = apiKeyID
@@ -150,7 +152,7 @@ public class Cotter {
     }
     
     // when you want to render TransactionViewController on startup
-    public func getTransactionViewController(hideClose:Bool, cb: @escaping FinalAuthCallback) -> UIViewController {
+    public func getTransactionPINViewController(hideClose:Bool, cb: @escaping FinalAuthCallback) -> UIViewController {
         Config.instance.transactionCb = cb
         
         // Hide the close button (Optional)
@@ -286,11 +288,12 @@ public class Cotter {
         apiKeyID: String,
         configuration: [String:Any] = [:]
     ) {
-        print("configuring Cotter's object...")
-        Config.instance.baseURL = URL(string: "https://www.cotter.app/api/v0")!
-//        Config.instance.baseURL = URL(string: "https://s.www.cotter.app/api/v0")!
-//        Config.instance.baseURL = URL(string: "http://localhost:1234/api/v0")!
-//        Config.instance.baseURL = URL(string:"http://192.168.86.28:1234/api/v0")!
+        os_log(
+            "%{public}@ { baseURL: %{public}@, apiKey: %{public}@ }",
+            log: Config.instance.log, type: .info,
+            #function, Config.instance.baseURL.absoluteString, apiKeyID
+        )
+        
         CotterAPIService.shared.apiSecretKey = apiSecretKey
         CotterAPIService.shared.apiKeyID = apiKeyID
         
@@ -336,12 +339,10 @@ public class Cotter {
     
     // configureOneSignal configure cotter's onesignal SDK with launchOptions provided
     private static func configureOneSignal(launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
-        print("configuringOneSignal")
         let onesignalInitSettings = [kOSSettingsKeyAutoPrompt: false,
          kOSSettingsKeyInAppLaunchURL: true]
 
         func notifCb(res: CotterResult<CotterNotificationCredential>) {
-            print("getting notification app id");
             switch res {
                 case .success(let cred):
                     // if appID is not setup don't use initiate OneSignal
@@ -355,17 +356,17 @@ public class Cotter {
                 
                     if let userID = Cotter.getLoggedInUserID() {
                         guard let pubKey = KeyStore.trusted(userID: userID).pubKey else {
-                            print("[configureOneSignal] Unable to attain user's public key!")
                             return
                         }
                         
                         let pubKeyBase64 = CryptoUtil.keyToBase64(pubKey: pubKey)
-                        print("[configureOneSignal] current pubKey: \(pubKeyBase64)")
                         
                         OneSignal.setExternalUserId(pubKeyBase64)
                     }
                 case .failure(let err):
-                    print(err)
+                    os_log("%{public}@ failure configureOneSignal, err: %{public}@",
+                        log: Config.instance.log, type: .error,
+                        #function, err.localizedDescription)
             }
         }
         CotterAPIService.shared.getNotificationAppID(cb:notifCb)
@@ -382,8 +383,6 @@ extension Cotter {
         guard let accessToken = decodeBase64AccessTokenJWT(token.accessToken) else { return nil }
         
         if Int(NSDate().timeIntervalSince1970) > accessToken.exp {
-            print(Int(NSDate().timeIntervalSince1970), ">", accessToken.exp)
-            
             // access token expired. refetch token, this function is synchronous
             Cotter.refreshToken()
             
@@ -413,7 +412,9 @@ extension Cotter {
                 tkn.refreshToken = token.refreshToken
                 setCotterDefaultToken(token: tkn)
             case .failure(let err):
-                print(err.localizedDescription)
+                os_log("%{public}@ err: %{public}@",
+                    log: Config.instance.log, type: .error,
+                    #function, err.localizedDescription)
             }
             
             group.leave()
@@ -443,8 +444,6 @@ extension Cotter {
         
         // purge oauth tokens
         deleteCotterDefaultToken()
-        
-        // TODO: purge loggedInUser
     }
 }
 

@@ -174,8 +174,6 @@ extension OneTimeCodeTextField : UITextFieldDelegate {
         let backspaceEntered = string == ""
 
         // If User entered a backspace from the last char, and error message is shown, remove error messages
-        print("characterCount: ", characterCount)
-        print("digitLabels.count: ", digitLabels.count)
         if characterCount == digitLabels.count && backspaceEntered {
             removeErrorMsg?()
         }

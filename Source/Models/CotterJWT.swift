@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import os.log
 
 struct CotterAccessTokenJWT: Codable {
     var aud: String
@@ -34,8 +35,9 @@ struct CotterAccessTokenJWT: Codable {
 func decodeBase64AccessTokenJWT(_ from: String) -> CotterAccessTokenJWT? {
     let components = from.components(separatedBy: ".")
     if components.count < 3 {
-        // malformed accessToken
-        print("FATAL ERROR: accesToken is malformed. Please contact Cotter Customer support")
+        os_log("%{public}@ malformed cotter JWT { access_token: %{public}@ }",
+               log: Config.instance.log, type: .fault,
+               #function, from)
         return nil
     }
     let base64Encoded = components[1] // the token body
@@ -59,7 +61,9 @@ func decodeBase64AccessTokenJWT(_ from: String) -> CotterAccessTokenJWT? {
         // return the subject
         return token
     } catch let error as NSError {
-        print(error.localizedDescription)
+        os_log("%{public}@ failed decoding { err: %{public}@ }",
+               log: Config.instance.log, type: .error,
+               #function, error.localizedDescription)
         return nil
     }
 }

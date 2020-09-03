@@ -9,11 +9,11 @@ import UIKit
 
 // MARK: - Keys for Strings
 public class ResetPINViewControllerKey {
-   static let navTitle = "ResetPINViewController/navTitle"
-   static let title = "ResetPINViewController/title"
-   static let subtitle = "ResetPINViewController/subtitle"
-   static let resetFailSub = "ResetPINViewController/resetFailSub"
-   static let resendEmail = "ResetPINViewController/resendEmail"
+   public static let navTitle = "ResetPINViewController/navTitle"
+   public static let title = "ResetPINViewController/title"
+   public static let subtitle = "ResetPINViewController/subtitle"
+   public static let resetFailSub = "ResetPINViewController/resetFailSub"
+   public static let resendEmail = "ResetPINViewController/resendEmail"
 }
 
 // MARK: - Presenter Protocol delegated UI-related logic
@@ -110,8 +110,6 @@ class ResetPINViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        print("loaded Reset PIN View!")
         
         presenter.onViewLoaded()
         instantiateCodeTextFieldFunctions()
@@ -122,28 +120,36 @@ class ResetPINViewController: UIViewController {
         presenter.clickedResendEmail()
     }
     
-    func toggleErrorMsg(msg: String?) {
-        resetPinError.isHidden.toggle()
-        if !resetPinError.isHidden {
-            resetPinError.text = msg
-        }
+    
+    func setError(msg: String?) {
+        resetPinError.isHidden = msg == nil
+        resetPinError.text = msg
     }
 }
 
 extension ResetPINViewController: PINBaseController {
+    func generateErrorMessageFrom(error: CotterError) -> String {
+        let strings = CotterStrings.instance
+        switch(error) {
+        case CotterError.network:
+            return strings.getText(for: PinErrorMessagesKey.networkError)
+        case CotterError.status(code: 500):
+            return strings.getText(for: PinErrorMessagesKey.serverError)
+        default:
+            return strings.getText(for: PinErrorMessagesKey.unableToResetPin)
+        }
+    }
+    
     func instantiateCodeTextFieldFunctions() {
         resetCodeTextField.removeErrorMsg = {
-            // Remove error msg if it is present
-            if !self.resetPinError.isHidden {
-                self.toggleErrorMsg(msg: nil)
-            }
+            self.setError(msg: nil)
         }
         
         resetCodeTextField.didEnterLastDigit = { code in
-            guard let userInfo = Config.instance.userInfo, let challengeID = userInfo.resetChallengeID, let challenge = userInfo.resetChallenge else {
-                if self.resetPinError.isHidden {
-                    self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.unableToResetPin))
-                }
+            guard let userInfo = Config.instance.userInfo,
+                let challengeID = userInfo.resetChallengeID,
+                let challenge = userInfo.resetChallenge else {
+                self.setError(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.unableToResetPin))
                 return false
             }
             
@@ -159,19 +165,10 @@ extension ResetPINViewController: PINBaseController {
                         let resetNewPINVC = self.storyboard?.instantiateViewController(withIdentifier: "ResetNewPINViewController") as! ResetNewPINViewController
                         self.navigationController?.pushViewController(resetNewPINVC, animated: true)
                     } else {
-                        // Display Error
-                        if self.resetPinError.isHidden {
-                            self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.incorrectEmailCode))
-                        }
+                        self.setError(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.incorrectEmailCode))
                     }
                 case .failure(let err):
-                    // we can handle multiple error results here
-                    print(err.localizedDescription)
-                    
-                    // Display Error
-                    if self.resetPinError.isHidden {
-                        self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.incorrectEmailCode))
-                    }
+                    self.setError(msg: self.generateErrorMessageFrom(error: err))
                 }
             }
             
@@ -232,9 +229,7 @@ extension ResetPINViewController: ResetPINViewComponent {
     func makeResetPinRequest() {
         // If no user info, do not continue
         guard let userInfo = Config.instance.userInfo else {
-            if self.resetPinError.isHidden {
-                self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.unableToResetPin))
-            }
+            self.setError(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.unableToResetPin))
             return
         }
         
@@ -247,19 +242,10 @@ extension ResetPINViewController: ResetPINViewComponent {
                     Config.instance.userInfo?.resetChallengeID = data.challengeID
                     Config.instance.userInfo?.resetChallenge = data.challenge
                 } else {
-                    // Server failed to start reset PIN process
-                    if self.resetPinError.isHidden {
-                        self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.unableToResetPin))
-                    }
+                    self.setError(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.unableToResetPin))
                 }
             case .failure(let err):
-                // we can handle multiple error results here
-                print(err.localizedDescription)
-                
-                // Display Error
-                if self.resetPinError.isHidden {
-                    self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.unableToResetPin))
-                }
+                self.setError(msg: self.generateErrorMessageFrom(error: err))
             }
         }
         

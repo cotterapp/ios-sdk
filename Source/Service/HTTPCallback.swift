@@ -6,19 +6,24 @@
 //
 
 import Foundation
+import os.log
 
-public typealias ResultCallback<Value> = (Result<Value, Error>) -> Void
-public typealias CotterResult<Value> = Result<Value, Error>
+public typealias ResultCallback<Value> = (Result<Value, CotterError>) -> Void
+public typealias CotterResult<Value> = Result<Value, CotterError>
 
-public func DefaultResultCallback<T:Encodable>(resp: Result<T, Error>) -> Void {
+public func DefaultResultCallback<T:Encodable>(resp: Result<T, CotterError>) -> Void {
     switch resp {
     case .success(let data):
         let jsonEncoder = JSONEncoder()
         jsonEncoder.outputFormatting = .prettyPrinted
         let jsonData = try! jsonEncoder.encode(data)
-        print("successful DefaultResultCallback \(String(decoding:jsonData, as: UTF8.self))")
+        os_log("%{public}@ {jsonData: %{public}@}",
+               log: Config.instance.log, type: .debug,
+               #function, String(decoding:jsonData, as: UTF8.self))
     case .failure(let err):
-        print("error on DeffaultResultCallback: \(err.localizedDescription)")
+        os_log("%{public}@ {err: %{public}@}",
+               log: Config.instance.log, type: .debug,
+               #function, err.localizedDescription)
     }
 }
 
@@ -37,8 +42,6 @@ public class CotterCallback: InternalCallback {
 
     // internalErrorHandler is the default internal handler for internal errors
     public func internalErrorHandler(err: String?) {
-        print("error", err ?? "Unknown error")
-        
         // if the internalErrorFunc is defined then respond with the function
         if let f = self.internalErrorFunc {
             f(err)
@@ -48,8 +51,6 @@ public class CotterCallback: InternalCallback {
     
     // internalSuccessHandler is the default internal handler for successful HTTP Requests
     public func internalSuccessHandler() {
-        print("executing internal success callback")
-        
         // if the internalSuccessFunc is defined then respond with the function
         if let f = self.internalSuccessFunc {
             f()

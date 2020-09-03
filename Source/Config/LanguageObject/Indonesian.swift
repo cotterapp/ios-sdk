@@ -106,6 +106,8 @@ public class Indonesian: LanguageObject {
             PinErrorMessagesKey.unableToResetPin: "Tidak dapat melanjutkan dengan Reset Proses PIN.",
             PinErrorMessagesKey.networkError: "Coba periksa koneksi internet, terus coba lagi.",
             PinErrorMessagesKey.apiError: "Kesalahan dalam server. Silahkan hubungi layanan pelanggan.",
+            PinErrorMessagesKey.serverError: "Kesalahan dalam server. Silahkan hubungi layanan pelanggan.",
+            PinErrorMessagesKey.clientError: "Kesalahan dalam aplikasi. Mohon coba lagi nanti.",
             
             // MARK: - Trusted Devices Error Messages
             TrustedErrorMessagesKey.unableToContinue: "Tidak Dapat Melanjutkan dengan Proses Pendaftaran",

@@ -106,6 +106,8 @@ public class English: LanguageObject {
             PinErrorMessagesKey.unableToResetPin: "Unable to continue with Reset PIN Process.",
             PinErrorMessagesKey.networkError: "Please check your internet connection, then try again.",
             PinErrorMessagesKey.apiError: "Internal Server Error. Please contact Customer Support.",
+            PinErrorMessagesKey.serverError: "Internal Server Error. Please contact Customer Support.",
+            PinErrorMessagesKey.clientError: "Client error occured. Please try again later.",
             
             // MARK: - Trusted Devices Error Messages
             TrustedErrorMessagesKey.unableToContinue: "Unable to Continue with Registration Process",

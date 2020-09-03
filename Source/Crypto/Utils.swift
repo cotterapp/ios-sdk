@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import os.log
 
 public class CryptoUtil {
     static let x9_62HeaderECHeader = [UInt8]([
@@ -27,7 +28,6 @@ public class CryptoUtil {
         
         // need to add \n at the end for proper PEM encoding
         let pubKeyBase64 = DER.base64EncodedString(options:[[.lineLength64Characters, .endLineWithLineFeed]]) + "\n"
-        print("[CryptoUtil]", pubKeyBase64)
         return pubKeyBase64
     }
     
@@ -40,7 +40,6 @@ public class CryptoUtil {
             .replacingOccurrences(of: "/", with: "_")
             .replacingOccurrences(of: "+", with: "-")
             .replacingOccurrences(of: "=", with: "")
-        print(pubKeyBase64URL)
         return pubKeyBase64URL
     }
     
@@ -59,7 +58,9 @@ public class CryptoUtil {
             data as CFData,
             &error
         ) as Data? else {
-            print("failed to create signature")
+            os_log("%{public}@ failed creating signature",
+                   log: Config.instance.log, type: .error,
+                   #function)
             return ""
         }
         

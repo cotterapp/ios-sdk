@@ -9,10 +9,10 @@ import UIKit
 
 public class TrustedViewControllerKey {
     // MARK: - Keys for Strings
-    static let title = "TrustedViewController/title"
-    static let subtitle = "TrustedViewController/subtitle"
-    static let buttonNo = "TrustedViewController/buttonNo"
-    static let buttonYes = "TrustedViewController/buttonYes"
+    public static let title = "TrustedViewController/title"
+    public static let subtitle = "TrustedViewController/subtitle"
+    public static let buttonNo = "TrustedViewController/buttonNo"
+    public static let buttonYes = "TrustedViewController/buttonYes"
 }
 
 class TrustedViewController: UIViewController {
@@ -66,7 +66,6 @@ class TrustedViewController: UIViewController {
         let cotterImages = ImageObject.defaultImages
         
         guard !cotterImages.contains(logoImage) else {
-            print("Using Default Image...")
             logo.image = UIImage(named: logoImage, in: Cotter.resourceBundle, compatibleWith: nil)
             return
         }

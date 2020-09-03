@@ -46,7 +46,6 @@ public class ImageObject: NSObject {
     }
       
     public func setImage(for key: String, to value: String) {
-        print("setting \(key) to \(value)")
         self.image[key] = value
     }
 }

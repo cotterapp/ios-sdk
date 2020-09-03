@@ -8,28 +8,37 @@
 import Foundation
 
 public class GeneralErrorMessagesKey {
-    static let someWentWrong = "GeneralErrorMessagesKey/someWentWrong"
-    static let tryAgainLater = "GeneralErrorMessagesKey/tryAgainLater"
-    static let requestTimeout = "GeneralErrorMessagesKey/requestTimeout"
+    public static let someWentWrong = "GeneralErrorMessagesKey/someWentWrong"
+    public static let tryAgainLater = "GeneralErrorMessagesKey/tryAgainLater"
+    public static let requestTimeout = "GeneralErrorMessagesKey/requestTimeout"
+    
+    public static let serverError = "GeneralErrorMessagesKey/serverError"
+    public static let clientError = "GeneralErrorMessagesKey/clientError"
 }
 
 public class PinErrorMessagesKey {
-    static let incorrectPinConfirmation = "PinErrorMessagesKey/incorrectPinConfirmation"
-    static let badPin = "PinErrorMessagesKey/badPin"
-    static let incorrectPinVerification = "PinErrorMessagesKey/incorrectPinVerification"
-    static let incorrectEmailCode = "PinErrorMessagesKey/incorrectEmailCode"
-    static let similarPinAsBefore = "PinErrorMessagesKey/similarPinAsBefore"
-    static let enrollPinFailed = "PinErrorMessagesKey/enrollPinFailed"
-    static let updatePinFailed = "PinErrorMessagesKey/updatePinFailed"
-    static let unableToResetPin = "PinErrorMessagesKey/unableToResetPin"
-    static let resetPinFailed = "PinErrorMessagesKey/resetPinFailed"
-    static let networkError = "PinErrorMessagesKey/networkError"
-    static let apiError = "PinErrorMessagesKey/apiError"
+    public static let incorrectPinConfirmation = "PinErrorMessagesKey/incorrectPinConfirmation"
+    public static let badPin = "PinErrorMessagesKey/badPin"
+    public static let incorrectPinVerification = "PinErrorMessagesKey/incorrectPinVerification"
+    public static let incorrectEmailCode = "PinErrorMessagesKey/incorrectEmailCode"
+    public static let similarPinAsBefore = "PinErrorMessagesKey/similarPinAsBefore"
+    public static let enrollPinFailed = "PinErrorMessagesKey/enrollPinFailed"
+    public static let updatePinFailed = "PinErrorMessagesKey/updatePinFailed"
+    public static let unableToResetPin = "PinErrorMessagesKey/unableToResetPin"
+    public static let resetPinFailed = "PinErrorMessagesKey/resetPinFailed"
+    public static let networkError = "PinErrorMessagesKey/networkError"
+    public static let apiError = "PinErrorMessagesKey/apiError"
+    
+    public static let serverError = "PinErrorMessagesKey/serverError"
+    public static let clientError = "PinErrorMessagesKey/clientError"
 }
 
 public class TrustedErrorMessagesKey {
-    static let unableToContinue = "TrustedErrorMessagesKey/unableToContinue"
-    static let deviceAlreadyReg = "TrustedErrorMessagesKey/deviceAlreadyReg"
-    static let deviceNotReg = "TrustedErrorMessagesKey/deviceNotReg"
-    static let unableToReg = "TrustedErrorMessagesKey/unableToReg"
+    public static let unableToContinue = "TrustedErrorMessagesKey/unableToContinue"
+    public static let deviceAlreadyReg = "TrustedErrorMessagesKey/deviceAlreadyReg"
+    public static let deviceNotReg = "TrustedErrorMessagesKey/deviceNotReg"
+    public static let unableToReg = "TrustedErrorMessagesKey/unableToReg"
+    
+    public static let serverError = "TrustedErrorMessagesKey/serverError"
+    public static let clientError = "TrustedErrorMessagesKey/clientError"
 }

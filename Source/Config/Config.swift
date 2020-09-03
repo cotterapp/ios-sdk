@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import os.log
 
 // Config class will be passed around in the Cotter SDK
 class Config: NSObject {
@@ -27,19 +28,24 @@ class Config: NSObject {
     var fonts: FontObject = FontObject()
   
     // space configurations
-    var baseURL: URL = URL(string: "https://www.cotter.app")!
+    var baseURL: URL = URL(string: "https://www.cotter.app/api/v0")!
+//    var baseURL: URL = URL(string: "https://192.168.86.33:1234/api/v0")!
     
     // passwordless configurations
     var PLBaseURL: String? = "https://js.cotter.app/app"
 //    var PLBaseURL: String? = "https://s.js.cotter.app/app"
 //    var PLBaseURL: String? = "http://localhost:3000/app"
-//    var PLBaseURL: String? = "http://192.168.86.28:3000/app"
+//    var PLBaseURL: String? = "http://192.168.86.33:3000/app"
     var PLScheme: String? = "cotter"
     var PLRedirectURL: String? = "cotter://auth"
     
+    var log: OSLog = OSLog.init(subsystem: "app.cotter.sdk.ios", category: "main")
+    
     private override init() {
         let defaultCb = { (access_token: String, error: Error?) -> Void in
-            print(access_token)
+            os_log("%{public}@ { access_token: %{public}@ err: %{public}@",
+                   log: Config.instance.log, type: .info,
+                   #function, access_token, error?.localizedDescription ?? "")
         }
         
         pinEnrollmentCb = defaultCb

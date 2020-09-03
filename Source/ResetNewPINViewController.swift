@@ -9,10 +9,10 @@ import UIKit
 
 // MARK: - Keys for Strings
 public class ResetNewPINViewControllerKey {
-    static let navTitle = "ResetNewPINViewController/navTitle"
-    static let title = "ResetNewPINViewController/title"
-    static let showPin = "ResetNewPINViewController/showPin"
-    static let hidePin = "ResetNewPINViewController/hidePin"
+    public static let navTitle = "ResetNewPINViewController/navTitle"
+    public static let title = "ResetNewPINViewController/title"
+    public static let showPin = "ResetNewPINViewController/showPin"
+    public static let hidePin = "ResetNewPINViewController/hidePin"
 }
 
 // MARK: - Presenter Protocol delegated UI-related logic
@@ -95,7 +95,6 @@ class ResetNewPINViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("loaded Reset New Pin View!")
         
         // Set-up
         presenter.onViewLoaded()
@@ -106,23 +105,22 @@ class ResetNewPINViewController: UIViewController {
         presenter.onClickPinVis(button: sender)
     }
     
-    func toggleErrorMsg(msg: String?) {
-        errorLabel.isHidden.toggle()
-        if !errorLabel.isHidden {
-            errorLabel.text = msg
-        }
+    func setError(msg: String?) {
+        errorLabel.isHidden = msg == nil
+        errorLabel.text = msg
     }
 }
 
 // MARK: - PINBaseController
 extension ResetNewPINViewController : PINBaseController {
+    func generateErrorMessageFrom(error: CotterError) -> String {
+        return ""
+    }
+    
     func instantiateCodeTextFieldFunctions() {
         // Instantiate Function to run when user enters wrong PIN code
         codeTextField.removeErrorMsg = {
-            // Remove error msg if it is present
-            if !self.errorLabel.isHidden {
-                self.toggleErrorMsg(msg: nil)
-            }
+            self.setError(msg: nil)
         }
         
         // Instantiate Function to run when PIN is fully entered
@@ -133,9 +131,7 @@ extension ResetNewPINViewController : PINBaseController {
             
             // Ensure consecutive PIN number is rejected
             if result != nil || self.findSequence(sequenceLength: code.count, in: code) {
-                if self.errorLabel.isHidden {
-                    self.toggleErrorMsg(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.badPin))
-                }
+                self.setError(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.badPin))
                 return false
             }
 
