@@ -14,6 +14,6 @@ public typealias FinalAuthCallback = (_ token: String, _ error: Error?) -> Void
 public typealias CotterAuthCallback = (_ token: CotterOAuthToken?, _ error: Error?) -> Void
 
 public func DoNothingCallback(_ token: CotterOAuthToken?, _ err:Error?) -> Void {
-    print("DoNothingCallback token:", token)
-    print("DoNothingCallback error:", err)
+    print("DoNothingCallback token:", token ?? "")
+    print("DoNothingCallback error:", err?.localizedDescription ?? "")
 }

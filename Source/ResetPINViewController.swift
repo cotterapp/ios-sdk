@@ -247,7 +247,7 @@ extension ResetPINViewController: ResetPINViewComponent {
                     self.setError(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.unableToResetPin))
                 }
             case .failure(let err):
-                self.setError(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.unableToResetPin))
+                self.setError(msg: self.generateErrorMessageFrom(error: err))
             }
         }
         

@@ -28,6 +28,7 @@ class Config: NSObject {
   
     // space configurations
     var baseURL: URL = URL(string: "https://www.cotter.app/api/v0")!
+//    var baseURL: URL = URL(string: "https://192.168.86.33:1234/api/v0")!
     
     // passwordless configurations
     var PLBaseURL: String? = "https://js.cotter.app/app"
