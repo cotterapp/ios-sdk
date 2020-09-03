@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import os.log
 
 // MARK: - Keys for Strings
 public class ResetConfirmPINViewControllerKey {
@@ -99,9 +100,7 @@ class ResetConfirmPINViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        print("loaded PIN Reset Confirmation View!")
-        
+
         // Set-up
         presenter.onViewLoaded()
         instantiateCodeTextFieldFunctions()
@@ -137,10 +136,9 @@ extension ResetConfirmPINViewController : PINBaseController {
         }
         
         codeTextField.didEnterLastDigit = { code in
-            print("PIN Code Entered: ", code)
-            
             if self.prevCode == nil {
-                print("No previous code exists!")
+                os_log("%{public}@ previous PIN code does not exist",
+                       log: Config.instance.log, type: .fault, #function)
                 return false
             }
             

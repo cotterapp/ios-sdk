@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import os.log
 import AuthenticationServices
 
 @available(iOS 12.0, *)
@@ -35,14 +36,15 @@ class CrossApp: NSObject, ASWebAuthenticationPresentationContextProviding {
         authMethod: AuthMethod?
     ) {
         self.init()
-        print("loading Passwordless \(input)")
         self.anchorView = view
         
         // create code challenge
         let codeVerifier = PKCE.createVerifier()
         let codeChallenge = PKCE.createCodeChallenge(verifier: codeVerifier)
         if codeChallenge == nil {
-            print("ERROR: code challenge failed to be created")
+            os_log("%{public}@ failed creating code challenge { verifier: %{public}@ }",
+                   log: Config.instance.log, type: .error,
+                   #function, codeVerifier)
         }
         
         let initialState = randomString(length: 5)
@@ -84,13 +86,14 @@ class CrossApp: NSObject, ASWebAuthenticationPresentationContextProviding {
         
         let URL = components.url
         
-        print(URL!.absoluteString)
+        os_log("%{public}@ crossApp { url: %{public}@ }",
+               log: Config.instance.log, type: .debug,
+               #function, URL?.absoluteString ?? "")
         
         guard let authURL = URL else { return }
 
         self.authSession = ASWebAuthenticationSession(url: authURL, callbackURLScheme: scheme)
         { callbackURL, error in
-            print("CALLED BACK")
             // Handle the callback.
             guard error == nil, let callbackURL = callbackURL else { return }
 
@@ -121,7 +124,9 @@ class CrossApp: NSObject, ASWebAuthenticationPresentationContextProviding {
                     cb(resp, nil)
                 case .failure(let err):
                     // we can handle multiple error results here
-                    print(err.localizedDescription)
+                    os_log("%{public}@ unhandled callback error { err: %{public}@ }",
+                           log: Config.instance.log, type: .error,
+                           #function, err.localizedDescription)
                 }
             }
             
@@ -136,17 +141,22 @@ class CrossApp: NSObject, ASWebAuthenticationPresentationContextProviding {
         }
         
         if #available(iOS 13.0, *) {
-            print("here")
             self.authSession?.presentationContextProvider = self
         } else {
             // Fallback on earlier versions
+            os_log("%{public}@ crossApp not supported for <iOS13.0",
+                   log: Config.instance.log, type: .fault,
+                   #function)
         }
         
-        print("authenticating")
         if let started = self.authSession?.start(), started {
-            print("successfully started session")
+            os_log("%{public}@ started session",
+                   log: Config.instance.log, type: .debug,
+                   #function)
         } else {
-            print("FAILED TO START SESSION")
+            os_log("%{public}@ failed to start session",
+                   log: Config.instance.log, type: .fault,
+                   #function)
         }
     }
 }

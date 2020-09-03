@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import os.log
 
 // MARK: - Keys for Strings
 public class UpdatePINViewControllerKey {
@@ -97,8 +98,6 @@ class UpdatePINViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        print("loaded Update Profile PIN View!")
         
         // Set-up
         presenter.onViewLoaded()
@@ -162,7 +161,9 @@ extension UpdatePINViewController : PINBaseController {
                 LoadingScreen.shared.start(at: self.view.window)
                 _ = try self.authService.pinAuth(pin: code, event: CotterEvents.Update, callback: pinVerificationCallback)
             } catch let e {
-                print(e)
+                os_log("%{public}@ update pin verify failed { err: %{public}@ }",
+                       log: Config.instance.log, type: .error,
+                       #function, e.localizedDescription)
                 return false
             }
             

@@ -97,8 +97,6 @@ class UpdateCreateNewPINViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        print("loaded Update Create New PIN View!")
         
         // Set-up
         presenter.onViewLoaded()
@@ -127,8 +125,6 @@ extension UpdateCreateNewPINViewController : PINBaseController {
         }
         
         codeTextField.didEnterLastDigit = { code in
-            print("PIN Code Entered: ", code)
-            
             // If code has repeating digits, or is a straight number, or is the old code, show error.
             let pattern = "\\b(\\d)\\1+\\b"
             let result = code.range(of: pattern, options: .regularExpression)

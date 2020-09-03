@@ -105,8 +105,7 @@ class PINFinalViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("loaded PIN Final View!")
-        
+
         // Set-up
         presenter.onViewLoaded()
     }
@@ -142,7 +141,6 @@ extension PINFinalViewController: PINFinalViewComponent {
         
         let cotterImages = ImageObject.defaultImages
         if cotterImages.contains(props.successImage) {
-            print("[PINFinalViewController] Using Default Image...")
             imageView.image = UIImage(named: props.successImage, in: Cotter.resourceBundle, compatibleWith: nil)
         } else { // User configured their own image
             imageView.image = UIImage(named: props.successImage, in: Bundle.main, compatibleWith: nil)

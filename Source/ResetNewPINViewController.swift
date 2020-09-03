@@ -95,7 +95,6 @@ class ResetNewPINViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("loaded Reset New Pin View!")
         
         // Set-up
         presenter.onViewLoaded()

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import os.log
 
 // Config class will be passed around in the Cotter SDK
 class Config: NSObject {
@@ -38,9 +39,13 @@ class Config: NSObject {
     var PLScheme: String? = "cotter"
     var PLRedirectURL: String? = "cotter://auth"
     
+    var log: OSLog = OSLog.init(subsystem: "app.cotter.sdk.ios", category: "main")
+    
     private override init() {
         let defaultCb = { (access_token: String, error: Error?) -> Void in
-            print(access_token)
+            os_log("%{public}@ { access_token: %{public}@ err: %{public}@",
+                   log: Config.instance.log, type: .info,
+                   #function, access_token, error?.localizedDescription ?? "")
         }
         
         pinEnrollmentCb = defaultCb

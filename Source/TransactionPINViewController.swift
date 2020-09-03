@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import os.log
 import LocalAuthentication
 
 // MARK: - Keys for Strings
@@ -110,15 +111,12 @@ class TransactionPINViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        print("Transaction PIN View appeared!")
         
         presenter.onViewAppeared()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        print("loaded Transaction PIN View!")
         
         // Set-up
         presenter.onViewLoaded()
@@ -182,7 +180,9 @@ extension TransactionPINViewController : PINBaseController {
                 LoadingScreen.shared.start(at: self.view.window)
                 _ = try self.authService.pinAuth(pin: code, event: CotterEvents.Transaction, callback: pinVerificationCallback)
             } catch let e {
-                print(e)
+                os_log("%{public}@ verify pin { err: %{public}@ }",
+                       log: Config.instance.log, type: .error,
+                       #function, e.localizedDescription)
                 return false
             }
 
@@ -203,20 +203,17 @@ extension TransactionPINViewController: TransactionPINViewComponent {
                 LoadingScreen.shared.stop()
                 switch response {
                 case .success(let resp):
-                    if resp.enrolled {
-                        let onFinishCallback = Config.instance.transactionCb
-                        func cb(success: Bool, error: CotterError?) {
-                            if success {
-                                onFinishCallback("dummy biometric token", nil)
-                            } else {
-                                print("[TransactionPINViewController.getBiometricStatus] biometric incorrect")
-                                self.setError(msg: "Biometric is incorrect, please use PIN")
-                            }
+                    if !resp.enrolled { return }
+
+                    let onFinishCallback = Config.instance.transactionCb
+                    func cb(success: Bool, error: CotterError?) {
+                        if success {
+                            onFinishCallback("dummy biometric token", nil)
+                        } else {
+                            self.setError(msg: "Biometric is incorrect, please use PIN")
                         }
-                        self.authService.bioAuth(view: self, event: CotterEvents.Transaction, callback: cb)
-                    } else {
-                        print("[TransactionPINViewController.getBiometricStatus] Biometric not enrolled")
                     }
+                    self.authService.bioAuth(view: self, event: CotterEvents.Transaction, callback: cb)
                 case .failure(let err):
                     self.setError(msg: self.generateErrorMessageFrom(error: err))
                 }

@@ -66,7 +66,6 @@ class TrustedViewController: UIViewController {
         let cotterImages = ImageObject.defaultImages
         
         guard !cotterImages.contains(logoImage) else {
-            print("Using Default Image...")
             logo.image = UIImage(named: logoImage, in: Cotter.resourceBundle, compatibleWith: nil)
             return
         }

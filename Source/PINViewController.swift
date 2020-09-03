@@ -103,9 +103,7 @@ class PINViewController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        print("loaded PIN Cotter Enrollment View")
-        
+
         // Set-up
         presenter.onViewLoaded()
         instantiateCodeTextFieldFunctions()
@@ -136,8 +134,6 @@ extension PINViewController : PINBaseController {
         
         // Instantiate Function to run when PIN is fully entered
         codeTextField.didEnterLastDigit = { code in
-            print("PIN Code Entered: ", code)
-            
             // If code has repeating digits or is a straight number, show error.
             let pattern = "\\b(\\d)\\1+\\b"
             let result = code.range(of: pattern, options: .regularExpression)

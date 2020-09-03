@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import os.log
 
 public class RegisterTrustedViewControllerKey {
     // MARK: - Keys for Strings
@@ -135,8 +136,6 @@ class RegisterTrustedViewController: UIViewController {
     
     @objc
     private func retry() {
-        // retry
-        print("trying...")
         guard let userID = self.userID else { return }
         
         func cb(resp: CotterResult<EnrolledMethods>) {
@@ -150,7 +149,6 @@ class RegisterTrustedViewController: UIViewController {
                         cb(nil, nil)
                     }
                 } else {
-                    print("not enrolled as trusted device")
                     if !self.stop {
                         // continue retry
                         DispatchQueue.main.asyncAfter(deadline: .now() + SECONDS_TO_RETRY) {
@@ -158,7 +156,6 @@ class RegisterTrustedViewController: UIViewController {
                         }
                     } else {
                         // stop retrying
-                        print("stopped retrying")
                         if let cb = self.cb {
                             cb(nil, CotterError.trustedDevice("failed to enroll this device as a trusted device!"))
                         }
@@ -166,7 +163,9 @@ class RegisterTrustedViewController: UIViewController {
                 }
             case .failure(let err):
                 // do nothing, keep retrying
-                print("trusted retry failure: \(err.localizedDescription)")
+                os_log("%{public}@ trusted device status {err: %{public}@}",
+                       log: Config.instance.log, type: .debug,
+                       #function, err.localizedDescription)
             }
         }
         

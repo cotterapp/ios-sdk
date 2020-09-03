@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import os.log
 
 // FinalCallbackAuth is the general callback function declaration
 public typealias FinalAuthCallback = (_ token: String, _ error: Error?) -> Void
@@ -14,6 +15,7 @@ public typealias FinalAuthCallback = (_ token: String, _ error: Error?) -> Void
 public typealias CotterAuthCallback = (_ token: CotterOAuthToken?, _ error: Error?) -> Void
 
 public func DoNothingCallback(_ token: CotterOAuthToken?, _ err:Error?) -> Void {
-    print("DoNothingCallback token:", token ?? "")
-    print("DoNothingCallback error:", err?.localizedDescription ?? "")
+    os_log("%{public}@ { token: %{public}@ err: %{public}@ }",
+           log: Config.instance.log, type: .error,
+           #function, token?.accessToken ?? "", err?.localizedDescription ?? "")
 }

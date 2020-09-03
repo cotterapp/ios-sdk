@@ -5,6 +5,7 @@
 //  Created by Albert Purnama on 3/24/20.
 //
 import Foundation
+import os.log
 
 class TrustedDevice {
     // MARK: - VC Text Definitions
@@ -65,7 +66,9 @@ class TrustedDevice {
                 }
                 // else, nothing happens
             case .failure(let err):
-                print(err.localizedDescription)
+                os_log("%{public}@ checkEvent { userID: %{public}@ err: %{public}@}",
+                       log: Config.instance.log, type: .debug,
+                       #function, userID, err.localizedDescription)
             }
         }
         
@@ -142,7 +145,6 @@ class TrustedDevice {
         func removeTrustedCb(resp: CotterResult<CotterUser>) {
             switch resp {
             case .success(_):
-                print("[removeDevice] Successfully removed this device as a Trusted Device!")
                 cb("Successfully removed this device as a Trusted Device!", nil)
             case .failure(let err):
                 cb("", err)

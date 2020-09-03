@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import os.log
 import UIKit
 import AVFoundation
 
@@ -67,7 +68,9 @@ extension QRScannerView {
         do {
             videoInput = try AVCaptureDeviceInput(device: videoCaptureDevice)
         } catch let error {
-            print(error)
+            os_log("%{public}@ {err: %{public}@}",
+                   log: Config.instance.log, type: .error,
+                   #function, error.localizedDescription)
             return
         }
         
@@ -187,7 +190,6 @@ class QRScannerViewController: UIViewController, QRScannerViewDelegate {
     func qrScanningSucceededWithCode(_ str: String?) {
         guard let userID = self.userID else { return }
         guard let qrData = str else { return }
-        print("qrScan: \(qrData)")
 
         func callback(resp: CotterResult<CotterEvent>) {
             switch resp {
@@ -204,7 +206,9 @@ class QRScannerViewController: UIViewController, QRScannerViewDelegate {
                     self.qrScanningDidFail()
                 }
             case .failure(let err):
-                print("API Failure: \(err.localizedDescription)")
+                os_log("%{public}@ API failure{err: %{public}@}",
+                       log: Config.instance.log, type: .debug,
+                       #function, err.localizedDescription)
                 self.qrScanningDidFail()
             }
         }
@@ -214,6 +218,5 @@ class QRScannerViewController: UIViewController, QRScannerViewDelegate {
     
     func qrScanningDidStop() {
         self.close()
-        print("stop scanning")
     }
 }

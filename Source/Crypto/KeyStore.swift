@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import os.log
 import Security
 import LocalAuthentication
 
@@ -51,11 +52,9 @@ class KeyGenV2: KeyPair {
         var item: CFTypeRef?
         let status = SecItemCopyMatching(getquery as CFDictionary, &item)
         guard status == errSecSuccess else {
-            // if retrieving key has errored, then it means the biometric scan has failed
-            // need to enter pin or cancel request
-
-            // TODO: handle biometric error
-            print("fail retrieving the key")
+            os_log("%{public}@ failed getting key { status: %{public}@ }",
+                   log: Config.instance.log, type: .error,
+                   #function, status)
             return nil
         }
 
@@ -68,16 +67,18 @@ class KeyGenV2: KeyPair {
         // getter returns a base64 encoded string privateKey
         get {
             let generator = self.generator
-            print("fetching private key, authenticating..")
             guard let privKey = fetchKey(pvt: true) else {
+
                 // try to generate the key first
                 do {
                     try generator.generateKey()
                 } catch let e {
-                    print(e)
+                    os_log("%{public}@ privKey { err: %{public}@ }",
+                           log: Config.instance.log, type: .error,
+                           #function, e.localizedDescription)
                     return nil
                 }
-                print("[inside] fetching private key, authenticating..")
+
                 return fetchKey(pvt: true)
             }
             return privKey
@@ -87,14 +88,15 @@ class KeyGenV2: KeyPair {
     public var pubKey: SecKey? {
         get {
             let generator = self.generator
-            print("getting public key")
             guard let key = fetchKey(pvt: false) else {
-                print("generating key pair")
+
                 // try to generate the key first
                 do {
                     try generator.generateKey()
                 } catch let e {
-                    print(e)
+                    os_log("%{public}@ pubKey { err: %{public}@ }",
+                           log: Config.instance.log, type: .error,
+                           #function, e.localizedDescription)
                     return nil
                 }
                 return fetchKey(pvt: false)
@@ -104,22 +106,22 @@ class KeyGenV2: KeyPair {
     }
     
     public func clearKeys() throws {
-        print("Deleting Private and Public Keys...")
-        
-        // Remove the previous key pair
         try deleteKey(tag:self.generator.keyTag)
         try deleteKey(tag:self.generator.pubKeyTag)
-        
-        print("Successfully Deleted Public/Private Key Pair")
     }
     
     private func deleteKey(tag:Data) throws {
+        os_log("%{public}@ { tag: %{public}@ }",
+               log: Config.instance.log, type: .info,
+               #function, tag.description)
+        
         // Remove the previous key pair
         let query: [String: Any] = [
             kSecClass as String: kSecClassKey,
             kSecAttrApplicationTag as String: tag,
             kSecAttrKeyType as String: kSecAttrKeyTypeECSECPrimeRandom,
         ]
+
         let st = SecItemDelete(query as CFDictionary)
         guard st == errSecSuccess || st == errSecItemNotFound else {
             throw CotterError.keychainError("Error deleting key: \(String(decoding: tag, as: UTF8.self))")

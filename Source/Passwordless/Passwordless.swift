@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import os.log
 import OneSignal
 
 public class Passwordless: NSObject {
@@ -33,7 +34,6 @@ public class Passwordless: NSObject {
                 if resp.approved {
                     // get the public key then set the external id
                     guard let pubKey = KeyStore.trusted(userID: resp.clientUserID).pubKey else {
-                        print("[login] Unable to attain user's public key!")
                         return
                     }
                     let pubKeyBase64 = CryptoUtil.keyToBase64(pubKey: pubKey)
@@ -56,7 +56,9 @@ public class Passwordless: NSObject {
             case .success(let user):
                 CotterAPIService.shared.reqAuth(clientUserID: user.clientUserID, event: CotterEvents.Login, cb: loginCb)
             case .failure(let err):
-                print("[login]", err.localizedDescription)
+                os_log("%{public}@ getting user {err: %{public}@}",
+                       log: Config.instance.log, type: .debug,
+                       #function, err.localizedDescription)
                 cb(nil, err)
             }
         }
@@ -66,11 +68,9 @@ public class Passwordless: NSObject {
     public func loginWith(cotterUserID: String, cb: @escaping CotterAuthCallback = DoNothingCallback){
         // retrieve public key
         guard let pubKey = KeyStore.trusted(userID: cotterUserID).pubKey else {
-            print("[login] Unable to attain user's public key!")
             return
         }
         let pubKeyBase64 = CryptoUtil.keyToBase64(pubKey: pubKey)
-        print("[login] current pubKey: \(pubKeyBase64)")
         
         // resp is CotterResult<CotterEvent>
         CotterAPIService.shared.reqAuthWith(cotterUserID: cotterUserID, event: CotterEvents.Login) { resp in
@@ -116,7 +116,9 @@ public class Passwordless: NSObject {
                 }
                 // else, nothing happens
             case .failure(let err):
-                print(err.localizedDescription)
+                os_log("%{public}@ getting user {err: %{public}@}",
+                       log: Config.instance.log, type: .debug,
+                       #function, err.localizedDescription)
             }
         }
         
@@ -269,7 +271,6 @@ public class Passwordless: NSObject {
         func removeTrustedCb(resp: CotterResult<CotterUser>) {
             switch resp {
             case .success(_):
-                print("[removeDevice] Successfully removed this device as a Trusted Device!")
                 cb(nil, nil)
             case .failure(let err):
                 cb(nil, err)

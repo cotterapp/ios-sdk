@@ -97,9 +97,6 @@ class PINConfirmViewController : UIViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        print("loaded PIN Confirmation View!")
-        
         // Set-up
         presenter.onViewLoaded()
         instantiateCodeTextFieldFunctions()
