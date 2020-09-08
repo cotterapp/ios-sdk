@@ -51,7 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         )
         
         // if you want to start PINViewControler on startup, use getPINViewController
-//        let vc = CotterWrapper.cotter!.getTransactionViewController(hideClose: true, cb: Callback.shared.authCb)
+//        let vc = CotterWrapper.cotter!.getTransactionPINViewController(hideClose: true, cb: Callback.shared.authCb)
 //        let nav = UINavigationController(rootViewController: vc)
 //        self.window?.rootViewController = nav
 //        self.window?.makeKeyAndVisible()

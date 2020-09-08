@@ -70,9 +70,10 @@ class ViewController: UIViewController {
             vc: self,
             animated: true,
             cb: Callback.shared.authCb,
-            name: "", // fill the user's name
+            hideClose: true,
+            name: "Albert", // fill the user's name
             sendingMethod: "EMAIL", // fill user's email
-            sendingDestination: CotterWrapper.cotter?.userID
+            sendingDestination: "albert@cotter.app"
         )
         
         // to optionally hide the back button
