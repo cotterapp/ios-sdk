@@ -53,6 +53,18 @@ class KeyboardView: UIView {
         Cotter.resourceBundle.loadNibNamed("KeyboardView", owner: self, options: nil)
         self.addSubview(view)
         
+        let fonts = Config.instance.fonts
+        oneButton.titleLabel?.font = fonts.keypad
+        twoButton.titleLabel?.font = fonts.keypad
+        threeButton.titleLabel?.font = fonts.keypad
+        fourButton.titleLabel?.font = fonts.keypad
+        fiveButton.titleLabel?.font = fonts.keypad
+        sixButton.titleLabel?.font = fonts.keypad
+        sevenButton.titleLabel?.font = fonts.keypad
+        eightButton.titleLabel?.font = fonts.keypad
+        nineButton.titleLabel?.font = fonts.keypad
+        zeroButton.titleLabel?.font = fonts.keypad
+        
         // Add extra initialization/edits here
         initializeBorders()
         topDividerView.dropShadow()

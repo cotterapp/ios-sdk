@@ -13,4 +13,6 @@ public class FontObject: NSObject {
     public var title: UIFont = DEFAULT_COTTER_TITLE_FONT;
     public var paragraph: UIFont = DEFAULT_COTTER_PARAGRAPH_FONT;
     public var subtitle: UIFont = DEFAULT_COTTER_SUBTITLE_FONT;
+    public var keypad: UIFont = DEFAULT_COTTER_KEYPAD_FONT;
+    public var pin: UIFont = DEFAULT_COTTER_PIN_FONT;
 }

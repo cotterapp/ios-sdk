@@ -57,9 +57,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 //        self.window?.makeKeyAndVisible()
         
         // the following configuration is optional, only use this if you want to use your own fonts
-        // let customFont = FontObject()
-        // customFont.title = UIFont.systemFont(ofSize: 9.0)
-        // customFont.subtitle = UIFont.boldSystemFont(ofSize: 35.0)
+//        let customFont = FontObject()
+//        customFont.title = UIFont.systemFont(ofSize: 9.0)
+//        customFont.subtitle = UIFont.boldSystemFont(ofSize: 35.0)
+//        customFont.keypad = UIFont.boldSystemFont(ofSize: 10.0)
         
         // let lang = Indonesian()
         // lang.setText(for: PINViewControllerKey.navTitle, to: "Hello world!")
