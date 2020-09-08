@@ -51,15 +51,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         )
         
         // if you want to start PINViewControler on startup, use getPINViewController
-//        let vc = CotterWrapper.cotter!.getTransactionViewController(hideClose: true, cb: Callback.shared.authCb)
+//        let vc = CotterWrapper.cotter!.getTransactionPINViewController(hideClose: true, cb: Callback.shared.authCb)
 //        let nav = UINavigationController(rootViewController: vc)
 //        self.window?.rootViewController = nav
 //        self.window?.makeKeyAndVisible()
         
         // the following configuration is optional, only use this if you want to use your own fonts
-        // let customFont = FontObject()
-        // customFont.title = UIFont.systemFont(ofSize: 9.0)
-        // customFont.subtitle = UIFont.boldSystemFont(ofSize: 35.0)
+//        let customFont = FontObject()
+//        customFont.title = UIFont.systemFont(ofSize: 9.0)
+//        customFont.subtitle = UIFont.boldSystemFont(ofSize: 35.0)
+//        customFont.keypad = UIFont.boldSystemFont(ofSize: 10.0)
         
         // let lang = Indonesian()
         // lang.setText(for: PINViewControllerKey.navTitle, to: "Hello world!")

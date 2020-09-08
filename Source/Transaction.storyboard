@@ -61,7 +61,7 @@
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                 <state key="normal" title="Forget PIN Button"/>
                                 <connections>
-                                    <segue destination="6pz-MC-9vT" kind="show" id="4d1-4U-orl"/>
+                                    <segue destination="Vp5-9S-L71" kind="show" id="ubO-rW-sVV"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -98,12 +98,28 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3TD-OF-SvF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-183" y="151"/>
+            <point key="canvasLocation" x="-152" y="151"/>
+        </scene>
+        <!--Cotter Navigation View Controller-->
+        <scene sceneID="NQh-6p-ZYB">
+            <objects>
+                <navigationController modalPresentationStyle="fullScreen" id="Vp5-9S-L71" customClass="CotterNavigationViewController" customModule="Cotter" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ra4-RA-lOj">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="6pz-MC-9vT" kind="relationship" relationship="rootViewController" id="sOg-PT-TQz"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HZF-c3-YWf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="671" y="151"/>
         </scene>
         <!--ResetPIN View Controller-->
         <scene sceneID="rhf-yQ-5YU">
             <objects>
-                <viewController storyboardIdentifier="ResetPINViewController" modalPresentationStyle="fullScreen" id="6pz-MC-9vT" customClass="ResetPINViewController" customModule="Cotter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ResetPINViewController" id="6pz-MC-9vT" customClass="ResetPINViewController" customModule="Cotter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eEM-OE-T4l">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -194,7 +210,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XgS-ck-DVF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="702.89855072463774" y="150.66964285714286"/>
+            <point key="canvasLocation" x="1488" y="151"/>
         </scene>
         <!--Reset NewPIN View Controller-->
         <scene sceneID="vBn-HU-mpk">
@@ -275,7 +291,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dWG-Iz-Cb9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1510" y="151"/>
+            <point key="canvasLocation" x="2281" y="151"/>
         </scene>
         <!--Reset ConfirmPIN View Controller-->
         <scene sceneID="WjW-B6-TSN">
@@ -355,7 +371,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wxc-4E-ya1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2294" y="151"/>
+            <point key="canvasLocation" x="3028" y="151"/>
         </scene>
         <!--Cotter Navigation View Controller-->
         <scene sceneID="suJ-6o-ELm">
@@ -371,7 +387,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pyh-VC-mHF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1196" y="151"/>
+            <point key="canvasLocation" x="-1001" y="151"/>
         </scene>
     </scenes>
 </document>

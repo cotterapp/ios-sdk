@@ -189,12 +189,15 @@ extension ResetPINViewController: ResetPINViewComponent {
     func setupUI() {
         resetPinError.isHidden = true
         
+        let crossButton = UIBarButtonItem(title: "\u{2717}", style: UIBarButtonItem.Style.plain, target: self, action: #selector(promptClose(sender:)))
+        crossButton.tintColor = Config.instance.colors.primary
+        self.navigationItem.leftBarButtonItems = [crossButton]
+        
         resetCodeTextField.configure()
     }
     
     @objc private func promptClose(sender: UIBarButtonItem) {
-        // Go back to previous screen
-        self.navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true)
     }
     
     func setupDelegates() {

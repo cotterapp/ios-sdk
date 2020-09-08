@@ -209,7 +209,7 @@ extension UpdateConfirmNewPINViewController: UpdateConfirmNewPINViewComponent {
     func render(_ props: UpdateConfirmNewPINViewProps) {
         setupLeftTitleBar(with: props.navTitle)
         titleLabel.text = props.title
-        titleLabel.font = Config.instance.fonts.heading
+        titleLabel.font = Config.instance.fonts.title
         pinVisibilityButton.setTitle(props.showPinText, for: .normal)
         pinVisibilityButton.setTitleColor(props.primaryColor, for: .normal)
         pinVisibilityButton.titleLabel?.font = Config.instance.fonts.subtitle

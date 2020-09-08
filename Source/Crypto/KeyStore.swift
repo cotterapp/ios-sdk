@@ -52,7 +52,7 @@ class KeyGenV2: KeyPair {
         var item: CFTypeRef?
         let status = SecItemCopyMatching(getquery as CFDictionary, &item)
         guard status == errSecSuccess else {
-            os_log("%{public}@ failed getting key { status: %{public}@ }",
+            os_log("%{public}@ failed getting key { status: %d }",
                    log: Config.instance.log, type: .error,
                    #function, status)
             return nil
