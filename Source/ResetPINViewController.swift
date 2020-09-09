@@ -146,6 +146,7 @@ extension ResetPINViewController: PINBaseController {
         }
         
         resetCodeTextField.didEnterLastDigit = { code in
+            LoadingScreen.shared.start(at: self.view.window)
             guard let userInfo = Config.instance.userInfo,
                 let challengeID = userInfo.resetChallengeID,
                 let challenge = userInfo.resetChallenge else {
@@ -155,6 +156,7 @@ extension ResetPINViewController: PINBaseController {
             
             // Callback Function to execute after Email Code Verification
             func verifyPinResetCb(response: CotterResult<CotterBasicResponse>) {
+                LoadingScreen.shared.stop()
                 switch response {
                 case .success(let data):
                     if data.success {

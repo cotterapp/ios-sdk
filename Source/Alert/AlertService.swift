@@ -36,7 +36,7 @@ class AlertService: NSObject {
         cancelButtonTitle: String,
         imagePath: String? = nil
     ) {
-        guard let nc = vc.navigationController, let nv = nc.view else { return }
+        guard let nv = vc.view else { return }
       
         parentVC = vc
         
@@ -80,7 +80,7 @@ class AlertService: NSObject {
       
         var imageSize: CGFloat = 0.0
         if let path = imagePath {
-            imageSize = nc.view.frame.width * 0.15
+            imageSize = nv.frame.width * 0.15
             
             let cotterImages = ImageObject.defaultImages
             if cotterImages.contains(path) {
