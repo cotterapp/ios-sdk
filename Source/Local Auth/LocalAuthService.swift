@@ -10,21 +10,29 @@ import UIKit
 import os.log
 import LocalAuthentication
 
-class LAlertDelegate: AlertServiceDelegate {
+class LAlertDelegate: AlertServiceDelegate, BottomPopupModalDelegate {
     var defActionHandler = {
         return
     }
     var defCancelHandler = {
         return
     }
+    var defDismissCompletion = {
+        return
+    }
     
-    func actionHandler() {
+    @objc func actionHandler() {
         defActionHandler()
         return
     }
     
-    func cancelHandler() {
+    @objc func cancelHandler() {
         defCancelHandler()
+        return
+    }
+    
+    @objc func dismissCompletion() {
+        defDismissCompletion()
         return
     }
 }
@@ -62,7 +70,7 @@ class LocalAuthService: UIViewController {
     
     public static var ipAddr: String?
     
-    // default alert delegate
+    // default bottom popup delegate
     let alertDelegate = LAlertDelegate()
 
     // setIPAddr should run on initializing the Cotter's root controller
@@ -136,29 +144,30 @@ class LocalAuthService: UIViewController {
         let context = LAContext()
         var error: NSError?
         if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
-            let aService = AlertService(
-                vc: view,
+            let bottomPopupScanPrompt = BottomPopupModal(
+                img: getUIImage(imagePath: fingerprintImg),
                 title: verifyAuthTitle,
                 body: verifyAuthBody,
-                actionButtonTitle: verifyAuthAction,
-                cancelButtonTitle: verifyAuthCancel,
-                imagePath: fingerprintImg
+                actionText: verifyAuthAction,
+                cancelText: verifyAuthCancel
             )
             
             alertDelegate.defActionHandler = {
+                os_log("defActionHandler",log: Config.instance.log, type: .debug)
                 LoadingScreen.shared.start(at: self.view.window)
-                aService.hide()
-
+                bottomPopupScanPrompt.dismiss(animated: false)
+                
                 guard let privateKey = KeyStore.biometric.privKey else {
                     self.dispatchResult(view: view, success: false, authError: nil)
                     return
                 }
-
+                
+                // TODO: should derive pubKey from privateKey
                 guard let pubKey = KeyStore.biometric.pubKey else {
                     self.dispatchResult(view: view, success: false, authError: CotterError.biometricVerification)
                     return
                 }
-
+                
                 let b64PubKey = CryptoUtil.keyToBase64(pubKey: pubKey)
                 
                 let cl = CotterAPIService.shared
@@ -222,11 +231,12 @@ class LocalAuthService: UIViewController {
             }
             
             alertDelegate.defCancelHandler = {
-                aService.hide()
+                bottomPopupScanPrompt.dismiss(animated: false)
             }
             
-            aService.delegate = alertDelegate
-            aService.show()
+            bottomPopupScanPrompt.delegate = alertDelegate
+            bottomPopupScanPrompt.show()
+            
         } else {
             // no biometric then do nothing
             os_log("%{public}@ biometric not available",
@@ -247,17 +257,16 @@ class LocalAuthService: UIViewController {
         let context = LAContext()
         var error: NSError?
         if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
-            let aService = AlertService(
-                vc: view,
+            let aService = BottomPopupModal(
+                img: getUIImage(imagePath: fingerprintImg),
                 title: enrollAuthTitle,
                 body: enrollAuthBody,
-                actionButtonTitle: enrollAuthAction,
-                cancelButtonTitle: enrollAuthCancel,
-                imagePath: fingerprintImg
+                actionText: enrollAuthAction,
+                cancelText: enrollAuthCancel
             )
             let delegate = LAlertDelegate()
             delegate.defActionHandler = {
-                aService.hide()
+                aService.dismiss(animated: false)
                 // this will force biometric scan request
                 guard KeyStore.biometric.privKey != nil else {
                     self.dispatchResult(view: view, success: false, authError: nil)
@@ -277,7 +286,7 @@ class LocalAuthService: UIViewController {
             }
 
             delegate.defCancelHandler =  {
-                aService.hide()
+                aService.dismiss(animated: false)
                 self.dispatchResult(view: view, success: true, authError: nil)
             }
             aService.delegate = delegate
@@ -296,26 +305,26 @@ class LocalAuthService: UIViewController {
         
         if success {
             // Give Success Alert
-            let successAlert = AlertService(
-                vc: view,
+            let successAlert = BottomPopupModal(
+                img: getUIImage(imagePath: successImg),
                 title: self.successTitle,
                 body: self.successBody,
-                actionButtonTitle: self.successAction,
-                cancelButtonTitle: self.successCancel,
-                imagePath: successImg
+                actionText: self.successAction,
+                cancelText: self.successCancel
             )
             
             let successAlertDelegate = LAlertDelegate()
+            successAlertDelegate.defDismissCompletion = {
+                self.successAuthCallbackFunc?("This is token from dispatch!", nil)
+                return
+            }
             successAlert.delegate = successAlertDelegate
             successAlert.show()
             
             // Dismiss Alert after 3 seconds, then run callback
             let timer = DispatchTime.now() + 3
             DispatchQueue.main.asyncAfter(deadline: timer) {
-                successAlert.hide(onComplete: { (finished: Bool) in
-                    self.successAuthCallbackFunc?("This is token from dispatch!", nil)
-                    return
-                })
+                successAlert.dismiss(animated: false)
             }
         } else {
             // Give Failed Authentication Alert
@@ -323,26 +332,21 @@ class LocalAuthService: UIViewController {
                    log: Config.instance.log, type: .debug,
                    #function)
             
-            let failedBiometricAlert = AlertService(
-                vc: view,
+            let failedBiometricAlert = BottomPopupModal(
+                img: getUIImage(imagePath: bioFailImg),
                 title: self.failureTitle,
                 body: self.failureBody,
-                actionButtonTitle: self.failureAction,
-                cancelButtonTitle: self.failureCancel,
-                imagePath: bioFailImg
+                actionText: self.failureAction,
+                cancelText: self.failureCancel
             )
             
-            // try again will re-authenticate
-            func tryAgain(){
-                failedBiometricAlert.hide(onComplete: {(finished:Bool) in
-                    LocalAuthService().authenticate(view: view, reason: "", callback: self.successAuthCallbackFunc)
-                })
-            }
-            
             let failedBiometricAlertDelegate = LAlertDelegate()
-            failedBiometricAlertDelegate.defActionHandler = tryAgain
+            failedBiometricAlertDelegate.defActionHandler = {
+                failedBiometricAlert.dismiss(animated: false)
+                LocalAuthService().authenticate(view: view, reason: "", callback: self.successAuthCallbackFunc)
+            }
             failedBiometricAlertDelegate.defCancelHandler = {
-                failedBiometricAlert.hide()
+                failedBiometricAlert.dismiss(animated: false)
                 
                 // the PIN enrollment is still successful, but biometric registration failed
                 self.successAuthCallbackFunc?("Token from failed biometric", authError)

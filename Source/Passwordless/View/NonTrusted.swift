@@ -54,6 +54,7 @@ public class NonTrusted {
             title: dialogTitle,
             body: dialogSubtitle
         )
+        popup.show()
         
         self.popup.delegate = self
         self.waitForApproval()
@@ -114,6 +115,7 @@ public class NonTrusted {
             title: "Something Went Wrong",
             body: "We're unable to confirm that it's you. Please try again."
         )
+        popup.show()
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
             // dismiss 3 seconds later
             self.dismiss()
@@ -125,5 +127,13 @@ extension NonTrusted: BottomPopupModalDelegate {
     // When dismissed by tapping the dark overlay, BottomPopupModal will do the completion
     func dismissCompletion() {
         self.stop = true
+    }
+    
+    func actionHandler() {
+        // noop
+    }
+    
+    func cancelHandler() {
+        // noop
     }
 }

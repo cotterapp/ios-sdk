@@ -208,6 +208,7 @@ public class Passwordless: NSObject {
                     let img = UIImage(named: failImage, in: Cotter.resourceBundle, compatibleWith: nil)!
 
                     let popup = BottomPopupModal(img: img, title: unableToContinue, body: deviceAlreadyReg)
+                    popup.show()
                     DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
                         popup.dismiss()
                     }
@@ -224,6 +225,7 @@ public class Passwordless: NSObject {
                 let img = UIImage(named: failImage, in: Cotter.resourceBundle, compatibleWith: nil)!
                 
                 let popup = BottomPopupModal(img: img, title: somethingWentWrong, body: tryAgainLater)
+                popup.show()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
                     popup.dismiss()
                 }
@@ -251,6 +253,7 @@ public class Passwordless: NSObject {
                     let img = UIImage(named: failImage, in: Cotter.resourceBundle, compatibleWith: nil)!
                     
                     let popup = BottomPopupModal(img: img, title: unableToContinue, body: deviceNotReg)
+                    popup.show()
                     DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
                         popup.dismiss()
                     }
@@ -258,6 +261,7 @@ public class Passwordless: NSObject {
             case .failure:
                 let img = UIImage(named: failImage, in: Cotter.resourceBundle, compatibleWith: nil)!
                 let popup = BottomPopupModal(img: img, title: somethingWentWrong, body: tryAgainLater)
+                popup.show()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
                     popup.dismiss()
                 }

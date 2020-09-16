@@ -6,9 +6,12 @@
 //
 
 import UIKit
+import os.log
 
-protocol BottomPopupModalDelegate {
+@objc protocol BottomPopupModalDelegate {
     func dismissCompletion()
+    @objc func actionHandler()
+    @objc func cancelHandler()
 }
 
 class BottomPopupModal {
@@ -16,6 +19,8 @@ class BottomPopupModal {
     let img: UIImage
     let title: String
     let body: String
+    let cancelText: String?
+    let actionText: String?
     
     let darkOverlayView = UIView()
     let promptView = UIView()
@@ -23,21 +28,25 @@ class BottomPopupModal {
     let titleLabel = UILabel()
     let bodyLabel = UILabel()
     let imageView = UIImageView()
+    let actionButton = UIButton()
+    let cancelButton = UIButton()
     
     public init(
         img: UIImage,
         title: String,
-        body: String
+        body: String,
+        actionText: String? = nil,
+        cancelText: String? = nil
     ) {
         self.img = img
         self.title = title
         self.body = body
-        
-        self.initView()
+        self.actionText = actionText
+        self.cancelText = cancelText
     }
     
-    private func initView() {
-        guard let window = UIApplication.shared.delegate?.window, let nv = window  else { return }
+    public func show() {
+        guard let window = UIApplication.shared.delegate?.window, let nv = window else { return }
         
         // Dark overlay right below the alert view, covering the whole current UIViewController vc
         darkOverlayView.backgroundColor = UIColor.black
@@ -78,6 +87,18 @@ class BottomPopupModal {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         promptBody.addSubview(imageView)
         
+        actionButton.setTitle(self.actionText, for: .normal)
+        actionButton.setTitleColor(Config.instance.colors.primary, for: .normal)
+        actionButton.translatesAutoresizingMaskIntoConstraints = false
+        actionButton.addTarget(delegate, action: #selector(delegate?.actionHandler), for: .touchUpInside)
+        promptBody.addSubview(actionButton)
+        
+        cancelButton.setTitle(self.cancelText, for: .normal)
+        cancelButton.setTitleColor(Config.instance.colors.primary, for: .normal)
+        cancelButton.translatesAutoresizingMaskIntoConstraints = false
+        cancelButton.addTarget(delegate, action: #selector(delegate?.cancelHandler), for: .touchUpInside)
+        promptBody.addSubview(cancelButton)
+        
         let innerLeftConstraint: CGFloat = 30.0
         let innerRightConstraint: CGFloat = -1 * innerLeftConstraint
         
@@ -103,7 +124,11 @@ class BottomPopupModal {
             imageView.centerXAnchor.constraint(equalTo: promptBody.centerXAnchor),
             imageView.bottomAnchor.constraint(equalTo: nv.layoutMarginsGuide.bottomAnchor, constant: CGFloat(-40)),
             imageView.widthAnchor.constraint(equalToConstant: imageSize),
-            imageView.heightAnchor.constraint(equalToConstant: imageSize)
+            imageView.heightAnchor.constraint(equalToConstant: imageSize),
+            cancelButton.leftAnchor.constraint(equalTo: promptBody.leftAnchor),
+            cancelButton.bottomAnchor.constraint(equalTo: promptBody.bottomAnchor),
+            actionButton.rightAnchor.constraint(equalTo: promptBody.rightAnchor),
+            actionButton.bottomAnchor.constraint(equalTo: promptBody.bottomAnchor)
         ]
         
         NSLayoutConstraint.activate(constraints)

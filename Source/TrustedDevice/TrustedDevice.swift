@@ -86,6 +86,7 @@ class TrustedDevice {
                     // Enrolled in Trusted Devices, do not continue
                     let img = UIImage(named: failImage, in: Cotter.resourceBundle, compatibleWith: nil)!
                     let popup = BottomPopupModal(img: img, title: unableToContinue, body: deviceAlreadyReg)
+                    popup.show()
                     DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
                         popup.dismiss()
                     }
@@ -100,6 +101,7 @@ class TrustedDevice {
             case .failure:
                 let img = UIImage(named: failImage, in: Cotter.resourceBundle, compatibleWith: nil)!
                 let popup = BottomPopupModal(img: img, title: somethingWentWrong, body: tryAgainLater)
+                popup.show()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
                     popup.dismiss()
                 }
@@ -125,6 +127,7 @@ class TrustedDevice {
                     // Not enrolled in Trusted Devices, do not continue
                     let img = UIImage(named: failImage, in: Cotter.resourceBundle, compatibleWith: nil)!
                     let popup = BottomPopupModal(img: img, title: unableToContinue, body: deviceNotReg)
+                    popup.show()
                     DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
                         popup.dismiss()
                     }
@@ -132,6 +135,7 @@ class TrustedDevice {
             case .failure:
                 let img = UIImage(named: failImage, in: Cotter.resourceBundle, compatibleWith: nil)!
                 let popup = BottomPopupModal(img: img, title: somethingWentWrong, body: tryAgainLater)
+                popup.show()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
                     popup.dismiss()
                 }

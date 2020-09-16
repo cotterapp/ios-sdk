@@ -135,6 +135,7 @@
 		80DEBE41D84FBA1C4D4FE00C8D797E82 /* CwlPreconditionTesting.h in Headers */ = {isa = PBXBuildFile; fileRef = 770E16F77C6F02CC7D85C228FB171C17 /* CwlPreconditionTesting.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		82731E7C353C6B8B5A722B24E98A3805 /* CotterStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255D7E61491F924BC15AD9533175CFAB /* CotterStrings.swift */; };
 		82B1B95905E8458C4D348BE914FD5729 /* CotterNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5550B9B99D206D050B443671F9DAB5D8 /* CotterNavigationViewController.swift */; };
+		8541403C25120282002414D2 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8541403B25120281002414D2 /* Image.swift */; };
 		86C3317AA5D1DAC9375ABFF648A5F61A /* Passwordless.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE8B313F03D4D3687A16DD8BB7F5850 /* Passwordless.swift */; };
 		89EE4D6DBDB79963D65AA1E67B543B6D /* CwlCatchBadInstruction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229D599A0842F3E9732BBFE9510F40DB /* CwlCatchBadInstruction.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
 		8A0EF19254BAC5DF0885D1FBA345E016 /* CwlMachBadInstructionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F1BC3A0FF8C8EED674799E22C3380D /* CwlMachBadInstructionHandler.m */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
@@ -494,6 +495,7 @@
 		83EAE1E7440E3BAD82E108655FD0F1ED /* TrustedViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TrustedViewController.swift; sourceTree = "<group>"; };
 		841FBCF1738232D85C78855CA2B3B46F /* CotterResponseWithChallenge.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = CotterResponseWithChallenge.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/CotterResponseWithChallenge.html; sourceTree = "<group>"; };
 		848DC7931F0518454B7B160814D815B5 /* MockedAPIClient.generated.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MockedAPIClient.generated.swift; sourceTree = "<group>"; };
+		8541403B25120281002414D2 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		856A9FFEDEFDBF6CF5DAB84E0C7ED379 /* ResetPINViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResetPINViewController.swift; path = Source/ResetPINViewController.swift; sourceTree = "<group>"; };
 		85BC26E1FE6CC6DB52F85C662F631333 /* KeyboardView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = KeyboardView.xib; sourceTree = "<group>"; };
 		861BF7F1A8B408F4B0FD13D3188F5CF6 /* Pods-CotterIOS_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CotterIOS_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
@@ -1004,6 +1006,7 @@
 			isa = PBXGroup;
 			children = (
 				EBEE9DF9C45CC56F71410DBF68996D3D /* Token.swift */,
+				8541403B25120281002414D2 /* Image.swift */,
 			);
 			name = Util;
 			path = Source/Util;
@@ -1997,6 +2000,7 @@
 				E8EBDBDF296BB66401C0B5F4E6FFE454 /* UpdateCreateNewPINViewController.swift in Sources */,
 				AB47EABDF5D7050FB9B11081CD3068BC /* UpdatePINViewController.swift in Sources */,
 				C474DDD217B2E1F3BCEEA527CAC66722 /* UpdateUserPIN.swift in Sources */,
+				8541403C25120282002414D2 /* Image.swift in Sources */,
 				CE8703629F5814017A88C9D153A7E9C4 /* User.swift in Sources */,
 				32EEF5E6989B093B749A846393551C28 /* UserInfo.swift in Sources */,
 				911EB76A59D20BB6EC3957ABD247E60D /* UserKey.swift in Sources */,

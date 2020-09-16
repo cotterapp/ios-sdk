@@ -70,7 +70,6 @@ class ViewController: UIViewController {
             vc: self,
             animated: true,
             cb: Callback.shared.authCb,
-            hideClose: true,
             name: "Albert", // fill the user's name
             sendingMethod: "EMAIL", // fill user's email
             sendingDestination: "albert@cotter.app"

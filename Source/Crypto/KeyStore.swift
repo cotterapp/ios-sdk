@@ -44,6 +44,7 @@ class KeyGenV2: KeyPair {
         let getquery: [String: Any] = [
             kSecClass as String: generator.secClass,
             kSecAttrApplicationTag as String: tag,
+            kSecAttrKeySizeInBits as String: generator.keySizeInBits,
             kSecAttrKeyType as String: generator.keyType,
             kSecReturnRef as String: true
         ]
@@ -52,9 +53,9 @@ class KeyGenV2: KeyPair {
         var item: CFTypeRef?
         let status = SecItemCopyMatching(getquery as CFDictionary, &item)
         guard status == errSecSuccess else {
-            os_log("%{public}@ failed getting key { status: %d }",
+            os_log("%{public}@ failed getting key { private: %d tag: %{public}@ status: %d }",
                    log: Config.instance.log, type: .error,
-                   #function, status)
+                   #function, pvt, String(decoding: tag, as: UTF8.self), status)
             return nil
         }
 
@@ -68,9 +69,9 @@ class KeyGenV2: KeyPair {
         get {
             let generator = self.generator
             guard let privKey = fetchKey(pvt: true) else {
-
                 // try to generate the key first
                 do {
+                    try clearKeys();
                     try generator.generateKey()
                 } catch let e {
                     os_log("%{public}@ privKey { err: %{public}@ }",
@@ -92,6 +93,7 @@ class KeyGenV2: KeyPair {
 
                 // try to generate the key first
                 do {
+                    try clearKeys();
                     try generator.generateKey()
                 } catch let e {
                     os_log("%{public}@ pubKey { err: %{public}@ }",
@@ -231,7 +233,7 @@ class BiometricKeyGen: KeyGenerator {
             kSecAttrAccessibleWhenPasscodeSetThisDeviceOnly,
             accessFlag,
             &error
-            ) else {
+            ), error == nil else {
                 throw error!.takeRetainedValue() as Error
         }
 
@@ -247,7 +249,7 @@ class BiometricKeyGen: KeyGenerator {
         ]
         
         // generate the key
-        guard let pKey = SecKeyCreateRandomKey(attributes as CFDictionary, &error) else {
+        guard let pKey = SecKeyCreateRandomKey(attributes as CFDictionary, &error), error == nil else {
             throw error!.takeRetainedValue() as Error
         }
         

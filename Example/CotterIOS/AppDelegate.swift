@@ -33,9 +33,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // check if any user is already logged in by checking the access token
         let userID = Cotter.getLoggedInUserID()
         if userID != nil {
+            let eVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EntryViewController") as! EntryViewController
             // for test redirect to PIN
             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ViewController") as! ViewController
-            let nav = UINavigationController(rootViewController: vc)
+            let nav = CustomNavigationViewController(rootViewController: eVC)
+            nav.pushViewController(vc, animated: true)
             self.window?.rootViewController = nav
             self.window?.makeKeyAndVisible()
         }
