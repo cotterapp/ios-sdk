@@ -1,15 +1,15 @@
 PODS:
-  - Cotter (1.5.1):
-    - OneSignal (= 2.14.3)
+  - Cotter (1.5.8):
+    - OneSignal (= 2.15.3)
   - Nimble (8.0.7)
-  - OneSignal (2.14.3)
+  - OneSignal (2.15.3)
   - Sourcery (0.18.0)
   - TweeTextField (1.6.3)
 
 DEPENDENCIES:
   - Cotter (from `../`)
   - Nimble (~> 8.0)
-  - OneSignal (= 2.14.3)
+  - OneSignal (= 2.15.3)
   - Sourcery
   - TweeTextField
 
@@ -25,12 +25,12 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Cotter: aed41af8020e6ad8be4402874d4e41bf406a6361
+  Cotter: b517a8e4c6c86f52b47b24added900582e9d23fe
   Nimble: a73af6ecd4c9106f434f3d55fc54570be3739e0b
-  OneSignal: 7dfe466265c05f02b95a274b9c997a0619ad2117
+  OneSignal: d85b81aa313ed8040522b884f556267883d652c2
   Sourcery: e0e8658a1ce6d9f475156ad3ffce4c68f1261b3e
   TweeTextField: 47bf8e7f0433364a7f7e119c45e7f278ea50eb62
 
-PODFILE CHECKSUM: d906fdd04597d3103dd80fbaf8566c416cfbd8b0
+PODFILE CHECKSUM: 3a630ba94d5955acae95bb67bf256eb6ee3ce483
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.9.3

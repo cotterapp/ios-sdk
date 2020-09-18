@@ -40,7 +40,7 @@ CotterIOS simplifies client's integration with Cotter. It is an SDK that provide
   # s.public_header_files = 'Pod/Classes/**/*.h'
   s.static_framework = true
   s.frameworks = 'UIKit'
-  s.dependency 'OneSignal', '2.14.3'
+  s.dependency 'OneSignal', '2.15.3'
 
 #  s.test_spec 'Tests' do |test_spec|
 #    test_spec.source_files = 'Example/Tests/**/*.{swift}'
