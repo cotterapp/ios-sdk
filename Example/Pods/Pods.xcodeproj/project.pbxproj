@@ -136,6 +136,10 @@
 		82731E7C353C6B8B5A722B24E98A3805 /* CotterStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255D7E61491F924BC15AD9533175CFAB /* CotterStrings.swift */; };
 		82B1B95905E8458C4D348BE914FD5729 /* CotterNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5550B9B99D206D050B443671F9DAB5D8 /* CotterNavigationViewController.swift */; };
 		8541403C25120282002414D2 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8541403B25120281002414D2 /* Image.swift */; };
+		855CB3C8251402FA00DA5603 /* BiometricAuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855CB3C7251402FA00DA5603 /* BiometricAuthenticationService.swift */; };
+		855CB3D2251453F900DA5603 /* BiometricFailPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855CB3D1251453F900DA5603 /* BiometricFailPopup.swift */; };
+		855CB3DC25145A8700DA5603 /* BiometricSuccessPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855CB3DB25145A8700DA5603 /* BiometricSuccessPopup.swift */; };
+		855CB3EE2514634E00DA5603 /* BiometricRegistrationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855CB3ED2514634E00DA5603 /* BiometricRegistrationService.swift */; };
 		86C3317AA5D1DAC9375ABFF648A5F61A /* Passwordless.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE8B313F03D4D3687A16DD8BB7F5850 /* Passwordless.swift */; };
 		89EE4D6DBDB79963D65AA1E67B543B6D /* CwlCatchBadInstruction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229D599A0842F3E9732BBFE9510F40DB /* CwlCatchBadInstruction.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
 		8A0EF19254BAC5DF0885D1FBA345E016 /* CwlMachBadInstructionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F1BC3A0FF8C8EED674799E22C3380D /* CwlMachBadInstructionHandler.m */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
@@ -496,6 +500,10 @@
 		841FBCF1738232D85C78855CA2B3B46F /* CotterResponseWithChallenge.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = CotterResponseWithChallenge.html; path = docs/docsets/Cotter.docset/Contents/Resources/Documents/Structs/CotterResponseWithChallenge.html; sourceTree = "<group>"; };
 		848DC7931F0518454B7B160814D815B5 /* MockedAPIClient.generated.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MockedAPIClient.generated.swift; sourceTree = "<group>"; };
 		8541403B25120281002414D2 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		855CB3C7251402FA00DA5603 /* BiometricAuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricAuthenticationService.swift; sourceTree = "<group>"; };
+		855CB3D1251453F900DA5603 /* BiometricFailPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricFailPopup.swift; sourceTree = "<group>"; };
+		855CB3DB25145A8700DA5603 /* BiometricSuccessPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricSuccessPopup.swift; sourceTree = "<group>"; };
+		855CB3ED2514634E00DA5603 /* BiometricRegistrationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricRegistrationService.swift; sourceTree = "<group>"; };
 		856A9FFEDEFDBF6CF5DAB84E0C7ED379 /* ResetPINViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResetPINViewController.swift; path = Source/ResetPINViewController.swift; sourceTree = "<group>"; };
 		85BC26E1FE6CC6DB52F85C662F631333 /* KeyboardView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = KeyboardView.xib; sourceTree = "<group>"; };
 		861BF7F1A8B408F4B0FD13D3188F5CF6 /* Pods-CotterIOS_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CotterIOS_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
@@ -1390,6 +1398,8 @@
 			isa = PBXGroup;
 			children = (
 				97B14B665175D3492E7152C5C426079B /* AlertService.swift */,
+				855CB3D1251453F900DA5603 /* BiometricFailPopup.swift */,
+				855CB3DB25145A8700DA5603 /* BiometricSuccessPopup.swift */,
 			);
 			name = Alert;
 			path = Source/Alert;
@@ -1452,6 +1462,8 @@
 			children = (
 				A2B05EAF7547C0AEA4B4F2244B18529D /* AuthAlertMessages.swift */,
 				FECAB4FC84A2DF9882B7498D4EB0670D /* LocalAuthService.swift */,
+				855CB3C7251402FA00DA5603 /* BiometricAuthenticationService.swift */,
+				855CB3ED2514634E00DA5603 /* BiometricRegistrationService.swift */,
 			);
 			name = "Local Auth";
 			path = "Source/Local Auth";
@@ -1941,6 +1953,7 @@
 				00B0EA4889EA4C141CFCABF92F62ED10 /* GetEvent.swift in Sources */,
 				F2A6DC8FA4D15BB3059E9A0C8F4C56BF /* GetNewEvent.swift in Sources */,
 				51336FDF8D47FB3E1CD7CDC25F3DFB77 /* GetNotificationAppID.swift in Sources */,
+				855CB3C8251402FA00DA5603 /* BiometricAuthenticationService.swift in Sources */,
 				71C8CCFA443024B8A264672C9946F27A /* GetTrustedDeviceEnrolledAny.swift in Sources */,
 				4CC5A2B776C6CA0AA83040116C200102 /* GetTrustedDeviceStatus.swift in Sources */,
 				77D2B74BB5DDF6B139F593009CA96B80 /* GetUser.swift in Sources */,
@@ -1965,6 +1978,8 @@
 				37F3232B61D921D2250F3D67F418E219 /* PINBaseController.swift in Sources */,
 				3C09A4D49C0AB0CDD4DD63A5E430056C /* PINConfirmViewController.swift in Sources */,
 				E397CDDF149DEF9607430E8ECF0D9835 /* PINFinalViewController.swift in Sources */,
+				855CB3DC25145A8700DA5603 /* BiometricSuccessPopup.swift in Sources */,
+				855CB3D2251453F900DA5603 /* BiometricFailPopup.swift in Sources */,
 				D7756C4F9B16AF6DFFB223B3257B93F4 /* PinStepEnums.swift in Sources */,
 				64A85A47336C7D70901ED53C4F81D84E /* PINViewController.swift in Sources */,
 				B1C133DAB8CADD8B4DBA7697DDB9A3F2 /* PKCE.swift in Sources */,
@@ -1995,6 +2010,7 @@
 				3B02861015247DD30837AF2B1BC97693 /* UIImageView.swift in Sources */,
 				2F6F21482E4413C3737DE4F29FB2CC1D /* UINavigationController.swift in Sources */,
 				AA26F2BF27F24B1213E2E944A0F0E82B /* UIViewController.swift in Sources */,
+				855CB3EE2514634E00DA5603 /* BiometricRegistrationService.swift in Sources */,
 				461CF9E2AAEA957BCFA1BDF030DA7458 /* UpdateBiometricStatus.swift in Sources */,
 				9B019223BCCCAB6F599EB48083379E6A /* UpdateConfirmNewPINViewController.swift in Sources */,
 				E8EBDBDF296BB66401C0B5F4E6FFE454 /* UpdateCreateNewPINViewController.swift in Sources */,

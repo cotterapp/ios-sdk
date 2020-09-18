@@ -205,15 +205,15 @@ extension TransactionPINViewController: TransactionPINViewComponent {
                 case .success(let resp):
                     if !resp.enrolled { return }
 
-                    let onFinishCallback = Config.instance.transactionCb
-                    func cb(success: Bool, error: CotterError?) {
-                        if success {
-                            onFinishCallback("dummy biometric token", nil)
+                    let cb: FinalAuthCallback = {(success, err) in
+                        if success != "" && err == nil {
+                            Config.instance.transactionCb("dummy biometric token", nil)
                         } else {
                             self.setError(msg: "Biometric is incorrect, please use PIN")
                         }
                     }
-                    self.authService.bioAuth(view: self, event: CotterEvents.Transaction, callback: cb)
+                    
+                    BiometricAuthenticationService(event: CotterEvents.Transaction, callback: cb).start()
                 case .failure(let err):
                     self.setError(msg: self.generateErrorMessageFrom(error: err))
                 }
