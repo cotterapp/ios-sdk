@@ -34,7 +34,7 @@ class KeyGenV2: KeyPair {
     
     // fetchKey fetches either private or public key
     // set pvt to true if you want to fetch private key
-    private func fetchKey(pvt: Bool) -> SecKey? {
+    private func fetchKey(pvt: Bool) -> (SecKey?, OSStatus) {
         let generator = self.generator
         var tag = generator.keyTag
         if !pvt {
@@ -44,6 +44,7 @@ class KeyGenV2: KeyPair {
         let getquery: [String: Any] = [
             kSecClass as String: generator.secClass,
             kSecAttrApplicationTag as String: tag,
+            kSecAttrKeySizeInBits as String: generator.keySizeInBits,
             kSecAttrKeyType as String: generator.keyType,
             kSecReturnRef as String: true
         ]
@@ -51,35 +52,30 @@ class KeyGenV2: KeyPair {
         // get the key
         var item: CFTypeRef?
         let status = SecItemCopyMatching(getquery as CFDictionary, &item)
-        guard status == errSecSuccess else {
-            os_log("%{public}@ failed getting key { status: %d }",
-                   log: Config.instance.log, type: .error,
-                   #function, status)
-            return nil
-        }
-
-        let key = item as! SecKey
+        let key = item as! SecKey?
         
-        return key
+        return (key, status)
     }
     
     public var privKey: SecKey? {
         // getter returns a base64 encoded string privateKey
         get {
             let generator = self.generator
-            guard let privKey = fetchKey(pvt: true) else {
-
-                // try to generate the key first
+            let (privKey, status) = fetchKey(pvt: true)
+            guard status == errSecSuccess else {
                 do {
+                    // only try to generate key when user did not cancel the biometric scan
+                    guard status != errSecUserCanceled else { return nil }
+                    
                     try generator.generateKey()
+                    let (privKey, _) = fetchKey(pvt: true)
+                    return privKey
                 } catch let e {
                     os_log("%{public}@ privKey { err: %{public}@ }",
                            log: Config.instance.log, type: .error,
                            #function, e.localizedDescription)
                     return nil
                 }
-
-                return fetchKey(pvt: true)
             }
             return privKey
         }
@@ -88,20 +84,23 @@ class KeyGenV2: KeyPair {
     public var pubKey: SecKey? {
         get {
             let generator = self.generator
-            guard let key = fetchKey(pvt: false) else {
-
-                // try to generate the key first
+            let (pubKey, status) = fetchKey(pvt: false)
+            guard status == errSecSuccess else {
                 do {
+                    // only try to generate key when user did not cancel the biometric scan
+                    guard status != errSecUserCanceled else { return nil }
+                    
                     try generator.generateKey()
+                    let (pubKey, _) = fetchKey(pvt: false)
+                    return pubKey
                 } catch let e {
                     os_log("%{public}@ pubKey { err: %{public}@ }",
                            log: Config.instance.log, type: .error,
                            #function, e.localizedDescription)
                     return nil
                 }
-                return fetchKey(pvt: false)
             }
-            return key
+            return pubKey
         }
     }
     
@@ -231,7 +230,7 @@ class BiometricKeyGen: KeyGenerator {
             kSecAttrAccessibleWhenPasscodeSetThisDeviceOnly,
             accessFlag,
             &error
-            ) else {
+            ), error == nil else {
                 throw error!.takeRetainedValue() as Error
         }
 
@@ -247,7 +246,7 @@ class BiometricKeyGen: KeyGenerator {
         ]
         
         // generate the key
-        guard let pKey = SecKeyCreateRandomKey(attributes as CFDictionary, &error) else {
+        guard let pKey = SecKeyCreateRandomKey(attributes as CFDictionary, &error), error == nil else {
             throw error!.takeRetainedValue() as Error
         }
         

@@ -51,7 +51,13 @@ class KeyboardView: UIView {
     private func initialize() {
         // Load KeyboardView.nib File to View
         Cotter.resourceBundle.loadNibNamed("KeyboardView", owner: self, options: nil)
+        view.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(view)
+        
+        view.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
+        view.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
+        view.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        view.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         
         let fonts = Config.instance.fonts
         oneButton.titleLabel?.font = fonts.keypad

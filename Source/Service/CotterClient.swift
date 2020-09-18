@@ -110,6 +110,10 @@ public class CotterClient: APIClient {
             req.httpBody = request.body
         }
         
+        os_log("%{public}@ { url:%{public}s }",
+               log: Config.instance.log, type: .debug,
+               #function, req.url?.absoluteString ?? "no url")
+        
         // Construct the final URL with all the previous data
         return req
     }

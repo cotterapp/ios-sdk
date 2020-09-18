@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -13,11 +14,11 @@
             <objects>
                 <viewController storyboardIdentifier="UpdatePINViewController" id="vI7-VV-aEK" customClass="UpdatePINViewController" customModule="Cotter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ecN-oR-0oF">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Twk-8B-euK">
-                                <rect key="frame" x="145" y="270.5" width="124" height="29"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Twk-8B-euK">
+                                <rect key="frame" x="98" y="126.5" width="124" height="39.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                 <state key="normal" title="Update PIN Button"/>
                                 <connections>
@@ -25,7 +26,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Update PIN Error" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OtH-nO-4oj" userLabel="ErrorMsg">
-                                <rect key="frame" x="57" y="301.5" width="300" height="50"/>
+                                <rect key="frame" x="10" y="168" width="300" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="BjD-cw-uQl"/>
                                     <constraint firstAttribute="height" constant="50" id="JO5-9K-zRL"/>
@@ -35,7 +36,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BWh-mf-YV2" userLabel="Code Text Field" customClass="OneTimeCodeTextField" customModule="Cotter" customModuleProvider="target">
-                                <rect key="frame" x="82" y="230.5" width="250" height="35"/>
+                                <rect key="frame" x="35" y="86.5" width="250" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="IkW-xv-g5X"/>
                                     <constraint firstAttribute="height" constant="35" id="j14-MK-YDn"/>
@@ -44,19 +45,22 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CbK-dh-RzR" customClass="KeyboardView" customModule="Cotter" customModuleProvider="target">
-                                <rect key="frame" x="20" y="507" width="374" height="355"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <rect key="frame" x="20" y="238" width="280" height="330"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="355" id="sLl-mk-RVm"/>
+                                    <constraint firstAttribute="height" constant="355" id="sha-sa-ad6">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="330"/>
+                                    </constraint>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Update PIN Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zrC-oU-0pq">
-                                <rect key="frame" x="20" y="201" width="374" height="19.5"/>
+                                <rect key="frame" x="20" y="57" width="280" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="nRc-rx-xyg"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="CbK-dh-RzR" firstAttribute="bottom" secondItem="nRc-rx-xyg" secondAttribute="bottom" id="30F-OW-3cz"/>
@@ -66,15 +70,17 @@
                             <constraint firstItem="OtH-nO-4oj" firstAttribute="centerX" secondItem="ecN-oR-0oF" secondAttribute="centerX" id="JLq-xL-fvL"/>
                             <constraint firstItem="CbK-dh-RzR" firstAttribute="centerX" secondItem="ecN-oR-0oF" secondAttribute="centerX" id="Kng-xC-uSZ"/>
                             <constraint firstItem="Twk-8B-euK" firstAttribute="centerX" secondItem="ecN-oR-0oF" secondAttribute="centerX" id="ZWd-WA-g1F"/>
+                            <constraint firstItem="CbK-dh-RzR" firstAttribute="top" secondItem="OtH-nO-4oj" secondAttribute="bottom" constant="20" id="a15-7l-HPQ"/>
                             <constraint firstItem="BWh-mf-YV2" firstAttribute="centerX" secondItem="ecN-oR-0oF" secondAttribute="centerX" id="aKi-dj-lYa"/>
-                            <constraint firstItem="BWh-mf-YV2" firstAttribute="centerY" secondItem="ecN-oR-0oF" secondAttribute="centerY" constant="-200" id="ajX-BL-TmJ"/>
+                            <constraint firstItem="BWh-mf-YV2" firstAttribute="centerY" secondItem="ecN-oR-0oF" secondAttribute="centerY" constant="-200" id="ajX-BL-TmJ">
+                                <variation key="heightClass=regular-widthClass=compact" constant="-180"/>
+                            </constraint>
                             <constraint firstItem="zrC-oU-0pq" firstAttribute="leading" secondItem="nRc-rx-xyg" secondAttribute="leading" constant="20" id="eUO-EO-VdP"/>
                             <constraint firstItem="Twk-8B-euK" firstAttribute="top" secondItem="BWh-mf-YV2" secondAttribute="bottom" constant="5" id="ldU-Gn-KwL"/>
                             <constraint firstItem="CbK-dh-RzR" firstAttribute="leading" secondItem="nRc-rx-xyg" secondAttribute="leading" constant="20" id="x11-6K-mli"/>
                             <constraint firstItem="zrC-oU-0pq" firstAttribute="centerX" secondItem="ecN-oR-0oF" secondAttribute="centerX" id="yWK-bR-aHl"/>
                             <constraint firstItem="nRc-rx-xyg" firstAttribute="trailing" secondItem="zrC-oU-0pq" secondAttribute="trailing" constant="20" id="zez-sx-xTK"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="nRc-rx-xyg"/>
                     </view>
                     <navigationItem key="navigationItem" id="cKc-nH-UR9"/>
                     <connections>
@@ -94,11 +100,11 @@
             <objects>
                 <viewController storyboardIdentifier="UpdateCreateNewPINViewController" id="jQ2-nb-vGX" customClass="UpdateCreateNewPINViewController" customModule="Cotter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ano-B6-oq4">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9PV-bv-3bZ">
-                                <rect key="frame" x="131" y="270.5" width="152" height="29"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9PV-bv-3bZ">
+                                <rect key="frame" x="83.5" y="126.5" width="153" height="29"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                 <state key="normal" title="Create New PIN Button"/>
                                 <connections>
@@ -106,7 +112,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create New PIN Error" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aHt-eO-I8d" userLabel="ErrorMsg">
-                                <rect key="frame" x="57" y="301.5" width="300" height="50"/>
+                                <rect key="frame" x="10" y="157.5" width="300" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="SyH-DP-m0F"/>
                                     <constraint firstAttribute="width" constant="300" id="wdG-ck-aeJ"/>
@@ -116,7 +122,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BXF-WN-O9C" userLabel="Code Text Field" customClass="OneTimeCodeTextField" customModule="Cotter" customModuleProvider="target">
-                                <rect key="frame" x="82" y="230.5" width="250" height="35"/>
+                                <rect key="frame" x="35" y="86.5" width="250" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="u1D-qG-DUQ"/>
                                     <constraint firstAttribute="height" constant="35" id="urA-c2-dBH"/>
@@ -125,19 +131,22 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create New PIN Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="joL-uv-SPw">
-                                <rect key="frame" x="20" y="201" width="374" height="19.5"/>
+                                <rect key="frame" x="20" y="57" width="280" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QCa-u7-BXw" customClass="KeyboardView" customModule="Cotter" customModuleProvider="target">
-                                <rect key="frame" x="20" y="512" width="374" height="350"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <rect key="frame" x="20" y="238" width="280" height="330"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="350" id="Io9-AU-imo"/>
+                                    <constraint firstAttribute="height" constant="355" id="Io9-AU-imo">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="330"/>
+                                    </constraint>
                                 </constraints>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="3zK-cT-1d5"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="9PV-bv-3bZ" firstAttribute="centerX" secondItem="Ano-B6-oq4" secondAttribute="centerX" id="0Oe-CS-URZ"/>
@@ -151,11 +160,12 @@
                             <constraint firstItem="aHt-eO-I8d" firstAttribute="top" secondItem="9PV-bv-3bZ" secondAttribute="bottom" constant="2" id="lgb-7r-tf5"/>
                             <constraint firstItem="joL-uv-SPw" firstAttribute="centerX" secondItem="Ano-B6-oq4" secondAttribute="centerX" id="orV-Ym-saP"/>
                             <constraint firstItem="QCa-u7-BXw" firstAttribute="centerX" secondItem="Ano-B6-oq4" secondAttribute="centerX" id="q0H-eN-PlN"/>
-                            <constraint firstItem="BXF-WN-O9C" firstAttribute="centerY" secondItem="Ano-B6-oq4" secondAttribute="centerY" constant="-200" id="qdI-4w-XC5"/>
+                            <constraint firstItem="BXF-WN-O9C" firstAttribute="centerY" secondItem="Ano-B6-oq4" secondAttribute="centerY" constant="-200" id="qdI-4w-XC5">
+                                <variation key="heightClass=regular-widthClass=compact" constant="-180"/>
+                            </constraint>
                             <constraint firstItem="9PV-bv-3bZ" firstAttribute="top" secondItem="BXF-WN-O9C" secondAttribute="bottom" constant="5" id="r2I-Wv-lN2"/>
                             <constraint firstItem="BXF-WN-O9C" firstAttribute="top" secondItem="joL-uv-SPw" secondAttribute="bottom" constant="10" id="we6-5e-1qu"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="3zK-cT-1d5"/>
                     </view>
                     <navigationItem key="navigationItem" id="Ylh-hQ-ksS"/>
                     <connections>
@@ -175,11 +185,11 @@
             <objects>
                 <viewController storyboardIdentifier="UpdateConfirmNewPINViewController" id="bsn-Me-hsc" customClass="UpdateConfirmNewPINViewController" customModule="Cotter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="au9-2G-nrz">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="npw-sC-zME">
-                                <rect key="frame" x="126.5" y="270.5" width="161" height="29"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="npw-sC-zME">
+                                <rect key="frame" x="79.5" y="126.5" width="161" height="29"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                 <state key="normal" title="Confirm New PIN Button"/>
                                 <connections>
@@ -187,7 +197,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm New PIN Error" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QeR-me-ToR" userLabel="ErrorMsg">
-                                <rect key="frame" x="57" y="301.5" width="300" height="50"/>
+                                <rect key="frame" x="10" y="157.5" width="300" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="D4p-1B-4Q1"/>
                                     <constraint firstAttribute="height" constant="50" id="ZTk-4X-Pl1"/>
@@ -197,7 +207,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZLF-zT-Un2" userLabel="Code Text Field" customClass="OneTimeCodeTextField" customModule="Cotter" customModuleProvider="target">
-                                <rect key="frame" x="82" y="230.5" width="250" height="35"/>
+                                <rect key="frame" x="35" y="86.5" width="250" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="FHa-lD-lOA"/>
                                     <constraint firstAttribute="width" constant="250" id="fst-lM-fna"/>
@@ -206,19 +216,22 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm new PIN Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5RD-iA-TLr">
-                                <rect key="frame" x="20" y="201" width="374" height="19.5"/>
+                                <rect key="frame" x="20" y="57" width="280" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vhx-8N-xWa" customClass="KeyboardView" customModule="Cotter" customModuleProvider="target">
-                                <rect key="frame" x="20" y="512" width="374" height="350"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <rect key="frame" x="20" y="238" width="280" height="330"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="350" id="hxp-Ie-6eQ"/>
+                                    <constraint firstAttribute="height" constant="355" id="hxp-Ie-6eQ">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="330"/>
+                                    </constraint>
                                 </constraints>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="v6E-Dc-X8J"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="v6E-Dc-X8J" firstAttribute="trailing" secondItem="5RD-iA-TLr" secondAttribute="trailing" constant="20" id="0zS-bq-uoB"/>
@@ -234,9 +247,10 @@
                             <constraint firstItem="5RD-iA-TLr" firstAttribute="centerX" secondItem="au9-2G-nrz" secondAttribute="centerX" id="sTr-Tu-81R"/>
                             <constraint firstItem="ZLF-zT-Un2" firstAttribute="top" secondItem="5RD-iA-TLr" secondAttribute="bottom" constant="10" id="tyg-tm-GW5"/>
                             <constraint firstItem="npw-sC-zME" firstAttribute="top" secondItem="ZLF-zT-Un2" secondAttribute="bottom" constant="5" id="w7b-4k-ATV"/>
-                            <constraint firstItem="ZLF-zT-Un2" firstAttribute="centerY" secondItem="au9-2G-nrz" secondAttribute="centerY" constant="-200" id="yGi-mS-c2v"/>
+                            <constraint firstItem="ZLF-zT-Un2" firstAttribute="centerY" secondItem="au9-2G-nrz" secondAttribute="centerY" constant="-200" id="yGi-mS-c2v">
+                                <variation key="heightClass=regular-widthClass=compact" constant="-180"/>
+                            </constraint>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="v6E-Dc-X8J"/>
                     </view>
                     <navigationItem key="navigationItem" id="0CU-by-FLo"/>
                     <connections>
@@ -252,4 +266,9 @@
             <point key="canvasLocation" x="1567" y="151"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
