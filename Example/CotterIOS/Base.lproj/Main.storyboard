@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="LXs-oP-w5Y">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="LXs-oP-w5Y">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -23,7 +24,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P3r-wO-R4a">
                                 <rect key="frame" x="40" y="20" width="83.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" systemColor="systemRedColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lpw-R3-8f6">
@@ -32,14 +33,14 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="h66-OQ-Arc">
                                         <rect key="frame" x="0.0" y="0.0" width="344" height="30"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cJz-AF-KNf" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cJz-AF-KNf" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="169.5" height="30"/>
                                                 <state key="normal" title="Start PIN Transaction"/>
                                                 <connections>
                                                     <action selector="clickStartTransaction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="9pP-S0-Fge"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mtB-9J-M19" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mtB-9J-M19" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
                                                 <rect key="frame" x="174.5" y="0.0" width="169.5" height="30"/>
                                                 <state key="normal" title="Login Page"/>
                                                 <connections>
@@ -51,14 +52,14 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ZM5-hZ-3vX">
                                         <rect key="frame" x="0.0" y="40" width="344" height="30"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XcD-u1-ZcS" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XcD-u1-ZcS" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="169.5" height="30"/>
                                                 <state key="normal" title="Start PIN Enrollment"/>
                                                 <connections>
                                                     <action selector="clickCotter:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="gYu-5u-4Xg"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nvg-fr-Lvu" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nvg-fr-Lvu" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
                                                 <rect key="frame" x="174.5" y="0.0" width="169.5" height="30"/>
                                                 <state key="normal" title="Cryptographic test"/>
                                                 <connections>
@@ -70,14 +71,14 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="PbB-P8-gOJ">
                                         <rect key="frame" x="0.0" y="80" width="344" height="30"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oyP-Kn-NiT" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oyP-Kn-NiT" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="169.5" height="30"/>
                                                 <state key="normal" title="Start Update Profile"/>
                                                 <connections>
                                                     <action selector="clickUpdateProfile:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="dgr-HS-ghW"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="54v-qE-r26" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="54v-qE-r26" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
                                                 <rect key="frame" x="174.5" y="0.0" width="169.5" height="30"/>
                                                 <state key="normal" title="IP Address"/>
                                                 <connections>
@@ -89,14 +90,14 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="blw-XG-a4X">
                                         <rect key="frame" x="0.0" y="120" width="344" height="30"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dme-5s-tyS" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dme-5s-tyS" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="169.5" height="30"/>
                                                 <state key="normal" title="Client check"/>
                                                 <connections>
                                                     <action selector="goToUserCheck:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="qaW-XL-uc2"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KKm-m6-vje" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KKm-m6-vje" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
                                                 <rect key="frame" x="174.5" y="0.0" width="169.5" height="30"/>
                                                 <state key="normal" title="Trusted Device"/>
                                                 <connections>
@@ -111,7 +112,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Biometric" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m1Q-nE-0lS">
                                                 <rect key="frame" x="0.0" y="0.0" width="169.5" height="31"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" systemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZDe-Ox-aX7">
@@ -124,7 +125,7 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e6I-FM-IyY" customClass="InvertedBasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e6I-FM-IyY" customClass="InvertedBasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
                                 <rect key="frame" x="40" y="724" width="334" height="30"/>
                                 <state key="normal" title="Logout"/>
                                 <connections>
@@ -193,7 +194,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LW5-KK-tig">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LW5-KK-tig">
                                 <rect key="frame" x="145.5" y="704" width="123" height="30"/>
                                 <state key="normal" title="Generate Key Pair"/>
                                 <connections>
@@ -210,7 +211,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8b9-nh-x7X">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8b9-nh-x7X">
                                 <rect key="frame" x="170.5" y="404" width="73" height="30"/>
                                 <state key="normal" title="Clear Keys"/>
                                 <connections>
@@ -218,6 +219,7 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="Uef-de-Ynd"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="blc-Ac-bOi" firstAttribute="centerX" secondItem="fYH-Xz-830" secondAttribute="centerX" id="IdA-hE-8ec"/>
@@ -227,7 +229,6 @@
                             <constraint firstItem="8b9-nh-x7X" firstAttribute="centerX" secondItem="fYH-Xz-830" secondAttribute="centerX" id="nwx-0J-DXQ"/>
                             <constraint firstItem="Uef-de-Ynd" firstAttribute="bottom" secondItem="LW5-KK-tig" secondAttribute="bottom" constant="40" id="sAD-an-PGw"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="Uef-de-Ynd"/>
                     </view>
                     <navigationItem key="navigationItem" title="Cryptography" id="lSM-cI-LzD"/>
                     <connections>
@@ -247,11 +248,11 @@
                         <viewControllerLayoutGuide type="bottom" id="tnW-Je-h3l"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="HCg-dG-YWJ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Gjd-Vn-C2Y">
-                                <rect key="frame" x="40" y="284" width="334" height="74"/>
+                                <rect key="frame" x="40" y="267" width="334" height="74"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nhA-fz-vFe" customClass="TweeBorderedTextField" customModule="TweeTextField">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="34"/>
@@ -262,7 +263,7 @@
                                             <userDefinedRuntimeAttribute type="string" keyPath="tweePlaceholder" value="Email"/>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7UG-7G-mis" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7UG-7G-mis" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44" width="334" height="30"/>
                                         <state key="normal" title="Register"/>
                                         <connections>
@@ -278,7 +279,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G4P-fr-5Ha">
-                                <rect key="frame" x="40" y="388" width="334" height="20.5"/>
+                                <rect key="frame" x="40" y="371" width="334" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -355,7 +356,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User ID:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oWG-lQ-ILl">
-                                <rect key="frame" x="176.5" y="20" width="61.5" height="20.5"/>
+                                <rect key="frame" x="176.5" y="20" width="61" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -367,15 +368,15 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Fl-35-M8M">
-                                <rect key="frame" x="129.5" y="166" width="155.5" height="34"/>
+                                <rect key="frame" x="130" y="166" width="154.5" height="34"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="new User ID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6up-Q9-xZw">
                                         <rect key="frame" x="0.0" y="0.0" width="106.5" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q9O-wG-rb0">
-                                        <rect key="frame" x="106.5" y="0.0" width="49" height="34"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q9O-wG-rb0">
+                                        <rect key="frame" x="106.5" y="0.0" width="48" height="34"/>
                                         <state key="normal" title="Check!"/>
                                         <connections>
                                             <action selector="checkAction:" destination="gql-Ku-of0" eventType="touchUpInside" id="j2Y-cP-YiC"/>
@@ -384,19 +385,19 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hTc-aK-0a2">
-                                <rect key="frame" x="123.5" y="240" width="167" height="81.5"/>
+                                <rect key="frame" x="124" y="240" width="166" height="81.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="nt3-2O-1kh">
-                                        <rect key="frame" x="0.0" y="0.0" width="167" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="166" height="20.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Biometric" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w0P-su-n3c">
-                                                <rect key="frame" x="0.0" y="0.0" width="115" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="114.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5sd-EG-hHH">
-                                                <rect key="frame" x="125" y="0.0" width="42" height="20.5"/>
+                                                <rect key="frame" x="124.5" y="0.0" width="41.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -404,16 +405,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="pLO-KS-DXk">
-                                        <rect key="frame" x="0.0" y="30.5" width="167" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="30.5" width="166" height="20.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trusted Device" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZIC-E4-cSi">
-                                                <rect key="frame" x="0.0" y="0.0" width="115" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="114.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3pE-VA-o6c">
-                                                <rect key="frame" x="125" y="0.0" width="42" height="20.5"/>
+                                                <rect key="frame" x="124.5" y="0.0" width="41.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -421,7 +422,7 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GLP-P7-XnM">
-                                        <rect key="frame" x="0.0" y="61" width="167" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="61" width="166" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -472,11 +473,11 @@
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YZe-zX-wtu">
                                 <rect key="frame" x="70" y="387" width="274" height="34"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" systemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dZS-18-1yg">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dZS-18-1yg">
                                 <rect key="frame" x="306" y="441" width="38" height="30"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
@@ -533,14 +534,14 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="oCp-rf-Zu9">
                                         <rect key="frame" x="0.0" y="30.5" width="334" height="30"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TWk-la-QnC" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TWk-la-QnC" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="162" height="30"/>
                                                 <state key="normal" title="Get New Event"/>
                                                 <connections>
                                                     <action selector="getNewEvent:" destination="B9X-jN-7M4" eventType="touchUpInside" id="qZx-5v-RJe"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MAm-hi-mbp" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MAm-hi-mbp" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
                                                 <rect key="frame" x="172" y="0.0" width="162" height="30"/>
                                                 <state key="normal" title="Request Authentication"/>
                                                 <connections>
@@ -554,49 +555,49 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zCn-VN-8d1" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zCn-VN-8d1" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="114.5" width="334" height="30"/>
                                         <state key="normal" title="Get New Event"/>
                                         <connections>
                                             <action selector="getNewEventFor:" destination="B9X-jN-7M4" eventType="touchUpInside" id="3UE-1M-F9k"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qS4-P8-GmC" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qS4-P8-GmC" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="154.5" width="334" height="30"/>
                                         <state key="normal" title="Login w/ Trusted Device"/>
                                         <connections>
                                             <action selector="loginTrusted:" destination="B9X-jN-7M4" eventType="touchUpInside" id="rIi-vx-j8q"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6xy-Ai-dXh" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6xy-Ai-dXh" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="194.5" width="334" height="30"/>
                                         <state key="normal" title="Register This Device"/>
                                         <connections>
                                             <action selector="registerDevice:" destination="B9X-jN-7M4" eventType="touchUpInside" id="Hka-SK-107"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SL9-D7-HNo" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SL9-D7-HNo" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="234.5" width="334" height="30"/>
                                         <state key="normal" title="Scan New Device"/>
                                         <connections>
                                             <action selector="scanNewDevice:" destination="B9X-jN-7M4" eventType="touchUpInside" id="snO-ds-xi3"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D3e-dC-LPq" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D3e-dC-LPq" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="274.5" width="334" height="30"/>
                                         <state key="normal" title="Get Current Device TD Status"/>
                                         <connections>
                                             <action selector="getCurrentDeviceTrustedStatus:" destination="B9X-jN-7M4" eventType="touchUpInside" id="f5m-O4-dFl"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KWO-5P-yrc" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KWO-5P-yrc" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="314.5" width="334" height="30"/>
                                         <state key="normal" title="Get User ID TD Status"/>
                                         <connections>
                                             <action selector="getUserTDStatus:" destination="B9X-jN-7M4" eventType="touchUpInside" id="QLi-7l-WJu"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fKE-CK-kHq" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fKE-CK-kHq" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="354.5" width="334" height="30"/>
                                         <state key="normal" title="Remove This Device as Trusted"/>
                                         <connections>
@@ -638,7 +639,7 @@
         <!--Entry View Controller-->
         <scene sceneID="pIR-Xk-NEI">
             <objects>
-                <viewController storyboardIdentifier="EntryViewController" modalPresentationStyle="fullScreen" id="AgD-eS-bbn" customClass="EntryViewController" customModule="CotterIOS_Example" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EntryViewController" id="AgD-eS-bbn" customClass="EntryViewController" customModule="CotterIOS_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="41k-dP-Lxl"/>
                         <viewControllerLayoutGuide type="bottom" id="Ndq-5I-Edi"/>
@@ -676,21 +677,21 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="wQH-ae-vhR">
                                 <rect key="frame" x="40" y="644" width="334" height="110"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1f8-a0-dIx" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1f8-a0-dIx" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="30"/>
                                         <state key="normal" title="Login"/>
                                         <connections>
                                             <action selector="login:" destination="AgD-eS-bbn" eventType="touchUpInside" id="6rw-Rg-3Uo"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o4D-Wl-Jk0" customClass="InvertedBasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o4D-Wl-Jk0" customClass="InvertedBasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="40" width="334" height="30"/>
                                         <state key="normal" title="Register"/>
                                         <connections>
-                                            <segue destination="csI-Yj-sbH" kind="presentation" identifier="" id="c6r-wk-QO6"/>
+                                            <segue destination="csI-Yj-sbH" kind="show" identifier="" id="c6r-wk-QO6"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cah-Sg-HYP" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cah-Sg-HYP" customClass="BasicButton" customModule="CotterIOS_Example" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="80" width="334" height="30"/>
                                         <state key="normal" title="Check Event"/>
                                         <connections>
@@ -705,11 +706,11 @@
                                     <constraint firstAttribute="height" constant="60" id="SQ7-FA-9I0"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" systemColor="systemRedColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVX-8d-QU6" customClass="ColorThemeLabel" customModule="CotteIOS_Example">
-                                <rect key="frame" x="40" y="120" width="91" height="20.5"/>
+                                <rect key="frame" x="40" y="120" width="90.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -757,9 +758,18 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="uxJ-x0-cQf"/>
+        <segue reference="134-dU-HI6"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="chicken" width="40" height="40"/>
+        <systemColor name="darkTextColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="darkTextColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

@@ -47,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             apiKeyID: apiKeyID,
 //            cotterURL: "http://192.168.86.28:1234/api/v0",
             cotterURL: "https://www.cotter.app/api/v0",
-            userID: "ff570626-56e7-4260-a82b-5951038e29ea",
+            userID: "",
             // configuration is an optional argument, remove this below and Cotter app will still function properly
             configuration: [:]
         )
