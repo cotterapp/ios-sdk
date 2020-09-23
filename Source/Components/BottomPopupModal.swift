@@ -48,6 +48,8 @@ class BottomPopupModal {
     public func show() {
         guard let window = UIApplication.shared.delegate?.window, let nv = window else { return }
         
+        let fonts = Config.instance.fonts
+
         // Dark overlay right below the alert view, covering the whole current UIViewController vc
         darkOverlayView.backgroundColor = UIColor.black
         darkOverlayView.alpha = 0.6
@@ -59,7 +61,6 @@ class BottomPopupModal {
 
         // The actual alert view
         promptView.backgroundColor = UIColor.white
-        promptView.layer.cornerRadius = 10
         promptView.alpha = 1.0
         promptView.translatesAutoresizingMaskIntoConstraints = false
         // TODO: add animations
@@ -70,14 +71,14 @@ class BottomPopupModal {
         
         titleLabel.text = self.title
         titleLabel.textColor = UIColor.black
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 21.0)
+        titleLabel.font = fonts.title
         titleLabel.numberOfLines = 0
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         promptBody.addSubview(titleLabel)
         
         bodyLabel.text = self.body
         bodyLabel.textColor = UIColor.darkGray
-        bodyLabel.font = UIFont.systemFont(ofSize: 15.0)
+        bodyLabel.font = fonts.paragraph
         bodyLabel.numberOfLines = 0
         bodyLabel.translatesAutoresizingMaskIntoConstraints = false
         promptBody.addSubview(bodyLabel)
@@ -89,11 +90,13 @@ class BottomPopupModal {
         
         actionButton.setTitle(self.actionText, for: .normal)
         actionButton.setTitleColor(Config.instance.colors.primary, for: .normal)
+        actionButton.titleLabel?.font = fonts.paragraph
         actionButton.translatesAutoresizingMaskIntoConstraints = false
         actionButton.addTarget(delegate, action: #selector(delegate?.actionHandler), for: .touchUpInside)
         promptBody.addSubview(actionButton)
         
         cancelButton.setTitle(self.cancelText, for: .normal)
+        cancelButton.titleLabel?.font = fonts.paragraph
         cancelButton.setTitleColor(Config.instance.colors.primary, for: .normal)
         cancelButton.translatesAutoresizingMaskIntoConstraints = false
         cancelButton.addTarget(delegate, action: #selector(delegate?.cancelHandler), for: .touchUpInside)
