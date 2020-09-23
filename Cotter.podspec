@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Cotter'
-  s.version          = '1.5.8'
+  s.version          = '1.5.9'
   s.summary          = 'Cotter is the client SDK for Cotter authentication services'
   s.swift_versions   = '5.0'
 
