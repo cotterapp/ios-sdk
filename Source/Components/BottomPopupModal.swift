@@ -14,6 +14,13 @@ import os.log
     @objc func cancelHandler()
 }
 
+class PromptView: UIView {
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        roundCorners(corners: [.topLeft, .topRight], radius: 15.0)
+    }
+}
+
 class BottomPopupModal {
     var delegate: BottomPopupModalDelegate? = nil
     let img: UIImage
@@ -23,7 +30,7 @@ class BottomPopupModal {
     let actionText: String?
     
     let darkOverlayView = UIView()
-    let promptView = UIView()
+    let promptView = PromptView()
     let promptBody = UIView()
     let titleLabel = UILabel()
     let bodyLabel = UILabel()
@@ -71,14 +78,14 @@ class BottomPopupModal {
         
         titleLabel.text = self.title
         titleLabel.textColor = UIColor.black
-        titleLabel.font = fonts.title
+        titleLabel.font = fonts.heading
         titleLabel.numberOfLines = 0
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         promptBody.addSubview(titleLabel)
         
         bodyLabel.text = self.body
         bodyLabel.textColor = UIColor.darkGray
-        bodyLabel.font = fonts.paragraph
+        bodyLabel.font = fonts.title
         bodyLabel.numberOfLines = 0
         bodyLabel.translatesAutoresizingMaskIntoConstraints = false
         promptBody.addSubview(bodyLabel)
@@ -90,13 +97,13 @@ class BottomPopupModal {
         
         actionButton.setTitle(self.actionText, for: .normal)
         actionButton.setTitleColor(Config.instance.colors.primary, for: .normal)
-        actionButton.titleLabel?.font = fonts.paragraph
+        actionButton.titleLabel?.font = fonts.subtitle
         actionButton.translatesAutoresizingMaskIntoConstraints = false
         actionButton.addTarget(delegate, action: #selector(delegate?.actionHandler), for: .touchUpInside)
         promptBody.addSubview(actionButton)
         
         cancelButton.setTitle(self.cancelText, for: .normal)
-        cancelButton.titleLabel?.font = fonts.paragraph
+        cancelButton.titleLabel?.font = fonts.subtitle
         cancelButton.setTitleColor(Config.instance.colors.primary, for: .normal)
         cancelButton.translatesAutoresizingMaskIntoConstraints = false
         cancelButton.addTarget(delegate, action: #selector(delegate?.cancelHandler), for: .touchUpInside)
