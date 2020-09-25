@@ -41,6 +41,8 @@ CotterIOS simplifies client's integration with Cotter. It is an SDK that provide
   s.static_framework = true
   s.frameworks = 'UIKit'
   s.dependency 'OneSignal', '2.15.3'
+  s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
+  s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
 
 #  s.test_spec 'Tests' do |test_spec|
 #    test_spec.source_files = 'Example/Tests/**/*.{swift}'
