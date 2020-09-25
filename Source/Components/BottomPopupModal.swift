@@ -14,6 +14,13 @@ import os.log
     @objc func cancelHandler()
 }
 
+class PromptView: UIView {
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        roundCorners(corners: [.topLeft, .topRight], radius: 15.0)
+    }
+}
+
 class BottomPopupModal {
     var delegate: BottomPopupModalDelegate? = nil
     let img: UIImage
@@ -23,7 +30,7 @@ class BottomPopupModal {
     let actionText: String?
     
     let darkOverlayView = UIView()
-    let promptView = UIView()
+    let promptView = PromptView()
     let promptBody = UIView()
     let titleLabel = UILabel()
     let bodyLabel = UILabel()
@@ -48,6 +55,8 @@ class BottomPopupModal {
     public func show() {
         guard let window = UIApplication.shared.delegate?.window, let nv = window else { return }
         
+        let fonts = Config.instance.fonts
+
         // Dark overlay right below the alert view, covering the whole current UIViewController vc
         darkOverlayView.backgroundColor = UIColor.black
         darkOverlayView.alpha = 0.6
@@ -59,7 +68,6 @@ class BottomPopupModal {
 
         // The actual alert view
         promptView.backgroundColor = UIColor.white
-        promptView.layer.cornerRadius = 10
         promptView.alpha = 1.0
         promptView.translatesAutoresizingMaskIntoConstraints = false
         // TODO: add animations
@@ -70,14 +78,14 @@ class BottomPopupModal {
         
         titleLabel.text = self.title
         titleLabel.textColor = UIColor.black
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 21.0)
+        titleLabel.font = fonts.heading
         titleLabel.numberOfLines = 0
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         promptBody.addSubview(titleLabel)
         
         bodyLabel.text = self.body
         bodyLabel.textColor = UIColor.darkGray
-        bodyLabel.font = UIFont.systemFont(ofSize: 15.0)
+        bodyLabel.font = fonts.title
         bodyLabel.numberOfLines = 0
         bodyLabel.translatesAutoresizingMaskIntoConstraints = false
         promptBody.addSubview(bodyLabel)
@@ -89,11 +97,13 @@ class BottomPopupModal {
         
         actionButton.setTitle(self.actionText, for: .normal)
         actionButton.setTitleColor(Config.instance.colors.primary, for: .normal)
+        actionButton.titleLabel?.font = fonts.subtitle
         actionButton.translatesAutoresizingMaskIntoConstraints = false
         actionButton.addTarget(delegate, action: #selector(delegate?.actionHandler), for: .touchUpInside)
         promptBody.addSubview(actionButton)
         
         cancelButton.setTitle(self.cancelText, for: .normal)
+        cancelButton.titleLabel?.font = fonts.subtitle
         cancelButton.setTitleColor(Config.instance.colors.primary, for: .normal)
         cancelButton.translatesAutoresizingMaskIntoConstraints = false
         cancelButton.addTarget(delegate, action: #selector(delegate?.cancelHandler), for: .touchUpInside)

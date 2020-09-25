@@ -57,6 +57,7 @@ extension BiometricRegistrationService: BiometricServiceDelegate {
             os_log("%{public}@ biometric not available",
                    log: Config.instance.log, type: .debug,
                    #function)
+            self.authCallback("token", nil)
         }
     }
 }

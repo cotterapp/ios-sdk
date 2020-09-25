@@ -19,7 +19,6 @@ protocol BiometricServiceDelegate {
 class BiometricAuthenticationService {
     static let verifyAuthTitle = CotterStrings.instance.getText(for: AuthAlertMessagesKey.verifyAuthTitle)
     static let verifyAuthBody = CotterStrings.instance.getText(for: AuthAlertMessagesKey.verifyAuthBody)
-    static let verifyAuthAction = CotterStrings.instance.getText(for: AuthAlertMessagesKey.verifyAuthActionButton)
     static let verifyAuthCancel = CotterStrings.instance.getText(for: AuthAlertMessagesKey.verifyAuthCancelButton)
     
     // MARK: - Image Path Definitions
@@ -37,7 +36,7 @@ class BiometricAuthenticationService {
         img: getUIImage(imagePath: fingerprintImg),
         title: verifyAuthTitle,
         body: verifyAuthBody,
-        actionText: verifyAuthAction,
+        actionText: "",
         cancelText: verifyAuthCancel
     )
 }
@@ -49,6 +48,11 @@ extension BiometricAuthenticationService: BiometricServiceDelegate {
         if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
             bottomPopupScanPrompt.delegate = self
             bottomPopupScanPrompt.show()
+            let seconds = 0.1
+            DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+                // Put your code which should be executed with a delay here
+                self.actionHandler()
+            }
         } else {
             // no biometric then do nothing
             os_log("%{public}@ biometric not available",
@@ -60,15 +64,15 @@ extension BiometricAuthenticationService: BiometricServiceDelegate {
 
 extension BiometricAuthenticationService: BottomPopupModalDelegate {
     @objc func actionHandler() {
-        bottomPopupScanPrompt.dismiss(animated: false)
-        
         guard let privateKey = KeyStore.biometric.privKey else {
+            bottomPopupScanPrompt.dismiss(animated: false)
             BiometricFailPopup(bioService: self).show()
             return
         }
         
         // TODO: should derive pubKey from privateKey
         guard let pubKey = KeyStore.biometric.pubKey else {
+            bottomPopupScanPrompt.dismiss(animated: false)
             BiometricFailPopup(bioService: self).show()
             return
         }
@@ -132,6 +136,7 @@ extension BiometricAuthenticationService: BottomPopupModalDelegate {
             timestamp: timestamp, // optional
             cb: httpCb
         )
+        bottomPopupScanPrompt.dismiss(animated: false)
     }
     
     @objc func cancelHandler() {

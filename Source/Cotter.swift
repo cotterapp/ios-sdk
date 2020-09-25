@@ -347,6 +347,7 @@ public class Cotter {
                 case .success(let cred):
                     // if appID is not setup don't use initiate OneSignal
                     if cred.appID == "" { return }
+                    OneSignal.setLocationShared(false)
                     OneSignal.initWithLaunchOptions(launchOptions,
                                                   appId: cred.appID,
                                                   handleNotificationReceived: nil,
