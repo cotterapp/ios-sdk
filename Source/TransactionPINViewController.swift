@@ -206,11 +206,13 @@ extension TransactionPINViewController: TransactionPINViewComponent {
                     if !resp.enrolled { return }
 
                     let cb: FinalAuthCallback = {(success, err) in
-                        if success != "" && err == nil {
-                            Config.instance.transactionCb("dummy biometric token", nil)
-                        } else {
-                            self.setError(msg: "Biometric is incorrect, please use PIN")
+                        guard success != "", err == nil else {
+                            os_log("%{public}@ verify bio { err: %{public}@ }",
+                                   log: Config.instance.log, type: .error,
+                                   #function, err?.localizedDescription ?? "nil")
+                            return
                         }
+                        Config.instance.transactionCb("dummy biometric token", nil)
                     }
                     
                     BiometricAuthenticationService(event: CotterEvents.Transaction, callback: cb).start()

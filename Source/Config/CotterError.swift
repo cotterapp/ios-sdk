@@ -11,6 +11,7 @@ public enum CotterError: Error {
     case keychainError(String)
     case biometricEnrollment
     case biometricVerification
+    case verificationCancelled
     case auth(String)
     case passwordless(String)
     case trustedDevice(String)

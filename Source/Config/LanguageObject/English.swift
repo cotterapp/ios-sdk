@@ -124,13 +124,13 @@ public class English: LanguageObject {
             // MARK: - Biometric Enrollment Authentication Alert
             AuthAlertMessagesKey.enrollAuthTitle: "Biometric Verification",
             AuthAlertMessagesKey.enrollAuthBody: "Protect your account using Biometrics",
-            AuthAlertMessagesKey.enrollAuthActionButton: "Continue",
+            AuthAlertMessagesKey.enrollAuthActionButton: "",
             AuthAlertMessagesKey.enrollAuthCancelButton: "Use PIN",
             
             // MARK: - Biometric Verification Authentication Alert
             AuthAlertMessagesKey.verifyAuthTitle: "Verify Biometrics",
             AuthAlertMessagesKey.verifyAuthBody: "Verify your biometrics to continue",
-            AuthAlertMessagesKey.verifyAuthActionButton: "Continue",
+            AuthAlertMessagesKey.verifyAuthActionButton: "",
             AuthAlertMessagesKey.verifyAuthCancelButton: "Use PIN",
             
             // MARK: - Dispatch Result Alert (Success)

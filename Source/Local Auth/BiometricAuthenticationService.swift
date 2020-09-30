@@ -19,6 +19,7 @@ protocol BiometricServiceDelegate {
 class BiometricAuthenticationService {
     static let verifyAuthTitle = CotterStrings.instance.getText(for: AuthAlertMessagesKey.verifyAuthTitle)
     static let verifyAuthBody = CotterStrings.instance.getText(for: AuthAlertMessagesKey.verifyAuthBody)
+    static let verifyAuthAction = CotterStrings.instance.getText(for: AuthAlertMessagesKey.verifyAuthActionButton)
     static let verifyAuthCancel = CotterStrings.instance.getText(for: AuthAlertMessagesKey.verifyAuthCancelButton)
     
     // MARK: - Image Path Definitions
@@ -36,7 +37,7 @@ class BiometricAuthenticationService {
         img: getUIImage(imagePath: fingerprintImg),
         title: verifyAuthTitle,
         body: verifyAuthBody,
-        actionText: "",
+        actionText: verifyAuthAction,
         cancelText: verifyAuthCancel
     )
 }

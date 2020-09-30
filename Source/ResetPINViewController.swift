@@ -122,6 +122,9 @@ class ResetPINViewController: UIViewController {
     
     
     func setError(msg: String?) {
+        if msg != nil {
+            resetCodeTextField.setBackgroundColor(state: .invalid)
+        }
         resetPinError.isHidden = msg == nil
         resetPinError.text = msg
     }
@@ -141,48 +144,7 @@ extension ResetPINViewController: PINBaseController {
     }
     
     func instantiateCodeTextFieldFunctions() {
-        resetCodeTextField.removeErrorMsg = {
-            self.setError(msg: nil)
-        }
-        
-        resetCodeTextField.didEnterLastDigit = { code in
-            LoadingScreen.shared.start(at: self.view.window)
-            guard let userInfo = Config.instance.userInfo,
-                let challengeID = userInfo.resetChallengeID,
-                let challenge = userInfo.resetChallenge else {
-                self.setError(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.unableToResetPin))
-                return false
-            }
-            
-            // Callback Function to execute after Email Code Verification
-            func verifyPinResetCb(response: CotterResult<CotterBasicResponse>) {
-                LoadingScreen.shared.stop()
-                switch response {
-                case .success(let data):
-                    if data.success {
-                        // Store the Reset Code
-                        Config.instance.userInfo?.resetCode = code
-                        self.resetCodeTextField.clear()
-                        // Go to Reset New PIN View
-                        let resetNewPINVC = self.storyboard?.instantiateViewController(withIdentifier: "ResetNewPINViewController") as! ResetNewPINViewController
-                        self.navigationController?.pushViewController(resetNewPINVC, animated: true)
-                    } else {
-                        self.setError(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.incorrectEmailCode))
-                    }
-                case .failure(let err):
-                    self.setError(msg: self.generateErrorMessageFrom(error: err))
-                }
-            }
-            
-            CotterAPIService.shared.verifyPINResetCode(
-                resetCode: code,
-                challengeID: challengeID,
-                challenge: challenge,
-                cb: verifyPinResetCb
-            )
-
-            return true
-        }
+        resetCodeTextField.resetDelegate = self
     }
 }
 
@@ -272,5 +234,48 @@ extension ResetPINViewController : KeyboardViewDelegate {
         } else {
             resetCodeTextField.appendNumber(buttonNumber: buttonNumber)
         }
+    }
+}
+
+extension ResetPINViewController: ResetCodeTextFieldDelegate {
+    func removeErrorMsg() {
+        self.setError(msg: nil)
+    }
+    
+    func didEnterLastDigit(_ code: String){
+        LoadingScreen.shared.start(at: self.view.window)
+        guard let userInfo = Config.instance.userInfo,
+            let challengeID = userInfo.resetChallengeID,
+            let challenge = userInfo.resetChallenge else {
+            self.setError(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.unableToResetPin))
+            return
+        }
+        
+        // Callback Function to execute after Email Code Verification
+        func verifyPinResetCb(response: CotterResult<CotterBasicResponse>) {
+            LoadingScreen.shared.stop()
+            switch response {
+            case .success(let data):
+                if data.success {
+                    // Store the Reset Code
+                    Config.instance.userInfo?.resetCode = code
+                    self.resetCodeTextField.clear()
+                    // Go to Reset New PIN View
+                    let resetNewPINVC = self.storyboard?.instantiateViewController(withIdentifier: "ResetNewPINViewController") as! ResetNewPINViewController
+                    self.navigationController?.pushViewController(resetNewPINVC, animated: true)
+                } else {
+                    self.setError(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.incorrectEmailCode))
+                }
+            case .failure(let err):
+                self.setError(msg: self.generateErrorMessageFrom(error: err))
+            }
+        }
+        
+        CotterAPIService.shared.verifyPINResetCode(
+            resetCode: code,
+            challengeID: challengeID,
+            challenge: challenge,
+            cb: verifyPinResetCb
+        )
     }
 }
