@@ -40,6 +40,7 @@ public class English: LanguageObject {
             ResetPINViewControllerKey.subtitle: "We have sent the code to",
             ResetPINViewControllerKey.resetFailSub: "Please contact customer service to reset your PIN.",
             ResetPINViewControllerKey.resendEmail: "Resend Email",
+            ResetPINViewControllerKey.resendEmailSnackbarText: "Email has been sent",
             
             // MARK: - ResetNewPINViewController
             ResetNewPINViewControllerKey.navTitle: "Activate new PIN",

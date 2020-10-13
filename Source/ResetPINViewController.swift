@@ -6,14 +6,16 @@
 //
 
 import UIKit
+import TTGSnackbar
 
 // MARK: - Keys for Strings
 public class ResetPINViewControllerKey {
-   public static let navTitle = "ResetPINViewController/navTitle"
-   public static let title = "ResetPINViewController/title"
-   public static let subtitle = "ResetPINViewController/subtitle"
-   public static let resetFailSub = "ResetPINViewController/resetFailSub"
-   public static let resendEmail = "ResetPINViewController/resendEmail"
+    public static let navTitle = "ResetPINViewController/navTitle"
+    public static let title = "ResetPINViewController/title"
+    public static let subtitle = "ResetPINViewController/subtitle"
+    public static let resetFailSub = "ResetPINViewController/resetFailSub"
+    public static let resendEmail = "ResetPINViewController/resendEmail"
+    public static let resendEmailSnackbarText = "ResetPINViewController/resendEmailSnackbarText"
 }
 
 // MARK: - Presenter Protocol delegated UI-related logic
@@ -30,10 +32,13 @@ struct ResetPINViewProps {
     let resetOpeningSub: String
     let resetFailSub: String
     let resendEmail: String
+    let resendEmailSnackbarText: String
     
     let primaryColor: UIColor
     let accentColor: UIColor
     let dangerColor: UIColor
+    
+    let resendEmailSnackbarIcon: String
 }
 
 // MARK: - Components of ResetPINViewController
@@ -58,13 +63,17 @@ class ResetPINViewPresenterImpl: ResetPINViewPresenter {
         let resetOpeningSub = CotterStrings.instance.getText(for: VCTextKey.subtitle)
         let resetFailSub = CotterStrings.instance.getText(for: VCTextKey.resetFailSub)
         let resendEmailText = CotterStrings.instance.getText(for: VCTextKey.resendEmail)
+        let resendEmailSnackbarText = CotterStrings.instance.getText(for: VCTextKey.resendEmailSnackbarText)
         
         // MARK: - VC Color Definitions
         let primaryColor = Config.instance.colors.primary
         let accentColor = Config.instance.colors.accent
         let dangerColor = Config.instance.colors.danger
         
-        return ResetPINViewProps(navTitle: navTitle, title: resetTitle, resetOpeningSub: resetOpeningSub, resetFailSub: resetFailSub, resendEmail: resendEmailText, primaryColor: primaryColor, accentColor: accentColor, dangerColor: dangerColor)
+        // MARK: - VC Image Definitions
+        let snackbarIcon = CotterImages.instance.getImage(for: VCImageKey.resendSnackbarIcon)
+        
+        return ResetPINViewProps(navTitle: navTitle, title: resetTitle, resetOpeningSub: resetOpeningSub, resetFailSub: resetFailSub, resendEmail: resendEmailText, resendEmailSnackbarText: resendEmailSnackbarText,  primaryColor: primaryColor, accentColor: accentColor, dangerColor: dangerColor, resendEmailSnackbarIcon: snackbarIcon)
     }()
     
     init(_ viewController: ResetPINViewComponent) {
@@ -82,7 +91,20 @@ class ResetPINViewPresenterImpl: ResetPINViewPresenter {
     }
     
     func clickedResendEmail() {
+        
         viewController.makeResetPinRequest()
+        let snackbar = TTGSnackbar(
+            message: props.resendEmailSnackbarText,
+            duration: .middle
+        )
+        let cotterImages = ImageObject.defaultImages
+        if cotterImages.contains(props.resendEmailSnackbarIcon) {
+            snackbar.icon = UIImage(named: props.resendEmailSnackbarIcon, in: Cotter.resourceBundle, compatibleWith: nil)?.resize(maxWidthHeight: 20)
+        } else { // User configured their own image
+            snackbar.icon = UIImage(named: props.resendEmailSnackbarIcon, in: Bundle.main, compatibleWith: nil)?.resize(maxWidthHeight: 20)
+        }
+        
+        snackbar.show()
     }
 }
 

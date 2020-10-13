@@ -40,6 +40,7 @@ CotterIOS simplifies client's integration with Cotter. It is an SDK that provide
   # s.public_header_files = 'Pod/Classes/**/*.h'
   s.static_framework = true
   s.frameworks = 'UIKit'
+  s.dependency 'TTGSnackbar', '1.10.3'
   s.dependency 'OneSignal', '2.15.3'
   s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
   s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }

@@ -40,6 +40,7 @@ public class Indonesian: LanguageObject {
             ResetPINViewControllerKey.subtitle: "Kami telah mengirimkan kode ke",
             ResetPINViewControllerKey.resetFailSub: "Silakan hubungi layanan pelanggan untuk mengatur ulang pin Anda",
             ResetPINViewControllerKey.resendEmail: "Kirim ulang email",
+            ResetPINViewControllerKey.resendEmailSnackbarText: "Email telah dikirim kembali",
             
             // MARK: - ResetNewPINViewController
             ResetNewPINViewControllerKey.navTitle: "Aktivasi PIN Baru",

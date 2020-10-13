@@ -19,7 +19,6 @@ public class PINViewControllerKey {
 // MARK: - Presenter Protocol delegated UI-related logic
 protocol PINViewPresenter {
     func onViewLoaded()
-    func onClickPinVis(button: UIButton)
 }
 
 // MARK: - Properties of PINViewController
@@ -73,10 +72,6 @@ class PINViewPresenterImpl: PINViewPresenter {
         viewController.setupDelegates()
         viewController.render(props)
     }
-    
-    func onClickPinVis(button: UIButton) {
-        viewController.togglePinVisibility(button: button, showPinText: props.showPinText, hidePinText: props.hidePinText)
-    }
 }
 
 class PINViewController : UIViewController {
@@ -89,9 +84,6 @@ class PINViewController : UIViewController {
     
     // Code Text Field
     @IBOutlet weak var codeTextField: OneTimeCodeTextField!
-    
-    // PIN Visibility Toggle Button
-    @IBOutlet weak var pinVisibilityButton: UIButton!
     
     // Error Label
     @IBOutlet weak var errorLabel: UILabel!
@@ -108,10 +100,6 @@ class PINViewController : UIViewController {
         presenter.onViewLoaded()
         instantiateCodeTextFieldFunctions()
         setCotterStatusBarStyle()
-    }
-    
-    @IBAction func onClickPinVis(_ sender: UIButton) {
-        presenter.onClickPinVis(button: sender)
     }
     
     func setError(msg: String?) {
@@ -199,9 +187,6 @@ extension PINViewController: PINViewComponent {
         setupLeftTitleBar(with: props.navTitle)
         titleLabel.text = props.title
         titleLabel.font = Config.instance.fonts.title
-        pinVisibilityButton.setTitle(props.showPinText, for: .normal)
-        pinVisibilityButton.setTitleColor(props.primaryColor, for: .normal)
-        pinVisibilityButton.titleLabel?.font = Config.instance.fonts.subtitle
         errorLabel.textColor = props.dangerColor
         errorLabel.font = Config.instance.fonts.paragraph
     }
