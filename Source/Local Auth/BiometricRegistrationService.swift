@@ -52,6 +52,11 @@ extension BiometricRegistrationService: BiometricServiceDelegate {
         if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
             bottomPopupScanPrompt.delegate = self
             bottomPopupScanPrompt.show()
+            let seconds = 0.1
+            DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+                // Put your code which should be executed with a delay here
+                self.actionHandler()
+            }
         } else {
             // no biometric then do nothing
             os_log("%{public}@ biometric not available",

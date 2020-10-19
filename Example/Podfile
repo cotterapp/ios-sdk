@@ -4,6 +4,7 @@
 
 target 'CotterIOS_Example' do
   pod 'TweeTextField'
+  pod 'TTGSnackbar', '1.10.3'
   pod 'OneSignal', '2.15.3'
   pod 'Cotter', :path => '../'
 
@@ -15,7 +16,7 @@ target 'CotterIOS_Example' do
   
   post_install do |installer|
     installer.pods_project.build_configurations.each do |config|
-      config.build_settings[‘EXCLUDED_ARCHS[sdk=iphonesimulator*]’] = ‘arm64’
+      config.build_settings['EXCLUDED_ARCHS[sdk=iphonesimulator*]'] = 'arm64'
     end
   end
 end

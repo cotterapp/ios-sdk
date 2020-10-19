@@ -7,6 +7,21 @@
 
 import UIKit
 
+protocol ResetCodeTextFieldDelegate {
+    // Function to run when last PIN digit has been entered
+    func didEnterLastDigit(_: String) -> Void
+    
+    // Function to run when backspace is entered.
+    // This is to determine whether to remove error msg
+    func removeErrorMsg() -> Void
+}
+
+enum ResetCodeState {
+    case initial
+    case populated
+    case invalid
+}
+
 class ResetCodeTextField: UITextField {
     private var isConfigured = false
     
@@ -20,9 +35,30 @@ class ResetCodeTextField: UITextField {
     private let defaultCharacter = ""
     private var digitLabels = [UILabel]()
     
-    var didEnterLastDigit: ((String) -> Bool)? // Function to run when last PIN digit has been entered
+    var resetDelegate: ResetCodeTextFieldDelegate?
     
-    var removeErrorMsg: (() -> Void)? // Function to run when backspace is entered. This is to determine whether to remove error msg
+    public func setBackgroundColor(state: ResetCodeState) {
+        var labelTextColor: UIColor
+        var labelBackgroundColor: UIColor
+        
+        switch(state){
+        case .populated:
+            labelTextColor = populatedTextColor
+            labelBackgroundColor = populatedBgColor
+        case .invalid:
+            labelTextColor = invalidTextColor
+            labelBackgroundColor = invalidBgColor
+        default:
+            labelTextColor = defaultBgColor
+            labelBackgroundColor = defaultBgColor
+        }
+        
+        for i in 0 ..< digitLabels.count {
+            let currentLabel = digitLabels[i]
+            currentLabel.textColor = labelTextColor
+            currentLabel.backgroundColor = labelBackgroundColor
+        }
+    }
     
     public func configure(with slotCount:Int = 4) {
         guard isConfigured == false else { return }
@@ -108,7 +144,7 @@ class ResetCodeTextField: UITextField {
         
         // If text field is 4 digits already, an error msg is displayed. Entering a backspace would remove this error msg
         if text.count == digitLabels.count {
-            removeErrorMsg?()
+            resetDelegate?.removeErrorMsg()
         }
         
         // If text field is not empty, remove last char and refresh digit labels
@@ -141,16 +177,7 @@ class ResetCodeTextField: UITextField {
         
         // If full PIN entered, check its validity
         if text.count == digitLabels.count {
-            guard let correctPIN = didEnterLastDigit?(text) else { return }
-            if !correctPIN {
-                for i in 0 ..< digitLabels.count {
-                    let currentLabel = digitLabels[i]
-                    if i < text.count {
-                        currentLabel.textColor = invalidTextColor
-                        currentLabel.backgroundColor = invalidBgColor
-                    }
-                }
-            }
+            resetDelegate?.didEnterLastDigit(text)
         }
     }
 }

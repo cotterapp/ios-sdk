@@ -67,8 +67,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // let lang = Indonesian()
         // lang.setText(for: PINViewControllerKey.navTitle, to: "Hello world!")
         
-        // let img = ImageObject()
-        // img.setImage(for: VCImageKey.pinSuccessImg, to: "telegram")
+        // custom image
+        let img = ImageObject()
+        img.setImage(for: VCImageKey.pinSuccessImg, to: "success_illustration")
         
         // custom coloring
         let color = ColorSchemeObject(primary: CotterColor.purple, accent: CotterColor.orange)
@@ -80,7 +81,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             configuration: [
                 // "fonts": customFont,
                 "colors": color,
-                // "images": img,
+                "images": img,
                 // "language": lang
             ]
         )

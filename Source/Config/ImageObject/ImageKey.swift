@@ -13,6 +13,7 @@ public class VCImageKey {
     public static let nonTrustedPhoneTap = "VCImageKey/nonTrustedPhoneTap"
     public static let nonTrustedPhoneTapFail = "VCImageKey/nonTrustedPhoneTapFail"
     public static let logo = "VCImageKey/logo"
+    public static let resendSnackbarIcon = "VCImageKey/resendSnackbarIcon"
 }
 
 public class AlertImageKey {

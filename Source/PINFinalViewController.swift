@@ -110,6 +110,10 @@ class PINFinalViewController: UIViewController {
         presenter.onViewLoaded()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    
     @IBAction func finish(_ sender: UIButton) {
         presenter.onFinish(button: sender)
     }

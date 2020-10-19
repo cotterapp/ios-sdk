@@ -47,6 +47,6 @@ class BiometricFailPopup: BottomPopupModalDelegate {
     
     func cancelHandler() {
         popup.dismiss(animated: false)
-        bioService.authCallback("failed", CotterError.biometricVerification)
+        bioService.authCallback("failed", CotterError.verificationCancelled)
     }
 }

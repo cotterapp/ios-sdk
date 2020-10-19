@@ -6,14 +6,16 @@
 //
 
 import UIKit
+import TTGSnackbar
 
 // MARK: - Keys for Strings
 public class ResetPINViewControllerKey {
-   public static let navTitle = "ResetPINViewController/navTitle"
-   public static let title = "ResetPINViewController/title"
-   public static let subtitle = "ResetPINViewController/subtitle"
-   public static let resetFailSub = "ResetPINViewController/resetFailSub"
-   public static let resendEmail = "ResetPINViewController/resendEmail"
+    public static let navTitle = "ResetPINViewController/navTitle"
+    public static let title = "ResetPINViewController/title"
+    public static let subtitle = "ResetPINViewController/subtitle"
+    public static let resetFailSub = "ResetPINViewController/resetFailSub"
+    public static let resendEmail = "ResetPINViewController/resendEmail"
+    public static let resendEmailSnackbarText = "ResetPINViewController/resendEmailSnackbarText"
 }
 
 // MARK: - Presenter Protocol delegated UI-related logic
@@ -30,10 +32,13 @@ struct ResetPINViewProps {
     let resetOpeningSub: String
     let resetFailSub: String
     let resendEmail: String
+    let resendEmailSnackbarText: String
     
     let primaryColor: UIColor
     let accentColor: UIColor
     let dangerColor: UIColor
+    
+    let resendEmailSnackbarIcon: String
 }
 
 // MARK: - Components of ResetPINViewController
@@ -58,13 +63,17 @@ class ResetPINViewPresenterImpl: ResetPINViewPresenter {
         let resetOpeningSub = CotterStrings.instance.getText(for: VCTextKey.subtitle)
         let resetFailSub = CotterStrings.instance.getText(for: VCTextKey.resetFailSub)
         let resendEmailText = CotterStrings.instance.getText(for: VCTextKey.resendEmail)
+        let resendEmailSnackbarText = CotterStrings.instance.getText(for: VCTextKey.resendEmailSnackbarText)
         
         // MARK: - VC Color Definitions
         let primaryColor = Config.instance.colors.primary
         let accentColor = Config.instance.colors.accent
         let dangerColor = Config.instance.colors.danger
         
-        return ResetPINViewProps(navTitle: navTitle, title: resetTitle, resetOpeningSub: resetOpeningSub, resetFailSub: resetFailSub, resendEmail: resendEmailText, primaryColor: primaryColor, accentColor: accentColor, dangerColor: dangerColor)
+        // MARK: - VC Image Definitions
+        let snackbarIcon = CotterImages.instance.getImage(for: VCImageKey.resendSnackbarIcon)
+        
+        return ResetPINViewProps(navTitle: navTitle, title: resetTitle, resetOpeningSub: resetOpeningSub, resetFailSub: resetFailSub, resendEmail: resendEmailText, resendEmailSnackbarText: resendEmailSnackbarText,  primaryColor: primaryColor, accentColor: accentColor, dangerColor: dangerColor, resendEmailSnackbarIcon: snackbarIcon)
     }()
     
     init(_ viewController: ResetPINViewComponent) {
@@ -82,7 +91,20 @@ class ResetPINViewPresenterImpl: ResetPINViewPresenter {
     }
     
     func clickedResendEmail() {
+        
         viewController.makeResetPinRequest()
+        let snackbar = TTGSnackbar(
+            message: props.resendEmailSnackbarText,
+            duration: .middle
+        )
+        let cotterImages = ImageObject.defaultImages
+        if cotterImages.contains(props.resendEmailSnackbarIcon) {
+            snackbar.icon = UIImage(named: props.resendEmailSnackbarIcon, in: Cotter.resourceBundle, compatibleWith: nil)?.resize(maxWidthHeight: 20)
+        } else { // User configured their own image
+            snackbar.icon = UIImage(named: props.resendEmailSnackbarIcon, in: Bundle.main, compatibleWith: nil)?.resize(maxWidthHeight: 20)
+        }
+        
+        snackbar.show()
     }
 }
 
@@ -122,6 +144,9 @@ class ResetPINViewController: UIViewController {
     
     
     func setError(msg: String?) {
+        if msg != nil {
+            resetCodeTextField.setBackgroundColor(state: .invalid)
+        }
         resetPinError.isHidden = msg == nil
         resetPinError.text = msg
     }
@@ -141,48 +166,7 @@ extension ResetPINViewController: PINBaseController {
     }
     
     func instantiateCodeTextFieldFunctions() {
-        resetCodeTextField.removeErrorMsg = {
-            self.setError(msg: nil)
-        }
-        
-        resetCodeTextField.didEnterLastDigit = { code in
-            LoadingScreen.shared.start(at: self.view.window)
-            guard let userInfo = Config.instance.userInfo,
-                let challengeID = userInfo.resetChallengeID,
-                let challenge = userInfo.resetChallenge else {
-                self.setError(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.unableToResetPin))
-                return false
-            }
-            
-            // Callback Function to execute after Email Code Verification
-            func verifyPinResetCb(response: CotterResult<CotterBasicResponse>) {
-                LoadingScreen.shared.stop()
-                switch response {
-                case .success(let data):
-                    if data.success {
-                        // Store the Reset Code
-                        Config.instance.userInfo?.resetCode = code
-                        self.resetCodeTextField.clear()
-                        // Go to Reset New PIN View
-                        let resetNewPINVC = self.storyboard?.instantiateViewController(withIdentifier: "ResetNewPINViewController") as! ResetNewPINViewController
-                        self.navigationController?.pushViewController(resetNewPINVC, animated: true)
-                    } else {
-                        self.setError(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.incorrectEmailCode))
-                    }
-                case .failure(let err):
-                    self.setError(msg: self.generateErrorMessageFrom(error: err))
-                }
-            }
-            
-            CotterAPIService.shared.verifyPINResetCode(
-                resetCode: code,
-                challengeID: challengeID,
-                challenge: challenge,
-                cb: verifyPinResetCb
-            )
-
-            return true
-        }
+        resetCodeTextField.resetDelegate = self
     }
 }
 
@@ -272,5 +256,48 @@ extension ResetPINViewController : KeyboardViewDelegate {
         } else {
             resetCodeTextField.appendNumber(buttonNumber: buttonNumber)
         }
+    }
+}
+
+extension ResetPINViewController: ResetCodeTextFieldDelegate {
+    func removeErrorMsg() {
+        self.setError(msg: nil)
+    }
+    
+    func didEnterLastDigit(_ code: String){
+        LoadingScreen.shared.start(at: self.view.window)
+        guard let userInfo = Config.instance.userInfo,
+            let challengeID = userInfo.resetChallengeID,
+            let challenge = userInfo.resetChallenge else {
+            self.setError(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.unableToResetPin))
+            return
+        }
+        
+        // Callback Function to execute after Email Code Verification
+        func verifyPinResetCb(response: CotterResult<CotterBasicResponse>) {
+            LoadingScreen.shared.stop()
+            switch response {
+            case .success(let data):
+                if data.success {
+                    // Store the Reset Code
+                    Config.instance.userInfo?.resetCode = code
+                    self.resetCodeTextField.clear()
+                    // Go to Reset New PIN View
+                    let resetNewPINVC = self.storyboard?.instantiateViewController(withIdentifier: "ResetNewPINViewController") as! ResetNewPINViewController
+                    self.navigationController?.pushViewController(resetNewPINVC, animated: true)
+                } else {
+                    self.setError(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.incorrectEmailCode))
+                }
+            case .failure(let err):
+                self.setError(msg: self.generateErrorMessageFrom(error: err))
+            }
+        }
+        
+        CotterAPIService.shared.verifyPINResetCode(
+            resetCode: code,
+            challengeID: challengeID,
+            challenge: challenge,
+            cb: verifyPinResetCb
+        )
     }
 }

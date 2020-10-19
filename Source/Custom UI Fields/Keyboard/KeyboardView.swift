@@ -73,7 +73,6 @@ class KeyboardView: UIView {
         
         // Add extra initialization/edits here
         initializeBorders()
-        topDividerView.dropShadow()
         versionCheck()
     }
     

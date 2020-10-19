@@ -95,8 +95,6 @@ class TransactionPINViewController: UIViewController {
     
     var hideCloseButton: Bool = false
     
-    @IBOutlet weak var pinVisibilityButton: UIButton!
-    
     @IBOutlet weak var titleLabel: UILabel!
     
     @IBOutlet weak var errorLabel: UILabel!
@@ -122,10 +120,6 @@ class TransactionPINViewController: UIViewController {
         presenter.onViewLoaded()
         instantiateCodeTextFieldFunctions()
         setCotterStatusBarStyle()
-    }
-    
-    @IBAction func onClickPinVis(_ sender: UIButton) {
-        presenter.onClickPinVis(button: sender)
     }
     
     func setError(msg: String?) {
@@ -206,11 +200,13 @@ extension TransactionPINViewController: TransactionPINViewComponent {
                     if !resp.enrolled { return }
 
                     let cb: FinalAuthCallback = {(success, err) in
-                        if success != "" && err == nil {
-                            Config.instance.transactionCb("dummy biometric token", nil)
-                        } else {
-                            self.setError(msg: "Biometric is incorrect, please use PIN")
+                        guard success != "", err == nil else {
+                            os_log("%{public}@ verify bio { err: %{public}@ }",
+                                   log: Config.instance.log, type: .error,
+                                   #function, err?.localizedDescription ?? "nil")
+                            return
                         }
+                        Config.instance.transactionCb("dummy biometric token", nil)
                     }
                     
                     BiometricAuthenticationService(event: CotterEvents.Transaction, callback: cb).start()
@@ -249,9 +245,6 @@ extension TransactionPINViewController: TransactionPINViewComponent {
         titleLabel.font = Config.instance.fonts.title
         errorLabel.textColor = props.dangerColor
         errorLabel.font = Config.instance.fonts.paragraph
-        pinVisibilityButton.setTitle(props.showPinText, for: .normal)
-        pinVisibilityButton.setTitleColor(props.primaryColor, for: .normal)
-        pinVisibilityButton.titleLabel?.font = Config.instance.fonts.subtitle
         forgetPinButton.setTitle(props.forgetPinText, for: .normal)
         forgetPinButton.setTitleColor(props.accentColor, for: .normal)
         forgetPinButton.titleLabel?.font = Config.instance.fonts.subtitle

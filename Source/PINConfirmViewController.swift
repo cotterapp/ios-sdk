@@ -18,7 +18,6 @@ public class PINConfirmViewControllerKey {
 // MARK: - Presenter Protocol delegated UI-related logic
 protocol PINConfirmViewPresenter {
     func onViewLoaded()
-    func onClickPinVis(button: UIButton)
 }
 
 // MARK: - Properties of PINConfirmViewController
@@ -38,7 +37,6 @@ protocol PINConfirmViewComponent: AnyObject {
     func setupUI()
     func setupDelegates()
     func render(_ props: PINConfirmViewProps)
-    func togglePinVisibility(button: UIButton, showPinText: String, hidePinText: String)
 }
 
 // MARK: - PINConfirmViewPresenter Implementation
@@ -72,10 +70,6 @@ class PINConfirmViewPresenterImpl: PINConfirmViewPresenter {
         viewController.setupDelegates()
         viewController.render(props)
     }
-    
-    func onClickPinVis(button: UIButton) {
-        viewController.togglePinVisibility(button: button, showPinText: props.showPinText, hidePinText: props.hidePinText)
-    }
 }
 
 class PINConfirmViewController : UIViewController {
@@ -100,10 +94,6 @@ class PINConfirmViewController : UIViewController {
         // Set-up
         presenter.onViewLoaded()
         instantiateCodeTextFieldFunctions()
-    }
-    
-    @IBAction func onClickPinVis(_ sender: UIButton) {
-        presenter.onClickPinVis(button: sender)
     }
     
     func setError(msg: String?) {
@@ -192,20 +182,8 @@ extension PINConfirmViewController: PINConfirmViewComponent {
         setupLeftTitleBar(with: props.navTitle)
         titleLabel.text = props.title
         titleLabel.font = Config.instance.fonts.title
-        pinVisibilityButton.setTitle(props.showPinText, for: .normal)
-        pinVisibilityButton.setTitleColor(props.primaryColor, for: .normal)
-        pinVisibilityButton.titleLabel?.font = Config.instance.fonts.subtitle
         errorLabel.textColor = props.dangerColor
         errorLabel.font = Config.instance.fonts.paragraph
-    }
-    
-    func togglePinVisibility(button: UIButton, showPinText: String, hidePinText: String) {
-        codeTextField.togglePinVisibility()
-        if button.title(for: .normal) == showPinText {
-            button.setTitle(hidePinText, for: .normal)
-        } else {
-            button.setTitle(showPinText, for: .normal)
-        }
     }
 }
 

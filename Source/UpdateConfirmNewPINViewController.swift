@@ -19,7 +19,6 @@ public class UpdateConfirmNewPINViewControllerKey {
 // MARK: - Presenter Protocol delegated UI-related logic
 protocol UpdateConfirmNewPINViewPresenter {
     func onViewLoaded()
-    func onClickPinVis(button: UIButton)
 }
 
 // MARK: - Properties of UpdateConfirmNewPINViewController
@@ -39,7 +38,6 @@ protocol UpdateConfirmNewPINViewComponent: AnyObject {
     func setupUI()
     func setupDelegates()
     func render(_ props: UpdateConfirmNewPINViewProps)
-    func togglePinVisibility(button: UIButton, showPinText: String, hidePinText: String)
 }
 
 // MARK: - UpdateConfirmNewPINViewPresenter Implementation
@@ -73,11 +71,6 @@ class UpdateConfirmNewPINViewPresenterImpl: UpdateConfirmNewPINViewPresenter {
         viewController.setupDelegates()
         viewController.render(props)
     }
-    
-    func onClickPinVis(button: UIButton) {
-        viewController.togglePinVisibility(button: button, showPinText: props.showPinText, hidePinText: props.hidePinText)
-    }
-    
 }
 
 class UpdateConfirmNewPINViewController: UIViewController {
@@ -86,8 +79,6 @@ class UpdateConfirmNewPINViewController: UIViewController {
     
     // Pass prevCode here by UpdateConfirmNewPINViewController.prevCode = code
     public var prevCode: String?
-    
-    @IBOutlet weak var pinVisibilityButton: UIButton!
     
     @IBOutlet weak var titleLabel: UILabel!
     
@@ -105,10 +96,6 @@ class UpdateConfirmNewPINViewController: UIViewController {
         // Set-up
         presenter.onViewLoaded()
         instantiateCodeTextFieldFunctions()
-    }
-    
-    @IBAction func onClickPinVis(_ sender: UIButton) {
-        presenter.onClickPinVis(button: sender)
     }
     
     func setError(msg: String?) {
@@ -210,22 +197,9 @@ extension UpdateConfirmNewPINViewController: UpdateConfirmNewPINViewComponent {
         setupLeftTitleBar(with: props.navTitle)
         titleLabel.text = props.title
         titleLabel.font = Config.instance.fonts.title
-        pinVisibilityButton.setTitle(props.showPinText, for: .normal)
-        pinVisibilityButton.setTitleColor(props.primaryColor, for: .normal)
-        pinVisibilityButton.titleLabel?.font = Config.instance.fonts.subtitle
         errorLabel.textColor = props.dangerColor
         errorLabel.font = Config.instance.fonts.paragraph
     }
-    
-    func togglePinVisibility(button: UIButton, showPinText: String, hidePinText: String) {
-        codeTextField.togglePinVisibility()
-        if button.title(for: .normal) == showPinText {
-            button.setTitle(hidePinText, for: .normal)
-        } else {
-            button.setTitle(showPinText, for: .normal)
-        }
-    }
-    
 }
 
 // MARK: - KeyboardViewDelegate

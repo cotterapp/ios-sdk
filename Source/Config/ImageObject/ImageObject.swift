@@ -36,6 +36,7 @@ public class ImageObject: NSObject {
             VCImageKey.logo: "cotter-logo",
             VCImageKey.nonTrustedPhoneTap: "tap_device",
             VCImageKey.nonTrustedPhoneTapFail: "warning",
+            VCImageKey.resendSnackbarIcon: "cotter-success-check",
             
             // MARK: - Alert Image Definitions
             AlertImageKey.promptVerificationImg: "cotter-fingerprint",
