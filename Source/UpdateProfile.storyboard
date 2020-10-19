@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -38,7 +37,7 @@
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CbK-dh-RzR" customClass="KeyboardView" customModule="Cotter" customModuleProvider="target">
                                 <rect key="frame" x="20" y="238" width="280" height="330"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="355" id="sha-sa-ad6">
                                         <variation key="heightClass=regular-widthClass=compact" constant="330"/>
@@ -52,14 +51,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock_24px" translatesAutoresizingMaskIntoConstraints="NO" id="685-o7-tKH">
-                                <rect key="frame" x="135" y="82" width="50" height="50"/>
+                                <rect key="frame" x="140" y="92" width="40" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="6cF-CN-S5A"/>
-                                    <constraint firstAttribute="width" constant="50" id="YYC-n9-5uc"/>
+                                    <constraint firstAttribute="height" constant="40" id="6cF-CN-S5A"/>
+                                    <constraint firstAttribute="width" constant="40" id="YYC-n9-5uc"/>
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="nRc-rx-xyg"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="CbK-dh-RzR" firstAttribute="bottom" secondItem="nRc-rx-xyg" secondAttribute="bottom" id="30F-OW-3cz"/>
@@ -85,6 +83,7 @@
                             <constraint firstItem="zrC-oU-0pq" firstAttribute="centerX" secondItem="ecN-oR-0oF" secondAttribute="centerX" id="yWK-bR-aHl"/>
                             <constraint firstItem="nRc-rx-xyg" firstAttribute="trailing" secondItem="zrC-oU-0pq" secondAttribute="trailing" constant="20" id="zez-sx-xTK"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="nRc-rx-xyg"/>
                     </view>
                     <navigationItem key="navigationItem" id="cKc-nH-UR9"/>
                     <connections>
@@ -133,7 +132,7 @@
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QCa-u7-BXw" customClass="KeyboardView" customModule="Cotter" customModuleProvider="target">
                                 <rect key="frame" x="20" y="238" width="280" height="330"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="355" id="Io9-AU-imo">
                                         <variation key="heightClass=regular-widthClass=compact" constant="330"/>
@@ -141,14 +140,13 @@
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock_24px" translatesAutoresizingMaskIntoConstraints="NO" id="cG4-K5-99b">
-                                <rect key="frame" x="135" y="82" width="50" height="50"/>
+                                <rect key="frame" x="140" y="92" width="40" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="CAf-Jc-rNS"/>
-                                    <constraint firstAttribute="height" constant="50" id="IPo-y5-LpZ"/>
+                                    <constraint firstAttribute="width" constant="40" id="CAf-Jc-rNS"/>
+                                    <constraint firstAttribute="height" constant="40" id="IPo-y5-LpZ"/>
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="3zK-cT-1d5"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="cG4-K5-99b" firstAttribute="centerX" secondItem="Ano-B6-oq4" secondAttribute="centerX" id="BDc-51-e1p"/>
@@ -172,6 +170,7 @@
                             </constraint>
                             <constraint firstItem="BXF-WN-O9C" firstAttribute="top" secondItem="joL-uv-SPw" secondAttribute="bottom" constant="5" id="we6-5e-1qu"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="3zK-cT-1d5"/>
                     </view>
                     <navigationItem key="navigationItem" id="Ylh-hQ-ksS"/>
                     <connections>
@@ -220,7 +219,7 @@
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vhx-8N-xWa" customClass="KeyboardView" customModule="Cotter" customModuleProvider="target">
                                 <rect key="frame" x="20" y="238" width="280" height="330"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="355" id="hxp-Ie-6eQ">
                                         <variation key="heightClass=regular-widthClass=compact" constant="330"/>
@@ -228,14 +227,13 @@
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock_24px" translatesAutoresizingMaskIntoConstraints="NO" id="sds-fQ-hVj">
-                                <rect key="frame" x="135" y="82" width="50" height="50"/>
+                                <rect key="frame" x="140" y="92" width="40" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="15q-Rn-So6"/>
-                                    <constraint firstAttribute="width" constant="50" id="z2Q-to-ClX"/>
+                                    <constraint firstAttribute="height" constant="40" id="15q-Rn-So6"/>
+                                    <constraint firstAttribute="width" constant="40" id="z2Q-to-ClX"/>
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="v6E-Dc-X8J"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="v6E-Dc-X8J" firstAttribute="trailing" secondItem="5RD-iA-TLr" secondAttribute="trailing" constant="20" id="0zS-bq-uoB"/>
@@ -261,6 +259,7 @@
                                 <variation key="heightClass=regular-widthClass=compact" constant="-110"/>
                             </constraint>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="v6E-Dc-X8J"/>
                     </view>
                     <navigationItem key="navigationItem" id="0CU-by-FLo"/>
                     <connections>
@@ -277,8 +276,5 @@
     </scenes>
     <resources>
         <image name="lock_24px" width="40" height="40"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>
