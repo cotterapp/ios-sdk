@@ -12,4 +12,4 @@ public let DEFAULT_COTTER_TITLE_FONT: UIFont = UIFont.boldSystemFont(ofSize: 18.
 public let DEFAULT_COTTER_PARAGRAPH_FONT: UIFont = UIFont.systemFont(ofSize: 15.0)
 public let DEFAULT_COTTER_SUBTITLE_FONT: UIFont = UIFont.boldSystemFont(ofSize: 15.0)
 public let DEFAULT_COTTER_KEYPAD_FONT: UIFont = UIFont.systemFont(ofSize: 15.0)
-public let DEFAULT_COTTER_PIN_FONT: UIFont = UIFont.systemFont(ofSize: 40.0)
+public let DEFAULT_COTTER_PIN_FONT: UIFont = UIFont.systemFont(ofSize: 17.0)
