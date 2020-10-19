@@ -13,6 +13,9 @@ public class PINFinalViewControllerKey {
     public static let title = "PINFinalViewController/title"
     public static let subtitle = "PINFinalViewController/subtitle"
     public static let buttonText = "PINFinalViewController/buttonText"
+    public static let titleUpdate = "PINFinalViewController/titleUpdate"
+    public static let subtitleUpdate = "PINFinalViewController/subtitleUpdate"
+    public static let buttonTextUpdate = "PINFinalViewController/buttonTextUpdate"
 }
 
 // MARK: - Presenter Protocol delegated UI-related logic
@@ -26,6 +29,9 @@ struct PINFinalViewProps {
     let title: String
     let subtitle: String
     let buttonTitle: String
+    let titleUpdate: String
+    let subtitleUpdate: String
+    let buttonTitleUpdate: String
     let successImage: String
     
     let primaryColor: UIColor
@@ -53,6 +59,10 @@ class PINFinalViewPresenterImpl: PINFinalViewPresenter {
         let successSubtitle = CotterStrings.instance.getText(for: VCTextKey.subtitle)
         let successButtonTitle = CotterStrings.instance.getText(for: VCTextKey.buttonText)
         
+        let successTitleUpdate = CotterStrings.instance.getText(for: VCTextKey.titleUpdate)
+        let successSubtitleUpdate = CotterStrings.instance.getText(for: VCTextKey.subtitleUpdate)
+        let successButtonTitleUpdate = CotterStrings.instance.getText(for: VCTextKey.buttonTextUpdate)
+        
         // MARK: - VC Image Definitions
         let successImage = CotterImages.instance.getImage(for: VCImageKey.pinSuccessImg)
         
@@ -61,7 +71,17 @@ class PINFinalViewPresenterImpl: PINFinalViewPresenter {
         let accentColor = Config.instance.colors.accent
         let dangerColor = Config.instance.colors.danger
         
-        return PINFinalViewProps(title: successTitle, subtitle: successSubtitle, buttonTitle: successButtonTitle, successImage: successImage, primaryColor: primaryColor, accentColor: accentColor, dangerColor: dangerColor)
+        return PINFinalViewProps(
+            title: successTitle,
+            subtitle: successSubtitle,
+            buttonTitle: successButtonTitle,
+            titleUpdate: successTitleUpdate,
+            subtitleUpdate: successSubtitleUpdate,
+            buttonTitleUpdate: successButtonTitleUpdate,
+            successImage: successImage,
+            primaryColor: primaryColor,
+            accentColor: accentColor,
+            dangerColor: dangerColor)
     }()
     
     init(_ viewController: PINFinalViewController) {
@@ -90,6 +110,7 @@ class PINFinalViewController: UIViewController {
     // Config Variables
     var requireAuth = true
     var imagePath: String? = nil
+    var isEnroll: Bool = true
     
     @IBOutlet weak var imageView: UIImageView!
     
@@ -110,10 +131,6 @@ class PINFinalViewController: UIViewController {
         presenter.onViewLoaded()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.isNavigationBarHidden = true
-    }
-    
     @IBAction func finish(_ sender: UIButton) {
         presenter.onFinish(button: sender)
     }
@@ -126,20 +143,20 @@ extension PINFinalViewController: PINFinalViewComponent {
         self.navigationItem.hidesBackButton = true
         
         // Button Configuration
-        let color = Config.instance.colors.primary
         let width = CGFloat(1.0)
         finishButton.backgroundColor = UIColor.clear
-        finishButton.layer.cornerRadius = 10
+        finishButton.layer.cornerRadius = 4
         finishButton.layer.borderWidth = width
-        finishButton.layer.borderColor = color.cgColor
+        finishButton.layer.borderColor = UIColor.lightGray.cgColor
     }
     
     func render(_ props: PINFinalViewProps) {
-        successLabel.text = props.title
+        successLabel.text = self.isEnroll ? props.title : props.titleUpdate
         successLabel.font = Config.instance.fonts.title
-        successSubLabel.text = props.subtitle
+        successSubLabel.text = self.isEnroll ? props.subtitle : props.subtitleUpdate
         successSubLabel.font = Config.instance.fonts.paragraph
-        finishButton.setTitle(props.buttonTitle, for: .normal)
+        let buttonText = self.isEnroll ? props.buttonTitle : props.buttonTitleUpdate
+        finishButton.setTitle(buttonText, for: .normal)
         finishButton.setTitleColor(props.primaryColor, for: .normal)
         finishButton.titleLabel?.font = Config.instance.fonts.subtitle
         

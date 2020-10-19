@@ -27,6 +27,10 @@ public class English: LanguageObject {
             PINFinalViewControllerKey.subtitle: "You can now use your PIN to unlock your account and make transactions",
             PINFinalViewControllerKey.buttonText: "Done",
             
+            PINFinalViewControllerKey.titleUpdate: "Successfully Updated PIN!",
+            PINFinalViewControllerKey.subtitleUpdate: "You can now use your PIN to unlock your account and make transactions",
+            PINFinalViewControllerKey.buttonTextUpdate: "Done",
+            
             // MARK: - TransactionPINViewController
             TransactionPINViewControllerKey.navTitle: "Verification",
             TransactionPINViewControllerKey.showPin: "Show PIN",

@@ -27,6 +27,10 @@ public class Indonesian: LanguageObject {
             PINFinalViewControllerKey.subtitle: "Mulai sekarang kamu bisa login dan konfirmasi transaksi menggunakan PIN",
             PINFinalViewControllerKey.buttonText: "Selesai",
             
+            PINFinalViewControllerKey.titleUpdate: "PIN Sukses Diganti!",
+            PINFinalViewControllerKey.subtitleUpdate: "Mulai sekarang kamu bisa login dan konfirmasi transaksi menggunakan PIN",
+            PINFinalViewControllerKey.buttonTextUpdate: "Selesai",
+            
             // MARK: - TransactionPINViewController
             TransactionPINViewControllerKey.navTitle: "Verifikasi",
             TransactionPINViewControllerKey.showPin: "Lihat PIN",

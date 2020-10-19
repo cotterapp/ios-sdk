@@ -143,7 +143,10 @@ extension PINConfirmViewController : PINBaseController {
                 case .success:
                     self.codeTextField.clear()
                     let finalVC = self.storyboard?.instantiateViewController(withIdentifier: "PINFinalViewController")as! PINFinalViewController
-                    self.navigationController?.pushViewController(finalVC, animated: true)
+                    finalVC.isEnroll = true
+                    let nav = CotterNavigationViewController(
+                        rootViewController: finalVC)
+                    self.present(nav, animated: true, completion: nil)
                 case .failure(let err):
                     self.setError(msg: self.generateErrorMessageFrom(error: err))
                 }
