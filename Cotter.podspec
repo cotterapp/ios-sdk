@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Cotter'
-  s.version          = '1.5.13.11'
+  s.version          = '1.5.14.11'
   s.summary          = 'Cotter is the client SDK for Cotter authentication services'
   s.swift_versions   = '5.0'
 
@@ -34,7 +34,7 @@ CotterIOS simplifies client's integration with Cotter. It is an SDK that provide
 
   s.source_files = 'Source/**/*.swift'
   s.resource_bundles = {
-      'Cotter' => ['Source/**/*.{png,storyboard,lproj,xib}']
+      'Cotter' => ['Source/**/*.{png,storyboard,lproj,xib,xcassets}']
   }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
