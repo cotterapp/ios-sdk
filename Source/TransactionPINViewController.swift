@@ -113,6 +113,12 @@ class TransactionPINViewController: UIViewController {
         presenter.onViewAppeared()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?
+            .setNavigationBarHidden(true, animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -246,7 +252,7 @@ extension TransactionPINViewController: TransactionPINViewComponent {
         errorLabel.textColor = props.dangerColor
         errorLabel.font = Config.instance.fonts.paragraph
         forgetPinButton.setTitle(props.forgetPinText, for: .normal)
-        forgetPinButton.setTitleColor(props.accentColor, for: .normal)
+        forgetPinButton.setTitleColor(props.primaryColor, for: .normal)
         forgetPinButton.titleLabel?.font = Config.instance.fonts.subtitle
     }
     
