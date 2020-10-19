@@ -147,14 +147,17 @@ extension PINFinalViewController: PINFinalViewComponent {
         finishButton.backgroundColor = UIColor.clear
         finishButton.layer.cornerRadius = 4
         finishButton.layer.borderWidth = width
-        finishButton.layer.borderColor = UIColor.lightGray.cgColor
+        finishButton.layer.borderColor = UIColor.black
+            .withAlphaComponent(0.12).cgColor
     }
     
     func render(_ props: PINFinalViewProps) {
         successLabel.text = self.isEnroll ? props.title : props.titleUpdate
-        successLabel.font = Config.instance.fonts.title
+        successLabel.font = Config.instance.fonts.titleLarge
+        successLabel.textColor = Config.instance.colors.accent
         successSubLabel.text = self.isEnroll ? props.subtitle : props.subtitleUpdate
-        successSubLabel.font = Config.instance.fonts.paragraph
+        successSubLabel.font = Config.instance.fonts.subtitle
+        successSubLabel.textColor = Config.instance.colors.gray
         let buttonText = self.isEnroll ? props.buttonTitle : props.buttonTitleUpdate
         finishButton.setTitle(buttonText, for: .normal)
         finishButton.setTitleColor(props.primaryColor, for: .normal)
