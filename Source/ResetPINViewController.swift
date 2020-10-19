@@ -175,7 +175,10 @@ extension ResetPINViewController: ResetPINViewComponent {
     func setupUI() {
         resetPinError.isHidden = true
         
-        let crossButton = UIBarButtonItem(title: "\u{2717}", style: UIBarButtonItem.Style.plain, target: self, action: #selector(promptClose(sender:)))
+        let crossButton = UIBarButtonItem(
+            barButtonSystemItem: UIBarButtonItem.SystemItem.stop,
+            target: self,
+            action: #selector(promptClose(sender:)))
         crossButton.tintColor = Config.instance.colors.primary
         self.navigationItem.leftBarButtonItems = [crossButton]
         
@@ -269,8 +272,9 @@ extension ResetPINViewController: ResetCodeTextFieldDelegate {
         guard let userInfo = Config.instance.userInfo,
             let challengeID = userInfo.resetChallengeID,
             let challenge = userInfo.resetChallenge else {
-            self.setError(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.unableToResetPin))
-            return
+                LoadingScreen.shared.stop()
+                self.setError(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.unableToResetPin))
+                return
         }
         
         // Callback Function to execute after Email Code Verification
