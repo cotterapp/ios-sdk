@@ -118,7 +118,7 @@ class ResetCodeTextField: UITextField {
             label.text = defaultCharacter
             
             // Set rounded corners
-            label.layer.cornerRadius = 10.0
+            label.layer.cornerRadius = 4
             label.layer.masksToBounds = true
             
             stackView.addArrangedSubview(label)
