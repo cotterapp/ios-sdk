@@ -112,7 +112,7 @@ class ResetCodeTextField: UITextField {
             let label = UILabel()
             label.translatesAutoresizingMaskIntoConstraints = false
             label.textAlignment = .center
-            label.font = .systemFont(ofSize: 20)
+            label.font = Config.instance.fonts.resetPin
             label.isUserInteractionEnabled = true
             label.backgroundColor = defaultBgColor
             label.text = defaultCharacter
