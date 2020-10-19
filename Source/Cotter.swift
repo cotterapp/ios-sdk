@@ -139,8 +139,10 @@ public class Cotter {
         if !hideClose {
             vc.navigationController?.pushViewController(self.pinVC, animated: true)
         } else {
-            self.pinVC.modalPresentationStyle = .fullScreen
-            vc.present(self.pinVC, animated: true, completion: nil)
+            let nav = CotterNavigationViewController(
+                rootViewController: self.pinVC)
+            nav.modalPresentationStyle = .fullScreen
+            vc.present(nav, animated: true, completion: nil)
         }
     }
     
