@@ -164,6 +164,7 @@ extension ResetConfirmPINViewController : PINBaseController {
                         resetPINFinalVC.isEnroll = true
                         let nav = CotterNavigationViewController(
                             rootViewController: resetPINFinalVC)
+                        nav.modalPresentationStyle = .fullScreen
                         self.present(nav, animated: true, completion: nil)
                     } else {
                         self.setError(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.resetPinFailed))

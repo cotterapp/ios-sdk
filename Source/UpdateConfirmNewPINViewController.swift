@@ -157,6 +157,7 @@ extension UpdateConfirmNewPINViewController : PINBaseController {
                     pinFinalVC.isEnroll = false
                     let nav = CotterNavigationViewController(
                         rootViewController: pinFinalVC)
+                    nav.modalPresentationStyle = .fullScreen
                     self.present(nav, animated: true, completion: nil)
                 case .failure(let err):
                     self.setError(msg: self.generateErrorMessageFrom(error: err))

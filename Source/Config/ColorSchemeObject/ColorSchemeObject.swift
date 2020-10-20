@@ -48,7 +48,7 @@ public class ColorSchemeObject: NSObject {
         self.primary = primary ?? self.primary
         self.accent = accent ?? self.accent
         self.danger = danger ?? self.danger
-        self.gray = danger ?? self.gray
+        self.gray = gray ?? self.gray
         self.pinEmpty = pinEmpty ?? self.pinEmpty
         self.pinFilled = pinFilled ?? self.pinFilled
         self.pinError = pinError ?? self.pinError
@@ -68,7 +68,7 @@ public class ColorSchemeObject: NSObject {
         if let primaryColor = primary { self.primary = UIColor(rgb: primaryColor) }
         if let accentColor = accent { self.accent = UIColor(rgb: accentColor) }
         if let dangerColor = danger { self.danger = UIColor(rgb: dangerColor) }
-        if let grayColor = danger { self.gray = UIColor(rgb: grayColor) }
+        if let grayColor = gray { self.gray = UIColor(rgb: grayColor) }
         if let pinEmptyColor = pinEmpty { self.pinEmpty = UIColor(rgb: pinEmptyColor) }
         if let pinFilledColor = pinFilled { self.pinFilled = UIColor(rgb: pinFilledColor) }
         if let pinErrorColor = pinError { self.pinError = UIColor(rgb: pinErrorColor) }
@@ -88,7 +88,7 @@ public class ColorSchemeObject: NSObject {
         if let primaryColor = primary { self.primary = UIColor(rgb: primaryColor) }
         if let accentColor = accent { self.accent = UIColor(rgb: accentColor) }
         if let dangerColor = danger { self.danger = UIColor(rgb: dangerColor) }
-        if let grayColor = danger { self.gray = UIColor(rgb: grayColor) }
+        if let grayColor = gray { self.gray = UIColor(rgb: grayColor) }
         if let pinEmptyColor = pinEmpty { self.pinEmpty = UIColor(rgb: pinEmptyColor) }
         if let pinFilledColor = pinFilled { self.pinFilled = UIColor(rgb: pinFilledColor) }
         if let pinErrorColor = pinError { self.pinError = UIColor(rgb: pinErrorColor) }
