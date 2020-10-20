@@ -156,7 +156,7 @@ extension PINFinalViewController: PINFinalViewComponent {
         successLabel.font = Config.instance.fonts.titleLarge
         successLabel.textColor = Config.instance.colors.accent
         successSubLabel.text = self.isEnroll ? props.subtitle : props.subtitleUpdate
-        successSubLabel.font = Config.instance.fonts.subtitle
+        successSubLabel.font = Config.instance.fonts.subtitleLarge
         successSubLabel.textColor = Config.instance.colors.gray
         let buttonText = self.isEnroll ? props.buttonTitle : props.buttonTitleUpdate
         finishButton.setTitle(buttonText, for: .normal)
