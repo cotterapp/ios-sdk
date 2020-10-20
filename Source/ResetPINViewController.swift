@@ -208,7 +208,7 @@ extension ResetPINViewController: ResetPINViewComponent {
             return props.resetFailSub
         }()
         resetPinSubtitle.text = subtitle
-        resetPinSubtitle.font = Config.instance.fonts.subtitle
+        resetPinSubtitle.font = Config.instance.fonts.subtitleLarge
         
         if let _ = Config.instance.userInfo {
             resendEmailButton.setTitle(props.resendEmail, for: .normal)

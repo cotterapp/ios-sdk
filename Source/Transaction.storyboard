@@ -153,19 +153,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fzP-bP-4sR" customClass="ResetCodeTextField" customModule="Cotter" customModuleProvider="target">
-                                <rect key="frame" x="70" y="124" width="180" height="40"/>
+                                <rect key="frame" x="76" y="126" width="168" height="36"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="0Kc-pA-f4g"/>
-                                    <constraint firstAttribute="width" constant="180" id="5cQ-zb-v4A"/>
+                                    <constraint firstAttribute="height" constant="36" id="0Kc-pA-f4g"/>
+                                    <constraint firstAttribute="width" constant="168" id="5cQ-zb-v4A"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reset PIN Subtitle" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aBX-pE-mc6" userLabel="ErrorMsg">
-                                <rect key="frame" x="10" y="71" width="300" height="50"/>
+                                <rect key="frame" x="10" y="101" width="300" height="17"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="ZFM-QX-3Lr"/>
                                     <constraint firstAttribute="width" constant="300" id="tBL-rm-aDB"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
@@ -191,9 +190,8 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reset PIN Error" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AVM-eP-vTD" userLabel="ErrorMsg">
-                                <rect key="frame" x="10" y="169" width="300" height="50"/>
+                                <rect key="frame" x="10" y="167" width="300" height="17"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="QNN-iS-DOW"/>
                                     <constraint firstAttribute="width" constant="300" id="qXe-lO-zc6"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
@@ -201,7 +199,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reset PIN Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a4e-SC-6fs">
-                                <rect key="frame" x="20" y="51.5" width="280" height="19.5"/>
+                                <rect key="frame" x="20" y="71.5" width="280" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -219,15 +217,13 @@
                             <constraint firstItem="PY1-HN-7l5" firstAttribute="centerX" secondItem="eEM-OE-T4l" secondAttribute="centerX" id="Nf2-jM-J8V"/>
                             <constraint firstItem="AVM-eP-vTD" firstAttribute="top" secondItem="fzP-bP-4sR" secondAttribute="bottom" constant="5" id="RuQ-nV-w9o"/>
                             <constraint firstItem="fzP-bP-4sR" firstAttribute="top" secondItem="aBX-pE-mc6" secondAttribute="bottom" constant="10" id="SzA-xk-xF5">
-                                <variation key="heightClass=regular-widthClass=compact" constant="3"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="8"/>
                             </constraint>
                             <constraint firstItem="Wgk-2p-25k" firstAttribute="centerX" secondItem="eEM-OE-T4l" secondAttribute="centerX" id="daK-vu-3mP"/>
                             <constraint firstItem="AVM-eP-vTD" firstAttribute="centerX" secondItem="eEM-OE-T4l" secondAttribute="centerX" id="fNA-zX-vqp"/>
                             <constraint firstItem="a4e-SC-6fs" firstAttribute="centerX" secondItem="eEM-OE-T4l" secondAttribute="centerX" id="g4x-Hl-XEv"/>
                             <constraint firstItem="PY1-HN-7l5" firstAttribute="leading" secondItem="ZvZ-EL-y31" secondAttribute="leading" constant="20" id="iPR-JV-eRs"/>
-                            <constraint firstItem="aBX-pE-mc6" firstAttribute="top" secondItem="a4e-SC-6fs" secondAttribute="bottom" constant="20" id="lG2-3B-GLz">
-                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
-                            </constraint>
+                            <constraint firstItem="aBX-pE-mc6" firstAttribute="top" secondItem="a4e-SC-6fs" secondAttribute="bottom" constant="10" id="lG2-3B-GLz"/>
                             <constraint firstItem="fzP-bP-4sR" firstAttribute="centerY" secondItem="eEM-OE-T4l" secondAttribute="centerY" constant="-150" id="mEO-C9-BWB">
                                 <variation key="heightClass=regular-widthClass=compact" constant="-140"/>
                             </constraint>
@@ -235,16 +231,6 @@
                             <constraint firstItem="ZvZ-EL-y31" firstAttribute="trailing" secondItem="a4e-SC-6fs" secondAttribute="trailing" constant="20" id="p9Y-a3-MtA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZvZ-EL-y31"/>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="lG2-3B-GLz"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=regular-widthClass=compact">
-                            <mask key="constraints">
-                                <include reference="lG2-3B-GLz"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="Z8m-wz-E9Q"/>
                     <connections>
