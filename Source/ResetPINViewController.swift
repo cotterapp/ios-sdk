@@ -197,6 +197,7 @@ extension ResetPINViewController: ResetPINViewComponent {
         setupLeftTitleBar(with: props.navTitle)
         resetPinTitle.text = props.title
         resetPinError.textColor = props.dangerColor
+        resetPinError.font = Config.instance.fonts.paragraph
         resetPinTitle.font = Config.instance.fonts.titleLarge
         resetPinTitle.textColor = Config.instance.colors.accent
         
