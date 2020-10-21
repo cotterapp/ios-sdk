@@ -25,12 +25,11 @@ enum ResetCodeState {
 class ResetCodeTextField: UITextField {
     private var isConfigured = false
     
-    private let defaultBgColor = UIColor(red: 0.8667, green: 0.8667, blue: 0.8667, alpha: 1.0) /* #dddddd */
-    private let populatedBgColor = UIColor(red: 0.6863, green: 0.9294, blue: 0.6118, alpha: 1.0) /* #afed9c */
-    private let invalidBgColor = UIColor(red: 1, green: 0.6, blue: 0.6, alpha: 1.0) /* #ff9999 */
-    
-    private let invalidTextColor = UIColor(red: 0.7176, green: 0, blue: 0.0353, alpha: 1.0)
-    private let populatedTextColor = UIColor(red: 0.2078, green: 0, blue: 0.7882, alpha: 1.0)
+    private let defaultBgColor = Config.instance.colors.resetDefaultBg
+    private let populatedBgColor = Config.instance.colors.resetPopulatedBg
+    private let invalidBgColor = Config.instance.colors.resetInvalidBg
+    private let invalidTextColor = Config.instance.colors.resetInvalidText
+    private let populatedTextColor = Config.instance.colors.resetPopulatedText
     
     private let defaultCharacter = ""
     private var digitLabels = [UILabel]()

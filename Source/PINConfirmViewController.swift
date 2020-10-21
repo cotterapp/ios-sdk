@@ -96,6 +96,12 @@ class PINConfirmViewController : UIViewController {
         instantiateCodeTextFieldFunctions()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar
+            .tintColor = Config.instance.colors.navbarTint
+    }
+    
     func setError(msg: String?) {
         errorLabel.isHidden = msg == nil
         errorLabel.text = msg ?? ""

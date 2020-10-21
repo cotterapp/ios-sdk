@@ -176,10 +176,14 @@ extension ResetPINViewController: ResetPINViewComponent {
         resetPinError.isHidden = true
         
         let crossButton = UIBarButtonItem(
-            barButtonSystemItem: UIBarButtonItem.SystemItem.stop,
+            image: UIImage(
+                named: "baseline_close_black_24pt",
+                in: Cotter.resourceBundle,
+                compatibleWith: nil),
+            style: .plain,
             target: self,
             action: #selector(promptClose(sender:)))
-        crossButton.tintColor = Config.instance.colors.primary
+        crossButton.tintColor = Config.instance.colors.navbarTint
         self.navigationItem.leftBarButtonItems = [crossButton]
         
         resetCodeTextField.configure()
@@ -204,12 +208,17 @@ extension ResetPINViewController: ResetPINViewComponent {
         let subtitle: String = {
             if let userInfo = Config.instance.userInfo {
                 let maskedSendingDestination = userInfo.sendingDestination.maskContactInfo(method: userInfo.sendingMethod)
-                return "\(props.resetOpeningSub) \(maskedSendingDestination)"
+                return "\(props.resetOpeningSub) <blue>\(maskedSendingDestination)<blue>"
             }
             return props.resetFailSub
         }()
         resetPinSubtitle.text = subtitle
         resetPinSubtitle.font = Config.instance.fonts.subtitleLarge
+        resetPinSubtitle.textColor = Config.instance.colors.accent
+        resetPinSubtitle.setupFontStyleBetweenTag(
+            font: Config.instance.fonts.subtitleLarge,
+            color: Config.instance.colors.secondary,
+            tag: "<blue>")
         
         if let _ = Config.instance.userInfo {
             resendEmailButton.setTitle(props.resendEmail, for: .normal)

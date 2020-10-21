@@ -15,6 +15,6 @@ extension UINavigationController {
         navbar.layoutIfNeeded()
         
         navbar.barTintColor = .white
-        navbar.tintColor = Config.instance.colors.primary
+        navbar.tintColor = Config.instance.colors.navbarTint
     }
 }
