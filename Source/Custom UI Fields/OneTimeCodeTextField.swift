@@ -9,10 +9,10 @@ import Foundation
 
 class OneTimeCodeTextField : UITextField {
     private var isConfigured = false
-    private let defaultColor = UIColor.lightGray
-    private let populatedColor = UIColor(red: 0.2078, green: 0, blue: 0.7882, alpha: 1.0)
-    private let wrongColor = UIColor(red: 0.7176, green: 0, blue: 0.0353, alpha: 1.0)
-    private var defaultCharacter = "•"
+    private let defaultColor = Config.instance.colors.pinEmpty
+    private let populatedColor = Config.instance.colors.pinFilled
+    private let wrongColor = Config.instance.colors.pinError
+    private var defaultCharacter = "●"
     private var isPinVisible = false
     private var digitLabels = [UILabel]()
     
@@ -76,7 +76,7 @@ class OneTimeCodeTextField : UITextField {
         stackView.axis = .horizontal
         stackView.alignment = .fill
         stackView.distribution = .fillEqually
-        stackView.spacing = 8
+        stackView.spacing = -24
         
         // Adding each initial password input label
         for _ in 1...count {

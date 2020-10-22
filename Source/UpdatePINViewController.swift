@@ -96,6 +96,12 @@ class UpdatePINViewController: UIViewController {
         setCotterStatusBarStyle()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar
+            .tintColor = Config.instance.colors.navbarTint
+    }
+    
     func setError(msg: String?) {
         errorLabel.isHidden = msg == nil
         errorLabel.text = msg
@@ -185,6 +191,7 @@ extension UpdatePINViewController: UpdatePINViewComponent {
         setupLeftTitleBar(with: props.navTitle)
         titleLabel.text = props.title
         titleLabel.font = Config.instance.fonts.title
+        titleLabel.textColor = Config.instance.colors.accent
         errorLabel.textColor = props.dangerColor
         errorLabel.font = Config.instance.fonts.paragraph
     }

@@ -135,10 +135,15 @@ public class Cotter {
         
         Config.instance.pinEnrollmentCb = transformCb(parent: vc, cb: cb)
         
-        // push the viewcontroller to the navController
-        let nav = CotterNavigationViewController(rootViewController: self.pinVC)
-        nav.modalPresentationStyle = .fullScreen
-        vc.present(nav, animated: true, completion: nil)
+        // 2 option for presenting VC: push and present based on hideClose value
+        if !hideClose {
+            vc.navigationController?.pushViewController(self.pinVC, animated: true)
+        } else {
+            let nav = CotterNavigationViewController(
+                rootViewController: self.pinVC)
+            nav.modalPresentationStyle = .fullScreen
+            vc.present(nav, animated: true, completion: nil)
+        }
     }
     
     // when you want to render PINViewController on startup

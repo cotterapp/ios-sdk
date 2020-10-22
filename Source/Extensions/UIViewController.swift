@@ -59,3 +59,28 @@ extension UIViewController {
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
 }
+
+// MARK: - Get class name 
+/*
+ Get class name by instance or type level
+ Foo().typeName         // print "Foo"
+ Foo.typeName           // print "Foo"
+ */
+
+protocol NameDescribable {
+    var typeName: String { get }
+    static var typeName: String { get }
+}
+
+extension NameDescribable {
+    
+    var typeName: String {
+        return String(describing: type(of: self))
+    }
+    
+    static var typeName: String {
+        return String(describing: self)
+    }
+}
+
+extension UIViewController: NameDescribable {}

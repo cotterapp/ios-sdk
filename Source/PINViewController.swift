@@ -102,6 +102,18 @@ class PINViewController : UIViewController {
         setCotterStatusBarStyle()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?
+            .setNavigationBarHidden(true, animated: true)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?
+            .setNavigationBarHidden(false, animated: true)
+    }
+    
     func setError(msg: String?) {
         errorLabel.isHidden = msg == nil
         errorLabel.text = msg ?? ""
@@ -187,6 +199,7 @@ extension PINViewController: PINViewComponent {
         setupLeftTitleBar(with: props.navTitle)
         titleLabel.text = props.title
         titleLabel.font = Config.instance.fonts.title
+        titleLabel.textColor = Config.instance.colors.accent
         errorLabel.textColor = props.dangerColor
         errorLabel.font = Config.instance.fonts.paragraph
     }

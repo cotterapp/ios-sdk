@@ -161,7 +161,11 @@ extension ResetConfirmPINViewController : PINBaseController {
                         let resetPINFinalVC = Cotter.cotterStoryboard.instantiateViewController(withIdentifier: "PINFinalViewController") as! PINFinalViewController
                         resetPINFinalVC.requireAuth = false
                         resetPINFinalVC.delegate = self
-                        self.navigationController?.pushViewController(resetPINFinalVC, animated: true)
+                        resetPINFinalVC.isEnroll = true
+                        let nav = CotterNavigationViewController(
+                            rootViewController: resetPINFinalVC)
+                        nav.modalPresentationStyle = .fullScreen
+                        self.present(nav, animated: true, completion: nil)
                     } else {
                         self.setError(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.resetPinFailed))
                     }
@@ -203,6 +207,7 @@ extension ResetConfirmPINViewController: ResetConfirmPINViewComponent {
         self.setupLeftTitleBar(with: props.navTitle)
         titleLabel.text = props.title
         titleLabel.font = Config.instance.fonts.title
+        titleLabel.textColor = Config.instance.colors.accent
         errorLabel.textColor = props.dangerColor
         errorLabel.font = Config.instance.fonts.paragraph
     }

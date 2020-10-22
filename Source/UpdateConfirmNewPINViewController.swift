@@ -153,9 +153,12 @@ extension UpdateConfirmNewPINViewController : PINBaseController {
                     self.codeTextField.clear()
                     // Go to PIN Final View
                     let pinFinalVC = Cotter.cotterStoryboard.instantiateViewController(withIdentifier: "PINFinalViewController")as! PINFinalViewController
-                     pinFinalVC.requireAuth = false
-                    self.navigationController?.pushViewController(pinFinalVC, animated: true)
-                    
+                    pinFinalVC.requireAuth = false
+                    pinFinalVC.isEnroll = false
+                    let nav = CotterNavigationViewController(
+                        rootViewController: pinFinalVC)
+                    nav.modalPresentationStyle = .fullScreen
+                    self.present(nav, animated: true, completion: nil)
                 case .failure(let err):
                     self.setError(msg: self.generateErrorMessageFrom(error: err))
                 }
@@ -197,6 +200,7 @@ extension UpdateConfirmNewPINViewController: UpdateConfirmNewPINViewComponent {
         setupLeftTitleBar(with: props.navTitle)
         titleLabel.text = props.title
         titleLabel.font = Config.instance.fonts.title
+        titleLabel.textColor = Config.instance.colors.accent
         errorLabel.textColor = props.dangerColor
         errorLabel.font = Config.instance.fonts.paragraph
     }

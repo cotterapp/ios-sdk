@@ -6,6 +6,17 @@
 //
 
 public struct CotterClassNames {
-    public static let pinVC: String = "PINViewController"
-    public static let transactionPinVC: String = "TransactionPINViewController"
+    public static let pinClassNames: [String] = [
+        PINViewController.typeName,
+        TransactionPINViewController.typeName,
+        UpdatePINViewController.typeName,
+        UpdateCreateNewPINViewController.typeName,
+        UpdateConfirmNewPINViewController.typeName,
+        ResetPINViewController.typeName,
+        ResetNewPINViewController.typeName,
+        ResetConfirmPINViewController.typeName,
+        PINFinalViewController.typeName,
+        PINConfirmViewController.typeName,
+        LocalAuthService.typeName
+    ]
 }

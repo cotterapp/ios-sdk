@@ -175,8 +175,15 @@ extension ResetPINViewController: ResetPINViewComponent {
     func setupUI() {
         resetPinError.isHidden = true
         
-        let crossButton = UIBarButtonItem(title: "\u{2717}", style: UIBarButtonItem.Style.plain, target: self, action: #selector(promptClose(sender:)))
-        crossButton.tintColor = Config.instance.colors.primary
+        let crossButton = UIBarButtonItem(
+            image: UIImage(
+                named: "baseline_close_black_24pt",
+                in: Cotter.resourceBundle,
+                compatibleWith: nil),
+            style: .plain,
+            target: self,
+            action: #selector(promptClose(sender:)))
+        crossButton.tintColor = Config.instance.colors.navbarTint
         self.navigationItem.leftBarButtonItems = [crossButton]
         
         resetCodeTextField.configure()
@@ -194,17 +201,24 @@ extension ResetPINViewController: ResetPINViewComponent {
         setupLeftTitleBar(with: props.navTitle)
         resetPinTitle.text = props.title
         resetPinError.textColor = props.dangerColor
-        resetPinTitle.font = Config.instance.fonts.title
+        resetPinError.font = Config.instance.fonts.paragraph
+        resetPinTitle.font = Config.instance.fonts.titleLarge
+        resetPinTitle.textColor = Config.instance.colors.accent
         
         let subtitle: String = {
             if let userInfo = Config.instance.userInfo {
                 let maskedSendingDestination = userInfo.sendingDestination.maskContactInfo(method: userInfo.sendingMethod)
-                return "\(props.resetOpeningSub) \(maskedSendingDestination)"
+                return "\(props.resetOpeningSub) <blue>\(maskedSendingDestination)<blue>"
             }
             return props.resetFailSub
         }()
         resetPinSubtitle.text = subtitle
-        resetPinSubtitle.font = Config.instance.fonts.subtitle
+        resetPinSubtitle.font = Config.instance.fonts.subtitleLarge
+        resetPinSubtitle.textColor = Config.instance.colors.accent
+        resetPinSubtitle.setupFontStyleBetweenTag(
+            font: Config.instance.fonts.subtitleLarge,
+            color: Config.instance.colors.secondary,
+            tag: "<blue>")
         
         if let _ = Config.instance.userInfo {
             resendEmailButton.setTitle(props.resendEmail, for: .normal)
@@ -269,8 +283,9 @@ extension ResetPINViewController: ResetCodeTextFieldDelegate {
         guard let userInfo = Config.instance.userInfo,
             let challengeID = userInfo.resetChallengeID,
             let challenge = userInfo.resetChallenge else {
-            self.setError(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.unableToResetPin))
-            return
+                LoadingScreen.shared.stop()
+                self.setError(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.unableToResetPin))
+                return
         }
         
         // Callback Function to execute after Email Code Verification

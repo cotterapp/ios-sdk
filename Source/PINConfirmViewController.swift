@@ -96,6 +96,12 @@ class PINConfirmViewController : UIViewController {
         instantiateCodeTextFieldFunctions()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar
+            .tintColor = Config.instance.colors.navbarTint
+    }
+    
     func setError(msg: String?) {
         errorLabel.isHidden = msg == nil
         errorLabel.text = msg ?? ""
@@ -143,7 +149,11 @@ extension PINConfirmViewController : PINBaseController {
                 case .success:
                     self.codeTextField.clear()
                     let finalVC = self.storyboard?.instantiateViewController(withIdentifier: "PINFinalViewController")as! PINFinalViewController
-                    self.navigationController?.pushViewController(finalVC, animated: true)
+                    finalVC.isEnroll = true
+                    let nav = CotterNavigationViewController(
+                        rootViewController: finalVC)
+                    nav.modalPresentationStyle = .fullScreen
+                    self.present(nav, animated: true, completion: nil)
                 case .failure(let err):
                     self.setError(msg: self.generateErrorMessageFrom(error: err))
                 }
@@ -182,6 +192,7 @@ extension PINConfirmViewController: PINConfirmViewComponent {
         setupLeftTitleBar(with: props.navTitle)
         titleLabel.text = props.title
         titleLabel.font = Config.instance.fonts.title
+        titleLabel.textColor = Config.instance.colors.accent
         errorLabel.textColor = props.dangerColor
         errorLabel.font = Config.instance.fonts.paragraph
     }

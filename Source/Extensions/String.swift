@@ -43,4 +43,62 @@ extension String {
         }
         return String(hiddenMidCharsArr)
     }
+    
+    // get the text out inside tag from the sentence with multiple text
+    func getChosenTexts(betweenTag tag: String, isRemoveTag: Bool = false) -> [String] {
+        let regex = try! NSRegularExpression(pattern:"\(tag)(.*?)\(tag)", options: [])
+        var results = [String]()
+        
+        regex.enumerateMatches(
+        in: self,
+        options: [],
+        range: NSMakeRange(0, self.utf16.count)) { result, flags, stop in
+            
+            if let r = result?.range(at: 0),
+                let range = Range(r, in: self) {
+                
+                results.append(String(self[range]))
+            }
+        }
+        
+        if results.count != 0 {
+            if isRemoveTag {
+                for index in 0..<results.count {
+                    results[index] = results[index].replacingOccurrences(of: tag, with: "")
+                }
+            }
+            return results
+        } else {
+            return []
+        }
+        
+    }
+}
+
+extension UILabel {
+    
+    // custom styling text between tag
+    func setupFontStyleBetweenTag(
+        font: UIFont,
+        color: UIColor,
+        tag: String) {
+        
+        if let text = text, text.contains(tag) {
+            let boldTexts = text.getChosenTexts(betweenTag: tag, isRemoveTag: true)
+            let cleanText = text.replacingOccurrences(of: tag, with: "")
+            
+            let attr = NSMutableAttributedString(string: cleanText)
+            for boldText in boldTexts {
+                let range = (cleanText as NSString).range(of: boldText)
+                attr.addAttributes(
+                    [
+                        NSAttributedString.Key.font : font,
+                        NSAttributedString.Key.foregroundColor: color,
+                    ],
+                    range: range)
+            }
+            self.attributedText = attr
+        }
+    }
+    
 }
