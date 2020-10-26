@@ -88,8 +88,7 @@ extension BiometricRegistrationService: BottomPopupModalDelegate {
     }
     
     @objc func cancelHandler() {
-        bottomPopupScanPrompt.dismiss(animated: false)
-        BiometricSuccessPopup(bioService: self).show()
+        self.authCallback("token", nil)
     }
     
     func dismissCompletion() {

@@ -44,7 +44,6 @@ protocol PINFinalViewComponent: AnyObject {
     func setupUI()
     func render(_ props: PINFinalViewProps)
     func didFinish(button: UIButton)
-    func setupBiometric()
 }
 
 // MARK: - PINFinalViewPresenter Implementation
@@ -92,7 +91,6 @@ class PINFinalViewPresenterImpl: PINFinalViewPresenter {
     func onViewLoaded() {
         viewController.setupUI()
         viewController.render(props)
-        viewController.setupBiometric()
     }
     
     func onFinish(button: UIButton) {
@@ -174,16 +172,12 @@ extension PINFinalViewController: PINFinalViewComponent {
         imagePath = props.successImage
     }
     
-    func setupBiometric() {
+    func didFinish(button: UIButton) {
+        // set access token or return values here
         if requireAuth {
             // Touch ID/Face ID Verification
             BiometricRegistrationService(event: "Verification", callback: Config.instance.pinEnrollmentCb).start()
-        }
-    }
-    
-    func didFinish(button: UIButton) {
-        // set access token or return values here
-        if delegate == nil {
+        } else if delegate == nil {
             Config.instance.updatePINCb("this is token", nil)
         } else {
             delegate?.callback(token: "token", error: nil)
