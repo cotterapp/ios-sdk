@@ -25,10 +25,19 @@ class BiometricFailPopup: BottomPopupModalDelegate {
     )
     
     var bioService: BiometricServiceDelegate
+    var callback: FinalAuthCallback?
     
-    public init (bioService: BiometricServiceDelegate) {
+    public init (
+        bioService: BiometricServiceDelegate,
+        callback: FinalAuthCallback? = nil) {
+        
         self.bioService = bioService
         popup.delegate = self
+        
+        if let callback = callback {
+            self.callback = callback
+            self.popup.cancelText = CotterStrings.instance.getText(for: AuthAlertMessagesKey.verifyAuthCancelButton)
+        }
     }
     
     public func show() {
@@ -46,7 +55,11 @@ class BiometricFailPopup: BottomPopupModalDelegate {
     }
     
     func cancelHandler() {
-        popup.dismiss(animated: false)
-        bioService.authCallback("failed", CotterError.verificationCancelled)
+        if let callback = self.callback {
+            callback("token", nil)
+        } else {
+            popup.dismiss(animated: false)
+            bioService.authCallback("failed", CotterError.verificationCancelled)
+        }
     }
 }

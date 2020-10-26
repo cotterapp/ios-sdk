@@ -26,7 +26,7 @@ class BottomPopupModal {
     let img: UIImage
     let title: String
     let body: String
-    let cancelText: String?
+    var cancelText: String?
     let actionText: String?
     
     let darkOverlayView = UIView()
