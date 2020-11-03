@@ -11,7 +11,7 @@ import Cotter
 import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
+class AppDelegate: UIResponder, UIApploicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
 

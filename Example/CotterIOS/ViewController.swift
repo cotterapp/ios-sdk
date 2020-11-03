@@ -34,16 +34,22 @@ class ViewController: UIViewController {
         let dVC = sboard.instantiateViewController(withIdentifier: "DashboardViewController") as! DashboardViewController
         
         func cbFunc(accessToken: String, error: Error?) -> Void {
-            print("hello world!")
             guard let error = error else {
                 dVC.accessToken = accessToken
-                print("[cbFunc] accessToken:", accessToken)
                 self.navigationController?.pushViewController(dVC, animated: true)
                 return
             }
-          
-            // error handling
-            self.errorLabel.text = error.localizedDescription
+            
+            switch(error) {
+            case CotterError.verificationCancelled:
+                // REDIRECT TO DASHBOARD
+                dVC.accessToken = accessToken
+                self.navigationController?.pushViewController(dVC, animated: true)
+                break
+            default:
+                // error handling
+                self.errorLabel.text = error.localizedDescription
+            }
         }
         
         Callback.shared.authCb = cbFunc
