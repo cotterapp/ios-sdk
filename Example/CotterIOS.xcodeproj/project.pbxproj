@@ -772,7 +772,7 @@
 				CODE_SIGN_ENTITLEMENTS = CotterIOS_Example.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 97LKD29ZGY;
+				DEVELOPMENT_TEAM = S82KLNTT2U;
 				INFOPLIST_FILE = CotterIOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
