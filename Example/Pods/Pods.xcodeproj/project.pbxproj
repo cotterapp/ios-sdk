@@ -136,6 +136,7 @@
 		826AD5DD50B4ABB7EAF2045E9692541F /* TransactionPINViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6D9E342497144CBB5C0949C9F6F43E /* TransactionPINViewController.swift */; };
 		82A1B61342F0966055C677A256C045CE /* GetBiometricStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68BF3E14B4D0C4AC827252A0197C144 /* GetBiometricStatus.swift */; };
 		85A1C6898CF5E8F2D1A4A6DEAADBF90B /* GetUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8392B0EC756086E2846E501FB5DA976 /* GetUser.swift */; };
+		85C66703255116C8005C4AE6 /* BiometricRegistrationFailPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C66702255116C8005C4AE6 /* BiometricRegistrationFailPopup.swift */; };
 		85E75625253535AE0053A186 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E75624253535AE0053A186 /* UIImage.swift */; };
 		85E75645253536910053A186 /* cotter.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85E7562F2535362A0053A186 /* cotter.xcassets */; };
 		87D2CE559F5D9822C0FEB123D190B293 /* UpdateUserPIN.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB681B6D77ADB23073C91701B19CC719 /* UpdateUserPIN.swift */; };
@@ -533,6 +534,7 @@
 		851E326CED726EC3D849054969230154 /* CotterOAuthToken.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = CotterOAuthToken.html; path = docs/Structs/CotterOAuthToken.html; sourceTree = "<group>"; };
 		852A77A8E7A6E27DBCD441181CC13C6F /* TweePlaceholderTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TweePlaceholderTextField.swift; path = Sources/TweePlaceholderTextField.swift; sourceTree = "<group>"; };
 		857E4CDDF190838DAA903EBA7DB73D9B /* MockedAPIService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MockedAPIService.swift; path = Source/MockedAPIService.swift; sourceTree = "<group>"; };
+		85C66702255116C8005C4AE6 /* BiometricRegistrationFailPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricRegistrationFailPopup.swift; sourceTree = "<group>"; };
 		85E75624253535AE0053A186 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		85E7562F2535362A0053A186 /* cotter.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = cotter.xcassets; sourceTree = "<group>"; };
 		86078D088DAF73254275FE099AD94FB9 /* AssertionDispatcher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AssertionDispatcher.swift; path = Sources/Nimble/Adapters/AssertionDispatcher.swift; sourceTree = "<group>"; };
@@ -1372,6 +1374,7 @@
 				73C6D575A0821153945EEFC447B99740 /* AlertService.swift */,
 				90B7CEA9AABD0A7F177D1BB488756C95 /* BiometricFailPopup.swift */,
 				014E386AE1A5CE8A7472C1A521B87371 /* BiometricSuccessPopup.swift */,
+				85C66702255116C8005C4AE6 /* BiometricRegistrationFailPopup.swift */,
 			);
 			name = Alert;
 			path = Source/Alert;
@@ -2063,6 +2066,7 @@
 				4636BD7FD767BAE6226C5CC68D3B80D6 /* Protocols.swift in Sources */,
 				EE203091827227C3A11C99DD9A9F3404 /* QRScannerViewController.swift in Sources */,
 				A57E4C7870419C221F9593601D7476BE /* RefreshToken.swift in Sources */,
+				85C66703255116C8005C4AE6 /* BiometricRegistrationFailPopup.swift in Sources */,
 				0A8719F18AADFBA156F0782E57CB11F6 /* RegisterBiometric.swift in Sources */,
 				5CE37DF1DFDF06D166CF0F41A4302961 /* RegisterTrustedViewController.swift in Sources */,
 				B58B86B2152B837F3DBAA7B2EF3DD1D4 /* RegisterUser.swift in Sources */,
@@ -2512,6 +2516,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Cotter";
+				DEVELOPMENT_TEAM = S82KLNTT2U;
 				IBSC_MODULE = Cotter;
 				INFOPLIST_FILE = "Target Support Files/Cotter/ResourceBundle-Cotter-Cotter-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;

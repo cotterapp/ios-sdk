@@ -73,13 +73,13 @@ extension BiometricRegistrationService: BottomPopupModalDelegate {
     
         // this will force biometric scan request
         guard KeyStore.biometric.privKey != nil else {
-            BiometricFailPopup(bioService: self).show()
+            BiometricRegistrationFailPopup(bioService: self).show()
             return
         }
 
         // get the public key, this will trigger the faceID
         guard let pubKey = KeyStore.biometric.pubKey else {
-            BiometricFailPopup(bioService: self).show()
+            BiometricRegistrationFailPopup(bioService: self).show()
             return
         }
 
