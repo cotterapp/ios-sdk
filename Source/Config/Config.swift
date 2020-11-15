@@ -28,7 +28,7 @@ class Config: NSObject {
     var fonts: FontObject = FontObject()
   
     // space configurations
-    var baseURL: URL = URL(string: "https://wwww.cotter.app/api/v0")!
+    var baseURL: URL = URL(string: "https://www.cotter.app/api/v0")!
 //    var baseURL: URL = URL(string: "http://192.168.86.33:1234/api/v0")!
     
     // passwordless configurations
