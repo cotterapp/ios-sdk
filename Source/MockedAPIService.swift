@@ -41,8 +41,8 @@ public class MockedAPIService: APIService {
     var registerUserInputRequest: RegisterUser!
     var registerUserCalled: Bool = false
 
-    public func registerUser(userID: String, cb: @escaping ResultCallback<CotterUser>) -> Void {
-        registerUserInputRequest = RegisterUser(userID: userID)
+    public func registerUser(userID: String, identifier:String, cb: @escaping ResultCallback<CotterUser>) -> Void {
+        registerUserInputRequest = RegisterUser(userID: userID, identifier: identifier)
         registerUserCalled = true
         
         mockedClient.send(registerUserInputRequest) { response in

@@ -127,7 +127,6 @@ public class Passwordless: NSObject {
     
     // register should register the client's userID on the server and enroll trusted device for the first time
     public func register(identifier: String, cb: @escaping (_ user: CotterUser?, _ err: Error?) -> Void) {
-        // need userID: "" because as of now client_user_id will be deprecated.
         CotterAPIService.shared.registerUser(userID: identifier, cb: { resp in
             switch resp {
             case .success(_):
@@ -154,7 +153,7 @@ public class Passwordless: NSObject {
     // as client user id
     public func registerWith(identifier: String, cb: @escaping (_ user: CotterUser?, _ err: Error?) -> Void) {
         // need userID: "" because as of now client_user_id will be deprecated.
-        CotterAPIService.shared.registerUser(userID: "", cb: { resp in
+        CotterAPIService.shared.registerUser(userID: "", identifier: identifier, cb: { resp in
             switch resp {
             case .success(let user):
                 // response is CotterResult<CotterUser>
