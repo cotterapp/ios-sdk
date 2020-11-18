@@ -7,6 +7,7 @@
 
 import UIKit
 import TTGSnackbar
+import os.log
 
 // MARK: - Keys for Strings
 public class ResetPINViewControllerKey {
@@ -230,12 +231,6 @@ extension ResetPINViewController: ResetPINViewComponent {
     }
     
     func makeResetPinRequest() {
-        // If no user info, do not continue
-        guard let userInfo = Config.instance.userInfo else {
-            self.setError(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.unableToResetPin))
-            return
-        }
-        
         // Pin Reset Callback
         func pinResetCb(response: CotterResult<CotterResponseWithChallenge>) {
             switch response {
@@ -252,7 +247,39 @@ extension ResetPINViewController: ResetPINViewComponent {
             }
         }
         
+        if let onResetPin = Config.instance.onResetPin {
+            guard let userID = CotterAPIService.shared.userID else {
+                os_log("%{public}@ { userId does not exist when resetting PIN }",
+                       log: Config.instance.log, type: .info,
+                       #function)
+                return
+            }
+            
+            CotterAPIService.shared.getUser(userID: userID) { resp in
+                switch(resp) {
+                case .success(let user):
+                    onResetPin(user, pinResetCb)
+                    return
+                case .failure(let err):
+                    os_log("%{public}@ { error getting user on pin reset, error: %{public}@  }",
+                           log: Config.instance.log, type: .info,
+                           #function, err.localizedDescription)
+                    return
+                }
+            }
+            
+            return;
+        }
+        
+        // If no user info, do not continue
+        // DEPRECATED
+        guard let userInfo = Config.instance.userInfo else {
+            self.setError(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.unableToResetPin))
+            return
+        }
+        
         // Request PIN Reset
+        // DEPRECATED, use onResetPin flow
         CotterAPIService.shared.requestPINReset(
             name: userInfo.name,
             sendingMethod: userInfo.sendingMethod,

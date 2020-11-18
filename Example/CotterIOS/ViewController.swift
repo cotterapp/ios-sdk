@@ -72,13 +72,31 @@ class ViewController: UIViewController {
     @IBAction func clickStartTransaction(_ sender: Any) {
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
+        let onResetPin: OnResetPin = {(_, cb) in
+            // call your backend endpoint to start reset process
+            let result: CotterResult<CotterResponseWithChallenge>
+            
+            // sample http response
+            let data = Data("{\"success\": true, \"challenge_id\": 1, \"challenge\": \"1234\"}".utf8)
+            do {
+                let resp = try JSONDecoder().decode(CotterResponseWithChallenge.self , from: data)
+                result = .success(resp)
+            } catch(let e) {
+                print("got here\(e.localizedDescription)")
+                result = .failure(CotterError.general(message: e.localizedDescription))
+            }
+            
+            cb(result)
+        }
+        
         CotterWrapper.cotter?.startTransaction(
             vc: self,
             animated: true,
             cb: Callback.shared.authCb,
             name: "Albert", // fill the user's name
             sendingMethod: "EMAIL", // fill user's email
-            sendingDestination: "albert@cotter.app"
+            sendingDestination: "albert@cotter.app",
+            onResetPin: onResetPin
         )
         
         // to optionally hide the back button

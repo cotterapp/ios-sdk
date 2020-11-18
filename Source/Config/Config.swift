@@ -18,6 +18,8 @@ class Config: NSObject {
     var transactionCb: FinalAuthCallback
     var passwordlessCb: (_ identity: CotterIdentity?, _ error: Error?) -> Void
     
+    var onResetPin: OnResetPin?
+    
     // Config objects passed in from SDK User
     var userInfo: UserInfo? // Required to start reset PIN Process
 
@@ -32,8 +34,8 @@ class Config: NSObject {
 //    var baseURL: URL = URL(string: "http://192.168.86.33:1234/api/v0")!
     
     // passwordless configurations
-    var PLBaseURL: String? = "https://js.cotter.app/app"
-//    var PLBaseURL: String? = "https://s.js.cotter.app/app"
+//    var PLBaseURL: String? = "https://js.cotter.app/app"
+    var PLBaseURL: String? = "https://s.js.cotter.app/app"
 //    var PLBaseURL: String? = "http://localhost:3000/app"
 //    var PLBaseURL: String? = "http://192.168.86.33:3000/app"
     var PLScheme: String? = "cotter"

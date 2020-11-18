@@ -11,6 +11,9 @@ import UIKit
 import OneSignal
 import UserNotifications
 
+// OnResetPin for custom reset behavior
+public typealias OnResetPin = (CotterUser, (CotterResult<CotterResponseWithChallenge>) -> Void) -> Void
+
 public class Cotter {
     // this variable is needed to retain the object of ASWebAuthentication,
     // otherwise the login default prompt will be closed immediately because
@@ -172,9 +175,10 @@ public class Cotter {
         animated: Bool,
         cb: @escaping FinalAuthCallback,
         hideClose: Bool = false,
-        name: String? = nil,
-        sendingMethod: String? = nil,
-        sendingDestination: String? = nil
+        name: String? = nil, // DEPRECATED
+        sendingMethod: String? = nil, // DEPRECATED
+        sendingDestination: String? = nil, // DEPRECATED
+        onResetPin: OnResetPin? = nil
     ) {
         // Hide the close button
         self.transactionPinVC.hideCloseButton = hideClose
@@ -182,8 +186,13 @@ public class Cotter {
         Config.instance.transactionCb = transformCb(parent: vc, cb: cb)
         
         // Add user info if exist - name, sending method, etc.
+        // DEPRECATED
         if let name = name, let sendingMethod = sendingMethod, let sendingDestination = sendingDestination {
             Config.instance.userInfo = UserInfo(name: name, sendingMethod: sendingMethod, sendingDestination: sendingDestination)
+        }
+        
+        if let onResetPin = onResetPin {
+            Config.instance.onResetPin = onResetPin
         }
         
         // if you want to show close button, need to wrap it inside a navigation controller
@@ -293,6 +302,7 @@ public class Cotter {
         apiKeyID: String,
         configuration: [String:Any] = [:]
     ) {
+        Config.instance.baseURL = URL(string: "https://staging.cotter.app/api/v0")!
         os_log(
             "%{public}@ { baseURL: %{public}@, apiKey: %{public}@ }",
             log: Config.instance.log, type: .info,
