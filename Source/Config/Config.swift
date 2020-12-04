@@ -18,6 +18,8 @@ class Config: NSObject {
     var transactionCb: FinalAuthCallback
     var passwordlessCb: (_ identity: CotterIdentity?, _ error: Error?) -> Void
     
+    var onResetPin: OnResetPin?
+    
     // Config objects passed in from SDK User
     var userInfo: UserInfo? // Required to start reset PIN Process
 

@@ -10,7 +10,7 @@ import Foundation
 public struct GetUser: APIRequest, AutoEquatable {
     public typealias Response = CotterUser
     
-    public var path: String {
+    public var path: String {        
         if self.userID != "" {
             return "/user/\(self.userID)"
         } else {

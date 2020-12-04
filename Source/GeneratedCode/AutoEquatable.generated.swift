@@ -140,6 +140,7 @@ extension RegisterUser: Equatable {
     public static func ==(lhs: RegisterUser, rhs: RegisterUser) -> Bool {
         guard lhs.method == rhs.method else { return false }
         guard lhs.userID == rhs.userID else { return false }
+        guard lhs.identifier == rhs.identifier else { return false }
         return true
     }
 }

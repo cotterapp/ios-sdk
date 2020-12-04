@@ -212,6 +212,7 @@ public class CotterAPIService: APIService {
         apiClient.send(req, completion:cb)
     }
     
+    // DEPRECATED
     public func requestPINReset(
         name: String,
         sendingMethod: String,
