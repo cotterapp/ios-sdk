@@ -198,8 +198,15 @@ extension ResetPINViewController: ResetPINViewComponent {
         resetPinTitle.textColor = Config.instance.colors.accent
         
         resetPinSubtitle.text = props.resetOpeningSub
+        if let placeholderSendingDestination = Config.instance.userInfo?.sendingDestination {
+            resetPinSubtitle.text = "\(props.resetOpeningSub) <blue>\(placeholderSendingDestination)<blue>"
+        }
         resetPinSubtitle.font = Config.instance.fonts.subtitleLarge
         resetPinSubtitle.textColor = Config.instance.colors.accent
+        resetPinSubtitle.setupFontStyleBetweenTag(
+            font: Config.instance.fonts.subtitleLarge,
+            color: Config.instance.colors.secondary,
+            tag: "<blue>")
         
         resendEmailButton.setTitle(props.resendEmail, for: .normal)
         resendEmailButton.setTitleColor(props.primaryColor, for: .normal)
