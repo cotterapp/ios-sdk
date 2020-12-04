@@ -9,7 +9,7 @@ import Foundation
 
 public protocol APIService : MockedService {
     func auth(userID: String, issuer: String, event: String, code: String, method: String, pubKey: String?, timestamp: String, cb: @escaping ResultCallback<CotterEvent>)
-    func registerUser(userID: String, cb: @escaping ResultCallback<CotterUser>)
+    func registerUser(userID: String, identifier: String, cb: @escaping ResultCallback<CotterUser>)
     func enrollUserPin(code: String, cb: @escaping ResultCallback<CotterUser>)
     func updateUserPin(oldCode: String, newCode: String, cb: @escaping ResultCallback<CotterUser>)
     func getBiometricStatus(cb: @escaping ResultCallback<EnrolledMethods>)

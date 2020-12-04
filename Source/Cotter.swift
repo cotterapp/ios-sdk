@@ -338,7 +338,7 @@ public class Cotter {
         // we handle notification from killed state by checking if the user has any pending event
         // everytime the app loads.
         if let userID = getLoggedInUserID() {
-            Passwordless.shared.checkEvent(identifier: userID)
+            Passwordless.shared.checkEvent(clientUserID: userID)
         }
     }
     

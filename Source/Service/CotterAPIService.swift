@@ -9,6 +9,7 @@ import Foundation
 import os.log
 
 public class CotterAPIService: APIService {
+    
     // shared cotterAPI service to be used anywhere later
     // when you want to use the APIService, do CotterAPIService.shared.<function-name>
     public static var shared = CotterAPIService()
@@ -78,13 +79,14 @@ public class CotterAPIService: APIService {
     
     public func registerUser(
         userID: String,
+        identifier: String = "",
         cb: @escaping ResultCallback<CotterUser>
     ) {
         // initialize new client
         let apiClient = self.apiClient()
        
         // register the user
-        apiClient.send(RegisterUser(userID: userID)) { response in
+        apiClient.send(RegisterUser(userID: userID , identifier: identifier)) { response in
             cb(response)
         }
     }

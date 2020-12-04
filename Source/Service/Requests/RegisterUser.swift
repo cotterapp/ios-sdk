@@ -18,7 +18,8 @@ public struct RegisterUser: APIRequest, AutoEquatable {
     
     public var body: Data? {
         let data = [
-            "client_user_id": self.userID
+            "client_user_id": self.userID,
+            "identifier": self.identifier
         ]
         
         let body = try? JSONSerialization.data(withJSONObject: data)
@@ -27,8 +28,10 @@ public struct RegisterUser: APIRequest, AutoEquatable {
     }
     
     let userID: String
+    let identifier: String
     
-    public init(userID:String){
+    public init(userID:String, identifier:String = "") {
         self.userID = userID
+        self.identifier = identifier
     }
 }

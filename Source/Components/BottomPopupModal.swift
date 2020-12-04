@@ -53,7 +53,10 @@ class BottomPopupModal {
     }
     
     public func show() {
-        guard let window = UIApplication.shared.delegate?.window, let nv = window else { return }
+        guard let nv = UIWindow.key else {
+            return
+            
+        }
         
         let fonts = Config.instance.fonts
 

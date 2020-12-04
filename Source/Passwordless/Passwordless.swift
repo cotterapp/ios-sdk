@@ -92,7 +92,7 @@ public class Passwordless: NSObject {
         }
     }
     
-    public func checkEvent(identifier:String) {
+    public func checkEvent(clientUserID: String) {
         // checkEvent then callback
         func checkCb(resp: CotterResult<CotterEvent?>){
             switch resp {
@@ -116,18 +116,30 @@ public class Passwordless: NSObject {
                 }
                 // else, nothing happens
             case .failure(let err):
-                os_log("%{public}@ getting user {err: %{public}@}",
+                os_log("%{public}@ getting new event {err: %{public}@}",
                        log: Config.instance.log, type: .debug,
                        #function, err.localizedDescription)
             }
         }
         
-        CotterAPIService.shared.getNewEvent(userID: identifier, cb: checkCb)
+        CotterAPIService.shared.getNewEvent(userID: clientUserID, cb: checkCb)
+    }
+    
+    public func checkEvent(identifier:String) {
+        CotterAPIService.shared.getUser(identifier: identifier) { resp in
+            switch(resp) {
+            case .success(let user):
+                self.checkEvent(clientUserID: user.clientUserID)
+            case .failure(let err):
+                return os_log("%{public}@ getting user in checkEvent {err: %{public}@}",
+                           log: Config.instance.log, type: .debug,
+                           #function, err.localizedDescription)
+            }
+        }
     }
     
     // register should register the client's userID on the server and enroll trusted device for the first time
     public func register(identifier: String, cb: @escaping (_ user: CotterUser?, _ err: Error?) -> Void) {
-        // need userID: "" because as of now client_user_id will be deprecated.
         CotterAPIService.shared.registerUser(userID: identifier, cb: { resp in
             switch resp {
             case .success(_):
@@ -154,7 +166,7 @@ public class Passwordless: NSObject {
     // as client user id
     public func registerWith(identifier: String, cb: @escaping (_ user: CotterUser?, _ err: Error?) -> Void) {
         // need userID: "" because as of now client_user_id will be deprecated.
-        CotterAPIService.shared.registerUser(userID: "", cb: { resp in
+        CotterAPIService.shared.registerUser(userID: "", identifier: identifier, cb: { resp in
             switch resp {
             case .success(let user):
                 // response is CotterResult<CotterUser>
@@ -291,7 +303,7 @@ func randomString(length: Int) -> String {
 }
 
 func getTopMostViewController() -> UIViewController? {
-    guard let root = UIApplication.shared.delegate?.window??.rootViewController else { return nil }
+    guard let root = UIWindow.key?.rootViewController else { return nil }
     
     var topController = root
     

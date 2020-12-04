@@ -27,8 +27,8 @@ public struct CotterEvent: Codable {
     
     enum CodingKeys: String, CodingKey {
         case id = "ID"
-        case createdAt = "CreatedAt"
-        case deletedAt = "DeletedAt"
+        case createdAt = "created_at"
+        case deletedAt = "deleted_at"
         case clientUserID = "client_user_id"
         case issuer
         case event
