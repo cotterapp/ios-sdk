@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Cotter'
-  s.version          = '1.5.17'
+  s.version          = '1.5.17.11'
   s.summary          = 'Cotter is the client SDK for Cotter authentication services'
   s.swift_versions   = '5.0'
 
@@ -42,8 +42,6 @@ CotterIOS simplifies client's integration with Cotter. It is an SDK that provide
   s.frameworks = 'UIKit'
   s.dependency 'TTGSnackbar', '1.10.3'
   s.dependency 'OneSignal', '2.15.3'
-  s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
-  s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
 
 #  s.test_spec 'Tests' do |test_spec|
 #    test_spec.source_files = 'Example/Tests/**/*.{swift}'
