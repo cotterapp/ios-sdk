@@ -11,7 +11,7 @@ import Foundation
 
 public struct CotterEvent: Codable {
     var id:Int
-    var createdAt:String
+    var createdAt:String?
     var updatedAt:String?
     var deletedAt:String?
     var clientUserID:String
@@ -27,8 +27,8 @@ public struct CotterEvent: Codable {
     
     enum CodingKeys: String, CodingKey {
         case id = "ID"
-        case createdAt = "CreatedAt"
-        case deletedAt = "DeletedAt"
+        case createdAt = "created_at"
+        case deletedAt = "deleted_at"
         case clientUserID = "client_user_id"
         case issuer
         case event

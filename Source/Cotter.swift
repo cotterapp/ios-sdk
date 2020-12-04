@@ -175,9 +175,9 @@ public class Cotter {
         animated: Bool,
         cb: @escaping FinalAuthCallback,
         hideClose: Bool = false,
-        name: String? = nil, // DEPRECATED
-        sendingMethod: String? = nil, // DEPRECATED
-        sendingDestination: String? = nil, // DEPRECATED
+        name: String? = nil,
+        sendingMethod: String? = nil,
+        sendingDestination: String? = nil,
         onResetPin: OnResetPin? = nil
     ) {
         // Hide the close button
@@ -186,7 +186,7 @@ public class Cotter {
         Config.instance.transactionCb = transformCb(parent: vc, cb: cb)
         
         // Add user info if exist - name, sending method, etc.
-        // DEPRECATED
+        // userInfo is not used to send email anymore, it's used for placeholder
         if let name = name, let sendingMethod = sendingMethod, let sendingDestination = sendingDestination {
             Config.instance.userInfo = UserInfo(name: name, sendingMethod: sendingMethod, sendingDestination: sendingDestination)
         }
