@@ -80,9 +80,6 @@ public class CotterClient: APIClient {
                     completion(.success(resp))
                 }
             } catch {
-                print("GOT HERE BRO")
-                print(error.localizedDescription)
-                print(error)
                 // failing to decode will result in failure
                 DispatchQueue.main.async {
                     completion(.failure(CotterError.general(message: error.localizedDescription)))

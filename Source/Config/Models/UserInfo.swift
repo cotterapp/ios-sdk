@@ -9,8 +9,8 @@ import Foundation
 
 class UserInfo {
     let name: String
-    var sendingMethod: String
-    var sendingDestination: String
+    let sendingMethod: String
+    let sendingDestination: String
     
     // For Resetting PIN Process
     var resetCode: String? = nil
