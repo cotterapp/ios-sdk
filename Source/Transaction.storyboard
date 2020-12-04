@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -36,7 +37,7 @@
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O4J-TQ-rey" customClass="KeyboardView" customModule="Cotter" customModuleProvider="target">
                                 <rect key="frame" x="20" y="238" width="280" height="330"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="355" id="Bnb-nv-04D">
                                         <variation key="heightClass=regular-widthClass=compact" constant="330"/>
@@ -49,7 +50,7 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="22X-JY-ong">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="22X-JY-ong">
                                 <rect key="frame" x="100.5" y="209" width="119" height="29"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                 <state key="normal" title="Forget PIN Button"/>
@@ -71,6 +72,7 @@
                                 </variation>
                             </imageView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="cc2-fq-F3x"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="EgU-4J-7lY" firstAttribute="centerX" secondItem="VH2-NC-nA8" secondAttribute="centerX" id="22f-aA-F1h"/>
@@ -96,7 +98,6 @@
                             <constraint firstItem="O4J-TQ-rey" firstAttribute="centerX" secondItem="VH2-NC-nA8" secondAttribute="centerX" id="qh2-zC-FaY"/>
                             <constraint firstItem="O4J-TQ-rey" firstAttribute="leading" secondItem="cc2-fq-F3x" secondAttribute="leading" constant="20" id="xuT-2h-Bhi"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="cc2-fq-F3x"/>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="jBO-hF-Z1e"/>
@@ -161,19 +162,19 @@
                                     <constraint firstAttribute="width" constant="300" id="tBL-rm-aDB"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                <color key="textColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" systemColor="systemIndigoColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PY1-HN-7l5" customClass="KeyboardView" customModule="Cotter" customModuleProvider="target">
                                 <rect key="frame" x="20" y="238" width="280" height="330"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="355" id="nFI-5i-qh2">
                                         <variation key="heightClass=regular-widthClass=compact" constant="330"/>
                                     </constraint>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wgk-2p-25k">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wgk-2p-25k">
                                 <rect key="frame" x="103.5" y="209" width="113" height="29"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                 <state key="normal" title="Reset PIN Button"/>
@@ -198,6 +199,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="ZvZ-EL-y31"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="PY1-HN-7l5" firstAttribute="bottom" secondItem="ZvZ-EL-y31" secondAttribute="bottom" id="1Ug-YJ-3Zq"/>
@@ -223,7 +225,6 @@
                             <constraint firstItem="ZvZ-EL-y31" firstAttribute="trailing" secondItem="PY1-HN-7l5" secondAttribute="trailing" constant="20" id="oaD-di-dlp"/>
                             <constraint firstItem="ZvZ-EL-y31" firstAttribute="trailing" secondItem="a4e-SC-6fs" secondAttribute="trailing" constant="20" id="p9Y-a3-MtA"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="ZvZ-EL-y31"/>
                     </view>
                     <navigationItem key="navigationItem" id="Z8m-wz-E9Q"/>
                     <connections>
@@ -274,7 +275,7 @@
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UCb-j7-xcO" customClass="KeyboardView" customModule="Cotter" customModuleProvider="target">
                                 <rect key="frame" x="20" y="238" width="280" height="330"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="355" id="ITh-bK-Y0a">
                                         <variation key="heightClass=regular-widthClass=compact" constant="330"/>
@@ -289,6 +290,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="uxL-IN-Kg4"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="UCb-j7-xcO" firstAttribute="bottom" secondItem="uxL-IN-Kg4" secondAttribute="bottom" id="0RB-Cl-T4h"/>
@@ -310,7 +312,6 @@
                             </constraint>
                             <constraint firstItem="Oa8-Wg-ULx" firstAttribute="centerX" secondItem="6dj-p3-wW5" secondAttribute="centerX" id="zfs-fw-HgG"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="uxL-IN-Kg4"/>
                     </view>
                     <navigationItem key="navigationItem" id="Klc-F3-UyL"/>
                     <connections>
@@ -359,7 +360,7 @@
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jzO-H5-sGu" customClass="KeyboardView" customModule="Cotter" customModuleProvider="target">
                                 <rect key="frame" x="20" y="238" width="280" height="330"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="355" id="gRV-pd-zG2">
                                         <variation key="heightClass=regular-widthClass=compact" constant="330"/>
@@ -379,6 +380,7 @@
                                 </variation>
                             </imageView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="ZUL-Nz-3ZU"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="tXK-sx-T6m" firstAttribute="leading" secondItem="ZUL-Nz-3ZU" secondAttribute="leading" constant="20" id="6oL-iW-o3w"/>
@@ -400,7 +402,6 @@
                             <constraint firstItem="CMs-EO-Ykm" firstAttribute="centerX" secondItem="1wf-mU-Ofj" secondAttribute="centerX" id="vah-qc-pl8"/>
                             <constraint firstItem="ehI-bm-aTC" firstAttribute="centerX" secondItem="1wf-mU-Ofj" secondAttribute="centerX" id="yWN-y9-5Ap"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="ZUL-Nz-3ZU"/>
                     </view>
                     <connections>
                         <outlet property="codeTextField" destination="Ppl-lf-iDH" id="Bpq-rS-9Zu"/>
@@ -432,5 +433,11 @@
     </scenes>
     <resources>
         <image name="lock_24px" width="40" height="40"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

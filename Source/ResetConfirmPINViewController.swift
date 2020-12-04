@@ -227,6 +227,7 @@ extension ResetConfirmPINViewController : KeyboardViewDelegate {
 
 extension ResetConfirmPINViewController: CallbackDelegate {
     func callback(token: String, error: Error?) {
+        self.navigationController?.dismiss(animated: false)
         Config.instance.transactionCb(token, error)
     }
 }

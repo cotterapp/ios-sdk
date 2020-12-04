@@ -72,30 +72,34 @@ class ViewController: UIViewController {
     @IBAction func clickStartTransaction(_ sender: Any) {
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
-        let onResetPin: OnResetPin = {(_, cb) in
+        let onResetPin: OnResetPin = {(user, cb) in
             // call your backend endpoint to start reset process
-            let result: CotterResult<CotterResponseWithChallenge>
+            let url = URL(string: "https://go-cotter.herokuapp.com/pin/reset/\(user.clientUserID)")!
             
-            // sample http response
-            let data = Data("{\"success\": true, \"challenge_id\": 1, \"challenge\": \"1234\"}".utf8)
-            do {
-                let resp = try JSONDecoder().decode(CotterResponseWithChallenge.self , from: data)
-                result = .success(resp)
-            } catch(let e) {
-                print("got here\(e.localizedDescription)")
-                result = .failure(CotterError.general(message: e.localizedDescription))
+            let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
+                guard let data = data else { return }
+                
+                let result: CotterResult<CotterResponseWithChallenge>
+                
+                do {
+                    let resp = try JSONDecoder().decode(CotterResponseWithChallenge.self , from: data)
+                    result = .success(resp)
+                } catch(let e) {
+                    print("got here\(e.localizedDescription)")
+                    print(e)
+                    result = .failure(CotterError.general(message: e.localizedDescription))
+                }
+                
+                cb(result)
             }
             
-            cb(result)
+            task.resume()
         }
         
         CotterWrapper.cotter?.startTransaction(
             vc: self,
             animated: true,
             cb: Callback.shared.authCb,
-            name: "Albert", // fill the user's name
-            sendingMethod: "EMAIL", // fill user's email
-            sendingDestination: "albert@cotter.app",
             onResetPin: onResetPin
         )
         

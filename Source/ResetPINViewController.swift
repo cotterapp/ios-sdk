@@ -21,7 +21,6 @@ public class ResetPINViewControllerKey {
 
 // MARK: - Presenter Protocol delegated UI-related logic
 protocol ResetPINViewPresenter {
-    func onViewAppeared()
     func onViewLoaded()
     func clickedResendEmail()
 }
@@ -81,18 +80,14 @@ class ResetPINViewPresenterImpl: ResetPINViewPresenter {
         self.viewController = viewController
     }
     
-    func onViewAppeared() {
-        viewController.makeResetPinRequest()
-    }
-    
     func onViewLoaded() {
         viewController.setupUI()
         viewController.setupDelegates()
         viewController.render(props)
+        viewController.makeResetPinRequest()
     }
     
     func clickedResendEmail() {
-        
         viewController.makeResetPinRequest()
         let snackbar = TTGSnackbar(
             message: props.resendEmailSnackbarText,
@@ -126,10 +121,6 @@ class ResetPINViewController: UIViewController {
     @IBOutlet weak var keyboardView: KeyboardView!
     
     lazy var presenter: ResetPINViewPresenter = ResetPINViewPresenterImpl(self)
-    
-    override func viewDidAppear(_ animated: Bool) {
-        presenter.onViewAppeared()
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -206,28 +197,14 @@ extension ResetPINViewController: ResetPINViewComponent {
         resetPinTitle.font = Config.instance.fonts.titleLarge
         resetPinTitle.textColor = Config.instance.colors.accent
         
-        let subtitle: String = {
-            if let userInfo = Config.instance.userInfo {
-                let maskedSendingDestination = userInfo.sendingDestination.maskContactInfo(method: userInfo.sendingMethod)
-                return "\(props.resetOpeningSub) <blue>\(maskedSendingDestination)<blue>"
-            }
-            return props.resetFailSub
-        }()
-        resetPinSubtitle.text = subtitle
+        resetPinSubtitle.text = props.resetOpeningSub
         resetPinSubtitle.font = Config.instance.fonts.subtitleLarge
         resetPinSubtitle.textColor = Config.instance.colors.accent
-        resetPinSubtitle.setupFontStyleBetweenTag(
-            font: Config.instance.fonts.subtitleLarge,
-            color: Config.instance.colors.secondary,
-            tag: "<blue>")
         
-        if let _ = Config.instance.userInfo {
-            resendEmailButton.setTitle(props.resendEmail, for: .normal)
-            resendEmailButton.setTitleColor(props.primaryColor, for: .normal)
-            resendEmailButton.titleLabel?.font = Config.instance.fonts.subtitle
-        } else {
-            resendEmailButton.isEnabled = false
-        }
+        resendEmailButton.setTitle(props.resendEmail, for: .normal)
+        resendEmailButton.setTitleColor(props.primaryColor, for: .normal)
+        resendEmailButton.titleLabel?.font = Config.instance.fonts.subtitle
+        resendEmailButton.isEnabled = false
     }
     
     func makeResetPinRequest() {
@@ -237,8 +214,19 @@ extension ResetPINViewController: ResetPINViewComponent {
             case .success(let data):
                 if data.success {
                     // Store the Challenge and Challenge ID
+                    Config.instance.userInfo = UserInfo(name:"", sendingMethod: data.sendingMethod ?? "", sendingDestination: data.sendingDestination ?? "")
                     Config.instance.userInfo?.resetChallengeID = data.challengeID
                     Config.instance.userInfo?.resetChallenge = data.challenge
+                    DispatchQueue.main.async {
+                        let maskedSendingDestination = data.sendingDestination?.maskContactInfo(method: data.sendingMethod ?? "EMAIL")
+                        self.resetPinSubtitle.text = "\(CotterStrings.instance.getText(for: ResetPINViewControllerKey.subtitle)) <blue>\(maskedSendingDestination ?? "")<blue>"
+                        self.resetPinSubtitle.setupFontStyleBetweenTag(
+                            font: Config.instance.fonts.subtitleLarge,
+                            color: Config.instance.colors.secondary,
+                            tag: "<blue>")
+                        
+                        self.resendEmailButton.isEnabled = true
+                    }
                 } else {
                     self.setError(msg: CotterStrings.instance.getText(for: PinErrorMessagesKey.unableToResetPin))
                 }
@@ -248,7 +236,8 @@ extension ResetPINViewController: ResetPINViewComponent {
         }
         
         if let onResetPin = Config.instance.onResetPin {
-            guard let userID = CotterAPIService.shared.userID else {
+            let userID = CotterAPIService.shared.cotterUserID
+            if userID == "" {
                 os_log("%{public}@ { userId does not exist when resetting PIN }",
                        log: Config.instance.log, type: .info,
                        #function)

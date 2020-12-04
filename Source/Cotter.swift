@@ -12,7 +12,7 @@ import OneSignal
 import UserNotifications
 
 // OnResetPin for custom reset behavior
-public typealias OnResetPin = (CotterUser, (CotterResult<CotterResponseWithChallenge>) -> Void) -> Void
+public typealias OnResetPin = (CotterUser, @escaping (CotterResult<CotterResponseWithChallenge>) -> Void) -> Void
 
 public class Cotter {
     // this variable is needed to retain the object of ASWebAuthentication,
@@ -302,7 +302,6 @@ public class Cotter {
         apiKeyID: String,
         configuration: [String:Any] = [:]
     ) {
-        Config.instance.baseURL = URL(string: "https://staging.cotter.app/api/v0")!
         os_log(
             "%{public}@ { baseURL: %{public}@, apiKey: %{public}@ }",
             log: Config.instance.log, type: .info,
