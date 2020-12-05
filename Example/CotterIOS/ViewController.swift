@@ -100,6 +100,9 @@ class ViewController: UIViewController {
             vc: self,
             animated: true,
             cb: Callback.shared.authCb,
+            name: "Albert",
+            sendingMethod: "",
+            sendingDestination: "albert@cotter.app",
             onResetPin: onResetPin
         )
         
