@@ -45,24 +45,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         CotterWrapper.cotter = Cotter(
             apiSecretKey: apiSecretKey,
             apiKeyID: apiKeyID,
-//            cotterURL: "http://192.168.86.28:1234/api/v0",
+            // cotterURL: "http://192.168.86.28:1234/api/v0",
             cotterURL: "https://www.cotter.app/api/v0",
             userID: "",
             // configuration is an optional argument, remove this below and Cotter app will still function properly
             configuration: [:]
         )
-        
         // if you want to start PINViewControler on startup, use getPINViewController
-//        let vc = CotterWrapper.cotter!.getTransactionPINViewController(hideClose: true, cb: Callback.shared.authCb)
-//        let nav = UINavigationController(rootViewController: vc)
-//        self.window?.rootViewController = nav
-//        self.window?.makeKeyAndVisible()
+        // let vc = CotterWrapper.cotter!.getTransactionPINViewController(hideClose: true, cb: Callback.shared.authCb)
+        // let nav = UINavigationController(rootViewController: vc)
+        // self.window?.rootViewController = nav
+        // self.window?.makeKeyAndVisible()
         
         // the following configuration is optional, only use this if you want to use your own fonts
-//        let customFont = FontObject()
-//        customFont.title = UIFont.systemFont(ofSize: 9.0)
-//        customFont.subtitle = UIFont.boldSystemFont(ofSize: 35.0)
-//        customFont.keypad = UIFont.boldSystemFont(ofSize: 10.0)
+        // let customFont = FontObject()
+        // customFont.title = UIFont.systemFont(ofSize: 9.0)
+        // customFont.subtitle = UIFont.boldSystemFont(ofSize: 35.0)
+        // customFont.keypad = UIFont.boldSystemFont(ofSize: 10.0)
         
         // let lang = Indonesian()
         // lang.setText(for: PINViewControllerKey.navTitle, to: "Hello world!")
@@ -73,19 +72,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         // custom coloring
         let color = ColorSchemeObject(primary: CotterColor.purple, accent: CotterColor.orange)
-        
+
         Cotter.configureWithLaunchOptions(
             launchOptions: launchOptions,
             apiSecretKey: apiSecretKey,
             apiKeyID: apiKeyID,
             configuration: [
-                // "fonts": customFont,
                 "colors": color,
                 "images": img,
+                
+                // Other configuration
+                // "base_url": "http://192.168.86.33:1234/api/v0",
+                // "passwordless_base_url": "https://s.js.cotter.app/app",
                 // "language": lang
+                // "fonts": customFont,
             ]
         )
-        
+            
         // Granting user permission using notification center
         UNUserNotificationCenter.current() // 1
         .requestAuthorization(options: [.alert, .sound, .badge]) { // 2

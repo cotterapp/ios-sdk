@@ -329,6 +329,13 @@ public class Cotter {
         if let name = configuration["name"] as! String?, let sendingMethod = configuration["sendingMethod"] as! String?, let sendingDestination = configuration["sendingDestination"] as! String? {
             Config.instance.userInfo = UserInfo(name: name, sendingMethod: sendingMethod, sendingDestination: sendingDestination)
         }
+        
+        if let baseURL = configuration["base_url"] as! String? {
+            Config.instance.baseURL = URL(string: baseURL)!
+        }
+        if let passwordlessBaseURL = configuration["passwordless_base_url"] as! String? {
+            Config.instance.PLBaseURL = passwordlessBaseURL
+        }
     }
     
     // configureWithLaunchOptions configures cotter with notification services (OneSignal)
@@ -350,7 +357,7 @@ public class Cotter {
             Passwordless.shared.checkEvent(clientUserID: userID)
         }
     }
-    
+
     // configureOneSignal configure cotter's onesignal SDK with launchOptions provided
     private static func configureOneSignal(launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
         let onesignalInitSettings = [kOSSettingsKeyAutoPrompt: false,
