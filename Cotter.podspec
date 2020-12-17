@@ -24,9 +24,9 @@ CotterIOS simplifies client's integration with Cotter. It is an SDK that provide
   s.platform              = :ios
   s.ios.deployment_target = '10.0'
 
-  s.source_files = 'Source/**/*.swift'
+  s.source_files = 'Cotter/**/*.swift'
   s.resource_bundles = {
-      'Assets' => ['Source/**/*.{png,storyboard,lproj,xib,xcassets}']
+      'Assets' => ['Cotter/**/*.{png,storyboard,lproj,xib,xcassets}']
   }
 
   s.static_framework = true
@@ -38,7 +38,7 @@ CotterIOS simplifies client's integration with Cotter. It is an SDK that provide
 
   s.test_spec 'Tests' do |test_spec|
       test_spec.requires_app_host = true
-      test_spec.source_files = 'Example/Tests/Cases/{Services,Models}/*.{swift}'
+      test_spec.source_files = 'Tests/Cases/{Services,Models}/*.{swift}'
       test_spec.dependency 'Nimble', '~> 8.0'
   end
 end

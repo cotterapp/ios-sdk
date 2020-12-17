@@ -1,0 +1,6 @@
+framework module Pods_Cotter {
+  umbrella header "Pods-Cotter-umbrella.h"
+
+  export *
+  module * { export * }
+}

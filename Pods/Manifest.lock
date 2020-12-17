@@ -1,0 +1,20 @@
+PODS:
+  - OneSignal (3.0.0)
+  - TTGSnackbar (1.10.3)
+
+DEPENDENCIES:
+  - OneSignal (~> 3.0)
+  - TTGSnackbar (= 1.10.3)
+
+SPEC REPOS:
+  trunk:
+    - OneSignal
+    - TTGSnackbar
+
+SPEC CHECKSUMS:
+  OneSignal: e291067823e1f35d57bcafafc7327d2b514ae69d
+  TTGSnackbar: 97c033600de8a9c8f4a093f25a08543a03946bcc
+
+PODFILE CHECKSUM: 7db2b9af64046510a06142600c2d62c083fecf14
+
+COCOAPODS: 1.9.3

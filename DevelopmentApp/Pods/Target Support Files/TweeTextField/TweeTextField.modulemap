@@ -1,0 +1,6 @@
+framework module TweeTextField {
+  umbrella header "TweeTextField-umbrella.h"
+
+  export *
+  module * { export * }
+}
