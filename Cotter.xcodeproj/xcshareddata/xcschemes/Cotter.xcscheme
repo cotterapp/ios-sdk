@@ -20,6 +20,20 @@
                ReferencedContainer = "container:Cotter.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "857B65E7258C21C0001C5AC2"
+               BuildableName = "CotterTests.xctest"
+               BlueprintName = "CotterTests"
+               ReferencedContainer = "container:Cotter.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
