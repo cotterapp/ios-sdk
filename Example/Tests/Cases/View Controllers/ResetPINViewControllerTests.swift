@@ -19,6 +19,9 @@ class ResetPINViewControllerTests: XCTestCase {
     let resetOpeningSub = CotterStrings.instance.getText(for: ResetPINViewControllerKey.subtitle)
     let resetFailSub = CotterStrings.instance.getText(for: ResetPINViewControllerKey.resetFailSub)
     let resendEmailText = CotterStrings.instance.getText(for: ResetPINViewControllerKey.resendEmail)
+    let resendEmailSnackbarText = CotterStrings.instance.getText(for: ResetPINViewControllerKey.resendEmailSnackbarText)
+    
+    let resendEmailSnackbarIcon = CotterImages.instance.getImage(for: VCImageKey.resendSnackbarIcon)
     
     // MARK: - VC Color Definitions
     let primaryColor = Config.instance.colors.primary
@@ -44,18 +47,12 @@ class ResetPINViewControllerTests: XCTestCase {
             resetOpeningSub: resetOpeningSub,
             resetFailSub: resetFailSub,
             resendEmail: resendEmailText,
+            resendEmailSnackbarText: resendEmailSnackbarText,
             primaryColor: primaryColor,
             accentColor: accentColor,
-            dangerColor: dangerColor
+            dangerColor: dangerColor,
+            resendEmailSnackbarIcon: resendEmailSnackbarIcon
         )
-    }
-    
-    func testViewDidAppearCallsPresenter() {
-        let sut = makeSUT()
-        
-        sut.viewDidAppear(true)
-        
-        expect(self.presenter.onViewAppearCalled).to(beTrue())
     }
 
     func testViewDidLoadCallsPresenter() {
@@ -91,21 +88,21 @@ class ResetPINViewControllerTests: XCTestCase {
         expect(sut.resendEmailButton.title(for: .normal)).to(match(resendEmailText))
         expect(sut.resendEmailButton.titleColor(for: .normal)).to(equal(primaryColor))
     }
-    
-    func testRenderWithNoUserInfo() {
-        Config.instance.userInfo = nil
-        let props = setupProps()
-        
-        let sut = makeSUT()
-        
-        sut.render(props)
-        
-        // expect(sut.navigationItem.title).to(match(navTitle))
-        expect(sut.resetPinTitle.text).to(match(resetTitle))
-        expect(sut.resetPinError.textColor).to(equal(dangerColor))
-        expect(sut.resetPinSubtitle.text).to(match(resetFailSub))
-        expect(sut.resendEmailButton.isEnabled).to(beFalse())
-    }
+
+    // func testRenderWithNoUserInfo() {
+    //     Config.instance.userInfo = nil
+    //     let props = setupProps()
+    //
+    //     let sut = makeSUT()
+    //
+    //     sut.render(props)
+    //
+    //     // expect(sut.navigationItem.title).to(match(navTitle))
+    //     expect(sut.resetPinTitle.text).to(match(resetTitle))
+    //     expect(sut.resetPinError.textColor).to(equal(dangerColor))
+    //     expect(sut.resetPinSubtitle.text).to(match(resetFailSub))
+    //     expect(sut.resendEmailButton.isEnabled).to(beFalse())
+    // }
     
     func testToggleErrorMsg() {
         let sut = makeSUT(actualPresenter: true) // errorLabel is hidden initially

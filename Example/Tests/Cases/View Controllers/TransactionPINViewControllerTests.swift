@@ -66,14 +66,6 @@ class TransactionPINViewControllerTests: XCTestCase {
         expect(self.presenter.onViewLoadCalled).to(beTrue())
     }
     
-    func testOnClickPinVisCallsPresenter() {
-        let sut = makeSUT()
-        
-        sut.onClickPinVis(.init())
-        
-        expect(self.presenter.onClickPinVisCalled).to(beTrue())
-    }
-    
     func testRender() {
         let props = setupProps()
         
@@ -84,21 +76,8 @@ class TransactionPINViewControllerTests: XCTestCase {
         // expect(sut.navigationItem.title).to(match(navTitle))
         expect(sut.titleLabel.text).to(match(titleText))
         expect(sut.errorLabel.textColor).to(equal(dangerColor))
-        expect(sut.pinVisibilityButton.title(for: .normal)).to(match(showPinText))
-        expect(sut.pinVisibilityButton.titleColor(for: .normal)).to(equal(primaryColor))
         expect(sut.forgetPinButton.title(for: .normal)).to(match(forgetPinText))
-        expect(sut.forgetPinButton.titleColor(for: .normal)).to(equal(accentColor))
-    }
-    
-    func testOnClickPinVis() {
-        let props = setupProps()
-        
-        let sut = makeSUT(actualPresenter: true)
-        sut.render(props) // Sets pinVisibilityButton title to be showPinText initially
-        
-        sut.onClickPinVis(sut.pinVisibilityButton)
-        
-        expect(sut.pinVisibilityButton.title(for: .normal)).to(match(hidePinText))
+        expect(sut.forgetPinButton.titleColor(for: .normal)).to(equal(primaryColor))
     }
     
     func testToggleErrorMsg() {
@@ -113,7 +92,6 @@ class TransactionPINViewControllerTests: XCTestCase {
 }
 
 class TransactionPINViewPresenterMock: TransactionPINViewPresenter {
-    
     private(set) var onViewAppearCalled = false
     
     func onViewAppeared() {
@@ -125,11 +103,4 @@ class TransactionPINViewPresenterMock: TransactionPINViewPresenter {
     func onViewLoaded() {
         onViewLoadCalled = true
     }
-    
-    private(set) var onClickPinVisCalled = false
-    
-    func onClickPinVis(button: UIButton) {
-        onClickPinVisCalled = true
-    }
-    
 }

@@ -360,21 +360,20 @@ public class Cotter {
 
     // configureOneSignal configure cotter's onesignal SDK with launchOptions provided
     private static func configureOneSignal(launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
-        let onesignalInitSettings = [kOSSettingsKeyAutoPrompt: false,
-         kOSSettingsKeyInAppLaunchURL: true]
+        if CommandLine.arguments.contains("DISABLE_COTTER_ONESIGNAL") {
+            return;
+        }
+        
+        OneSignal.setLocationShared(false)
+        OneSignal.initWithLaunchOptions(launchOptions)
+        OneSignal.setNotificationOpenedHandler(notificationOpenedHandler)
 
         func notifCb(res: CotterResult<CotterNotificationCredential>) {
             switch res {
                 case .success(let cred):
                     // if appID is not setup don't use initiate OneSignal
                     if cred.appID == "" { return }
-                    OneSignal.setLocationShared(false)
-                    OneSignal.initWithLaunchOptions(launchOptions,
-                                                  appId: cred.appID,
-                                                  handleNotificationReceived: nil,
-                                                  handleNotificationAction: notificationOpenedHandler,
-                                                  settings: onesignalInitSettings)
-                    OneSignal.inFocusDisplayType = .notification
+                    OneSignal.setAppId(cred.appID)
                 
                     if let userID = Cotter.getLoggedInUserID() {
                         guard let pubKey = KeyStore.trusted(userID: userID).pubKey else {
@@ -479,9 +478,9 @@ func transformCb(parent: UIViewController, cb: @escaping FinalAuthCallback) -> F
     }
 }
 
-func notificationOpenedHandler( result: OSNotificationOpenedResult? ) {
+func notificationOpenedHandler( result: OSNotificationOpenedResult ) {
     // This block gets called when the user reacts to a notification received
-    let payload: OSNotificationPayload = result!.notification.payload
+    let payload: OSNotification = result.notification
     
     if payload.additionalData != nil {
         let customData = payload.additionalData

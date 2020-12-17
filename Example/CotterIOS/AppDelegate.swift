@@ -72,7 +72,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         // custom coloring
         let color = ColorSchemeObject(primary: CotterColor.purple, accent: CotterColor.orange)
-
+        
         Cotter.configureWithLaunchOptions(
             launchOptions: launchOptions,
             apiSecretKey: apiSecretKey,
@@ -80,7 +80,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             configuration: [
                 "colors": color,
                 "images": img,
-                
+        
                 // Other configuration
                 // "base_url": "http://192.168.86.33:1234/api/v0",
                 // "passwordless_base_url": "https://s.js.cotter.app/app",
@@ -88,7 +88,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 // "fonts": customFont,
             ]
         )
-            
+
         // Granting user permission using notification center
         UNUserNotificationCenter.current() // 1
         .requestAuthorization(options: [.alert, .sound, .badge]) { // 2
