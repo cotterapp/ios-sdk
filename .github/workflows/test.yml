@@ -3,15 +3,15 @@ name: Test
 on: pull_request
 jobs:
   test:
-    runs-on: macOS-latest
+    runs-on: macos-latest
     strategy:
       matrix:
         destination: ['platform=iOS Simulator,OS=13.7,name=iPhone 11']
     steps:
     - name: Checkout
       uses: actions/checkout@master
-    - name: Force XCode 11.7
-      run: sudo xcode-select -switch /Applications/Xcode_11.7.app
+    - name: Force XCode 12
+      run: sudo xcode-select -switch /Applications/Xcode_12.app
     - name: Install Dependences
       run: |
         cd Example
