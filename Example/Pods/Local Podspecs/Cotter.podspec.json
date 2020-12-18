@@ -46,10 +46,7 @@
       "name": "Tests",
       "test_type": "unit",
       "requires_app_host": true,
-      "source_files": [
-        "Example/Tests/Cases/Services/*.{swift}",
-        "Example/Tests/Cases/Models/*.{swift}"
-      ],
+      "source_files": "Example/Tests/Cases/{Services,Models}/*.{swift}",
       "dependencies": {
         "Nimble": [
           "~> 8.0"
