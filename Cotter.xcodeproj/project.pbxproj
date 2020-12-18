@@ -3,11 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		77C722F25F35AF04B4163C40 /* Pods_Cotter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1255292A943F02CD7E86E5F1 /* Pods_Cotter.framework */; platformFilter = ios; };
 		857B635D258B5292001C5AC2 /* Cotter.h in Headers */ = {isa = PBXBuildFile; fileRef = 857B635B258B5292001C5AC2 /* Cotter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		857B6379258B5394001C5AC2 /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857B6375258B5394001C5AC2 /* AlertService.swift */; };
 		857B637A258B5394001C5AC2 /* BiometricRegistrationFailPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857B6376258B5394001C5AC2 /* BiometricRegistrationFailPopup.swift */; };
@@ -153,19 +152,19 @@
 		857B64DF258B6071001C5AC2 /* Cotter.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 857B64DC258B6071001C5AC2 /* Cotter.podspec */; };
 		857B64E0258B6071001C5AC2 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 857B64DD258B6071001C5AC2 /* LICENSE */; };
 		857B64E1258B6071001C5AC2 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 857B64DE258B6071001C5AC2 /* README.md */; };
-		857B65EB258C21C0001C5AC2 /* CotterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857B65EA258C21C0001C5AC2 /* CotterTests.swift */; };
-		857B65ED258C21C0001C5AC2 /* Cotter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 857B6358258B5292001C5AC2 /* Cotter.framework */; };
-		857B65FE258C21D6001C5AC2 /* CotterImagesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857B65F6258C21D6001C5AC2 /* CotterImagesTests.swift */; };
-		857B65FF258C21D6001C5AC2 /* ImageObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857B65F7258C21D6001C5AC2 /* ImageObjectTests.swift */; };
-		857B6600258C21D6001C5AC2 /* UserInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857B65F8258C21D6001C5AC2 /* UserInfoTests.swift */; };
-		857B6601258C21D6001C5AC2 /* CotterStringsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857B65F9258C21D6001C5AC2 /* CotterStringsTests.swift */; };
-		857B6602258C21D6001C5AC2 /* LanguageObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857B65FA258C21D6001C5AC2 /* LanguageObjectTests.swift */; };
-		857B6603258C21D6001C5AC2 /* APIClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857B65FC258C21D6001C5AC2 /* APIClientTests.swift */; };
-		857B6604258C21D6001C5AC2 /* APIServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857B65FD258C21D6001C5AC2 /* APIServiceTests.swift */; };
+		859D2F3E258C66E6001C24BF /* CotterImagesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859D2F2C258C66E6001C24BF /* CotterImagesTests.swift */; };
+		859D2F3F258C66E6001C24BF /* ImageObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859D2F2D258C66E6001C24BF /* ImageObjectTests.swift */; };
+		859D2F40258C66E6001C24BF /* UserInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859D2F2E258C66E6001C24BF /* UserInfoTests.swift */; };
+		859D2F41258C66E6001C24BF /* CotterStringsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859D2F2F258C66E6001C24BF /* CotterStringsTests.swift */; };
+		859D2F42258C66E6001C24BF /* LanguageObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859D2F30258C66E6001C24BF /* LanguageObjectTests.swift */; };
+		859D2F43258C66E6001C24BF /* APIClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859D2F32258C66E6001C24BF /* APIClientTests.swift */; };
+		859D2F44258C66E6001C24BF /* APIServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859D2F33258C66E6001C24BF /* APIServiceTests.swift */; };
+		E822E0CC681374BB1DA7CD11 /* Pods_Cotter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90EA875A33DABC96E6AA6398 /* Pods_Cotter.framework */; };
+		F7F3D077D032341EF002D746 /* Pods_CotterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 335E4184CE258890CB46EF5A /* Pods_CotterTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		857B65EE258C21C0001C5AC2 /* PBXContainerItemProxy */ = {
+		859D2FFB258C7900001C24BF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 857B634F258B5292001C5AC2 /* Project object */;
 			proxyType = 1;
@@ -175,8 +174,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1255292A943F02CD7E86E5F1 /* Pods_Cotter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cotter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		48F4259C880B9674723D4090 /* Pods-Cotter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cotter.release.xcconfig"; path = "Target Support Files/Pods-Cotter/Pods-Cotter.release.xcconfig"; sourceTree = "<group>"; };
+		335E4184CE258890CB46EF5A /* Pods_CotterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CotterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		857B6358258B5292001C5AC2 /* Cotter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Cotter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		857B635B258B5292001C5AC2 /* Cotter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Cotter.h; sourceTree = "<group>"; };
 		857B635C258B5292001C5AC2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -321,22 +319,33 @@
 		857B643A258B5532001C5AC2 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		857B643B258B5532001C5AC2 /* PKCE.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PKCE.swift; sourceTree = "<group>"; };
 		857B64C6258B5CC5001C5AC2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/iOSSupport/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		857B64CA258B5D00001C5AC2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		857B64D6258B5E0B001C5AC2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
 		857B64DC258B6071001C5AC2 /* Cotter.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cotter.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		857B64DD258B6071001C5AC2 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		857B64DE258B6071001C5AC2 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		857B65E8258C21C0001C5AC2 /* CotterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CotterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		857B65EA258C21C0001C5AC2 /* CotterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CotterTests.swift; sourceTree = "<group>"; };
-		857B65EC258C21C0001C5AC2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		857B65F6258C21D6001C5AC2 /* CotterImagesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CotterImagesTests.swift; sourceTree = "<group>"; };
-		857B65F7258C21D6001C5AC2 /* ImageObjectTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageObjectTests.swift; sourceTree = "<group>"; };
-		857B65F8258C21D6001C5AC2 /* UserInfoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoTests.swift; sourceTree = "<group>"; };
-		857B65F9258C21D6001C5AC2 /* CotterStringsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CotterStringsTests.swift; sourceTree = "<group>"; };
-		857B65FA258C21D6001C5AC2 /* LanguageObjectTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageObjectTests.swift; sourceTree = "<group>"; };
-		857B65FC258C21D6001C5AC2 /* APIClientTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClientTests.swift; sourceTree = "<group>"; };
-		857B65FD258C21D6001C5AC2 /* APIServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIServiceTests.swift; sourceTree = "<group>"; };
-		9D4A38EB55CEF3B2E36F16F7 /* Pods-Cotter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cotter.debug.xcconfig"; path = "Target Support Files/Pods-Cotter/Pods-Cotter.debug.xcconfig"; sourceTree = "<group>"; };
+		859D2F0B258C6641001C24BF /* CotterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CotterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		859D2F0F258C6641001C24BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		859D2F21258C66E6001C24BF /* PINFinalViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PINFinalViewControllerTests.swift; sourceTree = "<group>"; };
+		859D2F22258C66E6001C24BF /* UpdateConfirmNewPINViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateConfirmNewPINViewControllerTests.swift; sourceTree = "<group>"; };
+		859D2F23258C66E6001C24BF /* PINConfirmViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PINConfirmViewControllerTests.swift; sourceTree = "<group>"; };
+		859D2F24258C66E6001C24BF /* PINViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PINViewControllerTests.swift; sourceTree = "<group>"; };
+		859D2F25258C66E6001C24BF /* UpdateCreateNewPINViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateCreateNewPINViewControllerTests.swift; sourceTree = "<group>"; };
+		859D2F26258C66E6001C24BF /* TransactionPINViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionPINViewControllerTests.swift; sourceTree = "<group>"; };
+		859D2F27258C66E6001C24BF /* ResetNewPINViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetNewPINViewControllerTests.swift; sourceTree = "<group>"; };
+		859D2F28258C66E6001C24BF /* UpdatePINViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdatePINViewControllerTests.swift; sourceTree = "<group>"; };
+		859D2F29258C66E6001C24BF /* ResetConfirmPINViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetConfirmPINViewControllerTests.swift; sourceTree = "<group>"; };
+		859D2F2A258C66E6001C24BF /* ResetPINViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPINViewControllerTests.swift; sourceTree = "<group>"; };
+		859D2F2C258C66E6001C24BF /* CotterImagesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CotterImagesTests.swift; sourceTree = "<group>"; };
+		859D2F2D258C66E6001C24BF /* ImageObjectTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageObjectTests.swift; sourceTree = "<group>"; };
+		859D2F2E258C66E6001C24BF /* UserInfoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoTests.swift; sourceTree = "<group>"; };
+		859D2F2F258C66E6001C24BF /* CotterStringsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CotterStringsTests.swift; sourceTree = "<group>"; };
+		859D2F30258C66E6001C24BF /* LanguageObjectTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageObjectTests.swift; sourceTree = "<group>"; };
+		859D2F32258C66E6001C24BF /* APIClientTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClientTests.swift; sourceTree = "<group>"; };
+		859D2F33258C66E6001C24BF /* APIServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIServiceTests.swift; sourceTree = "<group>"; };
+		90EA875A33DABC96E6AA6398 /* Pods_Cotter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cotter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		917EEB8EE683793AF25F7313 /* Pods-CotterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CotterTests.release.xcconfig"; path = "Target Support Files/Pods-CotterTests/Pods-CotterTests.release.xcconfig"; sourceTree = "<group>"; };
+		A9437F6F032C87E0300FA152 /* Pods-CotterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CotterTests.debug.xcconfig"; path = "Target Support Files/Pods-CotterTests/Pods-CotterTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E29BBF9DA830218601A75017 /* Pods-Cotter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cotter.release.xcconfig"; path = "Target Support Files/Pods-Cotter/Pods-Cotter.release.xcconfig"; sourceTree = "<group>"; };
+		FBB8B94448020C6BA8A4918E /* Pods-Cotter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cotter.debug.xcconfig"; path = "Target Support Files/Pods-Cotter/Pods-Cotter.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -345,15 +354,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				857B64D9258B5E44001C5AC2 /* UIKit.framework in Frameworks */,
-				77C722F25F35AF04B4163C40 /* Pods_Cotter.framework in Frameworks */,
+				E822E0CC681374BB1DA7CD11 /* Pods_Cotter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		857B65E5258C21C0001C5AC2 /* Frameworks */ = {
+		859D2F08258C6641001C24BF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				857B65ED258C21C0001C5AC2 /* Cotter.framework in Frameworks */,
+				F7F3D077D032341EF002D746 /* Pods_CotterTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,10 +372,9 @@
 		15A072FCC5803888F4EFCEE6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				857B64D6258B5E0B001C5AC2 /* CoreGraphics.framework */,
-				857B64CA258B5D00001C5AC2 /* Foundation.framework */,
 				857B64C6258B5CC5001C5AC2 /* UIKit.framework */,
-				1255292A943F02CD7E86E5F1 /* Pods_Cotter.framework */,
+				90EA875A33DABC96E6AA6398 /* Pods_Cotter.framework */,
+				335E4184CE258890CB46EF5A /* Pods_CotterTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -374,8 +382,10 @@
 		7E0386B77E6BEA047D5DB29D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				9D4A38EB55CEF3B2E36F16F7 /* Pods-Cotter.debug.xcconfig */,
-				48F4259C880B9674723D4090 /* Pods-Cotter.release.xcconfig */,
+				FBB8B94448020C6BA8A4918E /* Pods-Cotter.debug.xcconfig */,
+				E29BBF9DA830218601A75017 /* Pods-Cotter.release.xcconfig */,
+				A9437F6F032C87E0300FA152 /* Pods-CotterTests.debug.xcconfig */,
+				917EEB8EE683793AF25F7313 /* Pods-CotterTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -385,7 +395,7 @@
 			children = (
 				857B64DB258B6044001C5AC2 /* Podspec Metadata */,
 				857B635A258B5292001C5AC2 /* Cotter */,
-				857B65E9258C21C0001C5AC2 /* CotterTests */,
+				859D2F0C258C6641001C24BF /* CotterTests */,
 				857B6359258B5292001C5AC2 /* Products */,
 				7E0386B77E6BEA047D5DB29D /* Pods */,
 				15A072FCC5803888F4EFCEE6 /* Frameworks */,
@@ -396,7 +406,7 @@
 			isa = PBXGroup;
 			children = (
 				857B6358258B5292001C5AC2 /* Cotter.framework */,
-				857B65E8258C21C0001C5AC2 /* CotterTests.xctest */,
+				859D2F0B258C6641001C24BF /* CotterTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -840,39 +850,62 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
-		857B65E9258C21C0001C5AC2 /* CotterTests */ = {
+		859D2F0C258C6641001C24BF /* CotterTests */ = {
 			isa = PBXGroup;
 			children = (
-				857B65F5258C21D6001C5AC2 /* Models */,
-				857B65FB258C21D6001C5AC2 /* Services */,
-				857B65EA258C21C0001C5AC2 /* CotterTests.swift */,
-				857B65EC258C21C0001C5AC2 /* Info.plist */,
+				859D2F1F258C66E6001C24BF /* Cases */,
+				859D2F0F258C6641001C24BF /* Info.plist */,
 			);
 			path = CotterTests;
 			sourceTree = "<group>";
 		};
-		857B65F5258C21D6001C5AC2 /* Models */ = {
+		859D2F1F258C66E6001C24BF /* Cases */ = {
 			isa = PBXGroup;
 			children = (
-				857B65F6258C21D6001C5AC2 /* CotterImagesTests.swift */,
-				857B65F7258C21D6001C5AC2 /* ImageObjectTests.swift */,
-				857B65F8258C21D6001C5AC2 /* UserInfoTests.swift */,
-				857B65F9258C21D6001C5AC2 /* CotterStringsTests.swift */,
-				857B65FA258C21D6001C5AC2 /* LanguageObjectTests.swift */,
+				859D2F20258C66E6001C24BF /* View Controllers */,
+				859D2F2B258C66E6001C24BF /* Models */,
+				859D2F31258C66E6001C24BF /* Services */,
 			);
-			name = Models;
-			path = Tests/Cases/Models;
-			sourceTree = SOURCE_ROOT;
+			path = Cases;
+			sourceTree = "<group>";
 		};
-		857B65FB258C21D6001C5AC2 /* Services */ = {
+		859D2F20258C66E6001C24BF /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				857B65FC258C21D6001C5AC2 /* APIClientTests.swift */,
-				857B65FD258C21D6001C5AC2 /* APIServiceTests.swift */,
+				859D2F21258C66E6001C24BF /* PINFinalViewControllerTests.swift */,
+				859D2F22258C66E6001C24BF /* UpdateConfirmNewPINViewControllerTests.swift */,
+				859D2F23258C66E6001C24BF /* PINConfirmViewControllerTests.swift */,
+				859D2F24258C66E6001C24BF /* PINViewControllerTests.swift */,
+				859D2F25258C66E6001C24BF /* UpdateCreateNewPINViewControllerTests.swift */,
+				859D2F26258C66E6001C24BF /* TransactionPINViewControllerTests.swift */,
+				859D2F27258C66E6001C24BF /* ResetNewPINViewControllerTests.swift */,
+				859D2F28258C66E6001C24BF /* UpdatePINViewControllerTests.swift */,
+				859D2F29258C66E6001C24BF /* ResetConfirmPINViewControllerTests.swift */,
+				859D2F2A258C66E6001C24BF /* ResetPINViewControllerTests.swift */,
 			);
-			name = Services;
-			path = Tests/Cases/Services;
-			sourceTree = SOURCE_ROOT;
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		859D2F2B258C66E6001C24BF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				859D2F2C258C66E6001C24BF /* CotterImagesTests.swift */,
+				859D2F2D258C66E6001C24BF /* ImageObjectTests.swift */,
+				859D2F2E258C66E6001C24BF /* UserInfoTests.swift */,
+				859D2F2F258C66E6001C24BF /* CotterStringsTests.swift */,
+				859D2F30258C66E6001C24BF /* LanguageObjectTests.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		859D2F31258C66E6001C24BF /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				859D2F32258C66E6001C24BF /* APIClientTests.swift */,
+				859D2F33258C66E6001C24BF /* APIServiceTests.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -892,7 +925,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 857B6360258B5292001C5AC2 /* Build configuration list for PBXNativeTarget "Cotter" */;
 			buildPhases = (
-				80F919778B14FD69168D6A8E /* [CP] Check Pods Manifest.lock */,
+				19A4B89795CFDB0CDC73F64B /* [CP] Check Pods Manifest.lock */,
 				857B6353258B5292001C5AC2 /* Headers */,
 				857B6354258B5292001C5AC2 /* Sources */,
 				857B6355258B5292001C5AC2 /* Frameworks */,
@@ -907,23 +940,25 @@
 			productReference = 857B6358258B5292001C5AC2 /* Cotter.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		857B65E7258C21C0001C5AC2 /* CotterTests */ = {
+		859D2F0A258C6641001C24BF /* CotterTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 857B65F2258C21C0001C5AC2 /* Build configuration list for PBXNativeTarget "CotterTests" */;
+			buildConfigurationList = 859D2F12258C6641001C24BF /* Build configuration list for PBXNativeTarget "CotterTests" */;
 			buildPhases = (
-				857B65E4258C21C0001C5AC2 /* Sources */,
-				857B65E5258C21C0001C5AC2 /* Frameworks */,
-				857B65E6258C21C0001C5AC2 /* Resources */,
+				CB8A83FA68952CBA4D73C1D9 /* [CP] Check Pods Manifest.lock */,
+				859D2F07258C6641001C24BF /* Sources */,
+				859D2F08258C6641001C24BF /* Frameworks */,
+				859D2F09258C6641001C24BF /* Resources */,
+				39A125A88279DE12C437853C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				857B65EF258C21C0001C5AC2 /* PBXTargetDependency */,
+				859D2FFC258C7900001C24BF /* PBXTargetDependency */,
 			);
 			name = CotterTests;
 			productName = CotterTests;
-			productReference = 857B65E8258C21C0001C5AC2 /* CotterTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
+			productReference = 859D2F0B258C6641001C24BF /* CotterTests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
@@ -937,7 +972,7 @@
 					857B6357258B5292001C5AC2 = {
 						CreatedOnToolsVersion = 12.3;
 					};
-					857B65E7258C21C0001C5AC2 = {
+					859D2F0A258C6641001C24BF = {
 						CreatedOnToolsVersion = 12.3;
 					};
 				};
@@ -956,7 +991,7 @@
 			projectRoot = "";
 			targets = (
 				857B6357258B5292001C5AC2 /* Cotter */,
-				857B65E7258C21C0001C5AC2 /* CotterTests */,
+				859D2F0A258C6641001C24BF /* CotterTests */,
 			);
 		};
 /* End PBXProject section */
@@ -1000,7 +1035,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		857B65E6258C21C0001C5AC2 /* Resources */ = {
+		859D2F09258C6641001C24BF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1010,7 +1045,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		80F919778B14FD69168D6A8E /* [CP] Check Pods Manifest.lock */ = {
+		19A4B89795CFDB0CDC73F64B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1026,6 +1061,45 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-Cotter-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		39A125A88279DE12C437853C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CotterTests/Pods-CotterTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CotterTests/Pods-CotterTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CotterTests/Pods-CotterTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CB8A83FA68952CBA4D73C1D9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CotterTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1154,28 +1228,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		857B65E4258C21C0001C5AC2 /* Sources */ = {
+		859D2F07258C6641001C24BF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				857B6600258C21D6001C5AC2 /* UserInfoTests.swift in Sources */,
-				857B65FE258C21D6001C5AC2 /* CotterImagesTests.swift in Sources */,
-				857B6602258C21D6001C5AC2 /* LanguageObjectTests.swift in Sources */,
-				857B6603258C21D6001C5AC2 /* APIClientTests.swift in Sources */,
-				857B65FF258C21D6001C5AC2 /* ImageObjectTests.swift in Sources */,
-				857B6601258C21D6001C5AC2 /* CotterStringsTests.swift in Sources */,
-				857B6604258C21D6001C5AC2 /* APIServiceTests.swift in Sources */,
-				857B65EB258C21C0001C5AC2 /* CotterTests.swift in Sources */,
+				859D2F3E258C66E6001C24BF /* CotterImagesTests.swift in Sources */,
+				859D2F42258C66E6001C24BF /* LanguageObjectTests.swift in Sources */,
+				859D2F40258C66E6001C24BF /* UserInfoTests.swift in Sources */,
+				859D2F43258C66E6001C24BF /* APIClientTests.swift in Sources */,
+				859D2F44258C66E6001C24BF /* APIServiceTests.swift in Sources */,
+				859D2F41258C66E6001C24BF /* CotterStringsTests.swift in Sources */,
+				859D2F3F258C66E6001C24BF /* ImageObjectTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		857B65EF258C21C0001C5AC2 /* PBXTargetDependency */ = {
+		859D2FFC258C7900001C24BF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 857B6357258B5292001C5AC2 /* Cotter */;
-			targetProxy = 857B65EE258C21C0001C5AC2 /* PBXContainerItemProxy */;
+			targetProxy = 859D2FFB258C7900001C24BF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1304,7 +1377,7 @@
 		};
 		857B6361258B5292001C5AC2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9D4A38EB55CEF3B2E36F16F7 /* Pods-Cotter.debug.xcconfig */;
+			baseConfigurationReference = FBB8B94448020C6BA8A4918E /* Pods-Cotter.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -1312,6 +1385,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				"EXCLUDED_ARCHS[sdk=*]" = arm64;
 				INFOPLIST_FILE = Cotter/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1331,7 +1405,7 @@
 		};
 		857B6362258B5292001C5AC2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 48F4259C880B9674723D4090 /* Pods-Cotter.release.xcconfig */;
+			baseConfigurationReference = E29BBF9DA830218601A75017 /* Pods-Cotter.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -1339,6 +1413,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				"EXCLUDED_ARCHS[sdk=*]" = arm64;
 				INFOPLIST_FILE = Cotter/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1356,8 +1431,9 @@
 			};
 			name = Release;
 		};
-		857B65F0258C21C0001C5AC2 /* Debug */ = {
+		859D2F10258C6641001C24BF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A9437F6F032C87E0300FA152 /* Pods-CotterTests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S82KLNTT2U;
@@ -1375,8 +1451,9 @@
 			};
 			name = Debug;
 		};
-		857B65F1258C21C0001C5AC2 /* Release */ = {
+		859D2F11258C6641001C24BF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 917EEB8EE683793AF25F7313 /* Pods-CotterTests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S82KLNTT2U;
@@ -1415,11 +1492,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		857B65F2258C21C0001C5AC2 /* Build configuration list for PBXNativeTarget "CotterTests" */ = {
+		859D2F12258C6641001C24BF /* Build configuration list for PBXNativeTarget "CotterTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				857B65F0258C21C0001C5AC2 /* Debug */,
-				857B65F1258C21C0001C5AC2 /* Release */,
+				859D2F10258C6641001C24BF /* Debug */,
+				859D2F11258C6641001C24BF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

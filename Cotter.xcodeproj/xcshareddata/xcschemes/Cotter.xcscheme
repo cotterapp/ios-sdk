@@ -28,9 +28,23 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "857B65E7258C21C0001C5AC2"
+               BlueprintIdentifier = "859D2F0A258C6641001C24BF"
                BuildableName = "CotterTests.xctest"
                BlueprintName = "CotterTests"
+               ReferencedContainer = "container:Cotter.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "859D2FC9258C77FF001C24BF"
+               BuildableName = "libAssets.a"
+               BlueprintName = "Assets"
                ReferencedContainer = "container:Cotter.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -42,6 +56,16 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "859D2F0A258C6641001C24BF"
+               BuildableName = "CotterTests.xctest"
+               BlueprintName = "CotterTests"
+               ReferencedContainer = "container:Cotter.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
