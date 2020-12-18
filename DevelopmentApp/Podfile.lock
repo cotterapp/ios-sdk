@@ -1,0 +1,31 @@
+PODS:
+  - Cotter (1.5.20):
+    - OneSignal (~> 3.0)
+    - TTGSnackbar (= 1.10.3)
+  - OneSignal (3.0.0)
+  - TTGSnackbar (1.10.3)
+  - TweeTextField (1.6.3)
+
+DEPENDENCIES:
+  - Cotter (from `../`)
+  - TweeTextField (= 1.6.3)
+
+SPEC REPOS:
+  trunk:
+    - OneSignal
+    - TTGSnackbar
+    - TweeTextField
+
+EXTERNAL SOURCES:
+  Cotter:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Cotter: 4251cd7156ac45af71b7e8a9ca4a89491a1a5c3f
+  OneSignal: e291067823e1f35d57bcafafc7327d2b514ae69d
+  TTGSnackbar: 97c033600de8a9c8f4a093f25a08543a03946bcc
+  TweeTextField: 47bf8e7f0433364a7f7e119c45e7f278ea50eb62
+
+PODFILE CHECKSUM: 0ab044c89d474d834c31b1a1b50f9fb8a7c4e9dc
+
+COCOAPODS: 1.9.3

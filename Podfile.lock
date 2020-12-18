@@ -1,0 +1,28 @@
+PODS:
+  - Nimble (8.1.2)
+  - OneSignal (3.0.0)
+  - Sourcery (1.0.2)
+  - TTGSnackbar (1.10.3)
+
+DEPENDENCIES:
+  - Nimble (~> 8.0)
+  - OneSignal (~> 3.0)
+  - Sourcery
+  - TTGSnackbar (= 1.10.3)
+
+SPEC REPOS:
+  trunk:
+    - Nimble
+    - OneSignal
+    - Sourcery
+    - TTGSnackbar
+
+SPEC CHECKSUMS:
+  Nimble: 3864815b4703c7ebffba875973c70e854489fbae
+  OneSignal: e291067823e1f35d57bcafafc7327d2b514ae69d
+  Sourcery: e8951e8759ef6a3a0cce412db64832dd23343041
+  TTGSnackbar: 97c033600de8a9c8f4a093f25a08543a03946bcc
+
+PODFILE CHECKSUM: 696bf03ae402f52d68e648e98182b86480aae1f6
+
+COCOAPODS: 1.9.3

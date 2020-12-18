@@ -1,0 +1,11 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'DevelopmentApp' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for LocalizationTester
+  pod 'TweeTextField', '1.6.3'
+  pod 'Cotter', :path => '../'
+end
