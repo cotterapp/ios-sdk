@@ -42,14 +42,14 @@ public class Cotter {
     static var resourceBundle: Bundle = {
         // Set the resource bundle
         let frameworkBundle = Bundle(for: Cotter.self)
-        guard let bundleURL = frameworkBundle.url(forResource: "Cotter", withExtension: "bundle") else {
-            os_log("Cotter.bundle not found!", log: Config.instance.log, type: .fault)
-            fatalError("Cotter.bundle not found!")
+        guard let bundleURL = frameworkBundle.url(forResource: "Assets", withExtension: "bundle") else {
+            os_log("Assets.bundle not found!", log: Config.instance.log, type: .fault)
+            fatalError("Assets.bundle not found!")
         }
 
         guard let resBundle = Bundle(url: bundleURL) else {
-            os_log("cannot access Cotter.bundle!", log: Config.instance.log, type: .fault)
-            fatalError("cannot access Cotter.bundle!")
+            os_log("cannot access Assets.bundle!", log: Config.instance.log, type: .fault)
+            fatalError("cannot access Assets.bundle!")
         }
 
         return resBundle
@@ -488,7 +488,7 @@ func notificationOpenedHandler( result: OSNotificationOpenedResult ) {
             guard let userID = Cotter.getLoggedInUserID() else {
                 return
             }
-            Passwordless.shared.checkEvent(identifier: userID)
+            Passwordless.shared.checkEvent(clientUserID: userID)
         }
     }
 }

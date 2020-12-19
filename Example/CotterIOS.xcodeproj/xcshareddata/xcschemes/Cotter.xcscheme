@@ -88,11 +88,11 @@
          <EnvironmentVariable
             key = "COTTER_API_SECRET_KEY"
             value = ""
-            isEnabled = "YES">
+            isEnabled = "NO">
          </EnvironmentVariable>
          <EnvironmentVariable
             key = "COTTER_API_KEY_ID"
-            value = ""
+            value = "b6e64a6d-ecc9-4582-b8bb-cdd1715b063b"
             isEnabled = "YES">
          </EnvironmentVariable>
       </EnvironmentVariables>
