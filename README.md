@@ -21,7 +21,7 @@ Install using cocoapod
 pod install Cotter
 ```
 
-Import to your iOS application through your Podfile
+asd asd asd asd assd asd Import to your iOS application through your Podfile
 
 ```
 target '<your-app>' do
