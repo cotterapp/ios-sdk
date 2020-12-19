@@ -1,9 +1,9 @@
 PODS:
-  - Cotter (1.5.12):
-    - OneSignal (= 2.15.3)
+  - Cotter (1.5.20):
+    - OneSignal (~> 3.0)
     - TTGSnackbar (= 1.10.3)
   - Nimble (8.1.2)
-  - OneSignal (2.15.3)
+  - OneSignal (3.0.0)
   - Sourcery (1.0.0)
   - TTGSnackbar (1.10.3)
   - TweeTextField (1.6.3)
@@ -11,7 +11,7 @@ PODS:
 DEPENDENCIES:
   - Cotter (from `../`)
   - Nimble (~> 8.0)
-  - OneSignal (= 2.15.3)
+  - OneSignal (~> 3.0)
   - Sourcery
   - TTGSnackbar (= 1.10.3)
   - TweeTextField
@@ -29,13 +29,13 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Cotter: ee8c6085e39012471e88a5b46434dea1da5206f6
+  Cotter: 1a7ef5bb803abc2d4072d377eea8caec3785d1fb
   Nimble: 3864815b4703c7ebffba875973c70e854489fbae
-  OneSignal: d85b81aa313ed8040522b884f556267883d652c2
+  OneSignal: e291067823e1f35d57bcafafc7327d2b514ae69d
   Sourcery: 928a146ea9b777fa64b0c6ce915c4128b4488cff
   TTGSnackbar: 97c033600de8a9c8f4a093f25a08543a03946bcc
   TweeTextField: 47bf8e7f0433364a7f7e119c45e7f278ea50eb62
 
-PODFILE CHECKSUM: f8cf607b1a98df9ed743bc77a368381b23ef2226
+PODFILE CHECKSUM: 2023634113f547a5a75213e1a16f47c73a9b3d7f
 
 COCOAPODS: 1.9.3

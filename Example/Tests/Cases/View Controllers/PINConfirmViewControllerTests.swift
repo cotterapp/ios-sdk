@@ -47,23 +47,7 @@ class PINConfirmViewControllerTests: XCTestCase {
             dangerColor: dangerColor
         )
     }
-
-    func testViewDidLoadCallsPresenter() {
-        let sut = makeSUT()
-        
-        sut.viewDidLoad()
-        
-        expect(self.presenter.onViewLoadCalled).to(beTrue())
-    }
     
-    func testOnClickPinVisCallsPresenter() {
-        let sut = makeSUT()
-        
-        sut.onClickPinVis(.init())
-        
-        expect(self.presenter.onClickPinVisCalled).to(beTrue())
-    }
-
     func testRender() {
         let props = setupProps()
         
@@ -73,20 +57,7 @@ class PINConfirmViewControllerTests: XCTestCase {
         
         // expect(sut.navigationItem.title).to(match(navTitle))
         expect(sut.titleLabel.text).to(match(title))
-        expect(sut.pinVisibilityButton.title(for: .normal)).to(match(showPinText))
-        expect(sut.pinVisibilityButton.titleColor(for: .normal)).to(equal(primaryColor))
         expect(sut.errorLabel.textColor).to(equal(dangerColor))
-    }
-    
-    func testOnClickPinVis() {
-        let props = setupProps()
-        
-        let sut = makeSUT(actualPresenter: true)
-        sut.render(props) // Sets pinVisibilityButton title to be showPinText initially
-        
-        sut.onClickPinVis(sut.pinVisibilityButton)
-        
-        expect(sut.pinVisibilityButton.title(for: .normal)).to(match(hidePinText))
     }
     
     func testToggleErrorMsg() {
@@ -108,9 +79,4 @@ class PINConfirmViewPresenterMock: PINConfirmViewPresenter {
         onViewLoadCalled = true
     }
     
-    private(set) var onClickPinVisCalled = false
-    
-    func onClickPinVis(button: UIButton) {
-        onClickPinVisCalled = true
-    }
 }

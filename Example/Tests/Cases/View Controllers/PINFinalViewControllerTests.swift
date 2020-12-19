@@ -17,6 +17,9 @@ class PINFinalViewControllerTests: XCTestCase {
     let successTitle = CotterStrings.instance.getText(for: PINFinalViewControllerKey.title)
     let successSubtitle = CotterStrings.instance.getText(for: PINFinalViewControllerKey.subtitle)
     let successButtonTitle = CotterStrings.instance.getText(for: PINFinalViewControllerKey.buttonText)
+    let titleUpdate = CotterStrings.instance.getText(for: PINFinalViewControllerKey.titleUpdate)
+    let subtitleUpdate = CotterStrings.instance.getText(for: PINFinalViewControllerKey.subtitleUpdate)
+    let buttonTitleUpdate = CotterStrings.instance.getText(for: PINFinalViewControllerKey.buttonTextUpdate)
     
     // MARK: - VC Image Definitions
     let successImage = CotterImages.instance.getImage(for: VCImageKey.pinSuccessImg)
@@ -43,6 +46,9 @@ class PINFinalViewControllerTests: XCTestCase {
             title: successTitle,
             subtitle: successSubtitle,
             buttonTitle: successButtonTitle,
+            titleUpdate: titleUpdate,
+            subtitleUpdate: subtitleUpdate,
+            buttonTitleUpdate: buttonTitleUpdate,
             successImage: successImage,
             primaryColor: primaryColor,
             accentColor: accentColor,

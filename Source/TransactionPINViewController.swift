@@ -22,7 +22,6 @@ public class TransactionPINViewControllerKey {
 protocol TransactionPINViewPresenter {
     func onViewAppeared()
     func onViewLoaded()
-    func onClickPinVis(button: UIButton)
 }
 
 // MARK: - Properties of TransactionPINViewController
@@ -82,10 +81,6 @@ class TransactionPINViewPresenterImpl: TransactionPINViewPresenter {
         viewController.setupUI()
         viewController.setupDelegates()
         viewController.render(props)
-    }
-    
-    func onClickPinVis(button: UIButton) {
-        viewController.togglePinVisibility(button: button, showPinText: props.showPinText, hidePinText: props.hidePinText)
     }
 }
 

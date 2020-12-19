@@ -1,11 +1,10 @@
 # Comment use_frameworks! to accomodate for iOS 13.3.1 devices
  use_frameworks!
-# use_modular_headers!
 
 target 'CotterIOS_Example' do
   pod 'TweeTextField'
   pod 'TTGSnackbar', '1.10.3'
-  pod 'OneSignal', '2.15.3'
+  pod 'OneSignal', '~> 3.0'
   pod 'Cotter', :path => '../'
 
   target 'CotterIOS_Tests' do

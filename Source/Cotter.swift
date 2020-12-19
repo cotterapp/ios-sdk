@@ -42,14 +42,14 @@ public class Cotter {
     static var resourceBundle: Bundle = {
         // Set the resource bundle
         let frameworkBundle = Bundle(for: Cotter.self)
-        guard let bundleURL = frameworkBundle.url(forResource: "Cotter", withExtension: "bundle") else {
-            os_log("Cotter.bundle not found!", log: Config.instance.log, type: .fault)
-            fatalError("Cotter.bundle not found!")
+        guard let bundleURL = frameworkBundle.url(forResource: "Assets", withExtension: "bundle") else {
+            os_log("Assets.bundle not found!", log: Config.instance.log, type: .fault)
+            fatalError("Assets.bundle not found!")
         }
 
         guard let resBundle = Bundle(url: bundleURL) else {
-            os_log("cannot access Cotter.bundle!", log: Config.instance.log, type: .fault)
-            fatalError("cannot access Cotter.bundle!")
+            os_log("cannot access Assets.bundle!", log: Config.instance.log, type: .fault)
+            fatalError("cannot access Assets.bundle!")
         }
 
         return resBundle
@@ -360,21 +360,20 @@ public class Cotter {
 
     // configureOneSignal configure cotter's onesignal SDK with launchOptions provided
     private static func configureOneSignal(launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
-        let onesignalInitSettings = [kOSSettingsKeyAutoPrompt: false,
-         kOSSettingsKeyInAppLaunchURL: true]
+        if CommandLine.arguments.contains("DISABLE_COTTER_ONESIGNAL") {
+            return;
+        }
+        
+        OneSignal.setLocationShared(false)
+        OneSignal.initWithLaunchOptions(launchOptions)
+        OneSignal.setNotificationOpenedHandler(notificationOpenedHandler)
 
         func notifCb(res: CotterResult<CotterNotificationCredential>) {
             switch res {
                 case .success(let cred):
                     // if appID is not setup don't use initiate OneSignal
                     if cred.appID == "" { return }
-                    OneSignal.setLocationShared(false)
-                    OneSignal.initWithLaunchOptions(launchOptions,
-                                                  appId: cred.appID,
-                                                  handleNotificationReceived: nil,
-                                                  handleNotificationAction: notificationOpenedHandler,
-                                                  settings: onesignalInitSettings)
-                    OneSignal.inFocusDisplayType = .notification
+                    OneSignal.setAppId(cred.appID)
                 
                     if let userID = Cotter.getLoggedInUserID() {
                         guard let pubKey = KeyStore.trusted(userID: userID).pubKey else {
@@ -479,9 +478,9 @@ func transformCb(parent: UIViewController, cb: @escaping FinalAuthCallback) -> F
     }
 }
 
-func notificationOpenedHandler( result: OSNotificationOpenedResult? ) {
+func notificationOpenedHandler( result: OSNotificationOpenedResult ) {
     // This block gets called when the user reacts to a notification received
-    let payload: OSNotificationPayload = result!.notification.payload
+    let payload: OSNotification = result.notification
     
     if payload.additionalData != nil {
         let customData = payload.additionalData
@@ -489,7 +488,7 @@ func notificationOpenedHandler( result: OSNotificationOpenedResult? ) {
             guard let userID = Cotter.getLoggedInUserID() else {
                 return
             }
-            Passwordless.shared.checkEvent(identifier: userID)
+            Passwordless.shared.checkEvent(clientUserID: userID)
         }
     }
 }
