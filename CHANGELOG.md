@@ -8,4 +8,4 @@ All notable changes to this project will be documented in this file.
 
 - Add `CotterOAuthToken` to`CotterIdentity`
 
-[1.5.21]: https://github.com/olivierlacan/keep-a-changelog/compare/v1.5.20...v1.5.21
+[1.5.21]: https://github.com/cotterapp/ios-sdk/compare/v1.5.20...v1.5.21
