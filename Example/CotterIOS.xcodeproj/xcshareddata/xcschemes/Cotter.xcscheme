@@ -21,11 +21,11 @@
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
+            buildForTesting = "NO"
+            buildForRunning = "NO"
             buildForProfiling = "NO"
             buildForArchiving = "NO"
-            buildForAnalyzing = "YES">
+            buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "607FACE41AFB9204008FA782"
@@ -52,16 +52,6 @@
          </BuildableReference>
       </MacroExpansion>
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "607FACE41AFB9204008FA782"
-               BuildableName = "CotterIOS_Tests.xctest"
-               BlueprintName = "CotterIOS_Tests"
-               ReferencedContainer = "container:CotterIOS.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -92,7 +82,7 @@
          </EnvironmentVariable>
          <EnvironmentVariable
             key = "COTTER_API_KEY_ID"
-            value = ""
+            value = "ad8a0a2a-149c-48be-99ec-07c2996971f0"
             isEnabled = "YES">
          </EnvironmentVariable>
       </EnvironmentVariables>

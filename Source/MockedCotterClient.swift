@@ -121,7 +121,8 @@ public class MockedCotterClient: APIClient {
             let identifier = Identifier(id: mock.ID, createdAt: mock.createdAt, updatedAt: mock.updatedAt, deletedAt: mock.deletedAt, identifier: mock.identifier, identifierType: mock.identifierType, publicKey: mock.publicKey, deviceType: mock.deviceType, deviceName: mock.deviceName, expiry: mock.expiry)
             let token = Token(identifier: mock.identifier, identifierType: mock.identifierType, receiver: mock.receiver, expireAt: mock.expireAt, signature: mock.signature)
             let user = CotterUser(id: mock.ID, createdAt: mock.createdAt, updatedAt: mock.updatedAt, deletedAt: mock.deletedAt, issuer: mock.issuer, identifier: mock.identifier, clientUserID: mock.clientUserID, enrolled: mock.enrolledArray, defaultMethod: mock.defaultMethod)
-            let identity = CotterIdentity(identifier: identifier, token: token, user: user)
+            let oauthToken = CotterOAuthToken(accessToken: mock.accessToken, authMethod: mock.authMethod, expiresIn: mock.expiresIn, idToken: mock.idToken, refreshToken: mock.refreshToken, tokenType: mock.tokenType)
+            let identity = CotterIdentity(identifier: identifier, token: token, user: user, oauthToken: oauthToken)
             return encodedMockObject(obj: identity)
         case is CotterNotificationCredential.Type:
             // MARK: - CotterNotificationCredential Response
