@@ -11,6 +11,14 @@ public struct CotterIdentity: Codable {
     public var identifier: Identifier
     public var token: Token
     public var user: CotterUser
+    public var oauthToken: CotterOAuthToken
+    
+    enum CodingKeys: String, CodingKey {
+        case identifier
+        case token
+        case user
+        case oauthToken = "oauth_token"
+    }
 }
 
 public struct Identifier: Codable {

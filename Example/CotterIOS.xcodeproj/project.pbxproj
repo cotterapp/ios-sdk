@@ -46,6 +46,7 @@
 		85E133F224B073E300E8A4C2 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E133F124B073E300E8A4C2 /* UIViewController.swift */; };
 		85E133F424B075D600E8A4C2 /* CustomNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E133F324B075D600E8A4C2 /* CustomNavigationViewController.swift */; };
 		85E133F824B16CA700E8A4C2 /* TweeTextFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E133F724B16CA700E8A4C2 /* TweeTextFields.swift */; };
+		85E223372693B02E00D1A640 /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = 85E223362693B02E00D1A640 /* CHANGELOG.md */; };
 		85ED70E62459F83900AE90AB /* CotterWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85ED70E52459F83900AE90AB /* CotterWrapper.swift */; };
 		85FA1141242CAF7700E99C6F /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA1140242CAF7600E99C6F /* EntryViewController.swift */; };
 		85FA1143242CDFA900E99C6F /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA1142242CDFA800E99C6F /* RegisterViewController.swift */; };
@@ -111,6 +112,7 @@
 		85E133F124B073E300E8A4C2 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		85E133F324B075D600E8A4C2 /* CustomNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationViewController.swift; sourceTree = "<group>"; };
 		85E133F724B16CA700E8A4C2 /* TweeTextFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweeTextFields.swift; sourceTree = "<group>"; };
+		85E223362693B02E00D1A640 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; };
 		85ED70E52459F83900AE90AB /* CotterWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CotterWrapper.swift; sourceTree = "<group>"; };
 		85FA1140242CAF7600E99C6F /* EntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
 		85FA1142242CDFA800E99C6F /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 				8CC6D1264632DE725D859A81 /* Cotter.podspec */,
 				5399EA6838FD6AE02FA3621E /* README.md */,
 				313B612EA18879D7AE976D22 /* LICENSE */,
+				85E223362693B02E00D1A640 /* CHANGELOG.md */,
 			);
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
+				85E223372693B02E00D1A640 /* CHANGELOG.md in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 				85B5A91F23E6EDD20040E288 /* Dashboard.storyboard in Resources */,
